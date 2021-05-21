@@ -32,6 +32,7 @@
 
 """
 import yaml
+
 try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError as e:
@@ -41,17 +42,16 @@ from yaml.constructor import ConstructorError
 from ordereddict_backport import OrderedDict
 
 # Only export load and dump
-__all__ = ['load', 'dump']
+__all__ = ["load", "dump"]
 
 # Make new classes so we can add custom attributes.
 # Also, use OrderedDict instead of just dict.
 
 
 class syaml_dict(OrderedDict):
-
     def __repr__(self):
-        mappings = ('%r: %r' % (k, v) for k, v in self.items())
-        return '{%s}' % ', '.join(mappings)
+        mappings = ("%r: %r" % (k, v) for k, v in self.items())
+        return "{%s}" % ", ".join(mappings)
 
 
 class syaml_list(list):
@@ -71,12 +71,13 @@ def mark(obj, node):
 class OrderedLineLoader(Loader):
     """YAML loader that preserves order and line numbers.
 
-       Mappings read in by this loader behave like an ordered dict.
-       Sequences, mappings, and strings also have new attributes,
-       ``_start_mark`` and ``_end_mark``, that preserve YAML line
-       information in the output data.
+    Mappings read in by this loader behave like an ordered dict.
+    Sequences, mappings, and strings also have new attributes,
+    ``_start_mark`` and ``_end_mark``, that preserve YAML line
+    information in the output data.
 
     """
+
     #
     # Override construct_yaml_* so that they build our derived types,
     # which allows us to add new attributes to them.
@@ -88,7 +89,7 @@ class OrderedLineLoader(Loader):
     def construct_yaml_str(self, node):
         value = self.construct_scalar(node)
         try:
-            value = value.encode('ascii')
+            value = value.encode("ascii")
         except UnicodeEncodeError:
             pass
 
@@ -117,22 +118,27 @@ class OrderedLineLoader(Loader):
     def construct_sequence(self, node, deep=False):
         if not isinstance(node, SequenceNode):
             raise ConstructorError(
-                None, None,
+                None,
+                None,
                 "expected a sequence node, but found %s" % node.id,
-                node.start_mark)
-        value = syaml_list(self.construct_object(child, deep=deep)
-                           for child in node.value)
+                node.start_mark,
+            )
+        value = syaml_list(
+            self.construct_object(child, deep=deep) for child in node.value
+        )
         mark(value, node)
         return value
 
     def construct_mapping(self, node, deep=False):
         """Store mappings as OrderedDicts instead of as regular python
-           dictionaries to preserve file ordering."""
+        dictionaries to preserve file ordering."""
         if not isinstance(node, MappingNode):
             raise ConstructorError(
-                None, None,
+                None,
+                None,
                 "expected a mapping node, but found %s" % node.id,
-                node.start_mark)
+                node.start_mark,
+            )
 
         mapping = syaml_dict()
         for key_node, value_node in node.value:
@@ -141,34 +147,44 @@ class OrderedLineLoader(Loader):
                 hash(key)
             except TypeError, exc:
                 raise ConstructorError(
-                    "while constructing a mapping", node.start_mark,
-                    "found unacceptable key (%s)" % exc, key_node.start_mark)
+                    "while constructing a mapping",
+                    node.start_mark,
+                    "found unacceptable key (%s)" % exc,
+                    key_node.start_mark,
+                )
             value = self.construct_object(value_node, deep=deep)
             if key in mapping:
                 raise ConstructorError(
-                    "while constructing a mapping", node.start_mark,
-                    "found already in-use key (%s)" % key, key_node.start_mark)
+                    "while constructing a mapping",
+                    node.start_mark,
+                    "found already in-use key (%s)" % key,
+                    key_node.start_mark,
+                )
             mapping[key] = value
 
         mark(mapping, node)
         return mapping
 
+
 # register above new constructors
 OrderedLineLoader.add_constructor(
-    u'tag:yaml.org,2002:map', OrderedLineLoader.construct_yaml_map)
+    u"tag:yaml.org,2002:map", OrderedLineLoader.construct_yaml_map
+)
 OrderedLineLoader.add_constructor(
-    u'tag:yaml.org,2002:seq', OrderedLineLoader.construct_yaml_seq)
+    u"tag:yaml.org,2002:seq", OrderedLineLoader.construct_yaml_seq
+)
 OrderedLineLoader.add_constructor(
-    u'tag:yaml.org,2002:str', OrderedLineLoader.construct_yaml_str)
+    u"tag:yaml.org,2002:str", OrderedLineLoader.construct_yaml_str
+)
 
 
 class OrderedLineDumper(Dumper):
     """Dumper that preserves ordering and formats ``syaml_*`` objects.
 
-      This dumper preserves insertion ordering ``syaml_dict`` objects
-      when they're written out.  It also has some custom formatters
-      for ``syaml_*`` objects so that they are formatted like their
-      regular Python equivalents, instead of ugly YAML pyobjects.
+    This dumper preserves insertion ordering ``syaml_dict`` objects
+    when they're written out.  It also has some custom formatters
+    for ``syaml_*`` objects so that they are formatted like their
+    regular Python equivalents, instead of ugly YAML pyobjects.
 
     """
 
@@ -178,7 +194,7 @@ class OrderedLineDumper(Dumper):
         if self.alias_key is not None:
             self.represented_objects[self.alias_key] = node
         best_style = True
-        if hasattr(mapping, 'items'):
+        if hasattr(mapping, "items"):
             # if it's a syaml_dict, preserve OrderedDict order.
             # Otherwise do the default thing.
             sort = not isinstance(mapping, syaml_dict)
@@ -191,8 +207,7 @@ class OrderedLineDumper(Dumper):
             node_value = self.represent_data(item_value)
             if not (isinstance(node_key, ScalarNode) and not node_key.style):
                 best_style = False
-            if not (isinstance(node_value, ScalarNode) and
-                    not node_value.style):
+            if not (isinstance(node_value, ScalarNode) and not node_value.style):
                 best_style = False
             value.append((node_key, node_value))
         if flow_style is None:
@@ -202,6 +217,7 @@ class OrderedLineDumper(Dumper):
                 node.flow_style = best_style
         return node
 
+
 # Make our special objects look like normal YAML ones.
 OrderedLineDumper.add_representer(syaml_dict, OrderedLineDumper.represent_dict)
 OrderedLineDumper.add_representer(syaml_list, OrderedLineDumper.represent_list)
@@ -210,11 +226,11 @@ OrderedLineDumper.add_representer(syaml_str, OrderedLineDumper.represent_str)
 
 def load(*args, **kwargs):
     """Load but modify the loader instance so that it will add __line__
-       atrributes to the returned object."""
-    kwargs['Loader'] = OrderedLineLoader
+    atrributes to the returned object."""
+    kwargs["Loader"] = OrderedLineLoader
     return yaml.load(*args, **kwargs)
 
 
 def dump(*args, **kwargs):
-    kwargs['Dumper'] = OrderedLineDumper
+    kwargs["Dumper"] = OrderedLineDumper
     return yaml.dump(*args, **kwargs)

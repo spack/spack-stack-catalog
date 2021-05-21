@@ -41,7 +41,7 @@ permalink: /
             </button>
           </div>
           <div class="modal-body">
-            <pre id="check-msg"></pre>
+            <pre id="check-msg" class="language-yaml"><code id="yamlcode" class="language-yaml"></code></pre>
           </div>
         </div>
       </div>
@@ -125,7 +125,29 @@ permalink: /
       }
 
 
-      $("#repos").bootstrapTable({data: data})
+      function clickEvent() {
+          $(".clickyaml").on("click", function (e) {
+             var path = $(this).attr("data-url");
+             var fullname = $(this).attr("data-name");
+             $.ajax({
+                url : path,
+                dataType: "text",
+                success : function (data) {
+                    $("#yamlcode").html(data);
+                    $("#detail-title").html(fullname);
+                    Prism.highlightAll();
+                    $('#detail-popup').modal('show');   
+                }
+            });      
+          })
+        }
+
+      var table = $("#repos").bootstrapTable({data: data,
+           onPageChange: function (number, size) {
+              console.log("page change!")
+              setTimeout(function(){ clickEvent() }, 2000);
+           }
+      });
 
       // show number of workflows
       var nrows = $("#repos")
@@ -156,18 +178,5 @@ permalink: /
           standardized: [undefined, false, true]
         })
       })
-      
-      $(".clickyaml").on("click", function (e) {
-         var path = $(this).attr("data-url");
-         var fullname = $(this).attr("data-name");
-         $.ajax({
-            url : path,
-            dataType: "text",
-            success : function (data) {
-                $("#check-msg").html(data);
-                $("#detail-title").html(fullname);
-                $('#detail-popup').modal('show');   
-            }
-        });
-      })
+      clickEvent();
     </script>

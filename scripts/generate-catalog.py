@@ -96,12 +96,13 @@ def store_data():
         print(env.get_template("repos.js").render(data=repos), file=out)
 
     # Also save to yaml in data folder
-    datapath = os.path.join(here, "_data", "repos.yml")    
+    datapath = os.path.join(here, "_data", "repos.yml")
     results = {}
     for repo in repos:
-       results[repo['full_name']] = repo
-    with open(datapath, 'w') as out:
+        results[repo["full_name"]] = repo
+    with open(datapath, "w") as out:
         yaml.dump(results, out)
+
 
 @call_rate_limit_aware_decorator
 def combine_results(code_search):
@@ -110,13 +111,18 @@ def combine_results(code_search):
     """
     byrepo = {}
     lookup = {}
+    files = {}
 
     for i, filename in enumerate(code_search):
         repo = filename.repository
+
+        # skip spack_yaml.py
+        if os.path.basename(filename) == "spack_yaml.py":
+            continue
         if repo.full_name not in byrepo:
             byrepo[repo.full_name] = set()
             lookup[repo.full_name] = repo
-        byrepo[repo.full_name].add(filename)
+        byrepo[repo.full_name].add(filename.path)
     return byrepo, lookup
 
 
@@ -133,12 +139,12 @@ def main():
     data_dir = os.path.join(here, "_stacks")
 
     # Consolidate filenames by repository
-    byrepo, lookup = combine_results(code_search)
+    byrepo, lookup, filelookup = combine_results(code_search)
 
     for i, reponame in enumerate(byrepo):
 
+        # List of files
         files = byrepo[reponame]
-        filenames = [x.path for x in files]
         repo = lookup[reponame]
         if i % 10 == 0:
             logging.info(f"{i} of {code_search.totalCount} results done")
@@ -164,7 +170,7 @@ def main():
 
             # For each spack yaml, validate
             for filename in files:
-                spackyaml = tmp / filename.path
+                spackyaml = tmp / filename
                 if not spackyaml.exists():
                     continue
                 savepath = os.path.join(repo_dir, filename.path)
@@ -181,7 +187,7 @@ def main():
                 with open(readme_path, "r") as f:
                     readme = f.read()
 
-        call_rate_limit_aware(lambda: repos.append(Repo(repo, readme, filenames).__dict__))
+        call_rate_limit_aware(lambda: repos.append(Repo(repo, readme, files).__dict__))
 
         if len(repos) % 20 == 0:
             logging.info("Storing intermediate results.")
