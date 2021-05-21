@@ -124,6 +124,10 @@ def combine_results(code_search):
         elif ".github/workflows" in filename.path:
             continue
 
+        # skip examples in spack docs
+        if "lib/spack/docs" in filename.path:
+            continue
+
         if repo.full_name not in byrepo:
             byrepo[repo.full_name] = set()
             lookup[repo.full_name] = repo
