@@ -116,9 +116,14 @@ def combine_results(code_search):
     for i, filename in enumerate(code_search):
         repo = filename.repository
 
-        # skip spack_yaml.py
+        # skip spack_yaml.py, and github workflows
         if os.path.basename(filename.path) == "spack_yaml.py":
             continue
+
+        # skip GitHub workflows
+        elif ".github/workflows" in filename.path:
+            continue
+
         if repo.full_name not in byrepo:
             byrepo[repo.full_name] = set()
             lookup[repo.full_name] = repo
