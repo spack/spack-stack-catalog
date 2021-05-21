@@ -27,7 +27,7 @@ from llnl.util.tty.color import colorize, clen, cextra
 import spack.error
 
 # Only export load and dump
-__all__ = ['load', 'dump', 'SpackYAMLError']
+__all__ = ["load", "dump", "SpackYAMLError"]
 
 # Make new classes so we can add custom attributes.
 # Also, use OrderedDict instead of just dict.
@@ -35,8 +35,8 @@ __all__ = ['load', 'dump', 'SpackYAMLError']
 
 class syaml_dict(OrderedDict):
     def __repr__(self):
-        mappings = ('%r: %r' % (k, v) for k, v in self.items())
-        return '{%s}' % ', '.join(mappings)
+        mappings = ("%r: %r" % (k, v) for k, v in self.items())
+        return "{%s}" % ", ".join(mappings)
 
 
 class syaml_list(list):
@@ -60,9 +60,9 @@ syaml_types = {
 }
 
 
-markable_types = set(syaml_types) | set([
-    yaml.comments.CommentedSeq,
-    yaml.comments.CommentedMap])
+markable_types = set(syaml_types) | set(
+    [yaml.comments.CommentedSeq, yaml.comments.CommentedMap]
+)
 
 
 def syaml_type(obj):
@@ -84,34 +84,39 @@ def markable(obj):
 
 def mark(obj, node):
     """Add start and end markers to an object."""
-    if hasattr(node, 'start_mark'):
+    if hasattr(node, "start_mark"):
         obj._start_mark = node.start_mark
-    elif hasattr(node, '_start_mark'):
+    elif hasattr(node, "_start_mark"):
         obj._start_mark = node._start_mark
-    if hasattr(node, 'end_mark'):
+    if hasattr(node, "end_mark"):
         obj._end_mark = node.end_mark
-    elif hasattr(node, '_end_mark'):
+    elif hasattr(node, "_end_mark"):
         obj._end_mark = node._end_mark
 
 
 def marked(obj):
     """Whether an object has been marked by spack_yaml."""
-    return (hasattr(obj, '_start_mark') and obj._start_mark or
-            hasattr(obj, '_end_mark') and obj._end_mark)
+    return (
+        hasattr(obj, "_start_mark")
+        and obj._start_mark
+        or hasattr(obj, "_end_mark")
+        and obj._end_mark
+    )
 
 
 class OrderedLineLoader(RoundTripLoader):
     """YAML loader specifically intended for reading Spack configuration
-       files. It preserves order and line numbers. It also has special-purpose
-       logic for handling dictionary keys that indicate a Spack config
-       override: namely any key that contains an "extra" ':' character.
+    files. It preserves order and line numbers. It also has special-purpose
+    logic for handling dictionary keys that indicate a Spack config
+    override: namely any key that contains an "extra" ':' character.
 
-       Mappings read in by this loader behave like an ordered dict.
-       Sequences, mappings, and strings also have new attributes,
-       ``_start_mark`` and ``_end_mark``, that preserve YAML line
-       information in the output data.
+    Mappings read in by this loader behave like an ordered dict.
+    Sequences, mappings, and strings also have new attributes,
+    ``_start_mark`` and ``_end_mark``, that preserve YAML line
+    information in the output data.
 
     """
+
     #
     # Override construct_yaml_* so that we can apply _start_mark/_end_mark to
     # them. The superclass returns CommentedMap/CommentedSeq objects that we
@@ -128,7 +133,7 @@ class OrderedLineLoader(RoundTripLoader):
         # so this assumes we are talking about a Spack config override key if
         # it ends with a ':' and does not contain a '@' (which can appear
         # in config values that refer to Spack specs)
-        if value and value.endswith(':') and '@' not in value:
+        if value and value.endswith(":") and "@" not in value:
             value = syaml_str(value[:-1])
             value.override = True
         else:
@@ -157,20 +162,23 @@ class OrderedLineLoader(RoundTripLoader):
 
 # register above new constructors
 OrderedLineLoader.add_constructor(
-    'tag:yaml.org,2002:map', OrderedLineLoader.construct_yaml_map)
+    "tag:yaml.org,2002:map", OrderedLineLoader.construct_yaml_map
+)
 OrderedLineLoader.add_constructor(
-    'tag:yaml.org,2002:seq', OrderedLineLoader.construct_yaml_seq)
+    "tag:yaml.org,2002:seq", OrderedLineLoader.construct_yaml_seq
+)
 OrderedLineLoader.add_constructor(
-    'tag:yaml.org,2002:str', OrderedLineLoader.construct_yaml_str)
+    "tag:yaml.org,2002:str", OrderedLineLoader.construct_yaml_str
+)
 
 
 class OrderedLineDumper(RoundTripDumper):
     """Dumper that preserves ordering and formats ``syaml_*`` objects.
 
-      This dumper preserves insertion ordering ``syaml_dict`` objects
-      when they're written out.  It also has some custom formatters
-      for ``syaml_*`` objects so that they are formatted like their
-      regular Python equivalents, instead of ugly YAML pyobjects.
+    This dumper preserves insertion ordering ``syaml_dict`` objects
+    when they're written out.  It also has some custom formatters
+    for ``syaml_*`` objects so that they are formatted like their
+    regular Python equivalents, instead of ugly YAML pyobjects.
 
     """
 
@@ -179,13 +187,12 @@ class OrderedLineDumper(RoundTripDumper):
         return True
 
     def represent_str(self, data):
-        if hasattr(data, 'override') and data.override:
-            data = data + ':'
+        if hasattr(data, "override") and data.override:
+            data = data + ":"
         return super(OrderedLineDumper, self).represent_str(data)
 
 
 class SafeDumper(RoundTripDumper):
-
     def ignore_aliases(self, _data):
         """Make the dumper NEVER print YAML aliases."""
         return True
@@ -204,15 +211,20 @@ maxint = 2 ** (ctypes.sizeof(ctypes.c_int) * 8 - 1) - 1
 
 
 def dump(obj, default_flow_style=False, stream=None):
-    return yaml.dump(obj, default_flow_style=default_flow_style, width=maxint,
-                     Dumper=SafeDumper, stream=stream)
+    return yaml.dump(
+        obj,
+        default_flow_style=default_flow_style,
+        width=maxint,
+        Dumper=SafeDumper,
+        stream=stream,
+    )
 
 
 def file_line(mark):
     """Format a mark as <file>:<line> information."""
     result = mark.name
     if mark.line:
-        result += ':' + str(mark.line)
+        result += ":" + str(mark.line)
     return result
 
 
@@ -239,12 +251,13 @@ class LineAnnotationDumper(OrderedLineDumper):
     writes to a ``StringIO`` then joins the lines from that with
     annotations.
     """
+
     saved = None
 
     def __init__(self, *args, **kwargs):
         super(LineAnnotationDumper, self).__init__(*args, **kwargs)
         del _annotations[:]
-        self.colors = 'KgrbmcyGRBMCY'
+        self.colors = "KgrbmcyGRBMCY"
         self.filename_colors = {}
 
     def process_scalar(self):
@@ -263,7 +276,7 @@ class LineAnnotationDumper(OrderedLineDumper):
 
     def write_stream_start(self):
         super(LineAnnotationDumper, self).write_stream_start()
-        _annotations.append(colorize('@K{---}'))
+        _annotations.append(colorize("@K{---}"))
 
     def write_line_break(self):
         super(LineAnnotationDumper, self).write_line_break()
@@ -280,19 +293,19 @@ class LineAnnotationDumper(OrderedLineDumper):
                 color = self.colors[len(self.filename_colors) % ncolors]
                 self.filename_colors[mark.name] = color
 
-            fmt = '@%s{%%s}' % color
+            fmt = "@%s{%%s}" % color
             ann = fmt % mark.name
             if mark.line is not None:
-                ann += ':@c{%s}' % (mark.line + 1)
+                ann += ":@c{%s}" % (mark.line + 1)
             _annotations.append(colorize(ann))
         else:
-            _annotations.append('')
+            _annotations.append("")
 
 
 def load_config(*args, **kwargs):
     """Load but modify the loader instance so that it will add __line__
-       attributes to the returned object."""
-    kwargs['Loader'] = OrderedLineLoader
+    attributes to the returned object."""
+    kwargs["Loader"] = OrderedLineLoader
     return yaml.load(*args, **kwargs)
 
 
@@ -301,21 +314,21 @@ def load(*args, **kwargs):
 
 
 def dump_config(*args, **kwargs):
-    blame = kwargs.pop('blame', False)
+    blame = kwargs.pop("blame", False)
 
     if blame:
         return dump_annotated(*args, **kwargs)
     else:
-        kwargs['Dumper'] = OrderedLineDumper
+        kwargs["Dumper"] = OrderedLineDumper
         return yaml.dump(*args, **kwargs)
 
 
 def dump_annotated(data, stream=None, *args, **kwargs):
-    kwargs['Dumper'] = LineAnnotationDumper
+    kwargs["Dumper"] = LineAnnotationDumper
 
     sio = StringIO()
     yaml.dump(data, sio, *args, **kwargs)
-    lines = sio.getvalue().rstrip().split('\n')
+    lines = sio.getvalue().rstrip().split("\n")
 
     getvalue = None
     if stream is None:
@@ -324,7 +337,7 @@ def dump_annotated(data, stream=None, *args, **kwargs):
 
     # write out annotations and lines, accounting for color
     width = max(clen(a) for a in _annotations)
-    formats = ['%%-%ds  %%s\n' % (width + cextra(a)) for a in _annotations]
+    formats = ["%%-%ds  %%s\n" % (width + cextra(a)) for a in _annotations]
 
     for f, a, l in zip(formats, _annotations, lines):
         stream.write(f % (a, l))
@@ -351,5 +364,6 @@ def sorted_dict(dict_like):
 
 class SpackYAMLError(spack.error.SpackError):
     """Raised when there are issues with YAML parsing."""
+
     def __init__(self, msg, yaml_error):
         super(SpackYAMLError, self).__init__(msg, str(yaml_error))
