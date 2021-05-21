@@ -1,0 +1,43 @@
+# Site Settings
+lang: en
+
+title: Spack Stack Catalog
+
+url: ""
+baseurl: "/spack-stack-catalog"  # for testing, also check .circleci/circle_urls.sh
+
+permalink: /:year-:month-:day-:title/
+
+favicon: /assets/img/favicon.ico
+
+# social media
+twitter: spackpm
+github_org: spack
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude: 
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  -
+    scope:
+      path: "_stacks"
+      type: "stacks"
+    values:
+      layout: stacks
+
+markdown: kramdown
+highlighter: rouge
+
+# Collections
+collections:
+  stacks:
+    output: true
+    permalink: /:collection/:path/

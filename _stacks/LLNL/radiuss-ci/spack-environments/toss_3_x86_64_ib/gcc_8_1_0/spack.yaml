@@ -1,0 +1,24 @@
+###############################################################################
+# Copyright (c) 2019, Lawrence Livermore National Security, LLC and other
+# RADIUSS-CI project contributors. See top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: MIT
+###############################################################################
+
+spack:
+  include:
+  - compilers.yaml
+  - packages.yaml
+
+  mirrors: { "mirror": "file:///usr/workspace/radiuss/spack-mirror" }
+
+  view: false
+  concretization: separately
+
+  gitlab-ci:
+    mappings:
+    - match: ['os=rhel7']
+      runner-attributes:
+        tags: [shell, quartz]
+        variables: {}
+

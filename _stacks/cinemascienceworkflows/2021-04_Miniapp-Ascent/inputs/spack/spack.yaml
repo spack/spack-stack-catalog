@@ -1,0 +1,111 @@
+spack:
+  view: false
+  concretization: separately
+  specs:
+  - ascent
+  compilers:
+  - compiler:
+      spec: gcc@6.4.0
+      paths:
+        cc:  <system_gcc> 
+        cxx: <system_gpp> 
+        f77: <system_gfortran> 
+        fc:  <system_gfortran> 
+      operating_system: <system_os>
+      modules:
+      - gcc/6.4.0
+
+      environment:
+        unset: []
+      extra_rpaths: []
+  packages:
+    all:
+      target: [<system_arch>]
+      providers:
+        mpi: [spectrum-mpi@10.3.1]
+        blas: [openblas]
+        lapack: [openblas]
+      compiler: [gcc@6.4.0]
+      version: []
+      buildable: true
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.14.2
+        modules:
+        - cmake/3.14.2
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.0.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    spectrum-mpi:
+      version: [10.3.1]
+      buildable: false
+      externals:
+      - spec: spectrum-mpi@10.3.1
+        modules:
+        - spectrum-mpi/10.3.1.2-20200121
+      target: []
+      compiler: []
+      providers: {}
+    cuda:
+      version: [10.1.168]
+      externals:
+      - spec: cuda@10.1.168
+        modules:
+        - cuda/10.1.168
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    ascent:
+      variants: +openmp+shared~adios~mfem+fortran+test~python+serial+mpi~cuda+vtkh
+      version: [0.7.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-h:
+      variants: ~cuda~openmp+mpi+serial+shared
+      version: [0.7.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-m:
+      variants: ~mpi~cuda~shared
+      version: [1.5.5]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    conduit:
+      variants: ~adios~doc~doxygen+fortran+hdf5+hdf5_compat+mpi~python+shared~silo+test~zfp
+      version: [0.6.0]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    hdf5:
+      variants: []
+      version: [1.8.22]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    zlib:
+      variants: []
+      version: [1.2.11]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}

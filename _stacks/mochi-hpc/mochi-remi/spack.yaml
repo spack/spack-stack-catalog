@@ -1,0 +1,10 @@
+spack:
+  specs:
+  - cppunit
+  - cmake
+  - nlohmann-json
+  - mochi-thallium
+  - mochi-bedrock@master
+  - libuuid
+  - mochi-abt-io
+  concretization: together

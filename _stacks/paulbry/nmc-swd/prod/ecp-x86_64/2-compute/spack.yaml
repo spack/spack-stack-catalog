@@ -1,0 +1,62 @@
+#
+# 2-compute specs for ecp-x86_64 deployment (prod)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/modules/modules.yaml
+    - ../shared/conf-general
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+
+    - gcc-compilers:
+      - "%gcc@8.3.0"
+      - "%gcc@9.2.0"
+
+    - llvm-compilers:
+      - "%clang@7.1.0"
+
+    - mpi-deps:
+      - "^openmpi@4.0.1"
+      - "^openmpi@3.1.4"
+      - "^openmpi@2.1.6"
+      - "^mpich@3.3.1"
+      - "^mvapich2@2.3.1"
+
+    - math-lib:
+      - intel-mkl
+      - netlib-lapack
+      - openblas
+
+    # Software that needs installed with +mpi
+    - mpi-core-sw:
+      - boost@1.70.0+mpi
+
+    - mpi-only-sw:
+      - fftw@3.3.8+openmp+mpi
+      - "netlib-scalapack@2.0.2 ^netlib-lapack"
+      - "petsc@3.10.0 +mumps+mpi ^netlib-scalapack"
+###############################################################################
+  specs:
+    - matrix:
+      - [$math-lib]
+      - [$core-compilers, $gcc-compilers, $llvm-compilers]
+      exclude:
+        # clang
+        - netlib-lapack %clang@7.1.0
+    - matrix:
+      - [$mpi-core-sw, $mpi-only-sw]
+      - [$mpi-deps]
+      - [$core-compilers, $gcc-compilers, $llvm-compilers]
+      exclude:
+        # clang
+        - netlib-scalapack %clang@7.1.0
+        - petsc %clang@7.1.0
+###############################################################################

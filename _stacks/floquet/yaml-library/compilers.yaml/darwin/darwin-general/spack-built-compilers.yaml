@@ -1,0 +1,70 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: gcc@4.8.5
+    target: aarch64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-8.3.0-gcc-4.8.5
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-8.3.0-wwpinbruamhvwaqdjijnfou7xkmb5knx/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-8.3.0-wwpinbruamhvwaqdjijnfou7xkmb5knx/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-8.3.0-wwpinbruamhvwaqdjijnfou7xkmb5knx/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-8.3.0-wwpinbruamhvwaqdjijnfou7xkmb5knx/bin/gfortran
+    spec: gcc@8.3.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-7.4.0-gcc-4.8.5
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.4.0-4kdemuwlzds2ofpkkz7yytgi7kyojuvz/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.4.0-4kdemuwlzds2ofpkkz7yytgi7kyojuvz/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.4.0-4kdemuwlzds2ofpkkz7yytgi7kyojuvz/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.4.0-4kdemuwlzds2ofpkkz7yytgi7kyojuvz/bin/gfortran
+    spec: gcc@7.4.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-6.5.0-gcc-4.8.5
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.5.0-fxnktbsqcbbjukzxk3fmywojqyrfw2ag/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.5.0-fxnktbsqcbbjukzxk3fmywojqyrfw2ag/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.5.0-fxnktbsqcbbjukzxk3fmywojqyrfw2ag/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-6.5.0-fxnktbsqcbbjukzxk3fmywojqyrfw2ag/bin/gfortran
+    spec: gcc@6.5.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-5.5.0-gcc-4.8.5
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-5.5.0-iaqd4pqrvklcasb73bn3ugs6zx7wcghh/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-5.5.0-iaqd4pqrvklcasb73bn3ugs6zx7wcghh/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-5.5.0-iaqd4pqrvklcasb73bn3ugs6zx7wcghh/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/general-darwin-compilers.spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-5.5.0-iaqd4pqrvklcasb73bn3ugs6zx7wcghh/bin/gfortran
+    spec: gcc@5.5.0
+    target: x86_64

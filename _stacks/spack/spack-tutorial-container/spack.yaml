@@ -1,0 +1,102 @@
+spack:
+  definitions:
+  - bootstrapped_compilers:
+    - "llvm@6.0.0 os=ubuntu18.04"
+    - "gcc@6.5.0 os=ubuntu18.04"
+    - "gcc@8.3.0 os=ubuntu18.04"
+  - gcc_system_packages:
+    - matrix:
+      - - zlib
+        - zlib@1.2.8
+        - zlib@1.2.8 cppflags=-O3
+        - tcl
+        - tcl ^zlib@1.2.8 cppflags=-O3
+        - hdf5
+        - hdf5~mpi
+        - hdf5+hl+mpi ^mpich
+        - trilinos
+        - trilinos +hdf5 ^hdf5+hl+mpi ^mpich
+        - gcc@8.3.0
+        - mpileaks
+        - lmod
+        - macsio@1.1+scr^scr@2.0.0~fortran^silo~fortran^hdf5~fortran
+      - ['%gcc@7.5.0']
+  - gcc_old_packages:
+    - zlib%gcc@6.5.0
+  - clang_packages:
+    - matrix:
+      - [zlib, tcl ^zlib@1.2.8]
+      - ['%clang@6.0.0']
+  - gcc_spack_built_packages:
+    - matrix:
+      - [netlib-scalapack]
+      - [^mpich, ^openmpi]
+      - [^openblas, ^netlib-lapack]
+      - ['%gcc@8.3.0']
+    - matrix:
+      - [py-scipy^openblas, armadillo^openblas, netlib-lapack, openmpi, mpich, elpa^mpich]
+      - ['%gcc@8.3.0']
+  specs:
+  - $gcc_system_packages
+  - $gcc_old_packages
+  - $clang_packages
+  - $gcc_spack_built_packages
+
+  mirrors:
+    cloud_mirror: 's3://spack-binaries-prs/tutorial/ecp21/mirror'
+
+  gitlab-ci:
+    bootstrap:
+      - name: bootstrapped_compilers
+        compiler-agnostic: true
+    before_script:
+      - git clone ${SPACK_REPO} --branch ${SPACK_REF}
+      - pushd ./spack && git checkout ${SPACK_REF} && popd
+      - . "./spack/share/spack/setup-env.sh"
+      - spack --version
+    script:
+      - spack env activate --without-view .
+      - spack -d ci rebuild
+    after_script:
+      - rm -rf spack
+    mappings:
+    - match: [llvm]
+      runner-attributes:
+        image:
+          name: ghcr.io/scottwittenburg/ecpe4s-ubuntu18.04-runner-x86_64:2020-09-01
+          entrypoint: ['']
+        tags: [spack, public, x86_64, huge]
+    - match: [trilinos, gcc]
+      runner-attributes:
+        image:
+          name: ghcr.io/scottwittenburg/ecpe4s-ubuntu18.04-runner-x86_64:2020-09-01
+          entrypoint: ['']
+        tags: [spack, public, x86_64, xlarge]
+    - match: [os=ubuntu18.04]
+      runner-attributes:
+        image:
+          name: ghcr.io/scottwittenburg/ecpe4s-ubuntu18.04-runner-x86_64:2020-09-01
+          entrypoint: ['']
+        tags: [spack, public, x86_64, large]
+    final-stage-rebuild-index:
+      tags: [spack, public, medium, x86_64]
+      image:
+        name: ghcr.io/scottwittenburg/ecpe4s-ubuntu18.04-runner-x86_64:2020-09-01
+        entrypoint: ['']
+
+  cdash:
+    build-group: Spack v0.16.1 Tutorial Container
+    url: https://cdash.spack.io
+    project: Spack
+    site: Spack Gitlab Cloud Infrastructure
+
+  view: false
+  config: {}
+  modules:
+    enable: []
+  packages:
+    all:
+      target: [x86_64]
+  repos: []
+  upstreams: {}
+  concretization: separately

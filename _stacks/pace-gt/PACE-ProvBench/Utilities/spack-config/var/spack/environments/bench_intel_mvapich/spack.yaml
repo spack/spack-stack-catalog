@@ -1,0 +1,73 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: 
+  #- mvapich2@2.3.1 %intel@19.0.3 file_systems=ufs,nfs 
+  - mvapich2@2.3.1 %intel@19.0.3
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  concretization: 'separately'
+  view: false
+  packages: 
+    openssl:
+      version: [1.0.2k-fips]
+      paths:
+        openssl@1.0.2k-fips: /usr
+      buildable: False
+    hwloc:
+      paths:
+        hwloc@1.11.8%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    rdma-core:
+      paths:
+        rdma-core@15%gcc@4.8.5 arch=linux-rhel7-x86_64: /
+      buildable: False
+    findutils:
+      paths:
+        findutils@4.5.11%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    bison:
+      paths:
+        bison@3.0.4%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    libpciaccess:
+      paths:
+        libpciaccess@0.14%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    libxml2:
+      paths:
+        libxml2@2.9.1%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    zlib:
+      paths:
+        zlib@1.2.7%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # some sensible choices ?
+    autoconf:
+      version: [2.69]
+      paths:
+        autoconf@2.69%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    automake:
+      version: [1.13.4]
+      paths:
+        automake@1.13.4%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    cmake:
+      version: [2.18.12]
+      paths:
+        cmake@2.18.12%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    ncurses:
+      version: [5.9.14]
+      paths:
+        ncurses@5.9.14%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    numactl:
+      version: [2.0.9]
+      paths:
+        numactl@2.0.9%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+  config: {}

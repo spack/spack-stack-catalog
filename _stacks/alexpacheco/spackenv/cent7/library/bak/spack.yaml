@@ -1,0 +1,72 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+    - fftw target=x86_64 %gcc@5.3.0
+    - fftw target=haswell %gcc@6.1.0
+    - fftw target=haswell %gcc@7.1.0
+    - fftw target=haswell %gcc@8.1.0
+    - fftw target=skylake_avx512 %gcc@8.1.0
+    - fftw target=haswell %intel@16.0.3
+    - fftw target=haswell %intel@17.0.3
+    - fftw target=haswell %intel@18.0.1
+    - fftw target=skylake_avx512 %intel@18.0.1
+    - gsl %gcc@5.3.0
+    - gsl %gcc@6.1.0
+    - gsl %gcc@7.1.0
+    - gsl %gcc@8.1.0
+    - gsl target=haswell %gcc@8.1.0
+    - gsl target=skylake_avx512 %gcc@8.1.0
+    - gsl %intel@16.0.3
+    - gsl %intel@17.0.3
+    - gsl %intel@18.0.1
+    - gsl target=haswell %intel@18.0.1
+    - gsl target=skylake_avx512 %intel@18.0.1
+    - hdf5 %gcc@5.3.0
+    - netcdf-c %gcc@5.3.0
+    - netcdf-cxx %gcc@5.3.0
+    - netcdf-fortran %gcc@5.3.0
+    - hdf5 %gcc@6.1.0
+    - netcdf-c %gcc@6.1.0
+    - netcdf-cxx %gcc@6.1.0
+    - netcdf-fortran %gcc@6.1.0
+    - hdf5 %gcc@7.1.0
+    - netcdf-c %gcc@7.1.0
+    - netcdf-cxx %gcc@7.1.0
+    - netcdf-fortran %gcc@7.1.0
+    - hdf5 %gcc@8.1.0
+    - netcdf-c %gcc@8.1.0
+    - netcdf-cxx %gcc@8.1.0
+    - netcdf-fortran %gcc@8.1.0
+    - hdf5 target=haswell %gcc@8.1.0
+    - netcdf-c target=haswell %gcc@8.1.0
+    - netcdf-cxx target=haswell %gcc@8.1.0
+    - netcdf-fortran target=haswell %gcc@8.1.0
+    - hdf5 target=skylake_avx512 %gcc@8.1.0
+    - netcdf-c target=skylake_avx512 %gcc@8.1.0 
+    - netcdf-cxx target=skylake_avx512 %gcc@8.1.0
+    - netcdf-fortran target=skylake_avx512 %gcc@8.1.0
+    - hdf5 %intel@16.0.3
+    - netcdf-c %intel@16.0.3
+    - netcdf-cxx %intel@16.0.3
+    - netcdf-fortran %intel@16.0.3
+    - hdf5 %intel@17.0.3
+    - netcdf-c %intel@17.0.3
+    - netcdf-cxx %intel@17.0.3
+    - netcdf-fortran %intel@17.0.3
+    - hdf5 %intel@18.0.1
+    - netcdf-c %intel@18.0.1
+    - netcdf-cxx %intel@18.0.1
+    - netcdf-fortran %intel@18.0.1
+    - hdf5 target=haswell %intel@18.0.1
+    - netcdf-c target=haswell %intel@18.0.1
+    - netcdf-cxx target=haswell %intel@18.0.1
+    - netcdf-fortran target=haswell %intel@18.0.1
+    - hdf5 target=skylake_avx512 %intel@18.0.1
+    - netcdf-c target=skylake_avx512 %intel@18.0.1 
+    - netcdf-cxx target=skylake_avx512 %intel@18.0.1
+    - netcdf-fortran target=skylake_avx512 %intel@18.0.1
+  view: false

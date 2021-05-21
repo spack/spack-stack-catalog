@@ -1,0 +1,7 @@
+spack:
+  specs:
+  - hepnos ^mochi-sdskv ~bdb ~leveldb
+  - tclap
+  - spdlog
+  - mpi
+  concretization: together

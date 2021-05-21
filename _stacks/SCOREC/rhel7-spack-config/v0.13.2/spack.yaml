@@ -1,0 +1,46 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - config.yaml
+  - packages.yaml
+  - modules.yaml
+  view: false
+  definitions:
+  - petscSpecs:
+    - petsc ^hdf5 +fortran
+    - petsc +int64
+    - petsc +complex +mumps
+    - petsc +complex +mumps +int64
+  - pumi:
+    - pumi@develop +zoltan ^zoltan+parmetis
+  - pumiSim15-200714:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200714
+  - pumiSim15:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@15.0-200330dev
+  - pumiSim14:
+    - pumi@develop %gcc@7.4.0 +shared simmodsuite=full +zoltan ^zoltan+parmetis ^simmetrix-simmodsuite@14.0-191122
+  specs:
+  - gcc@7.4.0  %gcc@6.5.0
+  - vim        %gcc@6.5.0
+  - emacs      %gcc@6.5.0
+  - graphviz   %gcc@6.5.0 +pangocairo +libgd
+  - git        %gcc@6.5.0 ^pcre+jit
+  - tmux       %gcc@6.5.0
+  - gdb        %gcc@6.5.0
+  - cmake      %gcc@6.5.0
+  - valgrind   %gcc@6.5.0 -mpi
+  - octave     %gcc@6.5.0
+  - py-pandas  %gcc@6.5.0
+  - py-matplotlib %gcc@6.5.0
+  - llvm@8.0.0+all_targets~libcxx %gcc@6.5.0
+  - openmpi    %gcc@7.4.0 +cuda
+  - $pumiSim15
+  - $pumiSim15-200714
+  - matrix:
+    - [mpich, $pumi, $petscSpecs, adios+fortran, gsl, fftw, adios2,netcdf+parallel-netcdf, magma]
+    - ['%gcc@7.4.0']

@@ -1,0 +1,26 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - config.yaml
+  - packages.yaml
+  - modules.yaml
+  view: false
+  definitions:
+  - pumi:
+    - pumi@develop +zoltan ^zoltan+parmetis~fortran
+  - petsc:
+    - petsc@3.7.7 ~superlu-dist
+  - petscDbg:
+    - petsc@3.7.7 ~superlu-dist +debug
+  - xgc1:
+    - xgc1@passThroughCpl +coupling_core_edge+coupling_core_edge_field+coupling_core_edge_varpi2 ^hdf5@1.10.3
+  - cabana:
+    - cabana@develop +openmp ^kokkos@master+openmp
+  specs:
+  - openmpi
+  - matrix:
+    - [cmake, hdf5@1.10.3, hdf5@1.10.3+fortran, netcdf-cxx ^netcdf ^hdf5@1.10.3+hl+cxx, $pumi, fftw, adios@1.13.1+fortran, adios2 ^zeromq@develop, netlib-lapack, $petsc, $petscDbg, hypre, netlib-scalapack, $xgc1, $cabana]
+    - ['%gcc@7.4.0-1']

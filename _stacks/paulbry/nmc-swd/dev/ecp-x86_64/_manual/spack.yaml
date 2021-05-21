@@ -1,0 +1,14 @@
+#
+# _manual specs for ecp-x86_64 deployment (dev)
+#
+spack:
+  view: false
+  include:
+  - ../shared/modules/modules.yaml
+  - ../shared/conf-general
+  - ../shared/common
+  - ../shared/compilers-all
+###############################################################################
+  definitions: []
+  specs: [cmake%gcc@4.8.5]
+###############################################################################

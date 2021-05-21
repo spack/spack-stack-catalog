@@ -1,0 +1,57 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+# Usage:
+#   install spack:
+#     git clone https://github.com/spack/spack.git ~/spack
+#     . ~/spack/share/spack/setup-env.sh
+#
+# First, change global spack config, to install missing compilers
+# Run this and edit:
+#     spack config --scope defaults edit config
+#
+# If set to true, Spack will attempt to build any compiler on the spec
+# that is not already available. If set to False, Spack will only use
+# compilers already configured in compilers.yaml
+# install_missing_compilers: False
+#
+#     spack env create tdlb spack.yaml
+#     spack env activate -p tdlb
+#     spack install
+
+spack:
+  # add package specs to the `specs` list
+  #install_missing_compilers: true
+  specs:
+  #  - gcc@10.2.0
+    - gcc@7.4.0
+  #  - boost%gcc@7.5.0
+  #  - openmpi%gcc@7.5.0
+  #  - mpich@3.3.2%gcc@10.2.0
+    - googletest +gmock
+    - cmake
+  #  - valgrind%gcc@7.5.0
+    - openblas
+  #  - openblas@0.3.4%gcc@8.4.0 threads=openmp
+  #  - libtool
+  # - cuda
+  # - nccl+cuda
+    - nlohmann-json
+    - yaml-cpp
+    - cxxopts
+  view: true
+  #compilers:
+  #- compiler:
+  #    spec: gcc@10.2.0
+  #    paths:
+  #      cc: /usr/bin/gcc
+  #      cxx: /usr/bin/g++
+  #      f77:
+  #      fc:
+  #    flags: {}
+  #    operating_system: ubuntu18.04
+  #    target: x86_64
+  #    modules: []
+  #    environment: {unset: []}
+  #    extra_rpaths: []

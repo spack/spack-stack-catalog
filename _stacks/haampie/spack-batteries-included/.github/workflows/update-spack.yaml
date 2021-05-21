@@ -1,0 +1,19 @@
+name: Update spack develop version
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '0 * * * *'
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create new spack.x
+        run: .github/workflows/update.sh
+      - name: Upload release assets
+        run: .github/workflows/release.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

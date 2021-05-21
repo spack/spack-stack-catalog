@@ -1,0 +1,86 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: 
+  - openmpi@3.1.4%intel@19.0.3 cflags="-O2" cxxflags="-O2" fflags="-O2" ~cuda+cxx_exceptions fabrics=auto 
+    ~java~legacylaunchers~memchecker~pmi schedulers=tm ~sqlite3~thread_multiple+vt arch=linux-rhel7-x86_64 
+  - hdf5@1.10.5+cxx~debug+fortran+hl+mpi+pic+shared+szip~threadsafe %intel@19.0.3
+    ^openmpi@3.1.4%intel@19.0.3
+  # fftw doesn't compile with double and float
+  - fftw@3.3.8+mpi+openmp~pfft_patches precision=long_double  %intel@19.0.3 
+    ^openmpi@3.1.4%intel@19.0.3
+  - osu-micro-benchmarks@5.6.1 ^openmpi@3.1.4%intel@19.0.3
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  concretization: 'together'
+  view: false
+  packages: 
+    openssl:
+      version: [1.0.2-kfips]
+      paths:
+        openssl@1.0.2k-fips: /usr
+      buildable: False
+    # for openmpi
+    hwloc:
+      paths:
+        hwloc@1.11.8%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # for mvapich2
+    rdma-core:
+      paths:
+        rdma-core@15%gcc@4.8.5 arch=linux-rhel7-x86_64: /
+      buildable: False
+    # for mvapich2
+    findutils:
+      paths:
+        findutils@4.5.11%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # for mvapich2
+    bison:
+      paths:
+        bison@3.0.4%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # for mvapich2
+    libpciaccess:
+      paths:
+        libpciaccess@0.14%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # for mvapich2
+    libxml2:
+      paths:
+        libxml2@2.9.1%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # for mvapich2
+    zlib:
+      paths:
+        zlib@1.2.7%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    # some sensible choices ?
+    autoconf:
+      version: [2.69]
+      paths:
+        autoconf@2.69%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    automake:
+      version: [1.13.4]
+      paths:
+        automake@1.13.4%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: False
+    cmake:
+      version: [2.18.2]
+      paths:
+        cmake@2.18.2%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    ncurses:
+      version: [5.9.14]
+      paths:
+        ncurses@5.9.14%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+    numactl:
+      version: [2.0.9]
+      paths:
+        numactl@2.0.9%gcc@4.8.5 arch=linux-rhel7-x86_64: /usr
+  config: {}

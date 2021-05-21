@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - jsoncpp
+  - mpich
+  - mochi-margo
+  - mochi-abt-io
+  - berkeley-db
+  - leveldb
+  concretization: together

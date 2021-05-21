@@ -1,0 +1,38 @@
+spack:
+  definitions:
+  - packages:
+    - eic
+    - eicroot
+    - escalate
+    - root -vmc +pythia6 +pythia8 +root7 -gminimal cxxstd=17
+    - geant4 +opengl +qt cxxstd=17
+    - xerces-c cxxstd=17
+    - clhep cxxstd=17
+    - hepmc3 +interfaces +python +rootio
+    - pythia6 +root
+    - eic-smear +pythia6
+    - ejana +acts +genfit
+    - jana2 +root
+    - rivet hepmc=3
+  - when: os=='rhel7' or os=='centos7' or os=='centos8' or os=='ubuntu18.04' or os=='ubuntu20.04'
+    compilers: [gcc@9.3.0]
+  - when: os=='ubuntu20.10'
+    compilers: [gcc@10.2.0]
+  - speclist:
+    - matrix:
+      - [$packages]
+      - [$%compilers]
+  specs:
+  - $speclist
+  concretization: together
+  config:
+    install_missing_compilers: true
+  packages:
+    all:
+      target:
+      - x86_64
+  view:
+    default:
+      root: /cvmfs/eic.opensciencegrid.org/views/eic
+      projections:
+        all: '{os}/{compiler.name}-{compiler.version}'

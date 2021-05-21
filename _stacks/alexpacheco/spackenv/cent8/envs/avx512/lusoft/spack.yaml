@@ -1,0 +1,252 @@
+spack:
+#  include:
+#  - /share/Apps/lusoft/var/spack/environments/skylake/packages.yaml
+#  - /share/Apps/lusoft/var/spack/environments/skylake/modules.yaml
+  packages:
+    all:
+      target: [skylake_avx512]
+      version: []
+      compiler: [gcc@8.3.1]
+      buildable: true
+      providers:
+        blas: [openblas, intel-mkl]
+        mpi: [mpich, mvapich2, openmpi]
+  config:
+    module_roots:
+      lmod: $spack/share/spack/lmod/avx512
+  modules:
+    'enable:':
+    - lmod
+    lmod:
+      blacklist:
+      - bazel
+      - py-ase
+      - py-cython
+      - py-htseq
+      - py-matplotlib
+      - py-multiqc
+      - py-numpy
+      - py-tensorflow
+      - r-ape
+      - r-argparse
+      - r-biobase
+      - r-ctc
+      - r-deseq2
+      - r-dexseq
+      - r-edger
+      - r-fastcluster
+      - r-glimma
+      - r-goplot
+      - r-goseq
+      - r-gplots
+      - r-qvalue
+      - r-rots
+      - r-sm
+      - r-tidyverse
+      - r-tximport
+      - r-tximportdata
+      - r-vioplot
+  definitions:
+  - core_compiler:
+    - gcc@8.3.1
+  - gnu_compilers:
+    - gcc@9.3.0
+  - intelgpu_compilers:
+    - intel@19.0.3
+  - intel_compilers:
+    - intel@20.0.3
+  - nvidia_compilers:
+    - nvhpc@20.9
+  - gpu_compilers:
+    - cuda@10.2.89
+    - cuda@11.0.2
+    - cuda@11.1.0
+  - old_compilers:
+    - intel@18.0.1
+  - mpis:
+    - mpich@3.3.2
+    - mvapich2@2.3.4
+  - ompis:
+    - openmpi@4.0.5
+  - nvhpc_mpis:
+    - mpich@3.3.2%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc
+    - mvapich2@2.3.4%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc ^bison%gcc
+    - openmpi@4.0.5%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc ^numactl%gcc
+  - blaslibs:
+    - intel-mkl@2020.3.279
+    - openblas@0.3.10
+  - mkl_libs:
+    - intel-mkl@2020.3.279
+  - blas_libs:
+    - openblas@0.3.10
+  - libs:
+    - arpack-ng@3.7.0 ~mpi
+    - boost@1.74.0 ~mpi
+    - fftw@3.3.8 ~mpi
+    - gsl@2.5
+    - hdf5@1.10.7 ~mpi
+    - netcdf-c@4.7.4 ~mpi ^hdf5~mpi
+    - netcdf-cxx@4.2 ^netcdf-c~mpi ^hdf5~mpi
+    - netcdf-fortran@4.5.3 ^netcdf-c~mpi ^hdf5~mpi
+    - metis@5.1.0
+    - superlu@5.2.1
+    - superlu-mt@3.1
+    - suite-sparse@5.7.2
+    - qhull@2020.1
+    - qrupdate@1.1.2
+  - libsmpis:
+    - boost@1.74.0 +mpi
+    - fftw@3.3.8
+    - hdf5@1.10.7
+    - netcdf-c@4.7.4
+    - netcdf-cxx@4.2
+    - netcdf-fortran@4.5.3
+    - parmetis@4.0.3
+    - superlu-dist@6.3.1
+    - hypre@2.20.0
+    - petsc@3.14.1
+#    - mumps@5.3.3
+  - apps:
+    - plumed@2.6.2 ^intel-mkl
+    - gromacs@2020.4 ^intel-mkl
+    - gromacs@2020.4 +plumed ^intel-mkl ^plumed@2.6.2
+    - lammps@20200303 ^intel-mkl
+    - lammps@20201029 ^intel-mkl
+    - py-pyparsing@2.4.2 # needed for openmolcas
+    - globalarrays@5.7
+    - quantum-espresso@6.5 ^intel-mkl
+    - quantum-espresso@6.6 ^intel-mkl
+    - py-espresso@4.0.2
+    - shengbte@1.1.1-8a63749
+    - almabte@1.3.2
+    - relion@3.1.1 ~cuda
+  - cfdapps:
+    - adios2@2.6.0
+    - scotch@6.0.10
+#    - openfoam@2006
+#    - kahip@2.00
+#    - paraview@5.8.1 ^freetype@2.7.1
+  - cfdapps_gcc:
+    - adios2@2.6.0
+    - scotch@6.0.10
+    - kahip@2.00
+    - paraview@5.8.1
+    - openfoam@2006 +kahip +paraview
+  - gpuapps:
+    - lammps@20200303 +cuda ^intel-mkl
+    - lammps@20201029 +cuda ^intel-mkl
+    - gromacs@2020.4 +cuda ^intel-mkl
+    - gromacs@2020.4 +cuda +plumed ^intel-mkl ^plumed@2.6.2
+    - relion@3.1.1 +cuda
+#    - relion +cuda cuda_arch=61
+#    - py-tensorflow@2.3.1 +cuda cuda_arch=61
+#    - openmm@7.4.1 +cuda cuda_arch=61
+#    - py-torch +caffe2 +cuda cuda_arch=61
+  - vizapps:
+    - gnuplot@5.2.8
+    - octave@5.2.0 ^arpack-ng~mpi ^fftw~mpi ^hdf5~mpi
+    - vesta@3.4.6
+    - openbabel@3.0.0
+  - tools:
+    - perl@5.32.0
+    - python@3.8.6
+    - r@4.0.3
+    - swig@4.0.2
+    - openjdk@1.8.0_222-b10
+    - openjdk@11.0.2
+  - otherapps:
+    - eigen@3.3.8
+    - fastjet@3.3.3
+    - libarchive@3.4.3
+    - nlopt@2.6.2
+    - pythia8@8303
+    - root@6.20.08
+  - bioapps:
+    - bowtie@1.3.0
+    - bowtie2@2.4.1
+    - express@1.5.2
+    - bamtools@2.5.1
+    - fastqc@0.11.7
+    - jellyfish@2.2.7
+    - star@2.7.0e
+    - rsem@1.3.1
+    - samtools@1.10
+    - trimmomatic@0.39
+    - blat@35
+    - bwa@0.7.17
+    - fastx-toolkit@0.0.14
+    - gatk@4.1.0.0
+    - miniasm@2018-3-30
+    - minimap2@2.14
+    - phast@1.4
+    - pilon@1.22
+    - tabix@2013-12-16
+    - vcftools@0.1.15
+    - canu@1.8
+    - bartender@1.1
+    - angsd@0.933
+    - ngstools@2019-06-24
+    - masurca@3.4.2
+    - ngmlr@0.2.7
+    - exonerate@2.4.0
+    - hal@2.1
+    - paml@4.9j
+    - blast-plus@2.9.0
+    - salmon@0.14.1
+    - kallisto@0.46.2 ^hdf5~mpi
+    - freebayes@1.1.0
+    - bayescan@2.1
+    - bayestraits@3.0.2
+    - bgc@1.03
+    - snpeff@5.0
+    - stacks@2.55
+    - rmcprofile@6.7.9
+    - pear@0.9.11
+    - subread@2.0.0
+    - hisat2@2.2.0
+    - gmap-gsnap@2020-06-01
+    - picard@2.20.8
+    - trinity@2.12.0 ^kallisto^hdf5~mpi ^fastqc@0.11.7
+  - data_science:
+    - py-tensorflow@2.3.1 ~cuda ~nccl ^py-h5py~mpi ^hdf5~mpi ^openjdk@11.0.2
+    - py-tensorflow@2.3.1 ~cuda ~nccl +mpi ^openjdk@11.0.2
+    - py-tensorflow@2.3.1 +cuda cuda_arch=61 ^cuda@10.2.89 ^py-h5py~mpi ^hdf5~mpi
+      ^openjdk@11.0.2
+    - py-tensorflow@2.3.1 +cuda cuda_arch=61 +mpi ^openjdk@11.0.2 ^cuda@10.2.89
+    - py-ase@3.21.1 ^python@3.8.6 +tkinter +tix
+    - py-multiqc@1.7
+  specs:
+  - matrix:
+    - [$gnu_compilers, $intel_compilers, $intelgpu_compilers, $nvidia_compilers, $tools]
+    - [$%core_compiler]
+  - matrix:
+    - [$blaslibs, $mpis, $ompis, $gpu_compilers]
+    - [$%core_compiler, $%gnu_compilers, $%intel_compilers, $%intelgpu_compilers]
+  - mpich@3.3.2%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc
+  - mvapich2@2.3.4%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc ^bison%gcc
+  - openmpi@4.0.5%nvhpc@20.9 ^libpciaccess%gcc ^libxml2%gcc ^numactl%gcc
+  - matrix:
+    - [$libs, $libsmpis]
+    - [$%core_compiler, $%gnu_compilers, $%intel_compilers, $%intelgpu_compilers]
+    - [$^mkl_libs]
+    - [$^mpis, $^ompis]
+  - matrix:
+    - [$apps, $cfdapps]
+    - [$%intel_compilers]
+    - [$^mpis, $^ompis]
+  - matrix:
+    - [$gpuapps]
+    - [cuda_arch=75]
+    - [^cuda@10.2.89]
+    - [$%intelgpu_compilers]
+    - [$^mpis, $^ompis]
+  - matrix:
+    - [$cfdapps_gcc, $data_science]
+    - [$%core_compiler]
+    - [$^blas_libs]
+    - [$^mpis, $^ompis]
+  - matrix:
+    - [$bioapps, $vizapps, $otherapps]
+    - [$%core_compiler]
+    - [$^blas_libs]
+  view: false

@@ -1,0 +1,56 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    all:
+      compiler: [gcc@8.1.0]
+      target: [x86_64]
+      version: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - perl
+  - python
+  - r
+  - bowtie
+  - bamtools
+  - star
+  - fastqc
+  - express ^boost@1.66.0
+  - blast-plus
+  - bowtie2
+  - jellyfish
+  - kallisto
+  - rsem
+  - salmon
+  - samtools
+  - python
+  - trinity
+  - r
+  - rsem
+  - trimmomatic
+  - blat
+  - bwa
+  - fastx-toolkit
+  - gatk
+  - miniasm
+  - minimap2
+  - paml@4.9j
+  - phast
+  - pilon
+  - tabix
+  - vcftools
+  - canu
+  - miniconda2 
+  - miniconda3
+  - bartender
+  - angsd
+  - ngstools
+  - relion +cuda cuda_arch=60
+  - masurca ^boost@1.66.0
+  view: false

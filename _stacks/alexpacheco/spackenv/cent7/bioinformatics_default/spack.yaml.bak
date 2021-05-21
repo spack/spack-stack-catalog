@@ -1,0 +1,40 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    all:
+      compiler: [gcc@8.1.0]
+      target: [x86_64]
+      version: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - trinity
+  - python
+  - r
+  - openjdk@1.8.0_202-b08
+  - bamtools
+  - bowtie
+  - express ^boost@1.66.0
+  - kallisto
+  - rsem
+  - salmon
+  - star
+  - trimmomatic
+  - blat
+  - bwa
+  - fastx-toolkit
+  - gatk
+  - miniasm
+  - minimap2
+  - paml@4.9j
+  - phast
+  - pilon
+  - tabix
+  - vcftools
+  view: false

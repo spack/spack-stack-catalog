@@ -1,0 +1,27 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-6.5.0-d3c42x36a5a26ujsqn3fascd5h3magqt/bin/gcc
+      cxx: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-6.5.0-d3c42x36a5a26ujsqn3fascd5h3magqt/bin/g++
+      f77: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-6.5.0-d3c42x36a5a26ujsqn3fascd5h3magqt/bin/gfortran
+      fc: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-6.5.0-d3c42x36a5a26ujsqn3fascd5h3magqt/bin/gfortran
+    spec: gcc@6.5.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-4.9.3-xmhpqh2tjxtquzoy65jkfjz53foz4e36/bin/gcc
+      cxx: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-4.9.3-xmhpqh2tjxtquzoy65jkfjz53foz4e36/bin/g++
+      f77: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-4.9.3-xmhpqh2tjxtquzoy65jkfjz53foz4e36/bin/gfortran
+      fc: /net/scratch4/.mdt2/dantopa/repos/spack/libraries/compilers.snow-standard.spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-4.9.3-xmhpqh2tjxtquzoy65jkfjz53foz4e36/bin/gfortran
+    spec: gcc@4.9.3
+    target: x86_64

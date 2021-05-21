@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [valgrind, python, hwloc, cmake, boost@1.68.0 cxxstd=14]
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  concretize_together: true
+  packages: {}
+  config: {}

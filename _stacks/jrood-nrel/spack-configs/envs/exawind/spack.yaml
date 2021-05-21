@@ -1,0 +1,49 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+
+spack:
+  config:
+    build_stage:
+      - $spack/var/spack/stage
+    source_cache: ~/.spack/downloads
+    build_jobs: 8
+  
+  repos:
+    - $spack/var/spack/repos/custom
+    - $spack/var/spack/repos/builtin
+  
+  packages:
+    #findutils:
+    #   externals:
+    #    - spec: findutils@4.8.0%apple-clang@12.0.0
+    #      prefix: /Users/jrood/.brew/Cellar/findutils/4.8.0_1
+    hdf5:
+      version: [1.10.7]
+      variants: +cxx+hl
+    hypre:
+      variants: +int64~superlu-dist
+    netcdf-c:
+      version: [4.7.4]
+      variants: +parallel-netcdf maxdims=65536 maxvars=524288
+    openfast:
+      version: [develop]
+      variants: +cxx
+    parallel-netcdf:
+      version: [1.12.2]
+    tioga:
+      version: [develop]
+    trilinos:
+      version: [develop]
+      variants: ~adios2~alloptpkgs~amesos+amesos2~anasazi~aztec+belos+boost~cgns~chaco~complex~debug~dtk~epetra~epetraext+exodus+explicit_template_instantiation~float~fortran~fortrilinos+glm+gtest+hdf5~hypre~ifpack+ifpack2~intrepid~intrepid2~isorropia+kokkos~matio~mesquite+metis~minitensor~ml+mpi+muelu~mumps+netcdf~nox~openmp~phalanx~piro+pnetcdf~python~rol~rythmos~sacado+shards~shylu+stk~stratimikos~suite-sparse+superlu~superlu-dist~teko~tempus+teuchos+tpetra~x11~xsdkflags+zlib+zoltan+zoltan2 cxxstd=14 build_type=Release
+    all:
+      compiler: [apple-clang, gcc, clang]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [openmpi, mpich]
+        blas: [netlib-lapack]
+        lapack: [netlib-lapack]
+  
+  specs: [nalu-wind+fftw+hypre+openfast+tioga+wind-utils]
+  view: false

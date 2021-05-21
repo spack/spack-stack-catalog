@@ -1,0 +1,5 @@
+spack:
+  specs:
+  - clingo@develop build_type=Release target=x86_64
+  - python+optimizations
+  - py-coverage

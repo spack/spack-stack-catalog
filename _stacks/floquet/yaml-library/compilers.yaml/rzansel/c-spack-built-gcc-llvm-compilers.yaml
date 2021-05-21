@@ -1,0 +1,99 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - llvm-8.0.0-gcc-9.1.0
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-8.0.0-gmiswb2rmjs6mq5lommcuolwout4mji5/bin/clang
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-8.0.0-gmiswb2rmjs6mq5lommcuolwout4mji5/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: clang@8.0.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - llvm-7.0.1-gcc-9.1.0
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-7.0.1-5uhthqaddb4vc4nbi3bsencdjidhypfc/bin/clang
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-7.0.1-5uhthqaddb4vc4nbi3bsencdjidhypfc/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: clang@7.0.1
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - llvm-7.0.0-gcc-9.1.0
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-7.0.0-2bmpqejt2j6swxe5laqfafrkqr2v7sfj/bin/clang
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-7.0.0-2bmpqejt2j6swxe5laqfafrkqr2v7sfj/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: clang@7.0.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - llvm-6.0.1-gcc-9.1.0
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-6.0.1-2sv5x6nrobs6ql2eiamaykzwjtumg3me/bin/clang
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-6.0.1-2sv5x6nrobs6ql2eiamaykzwjtumg3me/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: clang@6.0.1
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - llvm-6.0.0-gcc-9.1.0
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-6.0.0-w3lr4im67pidqg3ajljz7jttedei3tzu/bin/clang
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-9.1.0/llvm-6.0.0-w3lr4im67pidqg3ajljz7jttedei3tzu/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    spec: clang@6.0.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-9.1.0-gcc-4.9.3
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-9.1.0-m6epktnymugvqgdg4r7i37jg74rv6tm7/bin/gcc
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-9.1.0-m6epktnymugvqgdg4r7i37jg74rv6tm7/bin/g++
+      f77: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-9.1.0-m6epktnymugvqgdg4r7i37jg74rv6tm7/bin/gfortran
+      fc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-9.1.0-m6epktnymugvqgdg4r7i37jg74rv6tm7/bin/gfortran
+    spec: gcc@9.1.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-8.3.0-gcc-4.9.3
+    operating_system: rhel7
+    paths:
+      cc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-8.3.0-rbidaennduelltgsziwo5n7uwww6mq6m/bin/gcc
+      cxx: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-8.3.0-rbidaennduelltgsziwo5n7uwww6mq6m/bin/g++
+      f77: /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-8.3.0-rbidaennduelltgsziwo5n7uwww6mq6m/bin/gfortran
+      fc:  /usr/WS1/topa1/repos/spack/libraries/rzansel-power9.ucx/opt/spack/linux-rhel7-ppc64le/gcc-4.9.3/gcc-8.3.0-rbidaennduelltgsziwo5n7uwww6mq6m/bin/gfortran
+    spec: gcc@8.3.0
+    target: ppc64le

@@ -1,0 +1,119 @@
+spack:
+  specs:
+  - openmpi@4.0.3
+  - openmpi@3.1.6
+  - mpich
+  - mvapich2
+
+  compilers::
+    - compiler:
+        environment: {unset: []}
+        extra_rpaths: []
+        flags: {}
+        modules: []
+        operating_system: rhel7
+        paths:
+          cc: /usr/bin/gcc
+          cxx: /usr/bin/g++
+          f77: /usr/bin/gfortran
+          fc: /usr/bin/gfortran
+        spec: gcc@4.8.5
+        target: x86_64
+    - compiler:
+        paths:
+          cc: /work/LAS/researchit/spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-9.3.0-msak6hihss5bvvtxpyihaajmywauagjl/bin/gcc
+          cxx: /work/LAS/researchit/spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-9.3.0-msak6hihss5bvvtxpyihaajmywauagjl/bin/g++
+          f77: /work/LAS/researchit/spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-9.3.0-msak6hihss5bvvtxpyihaajmywauagjl/bin/gfortran
+          fc: /work/LAS/researchit/spack/opt/spack/linux-rhel7-x86_64/gcc-4.8.5/gcc-9.3.0-msak6hihss5bvvtxpyihaajmywauagjl/bin/gfortran
+        operating_system: rhel7
+        target: x86_64
+        modules: []
+        environment: {}
+        extra_rpaths: []
+        flags: {}
+        spec: gcc@9.3.0
+  modules:
+    enable::
+      - lmod
+
+    lmod:
+      core_compilers:
+      - gcc@4.8.5
+      blacklist_implicits: true
+      whitelist:
+      - gcc
+      blacklist:
+      - '%gcc@4.8.5'
+      hierarchy:
+      - mpi
+
+      all:
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+        environment:
+          unset: []
+      verbose: false
+      hash_length: 7
+  packages:
+    'all:':
+      compiler: [gcc@9.3.0, gcc@4.8.5]
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers: {}
+      paths: {}
+      modules: {}
+    openmpi:
+      variants: fabrics=libfabric ~java schedulers=slurm +pmi ~sqlite3 ~thread_multiple
+        +vt +legacylaunchers
+      buildable: true
+      version: ['4.0.3', '3.1.6']
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    mpich:
+      variants: +hydra +romio +verbs +slurm
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    mvapich2:
+      # initially tried nemesisofi fabric, but config would try to pull in pmi.h instead of pmi2.h and error out
+      # can't find much documented about using libfabric with mvapich2
+      variants: fabrics=psm2 file_systems=lustre process_managers=slurm
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    libfabric:
+      variants: fabrics=psm2,sockets,udp,verbs,tcp
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    slurm:
+      buildable: false
+      variants: +pmix
+      paths:
+        slurm@19-05-5-1: /usr
+      version: []
+      target: []
+      providers: {}
+      modules: {}
+      compiler: []
+  config:
+    build_jobs: 8
+  view: false

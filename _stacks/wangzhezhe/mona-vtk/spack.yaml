@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - paraview@5.8.0 +osmesa +python3
+  - mesa~llvm
+  - mochi-thallium@master
+  - icet@develop
+  - mochi-mona
+  concretization: together

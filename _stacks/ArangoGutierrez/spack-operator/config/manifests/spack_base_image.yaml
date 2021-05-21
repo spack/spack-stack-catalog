@@ -1,0 +1,97 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: spack-operator
+  name: spack-base-image
+  namespace: spack-operator-system
+spec:
+  successfulBuildsHistoryLimit: 3 
+  failedBuildsHistoryLimit: 3 
+  output:
+    to:
+      kind: ImageStreamTag
+      name: spack-operator-base:spackv0.16.0
+      namespace: spack-operator-system
+  source:
+    type: Dockerfile
+    dockerfile: |
+      FROM registry.fedoraproject.org/fedora:latest
+      MAINTAINER Eduardo Arango <carangog@gredhat.com>
+
+      ENV DOCKERFILE_BASE=fedora            \
+          DOCKERFILE_DISTRO=fedora          \
+          DOCKERFILE_DISTRO_VERSION=latest  \
+          SPACK_ROOT=/opt/spack             \
+          DEBIAN_FRONTEND=noninteractive    \
+          CURRENTLY_BUILDING_DOCKER_IMAGE=1 \
+          container=docker
+
+      RUN dnf update -y \
+       && dnf groupinstall -y "Development Tools" \
+       && dnf install -y \
+              curl \
+              findutils \
+              gcc-c++ \
+              gcc \
+              gcc-gfortran \
+              git \
+              gnupg2 \
+              hostname \
+              lbzip2 \
+              iproute \
+              Lmod \
+              make \
+              patch \
+              python \
+              python-pip \
+              python-setuptools \
+              tcl \
+              unzip \
+              which \
+       && pip install boto3 \
+       && rm -rf /var/cache/dnf \
+       && dnf clean all
+
+      COPY bin   $SPACK_ROOT/bin
+      COPY etc   $SPACK_ROOT/etc
+      COPY lib   $SPACK_ROOT/lib
+      COPY share $SPACK_ROOT/share
+      COPY var   $SPACK_ROOT/var
+      RUN mkdir -p $SPACK_ROOT/opt/spack
+
+      RUN ln -s $SPACK_ROOT/share/spack/docker/entrypoint.bash \
+                /usr/local/bin/docker-shell \
+       && ln -s $SPACK_ROOT/share/spack/docker/entrypoint.bash \
+                /usr/local/bin/interactive-shell \
+       && ln -s $SPACK_ROOT/share/spack/docker/entrypoint.bash \
+                /usr/local/bin/spack-env
+
+      RUN mkdir -p /root/.spack \
+       && cp $SPACK_ROOT/share/spack/docker/modules.yaml \
+              /root/.spack/modules.yaml \
+       && rm -rf /root/*.* /run/nologin $SPACK_ROOT/.git
+
+      # [WORKAROUND]
+      # https://superuser.com/questions/1241548/
+      #     xubuntu-16-04-ttyname-failed-inappropriate-ioctl-for-device#1253889
+      RUN [ -f ~/.profile ]                                               \
+       && sed -i 's/mesg n/( tty -s \\&\\& mesg n || true )/g' ~/.profile \
+       || true
+
+      ENV PATH "$PATH:$SPACK_ROOT/bin"
+      RUN mkdir /opt/spack-environment
+      WORKDIR /opt/spack-environment
+ 
+    git:
+      uri: https://github.com/spack/spack
+      ref: v0.16.0
+
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: registry.fedoraproject.org/fedora:latest
+  triggers:
+  - type: ConfigChange

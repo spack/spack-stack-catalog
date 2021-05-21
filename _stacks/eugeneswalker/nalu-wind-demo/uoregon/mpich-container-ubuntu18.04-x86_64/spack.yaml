@@ -1,0 +1,81 @@
+spack:
+  view: false
+  packages:
+    all:
+      compiler: [gcc@7.5.0]
+      target: [x86_64]
+      providers:
+        mpi:
+        - mpich
+        blas:
+        - netlib-lapack
+        lapack:
+        - netlib-lapack
+      variants: +mpi+pic build_type=Release
+    openmpi:
+      buildable: false
+      version: [4.0.4]
+    mpich:
+      version: [3.3.2]
+      variants: ~wrapperrpath
+    cmake:
+      version: [3.17.3]
+    binutils:
+      version: [2.34]
+    zlib:
+      version: [1.2.11]
+    libxml2:
+      version: [2.9.8]
+    bzip2:
+      version: [1.0.6]
+    m4:
+      version: [1.4.18]
+    boost:
+      version: [1.68.0]
+      variants: cxxstd=14
+    hdf5:
+      version: [1.10.4]
+      variants: +mpi+cxx+hl~fortran
+    netcdf-c:
+      version: [4.7.3]
+      variants: +parallel-netcdf maxdims=65536 maxvars=524288
+    parallel-netcdf:
+      version: [1.12.1]
+    superlu:
+      version: [4.3]
+    netlib-lapack:
+      version: [3.8.0]
+    yaml-cpp:
+      version: [0.6.2]
+    fftw:
+      variants: +mpi+fma
+    openfast:
+      version: [develop]
+      variants: +cxx
+    hypre:
+      version: [develop]
+      variants: +int64~superlu-dist
+    tioga:
+      version: [develop]
+    nalu-wind:
+      variants: +fftw+hypre~openfast+tioga+wind-utils
+    trilinos:
+      version: [develop]
+      variants: ~adios2~alloptpkgs~amesos+amesos2~anasazi~aztec+belos+boost~cgns~chaco~complex~debug~dtk~epetra~epetraext+exodus+explicit_template_instantiation~float~fortran~fortrilinos+glm+gtest+hdf5~hypre~ifpack+ifpack2~intrepid~intrepid2~isorropia+kokkos~matio~mesquite~metis~minitensor~ml+mpi+muelu~mumps+netcdf~nox~openmp~phalanx~piro+pnetcdf~python~rol~rythmos~sacado+shards~shylu+stk~stratimikos~suite-sparse+superlu~superlu-dist~teko~tempus+teuchos+tpetra~x11~xsdkflags+zlib+zoltan+zoltan2
+        cxxstd=14
+  specs:
+  - nalu-wind
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu18.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

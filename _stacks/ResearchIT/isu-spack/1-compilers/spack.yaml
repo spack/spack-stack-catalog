@@ -1,0 +1,56 @@
+spack:
+  specs:
+  - gcc@9.3.0
+  - intel-parallel-studio@cluster.2020.1 
+  
+  compilers::
+    - compiler:
+        environment: {unset: []}
+        extra_rpaths: []
+        flags: {}
+        modules: []
+        operating_system: rhel7
+        paths:
+          cc: /usr/bin/gcc
+          cxx: /usr/bin/g++
+          f77: /usr/bin/gfortran
+          fc: /usr/bin/gfortran
+        spec: gcc@4.8.5
+        target: x86_64
+  modules:
+    enable::
+      - lmod
+
+    lmod:
+      core_compilers:
+      - gcc@4.8.5
+      blacklist_implicits: true
+      whitelist:
+      - gcc
+      blacklist:
+      - '%gcc@4.8.5'
+      hierarchy:
+      - mpi
+
+      all:
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+        environment:
+          unset: []
+      verbose: false
+      hash_length: 7
+  config:
+    build_jobs: 8
+
+  packages:
+    'all:':
+      compiler: [gcc@4.8.5]
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers: {}
+      paths: {}
+      modules: {}
+

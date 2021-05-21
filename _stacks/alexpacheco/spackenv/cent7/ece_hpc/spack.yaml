@@ -1,0 +1,18 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    all:
+      compiler: [gcc@8.1.0]
+      version: []
+      target: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - lammps +asphere+body+class2+colloid+compress+coreshell+cuda cuda_arch=60 ~ffmpeg+granular~jpeg+kspace+manybody+mc+meam+misc+molecule+mpi+openmp+peri~png+poems+replica+rigid+shock+snap+spin+srd ^mpich
+  view: true

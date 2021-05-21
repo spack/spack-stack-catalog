@@ -1,0 +1,30 @@
+    <div class="modal fade" tabindex="-1" role="dialog" id="rule-popup">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="padding:20px">
+          <div class="modal-header">
+            <h5 class="modal-title">Rules for stack inclusion <a target="_blank" data-toggle="tooltip" data-placement="top" title="URL to display this dialog" href="https://spack.github.io/spack-stack-catalog?rules=true">
+                <i class="bi bi-link"></i>
+              </a>
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+            A spack <a href="https://spack-tutorial.readthedocs.io/en/latest/tutorial_stacks.html" target="_blank">stack</a> can be thought of as a packaged set of packages to install alongside a configuration. They are typically represented in a file called `spack.yaml`. Thus, with the magic
+            of the GitHub API, we can look for these configuration files across GitHub and present a set to you here. This is the spack stack catalog. How are spack.yaml files and repositories tagged for inclusion? The catalog includes stacks based on the following criteria:
+          <ul>
+                <li>The stack is contained in a public <a href="https://github.com">Github</a> repository.</li>
+                <li>The repository has one or more spack.yaml files.</li>
+            </li>
+                <li>The repository is small enough to be cloned into a Github actions job.</li>
+                <li>The repository is not blacklisted <a target="_blank"
+                href="https://github.com/spack/spack-stack-catalog/blob/main/blacklist.txt">here</a>.</li>
+              </ul>
+            </p>
+        </div>
+        </div>
+      </div>
+    </div>
+

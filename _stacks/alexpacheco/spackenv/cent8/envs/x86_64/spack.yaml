@@ -1,0 +1,94 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - cmake@3.18.4
+  - perl@5.32.0
+  - swig@4.0.2
+  - tmux@3.1b
+  - screen@4.8.0
+  - anaconda3@2019.10
+  - anaconda3@2020.07
+  - julia@1.5.2
+  - tcl@8.6.10
+  - tk@8.6.10
+  - parallel@20200822
+  - scons@3.1.2
+  - motif@2.3.8
+  - libxp@1.0.3
+  - rclone@1.53.3
+  - vmd@1.9.3
+  - pwgui@6.1
+  - nano@5.6.1
+#  - tcl@8.6.8
+#  - tk@8.6.8
+#  - xcrysden@1.6.2
+#  - vesta@3.4.6
+#  - guile@2.2.6
+#  - mpich@3.3.2~slurm
+#  - mpich@3.2~slurm
+#  - python@3.8.6
+#  - r@4.0.3
+  config:
+    module_roots:
+      lmod: $spack/share/spack/lmod/default
+  packages:
+    all:
+      target: [x86_64]
+      compiler: [gcc@8.3.1]
+      version: []
+      buildable: true
+      providers: {}
+  modules:
+    enable:
+    - lmod
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      hash_length: 0
+      verbose: false
+      blacklist_implicits: true
+      hierarchy:
+      - mpi
+      core_specs:
+      - gcc@8.3.1
+      mpich:
+        suffixes:
+          ~slurm: noslurm
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      anaconda3:
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+          unset: []
+        template: anaconda.lua
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+      all:
+        template: scratch.lua
+        autoload: direct
+        filter:
+          environment_blacklist: [CPATH, LIBRARY_PATH]
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ^python:
+        autoload: direct
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      whitelist: []
+      blacklist: []
+  view: false

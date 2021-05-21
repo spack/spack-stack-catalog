@@ -1,0 +1,39 @@
+#
+# 0-base specs for xx-fe1 deployment (dev)
+#
+spack:
+  view: false
+###############################################################################
+  include:
+    - ../shared/conf-general
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+    
+    - core-sw:
+      - charliecloud
+      - cmake
+      - curl
+      - flux-sched ^python@3.7.4
+      - gcc@9.2.0
+      - go
+      - git
+      - jq@1.5
+      - readline
+      - ruby@2.6.2
+      - tar
+      - zip
+      - zlib
+
+    - python:
+      - python@2.7.16
+      - python@3.7.4
+###############################################################################
+  specs:
+    - matrix:
+      - [$core-sw, $python]
+      - [$core-compilers]
+###############################################################################

@@ -1,4 +1,4 @@
-name: snakemake-workflow-catalog
+name: community-catalog
 channels:
   - bioconda
   - conda-forge

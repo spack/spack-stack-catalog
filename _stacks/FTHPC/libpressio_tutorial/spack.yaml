@@ -1,0 +1,27 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+    - libpressio+hdf5+mgard+mpi+python+remote+sz+zfp target=x86_64 ^libstdcompat+boost
+    - py-matplotlib
+  view: true
+  concretizer: together
+  container:
+    format: docker
+    images:
+      os: centos:7
+      spack: develop
+    os_packages:
+      final:
+        - libgomp
+        - libgfortran
+        - openssh-clients
+        - gcc-c++
+        - gcc
+        - make
+        - gdb
+  repos:
+  - /opt/robertu94_spack

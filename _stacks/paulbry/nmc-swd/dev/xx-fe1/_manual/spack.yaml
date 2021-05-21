@@ -1,0 +1,13 @@
+#
+# _manual specs for xx-fe1 deployment (dev)
+#
+spack:
+  view: false
+  include:
+  - ../shared/conf-general
+  - ../shared/common
+  - ../shared/compilers-all
+###############################################################################
+  definitions: []
+  specs: [go]
+###############################################################################

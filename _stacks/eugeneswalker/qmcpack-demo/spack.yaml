@@ -1,0 +1,122 @@
+spack:
+  view: false
+  packages:
+    all:
+      compiler:
+        - clang
+      providers:
+        mpi:
+          - mpich
+      target:
+        - x86_64
+    autoconf:
+      version:
+        - 2.69
+    automake:
+      version:
+        - 1.16.3
+    berkeley-db:
+      version:
+        - 18.1.40
+    boost:
+      version:
+        - 1.75.0
+    bzip2:
+      version:
+        - 1.0.8
+    cmake:
+      version:
+        - 3.19.5
+    diffutils:
+      version:
+        - 3.7
+    expat:
+      version:
+        - 2.2.10
+    fftw:
+      version:
+        - 3.3.9
+    findutils:
+      version:
+        - 4.6.0
+    gdbm:
+      version:
+        - 1.18.1
+    gettext:
+      version:
+        - 0.21
+    hdf5:
+      version:
+        - 1.10.7
+    hwloc:
+      version:
+        - 2.4.1
+    libbsd:
+      version:
+        - 0.10.0
+    libiconv:
+      version:
+        - 1.16
+    libpciaccess:
+      version:
+        - 0.16
+    libsigsegv:
+      version:
+        - 2.12
+    libtool:
+      version:
+        - 2.4.6
+    libxml2:
+      version:
+        - 2.9.10
+    m4:
+      version:
+        - 1.4.18
+    mpich:
+      variants: ~wrapperrpath
+      version:
+        - 3.4.1
+    ncurses:
+      version:
+        - 6.2
+    openblas:
+      version:
+        - 0.3.13
+    openssl:
+      version:
+        - 1.1.1j
+    perl:
+      version:
+        - 5.32.1
+    pkgconf:
+      version:
+        - 1.7.3
+    python:
+      version:
+        - 3.8.8
+    readline:
+      version:
+        - 8
+    sqlite:
+      version:
+        - 3.34.0
+    tar:
+      version:
+        - 1.32
+    texinfo:
+      version:
+        - 6.5
+    util-linux-uuid:
+      version:
+        - 2.36
+    util-macros:
+      version:
+        - 1.19.1
+    xz:
+      version:
+        - 5.2.5
+    zlib:
+      version:
+        - 1.2.11
+  specs:
+  - qmcpack@3.10.0

@@ -1,0 +1,130 @@
+spack:
+  specs:
+  - mochi-sonata +benchmark @master %gcc@9.1.0
+  - mercury @master %gcc@9.1.0 # 2.0.0rc1 doesn't build; remove this line when 2.0.0 comes out
+  concretization: together
+  compilers:
+  - compiler:
+      paths:
+        cc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gcc
+        cxx: /sw/summit/gcc/9.1.0-alpha+20190716/bin/g++
+        f77: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+        fc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+      operating_system: rhel7
+      target: ppc64le
+      modules:
+      - gcc/9.1.0
+      environment: {unset: []}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@9.1.0
+  repos:
+  - /ccs/home/mdorier1/sds-repo
+  packages:
+    all:
+      compiler: [gcc@9.1.0]
+      providers:
+        mpi: [spectrum-mpi]
+        pkgconfig: [pkg-config]
+      buildable: true
+      version: []
+      target: []
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    automake:
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    cmake:
+      version: []
+      target: []
+      buildable: false
+      providers: {}
+      externals:
+      - modules:
+        - cmake/3.18.2
+        spec: cmake@3.18.2
+      compiler: []
+    libfabric:
+      variants: fabrics=verbs,rxm,mrail
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libnl:
+      externals:
+      - spec: libnl@3.3.0
+        modules:
+        - libnl/3.3.0
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libtool:
+      externals:
+      - spec: libtool@2.4.2
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    mercury:
+      variants: ~boostsys
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    openssl:
+      externals:
+      - spec: openssl@1.0.2k
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    rdma-core:
+      externals:
+      - spec: rdma-core@20
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    spectrum-mpi:
+      externals:
+      - spec: spectrum-mpi@10.3.1.2%gcc@9.1.0
+        modules:
+        - spectrum-mpi/10.3.1.2-20200121
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    ucx:
+      externals:
+      - spec: ucx@1.5.1
+        prefix: /usr
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+  view: true

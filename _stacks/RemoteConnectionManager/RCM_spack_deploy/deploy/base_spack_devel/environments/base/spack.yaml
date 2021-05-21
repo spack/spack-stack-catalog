@@ -1,0 +1,31 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [cmake, perl, curl, nasm]
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  packages: {}
+  config:
+    module_roots:
+      tcl: ./modules
+    install_tree: install
+  upstreams:
+    base:
+      install_tree: ../../install
+      modules:
+        tcl: ../../spack/share/spack/modules
+
+  include:
+  - ./config
+#  - /kubuntu/home/lcalori/spack/RCM_test/recipes/hosts/ws_mint/config
+#  - /kubuntu/home/lcalori/spack/RCM_test/workspace/test_insitu4
+#  - /kubuntu/home/lcalori/spack/RCM_test/config/shared_install
+#  - /kubuntu/home/lcalori/spack/RCM_test/config/rcm
+#  - /kubuntu/home/lcalori/spack/RCM_test/config/rcm/server
+#  - /kubuntu/home/lcalori/spack/RCM_test/config/insitu
+#  - /kubuntu/home/lcalori/spack/RCM_test/config/debug/silent

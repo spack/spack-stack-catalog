@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - mercury@2.0.0
+  - mpich
+  - boost+serialization
+  - yaml-cpp@develop
+  - libuuid
+  - mochi-ch-placement
+  - cmake
+  - cppunit
+  - mochi-sdskv ~leveldb
+  - mochi-thallium
+  - spdlog
+  concretization: together

@@ -1,0 +1,10 @@
+spack:
+  specs:
+    - crystfel
+    - py-cfelpyutils
+    - py-extra-data
+    - py-extra-geom
+    - py-karabo-bridge
+    # - py-pyfai
+    - py-pyopengl
+  view: False

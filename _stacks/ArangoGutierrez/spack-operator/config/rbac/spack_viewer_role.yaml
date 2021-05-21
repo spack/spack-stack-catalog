@@ -1,0 +1,20 @@
+# permissions for end users to view spacks.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: build-viewer-role
+rules:
+- apiGroups:
+  - multiarch.builder.io
+  resources:
+  - spacks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - multiarch.builder.io
+  resources:
+  - builds/status
+  verbs:
+  - get

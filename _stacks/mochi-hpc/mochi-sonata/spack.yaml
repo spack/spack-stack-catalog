@@ -1,0 +1,13 @@
+spack:
+  specs:
+  - cppunit
+  - cmake
+  - jsoncpp
+  - tclap
+  - spdlog
+  - mpi
+  - nlohmann-json
+  - mochi-margo
+  - mochi-thallium
+  - mochi-bedrock
+  concretization: together

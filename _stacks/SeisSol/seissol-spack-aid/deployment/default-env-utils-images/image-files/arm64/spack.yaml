@@ -1,0 +1,63 @@
+spack:
+  definitions:
+  - compilers: [gcc@8.3.0]
+  - mpis: [openmpi@3.1.5+cuda]
+  - targets: [target=aarch64]
+  - packages: 
+      - seissol-env+mpi+asagi~building_tools
+      - seissol-utils+cross_arch_build
+ 
+  specs:
+  - matrix:
+    - [\$compilers]
+    - [arch=aarch64]
+  - matrix:
+    - [\$mpis, cmake@3.16.2, cuda@11.0.2]
+    - [\$targets]
+    - [\$%compilers]
+  - matrix:
+    - [\$packages]
+    - [\$targets]
+    - [\$^mpis]
+    - [\$%compilers]
+  
+  container:
+    format: docker
+
+    images:
+      build: ravilmobile/spack_custom_builder_arm64:ubuntu-1804_gcc-8.3.0
+      final: ubuntu:18.04
+    strip: false
+
+    os_packages:
+      command: apt
+      final:
+      - python3
+      - python3-pip
+      - pkg-config
+      - make
+      - git
+      - gdb
+      - vim
+
+    extra_instructions:
+        build: |
+            RUN cd /opt/spack-environment && . /opt/spack/share/spack/setup-env.sh \
+            && spack env activate --sh -d . >> /opt/spack-environment/seissol_env.sh \
+            && spack find -v > /opt/spack-environment/installed_packages.txt
+            RUN cuda_real_path=$(dirname $(dirname $(readlink /opt/view/bin/nvcc))) \
+            && (echo "export CUDA_PATH=${cuda_real_path}" \
+            &&  echo "export CUDA_HOME=${cuda_real_path}" \
+            &&  echo "export CMAKE_PREFIX_PATH=\$CMAKE_PREFIX_PATH:${cuda_real_path}" \
+            &&  echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:${cuda_real_path}/lib64/stubs" \
+            &&  echo "export LIBRARY_PATH=\$LIBRARY_PATH:${cuda_real_path}/lib64/stubs") >> /opt/spack-environment/cuda_env.sh
+
+        final: |
+            RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 20 \
+            && compiler_path=$(cat /opt/software/compiler_path | tr -d '\n') \
+            && update-alternatives --install /usr/bin/gcc gcc $compiler_path/bin/gcc 20 \
+            && update-alternatives --install /usr/bin/g++ g++ $compiler_path/bin/g++ 20 \
+            && update-alternatives --install /usr/bin/gfortran gfortran $compiler_path/bin/gfortran 20 \
+            && ranlib $compiler_path/lib/gcc/*/*/libgcc.a \
+            && pip3 install scons numpy \
+            && mkdir /workspace

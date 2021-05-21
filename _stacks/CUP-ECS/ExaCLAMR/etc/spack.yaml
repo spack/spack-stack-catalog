@@ -1,0 +1,20 @@
+# Spack environment specification for code needed to run ExaCLAMR on non-CUDA systems.
+# Notes:
+# 1. A patch is needed to the cabana spack spec to get it to build with GPU support. 
+#    That patch is in etc/
+# 2. Set the cuda arch= flag in the kokkos like to the to the one appropriate one for your 
+#    system
+# 3. If you don't have CUDA, simply remove the cuda flags from the relevant lines
+
+spack:
+  specs:
+  - cabana +mpi +cuda
+  - kokkos std=14 +hwloc +numactl +openmp +cuda +cuda_lambda cuda_arch=35 +wrapper
+  - heffte +cuda
+  - hdf5 +mpi
+  - silo +mpi
+  - openmpi +cuda
+  - cuda
+  - cmake
+  concretization: together
+  view: true

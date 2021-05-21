@@ -1,0 +1,308 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - modules.yaml
+
+  config:
+    install_tree: /gpfs/u/software/dcs-spack-install/v0160gcc
+    module_roots:
+      lmod: /gpfs/u/software/dcs-spack-install/v0160gcc/lmod
+  view: false
+  specs:
+  - cmake ~openssl
+  - openmpi +cuda +pmi schedulers=slurm ^hwloc@1.11.11
+  - fftw
+  - netlib-lapack ^cmake~openssl
+  - netlib-scalapack ^cmake~openssl
+
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5_rhel7
+      operating_system: rhel7
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77:
+        fc:
+      environment: {unset: []}
+      flags: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.4.0
+      paths:
+        cc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gcc
+        cxx: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/g++
+        f77: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+        fc: /gpfs/u/software/ppc64le-rhel7/gcc/8.4.0/1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
+  packages:
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    automake:
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    bash:
+      externals:
+      - spec: bash@4.2.46
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    bison:
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    bzip2:
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cpio:
+      externals:
+      - spec: cpio@2.11
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    diffutils:
+      externals:
+      - spec: diffutils@3.3
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    findutils:
+      externals:
+      - spec: findutils@4.5.11
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    flex:
+      externals:
+      - spec: flex@2.5.37+lex
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    gcc:
+      externals:
+      - spec: gcc@4.8.5 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    ghostscript:
+      externals:
+      - spec: ghostscript@9.07
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    git:
+      externals:
+      - spec: git@1.8.3.1~tcltk
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    git-lfs:
+      externals:
+      - spec: git-lfs@2.4.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    gmake:
+      externals:
+      - spec: gmake@3.82
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    openjdk:
+      externals:
+      - spec: openjdk@1.8.0_222-b10
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    libtool:
+      externals:
+      - spec: libtool@2.4.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    m4:
+      externals:
+      - spec: m4@1.4.16
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    ninja:
+      externals:
+      - spec: ninja@1.7.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    openssl:
+      externals:
+      - spec: openssl@1.0.2k-fips
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    perl:
+      externals:
+      - spec: perl@5.16.3~cpanm+shared+threads
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.27.1
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    python:
+      externals:
+      - spec: python@2.7.5+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /usr
+      - spec: python@3.4.10+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /usr
+      - spec: python@3.6.8+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    tar:
+      externals:
+      - spec: tar@1.26
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    texinfo:
+      externals:
+      - spec: texinfo@5.1
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    xz:
+      externals:
+      - spec: xz@5.2.2
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    slurm:
+      externals:
+      - spec: slurm@system
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cuda:
+      externals:
+      - spec: cuda@10.2
+        prefix: /usr/local/cuda-10.2
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    clingo:
+      externals:
+      - spec: clingo@5.4.1
+        prefix: /gpfs/u/software/ppc64le-rhel7/clingo
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}

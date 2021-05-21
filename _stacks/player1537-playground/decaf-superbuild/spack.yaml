@@ -1,0 +1,7 @@
+spack:
+  specs:
+  - boost
+  - cmake
+  - mpich@3.3.2
+  - diy@master ^mpich@3.3.2
+  - python@3.6.8

@@ -1,0 +1,459 @@
+# OLCF Lyra Spack Environment
+
+spack:
+  #############################################################################
+  definitions:
+  - core_compiler:
+    - '%gcc@8.3.1'
+  - gcc_compilers:
+    - '%gcc@8.3.1'
+  - cray_compilers:
+    - '%cce@11.0.0.7519'
+  - all_compilers:
+    - $gcc_compilers
+    - $cray_compilers
+  - core_packages:
+    - git
+    - htop
+    - tmux
+    - cmake
+    - wget
+    - go
+    - screen
+    - vim
+    - emacs ~X
+    - nano
+    - gnuplot +X
+    - subversion
+    - mercurial
+    - ccache
+    - papi
+    - gdb
+    - libzmq
+    - gnupg
+    - python
+    # - valgrind ~mpi~boost~ubsan
+    # - gsl
+    # - nco~mpi-deps
+    # - libfabric fabrics=verbs
+    # - imagemagick ^ncurses+termlib
+    # - r
+    # - r@4.0.0
+    # - ferret ^hdf5~mpi+cxx+fortran ^netcdf-c~mpi~parallel-netcdf ^netcdf-fortran~mpi
+    # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
+    # - vmd
+    # - sbt
+    # - spark+hadoop
+  - general_compute_packages:
+    - netlib-lapack
+    - netlib-scalapack ^netlib-lapack
+    - fftw +mpi+openmp
+    - hdf5 ~mpi
+    - hdf5 +mpi
+  - core_specs:
+    - matrix:
+      - - $core_packages
+      - - $core_compiler
+      - - arch=linux-rhel8-x86_64
+  - cray_specs:
+    - matrix:
+      - - $general_compute_packages
+      - - $cray_compilers
+      - - arch=cray-rhel8-zen2
+  specs:
+  - $core_specs
+  - $cray_specs
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/lyra/spack-env/mirrors/builds
+  repos:
+  - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
+  #############################################################################
+  packages:
+    openmpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    mvapich2:
+      version: [2.3.4]
+      externals:
+      - spec: mvapich2@2.3.4
+        modules:
+        - cray-mvapich2_nogpu/2.3.4
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    qt:
+      variants: ~ssl
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    ncurses:
+      variants: +termlib
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    slurm:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    m4:
+      buildable: true
+      version: [1.4.18]
+      target: []
+      providers: {}
+      externals:
+      - spec: m4%intel
+        prefix: /usr
+      compiler: []
+    binutils:
+      buildable: true
+      target: []
+      providers: {}
+      compiler: []
+      variants: +libiberty
+      version: []
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      target: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+      compiler: []
+    octave:
+      variants: +magick+arpack+curl+fftw+fontconfig+freetype+glpk+gnuplot+hdf5+opengl+qhull+qrupdate+qt+readline+suitesparse+zlib
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libtool:
+      buildable: true
+      version: [2.4.6]
+      target: []
+      providers: {}
+      compiler: []
+    r:
+      variants: ~X
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    fftw:
+      variants: precision=float,double,long_double
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    hdf5:
+      variants: +hl+cxx+fortran
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netlib-scalapack:
+      variants: +fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netcdf-c:
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    parallel-netcdf:
+      variants: +cxx+fortran+fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    all:
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers:
+        mpi: [mvapich2]
+        lapack: [openblas, mkl]
+        blas: [openblas, mlk]
+        scalapack: [netlib-scalapack]
+      compiler: [gcc@8.3.1, gcc, clang, intel, pgi]
+  view: false
+  modules:
+    enable:
+    - lmod
+    - tcl
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      all:
+        suffixes:
+          ^python@2.0:2.99: py2
+          ^python@3.0:3.99: py3
+        environment:
+          set:
+            OLCF_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+      openmpi:
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      openblas:
+        suffixes:
+          openblas threads=openmp: omp
+          openblas threads=pthreads: pthreads
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      fftw:
+        suffixes:
+          fftw+openmp: omp
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      hdf5:
+        suffixes:
+          hdf5~mpi+szip: sz
+          hdf5~mpi+threadsafe: threadsafe
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      cdo:
+        suffixes:
+          cdo^hdf5+mpi^netcdf+mpi^fftw+mpi: parallel
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      cairo:
+        suffixes:
+          cairo+X: X
+          cairo+pdf: pdf
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      gromacs:
+        suffixes:
+          gromacs~rdtscp: rdtscp_off
+          gromacs~mpi: analysis
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      vtk:
+        suffixes:
+          vtk+mpi: parallel
+          vtk~mpi: serial
+          vtk+qt: qt
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ferret:
+        suffixes:
+          ferret^hdf5+mpi^netcdf+mpi: parallel
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ncl:
+        suffixes:
+          builtin.ncl ^hdf5+mpi^netcdf+mpi: parallel
+          olcf.ncl: serial
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      pango:
+        suffixes:
+          pango+X: X
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+      blacklist:
+      - python
+      - go-bootstrap
+      - openssl
+      - harfbuzz ^cairo~X
+      - pango ^cairo~pdf
+      - '%gcc@8-os'
+      hash_length: 0
+      hierarchy: []
+      projections: {}
+      core_specs: []
+    tcl:
+      hash_length: 3
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      blacklist:
+      - slurm
+      - go-bootstrap
+      - openssl
+      all:
+        conflict:
+        - '{name}'
+        suffixes:
+          ^python@2.0:2.99: py2
+          ^python@3.0:3.99: py3
+        environment:
+          set:
+            OLCF_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+      projections: {}
+  config:
+    install_tree:
+      root: ${FACSPACK_ENV}/opt
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    module_roots:
+      tcl: ${FACSPACK_ENV_MODULEROOT}/flat
+      lmod: ${FACSPACK_ENV_MODULEROOT}/spack
+    template_dirs:
+    - ${FACSPACK_CONF_HOST}/templates
+    - ${FACSPACK_CONF_COMMON}/spack/templates
+    - $spack/share/spack/templates
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
+    extensions:
+    - /ccs/home/belhorn/facspack/share/spack/extensions/spack-olcf
+    misc_cache: ${FACSPACK_ENV}/.mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 8
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: original
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.3.1
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        unset: []
+      flags: {}
+  - compiler:
+      spec: gcc@8-os
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+        unset: []
+      flags: {}
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: /opt/gcc/8.1.0/bin/gcc
+        cxx: /opt/gcc/8.1.0/bin/g++
+        f77: /opt/gcc/8.1.0/bin/gfortran
+        fc: /opt/gcc/8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: any
+      modules:
+      - gcc/8.1.0
+      environment: {}
+      extra_rpaths:
+      - /opt/gcc/8.1.0/snos/lib64
+  - compiler:
+      spec: cce@11.0.0.7519
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: rhel8
+      target: any
+      modules:
+      - PrgEnv-cray/1.0.6.amd
+      - cce/11.0.0.7519
+      - rocm/3.7.0
+      # - craype/2.7.1
+      # - cray-mvapich2_nogpu
+      # - cray-libsci_acc
+      # - perftools-base
+      environment: {}
+      extra_rpaths: []

@@ -1,0 +1,60 @@
+packages:
+  all:
+    compiler: [gcc, intel, pgi, clang, xl, nag]
+    providers:
+      #
+      #blas: [intel-mkl]
+      #lapack: [intel-mkl]
+      #
+      blas: [openblas]
+      lapack: [openblas]
+      #
+      #blas: [netlib-lapack]
+      #lapack: [netlib-lapack]
+      #
+      mpi: [openmpi]
+      #
+      awk: [gawk]
+      daal: [intel-daal]
+      elf: [elfutils]
+      golang: [gcc]
+      ipp: [intel-ipp]
+      java: [jdk]
+      mkl: [intel-mkl]
+      mpe: [mpe2]
+      opencl: [pocl]
+      openfoam: [openfoam-com, openfoam-org, foam-extend]
+      pkgconfig: [pkg-config]
+      pil: [py-pillow]
+      scalapack: [netlib-scalapack]
+      szip: [libszip, libaec]
+      tbb: [intel-tbb]
+      jpeg: [libjpeg-turbo, libjpeg]
+  # # # # #
+  hwloc:
+    paths:
+      hwloc % pgi arch=linux-centos7-haswell: /scratch/users/dantopa/repos/spack/vanguard/darwin-general.spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/hwloc-1.11.11-dyztf2zlfws43ao2hwu2fi7lgzlwns62
+  # # # # #
+  libpciaccess:
+    paths:
+      libpciaccess % pgi arch=linux-centos7-haswell: /usr
+      libpciaccess % pgi arch=linux-centos7-skylake_avx512: /scratch/users/dantopa/repos/spack/vanguard/darwin-general.spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/hwloc-1.11.11-dyztf2zlfws43ao2hwu2fi7lgzlwns62
+  # # # # #
+  numactl:
+    paths:
+      numactl % pgi arch=linus-centos7-haswell: /usr
+  # # # # #
+  openssl:
+    paths:
+      openssl arch=linux-centos7-haswell: /usr
+    buildable: false
+  # # # # #
+  pkg-config:
+    paths:
+      pkg-config % pgi arch=linux-centos7-haswell: /usr
+  # # # # #
+  perl:
+    paths:
+      perl arch=linux-centos7-haswell: /usr
+    buildable: false
+  # # # # #

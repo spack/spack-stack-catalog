@@ -1,0 +1,6 @@
+spack:
+  view: false
+  specs:
+  - works
+  repos:
+  - repo/

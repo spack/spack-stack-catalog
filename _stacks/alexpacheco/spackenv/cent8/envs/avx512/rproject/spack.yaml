@@ -1,0 +1,149 @@
+spack:
+#  include:
+#  - /share/Apps/lusoft/var/spack/environments/skylake/packages.yaml
+#  - /share/Apps/lusoft/var/spack/environments/avx-python/modules.yaml
+  packages:
+    fftw:
+      variants: [~mpi]
+    hdf5:
+      variants: [~mpi]
+    netcdf-c:
+      variants: [~mpi]
+    all:
+      target: [skylake_avx512]
+      version: []
+      compiler: [gcc@8.3.1]
+      buildable: true
+      providers:
+        blas: [openblas, intel-mkl]
+        mpi: [mpich, mvapich2, openmpi]
+  config:
+    module_roots:
+      lmod: $spack/share/spack/lmod/avx512-rproject
+  modules:
+    'enable:':
+    - lmod
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      hash_length: 7
+      verbose: false
+      blacklist_implicits: true
+      hierarchy:
+      - mpi
+      core_specs:
+      - gcc@8.3.1
+      whitelist: [^r]
+      r:
+        autoload: direct
+        template: rproject.lua
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      all:
+        autoload: direct
+        filter:
+          environment_blacklist: [CPATH, LIBRARY_PATH]
+        suffixes:
+          ^cuda: cuda
+        template: scratch.lua
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ^python:
+        autoload: direct
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      blacklist: []
+  definitions:
+  - core_compiler:
+    - gcc@8.3.1
+  - gnu_compilers:
+    - gcc@9.3.0
+  - intelgpu_compilers:
+    - intel@19.0.3
+  - intel_compilers:
+    - intel@20.0.3
+  - nvidia_compilers:
+    - nvhpc@20.9
+  - gpu_compilers:
+    - cuda@10.2.89
+    - cuda@11.0.2
+    - cuda@11.1.0
+  - old_compilers:
+    - intel@18.0.1
+  - mpis:
+    - mpich@3.3.2
+    - mvapich2@2.3.4
+    - openmpi@4.0.5
+  - blas_libs:
+    - openblas@0.3.10
+  - rapps:
+    - r@4.0.3
+    - r-biocmanager@1.30.10
+    - r-tidyverse@1.2.1
+    - r-edger@3.26.8
+    - r-deseq2@1.24.0 ^r-genefilter@1.72.1
+    - r-ape@5.3
+    - r-ctc@1.58.0
+    - r-gplots@3.0.1.1
+    - r-biobase@2.44.0
+    - r-qvalue@2.16.0
+    - r-goseq@1.36.0
+    - r-glimma@1.12.0
+    - r-rots@1.12.0
+    - r-goplot@1.0.2
+    - r-argparse@2.0.1
+    - r-fastcluster@1.1.25
+    - r-sm@2.2-5.6
+    - r-tximport@1.12.3
+    - r-tximportdata@1.18.0
+    - r-dexseq@1.36.0 ^r-genefilter@1.72.1
+    - r-devtools@2.3.0
+    - r-remotes@2.1.1
+    - r-dygraphs@1.1.1.6
+    - r-sqldf@0.4-11
+    - r-rpostgresql@0.6-2
+    - r-phangorn@2.5.5
+    - r-caret@6.0-84
+    - r-gmodels@2.18.1
+    - r-janitor@1.2.0
+    - r-mlr@2.15.0
+    - r-openxlsx@4.1.0.1
+    - r-pacman@0.5.1
+    - r-quantmod@0.4-15
+    - r-rbokeh@0.5.0
+    - r-reticulate@1.15
+    - r-splitstackshape@1.4.8
+    - r-bigmemory@4.5.36
+    - r-dendextend@1.12.0
+    - r-doparallel@1.0.15
+    - r-lme4@1.1-21
+    - r-multtest@2.40.0
+    - r-randomforest@4.6-14
+    - r-rdpack@0.11-0
+    - r-rstan@2.19.2
+    - r-sctransform@0.2.0
+    - r-vioplot@0.3.2
+    - r-seurat@3.1.0
+    - r-phytools@0.6-99
+    - r-ncdf4@1.16.1
+    - r-hdf5r@1.2.0
+    - r-rhdf5@2.28.1
+#    - r-rmysql@0.10.17
+  specs:
+  - matrix:
+    - [$rapps]
+    - [$%core_compiler]
+    - [$^blas_libs]
+  view:
+    default:
+      root: /share/Apps/r_spack/4.0.3/avx512
+      select: [r, ^r]

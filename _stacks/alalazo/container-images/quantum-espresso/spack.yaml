@@ -1,0 +1,25 @@
+spack:
+  specs:
+  - quantum-espresso target=broadwell
+  - 'openmpi@4.0.0:'
+  packages:
+    perl:
+      externals:
+      - spec: perl@5.26.1
+        prefix: /usr
+      buildable: false
+    cmake:
+      externals:
+      - spec: cmake@3.10.2
+        prefix: /usr
+      buildable: false
+  container:
+    os_packages:
+      build:
+      - cmake
+      - perl
+      final:
+      - ssh
+    extra_instructions:
+      final: |
+        ENV OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1

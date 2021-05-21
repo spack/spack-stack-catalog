@@ -1,0 +1,254 @@
+spack:
+  specs:
+  - mochi-margo%gcc@8.2.0
+  - mercury@master%gcc@8.2.0
+  concretization: together
+  compilers:
+  - compiler:
+      paths:
+        cc: /blues/gpfs/software/centos7/spack/opt/spack/linux-centos7-x86_64/gcc-8.1.0/gcc-8.2.0-g7hppkz/bin/gcc
+        cxx: /blues/gpfs/software/centos7/spack/opt/spack/linux-centos7-x86_64/gcc-8.1.0/gcc-8.2.0-g7hppkz/bin/g++
+        f77: /blues/gpfs/software/centos7/spack/opt/spack/linux-centos7-x86_64/gcc-8.1.0/gcc-8.2.0-g7hppkz/bin/gfortran
+        fc: /blues/gpfs/software/centos7/spack/opt/spack/linux-centos7-x86_64/gcc-8.1.0/gcc-8.2.0-g7hppkz/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules:
+      - gcc/8.2.0-g7hppkz
+      - intel-mpi/2018.4.274-ozfo327
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@8.2.0
+  repos:
+  - path/to/sds-repo
+  packages:
+    all:
+      providers:
+        mpi: [ intel-mpi ]
+      compiler: [ gcc@8.2.0 ]
+    autoconf:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: autoconf@2.69 arch=linux-centos7-x86_64
+        prefix: /usr
+    automake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: automake@1.13.4 arch=linux-centos7-x86_64
+        prefix: /usr
+    binutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: binutils@2.27 arch=linux-centos7-x86_64
+        prefix: /usr
+    bison:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bison@3.0.4 arch=linux-centos7-x86_64
+        prefix: /usr
+    bzip2:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bzip2@1.0.6 arch=linux-centos7-x86_64
+        prefix: /usr
+    cmake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cmake@3.14.2 arch=linux-centos7-x86_64
+        modules:
+        - cmake/3.14.2-gvwazz3
+    coreutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: coreutils@8.25 arch=linux-centos7-x86_64
+        prefix: /usr
+    findutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: findutils@4.5.11 arch=linux-centos7-x86_64
+        prefix: /usr
+    flex:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: flex@2.5.37 arch=linux-centos7-x86_64
+        prefix: /usr
+    gettext:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: gettext@0.19.8.1 arch=linux-centos7-x86_64
+        prefix: /usr
+    git:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: git@1.8.3.1 arch=linux-centos7-x86_64
+        prefix: /usr
+    hdf5:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: hdf5@1.10.5 arch=linux-centos7-x86_64
+        modules:
+        - hdf5/1.10.5-vozfsah
+    intel-mpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: intel-mpi@2018.4.274 arch=linux-centos7-x86_64
+        modules:
+        - intel-mpi/2018.4.274-ozfo327
+    libfabric:
+      variants: fabrics=psm2,sockets
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    libtool:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: libtool@2.4.2 arch=linux-centos7-x86_64
+        prefix: /usr
+    m4:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: m4@1.4.16 arch=linux-centos7-x86_64
+        prefix: /usr
+    mercury:
+      variants: ~boostsys ~checksum
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    numactl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: numactl@2.0.12 arch=linux-centos7-x86_64
+        modules:
+        - numactl/2.0.12-355ef36
+    openssl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openssl@1.0.2k arch=linux-centos7-x86_64
+        prefix: /usr
+    perl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: perl@5.16.3 arch=linux-centos7-x86_64
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: pkg-config@0.27.1 arch=linux-centos7-x86_64
+        prefix: /usr
+    tar:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: tar@1.16 arch=linux-centos7-x86_64
+        prefix: /usr
+    texinfo:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: texinfo@5.1 arch=linux-centos7-x86_64
+        prefix: /usr
+    xz:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: xz@5.2.2 arch=linux-centos7-x86_64
+        prefix: /usr
+    zlib:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: zlib@1.2.7 arch=linux-centos7-x86_64
+        prefix: /usr
+  view: true

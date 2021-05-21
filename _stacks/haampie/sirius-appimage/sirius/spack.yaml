@@ -1,0 +1,4 @@
+spack:
+  view: true
+  specs:
+  - sirius ^openblas threads=openmp ^mpich

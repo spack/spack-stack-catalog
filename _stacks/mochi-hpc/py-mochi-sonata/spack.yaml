@@ -1,0 +1,7 @@
+spack:
+  specs:
+  - py-mochi-margo
+  - py-pkgconfig
+  - py-pybind11
+  - mochi-sonata@master
+  concretization: together

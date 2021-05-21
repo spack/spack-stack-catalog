@@ -1,0 +1,55 @@
+#
+# 3-sdk specs for ecp-x86_64 deployment (prod)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/conf-sdk
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - gcc-compilers:
+      - "%gcc@8.3.0"
+
+    - mpi-deps:
+      - "^openmpi@3.1.4"
+
+    - xsdk:
+      - xsdk ~precice~phist ^hypre~openmp
+###############################################################################
+  specs:
+    - matrix:
+      - [$xsdk]
+      - [$mpi-deps]
+      - [$gcc-compilers]
+###############################################################################
+  modules:
+    enable:
+    - lmod
+    lmod:
+      hierarchy: []
+      hash_length: 0
+      core_compilers: [gcc@4.8.5]
+      blacklist:
+      - '@system'
+      - '@local'
+      - '%gcc@4.8.5'
+      - openssl
+      all:
+        autoload: direct
+        environment:
+          set:
+            NMC_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+###############################################################################

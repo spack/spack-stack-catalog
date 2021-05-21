@@ -1,0 +1,66 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    python:
+      version: [3.7.6]
+      target: []
+      compiler: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+    all:
+      compiler: [gcc@8.1.0]
+      target: [x86_64]
+      version: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - python
+  ##- py-numpy
+  ##- py-matplotlib
+  ##- py-scipy
+  ##- py-seaborn
+  ##- py-pandas
+  ##- py-cython
+  ##- py-biopython
+  ##- py-mdanalysis
+  ##- py-cclib
+  #- py-scientificpython #conflict in view
+  ##- py-ase
+  #- py-astropy
+  #- py-beautifulsoup4
+  ##- py-dask
+  #- py-espresso ^boost@1.66.0
+  ##- py-espressopp need python@2
+  ##- py-ipython in py-jupyter
+  ##- py-jupyter
+  ##- py-jupyter-client in py-jupyter 
+  ##- py-jupyter-core in py-jupyter
+  ##- py-jupyterhub
+  - py-keras
+  ##- py-moltemplate
+  ##- py-mpi4py
+  ##- py-multiprocess
+  ##- py-numba uses an older llvm
+  ##- py-phonopy
+  ##- py-pip
+  - py-pymol #installs a different qt
+  - py-pyspark
+  - py-scikit-build
+  - py-scikit-image
+  - py-scikit-learn
+  - py-scikit-optimize
+  - py-tensorflow ~cuda ~nccl +mpi +mkl
+  #- py-tensorflow-estimator
+  - py-theano
+  #- py-torch +caffe2 +cuda cuda_arch=61
+  ##- py-virtualenv
+  ##- py-virtualenvwrapper
+  view: false

@@ -1,0 +1,59 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - bamtools@2.4.1%gcc@4.8.5
+  - bamtools@2.5.1%gcc@5.3.0
+  - blast-plus@2.9.0%gcc@5.3.0
+  - blat@35%gcc@5.3.0
+  - bowtie@1.2.3%gcc@5.3.0
+  - bowtie2@2.3.4.1%gcc@4.8.5
+  - bowtie2@2.3.5.1%gcc@5.3.0
+  - bwa@0.7.15%gcc@4.8.5
+  - bwa@0.7.17%gcc@5.3.0
+  - express@1.5.2%gcc@5.3.0 ^boost@1.66.0
+  - fastqc@0.11.7%gcc@5.3.0
+  - fastx-toolkit@0.0.14%gcc@4.8.5
+  - fastx-toolkit@0.0.14%gcc@5.3.0
+  - freebayes@1.1.0%gcc@4.8.5
+  - freebayes@1.1.0%gcc@5.3.0
+  - miniasm@2018-3-30%gcc@4.8.5
+  - miniasm@2018-3-30%gcc@5.3.0
+  - minimap2@2.14%gcc@5.3.0
+  - miniconda2@4.3.14%gcc@4.8.5
+  - miniconda3@4.5.4%gcc@4.8.5
+  - minimap2@2.2%gcc@4.8.5
+  - openjdk@1.8.0_202-b08%gcc@4.8.5
+  - openjdk@1.8.0_202-b08%gcc@5.3.0
+  - phast@1.4%gcc@5.3.0
+  - pilon@1.22%gcc@4.8.5
+  - pilon@1.22%gcc@5.3.0
+  
+  #- relion@3.0.6%gcc@5.3.0 ~cuda ^mvapich2%gcc@5.3.0 ^rdma-core%gcc@4.8.5 ^findutils%gcc@4.8.5  ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^bison%gcc@4.8.5 ^cmake%gcc@4.8.5
+  #- relion@3.0.6%gcc@5.3.0 ~cuda
+  - relion@3.0.6%gcc@5.3.0 +cuda cuda_arch=60
+  - salmon@0.14.1%gcc@5.3.0
+  - samtools@1.4%gcc@4.8.5
+  - samtools@1.9%gcc@5.3.0
+  - swig@3.0.12%gcc@5.3.0
+  - tabix@2013-12-16%gcc@4.8.5
+  - trimmomatic@0.36%gcc@4.8.5
+  - trimmomatic@0.38%gcc@5.3.0
+  - vcftools@0.1.14%gcc@4.8.5
+  - vcftools@0.1.14%gcc@5.3.0
+  - vcftools@0.1.15%gcc@4.8.5
+  - vcftools@0.1.15%gcc@5.3.0
+  
+    #- angsd@0.921%gcc@5.3.0
+  - canu@1.5%gcc@4.8.5
+  - gnuplot%gcc@4.8.5
+  - py-biopython@1.70%gcc@4.8.5
+  - perl@5.30.1%gcc@4.8.5
+  - perl@5.30.1%gcc@5.3.0
+  - python@3.7.6%gcc@4.8.5
+  - python@3.7.6%gcc@5.3.0
+  concretization: separately
+  view: false

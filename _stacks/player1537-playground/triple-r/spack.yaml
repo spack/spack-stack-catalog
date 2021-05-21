@@ -1,0 +1,22 @@
+spack:
+  specs:
+  - mpich@3.3.2 -fortran
+  - autoconf@2.69
+  - automake@1.16.3
+  - libtool@2.4.6
+  - libffi@3.3
+  - pkg-config@0.29.2
+  compilers:
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77:
+        fc:
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

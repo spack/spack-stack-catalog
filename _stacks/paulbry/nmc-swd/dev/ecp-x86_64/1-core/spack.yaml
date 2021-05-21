@@ -1,0 +1,54 @@
+#
+# 1-core specs for ecp-x86_64 deployment (dev)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/modules/modules.yaml
+    - ../shared/conf-general
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+
+    - gcc-compilers:
+      - "%gcc@8.3.0"
+      - "%gcc@9.2.0"
+
+    - llvm-compilers:
+      - "%clang@7.1.0"
+
+    - core-sw:
+      - boost~mpi
+      - cmake
+      - czmq
+      - darshan-util
+      - elfutils
+      - hdf5~mpi
+      - intel-tbb
+      - libedit
+      - libevent
+      - libiberty
+      - python@3.7.4
+
+    - mpi-installs:
+      - openmpi@4.0.1
+      - openmpi@3.1.4
+      - openmpi@2.1.6
+      - mpich@3.3.1
+      - mvapich2@2.3.1
+###############################################################################
+  specs:
+      - matrix:
+        - [$core-sw, $mpi-installs]
+        - [$core-compilers, $gcc-compilers, $llvm-compilers]
+        exclude:
+          # clang
+          - elfutils %clang@7.1.0
+          - pixman %clang@7.1.0
+###############################################################################

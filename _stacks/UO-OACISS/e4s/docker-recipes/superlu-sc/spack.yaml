@@ -1,0 +1,67 @@
+spack:
+  packages:
+    all:
+      target: [x86_64]
+      compiler: [gcc@7.3.0]
+      variants: +mpi
+      providers:
+        mpi: [mpich]
+        blas: [openblas]
+      buildable: true
+      version: []
+      modules: {}
+      paths: {}
+    openblas:
+      variants: threads=openmp
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+    mpich:
+      version: [3.2.1]
+      variants: ~wrapperrpath
+      buildable: true
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+      paths: {}
+    gcc:
+      version: [7.3.0]
+      buildable: true
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+      paths: {}
+    cmake:
+      version: [3.15.4]
+      target: []
+      compiler: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - superlu-dist@6.2.0 +openmp
+  - butterflypack@1.1.0
+  - strumpack@3.3.0
+  - parmetis
+  - metis
+  - mfem
+  - netlib-scalapack
+  - netlib-lapack
+  - arpack-ng
+  - emacs@26.2
+  view: false
+  config: {}
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  upstreams: {}
+  definitions: []
+  concretization: separately

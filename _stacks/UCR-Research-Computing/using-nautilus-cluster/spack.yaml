@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos1
+spec:
+  containers:
+  - name: spack
+    image: localhost:30081/library/ubuntu:20.04
+    command: ["sleep", "infinity"]
+    resources:
+      limits:
+        memory: 4Gi
+        cpu: "2"
+      requests:
+        memory: 4Gi
+        cpu: "1"
+    volumeMounts:
+    - mountPath: /sharedvol
+      name: sharedvol
+  volumes:
+    - name: sharedvol
+      persistentVolumeClaim:
+        claimName: master-vol
+

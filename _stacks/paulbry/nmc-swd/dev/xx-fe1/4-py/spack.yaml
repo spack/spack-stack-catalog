@@ -1,0 +1,33 @@
+#
+# 4-py specs for xx-fe1 deployment (dev)
+#
+spack:
+  view: false
+###############################################################################
+  include:
+    - ../shared/conf-python
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+
+    - python-deps:
+      - "^python@2.7.16"
+      - "^python@3.7.4"
+
+    - py-pkgs:
+      - py-pip
+      - py-virtualenv
+      - py-setuptools
+      - py-cython
+      - py-pycparser
+###############################################################################
+  specs:
+    - matrix:
+      - [$py-pkgs]
+      - [$python-deps]
+      - [$core-compilers]
+###############################################################################
+

@@ -1,0 +1,21 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - config.yaml
+  - packages.yaml
+  - modules.yaml
+  view: false
+  definitions:
+  - pumi:
+    - pumi@develop +zoltan ^zoltan+parmetis~fortran
+  - petsc:
+    - petsc@3.7.7 ~hdf5 ~hypre ~superlu-dist
+  - petscDbg:
+    - petsc@3.7.7 ~hdf5 ~hypre ~superlu-dist +debug
+  specs:
+  - matrix:
+    - [cuda@10.2, hdf5@1.10.3, hdf5@1.10.3+fortran, $pumi, fftw, adios@1.13.1+fortran, adios2 ^zeromq@develop, netlib-lapack, $petsc, $petscDbg, hypre, netlib-scalapack]
+    - ['%xl@16.1.1']

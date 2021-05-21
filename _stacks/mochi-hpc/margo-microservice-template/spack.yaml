@@ -1,0 +1,10 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - libuuid
+  - mochi-margo
+  - mochi-abt-io@master
+  - json-c
+  - mochi-bedrock
+  concretization: together

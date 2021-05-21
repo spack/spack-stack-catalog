@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  concretization: together
+  specs:
+  - arborx
+  - apollo
+  - tuning-playground
+  view: true
+  packages:
+    kokkos:
+      version: [develop]
+    opencv:
+      variants: [~cuda]
+    all:
+      providers:
+        mpi:
+        - openmpi
+      buildable: true
+      version: []
+      variants: [+tuning +ml +cuda +cuda_lambda cuda_arch=70 std=14]
+      compiler: [gcc@7.5.0]

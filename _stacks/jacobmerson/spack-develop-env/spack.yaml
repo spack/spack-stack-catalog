@@ -1,0 +1,30 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [neovim@0.4.3%gcc@7.3.0 build_type=Release +python arch=linux-rhel7-x86_64
+      ^bzip2@1.0.8%gcc@7.3.0+shared arch=linux-rhel7-x86_64 ^expat@2.2.9%gcc@7.3.0+libbsd
+      arch=linux-rhel7-x86_64 ^gdbm@1.18.1%gcc@7.3.0 arch=linux-rhel7-x86_64 ^gettext@0.20.1%gcc@7.3.0+bzip2+curses+git~libunistring+libxml2+tar+xz
+      arch=linux-rhel7-x86_64 ^gperf@3.1%gcc@7.3.0 arch=linux-rhel7-x86_64 ^jemalloc@5.2.1%gcc@7.3.0~je~prof~stats
+      arch=linux-rhel7-x86_64 ^libbsd@0.10.0%gcc@7.3.0 arch=linux-rhel7-x86_64 ^libffi@3.2.1%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^libiconv@1.16%gcc@7.3.0 arch=linux-rhel7-x86_64 ^libtermkey@0.18%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^libuv@1.37.0%gcc@7.3.0 arch=linux-rhel7-x86_64 ^libvterm@0.1%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^libxml2@2.9.9%gcc@7.3.0~python arch=linux-rhel7-x86_64
+      ^lua@5.2.4%gcc@7.3.0+shared arch=linux-rhel7-x86_64 ^lua-bitlib@23-2%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^lua-lpeg@0.12-1%gcc@7.3.0 arch=linux-rhel7-x86_64 ^lua-luajit@2.0.4%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^lua-luv@1.36.0-0%gcc@7.3.0 build_type=RelWithDebInfo
+      arch=linux-rhel7-x86_64 ^lua-mpack@1.0.6-0%gcc@7.3.0 arch=linux-rhel7-x86_64
+      ^msgpack-c@3.0.1%gcc@7.3.0 build_type=RelWithDebInfo arch=linux-rhel7-x86_64
+      ^ncurses@6.2%gcc@7.3.0~symlinks+termlib arch=linux-rhel7-x86_64 ^openssl@1.1.1g%gcc@7.3.0+systemcerts
+      arch=linux-rhel7-x86_64 ^py-greenlet@0.4.13%gcc@7.3.0 arch=linux-rhel7-x86_64
+      ^py-msgpack@0.6.2%gcc@7.3.0 arch=linux-rhel7-x86_64 ^py-pynvim@0.4.1%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^python@3.7.7%gcc@7.3.0+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4~uuid+zlib
+      arch=linux-rhel7-x86_64 ^readline@8.0%gcc@7.3.0 arch=linux-rhel7-x86_64 ^sqlite@3.30.1%gcc@7.3.0+column_metadata+fts~functions~rtree
+      arch=linux-rhel7-x86_64 ^tar@1.32%gcc@7.3.0 arch=linux-rhel7-x86_64 ^unibilium@2.0.0%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^unzip@6.0%gcc@7.3.0 arch=linux-rhel7-x86_64 ^xz@5.2.5%gcc@7.3.0
+      arch=linux-rhel7-x86_64 ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared arch=linux-rhel7-x86_64,
+    node-js, yarn, 'py-flake8 ^python@3:', 'py-pylint ^py-astroid ^python@3:', 'py-pylint
+      ^python@3:', 'py-autopep8 ^python@3:', 'py-jedi ^python@3:', 'py-numpy ^python@3:']
+  view: true

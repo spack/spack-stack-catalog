@@ -1,0 +1,13 @@
+# Spack environment specification for code needed to run ExaCLAMR on non-CUDA systems.
+spack:
+  specs:
+    - openmpi@3.1.6
+    - hdf5+mpi
+    - silo
+    - kokkos std=14 +openmp +hwloc +numactl
+    - cabana +openmp
+  concretization: together
+
+# On Wheeler, add the following packages after creating the environment to use pre-installed 
+# support packages instead of building your own using "spack add"
+# XXX Figure this out XXX

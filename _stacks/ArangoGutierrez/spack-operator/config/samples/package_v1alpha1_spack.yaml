@@ -1,0 +1,7 @@
+apiVersion: multiarch.builder.io/v1alpha1
+kind: Spack
+metadata:
+  name: spack-sample
+spec:
+  # Add fields here
+  foo: bar

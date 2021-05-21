@@ -1,0 +1,27 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+
+spack:
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  packages:
+    all:
+      variants: [+mpi]
+      compiler: [gcc@8.3.1]
+      providers:
+        mpi: [openmpi]
+      target: [x86_64]
+    openmpi:
+      variants: [+thread_multiple fabrics=ucx]
+  config:
+    install_tree: /opt/software
+  specs: 
+    - openmpi
+  view:
+    default:
+      root: /usr/local
+  concretization: together

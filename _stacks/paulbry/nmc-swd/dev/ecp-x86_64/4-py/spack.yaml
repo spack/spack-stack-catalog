@@ -1,0 +1,34 @@
+#
+# 4-py specs for ecp-x86_64 deployment (dev)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/modules/modules.yaml
+    - ../shared/conf-python
+    - ../shared/common
+    - ../shared/compilers-all
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+
+    - python-deps:
+      - "^python@3.7.4"
+
+    - py-pkgs:
+      - py-pip
+      - py-virtualenv
+      - py-setuptools
+      - py-cython
+      - py-numpy
+###############################################################################
+  specs:
+    - matrix:
+      - [$py-pkgs]
+      - [$python-deps]
+      - [$core-compilers]
+###############################################################################

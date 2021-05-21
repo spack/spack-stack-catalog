@@ -1,0 +1,76 @@
+spack:
+  specs:
+  - gcc@8.4.0%gcc@4.8.5
+  - intel@19.0.5%intel@0.0.0
+
+  - matrix:
+    - - cmake
+      - emacs
+      - expat
+      - gdb
+      - geos
+      - git
+      - jdk
+      - lmod
+      - parallel
+      - perl
+      - qemu
+      - singularity
+      - tcl
+      - tk
+      - udunits
+      - zip
+    - - '%gcc@4.8.5'
+  - matrix:
+    - - intel-mkl
+      - jasper
+      - libjpeg
+      - libpng
+      - libszip
+      - openjpeg
+      - zlib
+    - - '%gcc@8.4.0'
+      - '%intel@19.0.5'
+  - intel-mpi%intel@19.0.5
+  - matrix:
+    - - openmpi@2.1.6
+      - openmpi@3.1.5
+    - - '%gcc@8.4.0'
+  - matrix:
+    - - hdf5
+    - - '%intel@19.0.5 ^intel-mpi'
+      - '%gcc@8.4.0 ^openmpi@3.1.5'
+  - matrix:
+    - - parallel-netcdf
+    - - ~cxx %intel@19.0.5 ^intel-mpi
+      - '%gcc@8.4.0 ^openmpi@3.1.5'
+  - matrix:
+    - - netcdf-c
+      - netcdf-cxx4
+      - netcdf-fortran
+    - - '%intel@19.0.5 ^parallel-netcdf~cxx ^intel-mpi'
+      - '%gcc@8.4.0 ^openmpi@3.1.5'
+  view:
+    lmod:
+      root: /curc/sw/views/summer2020/lmod
+      select:
+      - lmod%gcc@4.8.5
+    gcc8-openmpi-netcdf:
+      root: /curc/sw/views/summer2020/gcc8-openmpi-netcdf
+      select:
+      - netcdf-c%gcc@8.4.0 ^openmpi@3.1.5
+      - netcdf-cxx4%gcc@8.4.0 ^openmpi@3.1.5
+      - netcdf-fortran%gcc@8.4.0 ^openmpi@3.1.5
+    intel19-impi-netcdf:
+      root: /curc/sw/views/summer2020/intel19-impi-netcdf
+      select:
+      - netcdf-c%intel@19.0.5 ^intel-mpi
+      - netcdf-cxx4%intel@19.0.5 ^intel-mpi
+      - netcdf-fortran%intel@19.0.5 ^intel-mpi
+
+  include:
+  - config.yaml
+  - mirrors.yaml
+  - compilers.yaml
+  - modules.yaml
+  - packages.yaml

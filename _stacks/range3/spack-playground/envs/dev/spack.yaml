@@ -1,0 +1,28 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [py-cmake-format, cxxopts, py-pyyaml, mochi-thallium, mercury+bmi, 'libfabric
+      fabrics=rxm,sockets,tcp', fmt]
+  concretization: together
+  view: true
+  packages:
+    all:
+      compiler: [gcc, clang]
+    cmake:
+      externals:
+      - spec: cmake@3.16.3
+        prefix: /
+      buildable: false
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.1
+        prefix: /
+      buildable: false
+  repos:
+  - /workspaces/spack-playground/extern/mochi-spack-packages
+  config:
+    build_stage:
+    - /home/$user/.spack/stage

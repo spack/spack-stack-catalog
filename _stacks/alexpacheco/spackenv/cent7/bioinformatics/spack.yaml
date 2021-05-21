@@ -1,0 +1,51 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  packages:
+    all:
+      compiler: [gcc@8.1.0]
+      target: [haswell]
+      version: []
+      buildable: true
+      modules: {}
+      providers: {}
+      paths: {}
+  specs:
+  - trinity
+  - perl
+  - python
+  - r
+  - openjdk@1.8.0_202-b08
+  - bamtools
+  - blast-plus
+  - bowtie
+  - bowtie2
+  - express ^boost@1.66.0
+  - fastqc
+  - jellyfish
+  - kallisto
+  - rsem
+  - salmon
+  - samtools
+  - star
+  - trimmomatic
+  - angsd
+  - bartender
+  - blat
+  - bwa
+  - fastx-toolkit
+  - gatk
+  - miniasm
+  - minimap2
+  - ngstools
+  - paml@4.9j
+  - phast
+  - pilon
+  - tabix
+  - vcftools
+  - canu target=haswell ^"gnuplot target=x86_64"
+  #- freebayes
+  view: false

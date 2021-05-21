@@ -1,0 +1,47 @@
+#
+# 0-base specs for ecp-p9-4v100 deployment (prod)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/modules/modules.yaml
+    - ../shared/conf-general
+    - ../shared/common
+    - ../shared/compilers-core
+###############################################################################
+  definitions:
+    - core-compilers:
+      - "%gcc@4.8.5"
+
+    - base-compilers:
+      - gcc@6.4.0
+      - gcc@8.3.0
+      - llvm@7.1.0
+
+    - hidden-compilers:
+      - gcc@7.3.0
+      - gcc@7.4.0
+      - gcc@9.2.0
+
+    - base-sw:
+      - binutils
+      - charliecloud
+      - cmake@3.15.5
+      - curl
+      - flux-sched ^python@3.7.4
+      - gdb
+      - git
+      - makedepend
+      - numactl
+      - python@2.7.16
+      - python@3.7.4
+      - ruby@2.6.2
+###############################################################################
+  specs:
+    - matrix:
+      - [$base-compilers, $base-sw, $hidden-compilers]
+      - [$core-compilers]
+###############################################################################

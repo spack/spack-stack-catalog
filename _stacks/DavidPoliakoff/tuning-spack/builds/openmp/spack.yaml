@@ -1,0 +1,23 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  concretization: together
+  specs:
+  - arborx
+  - apollo
+  - tuning-playground
+  view: true
+  packages:
+    kokkos:
+      version: [develop]
+    all:
+      providers:
+        mpi:
+        - openmpi
+      buildable: true
+      version: [develop]
+      variants: [+tuning +ml std=14 +openmp]
+      compiler: [gcc@10.2.0]

@@ -1,0 +1,162 @@
+#comment
+spack:
+  config:
+    target: x86_64
+    install_tree: /opt/scorec/spack/v0154_2/install
+    module_roots:
+      lmod: /opt/scorec/spack/v0154_2/lmod
+    misc_cache: $spack/v0154_2/misc_cache
+    build_stage:
+    - /space/cwsmith/spack/v0154_2/build_stage
+  packages:
+    all:
+      compiler: [gcc@10.1.0]
+      providers:
+        mpi: [mpich]
+      target: [x86_64]
+      version: []
+      buildable: true
+      modules: {}
+      paths: {}
+    xz:
+      paths:
+        xz@system: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    tar:
+      paths:
+        tar@system: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    flex:
+      paths:
+        flex@system: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    lua:
+      paths:
+        lua@5.1.4: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    libx11:
+      paths:
+        libx11@system: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    pango:
+      paths:
+        pango@1.0: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    bzip2:
+      paths:
+        bzip2@system: /usr
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+    cuda:
+      paths:
+        cuda@10.2: /usr/local/cuda-10.2/
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      modules: {}
+      providers: {}
+  include:
+  - modules.yaml
+
+  view: false
+  definitions:
+  - pumi:
+    - pumi@master %gcc@10.1.0 +zoltan ^zoltan+parmetis~fortran
+  - pumiSim16:
+    - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-210202dev
+
+  specs:
+  - gcc@10.1.0 %gcc@6.5.0
+  - vim %gcc@6.5.0
+  - emacs %gcc@6.5.0
+  - graphviz   +libgd %gcc@6.5.0
+  - git %gcc@6.5.0
+  - tmux %gcc@6.5.0
+  - gdb %gcc@6.5.0
+  - cmake %gcc@6.5.0
+  - valgrind -mpi %gcc@6.5.0
+  - octave %gcc@6.5.0
+  - py-pandas %gcc@6.5.0
+  - py-scipy %gcc@6.5.0
+  - anaconda3 %gcc@6.5.0
+  - mpich %gcc@10.1.0
+  - openmpi +cuda %gcc@10.1.0
+  - $pumiSim16
+  - $pumi
+
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5_rhel7
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77:
+        fc:
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@6.5.0
+      paths:
+        cc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-6.5.0-4vxvnnynwwokgpqnxtc76cfqtbqmzlvb/bin/gcc
+        cxx: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-6.5.0-4vxvnnynwwokgpqnxtc76cfqtbqmzlvb/bin/g++
+        f77: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-6.5.0-4vxvnnynwwokgpqnxtc76cfqtbqmzlvb/bin/gfortran
+        fc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-6.5.0-4vxvnnynwwokgpqnxtc76cfqtbqmzlvb/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.1.0
+      paths:
+        cc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/gcc
+        cxx: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/g++
+        f77: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/gfortran
+        fc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

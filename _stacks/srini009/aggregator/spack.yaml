@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - libuuid
+  - mochi-margo@develop-test
+  - argobots@main
+  - mercury@master
+  - mochi-abt-io
+  - libfabric fabrics=verbs,rxm
+  - jansson
+  concretization: together

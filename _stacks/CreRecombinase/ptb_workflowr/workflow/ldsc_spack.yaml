@@ -1,0 +1,8 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [py-ldsc-git@1.0.4 ^python@2.7.15 ^py-matplotlib@2.0.0 ^py-pillow@6.2.2 ^perl@5.30.0]
+  view: true

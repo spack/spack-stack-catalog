@@ -1,0 +1,120 @@
+spack:
+#  include:
+#  - /share/Apps/lusoft/var/spack/environments/skylake/packages.yaml
+#  - /share/Apps/lusoft/var/spack/environments/avx-python/modules.yaml
+  packages:
+    all:
+      target: [ivybridge]
+      version: []
+      compiler: [gcc@8.3.1]
+      buildable: true
+      providers:
+        blas: [openblas, intel-mkl]
+        mpi: [mpich, mvapich2, openmpi]
+  config:
+    module_roots:
+      lmod: $spack/share/spack/lmod/avx-python
+  modules:
+    'enable:':
+    - lmod
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      hash_length: 7
+      verbose: false
+      blacklist_implicits: true
+      hierarchy:
+      - mpi
+      core_specs:
+      - gcc@8.3.1
+      whitelist: [python,^python]
+      python:
+        autoload: direct
+        template: python.lua
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      all:
+        autoload: direct
+        filter:
+          environment_blacklist: [CPATH, LIBRARY_PATH]
+        suffixes:
+          ^cuda: cuda
+        template: scratch.lua
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ^python:
+        autoload: direct
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      blacklist: []
+  definitions:
+  - core_compiler:
+    - gcc@8.3.1
+  - gnu_compilers:
+    - gcc@9.3.0
+  - intelgpu_compilers:
+    - intel@19.0.3
+  - intel_compilers:
+    - intel@20.0.3
+  - nvidia_compilers:
+    - nvhpc@20.9
+  - gpu_compilers:
+    - cuda@10.2.89
+    - cuda@11.0.2
+    - cuda@11.1.0
+  - old_compilers:
+    - intel@18.0.1
+  - mpis:
+    - mpich@3.3.2
+    - mvapich2@2.3.4
+    - openmpi@4.0.5
+  - blas_libs:
+    - openblas@0.3.10
+  - pythonapps:
+    - python@3.8.6
+    - py-pip@20.2
+    - py-cython@0.29.21
+    - py-numpy@1.19.4
+    - py-scipy@1.5.4
+    - py-matplotlib@3.3.3
+    - py-pandas@1.1.4
+    - py-seaborn@0.9.0
+    - py-dask@2.16.0
+    - py-jupyter@1.0.0
+    - py-jupyterlab@2.2.7
+    - py-biopython@1.73
+    - py-pyparsing@2.4.2
+    - py-mdanalysis@1.0.0
+    - py-cclib@1.5.post1
+    - py-moltemplate@2.5.8
+    - py-keras@2.2.4
+    - py-phonopy@1.10.0
+    - py-pyspark@2.4.4
+    - py-scikit-build@0.10.0
+    - py-scikit-image@0.17.2
+    - py-scikit-learn@0.23.2
+    - py-scikit-optimize@0.5.2
+    - py-theano@1.0.4
+    - py-porechop@0.2.4
+    - py-lxml@4.5.2
+    - py-virtualenv@16.7.6
+    - py-virtualenvwrapper@4.8.2
+    - py-htseq@0.11.2
+#    - py-multiqc@1.7 # depends on matplotlib 2.x
+#    - py-pymol@2.4.0
+  specs:
+  - matrix:
+    - [$pythonapps]
+    - [$%core_compiler]
+    - [$^blas_libs]
+  concretization: together
+  view: /share/Apps/py_spack/3.8.6/avx

@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - mochi-margo
+  - mochi-bedrock
+  - libuuid
+  - mochi-abt-io
+  - autoconf
+  - automake
+  - jsoncpp
+  - libtool
+  - mochi-remi
+  - mpi
+  - pmdk
+  concretization: together

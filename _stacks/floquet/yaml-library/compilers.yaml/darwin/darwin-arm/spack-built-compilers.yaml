@@ -1,0 +1,66 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-9.1.0-nhd4fe4i6jtn2hncfzumegojm6hsznxy/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-9.1.0-nhd4fe4i6jtn2hncfzumegojm6hsznxy/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-9.1.0-nhd4fe4i6jtn2hncfzumegojm6hsznxy/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-9.1.0-nhd4fe4i6jtn2hncfzumegojm6hsznxy/bin/gfortran
+    spec: gcc@9.1.0
+    target: aarch64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-8.3.0-3a6klz6z5iazslrw573gdhxcplw55kk7/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-8.3.0-3a6klz6z5iazslrw573gdhxcplw55kk7/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-8.3.0-3a6klz6z5iazslrw573gdhxcplw55kk7/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-8.3.0-3a6klz6z5iazslrw573gdhxcplw55kk7/bin/gfortran
+    spec: gcc@8.3.0
+    target: aarch64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-7.4.0-aqlx4u2euhqyea2i3etlyyaef7j4fokf/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-7.4.0-aqlx4u2euhqyea2i3etlyyaef7j4fokf/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-7.4.0-aqlx4u2euhqyea2i3etlyyaef7j4fokf/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-7.4.0-aqlx4u2euhqyea2i3etlyyaef7j4fokf/bin/gfortran
+    spec: gcc@7.4.0
+    target: aarch64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-6.5.0-ubjvcbgvugbarlw5dl2qrduscwqsofoj/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-6.5.0-ubjvcbgvugbarlw5dl2qrduscwqsofoj/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-6.5.0-ubjvcbgvugbarlw5dl2qrduscwqsofoj/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-6.5.0-ubjvcbgvugbarlw5dl2qrduscwqsofoj/bin/gfortran
+    spec: gcc@6.5.0
+    target: aarch64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-5.5.0-2kyabfhlbfajjjy2g3i2sigfuiknmxwo/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-5.5.0-2kyabfhlbfajjjy2g3i2sigfuiknmxwo/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-5.5.0-2kyabfhlbfajjjy2g3i2sigfuiknmxwo/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/arm-darwin-compilers.spack/opt/spack/linux-rhel7-aarch64/gcc-4.8.5/gcc-5.5.0-2kyabfhlbfajjjy2g3i2sigfuiknmxwo/bin/gfortran
+    spec: gcc@5.5.0
+    target: aarch64

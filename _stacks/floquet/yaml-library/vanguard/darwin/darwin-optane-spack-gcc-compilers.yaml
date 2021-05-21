@@ -1,0 +1,43 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+      - gcc/9.2.0-gcc/6.4.0-linux-centos7-skylake_avx512
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-9.2.0-fxjdqn5lwkopxqqdheqkrdstifj5pam2/bin/gcc
+      cxx: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-9.2.0-fxjdqn5lwkopxqqdheqkrdstifj5pam2/bin/g++
+      f77: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-9.2.0-fxjdqn5lwkopxqqdheqkrdstifj5pam2/bin/gfortran
+      fc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-9.2.0-fxjdqn5lwkopxqqdheqkrdstifj5pam2/bin/gfortran
+    spec: gcc@9.2.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+      - gcc/8.3.0-gcc/6.4.0-linux-centos7-skylake_avx512
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-8.3.0-kih6ev3tdqy6tivvebhfjfuxbjmfvye6/bin/gcc
+      cxx: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-8.3.0-kih6ev3tdqy6tivvebhfjfuxbjmfvye6/bin/g++
+      f77: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-8.3.0-kih6ev3tdqy6tivvebhfjfuxbjmfvye6/bin/gfortran
+      fc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-8.3.0-kih6ev3tdqy6tivvebhfjfuxbjmfvye6/bin/gfortran
+    spec: gcc@8.3.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+      - gcc/7.4.0-gcc/6.4.0-linux-centos7-skylake_avx512
+    operating_system: centos7
+    paths:
+      cc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-7.4.0-7ni5rdydpx7c4s2sqwo7wnyvvu6lvcny/bin/gcc
+      cxx: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-7.4.0-7ni5rdydpx7c4s2sqwo7wnyvvu6lvcny/bin/g++
+      f77: /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-7.4.0-7ni5rdydpx7c4s2sqwo7wnyvvu6lvcny/bin/gfortran
+      fc:  /scratch/users/dantopa/vanguard/darwin-optane-ompi.spack/opt/spack/linux-centos7-skylake_avx512/gcc-6.4.0/gcc-7.4.0-7ni5rdydpx7c4s2sqwo7wnyvvu6lvcny/bin/gfortran
+    spec: gcc@7.4.0
+    target: x86_64

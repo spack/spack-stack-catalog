@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - mpi
+  - autoconf
+  - automake
+  - libtool
+  - pkg-config
+  - mochi-margo
+  - mochi-ssg+mpi
+  - mochi-sdskv+bedrock
+  - mochi-bake+bedrock
+  - mochi-ch-placement
+  - mochi-bedrock
+  concretization: together

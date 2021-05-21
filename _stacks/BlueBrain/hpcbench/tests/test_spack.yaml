@@ -1,0 +1,7 @@
+benchmarks:
+  '*':
+    bench-name:
+      type: fake
+      spack: {specs: [foo@dev]}
+      attributes:
+        executable: foo-python

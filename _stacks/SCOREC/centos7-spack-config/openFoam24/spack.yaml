@@ -1,0 +1,21 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - config.yaml
+  - packages.yaml
+  - modules.yaml
+  view: false
+  specs:
+  - openfoam-org@2.4.0 +int64
+
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  definitions: []
+  packages: {}
+  config: {}

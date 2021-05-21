@@ -1,0 +1,40 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - mpich %gcc@4.8.5
+  - mpich %gcc@5.3.0
+  - mpich %gcc@6.1.0
+  - mpich %gcc@7.1.0
+  - mpich %gcc@8.1.0
+  - mpich %gcc@9.1.0
+  #- mpich %intel@16.0.3
+  - mpich %intel@17.0.3
+  - mpich %intel@18.0.1
+  - mpich %pgi@16.5 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5
+  - mpich %pgi@17.4 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%pgi@16.5
+  #- mpich %pgi@18.3 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%pgi@16.5
+  - mvapich2@2.3.2 %gcc@4.8.5
+  - mvapich2@2.3.2 %gcc@5.3.0
+  - mvapich2@2.3.2 %gcc@6.1.0 ^cmake%gcc@4.8.5
+  - mvapich2@2.3.2 %gcc@7.1.0
+  - mvapich2@2.3.2 %gcc@8.1.0
+  - mvapich2@2.3.2 %gcc@9.1.0
+  - mvapich2@2.3.2 %intel@16.0.3 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^rdma-core%gcc@4.8.5 ^bison%gcc@4.8.5 ^libxml2%gcc@4.8.5
+  - mvapich2@2.3.2 %intel@17.0.3 ^rdma-core%gcc@4.8.5
+  - mvapich2@2.3.2 %intel@18.0.1 ^rdma-core%gcc@5.3.0
+  - mvapich2@2.3.2 %pgi@16.5 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%pgi@16.5 ^rdma-core%gcc@4.8.5 ^bison%gcc@4.8.5
+  - mvapich2@2.3.2 %pgi@17.4 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%pgi@16.5 ^rdma-core%gcc@4.8.5 ^bison%gcc@4.8.5
+  #- mvapich2@2.3.2 %pgi@18.3 ^findutils%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%pgi@16.5 ^rdma-core%gcc@4.8.5 ^bison%gcc@4.8.5
+  - openmpi %gcc@4.8.5
+  - openmpi%gcc@5.3.0 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%gcc@6.1.0 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%gcc@7.1.0 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%gcc@8.1.0 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%gcc@9.1.0 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%intel@16.0.3 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%intel@17.0.3 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  - openmpi%intel@18.0.1 ^slurm%gcc@4.8.5 ^numactl%gcc@4.8.5 ^libpciaccess%gcc@4.8.5 ^libxml2%gcc@4.8.5 ^hwloc%gcc@4.8.5
+  view: false

@@ -1,0 +1,47 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler: [cce@9]
+      target: []
+      buildable: true
+      providers:
+        mpi: [mpich]
+      paths: {}
+    mpich:
+      modules:
+        mpich %cce: cray-mpich
+        mpich %gcc: openmpi/3.1.5
+        mpich1 %intel: openmpi/3.1.5-intel19
+      buildable: false
+    hdf5:
+      modules:
+        hdf5 %gcc: hdf5_parallel
+        hdf5 %cce: cray-hdf5-parallel
+      buildable: false
+    gperftools:
+      modules:
+        gperftools %cce: gperftools
+    libfabric:
+      modules:
+        libfabric %cce: libfabric
+
+  specs:
+    - cmake
+    - hwloc@1.11.11 # We need this version for CORI
+    - openssl@1.0.2 # We need 1.0.x on CORI
+    - boost cxxstd=17
+    - arrow+parquet
+    - hpx@master
+    - geos@3.6.2
+    - gdal+geos
+    - gperftools
+    - hdf5
+    - ncurses~termlib+symlinks # We need to disable termlib on CORI
+    - mpi
+    - libfabric
+  view: true
+  concretization: together

@@ -1,0 +1,30 @@
+spack:
+  upstreams:
+    spack-instance-3:
+        install_tree: /cvmfs/sw-nightlies.hsf.org/spackages/
+    spack-instance-2:
+        install_tree: /cvmfs/sw.hsf.org/spackages2/
+    spack-instance-1:
+        install_tree: /cvmfs/sw.hsf.org/spackages/
+  config:
+    concretizer: clingo
+    checksum: false
+    install_tree:
+      root: /cvmfs/sw-nightlies.hsf.org/spackages2
+    module_roots:
+          lmod: /cvmfs/sw-nightlies.hsf.org/spackages2/modules
+          tcl:  /cvmfs/sw-nightlies.hsf.org/spackages2/modules
+  view: false
+  include:
+  - geant4-data.yaml
+  - key4hep-packages.yaml
+  - compilers.yaml
+  packages:
+    all:
+      variants: build_type=Debug cxxstd=17
+    qhull:
+      variants: build_type=Release cxxstd=17
+    ftgl:
+      variants: build_type=Release cxxstd=17
+    cepcsw:
+      variants: build_type=Release cxxstd=17

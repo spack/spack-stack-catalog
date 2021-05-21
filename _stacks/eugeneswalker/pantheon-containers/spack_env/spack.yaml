@@ -1,0 +1,68 @@
+spack:
+  view: true
+  concretization: together
+  config:
+    build_stage: $spack/build_stage
+  specs:
+  - ascent
+  packages:
+    all:
+      target: [power9le]
+      providers:
+        mpi: [mpich@3.3.2]
+        blas: [openblas]
+        lapack: [openblas]
+      version: []
+      buildable: true
+    cmake:
+      buildable: true
+      version: [3.18.2]
+      target: []
+      compiler: []
+      providers: {}
+    conduit:
+      buildable: true
+      version: [master]
+    hdf5:
+      buildable: true
+      version: [1.8.21]
+      variants: ~shared 
+    openssl:
+      buildable: true
+      version: []
+      target: []
+      compiler: []
+    mpich:
+      version: [3.2.1]
+      variants: ~wrapperrpath
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cuda:
+      version: [10.1.243]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    ascent:
+      variants: ^mpich+openmp+shared~adios~mfem+fortran+test~python+serial+mpi~cuda+vtkh
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-h:
+      variants: ~cuda~openmp+mpi+serial+shared
+      version: [develop]
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    vtk-m:
+      variants: ~mpi~cuda~shared
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}

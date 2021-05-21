@@ -1,0 +1,50 @@
+spack:
+  packages:
+    all:
+      compiler: [gcc@7.3.0]
+      variants: +mpi
+      providers:
+        mpi: [mpich]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+    mpich:
+      version: [3.2.1]
+      variants: ~wrapperrpath
+      buildable: true
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    gcc:
+      version: [7.3.0]
+      buildable: true
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+  specs:
+  # Ecosystem
+  #- bee
+  #- fsefi
+  #- kitten
+  #- coolr
+  #- tribits
+  #- argocontainers
+  #- spack
+  #- marfs
+  #- gufi
+  - nrm^python@3.7.3
+  - libnrm
+  - geopm^py-numpy@1.16.5^py-pandas@0.24.2 #intel?
+  - mpifileutils@develop~xattr
+  - pmix
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  definitions: []
+  config: {}
+  view: false

@@ -1,0 +1,46 @@
+spack:
+  packages:
+    all:
+      compiler: [gcc@7.3.0]
+      variants: +mpi
+      providers:
+        mpi: [mpich]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+    mpich:
+      version: [3.2.1]
+      variants: ~wrapperrpath
+      buildable: true
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    gcc:
+      version: [7.3.0]
+      buildable: true
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+  specs:
+  # VISUALIZATION AND REDUCTION
+  #- cinema NO PKG
+  #- rover NO PKG, SUBCOMPONENT OF ASCENT, INCLUDED WITHIN
+  #- paraview+ascent BUILD FAILS (Because of vtkm?)
+  #- visit ^vtk+python+qt ^hdf5+hl
+  #- vtkm
+  #- py-jupyterhub^python@3.7.3
+  - catalyst
+  - zfp
+  - sz
+  - paraview
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  definitions: []
+  config: {}
+  view: false

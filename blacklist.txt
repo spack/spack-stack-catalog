@@ -1,2 +1,2 @@
-snakemake/snakemake-wrappers
-snakemake/snakemake
+vsoch/spack-changes
+spack/spack

@@ -1,0 +1,165 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - cmake%gcc@4.8.5
+  # gcc 5.3.0
+  - arpack-ng%gcc@5.3.0
+  - boost%gcc@5.3.0
+  - fftw%gcc@5.3.0
+  - gsl%gcc@5.3.0
+  - hdf5%gcc@5.3.0
+  - netcdf-c%gcc@5.3.0
+  - netcdf-cxx%gcc@5.3.0
+  - netcdf-fortran%gcc@5.3.0
+  - metis%gcc@5.3.0
+  - parmetis%gcc@5.3.0 ^mvapich2
+  - mumps%gcc@5.3.0 ^mvapich2
+  - superlu%gcc@5.3.0
+  # gcc 6.1.0
+  - arpack-ng%gcc@6.1.0 ^cmake%gcc@4.8.5
+  - boost%gcc@6.1.0
+  - fftw%gcc@6.1.0
+  - gsl%gcc@6.1.0
+  - hdf5%gcc@6.1.0
+  - netcdf-c%gcc@6.1.0
+  - netcdf-cxx%gcc@6.1.0
+  - netcdf-fortran%gcc@6.1.0
+  - metis%gcc@6.1.0 ^cmake%gcc@4.8.5
+  - parmetis%gcc@6.1.0 ^cmake%gcc@4.8.5 ^mvapich2
+  - mumps%gcc@6.1.0 ^cmake%gcc@4.8.5 ^mvapich2
+  - superlu%gcc@6.1.0 ^cmake%gcc@4.8.5
+  # gcc 7.1.0
+  - arpack-ng%gcc@7.1.0
+  - boost%gcc@7.1.0
+  - fftw%gcc@7.1.0
+  - gsl%gcc@7.1.0
+  - hdf5%gcc@7.1.0
+  - netcdf-c%gcc@7.1.0
+  - netcdf-cxx%gcc@7.1.0
+  - netcdf-fortran%gcc@7.1.0
+  - metis%gcc@7.1.0
+  - parmetis%gcc@7.1.0 ^mvapich2
+  - mumps%gcc@7.1.0 ^mvapich2
+  - superlu%gcc@7.1.0
+  # gcc 8.1.0
+  - arpack-ng%gcc@8.1.0
+  - boost%gcc@8.1.0
+  - fftw%gcc@8.1.0
+  - gsl%gcc@8.1.0
+  - hdf5%gcc@8.1.0
+  - netcdf-c%gcc@8.1.0
+  - netcdf-cxx%gcc@8.1.0
+  - netcdf-fortran%gcc@8.1.0
+  - metis%gcc@8.1.0
+  - parmetis%gcc@8.1.0 ^mvapich2
+  - mumps%gcc@8.1.0 ^mvapich2
+  - superlu%gcc@8.1.0
+  # gcc 8.1.0 target=haswell
+  - arpack-ng%gcc@8.1.0 target=haswell
+  - boost%gcc@8.1.0 target=haswell
+  - fftw%gcc@8.1.0 target=haswell
+  - gsl%gcc@8.1.0 target=haswell
+  - hdf5%gcc@8.1.0 target=haswell
+  - netcdf-c%gcc@8.1.0 target=haswell
+  - netcdf-cxx%gcc@8.1.0 target=haswell
+  - netcdf-fortran%gcc@8.1.0 target=haswell
+  - metis%gcc@8.1.0 target=haswell
+  - parmetis%gcc@8.1.0 target=haswell ^"mvapich2 target=x86_64"
+  - mumps%gcc@8.1.0 target=haswell ^"mvapich2 target=x86_64"
+  - superlu%gcc@8.1.0 target=haswell
+  # gcc 8.1.0 target=skylake_avx512
+  - arpack-ng%gcc@8.1.0 target=skylake_avx512
+  - boost%gcc@8.1.0 target=skylake_avx512
+  - fftw%gcc@8.1.0 target=skylake_avx512
+  - gsl%gcc@8.1.0 target=skylake_avx512
+  - hdf5%gcc@8.1.0 target=skylake_avx512
+  - netcdf-c%gcc@8.1.0 target=skylake_avx512
+  - netcdf-cxx%gcc@8.1.0 target=skylake_avx512
+  - netcdf-fortran%gcc@8.1.0 target=skylake_avx512
+  - metis%gcc@8.1.0 target=skylake_avx512
+  - parmetis%gcc@8.1.0 target=skylake_avx512 ^"mvapich2 target=x86_64"
+  - mumps%gcc@8.1.0 target=skylake_avx512 ^"mvapich2 target=x86_64"
+  - superlu%gcc@8.1.0 target=skylake_avx512
+  # gcc 9.1.0
+  - arpack-ng%gcc@9.1.0
+  - boost%gcc@9.1.0
+  - fftw%gcc@9.1.0
+  - gsl%gcc@9.1.0
+  - hdf5%gcc@9.1.0
+  - netcdf-c%gcc@9.1.0
+  - netcdf-cxx%gcc@9.1.0
+  - netcdf-fortran%gcc@9.1.0
+  - metis%gcc@9.1.0
+  - parmetis%gcc@9.1.0 ^mvapich2
+  - mumps%gcc@9.1.0 ^mvapich2
+  - superlu%gcc@9.1.0
+  # intel 16.0.3
+  #- arpack-ng%intel@16.0.3 ^cmake%gcc@4.8.5
+  #- fftw%intel@16.0.3
+  - boost%intel@16.0.3
+  - gsl%intel@16.0.3
+  - hdf5%intel@16.0.3
+  - netcdf-c%intel@16.0.3
+  - netcdf-cxx%intel@16.0.3
+  - netcdf-fortran%intel@16.0.3
+  - metis%intel@16.0.3 ^cmake%gcc@4.8.5
+  - parmetis%intel@16.0.3 ^mvapich2 ^rdma-core%gcc@4.8.5
+  #- mumps%intel@16.0.3 ^mvapich2
+  - superlu%intel@16.0.3
+  # intel 17.0.3
+  #- arpack-ng%intel@17.0.3 ^cmake%gcc@4.8.5
+  - fftw%intel@17.0.3 target=haswell
+  - boost%intel@17.0.3
+  - gsl%intel@17.0.3
+  - hdf5%intel@17.0.3
+  - netcdf-c%intel@17.0.3
+  - netcdf-cxx%intel@17.0.3
+  - netcdf-fortran%intel@17.0.3
+  - metis%intel@17.0.3
+  - parmetis%intel@17.0.3 ^mvapich2 ^rdma-core%gcc@4.8.5
+  #- mumps%intel@17.0.3 ^mvapich2 ^rdma-core%gcc@4.8.5
+  - superlu%intel@17.0.3
+  # intel 18.0.1
+  #- arpack-ng%intel@18.0.1 ^cmake%gcc@4.8.5
+  #- fftw%intel@18.0.1
+  - boost%intel@18.0.1
+  - gsl%intel@18.0.1
+  - hdf5%intel@18.0.1
+  - netcdf-c%intel@18.0.1
+  - netcdf-cxx%intel@18.0.1
+  - netcdf-fortran%intel@18.0.1
+  - metis%intel@18.0.1
+  - parmetis%intel@18.0.1 ^mvapich2 ^rdma-core%gcc@4.8.5
+  #- mumps%intel@18.0.1 ^mvapich2 ^rdma-core%gcc@4.8.5
+  - superlu%intel@18.0.1
+  # intel 18.0.1 target=haswell
+  #- arpack-ng%intel@18.0.1 target=haswell ^"cmake%gcc@4.8.5 target=x86_64"
+  - boost%intel@18.0.1 target=haswell
+  - fftw%intel@18.0.1 target=haswell
+  - gsl%intel@18.0.1 target=haswell
+  - hdf5%intel@18.0.1 target=haswell
+  - netcdf-c%intel@18.0.1 target=haswell
+  - netcdf-cxx%intel@18.0.1 target=haswell
+  - netcdf-fortran%intel@18.0.1 target=haswell
+  - metis%intel@18.0.1 target=haswell
+  - parmetis%intel@18.0.1 target=haswell ^"mvapich2 target=x86_64" ^"rdma-core%gcc@4.8.5 target=x86_64"
+  #- mumps%intel@18.0.1 target=haswell ^"mvapich2 target=x86_64" ^"rdma-core%gcc@4.8.5 target=x86_64"
+  - superlu%intel@18.0.1 target=haswell
+  # intel 18.0.1 target=skylake_avx512
+  #- arpack-ng%intel@18.0.1 target=skylake_avx512 ^"cmake%gcc@4.8.5 target=x86_64"
+  - boost%intel@18.0.1 target=skylake_avx512
+  - fftw%intel@18.0.1 target=skylake_avx512
+  - gsl%intel@18.0.1 target=skylake_avx512
+  - hdf5%intel@18.0.1 target=skylake_avx512
+  - netcdf-c%intel@18.0.1 target=skylake_avx512
+  - netcdf-cxx%intel@18.0.1 target=skylake_avx512
+  - netcdf-fortran%intel@18.0.1 target=skylake_avx512
+  - metis%intel@18.0.1 target=skylake_avx512
+  - parmetis%intel@18.0.1 target=skylake_avx512 ^"mvapich2 target=x86_64" ^"rdma-core%gcc@4.8.5 target=x86_64"
+  #- mumps%intel@18.0.1 target=skylake_avx512 ^"mvapich2 target=x86_64" ^"rdma-core%gcc@4.8.5 target=x86_64"
+  - superlu%intel@18.0.1 target=skylake_avx512
+  view: false

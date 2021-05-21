@@ -1,0 +1,15 @@
+# This is a Spack Environment file for emacs.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - compilers: [gcc@9.3.0]
+  - packages: [emacs@27.2+X, llvm@11.0.0, gdb@8.3]
+  specs:
+  - matrix:
+    - [$packages]
+    - [$%compilers]
+  view: /home/hdevarajan/.spack-env/emacs/view
+  config:
+    install_missing_compilers: true

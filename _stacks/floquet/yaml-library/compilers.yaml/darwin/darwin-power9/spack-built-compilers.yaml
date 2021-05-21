@@ -1,0 +1,57 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-8.3.0-gcc-4.8.5
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-8.3.0-zyz4gjzyzihsnqmbthuvgcfaa4yxvgt6/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-8.3.0-zyz4gjzyzihsnqmbthuvgcfaa4yxvgt6/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-8.3.0-zyz4gjzyzihsnqmbthuvgcfaa4yxvgt6/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-8.3.0-zyz4gjzyzihsnqmbthuvgcfaa4yxvgt6/bin/gfortran
+    spec: gcc@8.3.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-7.4.0-gcc-4.8.5
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-7.4.0-k5qa6mq3ud7ychs4h3pmiorukbrnwdav/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-7.4.0-k5qa6mq3ud7ychs4h3pmiorukbrnwdav/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-7.4.0-k5qa6mq3ud7ychs4h3pmiorukbrnwdav/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-7.4.0-k5qa6mq3ud7ychs4h3pmiorukbrnwdav/bin/gfortran
+    spec: gcc@7.4.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-6.5.0-gcc-4.8.5
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-6.5.0-3gbtqblrdswuxf7wl5625gd2koi2bwqn/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-6.5.0-3gbtqblrdswuxf7wl5625gd2koi2bwqn/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-6.5.0-3gbtqblrdswuxf7wl5625gd2koi2bwqn/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-6.5.0-3gbtqblrdswuxf7wl5625gd2koi2bwqn/bin/gfortran
+    spec: gcc@6.5.0
+    target: ppc64le
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - gcc-5.5.0-gcc-4.8.5
+    operating_system: rhel7
+    paths:
+      cc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-5.5.0-a6oogggw4orbp6nbwdxvdhe5w3qikgqr/bin/gcc
+      cxx: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-5.5.0-a6oogggw4orbp6nbwdxvdhe5w3qikgqr/bin/g++
+      f77: /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-5.5.0-a6oogggw4orbp6nbwdxvdhe5w3qikgqr/bin/gfortran
+      fc:  /scratch/users/dantopa/repos/spack/compilers/power9-darwin-compilers.spack/opt/spack/linux-rhel7-ppc64le/gcc-4.8.5/gcc-5.5.0-a6oogggw4orbp6nbwdxvdhe5w3qikgqr/bin/gfortran
+    spec: gcc@5.5.0
+    target: ppc64le

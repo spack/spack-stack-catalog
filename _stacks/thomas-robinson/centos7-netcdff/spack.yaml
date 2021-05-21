@@ -1,0 +1,26 @@
+spack:
+# config setings
+  config:
+    install_missing_compilers: true
+  specs:
+  - mpich@3.3.2%gcc@10.2.0 target=x86_64
+  - hdf5@1.12.0~mpi+fortran %gcc@10.2.0 target=x86_64
+  - netcdf-c@4.7.4~mpi %gcc@10.2.0 target=x86_64
+  - netcdf-fortran@4.5.3 %gcc@10.2.0 target=x86_64 ^netcdf-c@4.7.4~mpi %gcc@10.2.0 target=x86_64 ^hdf5@1.12.0~mpi+fortran %gcc@10.2.0 target=x86_64
+# Container set up os and spack version 
+  container:
+    format: singularity
+# Sets the base images for the stages where Spack builds the
+# software or where the software gets installed after being built..
+    images:
+      os: "centos:7"
+      spack: 0.16.0
+    os_packages:
+      command: "yum"
+      update: true
+      final: 
+      - make
+      - which
+# Whether or not to strip binaries
+    strip: true
+

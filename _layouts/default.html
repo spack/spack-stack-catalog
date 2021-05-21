@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  {% include head.html %}
+  </head>
+
+  <body>
+
+  <div class="container-fluid">
+  <div class="row" style="padding-top:15px; padding-left:50px">
+     <div class="col-md-9">
+      <a href="{{ site.baseurl }}/" id='logolink' style="color:#104e93">
+        <img src="{{ site.baseurl }}/assets/img/spack-stacks-blue.png" style="padding-right:15px"/> {{ site.title }}
+    </a>
+     </div>
+     <div class="col-md-3" style="float_right">
+        <a type="button" style="float:right; margin-right:5px" class="button btn-sm btn-primary" href="#" data-toggle="modal" data-target="#rule-popup">About</a>
+     </div>
+  </div>
+  
+    {% include scripts.html %}
+    <div id="content">
+        {{ content }}
+    </div>
+
+    {% include footer.html %}
+  </div>
+  </body>
+
+</html>

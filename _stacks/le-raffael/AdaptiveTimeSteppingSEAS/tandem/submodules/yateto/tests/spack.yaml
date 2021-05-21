@@ -1,0 +1,33 @@
+spack:
+  specs:
+  - eigen@3.3.7
+  - openblas@0.3.9
+  - libxsmm+generator
+  - cmake@3.16.0
+
+  container:
+    format: docker
+
+    base:
+      image: "ubuntu:18.04"
+      spack: develop
+
+    strip: true
+
+    os_packages:
+      - python3
+      - python3-pip
+      - make
+      - gcc
+      - g++
+      - gfortran
+      - git
+
+    extra_instructions:
+        final: |
+            RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10 \
+                && git clone https://github.com/CxxTest/cxxtest.git cxxtest && cd cxxtest/python && python setup.py install && cd ../.. \
+                && echo "export PATH=\$PATH:/cxxtest" >> /etc/profile.d/z20_additional_env.sh \
+                && echo "export CMAKE_PREFIX_PATH=\$CMAKE_PREFIX_PATH:/cxxtest" >> /etc/profile.d/z20_additional_env.sh \
+                && mkdir local_workspace
+            WORKDIR /local_workspace

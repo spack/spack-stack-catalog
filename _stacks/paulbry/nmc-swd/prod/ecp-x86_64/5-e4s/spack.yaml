@@ -1,0 +1,75 @@
+#
+# 5-e4s specs for ecp-x86_64 deployment (prod)
+# Source: https://github.com/E4S-Project/e4s-stacks
+#
+spack:
+###############################################################################
+  view: false
+  concretization: separately
+###############################################################################
+  include:
+    - ../shared/e4s
+###############################################################################
+  specs:
+    - patchelf    #***XSDK***
+    - py-libensemble^python@3.7.4
+    - flecsi
+    - magma   #NO-ppc64le
+    - slate   #NO-ppc64le
+    - hypre
+    - mfem
+    - trilinos@12.14.1+dtk+intrepid2+shards
+    - sundials
+    - petsc
+    - strumpack
+    - superlu-dist
+    - superlu
+    - tasmanian
+    - openblas threads=openmp   #Not an E4S package. Required for some test cases
+    - faodel    # ***DATA MANAGEMENT, IO, AND CHECKPOINT RESTART***
+    - mercury
+    - hdf5
+    - adios2
+    - adios
+    - openpmd-api
+    - darshan-runtime
+    - darshan-util
+    - veloc
+    - scr
+    - parallel-netcdf
+    - unifyfs
+    - qthreads    # ***PMR CORE***
+    - papyrus@develop   # develop works, default version has build error 10/1/19
+    - bolt   # ok on x86_64, problems on ppc64le
+    - raja
+    - upcxx
+    - aml
+    - kokkos+openmp
+    - openmpi
+    - umpire
+    - libquo
+    - globalarrays
+    - stc   #NO-ppc64le Provides swift/t compiler
+    - turbine   #Provies swift/t runtime
+    - pdt    # ***TOOLS AND TECHNOLOGY***
+    #- py-ytopt^python@3.7.4   #provides surf
+    #- tau@develop^binutils@2.31.1^python@2.7.16
+    - hpctoolkit
+    #- dyninst
+    - gotcha
+    #- caliper
+    - papi
+    #- py-jupyterhub^python@3.7.4 #Specifying python3 may be necessary if build fails
+    #- catalyst # VISUALIZATION AND REDUCTION
+    - zfp
+    - sz
+    #- paraview+mpi+qt ^llvm~all_targets~clang~compiler-rt~internal_unwind~libcxx+link_dylib~lld~lldb~omp_tsan~polly~python ^mesa ^qt@5.10.0
+    #- llvm-openmp # ***COMPILERS & SUPPORT***
+    # - nrm^python@3.7.3 # ***Ecosystem*** -- package needs updating, no py-tornado@5.1.1
+    - libnrm
+    #- geopm^py-numpy@1.16.5^py-pandas@0.24.2   #NO-ppc64le intel?
+    #- mpifileutils@develop~xattr
+    - rempi
+    - ninja
+    - kokkos-kernels
+    - mpich

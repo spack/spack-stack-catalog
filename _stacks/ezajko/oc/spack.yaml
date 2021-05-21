@@ -1,0 +1,7 @@
+- hosts: sms
+  gather_facts: no
+  vars:
+    skip_questions: yes
+  roles:
+    - spack
+

@@ -1,0 +1,56 @@
+#
+# 3-sdk specs for ecp-p9-4v100 deployment (dev)
+#
+spack:
+###############################################################################
+  view: false
+  concretization: together
+###############################################################################
+  include:
+  - ../shared/conf-sdk
+  - ../shared/common
+  - ../shared/compilers-all
+###############################################################################
+  definitions:
+  - gcc-compilers:
+    - '%gcc@8.3.0'
+  - mpi-deps:
+    - ^openmpi@3.1.4
+  - xsdk:
+    #- xsdk@0.5.0 ~precice  ^petsc+trilinos~int64  ^hypre~openmp
+    - xsdk ~precice ^petsc@3.12.1+trilinos~int64  ^hypre~openmp+superlu-dist
+###############################################################################
+  specs:
+  - matrix:
+    - [$xsdk]
+    - [$mpi-deps]
+    - [$gcc-compilers]
+###############################################################################
+  modules:
+    enable:
+    - lmod
+    lmod:
+      hierarchy: []
+      hash_length: 0
+      core_compilers: [gcc@4.8.5]
+      blacklist:
+      - '@system'
+      - '@local'
+      - '%gcc@4.8.5'
+      - openssl
+      - slurm
+      all:
+        autoload: direct
+        environment:
+          set:
+            NMC_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+###############################################################################
+
