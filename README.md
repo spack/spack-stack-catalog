@@ -1,6 +1,6 @@
 # Spack Stack Catalog
 
-![assests/img/spack-stacks-blue.png](assests/img/spack-stacks-blue.png)
+![assets/img/spack-stacks-blue.png](assets/img/spack-stacks-blue.png)
 
 This is the spack stack community catalog, or spack.yaml files discovered
 in the wild across the community! It is inspired by the [snakemake-workflow-catalog](https://github.com/snakemake/snakemake-workflow-catalog)
