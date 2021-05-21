@@ -117,7 +117,7 @@ def combine_results(code_search):
         repo = filename.repository
 
         # skip spack_yaml.py
-        if os.path.basename(filename) == "spack_yaml.py":
+        if os.path.basename(filename.path) == "spack_yaml.py":
             continue
         if repo.full_name not in byrepo:
             byrepo[repo.full_name] = set()
