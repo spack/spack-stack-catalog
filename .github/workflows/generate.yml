@@ -3,6 +3,7 @@ name: Generate catalog
 on:
   schedule:
     - cron: 0 5 * * *
+  pull_request: []
   push:
     branches:
       - main
