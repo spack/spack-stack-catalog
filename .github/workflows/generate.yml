@@ -14,17 +14,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: deployment
         uses: mamba-org/provision-with-micromamba@6f4b1b6c62b65deebcb3a37cd30af2ba2e232877
-      - name: Install spack
-        run: |
-           git clone --depth 1 git@github.com:spack/spack /opt/spack
       - name: generate-catalog
         shell: bash -l {0}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # We need spack to validate the spack.yaml files
-          . spack/share/spack/setup-env.sh
-          export PATH=/opt/spack/bin:$PATH
           python scripts/generate-catalog.py
       - name: Commit files
         run: |
