@@ -1,2 +1,6 @@
 vsoch/spack-changes
 spack/spack
+autamus/registry
+autamus/spacktainer-registry
+spack/spack-stack-catalog
+spack/spack-aws-parallelcluster-docs

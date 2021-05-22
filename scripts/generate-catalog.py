@@ -32,6 +32,12 @@ repos = []
 core_rate_limit = g.get_rate_limit().core
 
 
+def read_yaml(filename):
+    with open(filename, "r") as fd:
+        content = yaml.load(fd, Loader=yaml.FullLoader)
+    return content
+
+
 class Repo:
     data_format = 2
 
@@ -120,6 +126,10 @@ def combine_results(code_search):
         if os.path.basename(filename.path) == "spack_yaml.py":
             continue
 
+        # Do not include non yaml files
+        if not filename.path.endswith("yaml") and not filename.path.endswith("yml"):
+            continue
+
         # skip GitHub workflows
         elif ".github/workflows" in filename.path:
             continue
@@ -135,6 +145,20 @@ def combine_results(code_search):
     return byrepo, lookup
 
 
+def validate_spackyaml(filename):
+    """
+    Ensure that a spack.yaml file has a spack or env directive
+    """
+    try:
+        with open(filename, "r") as fd:
+            data = yaml.load(fd, Loader=yaml.FullLoader)
+            if "env" not in data and "spack" not in data:
+                return False
+            return True
+    except yaml.YAMLError as exc:
+        return False
+
+
 def main():
     """
     Entrypoint to catalog generation
@@ -148,7 +172,7 @@ def main():
     data_dir = os.path.join(here, "_stacks")
 
     # Consolidate filenames by repository
-    byrepo, lookup, filelookup = combine_results(code_search)
+    byrepo, lookup = combine_results(code_search)
 
     for i, reponame in enumerate(byrepo):
 
@@ -177,18 +201,28 @@ def main():
             except git.GitCommandError:
                 continue
 
+            # We will update files if a file doesn't exist or is invalid
+            updated_files = []
+
             # For each spack yaml, validate
             for filename in files:
                 spackyaml = tmp / filename
+                spackyamldir = os.path.dirname(spackyaml)
                 if not spackyaml.exists():
                     continue
-                savepath = os.path.join(repo_dir, filename.path)
+
+                savepath = os.path.join(repo_dir, filename)
                 savedir = os.path.dirname(savepath)
                 if not os.path.exists(savedir):
                     os.makedirs(savedir)
 
+                # Ensure this is a spack.yaml file, it must have spack or env
+                if not validate_spackyaml(spackyaml):
+                    continue
+
                 # TODO: we could validate or generate Dockerfile here
                 shutil.copyfile(str(spackyaml), savepath)
+                updated_files.append(filename)
 
             # Look for a readme in the folder, then root
             readme_path = tmp / "README.md"
@@ -196,7 +230,10 @@ def main():
                 with open(readme_path, "r") as f:
                     readme = f.read()
 
-        call_rate_limit_aware(lambda: repos.append(Repo(repo, readme, files).__dict__))
+        call_rate_limit_aware(
+            lambda: repos.append(Repo(repo, readme, updated_files).__dict__)
+        )
+        # repos.append(Repo(repo, readme, updated_files).__dict__)
 
         if len(repos) % 20 == 0:
             logging.info("Storing intermediate results.")

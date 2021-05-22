@@ -47,6 +47,21 @@ python scripts/generate-catalog.py
 
 This should be run nightly to update the stacks here.
 
+### Generate graph
+
+The script [generate-graph-data.py](scripts/generate-graph-data.py) will parse
+the current set of spack.yaml files and count the number of times packages are
+installed with one another, not accounting for versions. We then create
+a similarity matrix based on the counts, and visualize that. More specifically:
+
+1. Make a matrix that counts "similarity" between packages. The similarity is based e.g., on the number of times packages that appear together. We don't need to worry about the diagonal (e.g., leave it as NaN).
+2. Transform the counts to a distance e.g., [using one of these functions](https://stackoverflow.com/questions/4064630/how-do-i-convert-between-a-measure-of-similarity-and-a-measure-of-difference-di).
+3. For the distance matrix, insert zeros on the diagonal (the distance between a package and itself is zero).
+4. Finally, use dimensionality reduction to find coordinates for each package. Packages that appear frequently together will be closer. E.g., [isomap](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html).
+
+For each package, you can get recommendations by looking at packages nearest to it in the embedded space.
+
+
 ## License
 
 Spack is distributed under the terms of both the MIT license and the
