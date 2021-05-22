@@ -55,12 +55,13 @@ installed with one another, not accounting for versions. We then create
 a similarity matrix based on the counts, and visualize that. More specifically:
 
 1. Make a matrix that counts "similarity" between packages. The similarity is based e.g., on the number of times packages that appear together. We don't need to worry about the diagonal (e.g., leave it as NaN).
-2. Transform the counts to a distance e.g., [using one of these functions](https://stackoverflow.com/questions/4064630/how-do-i-convert-between-a-measure-of-similarity-and-a-measure-of-difference-di).
-3. For the distance matrix, insert zeros on the diagonal (the distance between a package and itself is zero).
-4. Finally, use dimensionality reduction to find coordinates for each package. Packages that appear frequently together will be closer. E.g., [isomap](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html).
+2. We need to normalize by packages that appear across a lot of packages. So we want to divide by the square root of the row sums and the columns sums. We do this so it's still symmetric, and we use a square root because we want the units to go away.
+3. Transform the counts to a distance e.g., [using one of these functions](https://stackoverflow.com/questions/4064630/how-do-i-convert-between-a-measure-of-similarity-and-a-measure-of-difference-di). TLDR - we do distance = 1/ our normalized count matrix.
+4. Finally, use dimensionality reduction to find coordinates for each package. Packages that appear frequently together will be closer. E.g., [isomap](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.Isomap.html) or [TSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html).
 
-For each package, you can get recommendations by looking at packages nearest to it in the embedded space.
+[![assets/img/spack-package-togetherness.png](assets/img/spack-package-togetherness.png)](https://spack.github.io/spack-stack/catalog/similarity/)
 
+The embedding [on the catalog](https://spack.github.io/spack-stack/catalog/similarity/) shows packages that are commonly found with one another. The closer the dots, the more likely the two packages are found in a spack.yaml together. The size of the dot shows the number of distinct packages that a package appears with. This means that larger dots appear with more packages. The smallest black dots likely appear with few other packages. This does not include dependencies - only the list of specs asked for in a spack.yaml.
 
 ## License
 
