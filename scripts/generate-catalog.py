@@ -183,10 +183,10 @@ def main():
             logging.info(f"{i} of {code_search.totalCount} results done")
 
         repo_dir = os.path.join(data_dir, repo.full_name)
-
-        logging.info(f"Processing {repo.full_name}.")
         if repo.full_name in blacklist:
             continue
+
+        logging.info(f"Processing {repo.full_name}.")
 
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
@@ -229,6 +229,10 @@ def main():
             if readme_path.exists():
                 with open(readme_path, "r") as f:
                     readme = f.read()
+
+        # Don't add repos without any spack.yaml files
+        if not filenames:
+            continue
 
         call_rate_limit_aware(
             lambda: repos.append(Repo(repo, readme, updated_files).__dict__)
