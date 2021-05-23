@@ -231,7 +231,7 @@ def main():
                     readme = f.read()
 
         # Don't add repos without any spack.yaml files
-        if not filenames:
+        if not updated_files:
             continue
 
         call_rate_limit_aware(
