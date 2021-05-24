@@ -533,17 +533,17 @@ AMReX-Codes/pyamrex:
   topics:
   - amrex
   - python
-  updated_at: 1618453857.0
+  updated_at: 1618432257.0
 Alpine-DAV/ascent:
   data_format: 2
   description: A flyweight in situ visualization and analysis runtime for multi-physics
     HPC simulations
   filenames:
-  - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
-  - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
   - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
+  - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
+  - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
   full_name: Alpine-DAV/ascent
   latest_release: v0.7.1
   readme: '<h1>
@@ -614,27 +614,7 @@ Alpine-DAV/ascent:
   - scientific-computing
   - data-viz
   - radiuss
-  updated_at: 1621576283.0
-ArangoGutierrez/spack-operator:
-  data_format: 2
-  description: The Spack-operator manages automated builds on a distributed and heterogeneus
-    kubernetes cluster
-  filenames: []
-  full_name: ArangoGutierrez/spack-operator
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack-operator" class="anchor" href="#spack-operator" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>spack-operator</h1>
-
-    <p>The Spack-operator manages automated builds on a distributed and heterogeneus
-    kubernetes cluster</p>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 1
-  topics: []
-  updated_at: 1613727652.0
+  updated_at: 1621554683.0
 BetterWang/g4e:
   data_format: 2
   description: null
@@ -672,63 +652,7 @@ BetterWang/g4e:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1608812924.0
-BlueBrain/hpcbench:
-  data_format: 2
-  description: Define and run your benchmarks
-  filenames: []
-  full_name: BlueBrain/hpcbench
-  latest_release: null
-  readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
-    \ class=\"anchor\" href=\"#lbann-livermore-big-artificial-neural-network-toolkit\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>LBANN: Livermore Big Artificial Neural Network Toolkit</h1>\n<p>The\
-    \ Livermore Big Artificial Neural Network toolkit (LBANN) is an\nopen-source,\
-    \ HPC-centric, deep learning training framework that is\noptimized to compose\
-    \ multiple levels of parallelism.</p>\n<p>LBANN provides model-parallel acceleration\
-    \ through domain\ndecomposition to optimize for strong scaling of network training.\
-    \  It\nalso allows for composition of model-parallelism with both data\nparallelism\
-    \ and ensemble training methods for training large neural\nnetworks with massive\
-    \ amounts of data.  LBANN is able to advantage of\ntightly-coupled accelerators,\
-    \ low-latency high-bandwidth networking,\nand high-bandwidth parallel file systems.</p>\n\
-    <p>LBANN supports state-of-the-art training algorithms such as\nunsupervised,\
-    \ self-supervised, and adversarial (GAN) training methods\nin addition to traditional\
-    \ supervised learning.  It also supports\nrecurrent neural networks via back propagation\
-    \ through time (BPTT)\ntraining, transfer learning, and multi-model and ensemble\
-    \ training\nmethods.</p>\n<h2>\n<a id=\"user-content-building-lbann\" class=\"\
-    anchor\" href=\"#building-lbann\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a>Building LBANN</h2>\n<p>The preferred\
-    \ method for LBANN users to install LBANN is to use\n<a href=\"https://github.com/llnl/spack\"\
-    >Spack</a>. After some system\nconfiguration, this should be as straightforward\
-    \ as</p>\n<div class=\"highlight highlight-source-shell\"><pre>spack install lbann</pre></div>\n\
-    <p>More detailed instructions for building and installing LBANN are\navailable\
-    \ at the <a href=\"https://lbann.readthedocs.io/en/latest/index.html\" rel=\"\
-    nofollow\">main LBANN\ndocumentation</a>.</p>\n<h2>\n<a id=\"user-content-running-lbann\"\
-    \ class=\"anchor\" href=\"#running-lbann\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Running LBANN</h2>\n<p>The basic\
-    \ template for running LBANN is</p>\n<div class=\"highlight highlight-source-shell\"\
-    ><pre><span class=\"pl-k\">&lt;</span>mpi-launcher<span class=\"pl-k\">&gt;</span>\
-    \ <span class=\"pl-k\">&lt;</span>mpi-options<span class=\"pl-k\">&gt;</span>\
-    \ \\\n    lbann <span class=\"pl-k\">&lt;</span>lbann-options<span class=\"pl-k\"\
-    >&gt;</span> \\\n    --model=model.prototext \\\n    --optimizer=opt.prototext\
-    \ \\\n    --reader=data_reader.prototext</pre></div>\n<p>When using GPGPU accelerators,\
-    \ users should be aware that LBANN is\noptimized for the case in which one assigns\
-    \ one GPU per MPI\n<em>rank</em>. This should be borne in mind when choosing the\
-    \ parameters for\nthe MPI launcher.</p>\n<p>More details about running LBANN are\
-    \ documented\n<a href=\"https://lbann.readthedocs.io/en/latest/running_lbann.html\"\
-    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-publications\" class=\"\
-    anchor\" href=\"#publications\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a>Publications</h2>\n<p>A list of publications,\
-    \ presentations and posters are shown\n<a href=\"https://lbann.readthedocs.io/en/latest/publications.html\"\
-    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-reporting-issues\"\
-    \ class=\"anchor\" href=\"#reporting-issues\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Reporting issues</h2>\n<p>Issues,\
-    \ questions, and bugs can be raised on the <a href=\"https://github.com/llnl/lbann/issues\"\
-    >Github issue\ntracker</a>.</p>\n"
-  stargazers_count: 1
-  subscribers_count: 12
-  topics: []
-  updated_at: 1581967361.0
+  updated_at: 1608787724.0
 CINECA-HPC/container_bioinfo_bismark_ubuntu2004_x86_64:
   data_format: 2
   description: null
@@ -746,7 +670,7 @@ CINECA-HPC/container_bioinfo_bismark_ubuntu2004_x86_64:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1606942003.0
+  updated_at: 1606916803.0
 CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64:
   data_format: 2
   description: null
@@ -763,7 +687,7 @@ CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1612481523.0
+  updated_at: 1612456323.0
 CINECA-HPC/container_spack_centos_x86_64:
   data_format: 2
   description: Containers for arch x86_64 based on Centos 7 and 8 with GNU 7 and 8
@@ -805,7 +729,7 @@ CINECA-HPC/container_spack_centos_x86_64:
   subscribers_count: 1
   topics:
   - spack
-  updated_at: 1614203765.0
+  updated_at: 1614178565.0
 CINECA-HPC/container_spack_ubuntu2004_x86_64:
   data_format: 2
   description: null
@@ -822,7 +746,7 @@ CINECA-HPC/container_spack_ubuntu2004_x86_64:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1614022773.0
+  updated_at: 1613997573.0
 CODARcode/PerformanceAnalysis:
   data_format: 2
   description: Performance Analysis
@@ -998,7 +922,7 @@ CODARcode/PerformanceAnalysis:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1607994885.0
+  updated_at: 1607969685.0
 CODARcode/z-checker-installer:
   data_format: 2
   description: one-key installation to install gnuplot, sz, zfp, and z-checker, and
@@ -1385,13 +1309,13 @@ CODARcode/z-checker-installer:
   stargazers_count: 4
   subscribers_count: 4
   topics: []
-  updated_at: 1619655975.0
+  updated_at: 1619634375.0
 CUP-ECS/ExaCLAMR:
   data_format: 2
   description: null
   filenames:
-  - spack.yaml
   - etc/spack.yaml
+  - spack.yaml
   full_name: CUP-ECS/ExaCLAMR
   latest_release: null
   readme: '<h1>
@@ -1616,7 +1540,7 @@ CUP-ECS/ExaCLAMR:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1621397061.0
+  updated_at: 1621375461.0
 CreRecombinase/ptb_workflowr:
   data_format: 2
   description: preterm birth project workflowr
@@ -1636,7 +1560,7 @@ CreRecombinase/ptb_workflowr:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1588983897.0
+  updated_at: 1588962297.0
 DavidPoliakoff/tuning-spack:
   data_format: 2
   description: null
@@ -1663,7 +1587,7 @@ DavidPoliakoff/tuning-spack:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1615254927.0
+  updated_at: 1615229727.0
 E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
@@ -2510,7 +2434,7 @@ E4S-Project/e4s:
   stargazers_count: 4
   subscribers_count: 4
   topics: []
-  updated_at: 1617360306.0
+  updated_at: 1617338706.0
 ECP-CANDLE/Supervisor:
   data_format: 2
   description: null
@@ -2548,7 +2472,7 @@ ECP-CANDLE/Supervisor:
   stargazers_count: 6
   subscribers_count: 9
   topics: []
-  updated_at: 1611214776.0
+  updated_at: 1611189576.0
 ECP-WarpX/WarpX:
   data_format: 2
   description: WarpX is an advanced electromagnetic Particle-In-Cell code.
@@ -2731,7 +2655,7 @@ ECP-WarpX/WarpX:
     <p>License for WarpX can be found at <a href="LICENSE.txt">LICENSE.txt</a>.</p>
 
     '
-  stargazers_count: 90
+  stargazers_count: 91
   subscribers_count: 15
   topics:
   - laser
@@ -2742,7 +2666,7 @@ ECP-WarpX/WarpX:
   - particle-in-cell
   - pic
   - research
-  updated_at: 1621644656.0
+  updated_at: 1621738295.0
 ECP-WarpX/artemis:
   data_format: 2
   description: ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver
@@ -2821,14 +2745,14 @@ ECP-WarpX/artemis:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1616476808.0
+  updated_at: 1616455208.0
 Exawind/exawind-builder:
   data_format: 2
   description: Scripts to help building Exawind codes on various systems
   filenames:
   - etc/spack/nrel-eagle/spack.yaml
-  - etc/spack/ornl-summit/spack-matrix.yaml
   - etc/spack/spack/spack.yaml
+  - etc/spack/ornl-summit/spack-matrix.yaml
   full_name: Exawind/exawind-builder
   latest_release: v0.1.0
   readme: '<h1>
@@ -3028,7 +2952,7 @@ Exawind/exawind-builder:
   - exawind
   - hpc
   - exawind-builder
-  updated_at: 1619496711.0
+  updated_at: 1619475111.0
 FTHPC/libpressio_tutorial:
   data_format: 2
   description: A Tutorial for LibPressio
@@ -3053,29 +2977,29 @@ FTHPC/libpressio_tutorial:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1621648529.0
+  updated_at: 1621626929.0
 FairRootGroup/FairSoft:
   data_format: 2
   description: Repository for installation routines of the external software required
     by FairRoot
   filenames:
-  - env/dev/sim_mt_headless/spack.yaml
-  - env/jun19/sim/spack.yaml
-  - test/env/fairroot_develop/spack.yaml
-  - test/env/r3broot/spack.yaml
   - test/env/fairmq/spack.yaml
-  - env/dev/sim_mt/spack.yaml
-  - test/env/dds/spack.yaml
-  - env/dev/sim/spack.yaml
-  - env/nov20/sim_mt/spack.yaml
-  - env/nov20/sim_mt_headless/spack.yaml
   - env/apr21/sim_mt/spack.yaml
-  - env/nov20/sim/spack.yaml
-  - env/jun19/sim_mt/spack.yaml
-  - env/apr21/sim_mt_headless/spack.yaml
-  - test/env/jun19_fairroot_18_4/spack.yaml
+  - env/nov20/sim_mt/spack.yaml
+  - test/env/r3broot/spack.yaml
   - env/apr21/sim/spack.yaml
+  - env/nov20/sim/spack.yaml
+  - env/nov20/sim_mt_headless/spack.yaml
   - test/env/fairlogger/spack.yaml
+  - env/apr21/sim_mt_headless/spack.yaml
+  - test/env/fairroot_develop/spack.yaml
+  - env/dev/sim/spack.yaml
+  - env/dev/sim_mt_headless/spack.yaml
+  - env/jun19/sim_mt/spack.yaml
+  - test/env/dds/spack.yaml
+  - env/dev/sim_mt/spack.yaml
+  - env/jun19/sim/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: apr21
   readme: "<h1>\n<a id=\"user-content-fairsoft\" class=\"anchor\" href=\"#fairsoft\"\
@@ -3140,7 +3064,7 @@ FairRootGroup/FairSoft:
   stargazers_count: 8
   subscribers_count: 13
   topics: []
-  updated_at: 1621684701.0
+  updated_at: 1621663101.0
 KoyamaSohei/raft:
   data_format: 2
   description: Raft implementation which depends on Mochi Project and Symas LMDB
@@ -3158,7 +3082,7 @@ KoyamaSohei/raft:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1612651620.0
+  updated_at: 1612626420.0
 LLNL/conduit:
   data_format: 2
   description: Simplified Data Exchange for HPC Simulations
@@ -3260,16 +3184,16 @@ LLNL/conduit:
   - hdf5
   - radiuss
   - data-management
-  updated_at: 1621476188.0
+  updated_at: 1621454588.0
 LLNL/radiuss-ci:
   data_format: 2
   description: RADIUSS CI project aims at providing sensible default configurations
     and tools for GitLab CI.
   filenames:
-  - spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml
-  - spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml
   - spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml
   - spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml
+  - spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml
+  - spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml
   full_name: LLNL/radiuss-ci
   latest_release: null
   readme: '<h1>
@@ -3389,7 +3313,7 @@ LLNL/radiuss-ci:
   subscribers_count: 5
   topics:
   - radiuss
-  updated_at: 1611300706.0
+  updated_at: 1611275506.0
 LLNL/radiuss-stack:
   data_format: 2
   description: A spack stack with radiuss (some) radiuss packages
@@ -3502,7 +3426,7 @@ LLNL/radiuss-stack:
   stargazers_count: 1
   subscribers_count: 4
   topics: []
-  updated_at: 1614661368.0
+  updated_at: 1614636168.0
 MeteoSwiss-APN/spack:
   data_format: 2
   description: null
@@ -3669,7 +3593,7 @@ MeteoSwiss-APN/spack:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1584116847.0
+  updated_at: 1584095247.0
 MiddelkoopT/spack-tutorial:
   data_format: 2
   description: Spack tutorial
@@ -3877,7 +3801,7 @@ MiddelkoopT/spack-tutorial:
   stargazers_count: 2
   subscribers_count: 1
   topics: []
-  updated_at: 1619574775.0
+  updated_at: 1619553175.0
 NERSC/timemory:
   data_format: 2
   description: 'Modular C++ Toolkit for Performance Analysis and Logging. Profiling
@@ -3886,8 +3810,8 @@ NERSC/timemory:
     for recording various performance measurements alongside data logging and interfaces
     to other tools.'
   filenames:
-  - docker/gpu/spack.yaml
   - docker/cpu/spack.yaml
+  - docker/gpu/spack.yaml
   full_name: NERSC/timemory
   latest_release: v3.1.0
   readme: '<h1>
@@ -4689,13 +4613,13 @@ NERSC/timemory:
   - gotcha
   - cupti
   - modular-design
-  updated_at: 1621685970.0
+  updated_at: 1621664370.0
 RemoteConnectionManager/CINECA_RCM_deployments:
   data_format: 2
   description: null
   filenames:
-  - environments/production/base/spack.yaml
   - environments/production/rcm/spack.yaml
+  - environments/production/base/spack.yaml
   full_name: RemoteConnectionManager/CINECA_RCM_deployments
   latest_release: null
   readme: '<h1>
@@ -4736,14 +4660,14 @@ RemoteConnectionManager/CINECA_RCM_deployments:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1581964634.0
+  updated_at: 1581939434.0
 RemoteConnectionManager/RCM_spack_deploy:
   data_format: 2
   description: Deploy components and scripts for RCM
   filenames:
-  - deploy/environments/insitu/spack.yaml
-  - deploy/environments/rcm/spack.yaml
   - deploy/base_spack_devel/environments/base/spack.yaml
+  - deploy/environments/rcm/spack.yaml
+  - deploy/environments/insitu/spack.yaml
   full_name: RemoteConnectionManager/RCM_spack_deploy
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-rcm_spack_deploy\" class=\"anchor\" href=\"\
@@ -4761,15 +4685,15 @@ RemoteConnectionManager/RCM_spack_deploy:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1570754492.0
+  updated_at: 1570732892.0
 ResearchComputing/core-software:
   data_format: 2
   description: Documentation and automation for provisioning the core software environment
     at University of Colorado Boulder Research Computing
   filenames:
+  - spack/environments/develop/spack.yaml
   - spack/environments/summer2020/spack.yaml
   - spack/environments/spring2020/spack.yaml
-  - spack/environments/develop/spack.yaml
   full_name: ResearchComputing/core-software
   latest_release: null
   readme: '<p>The Research Computing core software environment provides compilers,
@@ -4812,7 +4736,7 @@ ResearchComputing/core-software:
   stargazers_count: 0
   subscribers_count: 8
   topics: []
-  updated_at: 1616702962.0
+  updated_at: 1616681362.0
 ResearchIT/isu-spack:
   data_format: 2
   description: Spec files for research software library installed at Iowa State University
@@ -5015,7 +4939,7 @@ ResearchIT/isu-spack:
   stargazers_count: 1
   subscribers_count: 6
   topics: []
-  updated_at: 1589517108.0
+  updated_at: 1589495508.0
 SC-SGS/CPPuddle:
   data_format: 2
   description: Utility library to handle small, reusable pools of both device memory
@@ -5077,13 +5001,13 @@ SC-SGS/CPPuddle:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1620362115.0
+  updated_at: 1620340515.0
 SCOREC/centos7-spack-config:
   data_format: 2
   description: spack config for erp cluster
   filenames:
-  - v61c1b71_gcc910/spack.yaml
   - openFoam24/spack.yaml
+  - v61c1b71_gcc910/spack.yaml
   full_name: SCOREC/centos7-spack-config
   latest_release: null
   readme: '<h1>
@@ -5116,15 +5040,15 @@ SCOREC/centos7-spack-config:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1612003004.0
+  updated_at: 1611977804.0
 SCOREC/dcs-spack-config:
   data_format: 2
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
   - v0160gcc/spack.yaml
   - v0133gccSpectrum/spack.yaml
-  - spack.yaml
   - v0133gcc/spack.yaml
+  - spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
   readme: '<h1>
@@ -5219,7 +5143,7 @@ SCOREC/dcs-spack-config:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1608689847.0
+  updated_at: 1608664647.0
 SCOREC/drp-spack-config:
   data_format: 2
   description: CCI DRP Spack configuration
@@ -5245,13 +5169,13 @@ SCOREC/drp-spack-config:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1593675795.0
+  updated_at: 1593654195.0
 SCOREC/rhel7-spack-config:
   data_format: 2
   description: rhel7 spack configuration and scripts
   filenames:
-  - v0.13.2/spack.yaml
   - v0.15.4/spack.yaml
+  - v0.13.2/spack.yaml
   full_name: SCOREC/rhel7-spack-config
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
@@ -5326,7 +5250,7 @@ SCOREC/rhel7-spack-config:
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1614024389.0
+  updated_at: 1613999189.0
 SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
@@ -5346,7 +5270,7 @@ SeisSol/seissol-spack-aid:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1619723394.0
+  updated_at: 1619701794.0
 SeisSol/yateto:
   data_format: 2
   description: null
@@ -5403,7 +5327,7 @@ SeisSol/yateto:
   stargazers_count: 0
   subscribers_count: 12
   topics: []
-  updated_at: 1620414091.0
+  updated_at: 1620392491.0
 TurbulentDynamics/tdLBCpp:
   data_format: 2
   description: null
@@ -5424,76 +5348,7 @@ TurbulentDynamics/tdLBCpp:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1619466471.0
-UCR-Research-Computing/using-nautilus-cluster:
-  data_format: 2
-  description: null
-  filenames: []
-  full_name: UCR-Research-Computing/using-nautilus-cluster
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-using-nautilus-cluster" class="anchor" href="#using-nautilus-cluster"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>using-nautilus-cluster</h1>
-
-    <h3>
-
-    <a id="user-content-basic-commmands" class="anchor" href="#basic-commmands" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>basic commmands</h3>
-
-    <div class="highlight highlight-source-shell"><pre>
-
-    kubectl get pods
-
-    kubectl create -f <span class="pl-k">&lt;</span>yaml-file<span class="pl-k">&gt;</span>
-
-    kubectl delete pods <span class="pl-k">&lt;</span>pod-name<span class="pl-k">&gt;</span>
-
-
-    kubectl <span class="pl-c1">exec</span> -it <span class="pl-k">&lt;</span>pod-name<span
-    class="pl-k">&gt;</span> bash
-
-    kubectl port-forward <span class="pl-k">&lt;</span>pod-name<span class="pl-k">&gt;</span>
-    8888:8888
-
-    </pre></div>
-
-    <h3>
-
-    <a id="user-content-starting-jupyter" class="anchor" href="#starting-jupyter"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Starting
-    Jupyter</h3>
-
-    <p>Use the tensorflow-cpu-pod.yaml or tensorflow-gpu-pod.yaml file to start the
-    pod</p>
-
-    <div class="highlight highlight-source-shell"><pre>
-
-    kubectl create -f tensorflow-gpu-pod.yaml
-
-    kubectl <span class="pl-c1">exec</span> -it gpu-pod-example bash
-
-
-    jovyan@gpu-pod-example:<span class="pl-k">~</span>$ jupyter notebook --ip=<span
-    class="pl-s"><span class="pl-pds">''</span>0.0.0.0<span class="pl-pds">''</span></span>
-
-
-    kubectl port-forward gpu-pod-example 8888:8888
-
-    </pre></div>
-
-    <ul>
-
-    <li>open browser to localhost:8888 and paste in the token from the jupyter notebook
-    start command</li>
-
-    </ul>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 0
-  topics: []
-  updated_at: 1607345085.0
+  updated_at: 1619444871.0
 UNM-CARC/docker_base:
   data_format: 2
   description: Base Docker Image for CDSE containers running at CARC
@@ -5514,23 +5369,23 @@ UNM-CARC/docker_base:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1573104660.0
+  updated_at: 1573079460.0
 UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
+  - docker-recipes/superlu-sc/spack.yaml
+  - spack-sdk-environments/compilers_and_support/spack.yaml
+  - spack-sdk-environments/e4s_ecosystem/spack.yaml
   - spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
+  - spack-sdk-environments/tools_and_technology/spack.yaml
+  - spack-sdk-environments/visualization_analysis_reduction/spack.yaml
+  - spack-sdk-environments/xsdk/spack.yaml
   - spack-sdk-environments/pmr_core/spack.yaml
   - docker-recipes/rhel7-runner-x86_64/spack.yaml
-  - docker-recipes/superlu-sc/spack.yaml
-  - spack-sdk-environments/e4s_ecosystem/spack.yaml
-  - spack-sdk-environments/xsdk/spack.yaml
-  - spack-sdk-environments/visualization_analysis_reduction/spack.yaml
+  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - docker-recipes/rhel8-runner-x86_64/spack.yaml
-  - spack-sdk-environments/compilers_and_support/spack.yaml
-  - spack-sdk-environments/tools_and_technology/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -5553,7 +5408,7 @@ UO-OACISS/e4s:
   stargazers_count: 11
   subscribers_count: 4
   topics: []
-  updated_at: 1621369941.0
+  updated_at: 1621348341.0
 alalazo/container-images:
   data_format: 2
   description: Recipes to generate container images and experiment with Github registry
@@ -5573,34 +5428,34 @@ alalazo/container-images:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1617273120.0
+  updated_at: 1617251520.0
 alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/apps/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
-  - cent7/ece_hpc/spack.yaml
-  - cent8/envs/avx2/rproject/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent7/library/bak/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
-  - cent7/py_376/spack.yaml
-  - cent7/library/spack.yaml
   - compilers/envs/compilers/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
-  - cent7/python_376/spack.yaml
-  - cent7/bioinformatics/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - cent8/envs/avx512/lusoft/spack.yaml
   - cent8/envs/avx/python/spack.yaml
-  - cent7/libs_old/spack.yaml
+  - cent7/bio_old/spack.yaml
+  - cent7/python_376/spack.yaml
+  - cent7/library/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
+  - cent7/bioinformatics/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
   - cent7/mpis/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent7/library/bak/spack.yaml
+  - cent7/apps/spack.yaml
   - cent8/envs/solhawk/spack.yaml
+  - cent7/py_376/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
+  - cent8/envs/avx2/rproject/spack.yaml
+  - cent7/ece_hpc/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -5785,16 +5640,16 @@ alexpacheco/spackenv:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1620234577.0
+  updated_at: 1620212977.0
 bvanessen/lbann_distconv:
   data_format: 2
   description: null
   filenames:
-  - spack_environments/developer_release_x86_64_cuda_spack.yaml
-  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
   - spack_environments/developer_release_osx_spack.yaml
+  - spack_environments/developer_release_x86_64_cuda_spack.yaml
   - spack_environments/developer_release_ppc64le_cuda_spack.yaml
   - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
+  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
   full_name: bvanessen/lbann_distconv
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
@@ -5846,7 +5701,7 @@ bvanessen/lbann_distconv:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1570967710.0
+  updated_at: 1570946110.0
 cinemascienceworkflows/2021-04_ECP-Tutorial:
   data_format: 2
   description: Tutorial workflow
@@ -5926,7 +5781,7 @@ cinemascienceworkflows/2021-04_ECP-Tutorial:
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1618446347.0
+  updated_at: 1618424747.0
 cinemascienceworkflows/2021-04_ExaWind-NaluWind:
   data_format: 2
   description: null
@@ -6006,7 +5861,7 @@ cinemascienceworkflows/2021-04_ExaWind-NaluWind:
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1618440690.0
+  updated_at: 1618419090.0
 cinemascienceworkflows/2021-04_Miniapp-Ascent:
   data_format: 2
   description: null
@@ -6086,7 +5941,7 @@ cinemascienceworkflows/2021-04_Miniapp-Ascent:
   stargazers_count: 1
   subscribers_count: 5
   topics: []
-  updated_at: 1618439690.0
+  updated_at: 1618418090.0
 cinemascienceworkflows/2021-04_Nyx-Ascent:
   data_format: 2
   description: null
@@ -6260,7 +6115,7 @@ cinemascienceworkflows/2021-04_Nyx-Ascent:
   stargazers_count: 1
   subscribers_count: 5
   topics: []
-  updated_at: 1618440344.0
+  updated_at: 1618418744.0
 cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   data_format: 2
   description: null
@@ -6268,51 +6123,113 @@ cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   - inputs/spack/spack.yaml
   full_name: cinemascienceworkflows/2021-05_ExaWind-AMRWind
   latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack-configs" class="anchor" href="#spack-configs" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Spack Configs</h1>
-
-    <p>This is a repository that sites can use to share their configuration
-
-    files for Spack.  You can contribute your own configuration files, or
-
-    browse around and look at what others have done.</p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>Spack is distributed under the terms of both the MIT license and the
-
-    Apache License (Version 2.0). Users may choose either license, at their
-
-    option.</p>
-
-    <p>All new contributions must be made under both the MIT and Apache-2.0
-
-    licenses.</p>
-
-    <p>See <a href="https://github.com/spack/spack-configs/blob/master/LICENSE-MIT">LICENSE-MIT</a>,
-
-    <a href="https://github.com/spack/spack-configs/blob/master/LICENSE-APACHE">LICENSE-APACHE</a>,
-
-    <a href="https://github.com/spack/spack-configs/blob/master/COPYRIGHT">COPYRIGHT</a>,
-    and
-
-    <a href="https://github.com/spack/spack-configs/blob/master/NOTICE">NOTICE</a>
-    for details.</p>
-
-    <p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>
-
-    <p>LLNL-CODE-811652</p>
-
-    '
+  readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
+    ><img src=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml/badge.svg?branch=master\"\
+    \ alt=\"Update spack develop version\" style=\"max-width:100%;\"></a></p>\n<h1>\n\
+    <a id=\"user-content--spack-with-batteries-included-linuxx86_64\" class=\"anchor\"\
+    \ href=\"#-spack-with-batteries-included-linuxx86_64\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a><g-emoji class=\"\
+    g-emoji\" alias=\"battery\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50b.png\"\
+    >\U0001F50B</g-emoji> Spack with batteries included (linux/x86_64)</h1>\n<p><a\
+    \ href=\"https://github.com/spack/spack\">Spack</a> is a package manager, and\
+    \ package managers should be trivial to install.</p>\n<p>This repo offers a single,\
+    \ static executable for Spack:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre>$ <span class=\"pl-s1\">wget -qO spack.x https://github.com/haampie/spack-batteries-included/releases/download/develop/spack-x86_64.x</span>\n\
+    $ <span class=\"pl-s1\">chmod +x spack.x</span>\n$ <span class=\"pl-s1\">./spack.x\
+    \ install zstd +programs <span class=\"pl-k\">~</span>shared build_type=Release</span></pre></div>\n\
+    <h2>\n<a id=\"user-content-what-version-of-spack-is-shipped\" class=\"anchor\"\
+    \ href=\"#what-version-of-spack-is-shipped\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>What version of Spack is shipped?</h2>\n\
+    <p>The URL above gives you a rolling release of Spack's develop branch, which\
+    \ is updated\nhourly. The exact commit SHA is included as a file and can be retrieved\
+    \ like this:</p>\n<div class=\"highlight highlight-text-shell-session\"><pre>$\
+    \ <span class=\"pl-s1\">spack.x --squashfs-extract spack_sha <span class=\"pl-k\"\
+    >&amp;&amp;</span> cat spack/spack_sha</span>\n<span class=\"pl-c1\">[prints the\
+    \ Spack commit sha]</span></pre></div>\n<h2>\n<a id=\"user-content-supported-platforms\"\
+    \ class=\"anchor\" href=\"#supported-platforms\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Supported platforms</h2>\n<ul>\n\
+    <li>CentOS 7 and above</li>\n<li>Ubuntu 14.04 and above</li>\n<li>Debian 8 and\
+    \ above</li>\n<li>Fedora 20 and above</li>\n<li>SUSE Linux 13 and above</li>\n\
+    <li>Arch Linux</li>\n<li>Gentoo</li>\n<li>Windows Subsystem for Linux 2 with any\
+    \ of the above distro's.</li>\n</ul>\n<p>The system dependencies are <code>glibc\
+    \ 2.17</code> and above and optionally the <code>fusermount</code>\nexecutable.\
+    \ If your system supports rootless containers it likely has <code>fusermount</code>\n\
+    installed already!</p>\n<h2>\n<a id=\"user-content-how-does-it-work\" class=\"\
+    anchor\" href=\"#how-does-it-work\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>How does it work?</h2>\n<p><code>spack.x</code>\
+    \ consists of a modified version of the AppImage runtime concatenated\nwith a\
+    \ big squashfs file which includes <code>binutils</code>, <code>bzip2</code>,\
+    \ <code>clingo</code>, <code>curl</code>,\n<code>file</code>, <code>git</code>,\
+    \ <code>gmake</code>, <code>gpg</code>, <code>gzip</code>, <code>openssl</code>,\
+    \ <code>patch</code>, <code>patchelf</code>, <code>python</code>,\n<code>py-boto3</code>,\
+    \ <code>tar</code>, <code>unzip</code>, <code>xz</code>, <code>zstd</code> and\
+    \ their dependencies.</p>\n<p>When you run <code>spack.x [args]</code> it will\
+    \ use <code>fusermount</code> to\nmount this squashfs file in a temporary directory,\
+    \ and then execute the\nentrypoint executable <a href=\"build/6_spack/spack\"\
+    >spack</a>.</p>\n<p>The <code>spack</code> executable sets some environment variables\
+    \ like <code>PATH</code> and\n<code>DL_LIBRARY_PATH</code> to the bin and lib\
+    \ folders of the squashfs file, and then it\nexecutes <code>python3 spack_src/bin/spack\
+    \ [args]</code>.</p>\n<p>When the command is done running, the runtime unmounts\
+    \ the squashfs file again.</p>\n<h2>\n<a id=\"user-content-my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
+    \ class=\"anchor\" href=\"#my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>My system doesn't allow me to use <code>fusermount</code>, what now?</h2>\n\
+    <p><code>fusermount</code> is used to mount a squashfs file included in the binary.\
+    \ If you\ndon't want that, you can just extract it:</p>\n<pre><code>$ spack.x\
+    \ --squashfs-extract\n$ ./spack/spack\nusage: spack [-hkV] [--color {always,never,auto}]\
+    \ COMMAND ...\n</code></pre>\n<p>but working with the extracted <code>spack</code>\
+    \ folder can come with a performance\npenalty on shared filesystems in HPC centers.</p>\n\
+    <h2>\n<a id=\"user-content-differences-and-improvements-over-appimage-runtime\"\
+    \ class=\"anchor\" href=\"#differences-and-improvements-over-appimage-runtime\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Differences and improvements over AppImage runtime</h2>\n<ul>\n<li>spack.x\
+    \ uses <code>zstd</code> for faster decompression;</li>\n<li>spack.x itself is\
+    \ an entirely static binary;</li>\n<li>spack.x does not need to dlopen libfuse.so.</li>\n\
+    </ul>\n<h2>\n<a id=\"user-content-troubleshooting\" class=\"anchor\" href=\"#troubleshooting\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Troubleshooting</h2>\n<p><strong>immutability</strong> The squashfs\
+    \ mountpoint is a readonly folder, meaning that\nspack can't write to spack/{var,opt}\
+    \ folders. spack.x is configured to use some\nnon-standard directories, see <code>spack.x\
+    \ config blame config</code> for details.</p>\n<p>Note, spack.x applies <a href=\"\
+    https://github.com/spack/spack/pull/20158/\">this patch</a>\nto ensure that log\
+    \ files are written to the <code>config:misc_cache</code> folder.</p>\n<p><strong>openssl</strong>:\
+    \ By default spack.x uses <code>ca-certificates-mozilla</code> for downloading\n\
+    package sources over https. If you somehow need to use system certificates,\n\
+    set <code>SSL_CERT_DIR</code> and <code>GIT_SSL_CAINFO</code> or <code>SSL_CERT_FILE</code>\
+    \ and <code>GIT_SSL_CERT</code>.</p>\n<h2>\n<a id=\"user-content-can-i-run-spackx-inside-a-container\"\
+    \ class=\"anchor\" href=\"#can-i-run-spackx-inside-a-container\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Can\
+    \ I run spack.x inside a container?</h2>\n<p>Yes, but please don't! Since <code>fusermount</code>\
+    \ is a setuid binary, you will need to\nrun a privileged container, which is never\
+    \ a good idea.</p>\n<p>The recommended way to run spack.x inside a container is\
+    \ to just extract it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre>$ <span class=\"pl-s1\">spack.x --squashfs-extract</span>\n$ <span class=\"\
+    pl-s1\">./spack/spack --version</span></pre></div>\n<p>If you insist on running\
+    \ spack.x in Docker, this is one way to do it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre>$ <span class=\"pl-s1\">sudo docker run --privileged --device /dev/fuse\
+    \ -it -v <span class=\"pl-smi\">$PWD</span>/spack.x:/bin/spack.x ubuntu:18.04</span>\n\
+    # <span class=\"pl-s1\">apt update <span class=\"pl-k\">&amp;&amp;</span> apt\
+    \ install fuse <span class=\"pl-c\"><span class=\"pl-c\">#</span> install fusermount</span></span>\n\
+    # <span class=\"pl-s1\">spack.x --version</span></pre></div>\n<h2>\n<a id=\"user-content-running-an-executable-shipped-with-spackx-directly\"\
+    \ class=\"anchor\" href=\"#running-an-executable-shipped-with-spackx-directly\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Running an executable shipped with spack.x directly</h2>\n<p>If you\
+    \ want to run an executable shipped with <code>spack.x</code> directly instead\n\
+    of invoking spack (the default entrypoint), try this:</p>\n<div class=\"highlight\
+    \ highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\">NO_ENTRYPOINT= spack.x\
+    \ which python</span>\n<span class=\"pl-c1\">/tmp/.mount_spack.h0zr1h/view/bin/python</span></pre></div>\n\
+    <hr>\n<h2>\n<a id=\"user-content-how-do-i-build-spackx-myself\" class=\"anchor\"\
+    \ href=\"#how-do-i-build-spackx-myself\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>How do I build spack.x myself?</h2>\n\
+    <p>Initially you may need docker to get a rootfs filesystem for centos 7.</p>\n\
+    <p>Building goes like this:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre><span class=\"pl-c1\">make rootfs-with-spack</span>\n<span class=\"pl-c1\"\
+    >make</span></pre></div>\n<p>You'll find the output in</p>\n<pre><code>build/output\n\
+    </code></pre>\n"
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1621478944.0
+  updated_at: 1621457344.0
 class4kayaker/GPGPU_self_study:
   data_format: 2
   description: Minor work intended to do self study on GPGPU programming.
@@ -6436,59 +6353,7 @@ class4kayaker/GPGPU_self_study:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1616491492.0
-ctuning/ck-spack:
-  data_format: 2
-  description: 'Collective Knowledge repository with CK package and virtual environment
-    front-end for Spack packages:'
-  filenames: []
-  full_name: ctuning/ck-spack
-  latest_release: '20181220'
-  readme: "<h1>\n<a id=\"user-content-collective-knowledge-repository-for-spack-packages\"\
-    \ class=\"anchor\" href=\"#collective-knowledge-repository-for-spack-packages\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Collective Knowledge repository for Spack packages</h1>\n<p><a href=\"\
-    https://github.com/ctuning/ck\"><img src=\"https://github.com/ctuning/ck-guide-images/raw/master/ck-compatible.svg\"\
-    \ alt=\"compatibility\" style=\"max-width:100%;\"></a>\n<a href=\"http://creativecommons.org/licenses/by/4.0/\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/bca967b18143b8a5b2ffe78bd4a1a30f6bc21de83bd8336f748e96498af38b38/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d43432532304259253230342e302d6c69676874677265792e737667\"\
-    \ alt=\"License: CC BY 4.0\" data-canonical-src=\"https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg\"\
-    \ style=\"max-width:100%;\"></a></p>\n<p>This repository provides functionality\
-    \ to connect spack packages and CK workflows.\nIt's an on-going project so please\
-    \ be patient.</p>\n<p>Resources:</p>\n<ul>\n<li><a href=\"http://cKnowledge.org\"\
-    \ rel=\"nofollow\">CK framework</a></li>\n<li><a href=\"https://github.com/ctuning/ck/wiki/First-Steps\"\
-    >CK first steps</a></li>\n<li><a href=\"https://github.com/ctuning/ck/wiki/Portable-workflows\"\
-    >CK portable workflows</a></li>\n<li><a href=\"http://spack.io\" rel=\"nofollow\"\
-    >Spack</a></li>\n</ul>\n<h1>\n<a id=\"user-content-license\" class=\"anchor\"\
-    \ href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a>License</h1>\n<ul>\n<li>CK: BSD, 3-clause</li>\n<li>Spack:\
-    \ LGPL v2.1</li>\n</ul>\n<h1>\n<a id=\"user-content-minimal-ck-installation\"\
-    \ class=\"anchor\" href=\"#minimal-ck-installation\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Minimal CK installation</h1>\n\
-    <p>The minimal installation requires:</p>\n<ul>\n<li>Python 2.7 or 3.3+ (limitation\
-    \ is mainly due to unitests)</li>\n<li>Git command line client.</li>\n</ul>\n\
-    <p>You can install CK in your local user space as follows:</p>\n<pre><code>$ git\
-    \ clone http://github.com/ctuning/ck\n$ export PATH=$PWD/ck/bin:$PATH\n$ export\
-    \ PYTHONPATH=$PWD/ck:$PYTHONPATH\n</code></pre>\n<p>You can also install CK via\
-    \ PIP with sudo to avoid setting up environment variables yourself:</p>\n<pre><code>$\
-    \ sudo pip install ck\n</code></pre>\n<h1>\n<a id=\"user-content-usage\" class=\"\
-    anchor\" href=\"#usage\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>Usage</h1>\n<p>Install this repository and dependencies:</p>\n\
-    <pre><code>$ ck pull repo:ck-spack\n</code></pre>\n<p>List available packages\
-    \ imported from spack:</p>\n<pre><code>$ ck ls package:spack-*\n</code></pre>\n\
-    <p>Install any package such as abinit:</p>\n<pre><code>$ ck install package:spack-abinit\n\
-    \ or\n$ ck install package:spack-abinit --env.PACKAGE_VERSION=\"8.8.2\" --env.SPACK_EXTRA_CMD=\"\
-    \"\n</code></pre>\n<p>See CK virtual environment for all installed CK packages:</p>\n\
-    <pre><code>$ ck show env\n</code></pre>\n<p>Run virtual CK environment:</p>\n\
-    <pre><code>$ ck virtual env --tags=spack,native\n</code></pre>\n<h1>\n<a id=\"\
-    user-content-feedback-and-suggestions\" class=\"anchor\" href=\"#feedback-and-suggestions\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Feedback and suggestions</h1>\n<ul>\n<li>Contact <a href=\"https://github.com/ctuning/ck/wiki/Contacts\"\
-    >CK community</a>\n</li>\n<li>Contact <a href=\"https://groups.google.com/forum/#!forum/spack\"\
-    \ rel=\"nofollow\">Spack community</a>\n</li>\n</ul>\n"
-  stargazers_count: 1
-  subscribers_count: 3
-  topics: []
-  updated_at: 1539728824.0
+  updated_at: 1616469892.0
 eic/eic-spack:
   data_format: 2
   description: Spack packages for the Electron Ion Collider
@@ -6666,7 +6531,7 @@ eic/eic-spack:
   - spack-packages
   - spack-repo
   - eic
-  updated_at: 1620972930.0
+  updated_at: 1620951330.0
 eugeneswalker/exawind-containers:
   data_format: 2
   description: null
@@ -6818,13 +6683,13 @@ eugeneswalker/exawind-containers:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1619816372.0
+  updated_at: 1619794772.0
 eugeneswalker/llvm-containers:
   data_format: 2
   description: null
   filenames:
-  - x86_64/spack.yaml
   - ppc64le/spack.yaml
+  - x86_64/spack.yaml
   full_name: eugeneswalker/llvm-containers
   latest_release: null
   readme: '<h1>
@@ -6849,19 +6714,19 @@ eugeneswalker/llvm-containers:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1615511465.0
+  updated_at: 1615486265.0
 eugeneswalker/nalu-wind-demo:
   data_format: 2
   description: exawind/nalu-wind deployment using Spack and E4S build cache (demo)
   filenames:
-  - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
-  - uoregon/mpich-container/spack.yaml
-  - uoregon/openmpi/spack.yaml
-  - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
-  - uoregon/spectrum-mpi/spack.yaml
-  - uoregon/mpich/spack.yaml
   - uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml
+  - uoregon/mpich/spack.yaml
+  - uoregon/mpich-container/spack.yaml
   - summit/spack.yaml
+  - uoregon/spectrum-mpi/spack.yaml
+  - uoregon/openmpi/spack.yaml
+  - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
+  - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
   full_name: eugeneswalker/nalu-wind-demo
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-creating-an-appimage-from-a-spack-environment\"\
@@ -6937,7 +6802,7 @@ eugeneswalker/nalu-wind-demo:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1614903870.0
+  updated_at: 1614878670.0
 eugeneswalker/pantheon-containers:
   data_format: 2
   description: Pantheon Container Recipes
@@ -6956,14 +6821,14 @@ eugeneswalker/pantheon-containers:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1606979724.0
+  updated_at: 1606954524.0
 eugeneswalker/qmcpack-demo:
   data_format: 2
   description: null
   filenames:
   - spack.yaml
-  - spack-llvm.yaml
   - spack-qmcpack.yaml
+  - spack-llvm.yaml
   full_name: eugeneswalker/qmcpack-demo
   latest_release: null
   readme: '<h1>
@@ -6988,4007 +6853,7 @@ eugeneswalker/qmcpack-demo:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1615539156.0
-ezajko/oc:
-  data_format: 2
-  description: null
-  filenames: []
-  full_name: ezajko/oc
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
-
-    <h2>
-
-    <a id="user-content-install-requirements" class="anchor" href="#install-requirements"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install
-    requirements</h2>
-
-    <pre><code>yum install -y epel-release
-
-    yum install -y ansible python-netaddr git
-
-    </code></pre>
-
-    <p><em>IMPORTANT: Make sure that you installed the epel version. The <code>extras</code>
-    repository
-
-    has ansible 2.4, which is incompatible with this playbook!</em></p>
-
-    <h2>
-
-    <a id="user-content-clone-this-repo" class="anchor" href="#clone-this-repo" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Clone this repo</h2>
-
-    <pre><code>git clone --recursive https://bitbucket.versatushpc.com.br/scm/opencattus/deployment.git
-
-    cd deployment
-
-    git submodule init
-
-    git submodule update
-
-    </code></pre>
-
-    <h2>
-
-    <a id="user-content-runninng" class="anchor" href="#runninng" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Runninng</h2>
-
-    <ul>
-
-    <li>
-
-    <p>Before begin make sure to have, at last, the list of mac of the nodes.</p>
-
-    </li>
-
-    <li>
-
-    <p>Edit <code>nodes.yaml</code>. The variable structures need stay the same. Here
-    is a list of variables and their meanings</p>
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>variable</th>
-
-    <th>required</th>
-
-    <th>desc</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    <tr>
-
-    <td>mac</td>
-
-    <td>yes</td>
-
-    <td>mac addess of the node</td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>no</td>
-
-    <td>IPMI username, if ommited the default* one is used</td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>no</td>
-
-    <td>IPMI password, if ommited the default* one is used</td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm.Sockets</td>
-
-    <td>only for Slurm</td>
-
-    <td>Sockets slurm.conf entry</td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm.CoresPerSocket</td>
-
-    <td>only for Slurm</td>
-
-    <td>CoresPerSocket slurm.conf entry</td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm.ThreadsPerCore</td>
-
-    <td>only for Slurm</td>
-
-    <td>ThreadsPerCore slurm.conf entry</td>
-
-    </tr>
-
-    </tbody>
-
-    </table>
-
-    <p><em>* default here means the value present in <code>answers-&lt;date&gt;.yaml</code>.</em></p>
-
-    </li>
-
-    <li>
-
-    <p>Run <code>ansible-playbook config.yaml</code> to create configuration file</p>
-
-    <ul>
-
-    <li>Answer the questions to configure the environment.</li>
-
-    <li>A new file named answers-.yaml will be created, where <code>&lt;date&gt;</code>
-    is the date for today with the hour. This
-
-    file contains all your answers to all previous questions, you will use this in
-    the next steps.</li>
-
-    </ul>
-
-    </li>
-
-    <li>
-
-    <p>Run <code>ansible-playbook all.yaml -e @answer-file.yaml</code> to run all
-    phases in sequence</p>
-
-    <p>Or run each of these steps in order:</p>
-
-    </li>
-
-    <li>
-
-    <p>Run <code>ansible-playbook deploy.yaml -e @answer-&lt;date&gt;.yaml</code>
-    to install the base system</p>
-
-    </li>
-
-    <li>
-
-    <p>Add the image <code>ansible-playbook add-image.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>To configure infiniband <code>ansible-playbook infiniband.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>Install OpenHPC <code>ansible-playbook basic-openhpc.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>If using Slurm, install Slurm <code>ansible-playbook slurm.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>If using PBS, install PBS <code>ansible-playbook pbs.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>To install ganglia <code>ansible-playbook ganglia.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>To configure postfix <code>ansible-playbook postfix.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>To configure spack <code>ansible-playbook spack.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>To install TexLive  <code>ansible-playbook latex-support.yaml -e @answers-&lt;date&gt;.yaml</code></p>
-
-    </li>
-
-    <li>
-
-    <p>Finally to create nodes, run: <code>ansible-deploy define-nodes.yaml -e @answers-&lt;date&gt;.yaml</code>.
-    The nodes will be
-
-    defined in the order they appear in the file.</p>
-
-    </li>
-
-    </ul>
-
-    <hr>
-
-    <h1>
-
-    <a id="user-content-running-single-role" class="anchor" href="#running-single-role"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running
-    single role</h1>
-
-    <p><code>ansible -m include_role -a ''name=&lt;ROLE_NAME&gt;'' sms -e @answers-...yaml</code></p>
-
-    <h1>
-
-    <a id="user-content-running-single-playbook" class="anchor" href="#running-single-playbook"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running
-    single playbook</h1>
-
-    <p><code>ansible -m include_tasks -a ''roles/xcat/tasks/install.yaml'' sms -e
-    @answers-...yaml</code></p>
-
-    <h1>
-
-    <a id="user-content-questions" class="anchor" href="#questions" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Questions</h1>
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>name</th>
-
-    <th>prompt</th>
-
-    <th>default</th>
-
-    <th>choices</th>
-
-    <th>help</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>node</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>3</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>node</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>3</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>n</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>2</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm_partition_name</td>
-
-    <td>Slurm default partition name</td>
-
-    <td>batch</td>
-
-    <td></td>
-
-    <td>The Slurm partition name<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>timezone</td>
-
-    <td>Select timezone</td>
-
-    <td>America/Sao_Paulo</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>n</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>2</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm_partition_name</td>
-
-    <td>Slurm default partition name</td>
-
-    <td>batch</td>
-
-    <td></td>
-
-    <td>The Slurm partition name<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>timezone</td>
-
-    <td>Select timezone</td>
-
-    <td>America/Sao_Paulo</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>n</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>2</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm_partition_name</td>
-
-    <td>Slurm default partition name</td>
-
-    <td>batch</td>
-
-    <td></td>
-
-    <td>The Slurm partition name<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>timezone</td>
-
-    <td>Select timezone</td>
-
-    <td>America/Sao_Paulo</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>n</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>2</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm_partition_name</td>
-
-    <td>Slurm default partition name</td>
-
-    <td>batch</td>
-
-    <td></td>
-
-    <td>The Slurm partition name<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>timezone</td>
-
-    <td>Select timezone</td>
-
-    <td>America/Sao_Paulo</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>name</td>
-
-    <td>prompt</td>
-
-    <td>default</td>
-
-    <td>choices</td>
-
-    <td>help</td>
-
-    </tr>
-
-    <tr>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    <td>---</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cluster_name</td>
-
-    <td>Hostname?</td>
-
-    <td>headnode</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>domain_name</td>
-
-    <td>Domain name?</td>
-
-    <td>cluster.example.com</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipaadmin_password</td>
-
-    <td>FreeIPA admin password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipadm_password</td>
-
-    <td>FreeIPA Directory Manager password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>FreeIPA Directory Manager password<br><br>It uses the same password as admin
-    password entered before. This is used<br>for authenticating to LDAP.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_prefix</td>
-
-    <td>Node prefix?</td>
-
-    <td>n</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_separator</td>
-
-    <td>Node name separtor (optional)</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>nodes_padding</td>
-
-    <td>Node name padding?</td>
-
-    <td>2</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_external</td>
-
-    <td>External interface?</td>
-
-    <td>eth0</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_eth_internal</td>
-
-    <td>Internal interface?</td>
-
-    <td>eth1</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network</td>
-
-    <td>Management network?</td>
-
-    <td>172.26.0.0/16</td>
-
-    <td></td>
-
-    <td>Management network is the primary network. Is the one by<br>which nodes boot
-    and where services like DHCP, DNS, TFTP<br>talk.<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_ip</td>
-
-    <td>Head node management network internal IP?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sms_network_ip_start</td>
-
-    <td>Management network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is the Management Network first node IP address. Remaning nodes<br>will
-    be addressed by subsequent address.<br><br>Expects an IP in the form 10.1.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>xcat_dhcp_dynamicrange</td>
-
-    <td>xCAT DHCP Dynamic range?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Dynamic range used for xCAT during node discovery.<br><br>Expects a IP range
-    like 1.1.1.1-1.1.1.10<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_enabled</td>
-
-    <td>Configure service network?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Network used for BMC/IPMI services</td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network</td>
-
-    <td>Enter the service network</td>
-
-    <td>172.25.0.0/16</td>
-
-    <td></td>
-
-    <td>This is Service Network. Is the network used for BMC services and alike. It<br>expects
-    to receive a CIDR notation address like 10.1.0.0/16. The network address<br>for
-    the nodes are inferred from this network, starting from 10.1.0.2 up to<br>as many
-    as nodes are defined on cluster.csv<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>service_network_ip_start</td>
-
-    <td>Service network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This is BMC address of the first node. The reimaing nodes<br>will be named
-    with subsequent IP address.<br><br>Expects an IP address like 10.2.0.1<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_user</td>
-
-    <td>What is the default IPMI username</td>
-
-    <td>ADMIN</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ipmi_password</td>
-
-    <td>IPMI default password</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>This can be overriden by node basis. The password<br>is setup for IPMI connection
-    together with IPMI username<br>asked before<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>queue_system</td>
-
-    <td>Choose a queue system</td>
-
-    <td>none</td>
-
-    <td>none, slurm, pbs</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>pbs_default_place</td>
-
-    <td>PBS default place</td>
-
-    <td>shared</td>
-
-    <td>shared, scatter</td>
-
-    <td>PBS default.place option<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>slurm_partition_name</td>
-
-    <td>Slurm default partition name</td>
-
-    <td>batch</td>
-
-    <td></td>
-
-    <td>The Slurm partition name<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_install</td>
-
-    <td>Install postfix?</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td>Enable installation and configuration of postfix<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_profile</td>
-
-    <td>Choose a profile for postfix installation?</td>
-
-    <td>local</td>
-
-    <td>relay, local, sasl</td>
-
-    <td>Select the profile. There are 3 options<br>  local) All messages are delivered
-    locally only<br>  relay) Messages are relayed to another MTA<br>  sasl)  Messages
-    are relayed to another MTA, but it<br>         uses user/password to connect to
-    it<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Type the MTA to relay to?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>The relay address, ex: relay-smtp.example.com<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_mynetworks_more</td>
-
-    <td>Custom trusted networks?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td>Comma separated list, localhost and cluster networks are already added by
-    default<br>Ex: 192.168.123.0/24, 10.0.0.0/8<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_server</td>
-
-    <td>Relay server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_relay_port</td>
-
-    <td>Relay port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_user</td>
-
-    <td>SMTP user?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_password</td>
-
-    <td>SMTP password?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_server</td>
-
-    <td>SMTP server?</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>postfix_sasl_port</td>
-
-    <td>SMTP port?</td>
-
-    <td>25</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>certificate_install</td>
-
-    <td>Create certificate</td>
-
-    <td>yes</td>
-
-    <td>yes, no</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_stack</td>
-
-    <td>Infiniband stack</td>
-
-    <td>none</td>
-
-    <td>none, upstream, mellanox</td>
-
-    <td>none      =&gt; Do not install Infiniband at all<br>upstream  =&gt; The main
-    stream OFED stack, opensource and provided by default repos<br>mellanox  =&gt;
-    The Mellanox OFED stack<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network</td>
-
-    <td>Application network</td>
-
-    <td>172.27.0.0/16</td>
-
-    <td></td>
-
-    <td>This is the network used by applications to talk, is a high speed network.<br><br>Expcets
-    a network address like 172.27.0.0/16<br>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td>ib_network_ip_start</td>
-
-    <td>Infiniband network first node IP address</td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>timezone</td>
-
-    <td>Select timezone</td>
-
-    <td>America/Sao_Paulo</td>
-
-    <td></td>
-
-    <td></td>
-
-    </tr>
-
-    </tbody>
-
-    </table>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1599073995.0
+  updated_at: 1615513956.0
 felixthieme/2020_ASPECT_IGG:
   data_format: 2
   description: null
@@ -11083,146 +6948,7 @@ felixthieme/2020_ASPECT_IGG:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1590632076.0
-floquet/yaml-library:
-  data_format: 2
-  description: Spack configuration files
-  filenames: []
-  full_name: floquet/yaml-library
-  latest_release: null
-  readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>SciCell++</h1>\n<p><a href=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
-    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
-    \ alt=\"GitHub-master-push\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/tachidok/scicellxx\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4d304208a40f5037293d6f8b02ab726b9654e85e8557e43b51ae5a91077fa596/68747470733a2f2f636f6465636f762e696f2f67682f7461636869646f6b2f73636963656c6c78782f6272616e63682f6d61737465722f67726170682f62616467652e7376673f746f6b656e3d4a41414f465353314951\"\
-    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/tachidok/scicellxx/branch/master/graph/badge.svg?token=JAAOFSS1IQ\"\
-    \ style=\"max-width:100%;\"></a>\n<a href=\"https://scicellxx.readthedocs.io\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6ada579e5e58ef38465ec81b91143b7b634c899e63a4a834dc39199f9ded19e6/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f73636963656c6c78782f62616467652f3f76657273696f6e3d6c6174657374\"\
-    \ alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/scicellxx/badge/?version=latest\"\
-    \ style=\"max-width:100%;\"></a></p>\n<hr>\n<h2>\n<a id=\"user-content-welcome\"\
-    \ class=\"anchor\" href=\"#welcome\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Welcome!</h2>\n<p>This is the\
-    \ official GitHub repository for the <strong>SciCell++</strong> project.</p>\n\
-    <h2>\n<a id=\"user-content-what-is-scicell\" class=\"anchor\" href=\"#what-is-scicell\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>What is SciCell++?</h2>\n<p>SciCell++ is an object-oriented framework\
-    \ for the simulation of biological and physical phenomena modelled as continuous\
-    \ or discrete processes.</p>\n<h2>\n<a id=\"user-content-table-of-contents\" class=\"\
-    anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Table of Contents</h2>\n<ol>\n\
-    <li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#demos\">Demos</a></li>\n\
-    <li><a href=\"#documentation\">Documentation</a></li>\n<li><a href=\"#how_to_contribute\"\
-    >How to contribute</a></li>\n<li><a href=\"#facts_and_curiosities\">Facts and\
-    \ curiosities</a></li>\n<li><a href=\"#license\">License</a></li>\n</ol>\n<h2>\n\
-    <a id=\"user-content-installation-\" class=\"anchor\" href=\"#installation-\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Installation <a name=\"user-content-installation\"></a>\n</h2>\n<h3>\n\
-    <a id=\"user-content-docker-based-installation\" class=\"anchor\" href=\"#docker-based-installation\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Docker-based installation</h3>\n<p>We are adopting containers to ease\
-    \ the installation and release of\nversions so you do not need to worry about\
-    \ any dependencies.</p>\n<p>This section and installation procedure is under development.\n\
-    <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
-    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
-    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
-    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
-    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
-    >\U0001F6A7</g-emoji></p>\n<p>Follow the instructions in\n<a href=\"https://docs.docker.com/engine/install/\"\
-    \ rel=\"nofollow\">here</a> to get Docker\ninstalled in your system.</p>\n<p>Then\
-    \ get the image from our Docker repository and ta-dah, you are\nready to go.</p>\n\
-    <h3>\n<a id=\"user-content-fast-installation-and-starting-up\" class=\"anchor\"\
-    \ href=\"#fast-installation-and-starting-up\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Fast installation and starting\
-    \ up!!!</h3>\n<h4>\n<a id=\"user-content-what-you-need-to-have-it-running-and-working-nicely\"\
-    \ class=\"anchor\" href=\"#what-you-need-to-have-it-running-and-working-nicely\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>What you need to have it running and working nicely?</h4>\n<ul>\n\
-    <li>\n<p>A C++ compiler - demo drivers and library built with version\n7.4.0.\
-    \ It may work with previous versions as well.</p>\n</li>\n<li>\n<p>CMake - to\
-    \ configure and install it. We tested with version 3.10.2.</p>\n</li>\n<li>\n\
-    <p>Python - to test output from demo drivers with validation files\n(also to produce\
-    \ nice plots). We tested with version 3.7.3 but it\nshould work with any version\
-    \ &gt;= 3</p>\n</li>\n</ul>\n<h5>\n<a id=\"user-content-optional\" class=\"anchor\"\
-    \ href=\"#optional\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>Optional</h5>\n<ul>\n<li>MPI support for parallel\
-    \ features - <code>not currently supported</code>.</li>\n</ul>\n<h4>\n<a id=\"\
-    user-content-get-your-own-copy-of-the-project\" class=\"anchor\" href=\"#get-your-own-copy-of-the-project\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Get your own copy of the project</h4>\n<p>You need <strong>git</strong>\
-    \ installed in your computer, then type in a terminal</p>\n<div class=\"highlight\
-    \ highlight-source-shell\"><pre>git clone https://github.com/tachidok/scicellxx\n\
-    <span class=\"pl-c1\">cd</span> scicellxx\ngit checkout -b john_cool</pre></div>\n\
-    <p>After executing the first line you will be prompted with your GitHub\nuser\
-    \ name and your password. The third line generates your fully\ncustomised branch,\
-    \ we assume that your name is <em>john_cool</em></p>\n<h4>\n<a id=\"user-content-configuration\"\
-    \ class=\"anchor\" href=\"#configuration\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Configuration</h4>\n<ul>\n<li>In\
-    \ a terminal (shell command line) go into the <code>scicellxx</code> folder\n\
-    then type</li>\n</ul>\n<div class=\"highlight highlight-source-shell\"><pre>./autogen.sh</pre></div>\n\
-    <ul>\n<li>Follow up the instructions on screen to configure your own copy of\n\
-    the project.</li>\n</ul>\n<h2>\n<a id=\"user-content-demos-\" class=\"anchor\"\
-    \ href=\"#demos-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a>Demos <a name=\"user-content-demos\"></a>\n</h2>\n\
-    <p>Demos live in the <code>demos</code> folder. You should run all of them to\
-    \ make sure everything is working fine. If you did not run them at installation\
-    \ time (by default) you can do it at any time by opening a terminal, going into\
-    \ the build folder (the default one is <code>build</code>) and typing</p>\n<div\
-    \ class=\"highlight highlight-source-shell\"><pre>./ctest</pre></div>\n<p>A large\
-    \ number of demos is expected to live in the <code>demos</code> folder. Review\
-    \ the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\" rel=\"\
-    nofollow\">corresponding documentation</a> for their full description.</p>\n<h3>\n\
-    <a id=\"user-content-featured-demos\" class=\"anchor\" href=\"#featured-demos\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Featured demos</h3>\n<ul>\n<li>Interpolation</li>\n<li>Linear solvers</li>\n\
-    <li>Matrices operations</li>\n<li>Newton's method</li>\n<li>Solution of ODE's\n\
-    <ul>\n<li>Lotka-Volterra solved with different time steppers</li>\n<li>N-body\
-    \ problem (only 3-body and 4-body)</li>\n<li>Explicit time steppers</li>\n<li>Implicit\
-    \ time steppers (full implicit and <em>E(PC)^k E</em>\nimplementations)</li>\n\
-    <li>Adaptive time steppers</li>\n</ul>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-documentation-\"\
-    \ class=\"anchor\" href=\"#documentation-\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Documentation <a name=\"user-content-documentation\"\
-    ></a>\n</h2>\n<p>The full documentation is <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
-    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-how-to-contribute-\"\
-    \ class=\"anchor\" href=\"#how-to-contribute-\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How to contribute <a name=\"\
-    user-content-how_to_contribute\"></a>\n</h2>\n<p>Please check the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
-    \ rel=\"nofollow\">corresponding documentation</a> section for contributions.</p>\n\
-    <h2>\n<a id=\"user-content-facts-and-curiosities-\" class=\"anchor\" href=\"#facts-and-curiosities-\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Facts and curiosities <a name=\"user-content-facts_and_curiosities\"\
-    ></a>\n</h2>\n<h3>\n<a id=\"user-content-how-many-developers-are-currently-working-on-this-project\"\
-    \ class=\"anchor\" href=\"#how-many-developers-are-currently-working-on-this-project\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>How many developers are currently working on this project?</h3>\n\
-    <p>At Wednesday, March/31, 2021 there is one and only one developer, me\n<g-emoji\
-    \ class=\"g-emoji\" alias=\"no_mouth\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f636.png\"\
-    >\U0001F636</g-emoji> <g-emoji class=\"g-emoji\" alias=\"email\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/2709.png\">\u2709\uFE0F\
-    </g-emoji></p>\n<p><g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
-    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
-    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
-    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
-    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
-    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
-    </g-emoji></p>\n<h3>\n<a id=\"user-content-when-did-this-start\" class=\"anchor\"\
-    \ href=\"#when-did-this-start\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a>When did this start?</h3>\n<p>This\
-    \ project was initially uploaded to GitHub on Friday, 11 March 2016\n<g-emoji\
-    \ class=\"g-emoji\" alias=\"smile\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f604.png\"\
-    >\U0001F604</g-emoji></p>\n<h2>\n<a id=\"user-content-license-\" class=\"anchor\"\
-    \ href=\"#license-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>License <a name=\"user-content-license\"></a>\n\
-    </h2>\n<p>Licensed under the GNU GPLv3. A copy can be found on the <a href=\"\
-    ./LICENSE\">LICENSE</a> file.</p>\n"
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1585737463.0
+  updated_at: 1590610476.0
 haampie-spack/ci-example:
   data_format: 2
   description: null
@@ -11430,7 +7156,7 @@ haampie-spack/ci-example:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1616683389.0
+  updated_at: 1616661789.0
 haampie-spack/ci-example-2:
   data_format: 2
   description: trying to use spack in gh actions without docker images
@@ -11598,7 +7324,7 @@ haampie-spack/ci-example-2:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1620232443.0
+  updated_at: 1620210843.0
 haampie-throwaway/spack-status-code:
   data_format: 2
   description: null
@@ -11806,7 +7532,7 @@ haampie-throwaway/spack-status-code:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1611769807.0
+  updated_at: 1611744607.0
 haampie/appimage_runtime:
   data_format: 2
   description: Extracting a minimal version of the appimage runtime + any compression
@@ -11901,7 +7627,7 @@ haampie/appimage_runtime:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1617255870.0
+  updated_at: 1617234270.0
 haampie/sirius-appimage:
   data_format: 2
   description: SIRIUS AppImage (using just the bare minimum)
@@ -11983,16 +7709,16 @@ haampie/sirius-appimage:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1616530138.0
+  updated_at: 1616508538.0
 haampie/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
+  - build/1_ccache/spack.yaml
   - build/3_more_tools/spack.yaml
-  - build/6_spack/spack.yaml
   - build/2_compiler/spack.yaml
   - build/5_runtime/spack.yaml
-  - build/1_ccache/spack.yaml
+  - build/6_spack/spack.yaml
   full_name: haampie/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -12104,7 +7830,7 @@ haampie/spack-batteries-included:
   - spack
   - squashfs
   - libfuse
-  updated_at: 1621575407.0
+  updated_at: 1621553807.0
 hariharan-devarajan/emacs:
   data_format: 2
   description: null
@@ -12272,7 +7998,7 @@ hariharan-devarajan/emacs:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1620426207.0
+  updated_at: 1620404607.0
 hepnos/HEPnOS:
   data_format: 2
   description: HEPnOS is a distributed object store for high energy physics applications,
@@ -12304,7 +8030,7 @@ hepnos/HEPnOS:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1617116230.0
+  updated_at: 1617094630.0
 hepnos/HEPnOS-PEP-Benchmark:
   data_format: 2
   description: Benchmark exercizing the ParallelEventProcessor feature of HEPnOS.
@@ -12385,7 +8111,7 @@ hepnos/HEPnOS-PEP-Benchmark:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1613603490.0
+  updated_at: 1613578290.0
 hpc/mpifileutils:
   data_format: 2
   description: File utilities designed for scalability and performance.
@@ -12466,7 +8192,7 @@ hpc/mpifileutils:
   stargazers_count: 105
   subscribers_count: 23
   topics: []
-  updated_at: 1621683342.0
+  updated_at: 1621661742.0
 icaoberg/singularity-octave:
   data_format: 2
   description: Singularity recipe for Octave
@@ -12513,7 +8239,7 @@ icaoberg/singularity-octave:
   - singularity
   - octave
   - singularity-recipe
-  updated_at: 1619522434.0
+  updated_at: 1619500834.0
 jacobmerson/spack-develop-env:
   data_format: 2
   description: My development environment built with spack
@@ -12553,7 +8279,7 @@ jacobmerson/spack-develop-env:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1588763757.0
+  updated_at: 1588742157.0
 johnny8266/g4e:
   data_format: 2
   description: null
@@ -12591,20 +8317,20 @@ johnny8266/g4e:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1610666933.0
+  updated_at: 1610641733.0
 jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
   - configs/eagle/utilities/spack.yaml
-  - configs/eagle/base/spack.yaml
-  - configs/rhodes/base/spack.yaml
-  - envs/exawind/spack.yaml
   - configs/rhodes/utilities/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/rhodes/compilers/spack.yaml
-  - configs/rhodes/software/spack.yaml
   - configs/eagle/compilers/spack.yaml
+  - configs/eagle/software/spack.yaml
+  - envs/exawind/spack.yaml
+  - configs/rhodes/compilers/spack.yaml
+  - configs/rhodes/base/spack.yaml
+  - configs/rhodes/software/spack.yaml
+  - configs/eagle/base/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -12767,7 +8493,7 @@ jrood-nrel/spack-configs:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1620946052.0
+  updated_at: 1620924452.0
 js947/spack-docker-test:
   data_format: 2
   description: testing spack's containerize command
@@ -12790,18 +8516,18 @@ js947/spack-docker-test:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1606980182.0
+  updated_at: 1606954982.0
 key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/key4hep-release/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
-  - environments/key4hep-release-broadwell/spack.yaml
   - environments/key4hep-debug/spack.yaml
-  - environments/geant4-data-share/spack.yaml
   - environments/key4hep-release-user/spack.yaml
   - environments/key4hep-nightlies-debug/spack.yaml
+  - environments/key4hep-release/spack.yaml
+  - environments/geant4-data-share/spack.yaml
+  - environments/key4hep-release-broadwell/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: 2021-02-25a-opt
   readme: '<h1>
@@ -12845,7 +8571,7 @@ key4hep/key4hep-spack:
   stargazers_count: 3
   subscribers_count: 8
   topics: []
-  updated_at: 1621523159.0
+  updated_at: 1621501559.0
 lanl/SICM:
   data_format: 2
   description: Simplified Interface to Complex Memory
@@ -13407,16 +9133,16 @@ lanl/SICM:
   stargazers_count: 14
   subscribers_count: 18
   topics: []
-  updated_at: 1616211072.0
+  updated_at: 1616189472.0
 laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
   - env/power9le/flecsalemm-deps/spack.yaml
-  - env/x86_64/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
   - env/broadwell/flecsalemm-deps/spack.yaml
   - .gitlab-ci/env/root-build/spack.yaml
+  - env/x86_64/flecsalemm-deps/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
   - .gitlab-ci/env/dry-run/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
@@ -13476,7 +9202,7 @@ laristra/ristra_spackages:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1619495889.0
+  updated_at: 1619474289.0
 le-raffael/AdaptiveTimeSteppingSEAS:
   data_format: 2
   description: null
@@ -13507,7 +9233,7 @@ le-raffael/AdaptiveTimeSteppingSEAS:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1620773652.0
+  updated_at: 1620752052.0
 m-s-will/clover:
   data_format: 2
   description: null
@@ -13574,7 +9300,7 @@ m-s-will/clover:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1619023093.0
+  updated_at: 1619001493.0
 m-s-will/nyx:
   data_format: 2
   description: null
@@ -13632,7 +9358,7 @@ m-s-will/nyx:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1619477496.0
+  updated_at: 1619455896.0
 mdorier/test-ssg-cori:
   data_format: 2
   description: null
@@ -13713,13 +9439,13 @@ mdorier/test-ssg-cori:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1614204735.0
+  updated_at: 1614179535.0
 mochi-hpc-experiments/colza-experiments:
   data_format: 2
   description: Experiments using Colza for In Situ Analysis
   filenames:
-  - cori/resizing/spack.yaml
   - cori/overhead/spack.yaml
+  - cori/resizing/spack.yaml
   - cori/vtk/spack.yaml
   full_name: mochi-hpc-experiments/colza-experiments
   latest_release: null
@@ -13745,17 +9471,17 @@ mochi-hpc-experiments/colza-experiments:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1617986620.0
+  updated_at: 1617965020.0
 mochi-hpc-experiments/platform-configurations:
   data_format: 2
   description: This repository provides a set of configuration files and example scripts
     for running Mochi experiments on various platforms.
   filenames:
-  - ANL/Bebop/spack.yaml
-  - NERSC/Cori/spack.yaml
-  - ANL/JLSE/spack.yaml
   - ORNL/Summit/spack.yaml
+  - NERSC/Cori/spack.yaml
+  - ANL/Bebop/spack.yaml
   - ANL/Theta/spack.yaml
+  - ANL/JLSE/spack.yaml
   full_name: mochi-hpc-experiments/platform-configurations
   latest_release: null
   readme: '<h1>
@@ -13958,7 +9684,7 @@ mochi-hpc-experiments/platform-configurations:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1614187849.0
+  updated_at: 1614162649.0
 mochi-hpc-experiments/sonata-benchmarking:
   data_format: 2
   description: Benchmarking of Sonata on Theta and Summit.
@@ -14040,7 +9766,7 @@ mochi-hpc-experiments/sonata-benchmarking:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1614187071.0
+  updated_at: 1614161871.0
 mochi-hpc/margo-microservice-template:
   data_format: 2
   description: Template for a margo-based Mochi microservice.
@@ -14065,7 +9791,7 @@ mochi-hpc/margo-microservice-template:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1614210543.0
+  updated_at: 1614185343.0
 mochi-hpc/mobject:
   data_format: 2
   description: Mobject is a prototype Mochi object storage system based on RADOS
@@ -14077,7 +9803,7 @@ mochi-hpc/mobject:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1621277137.0
+  updated_at: 1621255537.0
 mochi-hpc/mochi-bake:
   data_format: 2
   description: A microservice (i.e., Mochi provider) for high performance bulk storage
@@ -14304,7 +10030,7 @@ mochi-hpc/mochi-bake:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1620945435.0
+  updated_at: 1620923835.0
 mochi-hpc/mochi-bedrock:
   data_format: 2
   description: Mochi bootstrapping service.
@@ -14327,7 +10053,7 @@ mochi-hpc/mochi-bedrock:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1620916986.0
+  updated_at: 1620895386.0
 mochi-hpc/mochi-colza:
   data_format: 2
   description: Mochi-based staging service for in situ analysis and visualization
@@ -14339,7 +10065,7 @@ mochi-hpc/mochi-colza:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1617665054.0
+  updated_at: 1617643454.0
 mochi-hpc/mochi-doc:
   data_format: 2
   description: Documentations and tutorials for Margo, Thallium, Argobots, Mercury,
@@ -14431,7 +10157,7 @@ mochi-hpc/mochi-doc:
   stargazers_count: 2
   subscribers_count: 4
   topics: []
-  updated_at: 1621119976.0
+  updated_at: 1621098376.0
 mochi-hpc/mochi-margo:
   data_format: 2
   description: Argobots bindings for the Mercury RPC library
@@ -14552,7 +10278,7 @@ mochi-hpc/mochi-margo:
   stargazers_count: 7
   subscribers_count: 7
   topics: []
-  updated_at: 1621616859.0
+  updated_at: 1621595259.0
 mochi-hpc/mochi-remi:
   data_format: 2
   description: Mochi's REsource Migration Interface
@@ -14637,7 +10363,7 @@ mochi-hpc/mochi-remi:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1614271878.0
+  updated_at: 1614246678.0
 mochi-hpc/mochi-sdskv:
   data_format: 2
   description: simple margo-projected keyval service
@@ -14795,7 +10521,7 @@ mochi-hpc/mochi-sdskv:
   stargazers_count: 0
   subscribers_count: 6
   topics: []
-  updated_at: 1620851629.0
+  updated_at: 1620830029.0
 mochi-hpc/mochi-sonata:
   data_format: 2
   description: Sonata is a Mochi service for JSON document storage. It is based on
@@ -14874,7 +10600,7 @@ mochi-hpc/mochi-sonata:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1619728396.0
+  updated_at: 1619706796.0
 mochi-hpc/py-mochi-bedrock:
   data_format: 2
   description: Python interface for Mochi's Bedrock service.
@@ -14935,7 +10661,7 @@ mochi-hpc/py-mochi-bedrock:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1620857361.0
+  updated_at: 1620835761.0
 mochi-hpc/py-mochi-sonata:
   data_format: 2
   description: Python binding to the Mochi Sonata microservice.
@@ -14950,7 +10676,7 @@ mochi-hpc/py-mochi-sonata:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1614213349.0
+  updated_at: 1614188149.0
 mochi-hpc/thallium-microservice-template:
   data_format: 2
   description: Template for a thallium-based Mochi microservice.
@@ -14975,14 +10701,14 @@ mochi-hpc/thallium-microservice-template:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1614210486.0
+  updated_at: 1614185286.0
 mpbelhorn/olcf-spack-environments:
   data_format: 2
   description: Spack environments for OLCF resources.
   filenames:
-  - hosts/andes/envs/base/spack.yaml
-  - hosts/summit/envs/base/spack.yaml
   - hosts/peak/envs/base/spack.yaml
+  - hosts/summit/envs/base/spack.yaml
+  - hosts/andes/envs/base/spack.yaml
   - hosts/lyra/envs/base/spack.yaml
   full_name: mpbelhorn/olcf-spack-environments
   latest_release: null
@@ -15195,7 +10921,7 @@ mpbelhorn/olcf-spack-environments:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1613705324.0
+  updated_at: 1613680124.0
 nickrobison-usds/mobility-cpp:
   data_format: 2
   description: CPP port of mobility analysis project
@@ -15381,7 +11107,7 @@ nickrobison-usds/mobility-cpp:
   stargazers_count: 2
   subscribers_count: 1
   topics: []
-  updated_at: 1605222503.0
+  updated_at: 1605197303.0
 onkarbpatil/IPDPS2020-benchmarks:
   data_format: 2
   description: null
@@ -15557,7 +11283,7 @@ onkarbpatil/IPDPS2020-benchmarks:
   stargazers_count: 0
   subscribers_count: 0
   topics: []
-  updated_at: 1591389900.0
+  updated_at: 1591368300.0
 onkarbpatil/sc20-benchmarks:
   data_format: 2
   description: All the codes and scripts are available in this repository.
@@ -15681,17 +11407,17 @@ onkarbpatil/sc20-benchmarks:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1590903633.0
+  updated_at: 1590882033.0
 openPMD/openPMD-api:
   data_format: 2
   description: ':floppy_disk: C++ & Python API for Scientific I/O'
   filenames:
-  - .github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml
-  - .github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml
+  - .github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml
   - .github/ci/spack-envs/clang5_nopy_nompi_h5/spack.yaml
   - spack.yaml
+  - .github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml
   - .github/ci/spack-envs/gcc5_py36_ompi_h5_ad1_ad2/spack.yaml
-  - .github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml
+  - .github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml
   full_name: openPMD/openPMD-api
   latest_release: 0.13.4
   readme: "<h1>\n<a id=\"user-content-c--python-api-for-scientific-io-with-openpmd\"\
@@ -16211,18 +11937,18 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1621605146.0
+  updated_at: 1621583546.0
 pace-gt/PACE-ProvBench:
   data_format: 2
   description: Provenance based Benchmark suite
   filenames:
-  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
   full_name: pace-gt/PACE-ProvBench
   latest_release: v1.0.0
   readme: "<h1>\n<a id=\"user-content-pace-provbench\" class=\"anchor\" href=\"#pace-provbench\"\
@@ -16341,7 +12067,7 @@ pace-gt/PACE-ProvBench:
   stargazers_count: 1
   subscribers_count: 0
   topics: []
-  updated_at: 1614318555.0
+  updated_at: 1614293355.0
 panosc-eu/spack-repo:
   data_format: 2
   description: EuXFEL Spack Package Repository
@@ -17188,47 +12914,47 @@ panosc-eu/spack-repo:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1616613995.0
+  updated_at: 1616592395.0
 paulbry/nmc-swd:
   data_format: 2
   description: NMC software deployment environments leveraging Spack.
   filenames:
-  - prod/ecp-p9-4v100/4-py/spack.yaml
-  - prod/xx-fe1/0-base/spack.yaml
-  - prod/gitlab-runner/1-core/spack.yaml
-  - prod/ecp-p9-4v100/0-base/spack.yaml
-  - dev/xx-fe1/0-base/spack.yaml
-  - dev/ecp-x86_64/4-py/spack.yaml
-  - prod/ecp-p9-4v100/1-core/spack.yaml
-  - prod/ecp-p9-4v100/_manual/spack.yaml
-  - dev/ecp-x86_64/2-compute/spack.yaml
-  - prod/ecp-x86_64/5-e4s/spack.yaml
-  - prod/ecp-p9-4v100/3-sdk/spack.yaml
-  - dev/ecp-p9-4v100/0-base/spack.yaml
-  - prod/ecp-p9-4v100/5-e4s/spack.yaml
-  - dev/ecp-p9-4v100/1-core/spack.yaml
-  - prod/xx-fe1/_manual/spack.yaml
   - prod/ecp-x86_64/4-py/spack.yaml
-  - dev/xx-fe1/_manual/spack.yaml
-  - prod/ecp-p9-4v100/2-compute/spack.yaml
-  - prod/ecp-x86_64/0-base/spack.yaml
+  - dev/gitlab-runner/1-core/spack.yaml
+  - dev/ecp-x86_64/1-core/spack.yaml
+  - prod/xx-fe1/0-base/spack.yaml
   - dev/ecp-x86_64/3-sdk/spack.yaml
   - prod/ecp-x86_64/_manual/spack.yaml
-  - dev/ecp-p9-4v100/5-e4s/spack.yaml
-  - dev/ecp-p9-4v100/3-sdk/spack.yaml
-  - dev/ecp-x86_64/0-base/spack.yaml
-  - dev/ecp-x86_64/5-e4s/spack.yaml
   - dev/ecp-p9-4v100/2-compute/spack.yaml
-  - dev/gitlab-runner/1-core/spack.yaml
-  - prod/ecp-x86_64/3-sdk/spack.yaml
-  - dev/ecp-x86_64/1-core/spack.yaml
-  - dev/ecp-p9-4v100/4-py/spack.yaml
-  - prod/ecp-x86_64/1-core/spack.yaml
-  - dev/ecp-x86_64/_manual/spack.yaml
+  - dev/ecp-x86_64/4-py/spack.yaml
   - prod/xx-fe1/4-py/spack.yaml
-  - dev/ecp-p9-4v100/_manual/spack.yaml
+  - dev/ecp-p9-4v100/1-core/spack.yaml
+  - dev/ecp-p9-4v100/0-base/spack.yaml
+  - prod/ecp-x86_64/0-base/spack.yaml
+  - prod/ecp-p9-4v100/_manual/spack.yaml
+  - prod/ecp-x86_64/5-e4s/spack.yaml
+  - dev/xx-fe1/0-base/spack.yaml
+  - dev/ecp-x86_64/5-e4s/spack.yaml
+  - dev/ecp-p9-4v100/3-sdk/spack.yaml
+  - prod/ecp-p9-4v100/4-py/spack.yaml
   - dev/xx-fe1/4-py/spack.yaml
+  - prod/ecp-x86_64/3-sdk/spack.yaml
+  - prod/ecp-p9-4v100/1-core/spack.yaml
+  - dev/xx-fe1/_manual/spack.yaml
+  - prod/ecp-x86_64/1-core/spack.yaml
+  - prod/ecp-p9-4v100/0-base/spack.yaml
+  - prod/gitlab-runner/1-core/spack.yaml
+  - prod/ecp-p9-4v100/2-compute/spack.yaml
+  - prod/xx-fe1/_manual/spack.yaml
+  - dev/ecp-p9-4v100/4-py/spack.yaml
+  - prod/ecp-p9-4v100/5-e4s/spack.yaml
+  - dev/ecp-x86_64/0-base/spack.yaml
+  - dev/ecp-p9-4v100/5-e4s/spack.yaml
+  - dev/ecp-x86_64/2-compute/spack.yaml
   - prod/ecp-x86_64/2-compute/spack.yaml
+  - prod/ecp-p9-4v100/3-sdk/spack.yaml
+  - dev/ecp-x86_64/_manual/spack.yaml
+  - dev/ecp-p9-4v100/_manual/spack.yaml
   full_name: paulbry/nmc-swd
   latest_release: null
   readme: '<h1>
@@ -17245,7 +12971,7 @@ paulbry/nmc-swd:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1599857534.0
+  updated_at: 1599835934.0
 perrynzhou/mpifileutils-note:
   data_format: 2
   description: null
@@ -17326,7 +13052,7 @@ perrynzhou/mpifileutils-note:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1616236348.0
+  updated_at: 1616214748.0
 player1537-playground/decaf-superbuild:
   data_format: 2
   description: null
@@ -17481,7 +13207,7 @@ player1537-playground/decaf-superbuild:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1609822020.0
+  updated_at: 1609796820.0
 player1537-playground/triple-r:
   data_format: 2
   description: null
@@ -17630,7 +13356,7 @@ player1537-playground/triple-r:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1614726226.0
+  updated_at: 1614701026.0
 player1537/dhmem:
   data_format: 2
   description: null
@@ -17670,13 +13396,13 @@ player1537/dhmem:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1614216540.0
+  updated_at: 1614191340.0
 range3/spack-playground:
   data_format: 2
   description: null
   filenames:
-  - envs/broken-verbs-chris8x/spack.yaml
   - envs/dev/spack.yaml
+  - envs/broken-verbs-chris8x/spack.yaml
   - envs/chris8x/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
@@ -17703,7 +13429,7 @@ range3/spack-playground:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1620808001.0
+  updated_at: 1620786401.0
 smutch/playbooks:
   data_format: 2
   description: A random and evolving collection of ansible playbooks.
@@ -17724,7 +13450,7 @@ smutch/playbooks:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1612705252.0
+  updated_at: 1612680052.0
 spack/localized-docs:
   data_format: 2
   description: Localized documentation for Spack
@@ -17838,7 +13564,7 @@ spack/localized-docs:
   stargazers_count: 3
   subscribers_count: 6
   topics: []
-  updated_at: 1596332289.0
+  updated_at: 1596310689.0
 spack/spack-ci-containers:
   data_format: 2
   description: Container recipes used by Spack for test purposes
@@ -17887,34 +13613,34 @@ spack/spack-ci-containers:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1616189112.0
+  updated_at: 1616167512.0
 spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - NERSC/cori/e4s-stacks/hsw/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
   - NREL/configs/eagle/compilers/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
   - NERSC/cori/e4s-20.10/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
+  - NREL/configs/rhodes/software/spack.yaml
+  - NREL/configs/rhodes/compilers/spack.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
+  - NREL/configs/rhodes/base/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
+  - NERSC/cori/e4s-stacks/knl/spack.yaml
   - NERSC/cori/e4s-stacks/x86/spack.yaml
+  - NREL/configs/rhodes/utilities/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - OLCF/e4s-stacks/etc/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - NERSC/cori/e4s-stacks/hsw/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
   - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - NREL/configs/eagle/base/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -17958,10 +13684,10 @@ spack/spack-configs:
     <p>LLNL-CODE-811652</p>
 
     '
-  stargazers_count: 28
+  stargazers_count: 29
   subscribers_count: 22
   topics: []
-  updated_at: 1621550978.0
+  updated_at: 1621790577.0
 spack/spack-cscs2019:
   data_format: 2
   description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
@@ -17987,7 +13713,7 @@ spack/spack-cscs2019:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1611191034.0
+  updated_at: 1611165834.0
 spack/spack-tutorial-container:
   data_format: 2
   description: Dockerfile and artifacts (minus build cache) to create Spack tutorial
@@ -18044,7 +13770,7 @@ spack/spack-tutorial-container:
   stargazers_count: 2
   subscribers_count: 6
   topics: []
-  updated_at: 1620084410.0
+  updated_at: 1620062810.0
 srini009/aggregator:
   data_format: 2
   description: Aggregator microservice built using Mochi that is a part of SYMBIOMON
@@ -18193,7 +13919,7 @@ srini009/aggregator:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1615293700.0
+  updated_at: 1615268500.0
 srini009/collector:
   data_format: 2
   description: Collector microservice built using Mochi that is part of SYMBIOMON
@@ -18342,7 +14068,7 @@ srini009/collector:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1615278214.0
+  updated_at: 1615253014.0
 srini009/reducer:
   data_format: 2
   description: Reduces SYMBIOMON metrics
@@ -18491,7 +14217,7 @@ srini009/reducer:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1619097876.0
+  updated_at: 1619076276.0
 srini009/sds-keyval:
   data_format: 2
   description: Personal fork of the sds-key Mochi microservice.
@@ -18649,7 +14375,7 @@ srini009/sds-keyval:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1618836554.0
+  updated_at: 1618814954.0
 srini009/symbiomon:
   data_format: 2
   description: SYMBIOMON Monitoring Microservice
@@ -18798,7 +14524,7 @@ srini009/symbiomon:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1619096999.0
+  updated_at: 1619075399.0
 supercontainers/ecp-tutorial:
   data_format: 2
   description: ECP Tutorial
@@ -18899,13 +14625,13 @@ supercontainers/ecp-tutorial:
   stargazers_count: 1
   subscribers_count: 6
   topics: []
-  updated_at: 1618443995.0
+  updated_at: 1618422395.0
 supercontainers/isc-tutorial:
   data_format: 2
   description: 2021 IN PROGRESS -- Getting Started with Containers on HPC
   filenames:
-  - exercises/spack_contenerize/spack.yaml
   - files/spack_contenerize/spack.yaml
+  - exercises/spack_contenerize/spack.yaml
   full_name: supercontainers/isc-tutorial
   latest_release: null
   readme: '<h1>
@@ -19071,13 +14797,13 @@ supercontainers/isc-tutorial:
   - docker
   - tutorial
   - supercomputer
-  updated_at: 1621589992.0
+  updated_at: 1621568392.0
 supercontainers/sc20-tutorial:
   data_format: 2
   description: HPC Container Tutorial at SC20
   filenames:
-  - exercises/spack_contenerize/spack.yaml
   - files/spack_contenerize/spack.yaml
+  - exercises/spack_contenerize/spack.yaml
   full_name: supercontainers/sc20-tutorial
   latest_release: null
   readme: '<h1>
@@ -19240,13 +14966,13 @@ supercontainers/sc20-tutorial:
   stargazers_count: 3
   subscribers_count: 5
   topics: []
-  updated_at: 1619529963.0
+  updated_at: 1619508363.0
 tachidok/scicellxx:
   data_format: 2
   description: Object-oriented numerical library
   filenames:
-  - docs/source/spack.yaml
   - tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml
+  - docs/source/spack.yaml
   full_name: tachidok/scicellxx
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
@@ -19389,7 +15115,7 @@ tachidok/scicellxx:
   - smoothed-particle-hydrodynamics
   - finite-difference-methods
   - object-oriented-programming
-  updated_at: 1617696000.0
+  updated_at: 1617674400.0
 thomas-robinson/centos7-netcdff:
   data_format: 2
   description: Container files for building centos7 with netcdf fortran
@@ -19408,7 +15134,7 @@ thomas-robinson/centos7-netcdff:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1615499000.0
+  updated_at: 1615473800.0
 trilinos/ForTrilinos:
   data_format: 2
   description: ForTrilinos provides portable object-oriented Fortran interfaces to
@@ -19537,7 +15263,7 @@ trilinos/ForTrilinos:
   - fortran
   - swig
   - scientific-computing
-  updated_at: 1617178138.0
+  updated_at: 1617156538.0
 ucsd-galaxy-lab/agora-gizmo-runs:
   data_format: 2
   description: null
@@ -19558,7 +15284,7 @@ ucsd-galaxy-lab/agora-gizmo-runs:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1609985474.0
+  updated_at: 1609960274.0
 ucsd-galaxy-lab/fire-lbg-suite:
   data_format: 2
   description: A suite of FIRE-2 simulations targeting LBG-like galaxies
@@ -19601,7 +15327,7 @@ ucsd-galaxy-lab/fire-lbg-suite:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1609985547.0
+  updated_at: 1609960347.0
 ucsd-galaxy-lab/gizmo-spack:
   data_format: 2
   description: Spack package manager customization for GIZMO
@@ -19769,7 +15495,7 @@ ucsd-galaxy-lab/gizmo-spack:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1609985511.0
+  updated_at: 1609960311.0
 veit/jupyter-tutorial:
   data_format: 2
   description: 'Training materials for setting up and using a research infrastructure
@@ -19957,7 +15683,7 @@ veit/jupyter-tutorial:
   - dvc
   - data-science
   - pandas
-  updated_at: 1621538249.0
+  updated_at: 1621516649.0
 wangzhezhe/mona-vtk:
   data_format: 2
   description: null
@@ -20075,4 +15801,4 @@ wangzhezhe/mona-vtk:
   stargazers_count: 0
   subscribers_count: 2
   topics: []
-  updated_at: 1617912788.0
+  updated_at: 1617891188.0

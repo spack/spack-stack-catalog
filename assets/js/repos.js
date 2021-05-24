@@ -8,11 +8,11 @@ var data =
     ],
     "full_name": "cinemascienceworkflows/2021-05_ExaWind-AMRWind",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-spack-configs\" class=\"anchor\" href=\"#spack-configs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Configs\u003c/h1\u003e\n\u003cp\u003eThis is a repository that sites can use to share their configuration\nfiles for Spack.  You can contribute your own configuration files, or\nbrowse around and look at what others have done.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0\nlicenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
+    "readme": "\u003cp\u003e\u003ca href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\u003e\u003cimg src=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml/badge.svg?branch=master\" alt=\"Update spack develop version\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content--spack-with-batteries-included-linuxx86_64\" class=\"anchor\" href=\"#-spack-with-batteries-included-linuxx86_64\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003cg-emoji class=\"g-emoji\" alias=\"battery\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50b.png\"\u003e\ud83d\udd0b\u003c/g-emoji\u003e Spack with batteries included (linux/x86_64)\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/spack/spack\"\u003eSpack\u003c/a\u003e is a package manager, and package managers should be trivial to install.\u003c/p\u003e\n\u003cp\u003eThis repo offers a single, static executable for Spack:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003ewget -qO spack.x https://github.com/haampie/spack-batteries-included/releases/download/develop/spack-x86_64.x\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003echmod +x spack.x\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003e./spack.x install zstd +programs \u003cspan class=\"pl-k\"\u003e~\u003c/span\u003eshared build_type=Release\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-what-version-of-spack-is-shipped\" class=\"anchor\" href=\"#what-version-of-spack-is-shipped\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat version of Spack is shipped?\u003c/h2\u003e\n\u003cp\u003eThe URL above gives you a rolling release of Spack\u0027s develop branch, which is updated\nhourly. The exact commit SHA is included as a file and can be retrieved like this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003espack.x --squashfs-extract spack_sha \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e cat spack/spack_sha\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e[prints the Spack commit sha]\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-supported-platforms\" class=\"anchor\" href=\"#supported-platforms\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupported platforms\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 and above\u003c/li\u003e\n\u003cli\u003eUbuntu 14.04 and above\u003c/li\u003e\n\u003cli\u003eDebian 8 and above\u003c/li\u003e\n\u003cli\u003eFedora 20 and above\u003c/li\u003e\n\u003cli\u003eSUSE Linux 13 and above\u003c/li\u003e\n\u003cli\u003eArch Linux\u003c/li\u003e\n\u003cli\u003eGentoo\u003c/li\u003e\n\u003cli\u003eWindows Subsystem for Linux 2 with any of the above distro\u0027s.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe system dependencies are \u003ccode\u003eglibc 2.17\u003c/code\u003e and above and optionally the \u003ccode\u003efusermount\u003c/code\u003e\nexecutable. If your system supports rootless containers it likely has \u003ccode\u003efusermount\u003c/code\u003e\ninstalled already!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-how-does-it-work\" class=\"anchor\" href=\"#how-does-it-work\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow does it work?\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003espack.x\u003c/code\u003e consists of a modified version of the AppImage runtime concatenated\nwith a big squashfs file which includes \u003ccode\u003ebinutils\u003c/code\u003e, \u003ccode\u003ebzip2\u003c/code\u003e, \u003ccode\u003eclingo\u003c/code\u003e, \u003ccode\u003ecurl\u003c/code\u003e,\n\u003ccode\u003efile\u003c/code\u003e, \u003ccode\u003egit\u003c/code\u003e, \u003ccode\u003egmake\u003c/code\u003e, \u003ccode\u003egpg\u003c/code\u003e, \u003ccode\u003egzip\u003c/code\u003e, \u003ccode\u003eopenssl\u003c/code\u003e, \u003ccode\u003epatch\u003c/code\u003e, \u003ccode\u003epatchelf\u003c/code\u003e, \u003ccode\u003epython\u003c/code\u003e,\n\u003ccode\u003epy-boto3\u003c/code\u003e, \u003ccode\u003etar\u003c/code\u003e, \u003ccode\u003eunzip\u003c/code\u003e, \u003ccode\u003exz\u003c/code\u003e, \u003ccode\u003ezstd\u003c/code\u003e and their dependencies.\u003c/p\u003e\n\u003cp\u003eWhen you run \u003ccode\u003espack.x [args]\u003c/code\u003e it will use \u003ccode\u003efusermount\u003c/code\u003e to\nmount this squashfs file in a temporary directory, and then execute the\nentrypoint executable \u003ca href=\"build/6_spack/spack\"\u003espack\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003espack\u003c/code\u003e executable sets some environment variables like \u003ccode\u003ePATH\u003c/code\u003e and\n\u003ccode\u003eDL_LIBRARY_PATH\u003c/code\u003e to the bin and lib folders of the squashfs file, and then it\nexecutes \u003ccode\u003epython3 spack_src/bin/spack [args]\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eWhen the command is done running, the runtime unmounts the squashfs file again.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-my-system-doesnt-allow-me-to-use-fusermount-what-now\" class=\"anchor\" href=\"#my-system-doesnt-allow-me-to-use-fusermount-what-now\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMy system doesn\u0027t allow me to use \u003ccode\u003efusermount\u003c/code\u003e, what now?\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003efusermount\u003c/code\u003e is used to mount a squashfs file included in the binary. If you\ndon\u0027t want that, you can just extract it:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack.x --squashfs-extract\n$ ./spack/spack\nusage: spack [-hkV] [--color {always,never,auto}] COMMAND ...\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ebut working with the extracted \u003ccode\u003espack\u003c/code\u003e folder can come with a performance\npenalty on shared filesystems in HPC centers.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-differences-and-improvements-over-appimage-runtime\" class=\"anchor\" href=\"#differences-and-improvements-over-appimage-runtime\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDifferences and improvements over AppImage runtime\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003espack.x uses \u003ccode\u003ezstd\u003c/code\u003e for faster decompression;\u003c/li\u003e\n\u003cli\u003espack.x itself is an entirely static binary;\u003c/li\u003e\n\u003cli\u003espack.x does not need to dlopen libfuse.so.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-troubleshooting\" class=\"anchor\" href=\"#troubleshooting\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTroubleshooting\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003eimmutability\u003c/strong\u003e The squashfs mountpoint is a readonly folder, meaning that\nspack can\u0027t write to spack/{var,opt} folders. spack.x is configured to use some\nnon-standard directories, see \u003ccode\u003espack.x config blame config\u003c/code\u003e for details.\u003c/p\u003e\n\u003cp\u003eNote, spack.x applies \u003ca href=\"https://github.com/spack/spack/pull/20158/\"\u003ethis patch\u003c/a\u003e\nto ensure that log files are written to the \u003ccode\u003econfig:misc_cache\u003c/code\u003e folder.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eopenssl\u003c/strong\u003e: By default spack.x uses \u003ccode\u003eca-certificates-mozilla\u003c/code\u003e for downloading\npackage sources over https. If you somehow need to use system certificates,\nset \u003ccode\u003eSSL_CERT_DIR\u003c/code\u003e and \u003ccode\u003eGIT_SSL_CAINFO\u003c/code\u003e or \u003ccode\u003eSSL_CERT_FILE\u003c/code\u003e and \u003ccode\u003eGIT_SSL_CERT\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-can-i-run-spackx-inside-a-container\" class=\"anchor\" href=\"#can-i-run-spackx-inside-a-container\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCan I run spack.x inside a container?\u003c/h2\u003e\n\u003cp\u003eYes, but please don\u0027t! Since \u003ccode\u003efusermount\u003c/code\u003e is a setuid binary, you will need to\nrun a privileged container, which is never a good idea.\u003c/p\u003e\n\u003cp\u003eThe recommended way to run spack.x inside a container is to just extract it:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003espack.x --squashfs-extract\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003e./spack/spack --version\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you insist on running spack.x in Docker, this is one way to do it:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003esudo docker run --privileged --device /dev/fuse -it -v \u003cspan class=\"pl-smi\"\u003e$PWD\u003c/span\u003e/spack.x:/bin/spack.x ubuntu:18.04\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003eapt update \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e apt install fuse \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e install fusermount\u003c/span\u003e\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003espack.x --version\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-running-an-executable-shipped-with-spackx-directly\" class=\"anchor\" href=\"#running-an-executable-shipped-with-spackx-directly\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning an executable shipped with spack.x directly\u003c/h2\u003e\n\u003cp\u003eIf you want to run an executable shipped with \u003ccode\u003espack.x\u003c/code\u003e directly instead\nof invoking spack (the default entrypoint), try this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003eNO_ENTRYPOINT= spack.x which python\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e/tmp/.mount_spack.h0zr1h/view/bin/python\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-how-do-i-build-spackx-myself\" class=\"anchor\" href=\"#how-do-i-build-spackx-myself\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow do I build spack.x myself?\u003c/h2\u003e\n\u003cp\u003eInitially you may need docker to get a rootfs filesystem for centos 7.\u003c/p\u003e\n\u003cp\u003eBuilding goes like this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003emake rootfs-with-spack\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003emake\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou\u0027ll find the output in\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ebuild/output\n\u003c/code\u003e\u003c/pre\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1621478944.0
+    "updated_at": 1621457344.0
   },
   {
     "data_format": 2,
@@ -26,7 +26,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1621277137.0
+    "updated_at": 1621255537.0
   },
   {
     "data_format": 2,
@@ -40,7 +40,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1621648529.0
+    "updated_at": 1621626929.0
   },
   {
     "data_format": 2,
@@ -54,7 +54,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1620945435.0
+    "updated_at": 1620923835.0
   },
   {
     "data_format": 2,
@@ -68,14 +68,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1620857361.0
+    "updated_at": 1620835761.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "envs/broken-verbs-chris8x/spack.yaml",
       "envs/dev/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml",
       "envs/chris8x/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
@@ -84,7 +84,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620808001.0
+    "updated_at": 1620786401.0
   },
   {
     "data_format": 2,
@@ -98,7 +98,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620773652.0
+    "updated_at": 1620752052.0
   },
   {
     "data_format": 2,
@@ -112,35 +112,35 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1620916986.0
+    "updated_at": 1620895386.0
   },
   {
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent7/apps/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent7/py_376/spack.yaml",
-      "cent7/library/spack.yaml",
       "compilers/envs/compilers/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/python_376/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
-      "cent8/envs/x86_64/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
       "cent8/envs/avx/python/spack.yaml",
-      "cent7/libs_old/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "cent7/library/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
       "cent7/mpis/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml"
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent7/library/bak/spack.yaml",
+      "cent7/apps/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -148,21 +148,21 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620234577.0
+    "updated_at": 1620212977.0
   },
   {
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
       "configs/eagle/utilities/spack.yaml",
-      "configs/eagle/base/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
-      "envs/exawind/spack.yaml",
       "configs/rhodes/utilities/spack.yaml",
+      "configs/eagle/compilers/spack.yaml",
       "configs/eagle/software/spack.yaml",
+      "envs/exawind/spack.yaml",
       "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
       "configs/rhodes/software/spack.yaml",
-      "configs/eagle/compilers/spack.yaml"
+      "configs/eagle/base/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -170,7 +170,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1620946052.0
+    "updated_at": 1620924452.0
   },
   {
     "data_format": 2,
@@ -184,7 +184,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620232443.0
+    "updated_at": 1620210843.0
   },
   {
     "data_format": 2,
@@ -199,7 +199,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1619723394.0
+    "updated_at": 1619701794.0
   },
   {
     "data_format": 2,
@@ -213,7 +213,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1619728396.0
+    "updated_at": 1619706796.0
   },
   {
     "data_format": 2,
@@ -227,7 +227,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619816372.0
+    "updated_at": 1619794772.0
   },
   {
     "data_format": 2,
@@ -241,7 +241,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619477496.0
+    "updated_at": 1619455896.0
   },
   {
     "data_format": 2,
@@ -259,7 +259,7 @@ var data =
       "octave",
       "singularity-recipe"
     ],
-    "updated_at": 1619522434.0
+    "updated_at": 1619500834.0
   },
   {
     "data_format": 2,
@@ -273,7 +273,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1620851629.0
+    "updated_at": 1620830029.0
   },
   {
     "data_format": 2,
@@ -287,7 +287,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1619466471.0
+    "updated_at": 1619444871.0
   },
   {
     "data_format": 2,
@@ -301,7 +301,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1612651620.0
+    "updated_at": 1612626420.0
   },
   {
     "data_format": 2,
@@ -315,7 +315,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1617912788.0
+    "updated_at": 1617891188.0
   },
   {
     "data_format": 2,
@@ -329,7 +329,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1617665054.0
+    "updated_at": 1617643454.0
   },
   {
     "data_format": 2,
@@ -343,7 +343,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1614271878.0
+    "updated_at": 1614246678.0
   },
   {
     "data_format": 2,
@@ -357,7 +357,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1614213349.0
+    "updated_at": 1614188149.0
   },
   {
     "data_format": 2,
@@ -371,7 +371,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1614210486.0
+    "updated_at": 1614185286.0
   },
   {
     "data_format": 2,
@@ -385,7 +385,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1614210543.0
+    "updated_at": 1614185343.0
   },
   {
     "data_format": 2,
@@ -399,7 +399,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1614204735.0
+    "updated_at": 1614179535.0
   },
   {
     "data_format": 2,
@@ -413,7 +413,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1613603490.0
+    "updated_at": 1613578290.0
   },
   {
     "data_format": 2,
@@ -427,7 +427,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1617116230.0
+    "updated_at": 1617094630.0
   },
   {
     "data_format": 2,
@@ -441,7 +441,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1590632076.0
+    "updated_at": 1590610476.0
   },
   {
     "data_format": 2,
@@ -455,7 +455,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1614216540.0
+    "updated_at": 1614191340.0
   },
   {
     "data_format": 2,
@@ -469,7 +469,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1612705252.0
+    "updated_at": 1612680052.0
   },
   {
     "data_format": 2,
@@ -483,7 +483,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619023093.0
+    "updated_at": 1619001493.0
   },
   {
     "data_format": 2,
@@ -497,7 +497,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619097876.0
+    "updated_at": 1619076276.0
   },
   {
     "data_format": 2,
@@ -511,7 +511,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1618836554.0
+    "updated_at": 1618814954.0
   },
   {
     "data_format": 2,
@@ -526,7 +526,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615254927.0
+    "updated_at": 1615229727.0
   },
   {
     "data_format": 2,
@@ -540,7 +540,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615293700.0
+    "updated_at": 1615268500.0
   },
   {
     "data_format": 2,
@@ -554,7 +554,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615278214.0
+    "updated_at": 1615253014.0
   },
   {
     "data_format": 2,
@@ -568,7 +568,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1614726226.0
+    "updated_at": 1614701026.0
   },
   {
     "data_format": 2,
@@ -582,7 +582,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619096999.0
+    "updated_at": 1619075399.0
   },
   {
     "data_format": 2,
@@ -596,7 +596,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1609822020.0
+    "updated_at": 1609796820.0
   },
   {
     "data_format": 2,
@@ -610,7 +610,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1612481523.0
+    "updated_at": 1612456323.0
   },
   {
     "data_format": 2,
@@ -625,7 +625,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1617273120.0
+    "updated_at": 1617251520.0
   },
   {
     "data_format": 2,
@@ -639,7 +639,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1606942003.0
+    "updated_at": 1606916803.0
   },
   {
     "data_format": 2,
@@ -653,7 +653,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1614022773.0
+    "updated_at": 1613997573.0
   },
   {
     "data_format": 2,
@@ -667,7 +667,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1593675795.0
+    "updated_at": 1593654195.0
   },
   {
     "data_format": 2,
@@ -683,7 +683,7 @@ var data =
     "topics": [
       "spack"
     ],
-    "updated_at": 1614203765.0
+    "updated_at": 1614178565.0
   },
   {
     "data_format": 2,
@@ -697,17 +697,17 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1588763757.0
+    "updated_at": 1588742157.0
   },
   {
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
       "env/power9le/flecsalemm-deps/spack.yaml",
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
       "env/broadwell/flecsalemm-deps/spack.yaml",
       ".gitlab-ci/env/root-build/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml",
       ".gitlab-ci/env/dry-run/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
@@ -716,7 +716,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1619495889.0
+    "updated_at": 1619474289.0
   },
   {
     "data_format": 2,
@@ -731,7 +731,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1584116847.0
+    "updated_at": 1584095247.0
   },
   {
     "data_format": 2,
@@ -739,8 +739,8 @@ var data =
     "filenames": [
       "v0160gcc/spack.yaml",
       "v0133gccSpectrum/spack.yaml",
-      "spack.yaml",
-      "v0133gcc/spack.yaml"
+      "v0133gcc/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -748,17 +748,17 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1608689847.0
+    "updated_at": 1608664647.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack_environments/developer_release_x86_64_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/developer_release_osx_spack.yaml",
+      "spack_environments/developer_release_x86_64_cuda_spack.yaml",
       "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml"
+      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -766,15 +766,15 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1570967710.0
+    "updated_at": 1570946110.0
   },
   {
     "data_format": 2,
     "description": "Documentation and automation for provisioning the core software environment at University of Colorado Boulder Research Computing",
     "filenames": [
+      "spack/environments/develop/spack.yaml",
       "spack/environments/summer2020/spack.yaml",
-      "spack/environments/spring2020/spack.yaml",
-      "spack/environments/develop/spack.yaml"
+      "spack/environments/spring2020/spack.yaml"
     ],
     "full_name": "ResearchComputing/core-software",
     "latest_release": null,
@@ -782,14 +782,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 8,
     "topics": [],
-    "updated_at": 1616702962.0
+    "updated_at": 1616681362.0
   },
   {
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "v61c1b71_gcc910/spack.yaml",
-      "openFoam24/spack.yaml"
+      "openFoam24/spack.yaml",
+      "v61c1b71_gcc910/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -797,14 +797,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1612003004.0
+    "updated_at": 1611977804.0
   },
   {
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.13.2/spack.yaml",
-      "v0.15.4/spack.yaml"
+      "v0.15.4/spack.yaml",
+      "v0.13.2/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -812,7 +812,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1614024389.0
+    "updated_at": 1613999189.0
   },
   {
     "data_format": 2,
@@ -826,7 +826,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1618440690.0
+    "updated_at": 1618419090.0
   },
   {
     "data_format": 2,
@@ -840,7 +840,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1618446347.0
+    "updated_at": 1618424747.0
   },
   {
     "data_format": 2,
@@ -854,7 +854,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1616476808.0
+    "updated_at": 1616455208.0
   },
   {
     "data_format": 2,
@@ -868,14 +868,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1616613995.0
+    "updated_at": 1616592395.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
-      "etc/spack.yaml"
+      "etc/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "CUP-ECS/ExaCLAMR",
     "latest_release": null,
@@ -883,7 +883,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1621397061.0
+    "updated_at": 1621375461.0
   },
   {
     "data_format": 2,
@@ -897,7 +897,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1606980182.0
+    "updated_at": 1606954982.0
   },
   {
     "data_format": 2,
@@ -911,7 +911,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1590903633.0
+    "updated_at": 1590882033.0
   },
   {
     "data_format": 2,
@@ -925,7 +925,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1616491492.0
+    "updated_at": 1616469892.0
   },
   {
     "data_format": 2,
@@ -939,7 +939,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1607994885.0
+    "updated_at": 1607969685.0
   },
   {
     "data_format": 2,
@@ -953,7 +953,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 0,
     "topics": [],
-    "updated_at": 1591389900.0
+    "updated_at": 1591368300.0
   },
   {
     "data_format": 2,
@@ -967,7 +967,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1609985474.0
+    "updated_at": 1609960274.0
   },
   {
     "data_format": 2,
@@ -982,7 +982,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1609985511.0
+    "updated_at": 1609960311.0
   },
   {
     "data_format": 2,
@@ -996,14 +996,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1609985547.0
+    "updated_at": 1609960347.0
   },
   {
     "data_format": 2,
     "description": "Experiments using Colza for In Situ Analysis",
     "filenames": [
-      "cori/resizing/spack.yaml",
       "cori/overhead/spack.yaml",
+      "cori/resizing/spack.yaml",
       "cori/vtk/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/colza-experiments",
@@ -1012,15 +1012,15 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1617986620.0
+    "updated_at": 1617965020.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
       "spack.yaml",
-      "spack-llvm.yaml",
-      "spack-qmcpack.yaml"
+      "spack-qmcpack.yaml",
+      "spack-llvm.yaml"
     ],
     "full_name": "eugeneswalker/qmcpack-demo",
     "latest_release": null,
@@ -1028,7 +1028,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615539156.0
+    "updated_at": 1615513956.0
   },
   {
     "data_format": 2,
@@ -1043,7 +1043,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1616530138.0
+    "updated_at": 1616508538.0
   },
   {
     "data_format": 2,
@@ -1057,7 +1057,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1616236348.0
+    "updated_at": 1616214748.0
   },
   {
     "data_format": 2,
@@ -1071,7 +1071,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1610666933.0
+    "updated_at": 1610641733.0
   },
   {
     "data_format": 2,
@@ -1085,7 +1085,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1606979724.0
+    "updated_at": 1606954524.0
   },
   {
     "data_format": 2,
@@ -1099,48 +1099,48 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1620362115.0
+    "updated_at": 1620340515.0
   },
   {
     "data_format": 2,
     "description": "NMC software deployment environments leveraging Spack.",
     "filenames": [
-      "prod/ecp-p9-4v100/4-py/spack.yaml",
-      "prod/xx-fe1/0-base/spack.yaml",
-      "prod/gitlab-runner/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/0-base/spack.yaml",
-      "dev/xx-fe1/0-base/spack.yaml",
-      "dev/ecp-x86_64/4-py/spack.yaml",
-      "prod/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/_manual/spack.yaml",
-      "dev/ecp-x86_64/2-compute/spack.yaml",
-      "prod/ecp-x86_64/5-e4s/spack.yaml",
-      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
-      "dev/ecp-p9-4v100/0-base/spack.yaml",
-      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/xx-fe1/_manual/spack.yaml",
       "prod/ecp-x86_64/4-py/spack.yaml",
-      "dev/xx-fe1/_manual/spack.yaml",
-      "prod/ecp-p9-4v100/2-compute/spack.yaml",
-      "prod/ecp-x86_64/0-base/spack.yaml",
+      "dev/gitlab-runner/1-core/spack.yaml",
+      "dev/ecp-x86_64/1-core/spack.yaml",
+      "prod/xx-fe1/0-base/spack.yaml",
       "dev/ecp-x86_64/3-sdk/spack.yaml",
       "prod/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
-      "dev/ecp-x86_64/0-base/spack.yaml",
-      "dev/ecp-x86_64/5-e4s/spack.yaml",
       "dev/ecp-p9-4v100/2-compute/spack.yaml",
-      "dev/gitlab-runner/1-core/spack.yaml",
-      "prod/ecp-x86_64/3-sdk/spack.yaml",
-      "dev/ecp-x86_64/1-core/spack.yaml",
-      "dev/ecp-p9-4v100/4-py/spack.yaml",
-      "prod/ecp-x86_64/1-core/spack.yaml",
-      "dev/ecp-x86_64/_manual/spack.yaml",
+      "dev/ecp-x86_64/4-py/spack.yaml",
       "prod/xx-fe1/4-py/spack.yaml",
-      "dev/ecp-p9-4v100/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/1-core/spack.yaml",
+      "dev/ecp-p9-4v100/0-base/spack.yaml",
+      "prod/ecp-x86_64/0-base/spack.yaml",
+      "prod/ecp-p9-4v100/_manual/spack.yaml",
+      "prod/ecp-x86_64/5-e4s/spack.yaml",
+      "dev/xx-fe1/0-base/spack.yaml",
+      "dev/ecp-x86_64/5-e4s/spack.yaml",
+      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/4-py/spack.yaml",
       "dev/xx-fe1/4-py/spack.yaml",
-      "prod/ecp-x86_64/2-compute/spack.yaml"
+      "prod/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/1-core/spack.yaml",
+      "dev/xx-fe1/_manual/spack.yaml",
+      "prod/ecp-x86_64/1-core/spack.yaml",
+      "prod/ecp-p9-4v100/0-base/spack.yaml",
+      "prod/gitlab-runner/1-core/spack.yaml",
+      "prod/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/xx-fe1/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/4-py/spack.yaml",
+      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
+      "dev/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
+      "dev/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "dev/ecp-x86_64/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/_manual/spack.yaml"
     ],
     "full_name": "paulbry/nmc-swd",
     "latest_release": null,
@@ -1148,14 +1148,14 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1599857534.0
+    "updated_at": 1599835934.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/production/base/spack.yaml",
-      "environments/production/rcm/spack.yaml"
+      "environments/production/rcm/spack.yaml",
+      "environments/production/base/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/CINECA_RCM_deployments",
     "latest_release": null,
@@ -1163,7 +1163,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1581964634.0
+    "updated_at": 1581939434.0
   },
   {
     "data_format": 2,
@@ -1177,15 +1177,15 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1588983897.0
+    "updated_at": 1588962297.0
   },
   {
     "data_format": 2,
     "description": "Deploy components and scripts for RCM",
     "filenames": [
-      "deploy/environments/insitu/spack.yaml",
+      "deploy/base_spack_devel/environments/base/spack.yaml",
       "deploy/environments/rcm/spack.yaml",
-      "deploy/base_spack_devel/environments/base/spack.yaml"
+      "deploy/environments/insitu/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/RCM_spack_deploy",
     "latest_release": null,
@@ -1193,7 +1193,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1570754492.0
+    "updated_at": 1570732892.0
   },
   {
     "data_format": 2,
@@ -1208,17 +1208,17 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1614187071.0
+    "updated_at": 1614161871.0
   },
   {
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/Bebop/spack.yaml",
-      "NERSC/Cori/spack.yaml",
-      "ANL/JLSE/spack.yaml",
       "ORNL/Summit/spack.yaml",
-      "ANL/Theta/spack.yaml"
+      "NERSC/Cori/spack.yaml",
+      "ANL/Bebop/spack.yaml",
+      "ANL/Theta/spack.yaml",
+      "ANL/JLSE/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1226,7 +1226,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1614187849.0
+    "updated_at": 1614162649.0
   },
   {
     "data_format": 2,
@@ -1240,7 +1240,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1611769807.0
+    "updated_at": 1611744607.0
   },
   {
     "data_format": 2,
@@ -1254,7 +1254,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615499000.0
+    "updated_at": 1615473800.0
   },
   {
     "data_format": 2,
@@ -1268,7 +1268,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1616189112.0
+    "updated_at": 1616167512.0
   },
   {
     "data_format": 2,
@@ -1282,7 +1282,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1573104660.0
+    "updated_at": 1573079460.0
   },
   {
     "data_format": 2,
@@ -1296,7 +1296,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 12,
     "topics": [],
-    "updated_at": 1620414091.0
+    "updated_at": 1620392491.0
   },
   {
     "data_format": 2,
@@ -1310,7 +1310,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620426207.0
+    "updated_at": 1620404607.0
   },
   {
     "data_format": 2,
@@ -1324,7 +1324,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1618443995.0
+    "updated_at": 1618422395.0
   },
   {
     "data_format": 2,
@@ -1338,7 +1338,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1614661368.0
+    "updated_at": 1614636168.0
   },
   {
     "data_format": 2,
@@ -1352,7 +1352,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1618439690.0
+    "updated_at": 1618418090.0
   },
   {
     "data_format": 2,
@@ -1366,19 +1366,19 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1608812924.0
+    "updated_at": 1608787724.0
   },
   {
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1386,7 +1386,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 0,
     "topics": [],
-    "updated_at": 1614318555.0
+    "updated_at": 1614293355.0
   },
   {
     "data_format": 2,
@@ -1400,14 +1400,14 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1618440344.0
+    "updated_at": 1618418744.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "x86_64/spack.yaml",
-      "ppc64le/spack.yaml"
+      "ppc64le/spack.yaml",
+      "x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/llvm-containers",
     "latest_release": null,
@@ -1415,7 +1415,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1615511465.0
+    "updated_at": 1615486265.0
   },
   {
     "data_format": 2,
@@ -1429,20 +1429,20 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1617255870.0
+    "updated_at": 1617234270.0
   },
   {
     "data_format": 2,
     "description": "exawind/nalu-wind deployment using Spack and E4S build cache (demo)",
     "filenames": [
-      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
-      "uoregon/mpich-container/spack.yaml",
-      "uoregon/openmpi/spack.yaml",
-      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/spectrum-mpi/spack.yaml",
-      "uoregon/mpich/spack.yaml",
       "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
-      "summit/spack.yaml"
+      "uoregon/mpich/spack.yaml",
+      "uoregon/mpich-container/spack.yaml",
+      "summit/spack.yaml",
+      "uoregon/spectrum-mpi/spack.yaml",
+      "uoregon/openmpi/spack.yaml",
+      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
+      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/nalu-wind-demo",
     "latest_release": null,
@@ -1450,15 +1450,15 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1614903870.0
+    "updated_at": 1614878670.0
   },
   {
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/andes/envs/base/spack.yaml",
-      "hosts/summit/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
+      "hosts/summit/envs/base/spack.yaml",
+      "hosts/andes/envs/base/spack.yaml",
       "hosts/lyra/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
@@ -1467,7 +1467,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1613705324.0
+    "updated_at": 1613680124.0
   },
   {
     "data_format": 2,
@@ -1481,7 +1481,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1616683389.0
+    "updated_at": 1616661789.0
   },
   {
     "data_format": 2,
@@ -1495,7 +1495,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1611191034.0
+    "updated_at": 1611165834.0
   },
   {
     "data_format": 2,
@@ -1511,7 +1511,7 @@ var data =
     "stargazers_count": 1,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1589517108.0
+    "updated_at": 1589495508.0
   },
   {
     "data_format": 2,
@@ -1525,7 +1525,7 @@ var data =
     "stargazers_count": 2,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1621119976.0
+    "updated_at": 1621098376.0
   },
   {
     "data_format": 2,
@@ -1539,7 +1539,7 @@ var data =
     "stargazers_count": 2,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1620084410.0
+    "updated_at": 1620062810.0
   },
   {
     "data_format": 2,
@@ -1553,7 +1553,7 @@ var data =
     "stargazers_count": 2,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1605222503.0
+    "updated_at": 1605197303.0
   },
   {
     "data_format": 2,
@@ -1567,14 +1567,14 @@ var data =
     "stargazers_count": 2,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1619574775.0
+    "updated_at": 1619553175.0
   },
   {
     "data_format": 2,
     "description": "2021 IN PROGRESS -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1591,19 +1591,19 @@ var data =
       "tutorial",
       "supercomputer"
     ],
-    "updated_at": 1621589992.0
+    "updated_at": 1621568392.0
   },
   {
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/key4hep-release/spack.yaml",
       "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-release-broadwell/spack.yaml",
       "environments/key4hep-debug/spack.yaml",
-      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml"
+      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/key4hep-release/spack.yaml",
+      "environments/geant4-data-share/spack.yaml",
+      "environments/key4hep-release-broadwell/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-02-25a-opt",
@@ -1611,14 +1611,14 @@ var data =
     "stargazers_count": 3,
     "subscribers_count": 8,
     "topics": [],
-    "updated_at": 1621523159.0
+    "updated_at": 1621501559.0
   },
   {
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1626,16 +1626,16 @@ var data =
     "stargazers_count": 3,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1619529963.0
+    "updated_at": 1619508363.0
   },
   {
     "data_format": 2,
     "description": "RADIUSS CI project aims at providing sensible default configurations and tools for GitLab CI.",
     "filenames": [
-      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml",
       "spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml"
+      "spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml",
+      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml",
+      "spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-ci",
     "latest_release": null,
@@ -1645,7 +1645,7 @@ var data =
     "topics": [
       "radiuss"
     ],
-    "updated_at": 1611300706.0
+    "updated_at": 1611275506.0
   },
   {
     "data_format": 2,
@@ -1664,7 +1664,7 @@ var data =
       "spack-repo",
       "eic"
     ],
-    "updated_at": 1620972930.0
+    "updated_at": 1620951330.0
   },
   {
     "data_format": 2,
@@ -1678,15 +1678,15 @@ var data =
     "stargazers_count": 3,
     "subscribers_count": 6,
     "topics": [],
-    "updated_at": 1596332289.0
+    "updated_at": 1596310689.0
   },
   {
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
       "etc/spack/nrel-eagle/spack.yaml",
-      "etc/spack/ornl-summit/spack-matrix.yaml",
-      "etc/spack/spack/spack.yaml"
+      "etc/spack/spack/spack.yaml",
+      "etc/spack/ornl-summit/spack-matrix.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1700,14 +1700,14 @@ var data =
       "hpc",
       "exawind-builder"
     ],
-    "updated_at": 1619496711.0
+    "updated_at": 1619475111.0
   },
   {
     "data_format": 2,
     "description": "Object-oriented numerical library",
     "filenames": [
-      "docs/source/spack.yaml",
-      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml"
+      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml",
+      "docs/source/spack.yaml"
     ],
     "full_name": "tachidok/scicellxx",
     "latest_release": null,
@@ -1724,7 +1724,7 @@ var data =
       "finite-difference-methods",
       "object-oriented-programming"
     ],
-    "updated_at": 1617696000.0
+    "updated_at": 1617674400.0
   },
   {
     "data_format": 2,
@@ -1738,7 +1738,7 @@ var data =
     "stargazers_count": 4,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1617360306.0
+    "updated_at": 1617338706.0
   },
   {
     "data_format": 2,
@@ -1752,7 +1752,7 @@ var data =
     "stargazers_count": 4,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1619655975.0
+    "updated_at": 1619634375.0
   },
   {
     "data_format": 2,
@@ -1766,7 +1766,7 @@ var data =
     "stargazers_count": 6,
     "subscribers_count": 9,
     "topics": [],
-    "updated_at": 1611214776.0
+    "updated_at": 1611189576.0
   },
   {
     "data_format": 2,
@@ -1792,7 +1792,7 @@ var data =
       "data-science",
       "pandas"
     ],
-    "updated_at": 1621538249.0
+    "updated_at": 1621516649.0
   },
   {
     "data_format": 2,
@@ -1806,17 +1806,17 @@ var data =
     "stargazers_count": 7,
     "subscribers_count": 7,
     "topics": [],
-    "updated_at": 1621616859.0
+    "updated_at": 1621595259.0
   },
   {
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
+      "build/1_ccache/spack.yaml",
       "build/3_more_tools/spack.yaml",
-      "build/6_spack/spack.yaml",
       "build/2_compiler/spack.yaml",
       "build/5_runtime/spack.yaml",
-      "build/1_ccache/spack.yaml"
+      "build/6_spack/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
     "latest_release": "develop",
@@ -1828,7 +1828,7 @@ var data =
       "squashfs",
       "libfuse"
     ],
-    "updated_at": 1621575407.0
+    "updated_at": 1621553807.0
   },
   {
     "data_format": 2,
@@ -1845,29 +1845,29 @@ var data =
       "amrex",
       "python"
     ],
-    "updated_at": 1618453857.0
+    "updated_at": 1618432257.0
   },
   {
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/dev/sim_mt_headless/spack.yaml",
-      "env/jun19/sim/spack.yaml",
-      "test/env/fairroot_develop/spack.yaml",
-      "test/env/r3broot/spack.yaml",
       "test/env/fairmq/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
-      "test/env/dds/spack.yaml",
-      "env/dev/sim/spack.yaml",
-      "env/nov20/sim_mt/spack.yaml",
-      "env/nov20/sim_mt_headless/spack.yaml",
       "env/apr21/sim_mt/spack.yaml",
-      "env/nov20/sim/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml",
-      "test/env/jun19_fairroot_18_4/spack.yaml",
+      "env/nov20/sim_mt/spack.yaml",
+      "test/env/r3broot/spack.yaml",
       "env/apr21/sim/spack.yaml",
-      "test/env/fairlogger/spack.yaml"
+      "env/nov20/sim/spack.yaml",
+      "env/nov20/sim_mt_headless/spack.yaml",
+      "test/env/fairlogger/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "test/env/fairroot_develop/spack.yaml",
+      "env/dev/sim/spack.yaml",
+      "env/dev/sim_mt_headless/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
+      "test/env/dds/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
+      "env/jun19/sim/spack.yaml",
+      "test/env/jun19_fairroot_18_4/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "apr21",
@@ -1875,24 +1875,24 @@ var data =
     "stargazers_count": 8,
     "subscribers_count": 13,
     "topics": [],
-    "updated_at": 1621684701.0
+    "updated_at": 1621663101.0
   },
   {
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/superlu-sc/spack.yaml",
+      "spack-sdk-environments/compilers_and_support/spack.yaml",
+      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
       "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
       "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
+      "spack-sdk-environments/tools_and_technology/spack.yaml",
+      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
+      "spack-sdk-environments/xsdk/spack.yaml",
       "spack-sdk-environments/pmr_core/spack.yaml",
       "docker-recipes/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/superlu-sc/spack.yaml",
-      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
-      "spack-sdk-environments/xsdk/spack.yaml",
-      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
-      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
-      "spack-sdk-environments/compilers_and_support/spack.yaml",
-      "spack-sdk-environments/tools_and_technology/spack.yaml"
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel8-runner-x86_64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1900,7 +1900,7 @@ var data =
     "stargazers_count": 11,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1621369941.0
+    "updated_at": 1621348341.0
   },
   {
     "data_format": 2,
@@ -1914,7 +1914,7 @@ var data =
     "stargazers_count": 14,
     "subscribers_count": 18,
     "topics": [],
-    "updated_at": 1616211072.0
+    "updated_at": 1616189472.0
   },
   {
     "data_format": 2,
@@ -1933,54 +1933,54 @@ var data =
       "swig",
       "scientific-computing"
     ],
-    "updated_at": 1617178138.0
+    "updated_at": 1617156538.0
   },
   {
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
       "NREL/configs/eagle/compilers/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
       "NERSC/cori/e4s-20.10/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
       "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml"
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "NREL/configs/eagle/base/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-spack-configs\" class=\"anchor\" href=\"#spack-configs\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Configs\u003c/h1\u003e\n\u003cp\u003eThis is a repository that sites can use to share their configuration\nfiles for Spack.  You can contribute your own configuration files, or\nbrowse around and look at what others have done.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0\nlicenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
-    "stargazers_count": 28,
+    "stargazers_count": 29,
     "subscribers_count": 22,
     "topics": [],
-    "updated_at": 1621550978.0
+    "updated_at": 1621790577.0
   },
   {
     "data_format": 2,
     "description": ":floppy_disk: C++ \u0026 Python API for Scientific I/O",
     "filenames": [
-      ".github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml",
-      ".github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml",
+      ".github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml",
       ".github/ci/spack-envs/clang5_nopy_nompi_h5/spack.yaml",
       "spack.yaml",
+      ".github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml",
       ".github/ci/spack-envs/gcc5_py36_ompi_h5_ad1_ad2/spack.yaml",
-      ".github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml"
+      ".github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml"
     ],
     "full_name": "openPMD/openPMD-api",
     "latest_release": "0.13.4",
@@ -2001,17 +2001,17 @@ var data =
       "opendata",
       "cpp14"
     ],
-    "updated_at": 1621605146.0
+    "updated_at": 1621583546.0
   },
   {
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
+      "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/olcf/summit/spack.yaml"
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
     "latest_release": "v0.7.1",
@@ -2029,7 +2029,7 @@ var data =
       "data-viz",
       "radiuss"
     ],
-    "updated_at": 1621576283.0
+    "updated_at": 1621554683.0
   },
   {
     "data_format": 2,
@@ -2055,7 +2055,7 @@ var data =
       "radiuss",
       "data-management"
     ],
-    "updated_at": 1621476188.0
+    "updated_at": 1621454588.0
   },
   {
     "data_format": 2,
@@ -2066,7 +2066,7 @@ var data =
     "full_name": "ECP-WarpX/WarpX",
     "latest_release": "21.05",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-warpx\" class=\"anchor\" href=\"#warpx\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWarpX\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build/latest?definitionId=1\u0026amp;branchName=development\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/992695de99c1381c366d74cf333cc4b4a29d53878b4808d643fb673748a73c5b/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e57617270583f6272616e63684e616d653d646576656c6f706d656e74\" alt=\"Code Status development\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.WarpX?branchName=development\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build?definitionId=2\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f95e83fed565d15a3d259197389c3fbb68e0e9d529df7da1f73702528739c16f/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e4e696768746c793f6272616e63684e616d653d6e696768746c79266c6162656c3d6e696768746c792532307061636b61676573\" alt=\"Nightly Installation Tests\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.Nightly?branchName=nightly\u0026amp;label=nightly%20packages\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://warpx.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2fe6e4a1201d33edf1bdd9968c6c0446da41d44fef1b7a1e532cddc4fbd4c2ae/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f77617270782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/warpx/badge/?version=latest\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spack.readthedocs.io/en/latest/package_list.html#warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/86cd172f84e0a3b89161faaeb17eb247cdb10062ed0e65f9f291db3011697416/68747470733a2f2f696d672e736869656c64732e696f2f737061636b2f762f7761727078\" alt=\"Spack Version\" data-canonical-src=\"https://img.shields.io/spack/v/warpx\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://anaconda.org/conda-forge/warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4434c608221acef026a4af7cb491f491413ab135a781e3537087938592334617/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f766e2f636f6e64612d666f7267652f7761727078\" alt=\"Conda Version\" data-canonical-src=\"https://img.shields.io/conda/vn/conda-forge/warpx\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://gitter.im/ECP-WarpX/community?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c1799ddb014bc7c83ab051f3668c05f25049c81bbf1ae3c4e4dd6a61c68314aa/68747470733a2f2f6261646765732e6769747465722e696d2f4543502d57617270582f636f6d6d756e6974792e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/ECP-WarpX/community.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://warpx.readthedocs.io/en/latest/install/users.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/114e64f6c29b3e409c6de5b19ee4074ec3053396d43319fe4876231f1480e0d1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d732d6c696e75782532302537432532306f737825323025374325323077696e2d626c7565\" alt=\"Supported Platforms\" data-canonical-src=\"https://img.shields.io/badge/platforms-linux%20%7C%20osx%20%7C%20win-blue\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/ECP-WarpX/WarpX/compare/development\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4cb34757a4ca0098f7c5b01c1d559e13991f5cb4e6add106761194c2967a7911/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d6974732d73696e63652f4543502d57617270582f57617270582f6c61746573742f646576656c6f706d656e742e737667\" alt=\"GitHub commits since last release\" data-canonical-src=\"https://img.shields.io/github/commits-since/ECP-WarpX/WarpX/latest/development.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.exascaleproject.org/research/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fe7a996983f2a22d3a469de3af6e13b7062bca7f02ffad7974bb724b27c2b218/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f737570706f7274656425323062792d4543502d6f72616e6765\" alt=\"Exascale Computing Project\" data-canonical-src=\"https://img.shields.io/badge/supported%20by-ECP-orange\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8d8c054b6da1ff81634c84041dfe111aec24b166c8ea31edb0ade140ea2c9015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646576656c6f706d656e742532307374617475732d626574612d6f72616e67652e737667\" alt=\"Development Status\" data-canonical-src=\"https://img.shields.io/badge/development%20status-beta-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://isocpp.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/1a52aaad4dbed7aa6cf7d2e23d60345c14458372f5c090f6210a85bc04727f62/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4325324225324231342d6f72616e67652e737667\" alt=\"Language: C++14\" data-canonical-src=\"https://img.shields.io/badge/language-C%2B%2B14-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://python.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9cf7ec75b074af6953db1304db75950ab917ecd8a1aecb41f0d1191d10872298/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e2d6f72616e67652e737667\" alt=\"Language: Python\" data-canonical-src=\"https://img.shields.io/badge/language-Python-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://spdx.org/licenses/BSD-3-Clause-LBNL.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667\" alt=\"License WarpX\" data-canonical-src=\"https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.4571577\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a80e066c199b28e39d95c8a3cd8a7061bb4c190c717db8b58ff8cea2de0952be/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f4925323028736f75726365292d31302e353238312f7a656e6f646f2e343537313537372d626c75652e737667\" alt=\"DOI (source)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(source)-10.5281/zenodo.4571577-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.1063/5.0028512\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/217b9933935ad7327449ffac67bc3cf4c7054f7be207bcc3c43a5a694f81efff/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f49253230287061706572292d31302e313036332f352e303032383531322d626c75652e737667\" alt=\"DOI (paper)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(paper)-10.1063/5.0028512-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-overview\" class=\"anchor\" href=\"#overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h2\u003e\n\u003cp\u003eWarpX is an advanced electromagnetic Particle-In-Cell code.\nIt supports many features including Perfectly-Matched Layers (PML), mesh refinement, and the boosted-frame technique.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://picmi-standard.github.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/343c1eefa7d19641daf3e00da21e54db3a6211fe5f692c3004f2836a185668d8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532325049434d4925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICMI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22PICMI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.openPMD.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/062e5330b80f6eca55b1df50d6d154214f5a2033b7a87344ef2a580fd7a616dc/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532326f70656e504d4425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22openPMD%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://yt-project.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9e6cacd2df0d5a581d8afad30a57807b71f4b67c58e74faa4080dad7d81c6184/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d253232797425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"yt-project\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22yt%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIn order to learn how to install and run the code, please see the online documentation:\n\u003ca href=\"https://warpx.readthedocs.io\" rel=\"nofollow\"\u003ehttps://warpx.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTo contact the developers, feel free to open an issue on this repo, or visit our Gitter room at \u003ca href=\"https://gitter.im/ECP-WarpX/community\" rel=\"nofollow\"\u003ehttps://gitter.im/ECP-WarpX/community\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://amrex-codes.github.io/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7053679f4412132d376afadf481432a9d435336f8127e7c8650808bc66d019b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232414d52655825323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"AMReX\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22AMReX%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://picsar.net\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/793037a9842c5343f4942ce7475c7c7696e69b44621531f666492ac87b5e80b8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323250494353415225323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICSAR\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22PICSAR%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://openpmd-api.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b7108e47d5ad6b76b60f07a4e04173ba260c5eef9bb244680f65ff91d8a319f8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532326f70656e504d442d61706925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD-api\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22openPMD-api%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://csmd.ornl.gov/adios\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d525e37817dc6dfc5f173eb31f4e9fd52947e668793967565910166b335ced93/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324144494f5325323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"ADIOS\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22ADIOS%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.hdfgroup.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/005f778c667adb78e4302d47579b9bedc5ec0f59f88c13552f6b4bb399f93438/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324844463525323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"HDF5\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22HDF5%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://www.ascent-dav.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/204f53a0d216a0a2fce9a367e3ba3a1957ac2285ed89026cb80321df6a125fc4/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232417363656e7425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"Ascent\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22Ascent%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://sensei-insitu.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/6f870e29c1d57a4e4209ec97a00fbe4f73c8fd6fb589bf4c12f3feef9d3aaaeb/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323253454e53454925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"SENSEI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22SENSEI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOur workflow is described in \u003ca href=\"CONTRIBUTING.rst\"\u003eCONTRIBUTING.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eWarpX Copyright (c) 2018-2021, The Regents of the University of California,\nthrough Lawrence Berkeley National Laboratory (subject to receipt of any\nrequired approvals from the U.S. Dept. of Energy).  All rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software,\nplease contact Berkeley Lab\u0027s Innovation \u0026amp; Partnerships Office at\n\u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE.  This Software was developed under funding from the U.S. Department\nof Energy and the U.S. Government consequently retains certain rights. As\nsuch, the U.S. Government has been granted for itself and others acting on\nits behalf a paid-up, nonexclusive, irrevocable, worldwide license in the\nSoftware to reproduce, distribute copies to the public, prepare derivative\nworks, and perform publicly and display publicly, and to permit other to do\nso.\u003c/p\u003e\n\u003cp\u003eLicense for WarpX can be found at \u003ca href=\"LICENSE.txt\"\u003eLICENSE.txt\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 90,
+    "stargazers_count": 91,
     "subscribers_count": 15,
     "topics": [
       "laser",
@@ -2078,7 +2078,7 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1621644656.0
+    "updated_at": 1621738295.0
   },
   {
     "data_format": 2,
@@ -2092,14 +2092,14 @@ var data =
     "stargazers_count": 105,
     "subscribers_count": 23,
     "topics": [],
-    "updated_at": 1621683342.0
+    "updated_at": 1621661742.0
   },
   {
     "data_format": 2,
     "description": "Modular C++ Toolkit for Performance Analysis and Logging. Profiling API and Tools for C, C++, CUDA, Fortran, and Python. The C++ template API is essentially a framework to creating tools: it is designed to provide a unifying interface for recording various performance measurements alongside data logging and interfaces to other tools.",
     "filenames": [
-      "docker/gpu/spack.yaml",
-      "docker/cpu/spack.yaml"
+      "docker/cpu/spack.yaml",
+      "docker/gpu/spack.yaml"
     ],
     "full_name": "NERSC/timemory",
     "latest_release": "v3.1.0",
@@ -2127,6 +2127,6 @@ var data =
       "cupti",
       "modular-design"
     ],
-    "updated_at": 1621685970.0
+    "updated_at": 1621664370.0
   }
 ]
