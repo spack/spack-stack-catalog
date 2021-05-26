@@ -97,6 +97,9 @@ spack:
   definitions:
   - pumi:
     - pumi@master %gcc@10.1.0 +zoltan ^zoltan+parmetis~fortran
+  - pumiSim15:
+    - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@15.0-210501+voxel
   - pumiSim16:
     - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-210202dev
@@ -118,6 +121,7 @@ spack:
   - mpich %gcc@10.1.0
   - openmpi +cuda %gcc@10.1.0
   - $pumiSim16
+  - $pumiSim15
   - $pumi
 
   compilers:

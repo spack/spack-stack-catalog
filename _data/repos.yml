@@ -540,10 +540,10 @@ Alpine-DAV/ascent:
     HPC simulations
   filenames:
   - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
-  - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
   - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
   - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
+  - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
   full_name: Alpine-DAV/ascent
   latest_release: v0.7.1
   readme: '<h1>
@@ -1565,8 +1565,8 @@ DavidPoliakoff/tuning-spack:
   data_format: 2
   description: null
   filenames:
-  - builds/openmp/spack.yaml
   - builds/cuda/spack.yaml
+  - builds/openmp/spack.yaml
   full_name: DavidPoliakoff/tuning-spack
   latest_release: null
   readme: '<p>Steps: get spack, as of this moment 0.16.1 seems good</p>
@@ -3023,23 +3023,23 @@ FairRootGroup/FairSoft:
   description: Repository for installation routines of the external software required
     by FairRoot
   filenames:
-  - env/jun19/sim_mt/spack.yaml
-  - env/nov20/sim_mt_headless/spack.yaml
-  - test/env/jun19_fairroot_18_4/spack.yaml
-  - test/env/fairlogger/spack.yaml
-  - env/apr21/sim_mt/spack.yaml
-  - test/env/r3broot/spack.yaml
-  - test/env/fairmq/spack.yaml
-  - env/dev/sim_mt_headless/spack.yaml
-  - test/env/fairroot_develop/spack.yaml
-  - env/jun19/sim/spack.yaml
-  - test/env/dds/spack.yaml
-  - env/dev/sim/spack.yaml
-  - env/nov20/sim/spack.yaml
-  - env/nov20/sim_mt/spack.yaml
-  - env/apr21/sim_mt_headless/spack.yaml
-  - env/apr21/sim/spack.yaml
   - env/dev/sim_mt/spack.yaml
+  - env/jun19/sim/spack.yaml
+  - test/env/fairroot_develop/spack.yaml
+  - env/nov20/sim_mt_headless/spack.yaml
+  - test/env/fairmq/spack.yaml
+  - env/jun19/sim_mt/spack.yaml
+  - env/apr21/sim_mt_headless/spack.yaml
+  - test/env/dds/spack.yaml
+  - test/env/r3broot/spack.yaml
+  - env/apr21/sim_mt/spack.yaml
+  - env/apr21/sim/spack.yaml
+  - env/dev/sim/spack.yaml
+  - env/nov20/sim_mt/spack.yaml
+  - env/dev/sim_mt_headless/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
+  - env/nov20/sim/spack.yaml
+  - test/env/fairlogger/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: apr21
   readme: "<h1>\n<a id=\"user-content-fairsoft\" class=\"anchor\" href=\"#fairsoft\"\
@@ -3105,24 +3105,6 @@ FairRootGroup/FairSoft:
   subscribers_count: 13
   topics: []
   updated_at: 1621888384.0
-KoyamaSohei/raft:
-  data_format: 2
-  description: Raft implementation which depends on Mochi Project and Symas LMDB
-  filenames:
-  - spack.yaml
-  full_name: KoyamaSohei/raft
-  latest_release: null
-  readme: "<h2>\n<a id=\"user-content-raft\" class=\"anchor\" href=\"#raft\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>raft</h2>\n\
-    <p><a href=\"https://raft.github.io/\" rel=\"nofollow\">Raft</a> implementation\
-    \ which depends on <a href=\"https://mochi.readthedocs.io/\" rel=\"nofollow\"\
-    >Mochi Project</a> and <a href=\"https://symas.com/lmdb/\" rel=\"nofollow\">Symas\
-    \ LMDB</a></p>\n<p>this is one of projects in <a href=\"http://www.hpcs.cs.tsukuba.ac.jp/~tatebe/lecture/r02/dpro/\"\
-    \ rel=\"nofollow\">\u4E3B\u5C02\u653B\u5B9F\u9A13 K-16</a></p>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1612626420.0
 LLNL/conduit:
   data_format: 2
   description: Simplified Data Exchange for HPC Simulations
@@ -3224,16 +3206,16 @@ LLNL/conduit:
   - hdf5
   - radiuss
   - data-management
-  updated_at: 1621879260.0
+  updated_at: 1621978217.0
 LLNL/radiuss-ci:
   data_format: 2
   description: RADIUSS CI project aims at providing sensible default configurations
     and tools for GitLab CI.
   filenames:
   - spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml
-  - spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml
-  - spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml
   - spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml
+  - spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml
+  - spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml
   full_name: LLNL/radiuss-ci
   latest_release: null
   readme: '<h1>
@@ -3634,6 +3616,214 @@ MeteoSwiss-APN/spack:
   subscribers_count: 3
   topics: []
   updated_at: 1584095247.0
+MiddelkoopT/spack-tutorial:
+  data_format: 2
+  description: Spack tutorial
+  filenames:
+  - spack.yaml
+  full_name: MiddelkoopT/spack-tutorial
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-platform-configurations-for-mochi" class="anchor" href="#platform-configurations-for-mochi"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform
+    configurations for Mochi</h1>
+
+    <p>This repository provides Spack configuration files, example job scripts, and
+
+    notes about building and running Mochi-based codes on various platforms.
+
+    Please refer to the subdirectory for your platform of interest for more
+
+    information.</p>
+
+    <h2>
+
+    <a id="user-content-using-spackyaml-files" class="anchor" href="#using-spackyaml-files"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    spack.yaml files</h2>
+
+    <p>Each platform subdirectory in this repository provides a <code>spack.yaml</code>
+    file.
+
+    A <code>spack.yaml</code> file fully describes a Spack environment, including
+
+    system-provided packages and compilers. It does so independently of any
+
+    <code>compilers.yaml</code> or <code>packages.yaml</code> files installed in <code>~/.spack</code>,
+    thereby
+
+    preventing interference with user-specific spack configurations as much as
+
+    possible.</p>
+
+    <p>You may use <code>spack.yaml</code> files to create a
+
+    <a href="https://spack.readthedocs.io/en/latest/environments.html" rel="nofollow">Spack
+    environment</a>
+
+    in which Mochi packages will be installed.</p>
+
+    <p>If you don''t have Spack installed on your platform, clone it and set it up
+
+    as follows.</p>
+
+    <pre><code>$ git clone https://github.com/spack/spack.git
+
+    $ . spack/share/spack/setup-env.sh
+
+    </code></pre>
+
+    <p>Remember that the second line needs to be executed every time you open a new
+
+    terminal; it may be helpful to create an alias in your bashrc file as a
+
+    shortcut.</p>
+
+    <p>You will then need to clone <code>sds-repo</code>, which contains the Mochi
+    packages.</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/sds-repo.git
+
+    $ spack repo add sds-repo
+
+    </code></pre>
+
+    <p>Now clone the present repository and <code>cd</code> into the subdirectory
+    relevant
+
+    to your platform. For example:</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/experiments/platform-configurations.git
+
+    $ cd platform-configurations/ANL/Bebop
+
+    </code></pre>
+
+    <p>Edit the path to <code>sds-repo</code> in the <code>repos</code> field of the
+    <code>spack.yaml</code> file to
+
+    match your installation.</p>
+
+    <p>Then, execute the following command
+
+    (changing <em>myenv</em> into an appropriate name for your environment).</p>
+
+    <pre><code>$ spack env create myenv spack.yaml
+
+    </code></pre>
+
+    <p>Change to a directory outside of the <code>platform-configurations</code> folders
+
+    and activate the environment as follows.</p>
+
+    <pre><code>$ spack env activate myenv
+
+    </code></pre>
+
+    <p>You may now add specs to your environment. For instance if you want
+
+    to install Margo, execute the following command.</p>
+
+    <pre><code>$ spack add mochi-margo
+
+    </code></pre>
+
+    <p>If the <code>spack.yaml</code> file provides multiple compilers and you want
+
+    to use another than the default one, specify the compiler explicitely,
+
+    for example:</p>
+
+    <pre><code>$ spack add mochi-margo %gcc@8.2.0
+
+    </code></pre>
+
+    <p>Note that the <code>spack.yaml</code> file you used may already have a spec
+
+    added as an example (usually <code>mochi-margo</code>). You can remove it as
+
+    follows.</p>
+
+    <pre><code>$ spack rm mochi-margo
+
+    </code></pre>
+
+    <p>Once you have added the specs you need in your environment, install
+
+    everything by executing the following command.</p>
+
+    <pre><code>$ spack install
+
+    </code></pre>
+
+    <p>You may add more specs later on. For more information on how to manage
+
+    Spack environments, please refer to the Spack documentation.</p>
+
+    <h2>
+
+    <a id="user-content-contributing-to-this-repository" class="anchor" href="#contributing-to-this-repository"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing
+    to this repository</h2>
+
+    <p>Should you want to contribute a <code>spack.yaml</code> for a particular machine,
+
+    please submit a merge request with it, and ensure the following.</p>
+
+    <ul>
+
+    <li>The <code>spack.yaml</code> file should contain the compiler(s) that have
+    been tested
+
+    and confirmed to work with Mochi packages.</li>
+
+    <li>The <code>spack.yaml</code> file should try to list system-provided packages,
+
+    in particular packages used for building (<code>cmake</code>, <code>autoconf</code>,
+    etc.),
+
+    and relevant system-provided MPI implementations.
+
+    <ul>
+
+    <li>Note that this must be done manually.  Spack provides a <code>spack external
+    find</code> command that can be used to locate a subset of system packages,
+
+    but it does not populate the <code>spack.yaml</code> file.</li>
+
+    </ul>
+
+    </li>
+
+    <li>The <code>spack.yaml</code> file should contain the relevant variants for
+    packages,
+
+    in particular the transport methods to use with <code>libfabric</code>.</li>
+
+    <li>The path to the <code>spack.yaml</code> file should be of the form
+
+    <code>&lt;institution&gt;/&lt;platform&gt;/spack.yaml</code>.</li>
+
+    <li>Please make sure that your <code>spack.yaml</code> is a reliable way to work
+    with
+
+    Mochi on the target platform, other people will rely on it!</li>
+
+    </ul>
+
+    <p>You can also contribute changes to existing <code>spack.yaml</code> files,
+    in particular
+
+    to add working compilers, system packages, etc. As always, please test that
+
+    new setups work before creating a merge request.</p>
+
+    '
+  stargazers_count: 2
+  subscribers_count: 1
+  topics: []
+  updated_at: 1619553175.0
 NERSC/timemory:
   data_format: 2
   description: 'Modular C++ Toolkit for Performance Analysis and Logging. Profiling
@@ -4446,12 +4636,68 @@ NERSC/timemory:
   - cupti
   - modular-design
   updated_at: 1621870311.0
+PawseySC/pawsey-spack-config:
+  data_format: 2
+  description: Configuration files for Spack at Pawsey
+  filenames:
+  - examples/zeus_marco/environment2_python/spack.yaml
+  - examples/zeus_marco/environment1_compchem/spack.yaml
+  - examples/topaz_marco/environment_compchem/spack.yaml
+  full_name: PawseySC/pawsey-spack-config
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-pawsey-spack-config" class="anchor" href="#pawsey-spack-config"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>pawsey-spack-config</h1>
+
+    <p>Configuration files for Spack at Pawsey.</p>
+
+    <h2>
+
+    <a id="user-content-current-contents" class="anchor" href="#current-contents"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current
+    contents</h2>
+
+    <ul>
+
+    <li>
+
+    <code>examples/</code>: deployment examples</li>
+
+    </ul>
+
+    <h2>
+
+    <a id="user-content-future-contents" class="anchor" href="#future-contents" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Future contents</h2>
+
+    <ul>
+
+    <li>
+
+    <code>configs/</code>: configuration files for Setonix</li>
+
+    <li>
+
+    <code>environments/</code>: environments for deployment on Setonix</li>
+
+    <li>
+
+    <code>repo_setonix/</code>: custom package recipes for Setonix</li>
+
+    </ul>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 8
+  topics: []
+  updated_at: 1621932434.0
 RemoteConnectionManager/CINECA_RCM_deployments:
   data_format: 2
   description: null
   filenames:
-  - environments/production/base/spack.yaml
   - environments/production/rcm/spack.yaml
+  - environments/production/base/spack.yaml
   full_name: RemoteConnectionManager/CINECA_RCM_deployments
   latest_release: null
   readme: '<h1>
@@ -4497,9 +4743,9 @@ RemoteConnectionManager/RCM_spack_deploy:
   data_format: 2
   description: Deploy components and scripts for RCM
   filenames:
-  - deploy/environments/rcm/spack.yaml
   - deploy/base_spack_devel/environments/base/spack.yaml
   - deploy/environments/insitu/spack.yaml
+  - deploy/environments/rcm/spack.yaml
   full_name: RemoteConnectionManager/RCM_spack_deploy
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-rcm_spack_deploy\" class=\"anchor\" href=\"\
@@ -4523,8 +4769,8 @@ ResearchComputing/core-software:
   description: Documentation and automation for provisioning the core software environment
     at University of Colorado Boulder Research Computing
   filenames:
-  - spack/environments/develop/spack.yaml
   - spack/environments/spring2020/spack.yaml
+  - spack/environments/develop/spack.yaml
   - spack/environments/summer2020/spack.yaml
   full_name: ResearchComputing/core-software
   latest_release: null
@@ -4574,9 +4820,9 @@ ResearchIT/isu-spack:
   description: Spec files for research software library installed at Iowa State University
     via Spack
   filenames:
+  - 3-packages/spack.yaml
   - 2-mpis/spack.yaml
   - 1-compilers/spack.yaml
-  - 3-packages/spack.yaml
   full_name: ResearchIT/isu-spack
   latest_release: null
   readme: '<h1>
@@ -4838,8 +5084,8 @@ SCOREC/centos7-spack-config:
   data_format: 2
   description: spack config for erp cluster
   filenames:
-  - v61c1b71_gcc910/spack.yaml
   - openFoam24/spack.yaml
+  - v61c1b71_gcc910/spack.yaml
   full_name: SCOREC/centos7-spack-config
   latest_release: null
   readme: '<h1>
@@ -4873,6 +5119,109 @@ SCOREC/centos7-spack-config:
   subscribers_count: 4
   topics: []
   updated_at: 1611977804.0
+SCOREC/dcs-spack-config:
+  data_format: 2
+  description: Spack config for CCI DCS (AiMOS) system
+  filenames:
+  - v0160gcc/spack.yaml
+  - v0133gcc/spack.yaml
+  - spack.yaml
+  - v0133gccSpectrum/spack.yaml
+  full_name: SCOREC/dcs-spack-config
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-dcs-spack-config" class="anchor" href="#dcs-spack-config"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>dcs-spack-config</h1>
+
+    <p>CCI DCS (AiMOS) spack configuration and scripts for building the XGC depdencies
+
+    with the IBM XL compilers and Spectrum-MPI.</p>
+
+    <h2>
+
+    <a id="user-content-contents" class="anchor" href="#contents" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>contents</h2>
+
+    <p>compilers.yaml - compiler list</p>
+
+    <p>config.yaml - global config</p>
+
+    <p>install.sh - package installation commands</p>
+
+    <p>modules.yaml - hierarchical layout for lua modules</p>
+
+    <p>packages.yaml - system installed packages</p>
+
+    <p>README.md - this file</p>
+
+    <p>setupSpack.sh - env needed for executing spack commands</p>
+
+    <p>spack.yaml - list of packages to install</p>
+
+    <h2>
+
+    <a id="user-content-setup" class="anchor" href="#setup" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>setup</h2>
+
+    <pre><code>git clone git@github.com:spack/spack.git spack
+
+    cd !$
+
+    git checkout v0.13.3
+
+    # add the simmetrix-simmodsuite package from the develop branch
+
+    git cherry-pick 5ddf5e2
+
+    # create the environment
+
+    spack env create v0133
+
+    spack env activate v0133
+
+    # copy the yaml files into the v0133
+
+    cp /path/to/the/dir/with/the/yaml/files/* var/spack/environments/v0133/.
+
+    # copy the compiler yaml file into the spack etc dir
+
+    cp /path/to/the/dir/with/the/yaml/files/compilers.yaml etc/spack/.
+
+    </code></pre>
+
+    <h2>
+
+    <a id="user-content-install-cmake" class="anchor" href="#install-cmake" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>install cmake</h2>
+
+    <p>The bootstrap step of the cmake install fails with the XL compilers.  I
+
+    installed it manually outside of the environment with spack and gcc4.8.5</p>
+
+    <pre><code>spack install cmake%gcc@4.8.5_rhel7
+
+    </code></pre>
+
+    <p>Then added the path to <code>packages.yaml</code>.</p>
+
+    <h2>
+
+    <a id="user-content-resuming-work-in-an-environment" class="anchor" href="#resuming-work-in-an-environment"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>resuming
+    work in an environment</h2>
+
+    <pre><code>source /gpfs/u/software/dcs-spack-src/dcs-spack-config/setupSpack.sh
+
+    spack env activate v0133
+
+    </code></pre>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 4
+  topics: []
+  updated_at: 1608664647.0
 SCOREC/drp-spack-config:
   data_format: 2
   description: CCI DRP Spack configuration
@@ -4903,8 +5252,8 @@ SCOREC/rhel7-spack-config:
   data_format: 2
   description: rhel7 spack configuration and scripts
   filenames:
-  - v0.15.4/spack.yaml
   - v0.13.2/spack.yaml
+  - v0.15.4/spack.yaml
   full_name: SCOREC/rhel7-spack-config
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
@@ -4979,7 +5328,7 @@ SCOREC/rhel7-spack-config:
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1613999189.0
+  updated_at: 1621957853.0
 SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
@@ -5103,18 +5452,18 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/rhel8-runner-x86_64/spack.yaml
-  - spack-sdk-environments/pmr_core/spack.yaml
-  - spack-sdk-environments/visualization_analysis_reduction/spack.yaml
-  - docker-recipes/rhel7-runner-x86_64/spack.yaml
-  - spack-sdk-environments/xsdk/spack.yaml
-  - docker-recipes/superlu-sc/spack.yaml
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
-  - spack-sdk-environments/e4s_ecosystem/spack.yaml
+  - spack-sdk-environments/visualization_analysis_reduction/spack.yaml
+  - spack-sdk-environments/xsdk/spack.yaml
   - spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml
+  - spack-sdk-environments/e4s_ecosystem/spack.yaml
+  - docker-recipes/superlu-sc/spack.yaml
+  - spack-sdk-environments/pmr_core/spack.yaml
+  - docker-recipes/rhel7-runner-x86_64/spack.yaml
+  - spack-sdk-environments/compilers_and_support/spack.yaml
   - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - spack-sdk-environments/tools_and_technology/spack.yaml
-  - spack-sdk-environments/compilers_and_support/spack.yaml
+  - docker-recipes/rhel8-runner-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -5142,8 +5491,8 @@ alalazo/container-images:
   data_format: 2
   description: Recipes to generate container images and experiment with Github registry
   filenames:
-  - quantum-espresso/spack.yaml
   - gromacs/spack.yaml
+  - quantum-espresso/spack.yaml
   full_name: alalazo/container-images
   latest_release: null
   readme: '<h1>
@@ -5162,29 +5511,29 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/library/bak/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
-  - cent7/bioinformatics/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
-  - cent7/mpis/spack.yaml
-  - cent7/apps/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
-  - cent7/python_376/spack.yaml
-  - cent7/library/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - compilers/envs/compilers/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent8/envs/avx/python/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - cent7/py_376/spack.yaml
   - cent7/ece_hpc/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
+  - cent7/mpis/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent7/bio_old/spack.yaml
+  - cent8/envs/avx/python/spack.yaml
+  - cent7/bioinformatics/spack.yaml
   - cent7/libs_old/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
+  - cent7/library/spack.yaml
   - cent8/envs/avx512/lusoft/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
   - cent8/envs/avx2/rproject/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent7/py_376/spack.yaml
+  - cent7/library/bak/spack.yaml
   - cent8/envs/avx/lusoft/spack.yaml
+  - cent7/python_376/spack.yaml
+  - cent7/apps/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -5374,11 +5723,11 @@ bvanessen/lbann_distconv:
   data_format: 2
   description: null
   filenames:
-  - spack_environments/developer_release_x86_64_cuda_spack.yaml
-  - spack_environments/developer_release_ppc64le_cuda_spack.yaml
-  - spack_environments/developer_release_osx_spack.yaml
-  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
   - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
+  - spack_environments/developer_release_ppc64le_cuda_spack.yaml
+  - spack_environments/developer_release_x86_64_cuda_spack.yaml
+  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
+  - spack_environments/developer_release_osx_spack.yaml
   full_name: bvanessen/lbann_distconv
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
@@ -5438,75 +5787,135 @@ cinemascienceworkflows/2021-04_ECP-Tutorial:
   - inputs/spack/spack.yaml
   full_name: cinemascienceworkflows/2021-04_ECP-Tutorial
   latest_release: null
-  readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
+  readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>setup on SCOREC</h1>\n<pre><code>cd /opt/scorec/spack/rhel7-spack-config/\n\
-    source setupSpack.sh\n</code></pre>\n<h1>\n<a id=\"user-content-rhel7-spack-config\"\
-    \ class=\"anchor\" href=\"#rhel7-spack-config\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>rhel7-spack-config</h1>\n<p>rhel7\
-    \ spack configuration and scripts</p>\n<p>The <code>install.sh</code> script maintained\
-    \ in this repo is for documentation purposes (e.g., in case we had to reinstall\
-    \ the entire stack from scratch) and should not be executed as it will not use\
-    \ all of our existing package installs.  More discussion of package installation\
-    \ is below.</p>\n<h2>\n<a id=\"user-content-useful-commands\" class=\"anchor\"\
-    \ href=\"#useful-commands\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>useful commands</h2>\n<p>regenerate lmod module\
-    \ tree:</p>\n<pre><code>spack module lmod refresh\n</code></pre>\n<h2>\n<a id=\"\
-    user-content-installing-new-packages\" class=\"anchor\" href=\"#installing-new-packages\"\
+    ></span></a>SciCell++</h1>\n<p><a href=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ alt=\"GitHub-master-push\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/tachidok/scicellxx\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4d304208a40f5037293d6f8b02ab726b9654e85e8557e43b51ae5a91077fa596/68747470733a2f2f636f6465636f762e696f2f67682f7461636869646f6b2f73636963656c6c78782f6272616e63682f6d61737465722f67726170682f62616467652e7376673f746f6b656e3d4a41414f465353314951\"\
+    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/tachidok/scicellxx/branch/master/graph/badge.svg?token=JAAOFSS1IQ\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://scicellxx.readthedocs.io\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6ada579e5e58ef38465ec81b91143b7b634c899e63a4a834dc39199f9ded19e6/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f73636963656c6c78782f62616467652f3f76657273696f6e3d6c6174657374\"\
+    \ alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/scicellxx/badge/?version=latest\"\
+    \ style=\"max-width:100%;\"></a></p>\n<hr>\n<h2>\n<a id=\"user-content-welcome\"\
+    \ class=\"anchor\" href=\"#welcome\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Welcome!</h2>\n<p>This is the\
+    \ official GitHub repository for the <strong>SciCell++</strong> project.</p>\n\
+    <h2>\n<a id=\"user-content-what-is-scicell\" class=\"anchor\" href=\"#what-is-scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>installing new packages</h2>\n<p>Our spack repo is tracking the master\
-    \ spack branch.  Spack package updates could result in additional installation\
-    \ of packages with little or no package source code changes.  These additional\
-    \ installs can be avoided when installing new packages by first examining the\
-    \ output of the <code>spack spec -I</code> command.  If a utility/infrastructure\
-    \ level package, such as cmake or mpich, is marked with a <code>[+]</code> symbol\
-    \ in the leftmost column then it means that the existing install will be used.\
-    \  If spack does not default to using the existing install you can append the\
-    \ hash of the package to the spec command.</p>\n<p>For example, lets see what\
-    \ happens when we ask for a pumi install using gcc 7.3.0</p>\n<pre><code>$ spack\
-    \ spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp\
-    \ +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0\
-    \ patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]\
-    \              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]       \
-    \       ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e\
-    \ +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\
-    </code></pre>\n<p>Spack wants to install mpich 3.3, but we don't want to change\
-    \ to the new mpich version yet.  So, we will get the hash of the existing mpich\
-    \ 3.2.1 install:</p>\n<pre><code>$ spack find -ldv mpich%gcc@7.3.0\n==&gt; 1 installed\
-    \ package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\n\
-    niuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n</code></pre>\n\
-    <p>then append the hash <code>niuhmad</code> to the spec for pumi using the <code>^</code>\
-    \ syntax to specify it as a dependency:</p>\n<pre><code>$ spack spec -I pumi@develop%gcc@7.3.0\
-    \ ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\
-    [+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\
-    \ arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra\
-    \ netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n</code></pre>\n<p>And\
-    \ see that in the Concretized spec it is now using the existing mpich 3.2.1 install.</p>\n\
-    <h2>\n<a id=\"user-content-contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>contents</h2>\n\
-    <p>compilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package\
-    \ installation commands\nmodules.yaml - hierarchical layout for lua modules\n\
-    packages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh\
-    \ - env needed for executing spack commands</p>\n"
+    ></span></a>What is SciCell++?</h2>\n<p>SciCell++ is an object-oriented framework\
+    \ for the simulation of biological and physical phenomena modelled as continuous\
+    \ or discrete processes.</p>\n<h2>\n<a id=\"user-content-table-of-contents\" class=\"\
+    anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Table of Contents</h2>\n<ol>\n\
+    <li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#demos\">Demos</a></li>\n\
+    <li><a href=\"#documentation\">Documentation</a></li>\n<li><a href=\"#how_to_contribute\"\
+    >How to contribute</a></li>\n<li><a href=\"#facts_and_curiosities\">Facts and\
+    \ curiosities</a></li>\n<li><a href=\"#license\">License</a></li>\n</ol>\n<h2>\n\
+    <a id=\"user-content-installation-\" class=\"anchor\" href=\"#installation-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Installation <a name=\"user-content-installation\"></a>\n</h2>\n<h3>\n\
+    <a id=\"user-content-docker-based-installation\" class=\"anchor\" href=\"#docker-based-installation\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Docker-based installation</h3>\n<p>We are adopting containers to ease\
+    \ the installation and release of\nversions so you do not need to worry about\
+    \ any dependencies.</p>\n<p>This section and installation procedure is under development.\n\
+    <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji></p>\n<p>Follow the instructions in\n<a href=\"https://docs.docker.com/engine/install/\"\
+    \ rel=\"nofollow\">here</a> to get Docker\ninstalled in your system.</p>\n<p>Then\
+    \ get the image from our Docker repository and ta-dah, you are\nready to go.</p>\n\
+    <h3>\n<a id=\"user-content-fast-installation-and-starting-up\" class=\"anchor\"\
+    \ href=\"#fast-installation-and-starting-up\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Fast installation and starting\
+    \ up!!!</h3>\n<h4>\n<a id=\"user-content-what-you-need-to-have-it-running-and-working-nicely\"\
+    \ class=\"anchor\" href=\"#what-you-need-to-have-it-running-and-working-nicely\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>What you need to have it running and working nicely?</h4>\n<ul>\n\
+    <li>\n<p>A C++ compiler - demo drivers and library built with version\n7.4.0.\
+    \ It may work with previous versions as well.</p>\n</li>\n<li>\n<p>CMake - to\
+    \ configure and install it. We tested with version 3.10.2.</p>\n</li>\n<li>\n\
+    <p>Python - to test output from demo drivers with validation files\n(also to produce\
+    \ nice plots). We tested with version 3.7.3 but it\nshould work with any version\
+    \ &gt;= 3</p>\n</li>\n</ul>\n<h5>\n<a id=\"user-content-optional\" class=\"anchor\"\
+    \ href=\"#optional\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Optional</h5>\n<ul>\n<li>MPI support for parallel\
+    \ features - <code>not currently supported</code>.</li>\n</ul>\n<h4>\n<a id=\"\
+    user-content-get-your-own-copy-of-the-project\" class=\"anchor\" href=\"#get-your-own-copy-of-the-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Get your own copy of the project</h4>\n<p>You need <strong>git</strong>\
+    \ installed in your computer, then type in a terminal</p>\n<div class=\"highlight\
+    \ highlight-source-shell\"><pre>git clone https://github.com/tachidok/scicellxx\n\
+    <span class=\"pl-c1\">cd</span> scicellxx\ngit checkout -b john_cool</pre></div>\n\
+    <p>After executing the first line you will be prompted with your GitHub\nuser\
+    \ name and your password. The third line generates your fully\ncustomised branch,\
+    \ we assume that your name is <em>john_cool</em></p>\n<h4>\n<a id=\"user-content-configuration\"\
+    \ class=\"anchor\" href=\"#configuration\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Configuration</h4>\n<ul>\n<li>In\
+    \ a terminal (shell command line) go into the <code>scicellxx</code> folder\n\
+    then type</li>\n</ul>\n<div class=\"highlight highlight-source-shell\"><pre>./autogen.sh</pre></div>\n\
+    <ul>\n<li>Follow up the instructions on screen to configure your own copy of\n\
+    the project.</li>\n</ul>\n<h2>\n<a id=\"user-content-demos-\" class=\"anchor\"\
+    \ href=\"#demos-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Demos <a name=\"user-content-demos\"></a>\n</h2>\n\
+    <p>Demos live in the <code>demos</code> folder. You should run all of them to\
+    \ make sure everything is working fine. If you did not run them at installation\
+    \ time (by default) you can do it at any time by opening a terminal, going into\
+    \ the build folder (the default one is <code>build</code>) and typing</p>\n<div\
+    \ class=\"highlight highlight-source-shell\"><pre>./ctest</pre></div>\n<p>A large\
+    \ number of demos is expected to live in the <code>demos</code> folder. Review\
+    \ the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\" rel=\"\
+    nofollow\">corresponding documentation</a> for their full description.</p>\n<h3>\n\
+    <a id=\"user-content-featured-demos\" class=\"anchor\" href=\"#featured-demos\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Featured demos</h3>\n<ul>\n<li>Interpolation</li>\n<li>Linear solvers</li>\n\
+    <li>Matrices operations</li>\n<li>Newton's method</li>\n<li>Solution of ODE's\n\
+    <ul>\n<li>Lotka-Volterra solved with different time steppers</li>\n<li>N-body\
+    \ problem (only 3-body and 4-body)</li>\n<li>Explicit time steppers</li>\n<li>Implicit\
+    \ time steppers (full implicit and <em>E(PC)^k E</em>\nimplementations)</li>\n\
+    <li>Adaptive time steppers</li>\n</ul>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-documentation-\"\
+    \ class=\"anchor\" href=\"#documentation-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Documentation <a name=\"user-content-documentation\"\
+    ></a>\n</h2>\n<p>The full documentation is <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-how-to-contribute-\"\
+    \ class=\"anchor\" href=\"#how-to-contribute-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>How to contribute <a name=\"\
+    user-content-how_to_contribute\"></a>\n</h2>\n<p>Please check the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">corresponding documentation</a> section for contributions.</p>\n\
+    <h2>\n<a id=\"user-content-facts-and-curiosities-\" class=\"anchor\" href=\"#facts-and-curiosities-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Facts and curiosities <a name=\"user-content-facts_and_curiosities\"\
+    ></a>\n</h2>\n<h3>\n<a id=\"user-content-how-many-developers-are-currently-working-on-this-project\"\
+    \ class=\"anchor\" href=\"#how-many-developers-are-currently-working-on-this-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>How many developers are currently working on this project?</h3>\n\
+    <p>At Wednesday, March/31, 2021 there is one and only one developer, me\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"no_mouth\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f636.png\"\
+    >\U0001F636</g-emoji> <g-emoji class=\"g-emoji\" alias=\"email\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/2709.png\">\u2709\uFE0F\
+    </g-emoji></p>\n<p><g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji></p>\n<h3>\n<a id=\"user-content-when-did-this-start\" class=\"anchor\"\
+    \ href=\"#when-did-this-start\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>When did this start?</h3>\n<p>This\
+    \ project was initially uploaded to GitHub on Friday, 11 March 2016\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"smile\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f604.png\"\
+    >\U0001F604</g-emoji></p>\n<h2>\n<a id=\"user-content-license-\" class=\"anchor\"\
+    \ href=\"#license-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>License <a name=\"user-content-license\"></a>\n\
+    </h2>\n<p>Licensed under the GNU GPLv3. A copy can be found on the <a href=\"\
+    ./LICENSE\">LICENSE</a> file.</p>\n"
   stargazers_count: 0
   subscribers_count: 5
   topics: []
@@ -5518,75 +5927,135 @@ cinemascienceworkflows/2021-04_ExaWind-NaluWind:
   - inputs/spack/spack.yaml
   full_name: cinemascienceworkflows/2021-04_ExaWind-NaluWind
   latest_release: null
-  readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
+  readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>setup on SCOREC</h1>\n<pre><code>cd /opt/scorec/spack/rhel7-spack-config/\n\
-    source setupSpack.sh\n</code></pre>\n<h1>\n<a id=\"user-content-rhel7-spack-config\"\
-    \ class=\"anchor\" href=\"#rhel7-spack-config\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>rhel7-spack-config</h1>\n<p>rhel7\
-    \ spack configuration and scripts</p>\n<p>The <code>install.sh</code> script maintained\
-    \ in this repo is for documentation purposes (e.g., in case we had to reinstall\
-    \ the entire stack from scratch) and should not be executed as it will not use\
-    \ all of our existing package installs.  More discussion of package installation\
-    \ is below.</p>\n<h2>\n<a id=\"user-content-useful-commands\" class=\"anchor\"\
-    \ href=\"#useful-commands\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>useful commands</h2>\n<p>regenerate lmod module\
-    \ tree:</p>\n<pre><code>spack module lmod refresh\n</code></pre>\n<h2>\n<a id=\"\
-    user-content-installing-new-packages\" class=\"anchor\" href=\"#installing-new-packages\"\
+    ></span></a>SciCell++</h1>\n<p><a href=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ alt=\"GitHub-master-push\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/tachidok/scicellxx\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4d304208a40f5037293d6f8b02ab726b9654e85e8557e43b51ae5a91077fa596/68747470733a2f2f636f6465636f762e696f2f67682f7461636869646f6b2f73636963656c6c78782f6272616e63682f6d61737465722f67726170682f62616467652e7376673f746f6b656e3d4a41414f465353314951\"\
+    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/tachidok/scicellxx/branch/master/graph/badge.svg?token=JAAOFSS1IQ\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://scicellxx.readthedocs.io\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6ada579e5e58ef38465ec81b91143b7b634c899e63a4a834dc39199f9ded19e6/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f73636963656c6c78782f62616467652f3f76657273696f6e3d6c6174657374\"\
+    \ alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/scicellxx/badge/?version=latest\"\
+    \ style=\"max-width:100%;\"></a></p>\n<hr>\n<h2>\n<a id=\"user-content-welcome\"\
+    \ class=\"anchor\" href=\"#welcome\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Welcome!</h2>\n<p>This is the\
+    \ official GitHub repository for the <strong>SciCell++</strong> project.</p>\n\
+    <h2>\n<a id=\"user-content-what-is-scicell\" class=\"anchor\" href=\"#what-is-scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>installing new packages</h2>\n<p>Our spack repo is tracking the master\
-    \ spack branch.  Spack package updates could result in additional installation\
-    \ of packages with little or no package source code changes.  These additional\
-    \ installs can be avoided when installing new packages by first examining the\
-    \ output of the <code>spack spec -I</code> command.  If a utility/infrastructure\
-    \ level package, such as cmake or mpich, is marked with a <code>[+]</code> symbol\
-    \ in the leftmost column then it means that the existing install will be used.\
-    \  If spack does not default to using the existing install you can append the\
-    \ hash of the package to the spec command.</p>\n<p>For example, lets see what\
-    \ happens when we ask for a pumi install using gcc 7.3.0</p>\n<pre><code>$ spack\
-    \ spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp\
-    \ +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0\
-    \ patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]\
-    \              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]       \
-    \       ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e\
-    \ +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\
-    </code></pre>\n<p>Spack wants to install mpich 3.3, but we don't want to change\
-    \ to the new mpich version yet.  So, we will get the hash of the existing mpich\
-    \ 3.2.1 install:</p>\n<pre><code>$ spack find -ldv mpich%gcc@7.3.0\n==&gt; 1 installed\
-    \ package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\n\
-    niuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n</code></pre>\n\
-    <p>then append the hash <code>niuhmad</code> to the spec for pumi using the <code>^</code>\
-    \ syntax to specify it as a dependency:</p>\n<pre><code>$ spack spec -I pumi@develop%gcc@7.3.0\
-    \ ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\
-    [+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\
-    \ arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra\
-    \ netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n</code></pre>\n<p>And\
-    \ see that in the Concretized spec it is now using the existing mpich 3.2.1 install.</p>\n\
-    <h2>\n<a id=\"user-content-contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>contents</h2>\n\
-    <p>compilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package\
-    \ installation commands\nmodules.yaml - hierarchical layout for lua modules\n\
-    packages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh\
-    \ - env needed for executing spack commands</p>\n"
+    ></span></a>What is SciCell++?</h2>\n<p>SciCell++ is an object-oriented framework\
+    \ for the simulation of biological and physical phenomena modelled as continuous\
+    \ or discrete processes.</p>\n<h2>\n<a id=\"user-content-table-of-contents\" class=\"\
+    anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Table of Contents</h2>\n<ol>\n\
+    <li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#demos\">Demos</a></li>\n\
+    <li><a href=\"#documentation\">Documentation</a></li>\n<li><a href=\"#how_to_contribute\"\
+    >How to contribute</a></li>\n<li><a href=\"#facts_and_curiosities\">Facts and\
+    \ curiosities</a></li>\n<li><a href=\"#license\">License</a></li>\n</ol>\n<h2>\n\
+    <a id=\"user-content-installation-\" class=\"anchor\" href=\"#installation-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Installation <a name=\"user-content-installation\"></a>\n</h2>\n<h3>\n\
+    <a id=\"user-content-docker-based-installation\" class=\"anchor\" href=\"#docker-based-installation\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Docker-based installation</h3>\n<p>We are adopting containers to ease\
+    \ the installation and release of\nversions so you do not need to worry about\
+    \ any dependencies.</p>\n<p>This section and installation procedure is under development.\n\
+    <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji></p>\n<p>Follow the instructions in\n<a href=\"https://docs.docker.com/engine/install/\"\
+    \ rel=\"nofollow\">here</a> to get Docker\ninstalled in your system.</p>\n<p>Then\
+    \ get the image from our Docker repository and ta-dah, you are\nready to go.</p>\n\
+    <h3>\n<a id=\"user-content-fast-installation-and-starting-up\" class=\"anchor\"\
+    \ href=\"#fast-installation-and-starting-up\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Fast installation and starting\
+    \ up!!!</h3>\n<h4>\n<a id=\"user-content-what-you-need-to-have-it-running-and-working-nicely\"\
+    \ class=\"anchor\" href=\"#what-you-need-to-have-it-running-and-working-nicely\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>What you need to have it running and working nicely?</h4>\n<ul>\n\
+    <li>\n<p>A C++ compiler - demo drivers and library built with version\n7.4.0.\
+    \ It may work with previous versions as well.</p>\n</li>\n<li>\n<p>CMake - to\
+    \ configure and install it. We tested with version 3.10.2.</p>\n</li>\n<li>\n\
+    <p>Python - to test output from demo drivers with validation files\n(also to produce\
+    \ nice plots). We tested with version 3.7.3 but it\nshould work with any version\
+    \ &gt;= 3</p>\n</li>\n</ul>\n<h5>\n<a id=\"user-content-optional\" class=\"anchor\"\
+    \ href=\"#optional\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Optional</h5>\n<ul>\n<li>MPI support for parallel\
+    \ features - <code>not currently supported</code>.</li>\n</ul>\n<h4>\n<a id=\"\
+    user-content-get-your-own-copy-of-the-project\" class=\"anchor\" href=\"#get-your-own-copy-of-the-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Get your own copy of the project</h4>\n<p>You need <strong>git</strong>\
+    \ installed in your computer, then type in a terminal</p>\n<div class=\"highlight\
+    \ highlight-source-shell\"><pre>git clone https://github.com/tachidok/scicellxx\n\
+    <span class=\"pl-c1\">cd</span> scicellxx\ngit checkout -b john_cool</pre></div>\n\
+    <p>After executing the first line you will be prompted with your GitHub\nuser\
+    \ name and your password. The third line generates your fully\ncustomised branch,\
+    \ we assume that your name is <em>john_cool</em></p>\n<h4>\n<a id=\"user-content-configuration\"\
+    \ class=\"anchor\" href=\"#configuration\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Configuration</h4>\n<ul>\n<li>In\
+    \ a terminal (shell command line) go into the <code>scicellxx</code> folder\n\
+    then type</li>\n</ul>\n<div class=\"highlight highlight-source-shell\"><pre>./autogen.sh</pre></div>\n\
+    <ul>\n<li>Follow up the instructions on screen to configure your own copy of\n\
+    the project.</li>\n</ul>\n<h2>\n<a id=\"user-content-demos-\" class=\"anchor\"\
+    \ href=\"#demos-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Demos <a name=\"user-content-demos\"></a>\n</h2>\n\
+    <p>Demos live in the <code>demos</code> folder. You should run all of them to\
+    \ make sure everything is working fine. If you did not run them at installation\
+    \ time (by default) you can do it at any time by opening a terminal, going into\
+    \ the build folder (the default one is <code>build</code>) and typing</p>\n<div\
+    \ class=\"highlight highlight-source-shell\"><pre>./ctest</pre></div>\n<p>A large\
+    \ number of demos is expected to live in the <code>demos</code> folder. Review\
+    \ the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\" rel=\"\
+    nofollow\">corresponding documentation</a> for their full description.</p>\n<h3>\n\
+    <a id=\"user-content-featured-demos\" class=\"anchor\" href=\"#featured-demos\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Featured demos</h3>\n<ul>\n<li>Interpolation</li>\n<li>Linear solvers</li>\n\
+    <li>Matrices operations</li>\n<li>Newton's method</li>\n<li>Solution of ODE's\n\
+    <ul>\n<li>Lotka-Volterra solved with different time steppers</li>\n<li>N-body\
+    \ problem (only 3-body and 4-body)</li>\n<li>Explicit time steppers</li>\n<li>Implicit\
+    \ time steppers (full implicit and <em>E(PC)^k E</em>\nimplementations)</li>\n\
+    <li>Adaptive time steppers</li>\n</ul>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-documentation-\"\
+    \ class=\"anchor\" href=\"#documentation-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Documentation <a name=\"user-content-documentation\"\
+    ></a>\n</h2>\n<p>The full documentation is <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-how-to-contribute-\"\
+    \ class=\"anchor\" href=\"#how-to-contribute-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>How to contribute <a name=\"\
+    user-content-how_to_contribute\"></a>\n</h2>\n<p>Please check the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">corresponding documentation</a> section for contributions.</p>\n\
+    <h2>\n<a id=\"user-content-facts-and-curiosities-\" class=\"anchor\" href=\"#facts-and-curiosities-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Facts and curiosities <a name=\"user-content-facts_and_curiosities\"\
+    ></a>\n</h2>\n<h3>\n<a id=\"user-content-how-many-developers-are-currently-working-on-this-project\"\
+    \ class=\"anchor\" href=\"#how-many-developers-are-currently-working-on-this-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>How many developers are currently working on this project?</h3>\n\
+    <p>At Wednesday, March/31, 2021 there is one and only one developer, me\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"no_mouth\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f636.png\"\
+    >\U0001F636</g-emoji> <g-emoji class=\"g-emoji\" alias=\"email\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/2709.png\">\u2709\uFE0F\
+    </g-emoji></p>\n<p><g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji></p>\n<h3>\n<a id=\"user-content-when-did-this-start\" class=\"anchor\"\
+    \ href=\"#when-did-this-start\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>When did this start?</h3>\n<p>This\
+    \ project was initially uploaded to GitHub on Friday, 11 March 2016\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"smile\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f604.png\"\
+    >\U0001F604</g-emoji></p>\n<h2>\n<a id=\"user-content-license-\" class=\"anchor\"\
+    \ href=\"#license-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>License <a name=\"user-content-license\"></a>\n\
+    </h2>\n<p>Licensed under the GNU GPLv3. A copy can be found on the <a href=\"\
+    ./LICENSE\">LICENSE</a> file.</p>\n"
   stargazers_count: 0
   subscribers_count: 5
   topics: []
@@ -5598,75 +6067,135 @@ cinemascienceworkflows/2021-04_Miniapp-Ascent:
   - inputs/spack/spack.yaml
   full_name: cinemascienceworkflows/2021-04_Miniapp-Ascent
   latest_release: null
-  readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
+  readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>setup on SCOREC</h1>\n<pre><code>cd /opt/scorec/spack/rhel7-spack-config/\n\
-    source setupSpack.sh\n</code></pre>\n<h1>\n<a id=\"user-content-rhel7-spack-config\"\
-    \ class=\"anchor\" href=\"#rhel7-spack-config\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>rhel7-spack-config</h1>\n<p>rhel7\
-    \ spack configuration and scripts</p>\n<p>The <code>install.sh</code> script maintained\
-    \ in this repo is for documentation purposes (e.g., in case we had to reinstall\
-    \ the entire stack from scratch) and should not be executed as it will not use\
-    \ all of our existing package installs.  More discussion of package installation\
-    \ is below.</p>\n<h2>\n<a id=\"user-content-useful-commands\" class=\"anchor\"\
-    \ href=\"#useful-commands\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>useful commands</h2>\n<p>regenerate lmod module\
-    \ tree:</p>\n<pre><code>spack module lmod refresh\n</code></pre>\n<h2>\n<a id=\"\
-    user-content-installing-new-packages\" class=\"anchor\" href=\"#installing-new-packages\"\
+    ></span></a>SciCell++</h1>\n<p><a href=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/tachidok/scicellxx/workflows/Build-and-Test/badge.svg?branch=master&amp;event=push\"\
+    \ alt=\"GitHub-master-push\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/tachidok/scicellxx\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4d304208a40f5037293d6f8b02ab726b9654e85e8557e43b51ae5a91077fa596/68747470733a2f2f636f6465636f762e696f2f67682f7461636869646f6b2f73636963656c6c78782f6272616e63682f6d61737465722f67726170682f62616467652e7376673f746f6b656e3d4a41414f465353314951\"\
+    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/tachidok/scicellxx/branch/master/graph/badge.svg?token=JAAOFSS1IQ\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://scicellxx.readthedocs.io\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/6ada579e5e58ef38465ec81b91143b7b634c899e63a4a834dc39199f9ded19e6/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f73636963656c6c78782f62616467652f3f76657273696f6e3d6c6174657374\"\
+    \ alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/scicellxx/badge/?version=latest\"\
+    \ style=\"max-width:100%;\"></a></p>\n<hr>\n<h2>\n<a id=\"user-content-welcome\"\
+    \ class=\"anchor\" href=\"#welcome\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Welcome!</h2>\n<p>This is the\
+    \ official GitHub repository for the <strong>SciCell++</strong> project.</p>\n\
+    <h2>\n<a id=\"user-content-what-is-scicell\" class=\"anchor\" href=\"#what-is-scicell\"\
     \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>installing new packages</h2>\n<p>Our spack repo is tracking the master\
-    \ spack branch.  Spack package updates could result in additional installation\
-    \ of packages with little or no package source code changes.  These additional\
-    \ installs can be avoided when installing new packages by first examining the\
-    \ output of the <code>spack spec -I</code> command.  If a utility/infrastructure\
-    \ level package, such as cmake or mpich, is marked with a <code>[+]</code> symbol\
-    \ in the leftmost column then it means that the existing install will be used.\
-    \  If spack does not default to using the existing install you can append the\
-    \ hash of the package to the spec command.</p>\n<p>For example, lets see what\
-    \ happens when we ask for a pumi install using gcc 7.3.0</p>\n<pre><code>$ spack\
-    \ spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp\
-    \ +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0\
-    \ patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]\
-    \              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]       \
-    \       ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e\
-    \ +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\
-    </code></pre>\n<p>Spack wants to install mpich 3.3, but we don't want to change\
-    \ to the new mpich version yet.  So, we will get the hash of the existing mpich\
-    \ 3.2.1 install:</p>\n<pre><code>$ spack find -ldv mpich%gcc@7.3.0\n==&gt; 1 installed\
-    \ package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\n\
-    niuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n</code></pre>\n\
-    <p>then append the hash <code>niuhmad</code> to the spec for pumi using the <code>^</code>\
-    \ syntax to specify it as a dependency:</p>\n<pre><code>$ spack spec -I pumi@develop%gcc@7.3.0\
-    \ ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\
-    [+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\
-    \ arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n\
-    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
-    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
-    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
-    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
-    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
-    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
-    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
-    \ arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra\
-    \ netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n</code></pre>\n<p>And\
-    \ see that in the Concretized spec it is now using the existing mpich 3.2.1 install.</p>\n\
-    <h2>\n<a id=\"user-content-contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>contents</h2>\n\
-    <p>compilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package\
-    \ installation commands\nmodules.yaml - hierarchical layout for lua modules\n\
-    packages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh\
-    \ - env needed for executing spack commands</p>\n"
+    ></span></a>What is SciCell++?</h2>\n<p>SciCell++ is an object-oriented framework\
+    \ for the simulation of biological and physical phenomena modelled as continuous\
+    \ or discrete processes.</p>\n<h2>\n<a id=\"user-content-table-of-contents\" class=\"\
+    anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Table of Contents</h2>\n<ol>\n\
+    <li><a href=\"#installation\">Installation</a></li>\n<li><a href=\"#demos\">Demos</a></li>\n\
+    <li><a href=\"#documentation\">Documentation</a></li>\n<li><a href=\"#how_to_contribute\"\
+    >How to contribute</a></li>\n<li><a href=\"#facts_and_curiosities\">Facts and\
+    \ curiosities</a></li>\n<li><a href=\"#license\">License</a></li>\n</ol>\n<h2>\n\
+    <a id=\"user-content-installation-\" class=\"anchor\" href=\"#installation-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Installation <a name=\"user-content-installation\"></a>\n</h2>\n<h3>\n\
+    <a id=\"user-content-docker-based-installation\" class=\"anchor\" href=\"#docker-based-installation\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Docker-based installation</h3>\n<p>We are adopting containers to ease\
+    \ the installation and release of\nversions so you do not need to worry about\
+    \ any dependencies.</p>\n<p>This section and installation procedure is under development.\n\
+    <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji></p>\n<p>Follow the instructions in\n<a href=\"https://docs.docker.com/engine/install/\"\
+    \ rel=\"nofollow\">here</a> to get Docker\ninstalled in your system.</p>\n<p>Then\
+    \ get the image from our Docker repository and ta-dah, you are\nready to go.</p>\n\
+    <h3>\n<a id=\"user-content-fast-installation-and-starting-up\" class=\"anchor\"\
+    \ href=\"#fast-installation-and-starting-up\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Fast installation and starting\
+    \ up!!!</h3>\n<h4>\n<a id=\"user-content-what-you-need-to-have-it-running-and-working-nicely\"\
+    \ class=\"anchor\" href=\"#what-you-need-to-have-it-running-and-working-nicely\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>What you need to have it running and working nicely?</h4>\n<ul>\n\
+    <li>\n<p>A C++ compiler - demo drivers and library built with version\n7.4.0.\
+    \ It may work with previous versions as well.</p>\n</li>\n<li>\n<p>CMake - to\
+    \ configure and install it. We tested with version 3.10.2.</p>\n</li>\n<li>\n\
+    <p>Python - to test output from demo drivers with validation files\n(also to produce\
+    \ nice plots). We tested with version 3.7.3 but it\nshould work with any version\
+    \ &gt;= 3</p>\n</li>\n</ul>\n<h5>\n<a id=\"user-content-optional\" class=\"anchor\"\
+    \ href=\"#optional\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Optional</h5>\n<ul>\n<li>MPI support for parallel\
+    \ features - <code>not currently supported</code>.</li>\n</ul>\n<h4>\n<a id=\"\
+    user-content-get-your-own-copy-of-the-project\" class=\"anchor\" href=\"#get-your-own-copy-of-the-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Get your own copy of the project</h4>\n<p>You need <strong>git</strong>\
+    \ installed in your computer, then type in a terminal</p>\n<div class=\"highlight\
+    \ highlight-source-shell\"><pre>git clone https://github.com/tachidok/scicellxx\n\
+    <span class=\"pl-c1\">cd</span> scicellxx\ngit checkout -b john_cool</pre></div>\n\
+    <p>After executing the first line you will be prompted with your GitHub\nuser\
+    \ name and your password. The third line generates your fully\ncustomised branch,\
+    \ we assume that your name is <em>john_cool</em></p>\n<h4>\n<a id=\"user-content-configuration\"\
+    \ class=\"anchor\" href=\"#configuration\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Configuration</h4>\n<ul>\n<li>In\
+    \ a terminal (shell command line) go into the <code>scicellxx</code> folder\n\
+    then type</li>\n</ul>\n<div class=\"highlight highlight-source-shell\"><pre>./autogen.sh</pre></div>\n\
+    <ul>\n<li>Follow up the instructions on screen to configure your own copy of\n\
+    the project.</li>\n</ul>\n<h2>\n<a id=\"user-content-demos-\" class=\"anchor\"\
+    \ href=\"#demos-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Demos <a name=\"user-content-demos\"></a>\n</h2>\n\
+    <p>Demos live in the <code>demos</code> folder. You should run all of them to\
+    \ make sure everything is working fine. If you did not run them at installation\
+    \ time (by default) you can do it at any time by opening a terminal, going into\
+    \ the build folder (the default one is <code>build</code>) and typing</p>\n<div\
+    \ class=\"highlight highlight-source-shell\"><pre>./ctest</pre></div>\n<p>A large\
+    \ number of demos is expected to live in the <code>demos</code> folder. Review\
+    \ the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\" rel=\"\
+    nofollow\">corresponding documentation</a> for their full description.</p>\n<h3>\n\
+    <a id=\"user-content-featured-demos\" class=\"anchor\" href=\"#featured-demos\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Featured demos</h3>\n<ul>\n<li>Interpolation</li>\n<li>Linear solvers</li>\n\
+    <li>Matrices operations</li>\n<li>Newton's method</li>\n<li>Solution of ODE's\n\
+    <ul>\n<li>Lotka-Volterra solved with different time steppers</li>\n<li>N-body\
+    \ problem (only 3-body and 4-body)</li>\n<li>Explicit time steppers</li>\n<li>Implicit\
+    \ time steppers (full implicit and <em>E(PC)^k E</em>\nimplementations)</li>\n\
+    <li>Adaptive time steppers</li>\n</ul>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-documentation-\"\
+    \ class=\"anchor\" href=\"#documentation-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Documentation <a name=\"user-content-documentation\"\
+    ></a>\n</h2>\n<p>The full documentation is <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-how-to-contribute-\"\
+    \ class=\"anchor\" href=\"#how-to-contribute-\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>How to contribute <a name=\"\
+    user-content-how_to_contribute\"></a>\n</h2>\n<p>Please check the <a href=\"https://scicellxx.readthedocs.io/en/latest/?badge=latest\"\
+    \ rel=\"nofollow\">corresponding documentation</a> section for contributions.</p>\n\
+    <h2>\n<a id=\"user-content-facts-and-curiosities-\" class=\"anchor\" href=\"#facts-and-curiosities-\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Facts and curiosities <a name=\"user-content-facts_and_curiosities\"\
+    ></a>\n</h2>\n<h3>\n<a id=\"user-content-how-many-developers-are-currently-working-on-this-project\"\
+    \ class=\"anchor\" href=\"#how-many-developers-are-currently-working-on-this-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>How many developers are currently working on this project?</h3>\n\
+    <p>At Wednesday, March/31, 2021 there is one and only one developer, me\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"no_mouth\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f636.png\"\
+    >\U0001F636</g-emoji> <g-emoji class=\"g-emoji\" alias=\"email\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/2709.png\">\u2709\uFE0F\
+    </g-emoji></p>\n<p><g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\"\
+    >\U0001F6A7</g-emoji> <g-emoji class=\"g-emoji\" alias=\"construction\" fallback-src=\"\
+    https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png\">\U0001F6A7\
+    </g-emoji></p>\n<h3>\n<a id=\"user-content-when-did-this-start\" class=\"anchor\"\
+    \ href=\"#when-did-this-start\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>When did this start?</h3>\n<p>This\
+    \ project was initially uploaded to GitHub on Friday, 11 March 2016\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"smile\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f604.png\"\
+    >\U0001F604</g-emoji></p>\n<h2>\n<a id=\"user-content-license-\" class=\"anchor\"\
+    \ href=\"#license-\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>License <a name=\"user-content-license\"></a>\n\
+    </h2>\n<p>Licensed under the GNU GPLv3. A copy can be found on the <a href=\"\
+    ./LICENSE\">LICENSE</a> file.</p>\n"
   stargazers_count: 1
   subscribers_count: 5
   topics: []
@@ -5852,109 +6381,157 @@ cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   - inputs/spack/spack.yaml
   full_name: cinemascienceworkflows/2021-05_ExaWind-AMRWind
   latest_release: null
-  readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
-    ><img src=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml/badge.svg?branch=master\"\
-    \ alt=\"Update spack develop version\" style=\"max-width:100%;\"></a></p>\n<h1>\n\
-    <a id=\"user-content--spack-with-batteries-included-linuxx86_64\" class=\"anchor\"\
-    \ href=\"#-spack-with-batteries-included-linuxx86_64\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a><g-emoji class=\"\
-    g-emoji\" alias=\"battery\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50b.png\"\
-    >\U0001F50B</g-emoji> Spack with batteries included (linux/x86_64)</h1>\n<p><a\
-    \ href=\"https://github.com/spack/spack\">Spack</a> is a package manager, and\
-    \ package managers should be trivial to install.</p>\n<p>This repo offers a single,\
-    \ static executable for Spack:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">wget -qO spack.x https://github.com/haampie/spack-batteries-included/releases/download/develop/spack-x86_64.x</span>\n\
-    $ <span class=\"pl-s1\">chmod +x spack.x</span>\n$ <span class=\"pl-s1\">./spack.x\
-    \ install zstd +programs <span class=\"pl-k\">~</span>shared build_type=Release</span></pre></div>\n\
-    <h2>\n<a id=\"user-content-what-version-of-spack-is-shipped\" class=\"anchor\"\
-    \ href=\"#what-version-of-spack-is-shipped\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>What version of Spack is shipped?</h2>\n\
-    <p>The URL above gives you a rolling release of Spack's develop branch, which\
-    \ is updated\nhourly. The exact commit SHA is included as a file and can be retrieved\
-    \ like this:</p>\n<div class=\"highlight highlight-text-shell-session\"><pre>$\
-    \ <span class=\"pl-s1\">spack.x --squashfs-extract spack_sha <span class=\"pl-k\"\
-    >&amp;&amp;</span> cat spack/spack_sha</span>\n<span class=\"pl-c1\">[prints the\
-    \ Spack commit sha]</span></pre></div>\n<h2>\n<a id=\"user-content-supported-platforms\"\
-    \ class=\"anchor\" href=\"#supported-platforms\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Supported platforms</h2>\n<ul>\n\
-    <li>CentOS 7 and above</li>\n<li>Ubuntu 14.04 and above</li>\n<li>Debian 8 and\
-    \ above</li>\n<li>Fedora 20 and above</li>\n<li>SUSE Linux 13 and above</li>\n\
-    <li>Arch Linux</li>\n<li>Gentoo</li>\n<li>Windows Subsystem for Linux 2 with any\
-    \ of the above distro's.</li>\n</ul>\n<p>The system dependencies are <code>glibc\
-    \ 2.17</code> and above and optionally the <code>fusermount</code>\nexecutable.\
-    \ If your system supports rootless containers it likely has <code>fusermount</code>\n\
-    installed already!</p>\n<h2>\n<a id=\"user-content-how-does-it-work\" class=\"\
-    anchor\" href=\"#how-does-it-work\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How does it work?</h2>\n<p><code>spack.x</code>\
-    \ consists of a modified version of the AppImage runtime concatenated\nwith a\
-    \ big squashfs file which includes <code>binutils</code>, <code>bzip2</code>,\
-    \ <code>clingo</code>, <code>curl</code>,\n<code>file</code>, <code>git</code>,\
-    \ <code>gmake</code>, <code>gpg</code>, <code>gzip</code>, <code>openssl</code>,\
-    \ <code>patch</code>, <code>patchelf</code>, <code>python</code>,\n<code>py-boto3</code>,\
-    \ <code>tar</code>, <code>unzip</code>, <code>xz</code>, <code>zstd</code> and\
-    \ their dependencies.</p>\n<p>When you run <code>spack.x [args]</code> it will\
-    \ use <code>fusermount</code> to\nmount this squashfs file in a temporary directory,\
-    \ and then execute the\nentrypoint executable <a href=\"build/6_spack/spack\"\
-    >spack</a>.</p>\n<p>The <code>spack</code> executable sets some environment variables\
-    \ like <code>PATH</code> and\n<code>DL_LIBRARY_PATH</code> to the bin and lib\
-    \ folders of the squashfs file, and then it\nexecutes <code>python3 spack_src/bin/spack\
-    \ [args]</code>.</p>\n<p>When the command is done running, the runtime unmounts\
-    \ the squashfs file again.</p>\n<h2>\n<a id=\"user-content-my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
-    \ class=\"anchor\" href=\"#my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>My system doesn't allow me to use <code>fusermount</code>, what now?</h2>\n\
-    <p><code>fusermount</code> is used to mount a squashfs file included in the binary.\
-    \ If you\ndon't want that, you can just extract it:</p>\n<pre><code>$ spack.x\
-    \ --squashfs-extract\n$ ./spack/spack\nusage: spack [-hkV] [--color {always,never,auto}]\
-    \ COMMAND ...\n</code></pre>\n<p>but working with the extracted <code>spack</code>\
-    \ folder can come with a performance\npenalty on shared filesystems in HPC centers.</p>\n\
-    <h2>\n<a id=\"user-content-differences-and-improvements-over-appimage-runtime\"\
-    \ class=\"anchor\" href=\"#differences-and-improvements-over-appimage-runtime\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Differences and improvements over AppImage runtime</h2>\n<ul>\n<li>spack.x\
-    \ uses <code>zstd</code> for faster decompression;</li>\n<li>spack.x itself is\
-    \ an entirely static binary;</li>\n<li>spack.x does not need to dlopen libfuse.so.</li>\n\
-    </ul>\n<h2>\n<a id=\"user-content-troubleshooting\" class=\"anchor\" href=\"#troubleshooting\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Troubleshooting</h2>\n<p><strong>immutability</strong> The squashfs\
-    \ mountpoint is a readonly folder, meaning that\nspack can't write to spack/{var,opt}\
-    \ folders. spack.x is configured to use some\nnon-standard directories, see <code>spack.x\
-    \ config blame config</code> for details.</p>\n<p>Note, spack.x applies <a href=\"\
-    https://github.com/spack/spack/pull/20158/\">this patch</a>\nto ensure that log\
-    \ files are written to the <code>config:misc_cache</code> folder.</p>\n<p><strong>openssl</strong>:\
-    \ By default spack.x uses <code>ca-certificates-mozilla</code> for downloading\n\
-    package sources over https. If you somehow need to use system certificates,\n\
-    set <code>SSL_CERT_DIR</code> and <code>GIT_SSL_CAINFO</code> or <code>SSL_CERT_FILE</code>\
-    \ and <code>GIT_SSL_CERT</code>.</p>\n<h2>\n<a id=\"user-content-can-i-run-spackx-inside-a-container\"\
-    \ class=\"anchor\" href=\"#can-i-run-spackx-inside-a-container\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Can\
-    \ I run spack.x inside a container?</h2>\n<p>Yes, but please don't! Since <code>fusermount</code>\
-    \ is a setuid binary, you will need to\nrun a privileged container, which is never\
-    \ a good idea.</p>\n<p>The recommended way to run spack.x inside a container is\
-    \ to just extract it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">spack.x --squashfs-extract</span>\n$ <span class=\"\
-    pl-s1\">./spack/spack --version</span></pre></div>\n<p>If you insist on running\
-    \ spack.x in Docker, this is one way to do it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">sudo docker run --privileged --device /dev/fuse\
-    \ -it -v <span class=\"pl-smi\">$PWD</span>/spack.x:/bin/spack.x ubuntu:18.04</span>\n\
-    # <span class=\"pl-s1\">apt update <span class=\"pl-k\">&amp;&amp;</span> apt\
-    \ install fuse <span class=\"pl-c\"><span class=\"pl-c\">#</span> install fusermount</span></span>\n\
-    # <span class=\"pl-s1\">spack.x --version</span></pre></div>\n<h2>\n<a id=\"user-content-running-an-executable-shipped-with-spackx-directly\"\
-    \ class=\"anchor\" href=\"#running-an-executable-shipped-with-spackx-directly\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Running an executable shipped with spack.x directly</h2>\n<p>If you\
-    \ want to run an executable shipped with <code>spack.x</code> directly instead\n\
-    of invoking spack (the default entrypoint), try this:</p>\n<div class=\"highlight\
-    \ highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\">NO_ENTRYPOINT= spack.x\
-    \ which python</span>\n<span class=\"pl-c1\">/tmp/.mount_spack.h0zr1h/view/bin/python</span></pre></div>\n\
-    <hr>\n<h2>\n<a id=\"user-content-how-do-i-build-spackx-myself\" class=\"anchor\"\
-    \ href=\"#how-do-i-build-spackx-myself\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How do I build spack.x myself?</h2>\n\
-    <p>Initially you may need docker to get a rootfs filesystem for centos 7.</p>\n\
-    <p>Building goes like this:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre><span class=\"pl-c1\">make rootfs-with-spack</span>\n<span class=\"pl-c1\"\
-    >make</span></pre></div>\n<p>You'll find the output in</p>\n<pre><code>build/output\n\
-    </code></pre>\n"
+  readme: '<h2>
+
+    <a id="user-content-working-with-the-docker-image-ecpe4sexawindlatest" class="anchor"
+    href="#working-with-the-docker-image-ecpe4sexawindlatest" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Working with the Docker
+    image (ecpe4s/exawind:latest)</h2>
+
+    <ol>
+
+    <li>Build the Docker image</li>
+
+    </ol>
+
+    <pre><code>$&gt; ./build-docker-image.sh
+
+    </code></pre>
+
+    <ol start="2">
+
+    <li>Launch a container from the image</li>
+
+    </ol>
+
+    <pre><code>$&gt; docker run -it --rm ecpe4s/exawind
+
+
+    root@8df184bdac63:/# which naluX
+
+    /opt/spack/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/nalu-wind-master-zjlelnq6lbetgsvmpabyqe5krlwl43vq/bin/naluX
+
+
+    root@8df184bdac63:/# which amr_wind
+
+    /opt/spack/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/amr-wind-main-ehzusqf26dxsz7tbjykhubyegyzvinkh/bin/amr_wind
+
+    </code></pre>
+
+    <h2>
+
+    <a id="user-content-working-with-the-singularity-image-exawindsif" class="anchor"
+    href="#working-with-the-singularity-image-exawindsif" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Working with the Singularity
+    image (exawind.sif)</h2>
+
+    <ol>
+
+    <li>Build the Docker image:</li>
+
+    </ol>
+
+    <pre><code>$&gt; ./build-docker-image.sh
+
+    </code></pre>
+
+    <ol start="2">
+
+    <li>Save the Docker image as a docker-archive</li>
+
+    </ol>
+
+    <pre><code>$&gt; docker save -o exawind.tar ecpe4s/exawind:latest
+
+    </code></pre>
+
+    <ol start="3">
+
+    <li>Build the Singularity image:</li>
+
+    </ol>
+
+    <pre><code>$&gt; ./build-singularity-image.sh
+
+    </code></pre>
+
+    <ol start="4">
+
+    <li>Run the Singularity image:</li>
+
+    </ol>
+
+    <pre><code>$&gt; ./exawind.sif
+
+
+    Exawind Singularity&gt; which naluX
+
+    /opt/spack/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/nalu-wind-master-zjlelnq6lbetgsvmpabyqe5krlwl43vq/bin/naluX
+
+
+    Exawind Singularity&gt; which amr_wind
+
+    /opt/spack/opt/spack/linux-ubuntu20.04-x86_64/gcc-9.3.0/amr-wind-main-ehzusqf26dxsz7tbjykhubyegyzvinkh/bin/amr_wind
+
+    </code></pre>
+
+    <h2>
+
+    <a id="user-content-run-selected-exawind-regression-tests" class="anchor" href="#run-selected-exawind-regression-tests"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run
+    Selected ExaWind Regression Tests</h2>
+
+    <ol>
+
+    <li>
+
+    <p>Launch a container using either the Docker or Singularity image (see above)</p>
+
+    </li>
+
+    <li>
+
+    <p>Clone this repository in the newly launched container and run the tests (here
+    illustrated with Singularity)</p>
+
+    </li>
+
+    </ol>
+
+    <pre><code>Exawind Singularity&gt; git clone https://github.com/eugeneswalker/exawind-containers
+    ~/exawind-containers
+
+    Exawind Singularity&gt; cd ~/exawind-containers/demo
+
+
+
+    Exawind Singularity&gt; ./run-nonIsoEdgeOpenJet.sh
+
+    PASS: nonIsoEdgeOpenJet.......................     6.2260s 8.1315e-19 5.7732e-15
+
+
+
+    Exawind Singularity&gt; ./run-nalu-wind-tests.sh
+
+    PASS: ablHill3d_ii............................    10.3820s 8.1955e-16 3.6451e-11
+
+    PASS: ablHill3d_ip............................    10.0905s 2.7485e-17 2.3703e-13
+
+    ...
+
+
+
+    Exawind Singularity&gt; ./run-amr-wind-tests.sh
+
+    finished abl_bndry_output
+
+    finished abl_godunov
+
+    ...
+
+    </code></pre>
+
+    '
   stargazers_count: 0
   subscribers_count: 5
   topics: []
@@ -6427,8 +7004,8 @@ eugeneswalker/llvm-containers:
   data_format: 2
   description: null
   filenames:
-  - x86_64/spack.yaml
   - ppc64le/spack.yaml
+  - x86_64/spack.yaml
   full_name: eugeneswalker/llvm-containers
   latest_release: null
   readme: '<h1>
@@ -6458,14 +7035,14 @@ eugeneswalker/nalu-wind-demo:
   data_format: 2
   description: exawind/nalu-wind deployment using Spack and E4S build cache (demo)
   filenames:
-  - uoregon/spectrum-mpi/spack.yaml
   - uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml
-  - uoregon/mpich-container/spack.yaml
-  - uoregon/openmpi/spack.yaml
+  - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
   - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
   - uoregon/mpich/spack.yaml
   - summit/spack.yaml
-  - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
+  - uoregon/mpich-container/spack.yaml
+  - uoregon/spectrum-mpi/spack.yaml
+  - uoregon/openmpi/spack.yaml
   full_name: eugeneswalker/nalu-wind-demo
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-creating-an-appimage-from-a-spack-environment\"\
@@ -6565,8 +7142,8 @@ eugeneswalker/qmcpack-demo:
   data_format: 2
   description: null
   filenames:
-  - spack-llvm.yaml
   - spack.yaml
+  - spack-llvm.yaml
   - spack-qmcpack.yaml
   full_name: eugeneswalker/qmcpack-demo
   latest_release: null
@@ -6688,6 +7265,214 @@ felixthieme/2020_ASPECT_IGG:
   subscribers_count: 1
   topics: []
   updated_at: 1590610476.0
+haampie-spack/ci-example:
+  data_format: 2
+  description: null
+  filenames:
+  - tools/environments/ci/spack.yaml
+  full_name: haampie-spack/ci-example
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-platform-configurations-for-mochi" class="anchor" href="#platform-configurations-for-mochi"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform
+    configurations for Mochi</h1>
+
+    <p>This repository provides Spack configuration files, example job scripts, and
+
+    notes about building and running Mochi-based codes on various platforms.
+
+    Please refer to the subdirectory for your platform of interest for more
+
+    information.</p>
+
+    <h2>
+
+    <a id="user-content-using-spackyaml-files" class="anchor" href="#using-spackyaml-files"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    spack.yaml files</h2>
+
+    <p>Each platform subdirectory in this repository provides a <code>spack.yaml</code>
+    file.
+
+    A <code>spack.yaml</code> file fully describes a Spack environment, including
+
+    system-provided packages and compilers. It does so independently of any
+
+    <code>compilers.yaml</code> or <code>packages.yaml</code> files installed in <code>~/.spack</code>,
+    thereby
+
+    preventing interference with user-specific spack configurations as much as
+
+    possible.</p>
+
+    <p>You may use <code>spack.yaml</code> files to create a
+
+    <a href="https://spack.readthedocs.io/en/latest/environments.html" rel="nofollow">Spack
+    environment</a>
+
+    in which Mochi packages will be installed.</p>
+
+    <p>If you don''t have Spack installed on your platform, clone it and set it up
+
+    as follows.</p>
+
+    <pre><code>$ git clone https://github.com/spack/spack.git
+
+    $ . spack/share/spack/setup-env.sh
+
+    </code></pre>
+
+    <p>Remember that the second line needs to be executed every time you open a new
+
+    terminal; it may be helpful to create an alias in your bashrc file as a
+
+    shortcut.</p>
+
+    <p>You will then need to clone <code>sds-repo</code>, which contains the Mochi
+    packages.</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/sds-repo.git
+
+    $ spack repo add sds-repo
+
+    </code></pre>
+
+    <p>Now clone the present repository and <code>cd</code> into the subdirectory
+    relevant
+
+    to your platform. For example:</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/experiments/platform-configurations.git
+
+    $ cd platform-configurations/ANL/Bebop
+
+    </code></pre>
+
+    <p>Edit the path to <code>sds-repo</code> in the <code>repos</code> field of the
+    <code>spack.yaml</code> file to
+
+    match your installation.</p>
+
+    <p>Then, execute the following command
+
+    (changing <em>myenv</em> into an appropriate name for your environment).</p>
+
+    <pre><code>$ spack env create myenv spack.yaml
+
+    </code></pre>
+
+    <p>Change to a directory outside of the <code>platform-configurations</code> folders
+
+    and activate the environment as follows.</p>
+
+    <pre><code>$ spack env activate myenv
+
+    </code></pre>
+
+    <p>You may now add specs to your environment. For instance if you want
+
+    to install Margo, execute the following command.</p>
+
+    <pre><code>$ spack add mochi-margo
+
+    </code></pre>
+
+    <p>If the <code>spack.yaml</code> file provides multiple compilers and you want
+
+    to use another than the default one, specify the compiler explicitely,
+
+    for example:</p>
+
+    <pre><code>$ spack add mochi-margo %gcc@8.2.0
+
+    </code></pre>
+
+    <p>Note that the <code>spack.yaml</code> file you used may already have a spec
+
+    added as an example (usually <code>mochi-margo</code>). You can remove it as
+
+    follows.</p>
+
+    <pre><code>$ spack rm mochi-margo
+
+    </code></pre>
+
+    <p>Once you have added the specs you need in your environment, install
+
+    everything by executing the following command.</p>
+
+    <pre><code>$ spack install
+
+    </code></pre>
+
+    <p>You may add more specs later on. For more information on how to manage
+
+    Spack environments, please refer to the Spack documentation.</p>
+
+    <h2>
+
+    <a id="user-content-contributing-to-this-repository" class="anchor" href="#contributing-to-this-repository"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing
+    to this repository</h2>
+
+    <p>Should you want to contribute a <code>spack.yaml</code> for a particular machine,
+
+    please submit a merge request with it, and ensure the following.</p>
+
+    <ul>
+
+    <li>The <code>spack.yaml</code> file should contain the compiler(s) that have
+    been tested
+
+    and confirmed to work with Mochi packages.</li>
+
+    <li>The <code>spack.yaml</code> file should try to list system-provided packages,
+
+    in particular packages used for building (<code>cmake</code>, <code>autoconf</code>,
+    etc.),
+
+    and relevant system-provided MPI implementations.
+
+    <ul>
+
+    <li>Note that this must be done manually.  Spack provides a <code>spack external
+    find</code> command that can be used to locate a subset of system packages,
+
+    but it does not populate the <code>spack.yaml</code> file.</li>
+
+    </ul>
+
+    </li>
+
+    <li>The <code>spack.yaml</code> file should contain the relevant variants for
+    packages,
+
+    in particular the transport methods to use with <code>libfabric</code>.</li>
+
+    <li>The path to the <code>spack.yaml</code> file should be of the form
+
+    <code>&lt;institution&gt;/&lt;platform&gt;/spack.yaml</code>.</li>
+
+    <li>Please make sure that your <code>spack.yaml</code> is a reliable way to work
+    with
+
+    Mochi on the target platform, other people will rely on it!</li>
+
+    </ul>
+
+    <p>You can also contribute changes to existing <code>spack.yaml</code> files,
+    in particular
+
+    to add working compilers, system packages, etc. As always, please test that
+
+    new setups work before creating a merge request.</p>
+
+    '
+  stargazers_count: 1
+  subscribers_count: 1
+  topics: []
+  updated_at: 1616661789.0
 haampie-spack/ci-example-2:
   data_format: 2
   description: trying to use spack in gh actions without docker images
@@ -6856,6 +7641,214 @@ haampie-spack/ci-example-2:
   subscribers_count: 1
   topics: []
   updated_at: 1620210843.0
+haampie-throwaway/spack-status-code:
+  data_format: 2
+  description: null
+  filenames:
+  - spack.yaml
+  full_name: haampie-throwaway/spack-status-code
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-platform-configurations-for-mochi" class="anchor" href="#platform-configurations-for-mochi"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform
+    configurations for Mochi</h1>
+
+    <p>This repository provides Spack configuration files, example job scripts, and
+
+    notes about building and running Mochi-based codes on various platforms.
+
+    Please refer to the subdirectory for your platform of interest for more
+
+    information.</p>
+
+    <h2>
+
+    <a id="user-content-using-spackyaml-files" class="anchor" href="#using-spackyaml-files"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    spack.yaml files</h2>
+
+    <p>Each platform subdirectory in this repository provides a <code>spack.yaml</code>
+    file.
+
+    A <code>spack.yaml</code> file fully describes a Spack environment, including
+
+    system-provided packages and compilers. It does so independently of any
+
+    <code>compilers.yaml</code> or <code>packages.yaml</code> files installed in <code>~/.spack</code>,
+    thereby
+
+    preventing interference with user-specific spack configurations as much as
+
+    possible.</p>
+
+    <p>You may use <code>spack.yaml</code> files to create a
+
+    <a href="https://spack.readthedocs.io/en/latest/environments.html" rel="nofollow">Spack
+    environment</a>
+
+    in which Mochi packages will be installed.</p>
+
+    <p>If you don''t have Spack installed on your platform, clone it and set it up
+
+    as follows.</p>
+
+    <pre><code>$ git clone https://github.com/spack/spack.git
+
+    $ . spack/share/spack/setup-env.sh
+
+    </code></pre>
+
+    <p>Remember that the second line needs to be executed every time you open a new
+
+    terminal; it may be helpful to create an alias in your bashrc file as a
+
+    shortcut.</p>
+
+    <p>You will then need to clone <code>sds-repo</code>, which contains the Mochi
+    packages.</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/sds-repo.git
+
+    $ spack repo add sds-repo
+
+    </code></pre>
+
+    <p>Now clone the present repository and <code>cd</code> into the subdirectory
+    relevant
+
+    to your platform. For example:</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/experiments/platform-configurations.git
+
+    $ cd platform-configurations/ANL/Bebop
+
+    </code></pre>
+
+    <p>Edit the path to <code>sds-repo</code> in the <code>repos</code> field of the
+    <code>spack.yaml</code> file to
+
+    match your installation.</p>
+
+    <p>Then, execute the following command
+
+    (changing <em>myenv</em> into an appropriate name for your environment).</p>
+
+    <pre><code>$ spack env create myenv spack.yaml
+
+    </code></pre>
+
+    <p>Change to a directory outside of the <code>platform-configurations</code> folders
+
+    and activate the environment as follows.</p>
+
+    <pre><code>$ spack env activate myenv
+
+    </code></pre>
+
+    <p>You may now add specs to your environment. For instance if you want
+
+    to install Margo, execute the following command.</p>
+
+    <pre><code>$ spack add mochi-margo
+
+    </code></pre>
+
+    <p>If the <code>spack.yaml</code> file provides multiple compilers and you want
+
+    to use another than the default one, specify the compiler explicitely,
+
+    for example:</p>
+
+    <pre><code>$ spack add mochi-margo %gcc@8.2.0
+
+    </code></pre>
+
+    <p>Note that the <code>spack.yaml</code> file you used may already have a spec
+
+    added as an example (usually <code>mochi-margo</code>). You can remove it as
+
+    follows.</p>
+
+    <pre><code>$ spack rm mochi-margo
+
+    </code></pre>
+
+    <p>Once you have added the specs you need in your environment, install
+
+    everything by executing the following command.</p>
+
+    <pre><code>$ spack install
+
+    </code></pre>
+
+    <p>You may add more specs later on. For more information on how to manage
+
+    Spack environments, please refer to the Spack documentation.</p>
+
+    <h2>
+
+    <a id="user-content-contributing-to-this-repository" class="anchor" href="#contributing-to-this-repository"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing
+    to this repository</h2>
+
+    <p>Should you want to contribute a <code>spack.yaml</code> for a particular machine,
+
+    please submit a merge request with it, and ensure the following.</p>
+
+    <ul>
+
+    <li>The <code>spack.yaml</code> file should contain the compiler(s) that have
+    been tested
+
+    and confirmed to work with Mochi packages.</li>
+
+    <li>The <code>spack.yaml</code> file should try to list system-provided packages,
+
+    in particular packages used for building (<code>cmake</code>, <code>autoconf</code>,
+    etc.),
+
+    and relevant system-provided MPI implementations.
+
+    <ul>
+
+    <li>Note that this must be done manually.  Spack provides a <code>spack external
+    find</code> command that can be used to locate a subset of system packages,
+
+    but it does not populate the <code>spack.yaml</code> file.</li>
+
+    </ul>
+
+    </li>
+
+    <li>The <code>spack.yaml</code> file should contain the relevant variants for
+    packages,
+
+    in particular the transport methods to use with <code>libfabric</code>.</li>
+
+    <li>The path to the <code>spack.yaml</code> file should be of the form
+
+    <code>&lt;institution&gt;/&lt;platform&gt;/spack.yaml</code>.</li>
+
+    <li>Please make sure that your <code>spack.yaml</code> is a reliable way to work
+    with
+
+    Mochi on the target platform, other people will rely on it!</li>
+
+    </ul>
+
+    <p>You can also contribute changes to existing <code>spack.yaml</code> files,
+    in particular
+
+    to add working compilers, system packages, etc. As always, please test that
+
+    new setups work before creating a merge request.</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1611744607.0
 haampie/appimage_runtime:
   data_format: 2
   description: Extracting a minimal version of the appimage runtime + any compression
@@ -7033,127 +8026,6 @@ haampie/sirius-appimage:
   subscribers_count: 1
   topics: []
   updated_at: 1616508538.0
-haampie/spack-batteries-included:
-  data_format: 2
-  description: Installing spack without system dependencies
-  filenames:
-  - build/1_ccache/spack.yaml
-  - build/2_compiler/spack.yaml
-  - build/3_more_tools/spack.yaml
-  - build/6_spack/spack.yaml
-  - build/5_runtime/spack.yaml
-  full_name: haampie/spack-batteries-included
-  latest_release: develop
-  readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
-    ><img src=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml/badge.svg?branch=master\"\
-    \ alt=\"Update spack develop version\" style=\"max-width:100%;\"></a></p>\n<h1>\n\
-    <a id=\"user-content--spack-with-batteries-included-linuxx86_64\" class=\"anchor\"\
-    \ href=\"#-spack-with-batteries-included-linuxx86_64\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a><g-emoji class=\"\
-    g-emoji\" alias=\"battery\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50b.png\"\
-    >\U0001F50B</g-emoji> Spack with batteries included (linux/x86_64)</h1>\n<p><a\
-    \ href=\"https://github.com/spack/spack\">Spack</a> is a package manager, and\
-    \ package managers should be trivial to install.</p>\n<p>This repo offers a single,\
-    \ static executable for Spack:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">wget -qO spack.x https://github.com/haampie/spack-batteries-included/releases/download/develop/spack-x86_64.x</span>\n\
-    $ <span class=\"pl-s1\">chmod +x spack.x</span>\n$ <span class=\"pl-s1\">./spack.x\
-    \ install zstd +programs <span class=\"pl-k\">~</span>shared build_type=Release</span></pre></div>\n\
-    <h2>\n<a id=\"user-content-what-version-of-spack-is-shipped\" class=\"anchor\"\
-    \ href=\"#what-version-of-spack-is-shipped\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>What version of Spack is shipped?</h2>\n\
-    <p>The URL above gives you a rolling release of Spack's develop branch, which\
-    \ is updated\nhourly. The exact commit SHA is included as a file and can be retrieved\
-    \ like this:</p>\n<div class=\"highlight highlight-text-shell-session\"><pre>$\
-    \ <span class=\"pl-s1\">spack.x --squashfs-extract spack_sha <span class=\"pl-k\"\
-    >&amp;&amp;</span> cat spack/spack_sha</span>\n<span class=\"pl-c1\">[prints the\
-    \ Spack commit sha]</span></pre></div>\n<h2>\n<a id=\"user-content-supported-platforms\"\
-    \ class=\"anchor\" href=\"#supported-platforms\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Supported platforms</h2>\n<ul>\n\
-    <li>CentOS 7 and above</li>\n<li>Ubuntu 14.04 and above</li>\n<li>Debian 8 and\
-    \ above</li>\n<li>Fedora 20 and above</li>\n<li>SUSE Linux 13 and above</li>\n\
-    <li>Arch Linux</li>\n<li>Gentoo</li>\n<li>Windows Subsystem for Linux 2 with any\
-    \ of the above distro's.</li>\n</ul>\n<p>The system dependencies are <code>glibc\
-    \ 2.17</code> and above and optionally the <code>fusermount</code>\nexecutable.\
-    \ If your system supports rootless containers it likely has <code>fusermount</code>\n\
-    installed already!</p>\n<h2>\n<a id=\"user-content-how-does-it-work\" class=\"\
-    anchor\" href=\"#how-does-it-work\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How does it work?</h2>\n<p><code>spack.x</code>\
-    \ consists of a modified version of the AppImage runtime concatenated\nwith a\
-    \ big squashfs file which includes <code>binutils</code>, <code>bzip2</code>,\
-    \ <code>clingo</code>, <code>curl</code>,\n<code>file</code>, <code>git</code>,\
-    \ <code>gmake</code>, <code>gpg</code>, <code>gzip</code>, <code>openssl</code>,\
-    \ <code>patch</code>, <code>patchelf</code>, <code>python</code>,\n<code>py-boto3</code>,\
-    \ <code>tar</code>, <code>unzip</code>, <code>xz</code>, <code>zstd</code> and\
-    \ their dependencies.</p>\n<p>When you run <code>spack.x [args]</code> it will\
-    \ use <code>fusermount</code> to\nmount this squashfs file in a temporary directory,\
-    \ and then execute the\nentrypoint executable <a href=\"build/6_spack/spack\"\
-    >spack</a>.</p>\n<p>The <code>spack</code> executable sets some environment variables\
-    \ like <code>PATH</code> and\n<code>DL_LIBRARY_PATH</code> to the bin and lib\
-    \ folders of the squashfs file, and then it\nexecutes <code>python3 spack_src/bin/spack\
-    \ [args]</code>.</p>\n<p>When the command is done running, the runtime unmounts\
-    \ the squashfs file again.</p>\n<h2>\n<a id=\"user-content-my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
-    \ class=\"anchor\" href=\"#my-system-doesnt-allow-me-to-use-fusermount-what-now\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>My system doesn't allow me to use <code>fusermount</code>, what now?</h2>\n\
-    <p><code>fusermount</code> is used to mount a squashfs file included in the binary.\
-    \ If you\ndon't want that, you can just extract it:</p>\n<pre><code>$ spack.x\
-    \ --squashfs-extract\n$ ./spack/spack\nusage: spack [-hkV] [--color {always,never,auto}]\
-    \ COMMAND ...\n</code></pre>\n<p>but working with the extracted <code>spack</code>\
-    \ folder can come with a performance\npenalty on shared filesystems in HPC centers.</p>\n\
-    <h2>\n<a id=\"user-content-differences-and-improvements-over-appimage-runtime\"\
-    \ class=\"anchor\" href=\"#differences-and-improvements-over-appimage-runtime\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Differences and improvements over AppImage runtime</h2>\n<ul>\n<li>spack.x\
-    \ uses <code>zstd</code> for faster decompression;</li>\n<li>spack.x itself is\
-    \ an entirely static binary;</li>\n<li>spack.x does not need to dlopen libfuse.so.</li>\n\
-    </ul>\n<h2>\n<a id=\"user-content-troubleshooting\" class=\"anchor\" href=\"#troubleshooting\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Troubleshooting</h2>\n<p><strong>immutability</strong> The squashfs\
-    \ mountpoint is a readonly folder, meaning that\nspack can't write to spack/{var,opt}\
-    \ folders. spack.x is configured to use some\nnon-standard directories, see <code>spack.x\
-    \ config blame config</code> for details.</p>\n<p>Note, spack.x applies <a href=\"\
-    https://github.com/spack/spack/pull/20158/\">this patch</a>\nto ensure that log\
-    \ files are written to the <code>config:misc_cache</code> folder.</p>\n<p><strong>openssl</strong>:\
-    \ By default spack.x uses <code>ca-certificates-mozilla</code> for downloading\n\
-    package sources over https. If you somehow need to use system certificates,\n\
-    set <code>SSL_CERT_DIR</code> and <code>GIT_SSL_CAINFO</code> or <code>SSL_CERT_FILE</code>\
-    \ and <code>GIT_SSL_CERT</code>.</p>\n<h2>\n<a id=\"user-content-can-i-run-spackx-inside-a-container\"\
-    \ class=\"anchor\" href=\"#can-i-run-spackx-inside-a-container\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Can\
-    \ I run spack.x inside a container?</h2>\n<p>Yes, but please don't! Since <code>fusermount</code>\
-    \ is a setuid binary, you will need to\nrun a privileged container, which is never\
-    \ a good idea.</p>\n<p>The recommended way to run spack.x inside a container is\
-    \ to just extract it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">spack.x --squashfs-extract</span>\n$ <span class=\"\
-    pl-s1\">./spack/spack --version</span></pre></div>\n<p>If you insist on running\
-    \ spack.x in Docker, this is one way to do it:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">sudo docker run --privileged --device /dev/fuse\
-    \ -it -v <span class=\"pl-smi\">$PWD</span>/spack.x:/bin/spack.x ubuntu:18.04</span>\n\
-    # <span class=\"pl-s1\">apt update <span class=\"pl-k\">&amp;&amp;</span> apt\
-    \ install fuse <span class=\"pl-c\"><span class=\"pl-c\">#</span> install fusermount</span></span>\n\
-    # <span class=\"pl-s1\">spack.x --version</span></pre></div>\n<h2>\n<a id=\"user-content-running-an-executable-shipped-with-spackx-directly\"\
-    \ class=\"anchor\" href=\"#running-an-executable-shipped-with-spackx-directly\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Running an executable shipped with spack.x directly</h2>\n<p>If you\
-    \ want to run an executable shipped with <code>spack.x</code> directly instead\n\
-    of invoking spack (the default entrypoint), try this:</p>\n<div class=\"highlight\
-    \ highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\">NO_ENTRYPOINT= spack.x\
-    \ which python</span>\n<span class=\"pl-c1\">/tmp/.mount_spack.h0zr1h/view/bin/python</span></pre></div>\n\
-    <hr>\n<h2>\n<a id=\"user-content-how-do-i-build-spackx-myself\" class=\"anchor\"\
-    \ href=\"#how-do-i-build-spackx-myself\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How do I build spack.x myself?</h2>\n\
-    <p>Initially you may need docker to get a rootfs filesystem for centos 7.</p>\n\
-    <p>Building goes like this:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre><span class=\"pl-c1\">make rootfs-with-spack</span>\n<span class=\"pl-c1\"\
-    >make</span></pre></div>\n<p>You'll find the output in</p>\n<pre><code>build/output\n\
-    </code></pre>\n"
-  stargazers_count: 9
-  subscribers_count: 1
-  topics:
-  - spack
-  - squashfs
-  - libfuse
-  updated_at: 1621870174.0
 hariharan-devarajan/emacs:
   data_format: 2
   description: null
@@ -7329,7 +8201,7 @@ hepnos/HEPnOS:
   filenames:
   - spack.yaml
   full_name: hepnos/HEPnOS
-  latest_release: v0.4.3
+  latest_release: v0.4.4
   readme: '<h1>
 
     <a id="user-content-hepnos" class="anchor" href="#hepnos" aria-hidden="true"><span
@@ -7353,7 +8225,7 @@ hepnos/HEPnOS:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1621859394.0
+  updated_at: 1621952831.0
 hepnos/HEPnOS-PEP-Benchmark:
   data_format: 2
   description: Benchmark exercizing the ParallelEventProcessor feature of HEPnOS.
@@ -7516,6 +8388,86 @@ hpc/mpifileutils:
   subscribers_count: 23
   topics: []
   updated_at: 1621661742.0
+iarspider/cms-spack-repo:
+  data_format: 2
+  description: null
+  filenames:
+  - config/CMSSW_12_0_X/spack.yaml
+  full_name: iarspider/cms-spack-repo
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>setup on SCOREC</h1>\n<pre><code>cd /opt/scorec/spack/rhel7-spack-config/\n\
+    source setupSpack.sh\n</code></pre>\n<h1>\n<a id=\"user-content-rhel7-spack-config\"\
+    \ class=\"anchor\" href=\"#rhel7-spack-config\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>rhel7-spack-config</h1>\n<p>rhel7\
+    \ spack configuration and scripts</p>\n<p>The <code>install.sh</code> script maintained\
+    \ in this repo is for documentation purposes (e.g., in case we had to reinstall\
+    \ the entire stack from scratch) and should not be executed as it will not use\
+    \ all of our existing package installs.  More discussion of package installation\
+    \ is below.</p>\n<h2>\n<a id=\"user-content-useful-commands\" class=\"anchor\"\
+    \ href=\"#useful-commands\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>useful commands</h2>\n<p>regenerate lmod module\
+    \ tree:</p>\n<pre><code>spack module lmod refresh\n</code></pre>\n<h2>\n<a id=\"\
+    user-content-installing-new-packages\" class=\"anchor\" href=\"#installing-new-packages\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>installing new packages</h2>\n<p>Our spack repo is tracking the master\
+    \ spack branch.  Spack package updates could result in additional installation\
+    \ of packages with little or no package source code changes.  These additional\
+    \ installs can be avoided when installing new packages by first examining the\
+    \ output of the <code>spack spec -I</code> command.  If a utility/infrastructure\
+    \ level package, such as cmake or mpich, is marked with a <code>[+]</code> symbol\
+    \ in the leftmost column then it means that the existing install will be used.\
+    \  If spack does not default to using the existing install you can append the\
+    \ hash of the package to the spec command.</p>\n<p>For example, lets see what\
+    \ happens when we ask for a pumi install using gcc 7.3.0</p>\n<pre><code>$ spack\
+    \ spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n\
+    \ -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n\
+    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
+    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
+    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
+    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
+    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
+    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
+    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
+    \ arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp\
+    \ +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0\
+    \ patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2\
+    \ arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64\
+    \ \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]\
+    \              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]       \
+    \       ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e\
+    \ +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\
+    </code></pre>\n<p>Spack wants to install mpich 3.3, but we don't want to change\
+    \ to the new mpich version yet.  So, we will get the hash of the existing mpich\
+    \ 3.2.1 install:</p>\n<pre><code>$ spack find -ldv mpich%gcc@7.3.0\n==&gt; 1 installed\
+    \ package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\n\
+    niuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n</code></pre>\n\
+    <p>then append the hash <code>niuhmad</code> to the spec for pumi using the <code>^</code>\
+    \ syntax to specify it as a dependency:</p>\n<pre><code>$ spack spec -I pumi@develop%gcc@7.3.0\
+    \ ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\
+    [+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\
+    \ arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n\
+    \ -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none\
+    \ ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt\
+    \ arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib\
+    \ arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64\
+    \ \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64\
+    \ \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac\
+    \ +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared\
+    \ arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra\
+    \ netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n</code></pre>\n<p>And\
+    \ see that in the Concretized spec it is now using the existing mpich 3.2.1 install.</p>\n\
+    <h2>\n<a id=\"user-content-contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>contents</h2>\n\
+    <p>compilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package\
+    \ installation commands\nmodules.yaml - hierarchical layout for lua modules\n\
+    packages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh\
+    \ - env needed for executing spack commands</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1621959403.0
 icaoberg/singularity-octave:
   data_format: 2
   description: Singularity recipe for Octave
@@ -7645,15 +8597,15 @@ jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
-  - envs/exawind/spack.yaml
-  - configs/rhodes/utilities/spack.yaml
-  - configs/rhodes/software/spack.yaml
   - configs/eagle/compilers/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/rhodes/base/spack.yaml
-  - configs/eagle/utilities/spack.yaml
   - configs/eagle/base/spack.yaml
   - configs/rhodes/compilers/spack.yaml
+  - configs/rhodes/base/spack.yaml
+  - configs/eagle/utilities/spack.yaml
+  - configs/rhodes/utilities/spack.yaml
+  - envs/exawind/spack.yaml
+  - configs/rhodes/software/spack.yaml
+  - configs/eagle/software/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -7844,13 +8796,13 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/key4hep-release/spack.yaml
-  - environments/key4hep-nightlies/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
-  - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-debug/spack.yaml
-  - environments/key4hep-release-broadwell/spack.yaml
   - environments/key4hep-release-user/spack.yaml
+  - environments/key4hep-release/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
+  - environments/key4hep-nightlies/spack.yaml
+  - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-debug/spack.yaml
+  - environments/geant4-data-share/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: 2021-02-25a-opt
   readme: '<h1>
@@ -8461,11 +9413,11 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
-  - env/power9le/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
-  - .gitlab-ci/env/root-build/spack.yaml
   - env/broadwell/flecsalemm-deps/spack.yaml
+  - env/power9le/flecsalemm-deps/spack.yaml
+  - .gitlab-ci/env/root-build/spack.yaml
   - .gitlab-ci/env/dry-run/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
   - env/x86_64/flecsalemm-deps/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
@@ -8535,22 +9487,52 @@ le-raffael/AdaptiveTimeSteppingSEAS:
   latest_release: null
   readme: '<h1>
 
-    <a id="user-content-spack-playground" class="anchor" href="#spack-playground"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>spack-playground</h1>
+    <a id="user-content-py-bedrock" class="anchor" href="#py-bedrock" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Py-Bedrock</h1>
+
+    <p>Py-Bedrock providers Python utilities to configure and deploy Mochi-based
+
+    services using Python.</p>
 
     <h2>
 
-    <a id="user-content-env" class="anchor" href="#env" aria-hidden="true"><span aria-hidden="true"
-    class="octicon octicon-link"></span></a>Env</h2>
+    <a id="user-content-running-the-jupyter-demo" class="anchor" href="#running-the-jupyter-demo"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running
+    the Jupyter demo</h2>
 
-    <div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span>
-    /workspaces/spack-playground
+    <p>Create a spack environment and add the required packages in it.</p>
 
-    $ spack env create -d envs/dev
+    <pre><code>spack env create py-bedrock-demo
 
-    $ spack env activate -p -d envs/dev
+    spack env activate py-bedrock-demo
 
-    $ spack external find</pre></div>
+    spack add py-mochi-bedrock
+
+    spack add py-jupyterlab-server
+
+    spack install
+
+    </code></pre>
+
+    <p>Deactivate and re-activate the environment for the PYTHONPATH variable to
+
+    be updated.</p>
+
+    <pre><code>spack env deactivate
+
+    spack env activate py-bedrock-demo
+
+    </code></pre>
+
+    <p>Run the Jupyter server.</p>
+
+    <pre><code>jupyter notebook --ip 0.0.0.0 --port 8888
+
+    </code></pre>
+
+    <p>Then from your browser, open the <code>notebooks/Demo.ipynb</code> notebook,
+
+    and start playing!</p>
 
     '
   stargazers_count: 0
@@ -8767,8 +9749,8 @@ mochi-hpc-experiments/colza-experiments:
   data_format: 2
   description: Experiments using Colza for In Situ Analysis
   filenames:
-  - cori/resizing/spack.yaml
   - cori/overhead/spack.yaml
+  - cori/resizing/spack.yaml
   - cori/vtk/spack.yaml
   full_name: mochi-hpc-experiments/colza-experiments
   latest_release: null
@@ -8795,6 +9777,301 @@ mochi-hpc-experiments/colza-experiments:
   subscribers_count: 1
   topics: []
   updated_at: 1617965020.0
+mochi-hpc-experiments/platform-configurations:
+  data_format: 2
+  description: This repository provides a set of configuration files and example scripts
+    for running Mochi experiments on various platforms.
+  filenames:
+  - ANL/Bebop/spack.yaml
+  - ANL/JLSE/spack.yaml
+  - ANL/Theta/spack.yaml
+  - NERSC/Cori/spack.yaml
+  - ORNL/Summit/spack.yaml
+  full_name: mochi-hpc-experiments/platform-configurations
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-platform-configurations-for-mochi" class="anchor" href="#platform-configurations-for-mochi"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Platform
+    configurations for Mochi</h1>
+
+    <p>This repository provides Spack configuration files, example job scripts, and
+
+    notes about building and running Mochi-based codes on various platforms.
+
+    Please refer to the subdirectory for your platform of interest for more
+
+    information.</p>
+
+    <h2>
+
+    <a id="user-content-using-spackyaml-files" class="anchor" href="#using-spackyaml-files"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    spack.yaml files</h2>
+
+    <p>Each platform subdirectory in this repository provides a <code>spack.yaml</code>
+    file.
+
+    A <code>spack.yaml</code> file fully describes a Spack environment, including
+
+    system-provided packages and compilers. It does so independently of any
+
+    <code>compilers.yaml</code> or <code>packages.yaml</code> files installed in <code>~/.spack</code>,
+    thereby
+
+    preventing interference with user-specific spack configurations as much as
+
+    possible.</p>
+
+    <p>You may use <code>spack.yaml</code> files to create a
+
+    <a href="https://spack.readthedocs.io/en/latest/environments.html" rel="nofollow">Spack
+    environment</a>
+
+    in which Mochi packages will be installed.</p>
+
+    <p>If you don''t have Spack installed on your platform, clone it and set it up
+
+    as follows.</p>
+
+    <pre><code>$ git clone https://github.com/spack/spack.git
+
+    $ . spack/share/spack/setup-env.sh
+
+    </code></pre>
+
+    <p>Remember that the second line needs to be executed every time you open a new
+
+    terminal; it may be helpful to create an alias in your bashrc file as a
+
+    shortcut.</p>
+
+    <p>You will then need to clone <code>sds-repo</code>, which contains the Mochi
+    packages.</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/sds-repo.git
+
+    $ spack repo add sds-repo
+
+    </code></pre>
+
+    <p>Now clone the present repository and <code>cd</code> into the subdirectory
+    relevant
+
+    to your platform. For example:</p>
+
+    <pre><code>$ git clone https://xgitlab.cels.anl.gov/sds/experiments/platform-configurations.git
+
+    $ cd platform-configurations/ANL/Bebop
+
+    </code></pre>
+
+    <p>Edit the path to <code>sds-repo</code> in the <code>repos</code> field of the
+    <code>spack.yaml</code> file to
+
+    match your installation.</p>
+
+    <p>Then, execute the following command
+
+    (changing <em>myenv</em> into an appropriate name for your environment).</p>
+
+    <pre><code>$ spack env create myenv spack.yaml
+
+    </code></pre>
+
+    <p>Change to a directory outside of the <code>platform-configurations</code> folders
+
+    and activate the environment as follows.</p>
+
+    <pre><code>$ spack env activate myenv
+
+    </code></pre>
+
+    <p>You may now add specs to your environment. For instance if you want
+
+    to install Margo, execute the following command.</p>
+
+    <pre><code>$ spack add mochi-margo
+
+    </code></pre>
+
+    <p>If the <code>spack.yaml</code> file provides multiple compilers and you want
+
+    to use another than the default one, specify the compiler explicitely,
+
+    for example:</p>
+
+    <pre><code>$ spack add mochi-margo %gcc@8.2.0
+
+    </code></pre>
+
+    <p>Note that the <code>spack.yaml</code> file you used may already have a spec
+
+    added as an example (usually <code>mochi-margo</code>). You can remove it as
+
+    follows.</p>
+
+    <pre><code>$ spack rm mochi-margo
+
+    </code></pre>
+
+    <p>Once you have added the specs you need in your environment, install
+
+    everything by executing the following command.</p>
+
+    <pre><code>$ spack install
+
+    </code></pre>
+
+    <p>You may add more specs later on. For more information on how to manage
+
+    Spack environments, please refer to the Spack documentation.</p>
+
+    <h2>
+
+    <a id="user-content-contributing-to-this-repository" class="anchor" href="#contributing-to-this-repository"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing
+    to this repository</h2>
+
+    <p>Should you want to contribute a <code>spack.yaml</code> for a particular machine,
+
+    please submit a merge request with it, and ensure the following.</p>
+
+    <ul>
+
+    <li>The <code>spack.yaml</code> file should contain the compiler(s) that have
+    been tested
+
+    and confirmed to work with Mochi packages.</li>
+
+    <li>The <code>spack.yaml</code> file should try to list system-provided packages,
+
+    in particular packages used for building (<code>cmake</code>, <code>autoconf</code>,
+    etc.),
+
+    and relevant system-provided MPI implementations.
+
+    <ul>
+
+    <li>Note that this must be done manually.  Spack provides a <code>spack external
+    find</code> command that can be used to locate a subset of system packages,
+
+    but it does not populate the <code>spack.yaml</code> file.</li>
+
+    </ul>
+
+    </li>
+
+    <li>The <code>spack.yaml</code> file should contain the relevant variants for
+    packages,
+
+    in particular the transport methods to use with <code>libfabric</code>.</li>
+
+    <li>The path to the <code>spack.yaml</code> file should be of the form
+
+    <code>&lt;institution&gt;/&lt;platform&gt;/spack.yaml</code>.</li>
+
+    <li>Please make sure that your <code>spack.yaml</code> is a reliable way to work
+    with
+
+    Mochi on the target platform, other people will rely on it!</li>
+
+    </ul>
+
+    <p>You can also contribute changes to existing <code>spack.yaml</code> files,
+    in particular
+
+    to add working compilers, system packages, etc. As always, please test that
+
+    new setups work before creating a merge request.</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1614162649.0
+mochi-hpc-experiments/sonata-benchmarking:
+  data_format: 2
+  description: Benchmarking of Sonata on Theta and Summit.
+  filenames:
+  - summit/spack.yaml
+  - theta/spack.yaml
+  full_name: mochi-hpc-experiments/sonata-benchmarking
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-mpifileutils" class="anchor" href="#mpifileutils" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>mpiFileUtils</h1>
+
+    <p>mpiFileUtils provides both a library called <a href="src/common/README.md">libmfu</a>
+    and a suite of MPI-based tools to manage large datasets, which may vary from large
+    directory trees to large files. High-performance computing users often generate
+    large datasets with parallel applications that run with many processes (millions
+    in some cases). However those users are then stuck with single-process tools like
+    cp and rm to manage their datasets. This suite provides MPI-based tools to handle
+    typical jobs like copy, remove, and compare for such datasets, providing speedups
+    of up to 20-30x.  It also provides a library that simplifies the creation of new
+    tools or can be used in applications.</p>
+
+    <p>Documentation is available on <a href="http://mpifileutils.readthedocs.io"
+    rel="nofollow">ReadTheDocs</a>.</p>
+
+    <h2>
+
+    <a id="user-content-daos-support" class="anchor" href="#daos-support" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>DAOS Support</h2>
+
+    <p>mpiFileUtils supports a DAOS backend for dcp, dsync, and dcmp. Custom serialization
+    and deserialization for DAOS containers to and from a POSIX filesystem is provided
+    with daos-serialize and daos-deserialize. Details and usage examples are provided
+    in <a href="DAOS-Support.md">DAOS Support</a>.</p>
+
+    <h2>
+
+    <a id="user-content-contributors" class="anchor" href="#contributors" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
+
+    <p>We welcome contributions to the project.  For details on how to help, see our
+    <a href=".github/CONTRIBUTING.md">Contributor Guide</a></p>
+
+    <h3>
+
+    <a id="user-content-copyrights" class="anchor" href="#copyrights" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Copyrights</h3>
+
+    <p>Copyright (c) 2013-2015, Lawrence Livermore National Security, LLC.
+
+    Produced at the Lawrence Livermore National Laboratory
+
+    CODE-673838</p>
+
+    <p>Copyright (c) 2006-2007,2011-2015, Los Alamos National Security, LLC.
+
+    (LA-CC-06-077, LA-CC-10-066, LA-CC-14-046)</p>
+
+    <p>Copyright (2013-2015) UT-Battelle, LLC under Contract No.
+
+    DE-AC05-00OR22725 with the Department of Energy.</p>
+
+    <p>Copyright (c) 2015, DataDirect Networks, Inc.</p>
+
+    <p>All rights reserved.</p>
+
+    <h2>
+
+    <a id="user-content-build-status" class="anchor" href="#build-status" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Build Status</h2>
+
+    <p>The current status of the mpiFileUtils master branch is <a href="https://travis-ci.org/hpc/mpifileutils"
+    rel="nofollow"><img src="https://camo.githubusercontent.com/76717f664d99534173ac7e9fb8e904b0e4bd14fbd51ac6969a88de2e6e86a94f/68747470733a2f2f7472617669732d63692e6f72672f6870632f6d706966696c657574696c732e706e673f6272616e63683d6d6173746572"
+    alt="Build Status" data-canonical-src="https://travis-ci.org/hpc/mpifileutils.png?branch=master"
+    style="max-width:100%;"></a>.</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1614161871.0
 mochi-hpc/margo-microservice-template:
   data_format: 2
   description: Template for a margo-based Mochi microservice.
@@ -9690,54 +10967,14 @@ mochi-hpc/py-mochi-bedrock:
   subscribers_count: 4
   topics: []
   updated_at: 1620835761.0
-mochi-hpc/py-mochi-sonata:
-  data_format: 2
-  description: Python binding to the Mochi Sonata microservice.
-  filenames:
-  - spack.yaml
-  full_name: mochi-hpc/py-mochi-sonata
-  latest_release: null
-  readme: '<p>Py-Sonata is a Python interface for the <a href="https://github.com/mochi-hpc/mochi-sonata">Sonata
-    Mochi microservice</a>.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 4
-  topics: []
-  updated_at: 1614188149.0
-mochi-hpc/thallium-microservice-template:
-  data_format: 2
-  description: Template for a thallium-based Mochi microservice.
-  filenames:
-  - spack.yaml
-  full_name: mochi-hpc/thallium-microservice-template
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-thallium-microservice-template" class="anchor" href="#thallium-microservice-template"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thallium
-    Microservice Template</h1>
-
-    <p>This project is a template to start developing a Mochi microservice based on
-    Thallium.
-
-    The complete documentation to get started using this template is available
-
-    <a href="https://mochi.readthedocs.io/en/latest/templates/02_thallium.html" rel="nofollow">here</a>.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 4
-  topics: []
-  updated_at: 1614185286.0
 mpbelhorn/olcf-spack-environments:
   data_format: 2
   description: Spack environments for OLCF resources.
   filenames:
-  - hosts/peak/envs/base/spack.yaml
-  - hosts/summit/envs/base/spack.yaml
   - hosts/lyra/envs/base/spack.yaml
+  - hosts/summit/envs/base/spack.yaml
   - hosts/andes/envs/base/spack.yaml
+  - hosts/peak/envs/base/spack.yaml
   full_name: mpbelhorn/olcf-spack-environments
   latest_release: null
   readme: '<h1>
@@ -10442,8 +11679,9 @@ openPMD/openPMD-api:
   filenames:
   - .github/ci/spack-envs/gcc5_py36_ompi_h5_ad1_ad2/spack.yaml
   - .github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml
-  - .github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml
+  - .github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml
   - spack.yaml
+  - .github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml
   - .github/ci/spack-envs/clang5_nopy_nompi_h5/spack.yaml
   full_name: openPMD/openPMD-api
   latest_release: 0.13.4
@@ -10949,7 +12187,7 @@ openPMD/openPMD-api:
     >openPMD-standard</a> by <a href=\"https://github.com/ax3l\">Axel Huebl (HZDR,\
     \ now LBNL)</a> and <a href=\"https://github.com/openPMD/openPMD-standard/blob/latest/AUTHORS.md\"\
     >contributors</a>\n</li>\n</ul>\n"
-  stargazers_count: 65
+  stargazers_count: 67
   subscribers_count: 9
   topics:
   - openpmd
@@ -10964,18 +12202,18 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1621583546.0
+  updated_at: 1621989324.0
 pace-gt/PACE-ProvBench:
   data_format: 2
   description: Provenance based Benchmark suite
   filenames:
-  - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
   - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
   full_name: pace-gt/PACE-ProvBench
   latest_release: v1.0.0
   readme: "<h1>\n<a id=\"user-content-pace-provbench\" class=\"anchor\" href=\"#pace-provbench\"\
@@ -11946,42 +13184,42 @@ paulbry/nmc-swd:
   data_format: 2
   description: NMC software deployment environments leveraging Spack.
   filenames:
-  - dev/ecp-x86_64/1-core/spack.yaml
-  - dev/xx-fe1/_manual/spack.yaml
-  - prod/ecp-p9-4v100/5-e4s/spack.yaml
-  - prod/xx-fe1/4-py/spack.yaml
-  - dev/ecp-p9-4v100/4-py/spack.yaml
-  - prod/ecp-p9-4v100/0-base/spack.yaml
-  - dev/ecp-p9-4v100/5-e4s/spack.yaml
-  - prod/gitlab-runner/1-core/spack.yaml
-  - prod/ecp-p9-4v100/_manual/spack.yaml
-  - prod/ecp-x86_64/3-sdk/spack.yaml
-  - prod/ecp-p9-4v100/1-core/spack.yaml
-  - prod/ecp-x86_64/_manual/spack.yaml
-  - dev/ecp-p9-4v100/_manual/spack.yaml
-  - dev/ecp-p9-4v100/2-compute/spack.yaml
-  - dev/ecp-x86_64/0-base/spack.yaml
-  - prod/ecp-p9-4v100/2-compute/spack.yaml
-  - dev/ecp-x86_64/4-py/spack.yaml
-  - dev/ecp-p9-4v100/0-base/spack.yaml
   - dev/ecp-p9-4v100/1-core/spack.yaml
-  - dev/ecp-p9-4v100/3-sdk/spack.yaml
+  - dev/ecp-x86_64/4-py/spack.yaml
+  - prod/ecp-p9-4v100/_manual/spack.yaml
+  - prod/xx-fe1/0-base/spack.yaml
+  - dev/ecp-p9-4v100/5-e4s/spack.yaml
   - prod/xx-fe1/_manual/spack.yaml
-  - prod/ecp-p9-4v100/3-sdk/spack.yaml
-  - dev/ecp-x86_64/2-compute/spack.yaml
   - dev/ecp-x86_64/5-e4s/spack.yaml
-  - dev/ecp-x86_64/3-sdk/spack.yaml
-  - prod/ecp-p9-4v100/4-py/spack.yaml
+  - prod/ecp-p9-4v100/0-base/spack.yaml
+  - prod/ecp-x86_64/_manual/spack.yaml
   - prod/ecp-x86_64/5-e4s/spack.yaml
-  - prod/ecp-x86_64/2-compute/spack.yaml
-  - dev/gitlab-runner/1-core/spack.yaml
-  - prod/ecp-x86_64/0-base/spack.yaml
   - dev/ecp-x86_64/_manual/spack.yaml
+  - prod/ecp-p9-4v100/5-e4s/spack.yaml
+  - prod/ecp-p9-4v100/4-py/spack.yaml
+  - prod/ecp-x86_64/0-base/spack.yaml
+  - prod/ecp-p9-4v100/2-compute/spack.yaml
   - dev/xx-fe1/0-base/spack.yaml
   - dev/xx-fe1/4-py/spack.yaml
+  - dev/ecp-x86_64/0-base/spack.yaml
+  - dev/ecp-p9-4v100/2-compute/spack.yaml
+  - prod/xx-fe1/4-py/spack.yaml
+  - prod/ecp-p9-4v100/1-core/spack.yaml
+  - dev/gitlab-runner/1-core/spack.yaml
+  - dev/ecp-x86_64/3-sdk/spack.yaml
+  - dev/ecp-p9-4v100/4-py/spack.yaml
   - prod/ecp-x86_64/4-py/spack.yaml
-  - prod/xx-fe1/0-base/spack.yaml
+  - prod/ecp-x86_64/2-compute/spack.yaml
+  - prod/ecp-x86_64/3-sdk/spack.yaml
+  - dev/ecp-p9-4v100/3-sdk/spack.yaml
+  - prod/ecp-p9-4v100/3-sdk/spack.yaml
+  - dev/xx-fe1/_manual/spack.yaml
   - prod/ecp-x86_64/1-core/spack.yaml
+  - dev/ecp-p9-4v100/0-base/spack.yaml
+  - dev/ecp-p9-4v100/_manual/spack.yaml
+  - dev/ecp-x86_64/1-core/spack.yaml
+  - dev/ecp-x86_64/2-compute/spack.yaml
+  - prod/gitlab-runner/1-core/spack.yaml
   full_name: paulbry/nmc-swd
   latest_release: null
   readme: '<h1>
@@ -12428,9 +13666,9 @@ range3/spack-playground:
   data_format: 2
   description: null
   filenames:
-  - envs/chris8x/spack.yaml
-  - envs/dev/spack.yaml
   - envs/broken-verbs-chris8x/spack.yaml
+  - envs/dev/spack.yaml
+  - envs/chris8x/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
   readme: '<h1>
@@ -12456,7 +13694,7 @@ range3/spack-playground:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1620786401.0
+  updated_at: 1621998127.0
 smutch/playbooks:
   data_format: 2
   description: A random and evolving collection of ansible playbooks.
@@ -12496,26 +13734,22 @@ spack/localized-docs:
     <li>Creating a translation in a new language.</li>\n</ol>\n<h2>\n<a id=\"user-content-prerequisites\"\
     \ class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"><span aria-hidden=\"\
     true\" class=\"octicon octicon-link\"></span></a>Prerequisites</h2>\n<ol>\n<li>\n\
-    <p>First, init the <code>spack</code> submodule:</p>\n<div class=\"highlight highlight-text-shell-session\"\
-    ><pre>$ <span class=\"pl-s1\">git clone https://github.com/spack/localized-docs</span>\n\
-    $ <span class=\"pl-s1\"><span class=\"pl-c1\">cd</span> localized-docs</span>\n\
-    $ <span class=\"pl-s1\">git submodule init</span>\n$ <span class=\"pl-s1\">git\
-    \ submodule update</span></pre></div>\n</li>\n<li>\n<p>To use this repository\
-    \ you'll need Sphinx, some plugins for it, and\n<code>gettext</code>.  To install\
-    \ these dependencies, using <code>pip</code> and <code>brew</code>, you\ncan run:</p>\n\
-    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
-    >pip3 install -r requirements.txt</span>\n$ <span class=\"pl-s1\">brew install\
-    \ gettext</span></pre></div>\n<p>Using Spack, you can just take advantage of the\
-    \ <code>spack.yaml</code> file at\nthe root of this repo:</p>\n<div class=\"highlight\
-    \ highlight-text-shell-session\"><pre><span class=\"pl-c1\">spack install</span>\n\
-    <span class=\"pl-c1\">spack env activate .</span></pre></div>\n<p>This will install\
-    \ the tools you need and put them in your <code>PATH</code>.</p>\n</li>\n</ol>\n\
-    <h2>\n<a id=\"user-content-adding-to-an-existing-translation\" class=\"anchor\"\
-    \ href=\"#adding-to-an-existing-translation\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Adding to an existing translation</h2>\n\
-    <p>Translations in this repository are stored in <code>.po</code> files under\n\
-    <code>translations</code>.  There is one translation per languages, and each file\
-    \ is\nnamed according to its\n<a href=\"https://www.gnu.org/software/gettext/manual/html_node/Language-Codes.html#Language-Codes\"\
+    <p>First, init the <code>spack</code> submodule:</p>\n<pre lang=\"console\"><code>$\
+    \ git clone https://github.com/spack/localized-docs\n$ cd localized-docs\n$ git\
+    \ submodule init\n$ git submodule update\n</code></pre>\n</li>\n<li>\n<p>To use\
+    \ this repository you'll need Sphinx, some plugins for it, and\n<code>gettext</code>.\
+    \  To install these dependencies, using <code>pip</code> and <code>brew</code>,\
+    \ you\ncan run:</p>\n<pre lang=\"console\"><code>$ pip3 install -r requirements.txt\n\
+    $ brew install gettext\n</code></pre>\n<p>Using Spack, you can just take advantage\
+    \ of the <code>spack.yaml</code> file at\nthe root of this repo:</p>\n<pre lang=\"\
+    console\"><code>spack install\nspack env activate .\n</code></pre>\n<p>This will\
+    \ install the tools you need and put them in your <code>PATH</code>.</p>\n</li>\n\
+    </ol>\n<h2>\n<a id=\"user-content-adding-to-an-existing-translation\" class=\"\
+    anchor\" href=\"#adding-to-an-existing-translation\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Adding to an\
+    \ existing translation</h2>\n<p>Translations in this repository are stored in\
+    \ <code>.po</code> files under\n<code>translations</code>.  There is one translation\
+    \ per languages, and each file is\nnamed according to its\n<a href=\"https://www.gnu.org/software/gettext/manual/html_node/Language-Codes.html#Language-Codes\"\
     \ rel=\"nofollow\">ISO-639 language code</a>.\nSo, the Japanese translation data\
     \ for Spack is stored in\n<code>translations/ja.po</code>.</p>\n<p>If you want\
     \ to add to an existing translation, all you need to do is edit\nthe appropriate\
@@ -12540,9 +13774,8 @@ spack/localized-docs:
     \ translation</h2>\n<p>To create a new translation, add the language to the <code>languages</code>\
     \ list in\nthe <code>Makefile</code>.  For example, if the only language is Japanese\
     \ (<code>ja</code>) and\nyou want to add German (<code>de</code>), just add <code>de</code>:</p>\n\
-    <div class=\"highlight highlight-source-makefile\"><pre><span class=\"pl-smi\"\
-    >languages</span> = ja de</pre></div>\n<p>Running <code>make</code>, will create\
-    \ files in <code>docs</code>, <code>locale</code>, and\n<code>translations</code>,\
+    <pre lang=\"make\"><code>languages = ja de\n</code></pre>\n<p>Running <code>make</code>,\
+    \ will create files in <code>docs</code>, <code>locale</code>, and\n<code>translations</code>,\
     \ and <code>html</code>:</p>\n<pre><code>    translations/de.po          # German\
     \ translation file\n    translations/de.mo          # generated from de.po\n \
     \   locale/de/LC_MESSAGES/*.mo  # symlinks to translations/de.mo\n    docs/de/\
@@ -12550,9 +13783,8 @@ spack/localized-docs:
     \                    # HTML built by Sphinx from docs/de\n</code></pre>\n<p>Add\
     \ everything <em>except</em> <code>html</code>, then commit. <code>html</code>\
     \ is ignored by default\n(see <code>.gitignore</code>), so you can just run this:</p>\n\
-    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
-    >git add <span class=\"pl-c1\">.</span></span>\n$ <span class=\"pl-s1\">git commit</span></pre></div>\n\
-    <p>See instructions above for how to start translating.</p>\n<h2>\n<a id=\"user-content-workflow\"\
+    <pre lang=\"console\"><code>$ git add .\n$ git commit\n</code></pre>\n<p>See instructions\
+    \ above for how to start translating.</p>\n<h2>\n<a id=\"user-content-workflow\"\
     \ class=\"anchor\" href=\"#workflow\" aria-hidden=\"true\"><span aria-hidden=\"\
     true\" class=\"octicon octicon-link\"></span></a>Workflow</h2>\n<p>This repository\
     \ implements the\n<a href=\"https://www.sphinx-doc.org/en/master/usage/advanced/intl.html\"\
@@ -12591,7 +13823,7 @@ spack/localized-docs:
   stargazers_count: 3
   subscribers_count: 6
   topics: []
-  updated_at: 1596310689.0
+  updated_at: 1621989548.0
 spack/spack-ci-containers:
   data_format: 2
   description: Container recipes used by Spack for test purposes
@@ -12640,34 +13872,34 @@ spack/spack-ci-containers:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1616167512.0
+  updated_at: 1621989328.0
 spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - NERSC/cori/e4s-20.10/spack.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
   - NREL/configs/rhodes/compilers/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
   - NERSC/cori/e4s-stacks/knl/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
+  - NREL/configs/rhodes/utilities/spack.yaml
+  - NREL/configs/eagle/base/spack.yaml
+  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
+  - NREL/configs/rhodes/base/spack.yaml
+  - NERSC/cori/e4s-20.10/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
   - OLCF/e4s-stacks/etc/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NREL/configs/rhodes/software/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
+  - NREL/configs/eagle/compilers/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
   - NERSC/cori/e4s-stacks/hsw/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - NERSC/cori/e4s-stacks/x86/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -12714,7 +13946,7 @@ spack/spack-configs:
   stargazers_count: 30
   subscribers_count: 22
   topics: []
-  updated_at: 1621898405.0
+  updated_at: 1621961699.0
 spack/spack-cscs2019:
   data_format: 2
   description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
@@ -12740,64 +13972,7 @@ spack/spack-cscs2019:
   stargazers_count: 1
   subscribers_count: 1
   topics: []
-  updated_at: 1611165834.0
-spack/spack-tutorial-container:
-  data_format: 2
-  description: Dockerfile and artifacts (minus build cache) to create Spack tutorial
-    container.
-  filenames:
-  - spack.yaml
-  full_name: spack/spack-tutorial-container
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack-tutorial-container" class="anchor" href="#spack-tutorial-container"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spack
-    Tutorial Container</h1>
-
-    <p>This repository contains a container image you can use to do the
-
-    <a href="https://spack.readthedocs.io/en/latest/tutorial.html" rel="nofollow">Spack
-    Tutorial</a>.
-
-    It''s exactly like the AWS images we use when we give the tutorial at
-
-    conferences.</p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>Spack is distributed under the terms of both the MIT license and the
-
-    Apache License (Version 2.0). Users may choose either license, at their
-
-    option.</p>
-
-    <p>All new contributions must be made under both the MIT and Apache-2.0
-
-    licenses.</p>
-
-    <p>See <a href="https://github.com/spack/spack-tutorial-container/blob/master/LICENSE-MIT">LICENSE-MIT</a>,
-
-    <a href="https://github.com/spack/spack-tutorial-container/blob/master/LICENSE-APACHE">LICENSE-APACHE</a>,
-
-    <a href="https://github.com/spack/spack-tutorial-container/blob/master/COPYRIGHT">COPYRIGHT</a>,
-    and
-
-    <a href="https://github.com/spack/spack-tutorial-container/blob/master/NOTICE">NOTICE</a>
-    for details.</p>
-
-    <p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>
-
-    <p>LLNL-CODE-811652</p>
-
-    '
-  stargazers_count: 2
-  subscribers_count: 6
-  topics: []
-  updated_at: 1620062810.0
+  updated_at: 1621966087.0
 srini009/aggregator:
   data_format: 2
   description: Aggregator microservice built using Mochi that is a part of SYMBIOMON
@@ -13998,8 +15173,8 @@ tachidok/scicellxx:
   data_format: 2
   description: Object-oriented numerical library
   filenames:
-  - docs/source/spack.yaml
   - tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml
+  - docs/source/spack.yaml
   full_name: tachidok/scicellxx
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-scicell\" class=\"anchor\" href=\"#scicell\"\
@@ -14131,7 +15306,7 @@ tachidok/scicellxx:
     octicon octicon-link\"></span></a>License <a name=\"user-content-license\"></a>\n\
     </h2>\n<p>Licensed under the GNU GPLv3. A copy can be found on the <a href=\"\
     ./LICENSE\">LICENSE</a> file.</p>\n"
-  stargazers_count: 4
+  stargazers_count: 5
   subscribers_count: 2
   topics:
   - numerical-methods
@@ -14142,7 +15317,7 @@ tachidok/scicellxx:
   - smoothed-particle-hydrodynamics
   - finite-difference-methods
   - object-oriented-programming
-  updated_at: 1617674400.0
+  updated_at: 1621995625.0
 thomas-robinson/centos7-netcdff:
   data_format: 2
   description: Container files for building centos7 with netcdf fortran
