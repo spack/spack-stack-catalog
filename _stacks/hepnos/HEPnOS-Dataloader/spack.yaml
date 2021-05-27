@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - mpich
+  - cmake
+  - tclap
+  - spdlog
+  - hdf5
+  - hepnos@main
+  concretization: together

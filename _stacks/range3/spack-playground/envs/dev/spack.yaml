@@ -12,6 +12,9 @@ spack:
   - mochi-thallium
   - cxxopts
   - fmt
+  - pmdk@master +rpmem
+  - libpmemobj-cpp
+  - pmemkv +cmap+csmap
   concretization: together
   view: true
   packages:
@@ -28,6 +31,7 @@ spack:
         prefix: /
       buildable: false
   repos:
+  - ../../spack-repos/dev
   - ../../extern/mochi-spack-packages
   config:
     build_stage:

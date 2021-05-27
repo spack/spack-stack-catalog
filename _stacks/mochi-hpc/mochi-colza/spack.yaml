@@ -3,12 +3,12 @@ spack:
   - cmake
   - pkg-config
   - mochi-thallium
-  - mochi-margo@main
+  - mochi-margo
   - nlohmann-json
   - spdlog
   - cppunit
   - tclap
-  - mochi-bedrock
+  - mochi-bedrock@main
   - mochi-ssg@main
   - mochi-mona
   concretization: together
