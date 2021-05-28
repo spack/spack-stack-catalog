@@ -225,6 +225,7 @@ def main():
                 updated_files.append(filename)
 
             # Look for a readme in the folder, then root
+            readme = None
             readme_path = tmp / "README.md"
             if readme_path.exists():
                 with open(readme_path, "r") as f:
