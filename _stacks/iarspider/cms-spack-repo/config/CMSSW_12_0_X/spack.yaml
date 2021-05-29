@@ -1,11 +1,9 @@
-
 # This is a Spack Environment file.
 #
 # It describes a set of packages to be installed, along with
 # configuration settings.
 # NOTICE: intel-tbb should not be replaced with intel-oneapi-tbb, the latter one is pre-built and not configurable
-# NOTICE: there is no FIPS for new openssl (1.2.x), and we need it for... reasons
-# NOTICE: py-pip@20.3.3 hwloc@2.4.0
+# NOTICE: ~cuda~nvml for now
 spack:
   concretization: together
   packages:
@@ -15,55 +13,55 @@ spack:
       target:
       - haswell
       version: []
-      variants: [cxxstd=17, build_type=Release] 
+      variants: [cxxstd=17, build_type=Release]
   view: false
   specs:
-    - root@6.22.00.patches_cms_0c7eac6 +root7+rootfit~vdt+tmva+mlp~postgres~sqlite~mysql~opengl+fftw+tbb+minuit+math+ssl+python+xrootd~graphviz~pythia6~pythia8~fits+davix+x
-    - dcap@2.47.8
-    - zlib@1.2.11
-    - autoconf@2.69
-    - automake@1.16.1
-    - libtool@2.4.6
-    - m4@1.4.18~sigsegv
-    - gettext@0.19.8.1~bzip2~xz~curses~libxml2~libunistring
-    - pkg-config@0.29.2+internal_glib
-    - bzip2@1.0.6
-    - cmake@3.17.3~ownlibs~ncurses
-    - cuda@11.2.2
-    - curl@7.70.0~libssh2+gssapi
-    - davix@0.7.6
-    - berkeley-db@6.2.32
-    - expat@2.1.0~libbsd
-    - fftw@3.3.8~mpi~openmp precision=double
-    - freetype@2.10.0
-    - gdbm@1.10
-    - giflib@5.2.0
-    - git@2.23.0
-    - gmake@4.3~nls
-    - gsl@2.6+external-cblas
-    - hwloc@2.4.0+cuda+nvml+libxml2~cairo~netloc+pci
-    - libffi@3.2.1
-    - libjpeg-turbo@2.0.2
-    - libpciaccess@0.16
-    - libpng@1.6.37
-    - libtiff@4.0.10
-    - util-linux@2.34
-    - libxml2@2.9.10~python
-    - lz4@1.9.2
-    - nasm@2.14.02
-    - ninja@1.10.0
-    - numactl@2.0.14
-    - openblas@0.3.9
-    - openssl@1.1.0l
-    - pcre@8.43~jit~multibyte+utf
-    - py-cython@0.29.22
-    - py-numpy@1.17.5
-    - py-pip@20.3.3
-    - py-setuptools@51.3.3
-    - python@3.8.2~libxml2
-    - re2c@0.13.5
-    - sqlite@3.22.0~fts
-    - intel-tbb@2021.2.0
-    - xrootd@4.12.3+http~readline+python
-    - xz@5.2.4 libs=shared
-    - zstd@1.4.5+shared~static~programs~legacy
+  - root@6.22.00.patches_cms_0c7eac6 +root7+rootfit~vdt+tmva+mlp~postgres~sqlite~mysql~opengl+fftw+tbb+minuit+math+ssl+python+xrootd~graphviz~pythia6~pythia8~fits+davix+x
+  - dcap@2.47.8
+  - zlib@1.2.11
+  - autoconf@2.69
+  - automake@1.16.1
+  - libtool@2.4.6
+  - m4@1.4.18~sigsegv
+  - gettext@0.19.8.1~bzip2~xz~curses~libxml2~libunistring
+  - pkg-config@0.29.2+internal_glib
+  - bzip2@1.0.6
+  - cmake@3.17.3~ownlibs~ncurses
+  - cuda@11.2.2
+  - curl@7.70.0~libssh2+gssapi
+  - davix@0.7.6
+  - berkeley-db@6.2.32
+  - expat@2.1.0~libbsd
+  - fftw@3.3.8~mpi~openmp precision=double
+  - freetype@2.10.0
+  - gdbm@1.10
+  - giflib@5.2.0
+  - git@2.23.0
+  - gmake@4.3~nls
+  - gsl@2.6+external-cblas
+  - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
+  - libffi@3.2.1
+  - libjpeg-turbo@2.0.2
+  - libpciaccess@0.16
+  - libpng@1.6.37
+  - libtiff@4.0.10
+  - util-linux@2.34
+  - libxml2@2.9.10~python
+  - lz4@1.9.2
+  - nasm@2.14.02
+  - ninja@1.10.0
+  - numactl@2.0.14
+  - openblas@0.3.9
+  - openssl@1.1.0l
+  - pcre@8.43~jit~multibyte+utf
+  - py-cython@0.29.22
+  - py-numpy@1.17.5
+  - py-pip@20.3.3
+  - py-setuptools@51.3.3
+  - python@3.8.2~libxml2
+  - re2c@0.13.5
+  - sqlite@3.22.0~fts
+  - intel-tbb@2021.2.0
+  - xrootd@4.12.3+http~readline+python
+  - xz@5.2.4 libs=shared
+  - zstd@1.4.5+shared~static~programs~legacy

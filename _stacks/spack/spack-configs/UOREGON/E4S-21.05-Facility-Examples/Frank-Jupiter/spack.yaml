@@ -1,6 +1,20 @@
 spack:
   view: false
   concretization: separately
+
+  modules:
+    lmod:
+      core_compilers:
+      - gcc@9.3.0
+      hash_length: 7
+      naming_scheme: '{name}/{version}/{compiler.name}@{compiler.version}'
+
+    tcl:
+      hash_length: 7
+      naming_scheme: '{name}/{version}/{compiler.name}@{compiler.version}'
+      blacklist_implicits: true
+      whitelist: ['mpich', 'cuda']
+
   packages:
     all:
       compiler:
@@ -166,7 +180,6 @@ spack:
       - 1.4.9
 
   definitions:
-
   - cuda_specs:
     - amrex@21.05 +cuda cuda_arch=70
     - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
@@ -207,7 +220,6 @@ spack:
     - aml@0.1.0
     - amrex@21.05
     - arborx@1.0
-    - archer@2.0.0
     - argobots@1.1
     - ascent@0.7.1
     - axom@0.5.0
@@ -295,12 +307,13 @@ spack:
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
 
     # Packages w/ build or concretization issues
+    #- archer@2.0.0
     #- dealii 
     #- geopm
     #- variorum
     #- veloc
 
   specs:
-  - $cuda_specs
-  - $rocm_specs
   - $default_specs
+ #- $cuda_specs
+ #- $rocm_specs

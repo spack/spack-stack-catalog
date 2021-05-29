@@ -1,6 +1,8 @@
 spack:
+
   view: false
   concretization: separately
+
   packages:
     all:
       compiler:
@@ -11,8 +13,20 @@ spack:
         mpi:
         - mpich
       target:
-      - x86_64
+      - haswell
       variants: +mpi
+    slurm:
+      buildable: false
+      version: [20-02-4-1]
+      externals:
+      - spec: slurm@20-02-4-1
+        prefix: /usr
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@3.1
+        modules:
+        - cray-mpich/7.7.10
     autoconf:
       version:
       - '2.69'
@@ -115,10 +129,6 @@ spack:
       variants: ~llvm
     mesa18:
       variants: ~llvm
-    mpich:
-      variants: ~wrapperrpath
-      version:
-      - 3.4.1
     ncurses:
       version:
       - 6.2
@@ -130,12 +140,9 @@ spack:
       version:
       - 0.3.10
       variants: threads=openmp
-    openssl:
-      version:
-      - 1.1.1k
     perl:
       version:
-      - 5.32.1
+      - 5.32.0
     pkgconf:
       version:
       - 1.7.3
@@ -166,7 +173,6 @@ spack:
       - 1.4.9
 
   definitions:
-
   - cuda_specs:
     - amrex@21.05 +cuda cuda_arch=70
     - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
@@ -189,33 +195,18 @@ spack:
     #- hypre@2.20.0 +cuda cuda_arch=70
     #- mfem@4.2.0 +cuda cuda_arch=70
 
-  - rocm_specs:
-    - kokkos@3.4.00 +rocm amdgpu_target=gfx906
-    - strumpack@5.1.1 +rocm ~slate amdgpu_target=gfx906
-    #- amrex@0.5.0 +rocm amdgpu_target=gfx906
-    #- chai@2.3.0 +rocm ~benchmarks amdgpu_target=gfx906
-    #- ginkgo@1.3.0 +rocm amdgpu_target=gfx906 # needs hip<4.1
-    #- raja@0.13.0 +rocm ~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
-    #- slate@2021.05.02 +rocm amdgpu_target=gfx906
-    #- sundials@5.7.0 +rocm amdgpu_target=gfx906
-    #- tasmanian@7.5 +rocm amdgpu_target=gfx906
-    #- umpire@4.1.2 +rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
-
   - default_specs:
-    - adios@1.13.1
     - adios2@2.7.1
+    - adios@1.13.1
     - aml@0.1.0
     - amrex@21.05
     - arborx@1.0
     - archer@2.0.0
     - argobots@1.1
-    - ascent@0.7.1
-    - axom@0.5.0
     - bolt@2.0
     - cabana@0.3.0
     - caliper@2.5.0
     - chai@2.3.0 ~benchmarks ~tests
-    - conduit@0.7.2
     - darshan-runtime@3.3.0
     - darshan-util@3.3.0
     - dyninst@11.0.0
@@ -233,8 +224,8 @@ spack:
     - hpctoolkit@2021.03.01
     - hpx@1.6.0
     - hypre@2.20.0
-    - kokkos@3.4.00 +openmp
     - kokkos-kernels@3.2.00 +openmp
+    - kokkos@3.4.00 +openmp
     - legion@21.03.0
     - libnrm@0.1.0
     - libquo@1.3.1
@@ -244,7 +235,6 @@ spack:
     - metall@0.13
     - mfem@4.2.0
     - mpark-variant@1.4.0
-    - mpifileutils@0.11 ~xattr
     - ninja@1.10.2
     - nrm@0.1.0
     - omega-h@9.32.5
@@ -266,41 +256,53 @@ spack:
     - py-warpx@21.05 ^warpx dims=rz
     - qt@5.15.2
     - qthreads@1.16 scheduler=distrib
-    - qwt@6.1.6
     - raja@0.13.0
-    - rempi@1.1.0
     - scr@3.0rc1
     - slate@2021.05.02 ~cuda
     - slepc@3.15.0
     - stc@0.9.0
     - strumpack@5.1.1 ~slate
     - sundials@5.7.0
-    - superlu@5.2.1
     - superlu-dist@6.4.0
+    - superlu@5.2.1
     - swig@4.0.2
     - swig@4.0.2-fortran
     - sz@2.1.11.1
     - tasmanian@7.5
-    - tau@2.30.1
+    - tau@2.30.1 # build fails using Cray compiler wrappers, OK w/ GCC directly (change compilers: section for tau)
     - trilinos@13.0.1
     - trilinos@13.0.1 +nox +superlu-dist
     - turbine@1.3.0
     - umap@2.1.0
     - umpire@4.1.2
-    - unifyfs@0.9.1
     - upcxx@2021.3.0
     - zfp@0.5.5
 
-    # Packages that track branches
-    #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-
-    # Packages w/ build or concretization issues
-    #- dealii 
-    #- geopm
-    #- variorum
-    #- veloc
+    # Failed builds
+   #- ascent@0.7.1
+   #- axom@0.5.0
+   #- conduit@0.7.2
+   #- mpifileutils@0.11 ~xattr
+   #- qwt@6.1.6
+   #- rempi@1.1.0
+   #- unifyfs@0.9.1
 
   specs:
-  - $cuda_specs
-  - $rocm_specs
   - $default_specs
+
+  compilers:
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      environment: {}
+      extra_rpaths: []

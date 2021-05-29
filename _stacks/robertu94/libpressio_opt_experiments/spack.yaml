@@ -1,0 +1,14 @@
+spack:
+  packages:
+    openmpi:
+      variants: schedulers=auto fabrics=auto +thread_multiple
+    libpressio:
+      variants: +sz+zfp+mgard+python+hdf5+mpi+lua+openmp+libdistributed
+    libpressio-tools:
+      variants: +opt
+  specs:
+  - libpressio-tools
+  - parallel
+  - py-pandas
+  - py-seaborn
+  concretization: together
