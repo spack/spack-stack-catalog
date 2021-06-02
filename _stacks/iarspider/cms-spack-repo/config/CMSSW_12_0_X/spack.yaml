@@ -17,8 +17,11 @@ spack:
   view: false
   specs:
   - root@6.22.00.patches_cms_0c7eac6 +root7+rootfit~vdt+tmva+mlp~postgres~sqlite~mysql~opengl+fftw+tbb+minuit+math+ssl+python+xrootd~graphviz~pythia6~pythia8~fits+davix+x
+  - root-toolfile
   - dcap@2.47.8
+  - dcap-toolfile
   - zlib@1.2.11
+  - zlib-toolfile
   - autoconf@2.69
   - automake@1.16.1
   - libtool@2.4.6
@@ -26,42 +29,61 @@ spack:
   - gettext@0.19.8.1~bzip2~xz~curses~libxml2~libunistring
   - pkg-config@0.29.2+internal_glib
   - bzip2@1.0.6
+  - bzip2-toolfile
   - cmake@3.17.3~ownlibs~ncurses
   - cuda@11.2.2
   - curl@7.70.0~libssh2+gssapi
   - davix@0.7.6
+  - davix-toolfile
   - berkeley-db@6.2.32
+  - db6-toolfile
   - expat@2.1.0~libbsd
+  - expat-toolfile
   - fftw@3.3.8~mpi~openmp precision=double
+  - fftw3-toolfile
   - freetype@2.10.0
+  - freetype-toolfile
   - gdbm@1.10
   - giflib@5.2.0
+  - giflib-toolfile
   - git@2.23.0
   - gmake@4.3~nls
+  - gmake-toolfile
   - gsl@2.6+external-cblas
+  - gsl-toolfile
   - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
   - libffi@3.2.1
   - libjpeg-turbo@2.0.2
+  - libjpeg-turbo-toolfile
   - libpciaccess@0.16
   - libpng@1.6.37
+  - libpng-toolfile
   - libtiff@4.0.10
+  - libtiff-toolfile
   - util-linux@2.34
   - libxml2@2.9.10~python
+  - libxml2-toolfile
   - lz4@1.9.2
   - nasm@2.14.02
   - ninja@1.10.0
   - numactl@2.0.14
-  - openblas@0.3.9
+  - openblas@0.3.9  
   - openssl@1.1.0l
+  - openssl-toolfile
   - pcre@8.43~jit~multibyte+utf
+  - pcre-toolfile
   - py-cython@0.29.22
   - py-numpy@1.17.5
   - py-pip@20.3.3
   - py-setuptools@51.3.3
   - python@3.8.2~libxml2
+  - python-toolfile
   - re2c@0.13.5
   - sqlite@3.22.0~fts
+  - sqlite-toolfile
   - intel-tbb@2021.2.0
   - xrootd@4.12.3+http~readline+python
+  - xrootd-toolfile
   - xz@5.2.4 libs=shared
+  - xz-toolfile
   - zstd@1.4.5+shared~static~programs~legacy
