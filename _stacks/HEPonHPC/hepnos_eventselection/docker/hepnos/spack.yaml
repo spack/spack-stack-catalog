@@ -1,0 +1,104 @@
+spack:
+  specs:
+  - hepnos cxxstd=14 target=x86_64
+  - hepnos-dataloader target=x86_64
+  - hepnos-pep-benchmark target=x86_64
+  - mpich
+  concretization: together
+  repos:
+  - /hepnos/mochi-spack-packages
+  packages:
+    all:
+      providers:
+        mpi: [ mpich ]
+        uuid: [ libuuid ]
+    autoconf:
+      externals:
+      - spec: autoconf@2.63.0
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.11.1
+        prefix: /usr
+    boost:
+      buildable: false
+      externals:
+      - spec: boost@1.66.0
+        prefix: /cvmfs/nova.opensciencegrid.org/externals/boost/v1_66_0a/Linux64bit+2.6-2.12-e15-prof
+    bzip2:
+      externals:
+      - spec: bzip2@1.0.5
+        prefix: /usr
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.14.3
+        prefix: /cvmfs/nova.opensciencegrid.org/externals/cmake/v3_14_3/Linux64bit+2.6-2.12
+    coreutils:
+      externals:
+      - spec: coreutils@8.4
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.4.2
+        prefix: /usr
+    gettext:
+      externals:
+      - spec: gettext@0.17
+        prefix: /usr
+    git:
+      buildable: false
+      externals:
+      - spec: git@2.14.1
+        prefix: /cvmfs/nova.opensciencegrid.org/externals/git/v2_14_1/Linux64bit+2.6-2.12
+    hdf5:
+      buildable: false
+      externals:
+      - spec: hdf5@1.10.2
+        prefix: /cvmfs/nova.opensciencegrid.org/externals/hdf5/v1_10_2a/Linux64bit+2.6-2.12-e15
+    libfabric:
+      variants: fabrics=tcp,rxm
+    m4:
+      externals:
+      - spec: m4@1.4.13
+        prefix: /usr
+    mercury:
+      variants: +udreg ~boostsys
+    mochi-sdskv:
+      variants: ~leveldb ~bdb
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@3.2.1
+        prefix: /mpich
+    perl:
+      externals:
+      - spec: perl
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      externals:
+      - spec: pkg-config@0.23.1
+        prefix: /usr
+    tar:
+      buildable: false
+      externals:
+      - spec: tar@1.23
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@4.13
+        prefix: /usr
+    libuuid:
+      buildable: false
+      externals:
+      - spec: libuuid@1.0.3
+        prefix: /usr
+    xz:
+      externals:
+      - spec: xz@4.999.9beta
+        prefix: /usr
+    zlib:
+      externals:
+      - spec: zlib@1.2.3
+        prefix: /usr
