@@ -120,6 +120,9 @@ def combine_results(code_search):
     files = {}
 
     for i, filename in enumerate(code_search):
+
+        # attempt to not trigger abuse mechanism
+        time.sleep(0.5)
         repo = filename.repository
 
         # skip spack_yaml.py, and github workflows
