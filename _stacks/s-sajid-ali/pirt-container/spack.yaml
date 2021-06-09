@@ -1,0 +1,30 @@
+spack:
+  packages:
+    all:
+      providers:
+        mpi:
+        - mpich
+        blas:
+        - intel-oneapi-mkl
+        lapack:
+        - intel-oneapi-mkl
+  specs:
+  - petsc@3.15.0 ~metis~hypre~complex~debug+hdf5+mpi
+  - hdf5@1.12.0 +mpi+hl
+  - mpich@3.4.2 device=ch4 netmod=ucx
+  - fftw~mpi
+  - boost cxxstd=17
+  concretization: together
+  view: true
+  container:
+    format: docker
+    images:
+      os: ubuntu:18.04
+      spack: develop
+    os_packages:
+      final:
+      - gfortran
+      - wget
+      - doxygen
+      - build-essential
+      - bash

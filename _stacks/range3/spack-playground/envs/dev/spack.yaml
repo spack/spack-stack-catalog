@@ -15,6 +15,7 @@ spack:
   - pmdk@master +rpmem
   - libpmemobj-cpp
   - pmemkv +cmap+csmap
+  - memkind
   concretization: together
   view: true
   packages:
