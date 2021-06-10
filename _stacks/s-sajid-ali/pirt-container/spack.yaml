@@ -3,15 +3,14 @@ spack:
     all:
       providers:
         mpi:
-        - mpich
+        - intel-oneapi-mpi
         blas:
         - intel-oneapi-mkl
         lapack:
         - intel-oneapi-mkl
   specs:
-  - petsc@3.15.0 ~metis~hypre~complex~debug+hdf5+mpi
+  - petsc@3.15.0 ~superlu-dist~metis~hypre~complex~debug+hdf5+mpi
   - hdf5@1.12.0 +mpi+hl
-  - mpich@3.4.2 device=ch4 netmod=ucx
   - fftw~mpi
   - boost cxxstd=17
   concretization: together
@@ -22,6 +21,8 @@ spack:
       os: ubuntu:18.04
       spack: develop
     os_packages:
+      build:
+      - python3-dev  
       final:
       - gfortran
       - wget

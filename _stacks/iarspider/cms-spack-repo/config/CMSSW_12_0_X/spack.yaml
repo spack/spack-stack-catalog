@@ -16,17 +16,17 @@ spack:
       variants: [cxxstd=17, build_type=Release]
   view: false
   specs:
-  - root@6.22.00.patches_cms_0c7eac6 +root7+rootfit~vdt+tmva+mlp~postgres~sqlite~mysql~opengl+fftw+tbb+minuit+math+ssl+python+xrootd~graphviz~pythia6~pythia8~fits+davix+x
+  - root@6.22.00.patches_cms_a15e883+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
   - root-toolfile
   - dcap@2.47.8
   - dcap-toolfile
-  - zlib@1.2.11
+  - zlib@1.2.11+optimize
   - zlib-toolfile
   - autoconf@2.69
   - automake@1.16.1
   - libtool@2.4.6
   - m4@1.4.18~sigsegv
-  - gettext@0.19.8.1~bzip2~xz~curses~libxml2~libunistring
+  - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
   - pkg-config@0.29.2+internal_glib
   - bzip2@1.0.6
   - bzip2-toolfile
@@ -46,7 +46,7 @@ spack:
   - gdbm@1.10
   - giflib@5.2.0
   - giflib-toolfile
-  - git@2.23.0
+  - git@2.23.0~man~nls
   - gmake@4.3~nls
   - gmake-toolfile
   - gsl@2.6+external-cblas
@@ -67,7 +67,7 @@ spack:
   - nasm@2.14.02
   - ninja@1.10.0
   - numactl@2.0.14
-  - openblas@0.3.9  
+  - openblas@0.3.15
   - openssl@1.1.0l
   - openssl-toolfile
   - pcre@8.43~jit~multibyte+utf
