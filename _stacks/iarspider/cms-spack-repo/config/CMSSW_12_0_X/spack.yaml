@@ -60,7 +60,7 @@ spack:
   - libpng-toolfile
   - libtiff@4.0.10
   - libtiff-toolfile
-  - util-linux@2.34
+  - util-linux-uuid@2.34
   - libxml2@2.9.10~python
   - libxml2-toolfile
   - lz4@1.9.2

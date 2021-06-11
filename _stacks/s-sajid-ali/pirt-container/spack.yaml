@@ -5,14 +5,14 @@ spack:
         mpi:
         - intel-oneapi-mpi
         blas:
-        - intel-oneapi-mkl
+        - openblas
         lapack:
-        - intel-oneapi-mkl
+        - openblas
   specs:
   - petsc@3.15.0 ~superlu-dist~metis~hypre~complex~debug+hdf5+mpi
   - hdf5@1.12.0 +mpi+hl
   - fftw~mpi
-  - boost cxxstd=17
+  - boost ~atomic~chrono~date_time~graph~iostreams~locale~random~regex~serialization~signals~system~test~timer cxxstd=17
   concretization: together
   view: true
   container:
