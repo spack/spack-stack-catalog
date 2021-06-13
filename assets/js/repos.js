@@ -2,6 +2,26 @@ var data =
 [
   {
     "data_format": 2,
+    "description": "Create VM images for HPC applications on Google Cloud Platform",
+    "filenames": [
+      "compilers/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
+      "compilers/env/centos-7/spack.yaml"
+    ],
+    "full_name": "FluidNumerics/hpc-apps-gcp",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eIf you\u0027re interested in using the GCP Spack cache, see \u003ca href=\"https://gcp-spack-cache.fluidnumerics.com/index.html\" rel=\"nofollow\"\u003ehttps://gcp-spack-cache.fluidnumerics.com/index.html\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [
+      "hpc-applications",
+      "google-cloud-platform",
+      "slurm",
+      "wrf"
+    ],
+    "updated_at": 1623533752.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
       "environments/CMSSW_12_0_X/spack.yaml"
@@ -26,26 +46,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1623345594.0
-  },
-  {
-    "data_format": 2,
-    "description": "Create VM images for HPC applications on Google Cloud Platform",
-    "filenames": [
-      "compilers/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
-      "compilers/env/centos-7/spack.yaml"
-    ],
-    "full_name": "FluidNumerics/hpc-apps-gcp",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eIf you\u0027re interested in using the GCP Spack cache, see \u003ca href=\"https://gcp-spack-cache.fluidnumerics.com/index.html\" rel=\"nofollow\"\u003ehttps://gcp-spack-cache.fluidnumerics.com/index.html\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [
-      "hpc-applications",
-      "google-cloud-platform",
-      "slurm",
-      "wrf"
-    ],
-    "updated_at": 1623341972.0
   },
   {
     "data_format": 2,
@@ -79,8 +79,8 @@ var data =
     "description": null,
     "filenames": [
       "envs/chris8x/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml",
-      "envs/dev/spack.yaml"
+      "envs/dev/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -142,7 +142,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1622761498.0
+    "updated_at": 1623551911.0
   },
   {
     "data_format": 2,
@@ -243,8 +243,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.15.4/spack.yaml",
-      "v0.13.2/spack.yaml"
+      "v0.13.2/spack.yaml",
+      "v0.15.4/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -258,9 +258,9 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
+      "examples/topaz_marco/environment_compchem/spack.yaml",
       "examples/zeus_marco/environment2_python/spack.yaml",
-      "examples/zeus_marco/environment1_compchem/spack.yaml",
-      "examples/topaz_marco/environment_compchem/spack.yaml"
+      "examples/zeus_marco/environment1_compchem/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -370,29 +370,29 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent7/apps/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent8/envs/x86_64/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
-      "cent7/library/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent7/py_376/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
       "cent7/python_376/spack.yaml",
-      "cent7/mpis/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "compilers/envs/compilers/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/libs_old/spack.yaml",
       "cent8/envs/avx/rproject/spack.yaml",
-      "cent7/library/bak/spack.yaml",
       "cent7/bioinformatics_default/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent8/envs/avx/python/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
       "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent7/bio_old/spack.yaml"
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
+      "cent7/library/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/apps/spack.yaml",
+      "cent7/library/bak/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent7/mpis/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent8/envs/avx/python/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -406,15 +406,15 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/base/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
-      "configs/eagle/utilities/spack.yaml",
       "configs/rhodes/base/spack.yaml",
-      "configs/eagle/software/spack.yaml",
-      "envs/exawind/spack.yaml",
+      "configs/rhodes/software/spack.yaml",
       "configs/rhodes/utilities/spack.yaml",
+      "envs/exawind/spack.yaml",
       "configs/rhodes/compilers/spack.yaml",
-      "configs/rhodes/software/spack.yaml"
+      "configs/eagle/compilers/spack.yaml",
+      "configs/eagle/base/spack.yaml",
+      "configs/eagle/software/spack.yaml",
+      "configs/eagle/utilities/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -441,8 +441,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -654,20 +654,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Reduces SYMBIOMON metrics",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "srini009/reducer",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-margo-microservice-template\" class=\"anchor\" href=\"#margo-microservice-template\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMargo Microservice Template\u003c/h1\u003e\n\u003cp\u003eThis project is a template to start developing a Mochi microservice based on Margo.\nIf you want to implement your own microservice, please read ahead. Though this project\nprovides many examples of how to use the Margo API, you may want to refer to the Margo\ndocumentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more detail.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-the-mochi-philosophy\" class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThe Mochi philosophy\u003c/h2\u003e\n\u003cp\u003eThe philosophy of the Mochi project consists of providing a set of building blocks\nfor developing HPC data service. Each building block is meant to offer \u003cstrong\u003eefficient\u003c/strong\u003e,\n\u003cstrong\u003elocation-agnostic\u003c/strong\u003e access to a \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e through\n\u003cstrong\u003emodular backends\u003c/strong\u003e, while \u003cstrong\u003eseamlessly sharing hardware\u003c/strong\u003e (compute and network)\nwith other building blocks.\u003c/p\u003e\n\u003cp\u003eA \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e may be, for example, \u003cem\u003e\"storing and retrieving\nsmall key/value pairs\"\u003c/em\u003e, a common feature found in many storage systems to manage\nmetadata. The \u003cstrong\u003elocation-agnostic\u003c/strong\u003e aspect aims at making such a feature available\nto user programs in the same manner and through the same API regardless of whether\nthe service runs in the same process, on the same node but on different processes,\nor on a different node across a network. The \u003cstrong\u003emodular backends\u003c/strong\u003e aspect makes it\npossible to abstract the implementation of such a feature and, if not providing\nmultiple implementations, at least providing the means for someone to easily swap\nthe default implementation of the feature for their own. Because multiple building\nblocks may be running on the same node, such a building block should efficiently\nshare the compute and network hardware with other building blocks. This is done\nby sharing a common networking and threading layer: Margo.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign overview\u003c/h2\u003e\n\u003cp\u003eThe typical design of a Mochi microservice revolves around three libraries:\n\u003cstrong\u003eserver\u003c/strong\u003e, \u003cstrong\u003eclient\u003c/strong\u003e, and \u003cstrong\u003eadmin\u003c/strong\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe server library contains a service \u003cstrong\u003eprovider\u003c/strong\u003e, that is, an object that\ncan receive some predefined RPCs to offer a particular functionality. Within\nthe same process, multiple providers of the same service may be instantiated,\nusing distinct \u003cstrong\u003eprovider ids\u003c/strong\u003e (\u003ccode\u003euint16_t\u003c/code\u003e). A provider is responsible for\nmanaging a set of \u003cstrong\u003eresources\u003c/strong\u003e. In the example of a storage for key/value\npairs, a resource may be a database. The functionalities of a provider may\nbe enabled by multiple \u003cstrong\u003ebackends\u003c/strong\u003e. For example, a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an in-memory hash table.\nPrograms sending requests to a provider should \u003cstrong\u003enot\u003c/strong\u003e be unaware of the backend used\nto implement the requested functionality. This allows multiple backends to be\ntested, and for backends to evolve independently from user applications.\u003c/li\u003e\n\u003cli\u003eThe client library is the library through which user applications or higher-level\nservices interact with providers. It will typically provide a \u003cstrong\u003eclient\u003c/strong\u003e structure\nthat is used to register the set of RPCs that can be invoked, and a \u003cstrong\u003eresource handle\u003c/strong\u003e\nstructure that references a particular resource located on a particular provider.\nUser applications will typically initialize a singe client object for a service, and\nfrom this client object instantiate as many resource handles as needed to interact with\navailable resources. Resources are identified by a \u003cstrong\u003eresource id\u003c/strong\u003e, which are generally\neither a name, an integer, or a\n\u003ca href=\"https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\u003euuid\u003c/a\u003e (this template\nproject uses uuids).\u003c/li\u003e\n\u003cli\u003eThe admin library is the library through which a user application can send\nrequests that are meant for the provider itself rather than for a resource.\nA few most common such requests include the creation and destruction of\nresources, their migration, etc. It can be useful to think of the admin\nlibrary as the set of features you would want to provide to the person or\napplication that sets up the service, rather than the person or application\nthat uses its functionalities.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-organization-of-this-template-project\" class=\"anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOrganization of this template project\u003c/h2\u003e\n\u003cp\u003eThis template project illustrates how a Margo-based microservice could\nbe architected. It can be compiled as-is, and provides a couple of\nfunctionalities that make the provider print a \"Hello World\" message\non its standard output, or compute the sum of two integers.\u003c/p\u003e\n\u003cp\u003eThis template project uses \u003cstrong\u003ealpha\u003c/strong\u003e as the name of your microservice.\nFunctions, types, files, and libraries therefore use the \u003cstrong\u003ealpha\u003c/strong\u003e prefix.\nThe first step in setting up this project for your microservice will be\nto replace this prefix. The generic name \u003cstrong\u003eresource\u003c/strong\u003e should also be\nreplaced with a more specific name, such as \u003cstrong\u003edatabase\u003c/strong\u003e. This renaming\nstep can be done by using the \u003cem\u003esetup.py\u003c/em\u003e script at the root of this repository\n(see next section).\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003einclude\u003c/em\u003e directory of this template project provides public header files.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-common.h\u003c/em\u003e contains APIs that are common to the three\nlibraries, such as error codes or common types;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-client.h\u003c/em\u003e contains the client-side functions to create\nand destroy a client object;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-resource.h\u003c/em\u003e contains the client-side functions to create\nand destroy resource handles, and to interact with a resource through\na resource handle;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-server.h\u003c/em\u003e contains functions to register and destroy\na provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-backend.h\u003c/em\u003e contains the definition of a structure that\none would need to implement in order to provide a new backend for\nyour microservice;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-admin.h\u003c/em\u003e contains the functions to create and destroy\nan admin object, as well as admin functions to interact with a provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-provider-handle.h\u003c/em\u003e contains the definition of a provider handle.\nThis type of construct is often used in Mochi services to encapsulate\nan address and a provider id.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe implementation of all these functions is located in the \u003cem\u003esrc\u003c/em\u003e directory.\nThe source also includes functionalities such as a small header-based logging library.\nThe \u003cem\u003esrc/dummy\u003c/em\u003e directory provides a default implementation of a backend. This\nbackend also exemplifies the use of the \u003ca href=\"https://github.com/json-c/json-c\"\u003ejson-c\u003c/a\u003e library\nfor JSON-based resource configuration. We recommend that you implement a dummy backend for your\nservice, as a way of testing application logic and RPCs without the burden of complex\nexternal dependencies. For instance, a dummy backend may be a backend that simply\nacknowledges requests but does not process them, or provides mock results.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003eexamples\u003c/em\u003e directory contains an example using the microservice:\nthe server example will start a provider and print its address (if logging was enabled).\nThe admin example will connect to this provider and have it create a resource, then\nprint the resource id. The client example can be run next to interact with the resource.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etests\u003c/em\u003e directory contains a set of unit tests for your service.\nIt relies on \u003ca href=\"https://nemequ.github.io/munit\" rel=\"nofollow\"\u003e\u00b5nit\u003c/a\u003e (included in this repository),\na C unit-test library under an MIT license. Feel free to continue using it as you\nadd more functionalities to your microservice; unit-testing is just good software\ndevelopment practice in general.\u003c/p\u003e\n\u003cp\u003eThe template also contains a \u003cem\u003espack.yaml\u003c/em\u003e file at its root that can be used to\ninstall its dependencies. You may add additional dependencies into this file as\nyour microservice gets more complex.\u003c/p\u003e\n\u003cp\u003eAs you modify this project to implement your own microservice, feel free to remove\nany dependencies you don\u0027t like (such as json-c or \u00b5nit) and adapt it to your needs!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSetting up your project\u003c/h2\u003e\n\u003cp\u003eLet\u0027s assume you want to create a microservice called \"yellow\", which manages\na phone directory (association between names and phone numbers). The following\nshows how to setup your project:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\nmv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n$ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g., database): phonebook\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe python script will edit and rename all the files, replacing \u003cem\u003ealpha\u003c/em\u003e with \u003cem\u003eyellow\u003c/em\u003e\nand \u003cem\u003eresource\u003c/em\u003e with \u003cem\u003ephonebook\u003c/em\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building-the-project\" class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the project\u003c/h2\u003e\n\u003cp\u003eThe project\u0027s dependencies may be build using \u003ca href=\"https://spack.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003espack\u003c/a\u003e.\nYou will need to have setup \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\" rel=\"nofollow\"\u003esds-repo\u003c/a\u003e as external\nnamespace for spack, which can be done as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# from outside of your project directory\ngit clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe easiest way to setup the dependencies for this project is to create a spack environment\nusing the \u003cem\u003espack.yaml\u003c/em\u003e file located at the root of the project, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an anonymous environment\ncd margo-microservice-template\nspack env activate .\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an environment named myenv\ncd margo-microservice-template\nspack env create myenv spack.yaml\nspack env activate myenv\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce the dependencies have been installed, you may build the project as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can test the project using \u003ccode\u003emake test\u003c/code\u003e from the build directory.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1619076276.0
-  },
-  {
-    "data_format": 2,
     "description": "Personal fork of the sds-key Mochi microservice.",
     "filenames": [
       "spack.yaml"
@@ -697,20 +683,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Aggregator microservice built using Mochi that is a part of SYMBIOMON",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "srini009/aggregator",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-margo-microservice-template\" class=\"anchor\" href=\"#margo-microservice-template\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMargo Microservice Template\u003c/h1\u003e\n\u003cp\u003eThis project is a template to start developing a Mochi microservice based on Margo.\nIf you want to implement your own microservice, please read ahead. Though this project\nprovides many examples of how to use the Margo API, you may want to refer to the Margo\ndocumentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more detail.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-the-mochi-philosophy\" class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThe Mochi philosophy\u003c/h2\u003e\n\u003cp\u003eThe philosophy of the Mochi project consists of providing a set of building blocks\nfor developing HPC data service. Each building block is meant to offer \u003cstrong\u003eefficient\u003c/strong\u003e,\n\u003cstrong\u003elocation-agnostic\u003c/strong\u003e access to a \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e through\n\u003cstrong\u003emodular backends\u003c/strong\u003e, while \u003cstrong\u003eseamlessly sharing hardware\u003c/strong\u003e (compute and network)\nwith other building blocks.\u003c/p\u003e\n\u003cp\u003eA \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e may be, for example, \u003cem\u003e\"storing and retrieving\nsmall key/value pairs\"\u003c/em\u003e, a common feature found in many storage systems to manage\nmetadata. The \u003cstrong\u003elocation-agnostic\u003c/strong\u003e aspect aims at making such a feature available\nto user programs in the same manner and through the same API regardless of whether\nthe service runs in the same process, on the same node but on different processes,\nor on a different node across a network. The \u003cstrong\u003emodular backends\u003c/strong\u003e aspect makes it\npossible to abstract the implementation of such a feature and, if not providing\nmultiple implementations, at least providing the means for someone to easily swap\nthe default implementation of the feature for their own. Because multiple building\nblocks may be running on the same node, such a building block should efficiently\nshare the compute and network hardware with other building blocks. This is done\nby sharing a common networking and threading layer: Margo.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign overview\u003c/h2\u003e\n\u003cp\u003eThe typical design of a Mochi microservice revolves around three libraries:\n\u003cstrong\u003eserver\u003c/strong\u003e, \u003cstrong\u003eclient\u003c/strong\u003e, and \u003cstrong\u003eadmin\u003c/strong\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe server library contains a service \u003cstrong\u003eprovider\u003c/strong\u003e, that is, an object that\ncan receive some predefined RPCs to offer a particular functionality. Within\nthe same process, multiple providers of the same service may be instantiated,\nusing distinct \u003cstrong\u003eprovider ids\u003c/strong\u003e (\u003ccode\u003euint16_t\u003c/code\u003e). A provider is responsible for\nmanaging a set of \u003cstrong\u003eresources\u003c/strong\u003e. In the example of a storage for key/value\npairs, a resource may be a database. The functionalities of a provider may\nbe enabled by multiple \u003cstrong\u003ebackends\u003c/strong\u003e. For example, a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an in-memory hash table.\nPrograms sending requests to a provider should \u003cstrong\u003enot\u003c/strong\u003e be unaware of the backend used\nto implement the requested functionality. This allows multiple backends to be\ntested, and for backends to evolve independently from user applications.\u003c/li\u003e\n\u003cli\u003eThe client library is the library through which user applications or higher-level\nservices interact with providers. It will typically provide a \u003cstrong\u003eclient\u003c/strong\u003e structure\nthat is used to register the set of RPCs that can be invoked, and a \u003cstrong\u003eresource handle\u003c/strong\u003e\nstructure that references a particular resource located on a particular provider.\nUser applications will typically initialize a singe client object for a service, and\nfrom this client object instantiate as many resource handles as needed to interact with\navailable resources. Resources are identified by a \u003cstrong\u003eresource id\u003c/strong\u003e, which are generally\neither a name, an integer, or a\n\u003ca href=\"https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\u003euuid\u003c/a\u003e (this template\nproject uses uuids).\u003c/li\u003e\n\u003cli\u003eThe admin library is the library through which a user application can send\nrequests that are meant for the provider itself rather than for a resource.\nA few most common such requests include the creation and destruction of\nresources, their migration, etc. It can be useful to think of the admin\nlibrary as the set of features you would want to provide to the person or\napplication that sets up the service, rather than the person or application\nthat uses its functionalities.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-organization-of-this-template-project\" class=\"anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOrganization of this template project\u003c/h2\u003e\n\u003cp\u003eThis template project illustrates how a Margo-based microservice could\nbe architected. It can be compiled as-is, and provides a couple of\nfunctionalities that make the provider print a \"Hello World\" message\non its standard output, or compute the sum of two integers.\u003c/p\u003e\n\u003cp\u003eThis template project uses \u003cstrong\u003ealpha\u003c/strong\u003e as the name of your microservice.\nFunctions, types, files, and libraries therefore use the \u003cstrong\u003ealpha\u003c/strong\u003e prefix.\nThe first step in setting up this project for your microservice will be\nto replace this prefix. The generic name \u003cstrong\u003eresource\u003c/strong\u003e should also be\nreplaced with a more specific name, such as \u003cstrong\u003edatabase\u003c/strong\u003e. This renaming\nstep can be done by using the \u003cem\u003esetup.py\u003c/em\u003e script at the root of this repository\n(see next section).\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003einclude\u003c/em\u003e directory of this template project provides public header files.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-common.h\u003c/em\u003e contains APIs that are common to the three\nlibraries, such as error codes or common types;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-client.h\u003c/em\u003e contains the client-side functions to create\nand destroy a client object;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-resource.h\u003c/em\u003e contains the client-side functions to create\nand destroy resource handles, and to interact with a resource through\na resource handle;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-server.h\u003c/em\u003e contains functions to register and destroy\na provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-backend.h\u003c/em\u003e contains the definition of a structure that\none would need to implement in order to provide a new backend for\nyour microservice;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-admin.h\u003c/em\u003e contains the functions to create and destroy\nan admin object, as well as admin functions to interact with a provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-provider-handle.h\u003c/em\u003e contains the definition of a provider handle.\nThis type of construct is often used in Mochi services to encapsulate\nan address and a provider id.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe implementation of all these functions is located in the \u003cem\u003esrc\u003c/em\u003e directory.\nThe source also includes functionalities such as a small header-based logging library.\nThe \u003cem\u003esrc/dummy\u003c/em\u003e directory provides a default implementation of a backend. This\nbackend also exemplifies the use of the \u003ca href=\"https://github.com/json-c/json-c\"\u003ejson-c\u003c/a\u003e library\nfor JSON-based resource configuration. We recommend that you implement a dummy backend for your\nservice, as a way of testing application logic and RPCs without the burden of complex\nexternal dependencies. For instance, a dummy backend may be a backend that simply\nacknowledges requests but does not process them, or provides mock results.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003eexamples\u003c/em\u003e directory contains an example using the microservice:\nthe server example will start a provider and print its address (if logging was enabled).\nThe admin example will connect to this provider and have it create a resource, then\nprint the resource id. The client example can be run next to interact with the resource.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etests\u003c/em\u003e directory contains a set of unit tests for your service.\nIt relies on \u003ca href=\"https://nemequ.github.io/munit\" rel=\"nofollow\"\u003e\u00b5nit\u003c/a\u003e (included in this repository),\na C unit-test library under an MIT license. Feel free to continue using it as you\nadd more functionalities to your microservice; unit-testing is just good software\ndevelopment practice in general.\u003c/p\u003e\n\u003cp\u003eThe template also contains a \u003cem\u003espack.yaml\u003c/em\u003e file at its root that can be used to\ninstall its dependencies. You may add additional dependencies into this file as\nyour microservice gets more complex.\u003c/p\u003e\n\u003cp\u003eAs you modify this project to implement your own microservice, feel free to remove\nany dependencies you don\u0027t like (such as json-c or \u00b5nit) and adapt it to your needs!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSetting up your project\u003c/h2\u003e\n\u003cp\u003eLet\u0027s assume you want to create a microservice called \"yellow\", which manages\na phone directory (association between names and phone numbers). The following\nshows how to setup your project:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\nmv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n$ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g., database): phonebook\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe python script will edit and rename all the files, replacing \u003cem\u003ealpha\u003c/em\u003e with \u003cem\u003eyellow\u003c/em\u003e\nand \u003cem\u003eresource\u003c/em\u003e with \u003cem\u003ephonebook\u003c/em\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building-the-project\" class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the project\u003c/h2\u003e\n\u003cp\u003eThe project\u0027s dependencies may be build using \u003ca href=\"https://spack.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003espack\u003c/a\u003e.\nYou will need to have setup \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\" rel=\"nofollow\"\u003esds-repo\u003c/a\u003e as external\nnamespace for spack, which can be done as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# from outside of your project directory\ngit clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe easiest way to setup the dependencies for this project is to create a spack environment\nusing the \u003cem\u003espack.yaml\u003c/em\u003e file located at the root of the project, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an anonymous environment\ncd margo-microservice-template\nspack env activate .\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an environment named myenv\ncd margo-microservice-template\nspack env create myenv spack.yaml\nspack env activate myenv\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce the dependencies have been installed, you may build the project as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can test the project using \u003ccode\u003emake test\u003c/code\u003e from the build directory.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1615268500.0
-  },
-  {
-    "data_format": 2,
     "description": "Collector microservice built using Mochi that is part of SYMBIOMON",
     "filenames": [
       "spack.yaml"
@@ -722,19 +694,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1615253014.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "player1537-playground/triple-r",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1614701026.0
   },
   {
     "data_format": 2,
@@ -868,11 +827,11 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/broadwell/flecsalemm-deps/spack.yaml",
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/dry-run/spack.yaml",
       ".gitlab-ci/env/local-build/spack.yaml",
       "env/power9le/flecsalemm-deps/spack.yaml",
+      "env/broadwell/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
       ".gitlab-ci/env/root-build/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
@@ -902,9 +861,9 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "v0133gcc/spack.yaml",
-      "v0160gcc/spack.yaml",
       "spack.yaml",
+      "v0160gcc/spack.yaml",
+      "v0133gcc/spack.yaml",
       "v0133gccSpectrum/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
@@ -919,11 +878,11 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
-      "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
+      "spack_environments/developer_release_x86_64_cuda_spack.yaml",
       "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
       "spack_environments/developer_release_osx_spack.yaml",
-      "spack_environments/developer_release_x86_64_cuda_spack.yaml"
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
+      "spack_environments/developer_release_ppc64le_cuda_spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -937,9 +896,9 @@ var data =
     "data_format": 2,
     "description": "Documentation and automation for provisioning the core software environment at University of Colorado Boulder Research Computing",
     "filenames": [
-      "spack/environments/spring2020/spack.yaml",
+      "spack/environments/summer2020/spack.yaml",
       "spack/environments/develop/spack.yaml",
-      "spack/environments/summer2020/spack.yaml"
+      "spack/environments/spring2020/spack.yaml"
     ],
     "full_name": "ResearchComputing/core-software",
     "latest_release": null,
@@ -953,8 +912,8 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "v61c1b71_gcc910/spack.yaml",
-      "openFoam24/spack.yaml"
+      "openFoam24/spack.yaml",
+      "v61c1b71_gcc910/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -1021,8 +980,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
-      "etc/spack.yaml"
+      "etc/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "CUP-ECS/ExaCLAMR",
     "latest_release": null,
@@ -1117,8 +1076,8 @@ var data =
     "data_format": 2,
     "description": "Spack package manager customization for GIZMO",
     "filenames": [
-      "environments/gizmo-deps/spack.yaml",
-      "environments/gizmo-grackle/spack.yaml"
+      "environments/gizmo-grackle/spack.yaml",
+      "environments/gizmo-deps/spack.yaml"
     ],
     "full_name": "ucsd-galaxy-lab/gizmo-spack",
     "latest_release": null,
@@ -1147,8 +1106,8 @@ var data =
     "description": "Experiments using Colza for In Situ Analysis",
     "filenames": [
       "cori/resizing/spack.yaml",
-      "cori/overhead/spack.yaml",
-      "cori/vtk/spack.yaml"
+      "cori/vtk/spack.yaml",
+      "cori/overhead/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/colza-experiments",
     "latest_release": null,
@@ -1162,9 +1121,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
       "spack-llvm.yaml",
-      "spack-qmcpack.yaml"
+      "spack-qmcpack.yaml",
+      "spack.yaml"
     ],
     "full_name": "eugeneswalker/qmcpack-demo",
     "latest_release": null,
@@ -1177,8 +1136,8 @@ var data =
     "data_format": 2,
     "description": "SIRIUS AppImage (using just the bare minimum)",
     "filenames": [
-      "sirius/spack.yaml",
-      "libtree/spack.yaml"
+      "libtree/spack.yaml",
+      "sirius/spack.yaml"
     ],
     "full_name": "haampie/sirius-appimage",
     "latest_release": null,
@@ -1247,42 +1206,42 @@ var data =
     "data_format": 2,
     "description": "NMC software deployment environments leveraging Spack.",
     "filenames": [
-      "prod/ecp-x86_64/4-py/spack.yaml",
-      "dev/ecp-x86_64/4-py/spack.yaml",
-      "prod/xx-fe1/_manual/spack.yaml",
-      "dev/xx-fe1/0-base/spack.yaml",
-      "prod/ecp-x86_64/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/2-compute/spack.yaml",
-      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
-      "prod/gitlab-runner/1-core/spack.yaml",
-      "dev/ecp-x86_64/2-compute/spack.yaml",
-      "dev/ecp-p9-4v100/0-base/spack.yaml",
-      "prod/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/_manual/spack.yaml",
-      "prod/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/ecp-x86_64/3-sdk/spack.yaml",
-      "prod/ecp-p9-4v100/0-base/spack.yaml",
-      "prod/ecp-x86_64/5-e4s/spack.yaml",
-      "dev/xx-fe1/4-py/spack.yaml",
-      "prod/ecp-x86_64/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/4-py/spack.yaml",
-      "dev/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-x86_64/5-e4s/spack.yaml",
-      "dev/xx-fe1/_manual/spack.yaml",
-      "prod/xx-fe1/0-base/spack.yaml",
-      "dev/ecp-x86_64/0-base/spack.yaml",
-      "dev/gitlab-runner/1-core/spack.yaml",
-      "prod/xx-fe1/4-py/spack.yaml",
-      "dev/ecp-p9-4v100/2-compute/spack.yaml",
-      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/ecp-p9-4v100/1-core/spack.yaml",
-      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
       "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "dev/ecp-p9-4v100/4-py/spack.yaml",
+      "prod/ecp-p9-4v100/2-compute/spack.yaml",
+      "dev/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-x86_64/0-base/spack.yaml",
+      "prod/gitlab-runner/1-core/spack.yaml",
+      "dev/xx-fe1/_manual/spack.yaml",
+      "prod/xx-fe1/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/1-core/spack.yaml",
+      "dev/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/xx-fe1/0-base/spack.yaml",
+      "dev/ecp-x86_64/1-core/spack.yaml",
+      "dev/xx-fe1/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/2-compute/spack.yaml",
+      "dev/gitlab-runner/1-core/spack.yaml",
+      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
+      "prod/xx-fe1/4-py/spack.yaml",
       "prod/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-p9-4v100/1-core/spack.yaml",
       "dev/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
+      "prod/ecp-x86_64/4-py/spack.yaml",
+      "dev/ecp-p9-4v100/_manual/spack.yaml",
+      "prod/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/ecp-x86_64/_manual/spack.yaml",
+      "dev/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-x86_64/_manual/spack.yaml",
       "prod/ecp-p9-4v100/4-py/spack.yaml",
       "prod/ecp-p9-4v100/_manual/spack.yaml",
-      "dev/ecp-x86_64/1-core/spack.yaml"
+      "dev/ecp-p9-4v100/0-base/spack.yaml",
+      "prod/ecp-x86_64/1-core/spack.yaml",
+      "dev/xx-fe1/4-py/spack.yaml",
+      "dev/ecp-x86_64/4-py/spack.yaml"
     ],
     "full_name": "paulbry/nmc-swd",
     "latest_release": null,
@@ -1326,8 +1285,8 @@ var data =
     "description": "Deploy components and scripts for RCM",
     "filenames": [
       "deploy/environments/insitu/spack.yaml",
-      "deploy/environments/rcm/spack.yaml",
-      "deploy/base_spack_devel/environments/base/spack.yaml"
+      "deploy/base_spack_devel/environments/base/spack.yaml",
+      "deploy/environments/rcm/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/RCM_spack_deploy",
     "latest_release": null,
@@ -1355,11 +1314,11 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "NERSC/Cori/spack.yaml",
       "ORNL/Summit/spack.yaml",
       "ANL/Bebop/spack.yaml",
-      "ANL/Theta/spack.yaml",
-      "ANL/JLSE/spack.yaml"
+      "NERSC/Cori/spack.yaml",
+      "ANL/JLSE/spack.yaml",
+      "ANL/Theta/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1510,13 +1469,13 @@ var data =
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1572,13 +1531,13 @@ var data =
     "description": "exawind/nalu-wind deployment using Spack and E4S build cache (demo)",
     "filenames": [
       "summit/spack.yaml",
-      "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/openmpi/spack.yaml",
-      "uoregon/mpich/spack.yaml",
+      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
       "uoregon/spectrum-mpi/spack.yaml",
+      "uoregon/mpich/spack.yaml",
+      "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
       "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
       "uoregon/mpich-container/spack.yaml",
-      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml"
+      "uoregon/openmpi/spack.yaml"
     ],
     "full_name": "eugeneswalker/nalu-wind-demo",
     "latest_release": null,
@@ -1591,10 +1550,10 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
+      "hosts/andes/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
       "hosts/lyra/envs/base/spack.yaml",
-      "hosts/summit/envs/base/spack.yaml",
-      "hosts/andes/envs/base/spack.yaml"
+      "hosts/summit/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1622,8 +1581,8 @@ var data =
     "description": "Spec files for research software library installed at Iowa State University via Spack",
     "filenames": [
       "3-packages/spack.yaml",
-      "1-compilers/spack.yaml",
-      "2-mpis/spack.yaml"
+      "2-mpis/spack.yaml",
+      "1-compilers/spack.yaml"
     ],
     "full_name": "ResearchIT/isu-spack",
     "latest_release": null,
@@ -1677,13 +1636,13 @@ var data =
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/key4hep-release-broadwell/spack.yaml",
       "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-debug/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml",
-      "environments/key4hep-release-user/spack.yaml",
       "environments/key4hep-release/spack.yaml",
-      "environments/geant4-data-share/spack.yaml"
+      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/geant4-data-share/spack.yaml",
+      "environments/key4hep-release-broadwell/spack.yaml",
+      "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-debug/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1711,8 +1670,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "files/spack_contenerize/spack.yaml",
-      "exercises/spack_contenerize/spack.yaml"
+      "exercises/spack_contenerize/spack.yaml",
+      "files/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1727,9 +1686,9 @@ var data =
     "description": "RADIUSS CI project aims at providing sensible default configurations and tools for GitLab CI.",
     "filenames": [
       "spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml",
+      "spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml",
       "spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml"
+      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-ci",
     "latest_release": null,
@@ -1764,9 +1723,9 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
+      "etc/spack/nrel-eagle/spack.yaml",
       "etc/spack/ornl-summit/spack-matrix.yaml",
-      "etc/spack/spack/spack.yaml",
-      "etc/spack/nrel-eagle/spack.yaml"
+      "etc/spack/spack/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1784,24 +1743,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "E4S for Spack",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "E4S-Project/e4s",
-    "latest_release": "v21.05",
-    "readme": "\u003ch2\u003e\n\u003ca id=\"user-content-e4s-release-2105\" class=\"anchor\" href=\"#e4s-release-2105\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eE4S Release 21.05\u003c/h2\u003e\n\u003cp\u003eMay 2021 release of E4S\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-files\" class=\"anchor\" href=\"#files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFiles\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003espack.yaml\u003c/code\u003e -- Model Spack environment\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eSpecs in the Model Spack Environment are commented out if (a) there are outstanding build issues or (b) if they track branches and are not available in versioned form\u003c/em\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack-version\" class=\"anchor\" href=\"#spack-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Version\u003c/h3\u003e\n\u003cp\u003eE4S 21.05 uses Spack branch \u003ccode\u003ee4s-21.05\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/spack/spack\"\u003ehttps://github.com/spack/spack\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eBranch \u003ccode\u003ee4s-21.05\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack-build-cache\" class=\"anchor\" href=\"#spack-build-cache\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Build Cache\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cache.e4s.io\" rel=\"nofollow\"\u003ehttps://cache.e4s.io\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cache.e4s.io/21.05\" rel=\"nofollow\"\u003ehttps://cache.e4s.io/21.05\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e$\u0026gt; spack mirror add E4S https://cache.e4s.io/21.05\n$\u0026gt; spack buildcache keys -it\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-facility-adaptation-examples\" class=\"anchor\" href=\"#facility-adaptation-examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFacility Adaptation Examples\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml\"\u003eNERSC Cori - Intel 19.1.3.304\u003c/a\u003e (\u003ca href=\"https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori\"\u003eInstructions\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml\"\u003eNERSC Cori - GCC 9.3.0\u003c/a\u003e (\u003ca href=\"https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori\"\u003eInstructions\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml\"\u003eFrank Jupiter - GCC 9.3.0\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-packages\" class=\"anchor\" href=\"#packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePackages\u003c/h3\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003ePackage\u003c/th\u003e\n\u003cth\u003eVersion\u003c/th\u003e\n\u003cth\u003eGroup\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eadios\u003c/td\u003e\n\u003ctd\u003e1.13.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eadios2\u003c/td\u003e\n\u003ctd\u003e2.7.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eaml\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eamrex\u003c/td\u003e\n\u003ctd\u003e21.05\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003earborx\u003c/td\u003e\n\u003ctd\u003e1.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003earcher\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eargobots\u003c/td\u003e\n\u003ctd\u003e1.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eascent\u003c/td\u003e\n\u003ctd\u003e0.7.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eaxom\u003c/td\u003e\n\u003ctd\u003e0.5.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ebolt\u003c/td\u003e\n\u003ctd\u003e2.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecabana\u003c/td\u003e\n\u003ctd\u003e0.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecaliper\u003c/td\u003e\n\u003ctd\u003e2.5.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003echai\u003c/td\u003e\n\u003ctd\u003e2.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003econduit\u003c/td\u003e\n\u003ctd\u003e0.7.2\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edarshan-runtime\u003c/td\u003e\n\u003ctd\u003e3.3.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edarshan-util\u003c/td\u003e\n\u003ctd\u003e3.3.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edyninst\u003c/td\u003e\n\u003ctd\u003e11.0.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003efaodel\u003c/td\u003e\n\u003ctd\u003e1.1906.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eflecsi\u003c/td\u003e\n\u003ctd\u003e1.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eflit\u003c/td\u003e\n\u003ctd\u003e2.1.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003efortrilinos\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egasnet\u003c/td\u003e\n\u003ctd\u003e2021.3.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eginkgo\u003c/td\u003e\n\u003ctd\u003e1.3.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eglobalarrays\u003c/td\u003e\n\u003ctd\u003e5.8\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egmp\u003c/td\u003e\n\u003ctd\u003e6.2.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egotcha\u003c/td\u003e\n\u003ctd\u003e1.0.3\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehdf5\u003c/td\u003e\n\u003ctd\u003e1.10.7\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eheffte\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehpctoolkit\u003c/td\u003e\n\u003ctd\u003e2021.03.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehpx\u003c/td\u003e\n\u003ctd\u003e1.6.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehypre\u003c/td\u003e\n\u003ctd\u003e2.20.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ekokkos\u003c/td\u003e\n\u003ctd\u003e3.4.00\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ekokkos-kernels\u003c/td\u003e\n\u003ctd\u003e3.2.00\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elegion\u003c/td\u003e\n\u003ctd\u003e21.03.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibnrm\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibquo\u003c/td\u003e\n\u003ctd\u003e1.3.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibunwind\u003c/td\u003e\n\u003ctd\u003e1.5.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ellvm-doe\u003c/td\u003e\n\u003ctd\u003edoe\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eloki\u003c/td\u003e\n\u003ctd\u003e0.1.7\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emagma\u003c/td\u003e\n\u003ctd\u003e2.5.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emercury\u003c/td\u003e\n\u003ctd\u003e2.0.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emetall\u003c/td\u003e\n\u003ctd\u003e0.13\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emfem\u003c/td\u003e\n\u003ctd\u003e4.2.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003empark-variant\u003c/td\u003e\n\u003ctd\u003e1.4.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003empifileutils\u003c/td\u003e\n\u003ctd\u003e0.11\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eninja\u003c/td\u003e\n\u003ctd\u003e1.10.2\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003enrm\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eomega-h\u003c/td\u003e\n\u003ctd\u003e9.32.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eopenmpi\u003c/td\u003e\n\u003ctd\u003e4.0.5\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eopenpmd-api\u003c/td\u003e\n\u003ctd\u003e0.13.4\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epapi\u003c/td\u003e\n\u003ctd\u003e6.0.0.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epapyrus\u003c/td\u003e\n\u003ctd\u003e1.0.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eparallel-netcdf\u003c/td\u003e\n\u003ctd\u003e1.12.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epdt\u003c/td\u003e\n\u003ctd\u003e3.25.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epetsc\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ephist\u003c/td\u003e\n\u003ctd\u003e1.9.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eplasma\u003c/td\u003e\n\u003ctd\u003e20.9.20\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eprecice\u003c/td\u003e\n\u003ctd\u003e2.2.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epumi\u003c/td\u003e\n\u003ctd\u003e2.2.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-jupyterhub\u003c/td\u003e\n\u003ctd\u003e1.0.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-libensemble\u003c/td\u003e\n\u003ctd\u003e0.7.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-petsc4py\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-warpx\u003c/td\u003e\n\u003ctd\u003e21.05\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqt\u003c/td\u003e\n\u003ctd\u003e5.15.2\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqthreads\u003c/td\u003e\n\u003ctd\u003e1.16\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqwt\u003c/td\u003e\n\u003ctd\u003e6.1.6\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eraja\u003c/td\u003e\n\u003ctd\u003e0.13.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erempi\u003c/td\u003e\n\u003ctd\u003e1.1.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003escr\u003c/td\u003e\n\u003ctd\u003e3.0rc1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eslate\u003c/td\u003e\n\u003ctd\u003e2021.05.2\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eslepc\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003estc\u003c/td\u003e\n\u003ctd\u003e0.9.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003estrumpack\u003c/td\u003e\n\u003ctd\u003e5.1.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esundials\u003c/td\u003e\n\u003ctd\u003e5.7.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esuperlu\u003c/td\u003e\n\u003ctd\u003e5.2.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esuperlu-dist\u003c/td\u003e\n\u003ctd\u003e6.4.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eswig\u003c/td\u003e\n\u003ctd\u003e4.0.2-f\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esz\u003c/td\u003e\n\u003ctd\u003e2.1.11.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etasmanian\u003c/td\u003e\n\u003ctd\u003e7.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etau\u003c/td\u003e\n\u003ctd\u003e2.30.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etrilinos\u003c/td\u003e\n\u003ctd\u003e13.0.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eturbine\u003c/td\u003e\n\u003ctd\u003e1.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eumap\u003c/td\u003e\n\u003ctd\u003e2.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eumpire\u003c/td\u003e\n\u003ctd\u003e4.1.2\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eunifyfs\u003c/td\u003e\n\u003ctd\u003e0.9.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eupcxx\u003c/td\u003e\n\u003ctd\u003e2021.3.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ezfp\u003c/td\u003e\n\u003ctd\u003e0.5.5\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n",
-    "stargazers_count": 4,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1622517105.0
-  },
-  {
-    "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "files/spack_contenerize/spack.yaml",
-      "exercises/spack_contenerize/spack.yaml"
+      "exercises/spack_contenerize/spack.yaml",
+      "files/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1833,6 +1778,20 @@ var data =
     "subscribers_count": 5,
     "topics": [],
     "updated_at": 1619634375.0
+  },
+  {
+    "data_format": 2,
+    "description": "E4S for Spack",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "E4S-Project/e4s",
+    "latest_release": "v21.05",
+    "readme": "\u003ch2\u003e\n\u003ca id=\"user-content-e4s-release-2105\" class=\"anchor\" href=\"#e4s-release-2105\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eE4S Release 21.05\u003c/h2\u003e\n\u003cp\u003eMay 2021 release of E4S\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-files\" class=\"anchor\" href=\"#files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFiles\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003espack.yaml\u003c/code\u003e -- Model Spack environment\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eSpecs in the Model Spack Environment are commented out if (a) there are outstanding build issues or (b) if they track branches and are not available in versioned form\u003c/em\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack-version\" class=\"anchor\" href=\"#spack-version\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Version\u003c/h3\u003e\n\u003cp\u003eE4S 21.05 uses Spack branch \u003ccode\u003ee4s-21.05\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/spack/spack\"\u003ehttps://github.com/spack/spack\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eBranch \u003ccode\u003ee4s-21.05\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack-build-cache\" class=\"anchor\" href=\"#spack-build-cache\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Build Cache\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cache.e4s.io\" rel=\"nofollow\"\u003ehttps://cache.e4s.io\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cache.e4s.io/21.05\" rel=\"nofollow\"\u003ehttps://cache.e4s.io/21.05\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e$\u0026gt; spack mirror add E4S https://cache.e4s.io/21.05\n$\u0026gt; spack buildcache keys -it\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-facility-adaptation-examples\" class=\"anchor\" href=\"#facility-adaptation-examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFacility Adaptation Examples\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml\"\u003eNERSC Cori - Intel 19.1.3.304\u003c/a\u003e (\u003ca href=\"https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori\"\u003eInstructions\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml\"\u003eNERSC Cori - GCC 9.3.0\u003c/a\u003e (\u003ca href=\"https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori\"\u003eInstructions\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml\"\u003eFrank Jupiter - GCC 9.3.0\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-packages\" class=\"anchor\" href=\"#packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePackages\u003c/h3\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003ePackage\u003c/th\u003e\n\u003cth\u003eVersion\u003c/th\u003e\n\u003cth\u003eGroup\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eadios\u003c/td\u003e\n\u003ctd\u003e1.13.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eadios2\u003c/td\u003e\n\u003ctd\u003e2.7.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eaml\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eamrex\u003c/td\u003e\n\u003ctd\u003e21.05\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003earborx\u003c/td\u003e\n\u003ctd\u003e1.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003earcher\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eargobots\u003c/td\u003e\n\u003ctd\u003e1.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eascent\u003c/td\u003e\n\u003ctd\u003e0.7.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eaxom\u003c/td\u003e\n\u003ctd\u003e0.5.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ebolt\u003c/td\u003e\n\u003ctd\u003e2.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecabana\u003c/td\u003e\n\u003ctd\u003e0.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecaliper\u003c/td\u003e\n\u003ctd\u003e2.5.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003echai\u003c/td\u003e\n\u003ctd\u003e2.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003econduit\u003c/td\u003e\n\u003ctd\u003e0.7.2\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edarshan-runtime\u003c/td\u003e\n\u003ctd\u003e3.3.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edarshan-util\u003c/td\u003e\n\u003ctd\u003e3.3.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003edyninst\u003c/td\u003e\n\u003ctd\u003e11.0.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003efaodel\u003c/td\u003e\n\u003ctd\u003e1.1906.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eflecsi\u003c/td\u003e\n\u003ctd\u003e1.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eflit\u003c/td\u003e\n\u003ctd\u003e2.1.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003efortrilinos\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egasnet\u003c/td\u003e\n\u003ctd\u003e2021.3.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eginkgo\u003c/td\u003e\n\u003ctd\u003e1.3.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eglobalarrays\u003c/td\u003e\n\u003ctd\u003e5.8\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egmp\u003c/td\u003e\n\u003ctd\u003e6.2.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003egotcha\u003c/td\u003e\n\u003ctd\u003e1.0.3\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehdf5\u003c/td\u003e\n\u003ctd\u003e1.10.7\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eheffte\u003c/td\u003e\n\u003ctd\u003e2.0.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehpctoolkit\u003c/td\u003e\n\u003ctd\u003e2021.03.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehpx\u003c/td\u003e\n\u003ctd\u003e1.6.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ehypre\u003c/td\u003e\n\u003ctd\u003e2.20.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ekokkos\u003c/td\u003e\n\u003ctd\u003e3.4.00\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ekokkos-kernels\u003c/td\u003e\n\u003ctd\u003e3.2.00\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elegion\u003c/td\u003e\n\u003ctd\u003e21.03.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibnrm\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibquo\u003c/td\u003e\n\u003ctd\u003e1.3.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003elibunwind\u003c/td\u003e\n\u003ctd\u003e1.5.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ellvm-doe\u003c/td\u003e\n\u003ctd\u003edoe\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eloki\u003c/td\u003e\n\u003ctd\u003e0.1.7\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emagma\u003c/td\u003e\n\u003ctd\u003e2.5.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emercury\u003c/td\u003e\n\u003ctd\u003e2.0.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emetall\u003c/td\u003e\n\u003ctd\u003e0.13\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003emfem\u003c/td\u003e\n\u003ctd\u003e4.2.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003empark-variant\u003c/td\u003e\n\u003ctd\u003e1.4.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003empifileutils\u003c/td\u003e\n\u003ctd\u003e0.11\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eninja\u003c/td\u003e\n\u003ctd\u003e1.10.2\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003enrm\u003c/td\u003e\n\u003ctd\u003e0.1.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eomega-h\u003c/td\u003e\n\u003ctd\u003e9.32.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eopenmpi\u003c/td\u003e\n\u003ctd\u003e4.0.5\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eopenpmd-api\u003c/td\u003e\n\u003ctd\u003e0.13.4\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epapi\u003c/td\u003e\n\u003ctd\u003e6.0.0.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epapyrus\u003c/td\u003e\n\u003ctd\u003e1.0.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eparallel-netcdf\u003c/td\u003e\n\u003ctd\u003e1.12.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epdt\u003c/td\u003e\n\u003ctd\u003e3.25.1\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epetsc\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ephist\u003c/td\u003e\n\u003ctd\u003e1.9.4\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eplasma\u003c/td\u003e\n\u003ctd\u003e20.9.20\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eprecice\u003c/td\u003e\n\u003ctd\u003e2.2.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epumi\u003c/td\u003e\n\u003ctd\u003e2.2.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-jupyterhub\u003c/td\u003e\n\u003ctd\u003e1.0.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-libensemble\u003c/td\u003e\n\u003ctd\u003e0.7.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-petsc4py\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003epy-warpx\u003c/td\u003e\n\u003ctd\u003e21.05\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqt\u003c/td\u003e\n\u003ctd\u003e5.15.2\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqthreads\u003c/td\u003e\n\u003ctd\u003e1.16\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eqwt\u003c/td\u003e\n\u003ctd\u003e6.1.6\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eraja\u003c/td\u003e\n\u003ctd\u003e0.13.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erempi\u003c/td\u003e\n\u003ctd\u003e1.1.0\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003escr\u003c/td\u003e\n\u003ctd\u003e3.0rc1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eslate\u003c/td\u003e\n\u003ctd\u003e2021.05.2\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eslepc\u003c/td\u003e\n\u003ctd\u003e3.15.0\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003estc\u003c/td\u003e\n\u003ctd\u003e0.9.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003estrumpack\u003c/td\u003e\n\u003ctd\u003e5.1.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esundials\u003c/td\u003e\n\u003ctd\u003e5.7.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esuperlu\u003c/td\u003e\n\u003ctd\u003e5.2.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esuperlu-dist\u003c/td\u003e\n\u003ctd\u003e6.4.0\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eswig\u003c/td\u003e\n\u003ctd\u003e4.0.2-f\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003esz\u003c/td\u003e\n\u003ctd\u003e2.1.11.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etasmanian\u003c/td\u003e\n\u003ctd\u003e7.5\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etau\u003c/td\u003e\n\u003ctd\u003e2.30.1\u003c/td\u003e\n\u003ctd\u003edev tools\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003etrilinos\u003c/td\u003e\n\u003ctd\u003e13.0.1\u003c/td\u003e\n\u003ctd\u003emath\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eturbine\u003c/td\u003e\n\u003ctd\u003e1.3.0\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eumap\u003c/td\u003e\n\u003ctd\u003e2.1.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eumpire\u003c/td\u003e\n\u003ctd\u003e4.1.2\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eunifyfs\u003c/td\u003e\n\u003ctd\u003e0.9.1\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eupcxx\u003c/td\u003e\n\u003ctd\u003e2021.3.0\u003c/td\u003e\n\u003ctd\u003epmr core\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ezfp\u003c/td\u003e\n\u003ctd\u003e0.5.5\u003c/td\u003e\n\u003ctd\u003edata+viz\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n",
+    "stargazers_count": 5,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1623533871.0
   },
   {
     "data_format": 2,
@@ -1894,7 +1853,7 @@ var data =
       "data-science",
       "pandas"
     ],
-    "updated_at": 1623412903.0
+    "updated_at": 1623517587.0
   },
   {
     "data_format": 2,
@@ -1931,23 +1890,23 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/apr21/sim_mt/spack.yaml",
-      "test/env/dds/spack.yaml",
-      "test/env/fairmq/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "test/env/fairroot_develop/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
-      "env/dev/sim_mt_headless/spack.yaml",
-      "test/env/fairlogger/spack.yaml",
-      "env/nov20/sim/spack.yaml",
-      "env/dev/sim/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml",
       "env/jun19/sim/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
-      "env/apr21/sim/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
       "env/nov20/sim_mt/spack.yaml",
       "test/env/jun19_fairroot_18_4/spack.yaml",
-      "env/nov20/sim_mt_headless/spack.yaml"
+      "test/env/r3broot/spack.yaml",
+      "env/dev/sim/spack.yaml",
+      "env/nov20/sim_mt_headless/spack.yaml",
+      "env/nov20/sim/spack.yaml",
+      "test/env/fairlogger/spack.yaml",
+      "env/apr21/sim/spack.yaml",
+      "test/env/fairroot_develop/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
+      "env/apr21/sim_mt/spack.yaml",
+      "env/dev/sim_mt_headless/spack.yaml",
+      "test/env/dds/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "test/env/fairmq/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "apr21",
@@ -1961,9 +1920,9 @@ var data =
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
+      "build/3_more_tools/spack.yaml",
       "build/5_runtime/spack.yaml",
       "build/1_ccache/spack.yaml",
-      "build/3_more_tools/spack.yaml",
       "build/6_spack/spack.yaml",
       "build/2_compiler/spack.yaml"
     ],
@@ -1983,18 +1942,18 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
-      "docker-recipes/superlu-sc/spack.yaml",
-      "spack-sdk-environments/compilers_and_support/spack.yaml",
       "spack-sdk-environments/xsdk/spack.yaml",
-      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
-      "spack-sdk-environments/pmr_core/spack.yaml",
-      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
-      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
-      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
       "spack-sdk-environments/e4s_ecosystem/spack.yaml",
-      "spack-sdk-environments/tools_and_technology/spack.yaml"
+      "spack-sdk-environments/compilers_and_support/spack.yaml",
+      "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
+      "spack-sdk-environments/tools_and_technology/spack.yaml",
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
+      "docker-recipes/superlu-sc/spack.yaml",
+      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
+      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
+      "spack-sdk-environments/pmr_core/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -2041,32 +2000,32 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
       "NREL/configs/eagle/base/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
       "NREL/configs/eagle/compilers/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NERSC/cori/e4s-stacks/x86/spack.yaml",
       "NREL/configs/eagle/utilities/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
       "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
       "NERSC/cori/e4s-20.10/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
       "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
       "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml"
+      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "NREL/configs/rhodes/software/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -2080,12 +2039,12 @@ var data =
     "data_format": 2,
     "description": ":floppy_disk: C++ \u0026 Python API for Scientific I/O",
     "filenames": [
-      ".github/ci/spack-envs/gcc5_py36_ompi_h5_ad1_ad2/spack.yaml",
-      ".github/ci/spack-envs/clang5_nopy_nompi_h5/spack.yaml",
-      ".github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml",
-      "spack.yaml",
       ".github/ci/spack-envs/clang5_nopy_ompi_h5_ad1_ad2_bp3/spack.yaml",
-      ".github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml"
+      "spack.yaml",
+      ".github/ci/spack-envs/clang5_nopy_nompi_h5/spack.yaml",
+      ".github/ci/spack-envs/clangtidy_nopy_ompi_h5_ad1_ad2/spack.yaml",
+      ".github/ci/spack-envs/clang10_nopy_ompi_h5_ad1_ad2/spack.yaml",
+      ".github/ci/spack-envs/gcc5_py36_ompi_h5_ad1_ad2/spack.yaml"
     ],
     "full_name": "openPMD/openPMD-api",
     "latest_release": "0.13.4",
@@ -2106,16 +2065,16 @@ var data =
       "opendata",
       "cpp14"
     ],
-    "updated_at": 1623444213.0
+    "updated_at": 1623530326.0
   },
   {
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
@@ -2203,13 +2162,13 @@ var data =
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/llnl/spack.yaml",
-      ".spack_env/darwin/spack.yaml"
+      ".spack_env/darwin/spack.yaml",
+      ".spack_env/llnl/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v5.0.1",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content---umpire-v501\" class=\"anchor\" href=\"#--umpire-v501\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" width=\"128\" valign=\"middle\" alt=\"Umpire\" data-canonical-src=\"https://cdn.rawgit.com/LLNL/Umpire/develop/share/umpire/logo/umpire-logo.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e  Umpire v5.0.1\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/36f0f474aacbade149e980682a28b1b97aa3ea7737006edce896fa4ebbc9ffa7/68747470733a2f2f7472617669732d63692e636f6d2f4c4c4e4c2f556d706972652e7376673f6272616e63683d646576656c6f70\" alt=\"Travis Build Status\" data-canonical-src=\"https://travis-ci.com/LLNL/Umpire.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/davidbeckingsale/Umpire/_build/latest?definitionId=1\u0026amp;branchName=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/615ebc663bd8e7bce0a236693071d360c1f3d4b04bfabb454ba50068b0bac3c0/68747470733a2f2f6465762e617a7572652e636f6d2f64617669646265636b696e6773616c652f556d706972652f5f617069732f6275696c642f7374617475732f4c4c4e4c2e556d706972653f6272616e63684e616d653d646576656c6f70\" alt=\"Azure Pipelines Build Status\" data-canonical-src=\"https://dev.azure.com/davidbeckingsale/Umpire/_apis/build/status/LLNL.Umpire?branchName=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://umpire.readthedocs.io/en/develop/?badge=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7fd7eef5a102528cae391ff45e9ae1026690d979c1413498b1604b23febeffaf/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f756d706972652f62616467652f3f76657273696f6e3d646576656c6f70\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/umpire/badge/?version=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d567cb288d0416a63a2faa83e8b2d5265860c1a3e9af604f4b6730340fa830c7/68747470733a2f2f636f6465636f762e696f2f67682f4c4c4e4c2f556d706972652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/LLNL/Umpire/branch/develop/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://gitter.im/LLNL/Umpire?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d812b594e8c008b20bc4b4e508035cb3ffd814a168debe18107da92e6c7e5f88/68747470733a2f2f6261646765732e6769747465722e696d2f4c4c4e4c2f556d706972652e737667\" alt=\"Join the chat at https://gitter.im/LLNL/Umpire\" data-canonical-src=\"https://badges.gitter.im/LLNL/Umpire.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUmpire is a resource management library that allows the discovery, provision,\nand management of memory on machines with multiple memory devices like NUMA and GPUs.\u003c/p\u003e\n\u003cp\u003eUmpire uses CMake and BLT to handle builds. Since BLT is included as a\nsubmodule, first make sure you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git submodule init \u0026amp;\u0026amp; git submodule update\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen, make sure that you have a modern compiler loaded, and the configuration is as\nsimple as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build \u0026amp;\u0026amp; cd build\n$ cmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCMake will provide output about which compiler is being used. Once CMake has\ncompleted, Umpire can be built with Make:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more advanced configuration you can use standard CMake variables.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eBoth user and code documentation is available \u003ca href=\"http://umpire.readthedocs.io/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe Umpire \u003ca href=\"https://umpire.readthedocs.io/en/develop/tutorial.html\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e provides a step by step introduction to Umpire features.\u003c/p\u003e\n\u003cp\u003eIf you have build problems, we have comprehensive \u003ca href=\"https://umpire.readthedocs.io/en/develop/advanced_configuration.html\" rel=\"nofollow\"\u003ebuild system documentation\u003c/a\u003e too!\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-getting-involved\" class=\"anchor\" href=\"#getting-involved\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Involved\u003c/h1\u003e\n\u003cp\u003eUmpire is an open-source project, and we welcome contributions from the community.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-mailing-list\" class=\"anchor\" href=\"#mailing-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h2\u003e\n\u003cp\u003eThe Umpire mailing list is hosted on Google Groups, and is a great place to ask questions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://groups.google.com/forum/#!forum/umpire-users\" rel=\"nofollow\"\u003eUmpire Users Google Group\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributions\" class=\"anchor\" href=\"#contributions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h2\u003e\n\u003cp\u003eWe welcome all kinds of contributions: new features, bug fixes, documentation edits; it\u0027s all great!\u003c/p\u003e\n\u003cp\u003eTo contribute, make a \u003ca href=\"https://github.com/LLNL/Umpire/compare\"\u003epull request\u003c/a\u003e, with \u003ccode\u003edevelop\u003c/code\u003e as the destination branch.\nWe use Travis to run CI tests, and your branch must pass these tests before being merged.\u003c/p\u003e\n\u003cp\u003eFor more information, see the \u003ca href=\"https://github.com/LLNL/Umpire/blob/develop/CONTRIBUTING.md\"\u003econtributing guide\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h1\u003e\n\u003cp\u003eThanks to all of Umpire\u0027s\n\u003ca href=\"https://github.com/LLNL/Umpire/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eUmpire was created by David Beckingsale (\u003ca href=\"mailto:david@llnl.gov\"\u003edavid@llnl.gov\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-citing-umpire\" class=\"anchor\" href=\"#citing-umpire\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Umpire\u003c/h2\u003e\n\u003cp\u003eIf you are referencing Umpire in a publication, please use the following citation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eD. Beckingsale, M. Mcfadden, J. Dahm, R. Pankajakshan and R. Hornung, \u003ca href=\"https://ieeexplore.ieee.org/document/8907404\" rel=\"nofollow\"\u003e\"Umpire: Application-Focused Management and Coordination of Complex Hierarchical Memory,\"\u003c/a\u003e in IBM Journal of Research and Development. 2019. doi: 10.1147/JRD.2019.2954403\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-release\" class=\"anchor\" href=\"#release\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease\u003c/h1\u003e\n\u003cp\u003eUmpire is released under an MIT license. For more details, please see the\n\u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"./RELEASE\"\u003eRELEASE\u003c/a\u003e files.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLLNL-CODE-747640\u003c/code\u003e\n\u003ccode\u003eOCEC-18-031\u003c/code\u003e\u003c/p\u003e\n",
-    "stargazers_count": 167,
+    "stargazers_count": 168,
     "subscribers_count": 14,
     "topics": [
       "hpc",
@@ -2220,7 +2179,7 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1623423939.0
+    "updated_at": 1623557154.0
   },
   {
     "data_format": 2,
