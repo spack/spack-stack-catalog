@@ -16,6 +16,7 @@ spack:
   - libpmemobj-cpp
   - pmemkv +cmap+csmap
   - memkind
+  - doctest
   concretization: together
   view: true
   packages:
