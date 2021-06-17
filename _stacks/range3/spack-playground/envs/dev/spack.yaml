@@ -17,6 +17,7 @@ spack:
   - pmemkv +cmap+csmap
   - memkind
   - doctest
+  - nlohmann-json
   concretization: together
   view: true
   packages:
