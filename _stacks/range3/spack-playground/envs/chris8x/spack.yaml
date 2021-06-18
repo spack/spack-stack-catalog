@@ -10,6 +10,12 @@ spack:
   - mochi-thallium
   - mercury +ofi~boostsys
   - libfabric@1.12.0 fabrics=rxm,sockets,tcp,verbs
+  - pmdk@master +rpmem
+  - libpmemobj-cpp
+  - pmemkv +cmap+csmap
+  - memkind
+  - doctest
+  - nlohmann-json
   concretization: together
   view: true
   packages:
@@ -170,6 +176,7 @@ spack:
         prefix: /usr
       buildable: false
   repos:
+  - ../../spack-repos/dev
   - ../../extern/mochi-spack-packages
   config:
     build_stage:
