@@ -5,7 +5,7 @@ spack:
   - mochi-margo
   - mochi-thallium
   - mochi-abt-io
-  - mochi-ssg
+  - mochi-ssg@main
   - nlohmann-json
   - spdlog
   - cppunit
