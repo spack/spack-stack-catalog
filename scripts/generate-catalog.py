@@ -169,7 +169,7 @@ def main():
     blacklist = set(l.strip() for l in open("blacklist.txt", "r"))
 
     # Don't parse the vsoch/spack-changes repository!
-    code_search = g.search_code("spack+filename:spack.yaml+-user:vsoch", sort="indexed")
+    code_search = g.search_code("spack filename:spack.yaml+-user:vsoch", sort="indexed")
 
     # Create a directory structure with spack.yaml files
     data_dir = os.path.join(here, "_stacks")
