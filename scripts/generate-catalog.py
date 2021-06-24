@@ -166,7 +166,7 @@ def main():
     """
     Entrypoint to catalog generation
     """
-    blacklist = set(l.strip() for l in open("blacklist.txt", "r"))
+    skips = set(l.strip() for l in open("skips.txt", "r"))
 
     # Don't parse the vsoch/spack-changes repository!
     code_search = g.search_code("spack filename:spack.yaml+-user:vsoch", sort="indexed")
@@ -176,6 +176,7 @@ def main():
 
     # Consolidate filenames by repository
     byrepo, lookup = combine_results(code_search)
+    total_count = len(byrepo)
 
     for i, reponame in enumerate(byrepo):
 
@@ -183,10 +184,10 @@ def main():
         files = byrepo[reponame]
         repo = lookup[reponame]
         if i % 10 == 0:
-            logging.info(f"{i} of {code_search.totalCount} results done")
+            logging.info(f"{i} of {total_count} results done")
 
         repo_dir = os.path.join(data_dir, repo.full_name)
-        if repo.full_name in blacklist:
+        if repo.full_name in skips:
             continue
 
         logging.info(f"Processing {repo.full_name}.")

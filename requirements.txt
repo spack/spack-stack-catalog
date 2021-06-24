@@ -1,6 +1,6 @@
 jinja2
-pygithub
-gitpython
+pygithub==1.55
+gitpython==3.1.17
 pandas
 pyaml
 scikit-learn
