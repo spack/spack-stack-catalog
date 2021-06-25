@@ -1,12 +1,12 @@
 spack:
   specs:
+  - cmake
+  - mpich
+  - argobots
+  - mercury~boostsys
   - mochi-thallium
   - mochi-margo
   - mochi-ssg
   - mochi-abt-io
   - mochi-bedrock
-  - mercury
-  - argobots
-  - cmake
-  - mpich
   concretization: together

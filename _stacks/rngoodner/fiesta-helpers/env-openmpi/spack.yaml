@@ -1,0 +1,7 @@
+spack:
+  concretization: separately
+  specs:
+  - cmake@3.20.3%gcc@9.4.0
+  - cuda@11.3.1%gcc@9.4.0
+  - hdf5@1.10.7%gcc@9.4.0 +mpi +threadsafe ^openmpi@4.0.5%gcc@9.4.0 +cuda
+  view: true

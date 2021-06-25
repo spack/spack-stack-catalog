@@ -2,7 +2,6 @@ spack:
   specs:
   - cppunit
   - cmake
-  - jsoncpp
   - tclap
   - spdlog
   - mpi

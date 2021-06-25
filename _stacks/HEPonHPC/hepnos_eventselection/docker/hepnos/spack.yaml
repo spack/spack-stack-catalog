@@ -1,8 +1,8 @@
 spack:
   specs:
-  - hepnos @0.4.6 cxxstd=14 target=x86_64
-  - hepnos-dataloader @0.3.1 target=x86_64
-  - hepnos-pep-benchmark @0.2 target=x86_64
+  - hepnos@0.4.6  cxxstd=14 target=x86_64
+  - hepnos-dataloader@0.3.1 target=x86_64
+  - hepnos-pep-benchmark@0.2 target=x86_64
   - mpich
   concretization: together
   repos:
