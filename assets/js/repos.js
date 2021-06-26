@@ -21,12 +21,12 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "rhel8NvhpcWdmapp/spack.yaml",
-      "v0160gcc/spack.yaml",
+      "v0162gccSpectrum/spack.yaml",
       "v0133gcc/spack.yaml",
       "v0133gccSpectrum/spack.yaml",
-      "spack.yaml",
-      "v0162gccSpectrum/spack.yaml"
+      "rhel8NvhpcWdmapp/spack.yaml",
+      "v0160gcc/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -40,9 +40,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "env-openmpi/spack.yaml",
       "env-mpich/spack.yaml",
-      "env-mvapich2/spack.yaml",
-      "env-openmpi/spack.yaml"
+      "env-mvapich2/spack.yaml"
     ],
     "full_name": "rngoodner/fiesta-helpers",
     "latest_release": null,
@@ -83,15 +83,15 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/power9le/flecsalemm-deps/spack.yaml",
-      "env/x86_64/flecsi/spack.yaml",
-      "env/power9le/flecsi/spack.yaml",
-      "env/broadwell/flecsalemm-deps/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml",
       ".gitlab-ci/env/dry-run/spack.yaml",
-      ".gitlab-ci/env/root-build/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml",
       "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml"
+      "env/broadwell/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/root-build/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
+      "env/power9le/flecsalemm-deps/spack.yaml",
+      "env/x86_64/flecsi/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -118,10 +118,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "envs/dev/spack.yaml",
-      "envs/cygnus/spack.yaml",
       "envs/broken-verbs-chris8x/spack.yaml",
-      "envs/chris8x/spack.yaml"
+      "envs/cygnus/spack.yaml",
+      "envs/chris8x/spack.yaml",
+      "envs/dev/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -149,10 +149,10 @@ var data =
     "data_format": 2,
     "description": "Create VM images for HPC applications on Google Cloud Platform",
     "filenames": [
+      "compilers/env/centos-7/spack.yaml",
       "singularity/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
       "compilers/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
-      "singularity/env/centos-7/spack.yaml",
-      "compilers/env/centos-7/spack.yaml"
+      "singularity/env/centos-7/spack.yaml"
     ],
     "full_name": "FluidNumerics/hpc-apps-gcp",
     "latest_release": null,
@@ -246,7 +246,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1624139125.0
+    "updated_at": 1624640025.0
   },
   {
     "data_format": 2,
@@ -462,28 +462,28 @@ var data =
     "description": "Spack Environments ",
     "filenames": [
       "cent8/envs/avx2/python/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent8/envs/avx/python/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent7/library/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent8/envs/x86_64/spack.yaml",
       "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
       "cent7/apps/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
       "cent8/envs/avx2/lusoft/spack.yaml",
       "compilers/envs/compilers/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
       "cent7/py_376/spack.yaml",
+      "cent7/library/bak/spack.yaml",
       "cent7/python_376/spack.yaml",
-      "cent7/mpis/spack.yaml"
+      "cent8/envs/solhawk/spack.yaml",
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/mpis/spack.yaml",
+      "cent7/library/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx/python/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -497,14 +497,14 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/software/spack.yaml",
       "configs/eagle/compilers/spack.yaml",
       "configs/eagle/utilities/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
-      "configs/rhodes/software/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
+      "configs/eagle/software/spack.yaml",
       "envs/exawind/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "configs/rhodes/software/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
       "configs/eagle/base/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
@@ -532,8 +532,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -943,10 +943,10 @@ var data =
     "description": null,
     "filenames": [
       "spack_environments/developer_release_x86_64_cuda_spack.yaml",
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
       "spack_environments/developer_release_osx_spack.yaml",
-      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml"
+      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -1170,7 +1170,6 @@ var data =
     "description": "Experiments using Colza for In Situ Analysis",
     "filenames": [
       "cori/resizing/spack.yaml",
-      "cori/vtk/spack.yaml",
       "cori/overhead/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/colza-experiments",
@@ -1186,8 +1185,8 @@ var data =
     "description": null,
     "filenames": [
       "spack-llvm.yaml",
-      "spack.yaml",
-      "spack-qmcpack.yaml"
+      "spack-qmcpack.yaml",
+      "spack.yaml"
     ],
     "full_name": "eugeneswalker/qmcpack-demo",
     "latest_release": null,
@@ -1270,42 +1269,42 @@ var data =
     "data_format": 2,
     "description": "NMC software deployment environments leveraging Spack.",
     "filenames": [
-      "prod/xx-fe1/4-py/spack.yaml",
-      "prod/ecp-p9-4v100/4-py/spack.yaml",
-      "dev/xx-fe1/_manual/spack.yaml",
-      "prod/xx-fe1/_manual/spack.yaml",
-      "prod/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/0-base/spack.yaml",
-      "prod/ecp-p9-4v100/_manual/spack.yaml",
-      "dev/ecp-x86_64/2-compute/spack.yaml",
-      "prod/ecp-x86_64/2-compute/spack.yaml",
-      "dev/ecp-p9-4v100/2-compute/spack.yaml",
-      "prod/ecp-x86_64/3-sdk/spack.yaml",
-      "prod/ecp-p9-4v100/2-compute/spack.yaml",
-      "dev/ecp-x86_64/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/0-base/spack.yaml",
-      "prod/gitlab-runner/1-core/spack.yaml",
-      "prod/ecp-x86_64/5-e4s/spack.yaml",
-      "prod/xx-fe1/0-base/spack.yaml",
-      "dev/ecp-x86_64/5-e4s/spack.yaml",
       "dev/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/2-compute/spack.yaml",
       "dev/gitlab-runner/1-core/spack.yaml",
-      "dev/xx-fe1/4-py/spack.yaml",
-      "dev/ecp-x86_64/0-base/spack.yaml",
-      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
-      "dev/ecp-x86_64/4-py/spack.yaml",
-      "prod/ecp-x86_64/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
       "prod/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/ecp-x86_64/_manual/spack.yaml",
+      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-x86_64/1-core/spack.yaml",
+      "prod/ecp-x86_64/_manual/spack.yaml",
+      "prod/xx-fe1/_manual/spack.yaml",
+      "dev/xx-fe1/0-base/spack.yaml",
+      "dev/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/ecp-x86_64/1-core/spack.yaml",
+      "dev/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-p9-4v100/_manual/spack.yaml",
+      "dev/xx-fe1/4-py/spack.yaml",
+      "dev/ecp-p9-4v100/1-core/spack.yaml",
+      "dev/ecp-x86_64/4-py/spack.yaml",
+      "dev/xx-fe1/_manual/spack.yaml",
       "prod/ecp-x86_64/4-py/spack.yaml",
       "dev/ecp-p9-4v100/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/ecp-x86_64/1-core/spack.yaml",
-      "dev/xx-fe1/0-base/spack.yaml",
-      "dev/ecp-x86_64/3-sdk/spack.yaml",
+      "dev/ecp-p9-4v100/4-py/spack.yaml",
       "prod/ecp-p9-4v100/1-core/spack.yaml",
-      "dev/ecp-p9-4v100/4-py/spack.yaml"
+      "prod/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/gitlab-runner/1-core/spack.yaml",
+      "dev/ecp-x86_64/_manual/spack.yaml",
+      "dev/ecp-x86_64/2-compute/spack.yaml",
+      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
+      "prod/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/4-py/spack.yaml",
+      "dev/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/xx-fe1/0-base/spack.yaml",
+      "prod/xx-fe1/4-py/spack.yaml",
+      "prod/ecp-p9-4v100/0-base/spack.yaml"
     ],
     "full_name": "paulbry/nmc-swd",
     "latest_release": null,
@@ -1319,8 +1318,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/production/base/spack.yaml",
-      "environments/production/rcm/spack.yaml"
+      "environments/production/rcm/spack.yaml",
+      "environments/production/base/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/CINECA_RCM_deployments",
     "latest_release": null,
@@ -1348,9 +1347,9 @@ var data =
     "data_format": 2,
     "description": "Deploy components and scripts for RCM",
     "filenames": [
-      "deploy/base_spack_devel/environments/base/spack.yaml",
       "deploy/environments/insitu/spack.yaml",
-      "deploy/environments/rcm/spack.yaml"
+      "deploy/environments/rcm/spack.yaml",
+      "deploy/base_spack_devel/environments/base/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/RCM_spack_deploy",
     "latest_release": null,
@@ -1364,8 +1363,8 @@ var data =
     "data_format": 2,
     "description": "Benchmarking of Sonata on Theta and Summit.",
     "filenames": [
-      "theta/spack.yaml",
-      "summit/spack.yaml"
+      "summit/spack.yaml",
+      "theta/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/sonata-benchmarking",
     "latest_release": null,
@@ -1378,11 +1377,11 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/JLSE/spack.yaml",
       "ANL/Bebop/spack.yaml",
-      "NERSC/Cori/spack.yaml",
       "ORNL/Summit/spack.yaml",
-      "ANL/Theta/spack.yaml"
+      "NERSC/Cori/spack.yaml",
+      "ANL/Theta/spack.yaml",
+      "ANL/JLSE/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1404,34 +1403,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1611744607.0
-  },
-  {
-    "data_format": 2,
-    "description": "Container files for building centos7 with netcdf fortran",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "thomas-robinson/centos7-netcdff",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-centos7-netcdff\" class=\"anchor\" href=\"#centos7-netcdff\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecentos7-netcdff\u003c/h1\u003e\n\u003cp\u003eContainer files for building centos7 with netcdf fortran\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1615473800.0
-  },
-  {
-    "data_format": 2,
-    "description": "Thallium is a C++14 library wrapping Margo, Mercury, and Argobots and providing an object-oriented way to use these libraries.",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/mochi-thallium",
-    "latest_release": "v0.9.1",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-thallium\" class=\"anchor\" href=\"#thallium\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThallium\u003c/h1\u003e\n\u003cp\u003eThallium is a C++ interface to \u003ca href=\"https://github.com/mochi-hpc/mochi-margo/\"\u003eMargo\u003c/a\u003e.\nIt offers a modern, object-oriented way of developing HPC data services. More\ninformation can be found on \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003eMochi\u0027s readthedocs\u003c/a\u003e\nwebsite.\u003c/p\u003e\n",
-    "stargazers_count": 1,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1624529975.0
   },
   {
     "data_format": 2,
@@ -1534,12 +1505,12 @@ var data =
     "description": "Provenance based Benchmark suite",
     "filenames": [
       "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1548,6 +1519,33 @@ var data =
     "subscribers_count": 0,
     "topics": [],
     "updated_at": 1614293355.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "inputs/spack/spack.yaml"
+    ],
+    "full_name": "cinemascienceworkflows/2021-04_Nyx-Ascent",
+    "latest_release": null,
+    "stargazers_count": 1,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1618418744.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "ppc64le/spack.yaml",
+      "x86_64/spack.yaml"
+    ],
+    "full_name": "eugeneswalker/llvm-containers",
+    "latest_release": null,
+    "stargazers_count": 1,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1615486265.0
   },
   {
     "data_format": 2,
@@ -1567,14 +1565,14 @@ var data =
     "data_format": 2,
     "description": "exawind/nalu-wind deployment using Spack and E4S build cache (demo)",
     "filenames": [
-      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
-      "uoregon/spectrum-mpi/spack.yaml",
-      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/openmpi/spack.yaml",
-      "uoregon/mpich/spack.yaml",
-      "uoregon/mpich-container/spack.yaml",
       "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
-      "summit/spack.yaml"
+      "uoregon/mpich/spack.yaml",
+      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
+      "summit/spack.yaml",
+      "uoregon/openmpi/spack.yaml",
+      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
+      "uoregon/mpich-container/spack.yaml",
+      "uoregon/spectrum-mpi/spack.yaml"
     ],
     "full_name": "eugeneswalker/nalu-wind-demo",
     "latest_release": null,
@@ -1608,7 +1606,21 @@ var data =
     "stargazers_count": 2,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1624372423.0
+    "updated_at": 1624617656.0
+  },
+  {
+    "data_format": 2,
+    "description": "Thallium is a C++14 library wrapping Margo, Mercury, and Argobots and providing an object-oriented way to use these libraries.",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc/mochi-thallium",
+    "latest_release": "v0.9.1",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-thallium\" class=\"anchor\" href=\"#thallium\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThallium\u003c/h1\u003e\n\u003cp\u003eThallium is a C++ interface to \u003ca href=\"https://github.com/mochi-hpc/mochi-margo/\"\u003eMargo\u003c/a\u003e.\nIt offers a modern, object-oriented way of developing HPC data services. More\ninformation can be found on \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003eMochi\u0027s readthedocs\u003c/a\u003e\nwebsite.\u003c/p\u003e\n",
+    "stargazers_count": 2,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1624607330.0
   },
   {
     "data_format": 2,
@@ -1628,8 +1640,8 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/summit/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
+      "hosts/summit/envs/base/spack.yaml",
       "hosts/andes/envs/base/spack.yaml",
       "hosts/lyra/envs/base/spack.yaml"
     ],
@@ -1658,13 +1670,13 @@ var data =
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-debug/spack.yaml",
-      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
-      "environments/key4hep-release/spack.yaml",
       "environments/key4hep-release-broadwell/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml"
+      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/key4hep-nightlies/spack.yaml",
+      "environments/key4hep-release/spack.yaml",
+      "environments/key4hep-debug/spack.yaml",
+      "environments/geant4-data-share/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1692,8 +1704,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1709,8 +1721,8 @@ var data =
     "filenames": [
       "spack-environments/toss_3_x86_64_ib/intel_17_0_0_conduit/spack.yaml",
       "spack-environments/toss_3_x86_64_ib/gcc_4_9_3_conduit/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml",
-      "spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml"
+      "spack-environments/toss_3_x86_64_ib/clang_4_0_0_conduit/spack.yaml",
+      "spack-environments/toss_3_x86_64_ib/gcc_8_1_0/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-ci",
     "latest_release": null,
@@ -1745,8 +1757,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1890,23 +1902,23 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "test/env/fairmq/spack.yaml",
-      "test/env/fairroot_develop/spack.yaml",
       "env/dev/sim/spack.yaml",
-      "env/nov20/sim_mt/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
-      "test/env/dds/spack.yaml",
-      "env/jun19/sim/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml",
-      "env/nov20/sim_mt_headless/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
       "env/apr21/sim/spack.yaml",
-      "test/env/fairlogger/spack.yaml",
+      "env/nov20/sim/spack.yaml",
+      "test/env/jun19_fairroot_18_4/spack.yaml",
+      "test/env/r3broot/spack.yaml",
+      "test/env/fairmq/spack.yaml",
+      "env/nov20/sim_mt_headless/spack.yaml",
       "env/dev/sim_mt_headless/spack.yaml",
       "env/apr21/sim_mt/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "test/env/jun19_fairroot_18_4/spack.yaml",
-      "env/nov20/sim/spack.yaml"
+      "test/env/fairlogger/spack.yaml",
+      "test/env/dds/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "test/env/fairroot_develop/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
+      "env/nov20/sim_mt/spack.yaml",
+      "env/jun19/sim/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "jun19p3",
@@ -1921,8 +1933,8 @@ var data =
     "description": "Installing spack without system dependencies",
     "filenames": [
       "build/3_more_tools/spack.yaml",
-      "build/5_runtime/spack.yaml",
       "build/2_compiler/spack.yaml",
+      "build/5_runtime/spack.yaml",
       "build/1_ccache/spack.yaml",
       "build/6_spack/spack.yaml"
     ],
@@ -1942,18 +1954,18 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "spack-sdk-environments/pmr_core/spack.yaml",
-      "spack-sdk-environments/tools_and_technology/spack.yaml",
       "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
-      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
       "docker-recipes/rhel8-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
+      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
       "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
-      "spack-sdk-environments/xsdk/spack.yaml",
-      "docker-recipes/superlu-sc/spack.yaml",
+      "spack-sdk-environments/tools_and_technology/spack.yaml",
       "spack-sdk-environments/compilers_and_support/spack.yaml",
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
       "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
-      "docker-recipes/rhel7-runner-x86_64/spack.yaml"
+      "spack-sdk-environments/xsdk/spack.yaml",
+      "spack-sdk-environments/pmr_core/spack.yaml",
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/superlu-sc/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -2000,25 +2012,34 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NREL/configs/eagle/base/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
       "NERSC/cori/e4s-20.10/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/cori/e4s-stacks/x86/spack.yaml",
       "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "NERSC/cori/e4s-21.02/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
       "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
       "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
       "NREL/configs/rhodes/utilities/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NERSC/cori/e4s-21.02/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
       "NREL/configs/eagle/software/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml"
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NERSC/cori/e4s-stacks/hsw/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -2032,11 +2053,11 @@ var data =
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml"
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
     "latest_release": "v0.7.1",
@@ -2066,7 +2087,7 @@ var data =
     "latest_release": "v0.7.2",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-conduit\" class=\"anchor\" href=\"#conduit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConduit\u003c/h1\u003e\n\u003cp\u003e\u003cstrong\u003eConduit: Simplified Data Exchange for HPC Simulations\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eConduit is an open source project from Lawrence Livermore National Laboratory that provides an intuitive model for describing hierarchical scientific data in C++, C, Fortran, and Python. It is used for data coupling between packages in-core, serialization, and I/O tasks.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.org/LLNL/conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/478365930966f70f879ae04d59ea3f5c5888bee7d2a50e7e281dc1da3cf9aff1/68747470733a2f2f7472617669732d63692e6f72672f4c4c4e4c2f636f6e647569742e706e67\" alt=\"Travis CI Build Status\" data-canonical-src=\"https://travis-ci.org/LLNL/conduit.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://ci.appveyor.com/project/cyrush/conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a0839e4a484ebb633a1c2ebcd90e345a176f5edc60e42f32636eefa9c3c79fad/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6769746875622f6c6c6e6c2f636f6e647569743f6272616e63683d646576656c6f70267376673d74727565\" alt=\"Appveyor Build Status\" data-canonical-src=\"https://ci.appveyor.com/api/projects/status/github/llnl/conduit?branch=develop\u0026amp;svg=true\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/LLNL/conduit?branch=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/50b12c605f0f4bcc64b6db415dddf2de99c5e19a526d7bc53e45db45c95b2931/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f4c4c4e4c2f636f6e647569742f62616467652e7376673f6272616e63683d646576656c6f70\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/LLNL/conduit/badge.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://scan.coverity.com/projects/llnl-conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d4b204e42fe1ef30b166cdfd7cba043d5d74600b343aedd5e094a810b4c5c727/68747470733a2f2f7363616e2e636f7665726974792e636f6d2f70726f6a656374732f383432362f62616467652e7376673f666c61743d31\" alt=\"Static Analysis Status\" data-canonical-src=\"https://scan.coverity.com/projects/8426/badge.svg?flat=1\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eTo get started building and using Conduit, check out the full documentation:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://llnl-conduit.readthedocs.io/\" rel=\"nofollow\"\u003ehttp://llnl-conduit.readthedocs.io/\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-source-repo\" class=\"anchor\" href=\"#source-repo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSource Repo\u003c/h1\u003e\n\u003cp\u003eConduit\u0027s source is hosted on GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/llnl/conduit\"\u003ehttps://github.com/llnl/conduit\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h1\u003e\n\u003cp\u003eConduit is released under a BSD-style license - for detailed license info, refer to:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://llnl-conduit.readthedocs.io/en/latest/licenses.html\" rel=\"nofollow\"\u003ehttps://llnl-conduit.readthedocs.io/en/latest/licenses.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eor the following files in the Conduit source tree:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/LICENSE\"\u003eLICENSE\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/thirdparty_licenses.md\"\u003ethirdparty_licenses.md\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-changelog\" class=\"anchor\" href=\"#changelog\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eChangelog\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/CHANGELOG.md\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
     "stargazers_count": 90,
-    "subscribers_count": 16,
+    "subscribers_count": 18,
     "topics": [
       "hpc",
       "scientific-computing",
@@ -2103,7 +2124,7 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1624588476.0
+    "updated_at": 1624654940.0
   },
   {
     "data_format": 2,
@@ -2123,8 +2144,8 @@ var data =
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/llnl/spack.yaml",
-      ".spack_env/darwin/spack.yaml"
+      ".spack_env/darwin/spack.yaml",
+      ".spack_env/llnl/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v5.0.1",
@@ -2140,14 +2161,14 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1623952233.0
+    "updated_at": 1624646088.0
   },
   {
     "data_format": 2,
     "description": "Modular C++ Toolkit for Performance Analysis and Logging. Profiling API and Tools for C, C++, CUDA, Fortran, and Python. The C++ template API is essentially a framework to creating tools: it is designed to provide a unifying interface for recording various performance measurements alongside data logging and interfaces to other tools.",
     "filenames": [
-      "docker/gpu/spack.yaml",
-      "docker/cpu/spack.yaml"
+      "docker/cpu/spack.yaml",
+      "docker/gpu/spack.yaml"
     ],
     "full_name": "NERSC/timemory",
     "latest_release": "v3.1.0",
