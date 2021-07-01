@@ -1,3 +1,7 @@
 spack:
   specs:
-    - octave
+    - octave@6.2
+  concretization: together
+  config:
+    install_tree: /opt/software
+  view: /opt/view

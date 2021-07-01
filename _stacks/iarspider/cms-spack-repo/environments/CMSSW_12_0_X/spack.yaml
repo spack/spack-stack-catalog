@@ -16,21 +16,17 @@ spack:
       variants: [cxxstd=17, build_type=Release]
   view: false
   specs:
-  - root@6.22.00.patches_cms_a15e883+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
-  - root-toolfile
+  - cms-config
   - dcap@2.47.8
   - dcap-toolfile
-  - zlib@1.2.11+optimize
-  - zlib-toolfile
   - autoconf@2.69
   - automake@1.16.1
-  - libtool@2.4.6
-  - m4@1.4.18~sigsegv
-  - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
   - pkg-config@0.29.2+internal_glib
+  - boost@1.75.0~icu~atomic~container~context~coroutine~exception~graph~locale~log~math~random~wave+shared+multithreaded~debug+mpi+python+iostreams
   - bzip2@1.0.6
   - bzip2-toolfile
   - cmake@3.17.3~ownlibs~ncurses
+  - cppunit@1.15.x
   - cuda@11.2.2
   - curl@7.70.0~libssh2+gssapi
   - davix@0.7.6
@@ -43,7 +39,11 @@ spack:
   - fftw3-toolfile
   - freetype@2.10.0
   - freetype-toolfile
+  - frontier-client@2_9_1_cms
+  - frontier-client-toolfile
+  - gcc-compiler-toolfile
   - gdbm@1.10
+  - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
   - giflib@5.2.0
   - giflib-toolfile
   - git@2.23.0~man~nls
@@ -52,6 +52,7 @@ spack:
   - gsl@2.6+external-cblas
   - gsl-toolfile
   - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
+  - intel-tbb@2021.2.0
   - libffi@3.2.1
   - libjpeg-turbo@2.0.2
   - libjpeg-turbo-toolfile
@@ -60,16 +61,21 @@ spack:
   - libpng-toolfile
   - libtiff@4.0.10
   - libtiff-toolfile
-  - util-linux-uuid@2.34
+  - libtool@2.4.6
   - libxml2@2.9.10~python
   - libxml2-toolfile
   - lz4@1.9.2
+  - m4@1.4.18~sigsegv
   - nasm@2.14.02
   - ninja@1.10.0
   - numactl@2.0.14
   - openblas@0.3.15
   - openssl@1.1.0l
   - openssl-toolfile
+  - oracleocci-abi-hack-cms
+  - oracleocci-abi-hack-cms-toolfile
+  - pacparser@1.3.5
+  - pacparser-toolfile
   - pcre@8.43~jit~multibyte+utf
   - pcre-toolfile
   - py-cython@0.29.22
@@ -79,11 +85,18 @@ spack:
   - python@3.8.2~libxml2
   - python-toolfile
   - re2c@0.13.5
+  - root@6.22.00.patches_cms_a15e883+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
+  - root-toolfile
+  - scram@3.0.23
   - sqlite@3.22.0~fts
   - sqlite-toolfile
-  - intel-tbb@2021.2.0
+  - util-linux-uuid@2.34
+  - xerces-c@3.1.3 netaccessor=none transcoder=none
   - xrootd@4.12.3+http~readline+python
   - xrootd-toolfile
   - xz@5.2.4 libs=shared
   - xz-toolfile
+  - zlib@1.2.11+optimize
+  - zlib-toolfile
   - zstd@1.4.5+shared~static~programs~legacy
+  - zstd-toolfile
