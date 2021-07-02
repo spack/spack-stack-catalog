@@ -1,0 +1,112 @@
+spack:
+  view: false
+  concretization: together
+  config:
+    concretizer: clingo
+  definitions:
+  - use_compiler:
+    - '%gcc@10.2.0'
+  - enumerated_in_e4s:
+    - autoconf@2.70
+    - automake@1.16.2
+    - berkeley-db@18.1.40
+    - binutils@2.33.1+gold+headers+libiberty~nls
+    - boost@1.74.0 cxxstd=17
+    - bzip2@1.0.8
+    - cmake@3.18.4
+    - diffutils@3.7
+    - numactl@2.0.14
+    - elfutils@0.182
+    - expat@2.2.10
+    - gdbm@1.18.1
+    - gettext@0.21
+    - help2man@1.47.11
+    - libbsd@0.10.0
+    - libiconv@1.16
+    - libsigsegv@2.12
+    - libtool@2.4.6
+    - libunwind@1.4.0
+    - libxml2@2.9.10
+    - m4@1.4.18
+    - ncurses@6.2
+    - openblas@0.3.10
+    - perl@5.32.0
+    - pkgconf@1.7.3
+    - python@3.8.6
+    - readline@8.0
+    - sqlite@3.33.0
+    - tar@1.32
+    - texinfo@6.5
+    - xz@5.2.5
+    - zlib@1.2.11
+  - not_in_e4s:
+    - hwloc@1.11.13
+    - util-linux-uuid
+    - libffi
+    - json-c
+
+  specs:
+  - matrix:
+    - [$enumerated_in_e4s]
+    - [$use_compiler]
+  - openssl@1.1.1k~docs+systemcerts %gcc@10.2.0
+  packages:
+    all:
+      providers:
+        blas: [openblas]
+      permissions:
+        read: world
+        write: user
+      target: [x86_64]
+    openssl:
+      externals:
+      - spec: openssl@1.1.1k~docs+systemcerts
+        prefix: /usr
+      buildable: false
+  compilers:
+  
+  # A new-ish gcc version, built for x86_64 so it will run on any architecture. 
+  # Target is set to x86_64 so it will build other compilers (e.g. oneapi)
+  # to run on any architecture.
+  - compiler:
+      spec: gcc@10.2.0
+      paths:
+        cc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-10.1.0/gcc-10.2.0-32axmts2pqg2v4ju53krhm646g4kpg23/bin/gcc
+        cxx: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-10.1.0/gcc-10.2.0-32axmts2pqg2v4ju53krhm646g4kpg23/bin/g++
+        f77: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-10.1.0/gcc-10.2.0-32axmts2pqg2v4ju53krhm646g4kpg23/bin/gfortran
+        fc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-10.1.0/gcc-10.2.0-32axmts2pqg2v4ju53krhm646g4kpg23/bin/gfortran
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  gitlab-ci:
+    mappings:
+    - match: [os=opensuse_leap15]
+      runner-attributes:
+        tags:
+        - yarrow
+        variables:
+          JLSE_YARROW_SCHEDULER_PARAMETERS: -A Operations -n 1  -t 30 -q yarrow
+          SPACK_REPO: $env:SPACK_REPO
+          SPACK_REF: $env:SPACK_REF
+          SPACK_GNUPGHOME: /soft/spack-mirror/.gnupg
+        before_script:
+        - echo "begin before in rebuild"
+        - pwd
+        - ls -la
+        - hostname
+        - type module
+        - . /soft/spack/share/spack/setup-env.sh
+        - echo "end before in rebuild"
+        script:
+        - echo "begin script in rebuild"
+        - type module
+        - spack env activate .
+        - spack gpg list
+        - spack -d ci rebuild
+        - cd /soft/spack-mirror && spack buildcache update-index
+        - echo "end script in rebuild"
+  mirrors:
+    spack-mirror: file:///soft/spack-mirror

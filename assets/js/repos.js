@@ -2,6 +2,34 @@ var data =
 [
   {
     "data_format": 2,
+    "description": null,
+    "filenames": [
+      "jlse/spack.yaml"
+    ],
+    "full_name": "frankwillmore/derkommissar",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-der-kommissar\" class=\"anchor\" href=\"#der-kommissar\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDer Kommissar\u003c/h1\u003e\n\u003cp\u003eDer Kommissar is a spack environment (or set of known good environments) which will provide a set of packages, typically provided via the OS package manager, but built using spack with \u0027together\u0027 concretization and intended for consumption by spack as a platform on which to build a dependent environment (e.g. e4s) for a target system.\u003c/p\u003e\n\u003cp\u003eBuilding this environment generates the packages in the versions needed, and the script provided  will generate a packages.yaml formatted file, to be included in downstream environments.\u003c/p\u003e\n\u003cp\u003eNone of the packages contained herein should be built when the dependent environment is built. Furthermore, this environment should be built only with GCC, and at the GCC version level of the compiler used to build the dependent environment. In some cases, it may be possible to build these packages with llvm compilers instead of gcc compilers, but that is up to the discretion of the deployer.\u003c/p\u003e\n\u003cp\u003eFor LMOD installations, these packages are built with and made available through the Core compiler.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1625176556.0
+  },
+  {
+    "data_format": 2,
+    "description": "Mochi messaging over NA",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc/mochi-mona",
+    "latest_release": "v0.1.1",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-mona---messaging-over-na\" class=\"anchor\" href=\"#mona---messaging-over-na\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMoNA - Messaging over NA\u003c/h1\u003e\n\u003cp\u003eMoNA is a Mochi library combining the NA layer of Mercury with\nthe Argobots threading library, in a way similar to how Margo\ncombines Mercury with Argobots. It provides a low-level messaging\ninterface and hides the NA progress loop into Argobots ULTs.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1625140930.0
+  },
+  {
+    "data_format": 2,
     "description": "GNU Octave is software featuring a high-level programming language, primarily intended for numerical computations",
     "filenames": [
       "6.2.0/spack.yaml"
@@ -21,8 +49,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-environments/mvapich2-lassen/spack.yaml",
-      "spack-environments/openmpi/spack.yaml"
+      "spack-environments/openmpi/spack.yaml",
+      "spack-environments/mvapich2-lassen/spack.yaml"
     ],
     "full_name": "rngoodner/fiesta-helpers",
     "latest_release": null,
@@ -36,14 +64,14 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/root-build/spack.yaml",
-      ".gitlab-ci/env/dry-run/spack.yaml",
       "env/power9le/flecsalemm-deps/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
-      "env/power9le/flecsi/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
       "env/x86_64/flecsi/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
+      ".gitlab-ci/env/root-build/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
       "env/broadwell/flecsalemm-deps/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
@@ -65,18 +93,18 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1625068802.0
+    "updated_at": 1625156875.0
   },
   {
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
       "spack.yaml",
-      "rhel8NvhpcWdmapp/spack.yaml",
       "v0160gcc/spack.yaml",
       "v0162gccSpectrum/spack.yaml",
-      "v0133gcc/spack.yaml",
-      "v0133gccSpectrum/spack.yaml"
+      "rhel8NvhpcWdmapp/spack.yaml",
+      "v0133gccSpectrum/spack.yaml",
+      "v0133gcc/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -131,9 +159,9 @@ var data =
     "description": null,
     "filenames": [
       "envs/dev/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml",
       "envs/chris8x/spack.yaml",
-      "envs/cygnus/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml"
+      "envs/cygnus/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -141,7 +169,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1625039401.0
+    "updated_at": 1625198017.0
   },
   {
     "data_format": 2,
@@ -161,14 +189,14 @@ var data =
     "data_format": 2,
     "description": "Create VM images for HPC applications on Google Cloud Platform",
     "filenames": [
-      "singularity/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
-      "singularity/env/centos-7/spack.yaml",
       "compilers/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
-      "compilers/env/centos-7/spack.yaml"
+      "singularity/env/schedmd-slurm-20-11-4-centos-7/spack.yaml",
+      "compilers/env/centos-7/spack.yaml",
+      "singularity/env/centos-7/spack.yaml"
     ],
     "full_name": "FluidNumerics/hpc-apps-gcp",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eIf you\u0027re interested in using the GCP Spack cache, see \u003ca href=\"https://gcp-spack-cache.fluidnumerics.com/index.html\" rel=\"nofollow\"\u003ehttps://gcp-spack-cache.fluidnumerics.com/index.html\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eFluid Numerics provides support and consulting services to help you get up and running on Google Cloud. \u003ca href=\"https://help.fluidnumerics.com/support\" rel=\"nofollow\"\u003eReach out to Fluid Numerics for Support\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [
@@ -177,7 +205,7 @@ var data =
       "slurm",
       "wrf"
     ],
-    "updated_at": 1623684361.0
+    "updated_at": 1625173193.0
   },
   {
     "data_format": 2,
@@ -191,20 +219,6 @@ var data =
     "subscribers_count": 5,
     "topics": [],
     "updated_at": 1623424083.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "tests/spack.yaml"
-    ],
-    "full_name": "SeisSol/yateto",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-yateto\" class=\"anchor\" href=\"#yateto\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYATeTo\u003c/h1\u003e\n\u003cp\u003eIt is \u003cstrong\u003eY\u003c/strong\u003eet \u003cstrong\u003eA\u003c/strong\u003enother \u003cstrong\u003eTe\u003c/strong\u003ensor \u003cstrong\u003eTo\u003c/strong\u003eolbox for discontinuous Galerkin methods and other\napplications. You can find much more information about the package\n\u003ca href=\"https://arxiv.org/abs/1903.11521\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epip install -e \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eyateto\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\n\n...\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e):\n  \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e8\u003c/span\u003e\n  \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027A\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027B\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027w\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e,))\n  \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027C\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \n  \u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e2.0\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027lj\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ikl\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027k\u0027\u003c/span\u003e]\n  \u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027kernel\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003east\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e# \u0027d\u0027 - double precision; \u0027hsw\u0027 - haswell-like architecture\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003euseArchitectureIdentifiedBy\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"dhsw\"\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eGenerator\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003egenerate\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eoutput_dir\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eGeneratorCollection\u003c/span\u003e([\u003cspan class=\"pl-v\"\u003eLIBXSMM\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e), \u003cspan class=\"pl-v\"\u003eEigen\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)]))\n...\u003c/pre\u003e\u003c/div\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 11,
-    "topics": [],
-    "updated_at": 1624361507.0
   },
   {
     "data_format": 2,
@@ -346,8 +360,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.15.4/spack.yaml",
-      "v0.13.2/spack.yaml"
+      "v0.13.2/spack.yaml",
+      "v0.15.4/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -361,9 +375,9 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "examples/topaz_marco/environment_compchem/spack.yaml",
       "examples/zeus_marco/environment2_python/spack.yaml",
-      "examples/zeus_marco/environment1_compchem/spack.yaml"
+      "examples/zeus_marco/environment1_compchem/spack.yaml",
+      "examples/topaz_marco/environment_compchem/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -460,29 +474,29 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent7/py_376/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
-      "cent7/mpis/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "compilers/envs/compilers/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent7/library/spack.yaml",
       "cent7/ece_hpc/spack.yaml",
       "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent7/library/bak/spack.yaml",
       "cent8/envs/x86_64/spack.yaml",
-      "cent7/apps/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent7/library/spack.yaml",
       "cent8/envs/solhawk/spack.yaml",
-      "cent8/envs/avx/python/spack.yaml",
       "cent7/bioinformatics_default/spack.yaml",
+      "cent7/mpis/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
+      "cent8/envs/avx/python/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
       "cent8/envs/avx/lusoft/spack.yaml",
-      "cent7/python_376/spack.yaml"
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/apps/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -496,15 +510,15 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/base/spack.yaml",
       "configs/rhodes/software/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
-      "configs/eagle/software/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
       "configs/eagle/utilities/spack.yaml",
       "configs/eagle/compilers/spack.yaml",
-      "envs/exawind/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml"
+      "configs/eagle/base/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/eagle/software/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
+      "envs/exawind/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -525,7 +539,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1620210843.0
+    "updated_at": 1625139465.0
   },
   {
     "data_format": 2,
@@ -578,11 +592,11 @@ var data =
     ],
     "full_name": "TurbulentDynamics/tdLBCpp",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-turbulent-dynamics-lattice-boltzmann-c\" class=\"anchor\" href=\"#turbulent-dynamics-lattice-boltzmann-c\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTurbulent Dynamics Lattice Boltzmann (C++)\u003c/h1\u003e\n\u003cp\u003eThis is a basic version of the multi-node heterogeneous HPC code to run billions of cell simulation.\u003c/p\u003e\n",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-turbulent-dynamics-lattice-boltzmann-c\" class=\"anchor\" href=\"#turbulent-dynamics-lattice-boltzmann-c\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTurbulent Dynamics Lattice Boltzmann (C++)\u003c/h1\u003e\n\u003cp\u003eThis is a basic version of the multi-node heterogeneous HPC code to run billions of cell simulation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building\" class=\"anchor\" href=\"#building\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003ebazel run --verbose_failures //tdlbcpp/src:tdlbcpp\n\u003c/code\u003e\u003c/pre\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 2,
+    "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1624871202.0
+    "updated_at": 1625155985.0
   },
   {
     "data_format": 2,
@@ -742,8 +756,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "builds/openmp/spack.yaml",
-      "builds/cuda/spack.yaml"
+      "builds/cuda/spack.yaml",
+      "builds/openmp/spack.yaml"
     ],
     "full_name": "DavidPoliakoff/tuning-spack",
     "latest_release": null,
@@ -943,8 +957,8 @@ var data =
     "filenames": [
       "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/developer_release_x86_64_cuda_spack.yaml",
-      "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
       "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
+      "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
       "spack_environments/developer_release_osx_spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
@@ -959,8 +973,8 @@ var data =
     "data_format": 2,
     "description": "Documentation and automation for provisioning the core software environment at University of Colorado Boulder Research Computing",
     "filenames": [
-      "spack/environments/develop/spack.yaml",
       "spack/environments/spring2020/spack.yaml",
+      "spack/environments/develop/spack.yaml",
       "spack/environments/summer2020/spack.yaml"
     ],
     "full_name": "ResearchComputing/core-software",
@@ -975,8 +989,8 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "v61c1b71_gcc910/spack.yaml",
-      "openFoam24/spack.yaml"
+      "openFoam24/spack.yaml",
+      "v61c1b71_gcc910/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -1125,8 +1139,8 @@ var data =
     "data_format": 2,
     "description": "Spack package manager customization for GIZMO",
     "filenames": [
-      "environments/gizmo-deps/spack.yaml",
-      "environments/gizmo-grackle/spack.yaml"
+      "environments/gizmo-grackle/spack.yaml",
+      "environments/gizmo-deps/spack.yaml"
     ],
     "full_name": "ucsd-galaxy-lab/gizmo-spack",
     "latest_release": null,
@@ -1169,9 +1183,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-qmcpack.yaml",
+      "spack-llvm.yaml",
       "spack.yaml",
-      "spack-llvm.yaml"
+      "spack-qmcpack.yaml"
     ],
     "full_name": "eugeneswalker/qmcpack-demo",
     "latest_release": null,
@@ -1184,8 +1198,8 @@ var data =
     "data_format": 2,
     "description": "SIRIUS AppImage (using just the bare minimum)",
     "filenames": [
-      "sirius/spack.yaml",
-      "libtree/spack.yaml"
+      "libtree/spack.yaml",
+      "sirius/spack.yaml"
     ],
     "full_name": "haampie/sirius-appimage",
     "latest_release": null,
@@ -1254,42 +1268,42 @@ var data =
     "data_format": 2,
     "description": "NMC software deployment environments leveraging Spack.",
     "filenames": [
-      "dev/ecp-x86_64/5-e4s/spack.yaml",
-      "prod/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/xx-fe1/0-base/spack.yaml",
-      "prod/ecp-x86_64/5-e4s/spack.yaml",
-      "dev/ecp-p9-4v100/_manual/spack.yaml",
-      "prod/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-x86_64/3-sdk/spack.yaml",
-      "dev/xx-fe1/_manual/spack.yaml",
-      "prod/ecp-x86_64/2-compute/spack.yaml",
-      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
-      "dev/ecp-x86_64/1-core/spack.yaml",
       "prod/gitlab-runner/1-core/spack.yaml",
-      "dev/ecp-x86_64/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/2-compute/spack.yaml",
-      "prod/ecp-x86_64/4-py/spack.yaml",
-      "prod/ecp-x86_64/3-sdk/spack.yaml",
-      "dev/ecp-x86_64/_manual/spack.yaml",
-      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
-      "prod/xx-fe1/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/4-py/spack.yaml",
+      "prod/ecp-p9-4v100/_manual/spack.yaml",
+      "prod/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-p9-4v100/2-compute/spack.yaml",
       "prod/ecp-x86_64/1-core/spack.yaml",
       "dev/ecp-p9-4v100/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/_manual/spack.yaml",
-      "prod/ecp-p9-4v100/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/ecp-x86_64/4-py/spack.yaml",
-      "prod/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
+      "prod/ecp-x86_64/4-py/spack.yaml",
+      "prod/xx-fe1/0-base/spack.yaml",
       "dev/xx-fe1/4-py/spack.yaml",
+      "prod/ecp-x86_64/3-sdk/spack.yaml",
+      "dev/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-p9-4v100/1-core/spack.yaml",
+      "prod/ecp-x86_64/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
       "dev/gitlab-runner/1-core/spack.yaml",
+      "dev/xx-fe1/_manual/spack.yaml",
       "dev/ecp-x86_64/2-compute/spack.yaml",
-      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
-      "prod/ecp-p9-4v100/4-py/spack.yaml",
+      "dev/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/ecp-x86_64/_manual/spack.yaml",
       "prod/ecp-x86_64/0-base/spack.yaml",
-      "prod/xx-fe1/4-py/spack.yaml",
+      "prod/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
       "dev/xx-fe1/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/0-base/spack.yaml"
+      "dev/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/xx-fe1/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/_manual/spack.yaml",
+      "dev/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-x86_64/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/4-py/spack.yaml",
+      "dev/ecp-p9-4v100/4-py/spack.yaml",
+      "prod/xx-fe1/4-py/spack.yaml",
+      "dev/ecp-x86_64/1-core/spack.yaml",
+      "dev/ecp-x86_64/4-py/spack.yaml"
     ],
     "full_name": "paulbry/nmc-swd",
     "latest_release": null,
@@ -1332,8 +1346,8 @@ var data =
     "data_format": 2,
     "description": "Deploy components and scripts for RCM",
     "filenames": [
-      "deploy/base_spack_devel/environments/base/spack.yaml",
       "deploy/environments/insitu/spack.yaml",
+      "deploy/base_spack_devel/environments/base/spack.yaml",
       "deploy/environments/rcm/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/RCM_spack_deploy",
@@ -1362,11 +1376,10 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/Theta/spack.yaml",
-      "ORNL/Summit/spack.yaml",
-      "NERSC/Cori/spack.yaml",
       "ANL/JLSE/spack.yaml",
-      "ANL/Bebop/spack.yaml"
+      "ANL/Theta/spack.yaml",
+      "NERSC/Cori/spack.yaml",
+      "ORNL/Summit/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1380,14 +1393,15 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml"
+      "tests/spack.yaml"
     ],
-    "full_name": "haampie-throwaway/spack-status-code",
+    "full_name": "SeisSol/yateto",
     "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 1,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-yateto\" class=\"anchor\" href=\"#yateto\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYATeTo\u003c/h1\u003e\n\u003cp\u003eIt is \u003cstrong\u003eY\u003c/strong\u003eet \u003cstrong\u003eA\u003c/strong\u003enother \u003cstrong\u003eTe\u003c/strong\u003ensor \u003cstrong\u003eTo\u003c/strong\u003eolbox for discontinuous Galerkin methods and other\napplications. You can find much more information about the package\n\u003ca href=\"https://arxiv.org/abs/1903.11521\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epip install -e \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eyateto\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\n\n...\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e):\n  \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e8\u003c/span\u003e\n  \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027A\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027B\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027w\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e,))\n  \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027C\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \n  \u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e2.0\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027lj\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ikl\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027k\u0027\u003c/span\u003e]\n  \u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027kernel\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003east\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e# \u0027d\u0027 - double precision; \u0027hsw\u0027 - haswell-like architecture\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003euseArchitectureIdentifiedBy\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"dhsw\"\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eGenerator\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003egenerate\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eoutput_dir\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eGeneratorCollection\u003c/span\u003e([\u003cspan class=\"pl-v\"\u003eLIBXSMM\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e), \u003cspan class=\"pl-v\"\u003eEigen\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)]))\n...\u003c/pre\u003e\u003c/div\u003e\n",
+    "stargazers_count": 1,
+    "subscribers_count": 11,
     "topics": [],
-    "updated_at": 1611744607.0
+    "updated_at": 1625149381.0
   },
   {
     "data_format": 2,
@@ -1489,13 +1503,13 @@ var data =
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1550,14 +1564,14 @@ var data =
     "data_format": 2,
     "description": "exawind/nalu-wind deployment using Spack and E4S build cache (demo)",
     "filenames": [
-      "uoregon/mpich/spack.yaml",
-      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/mpich-container/spack.yaml",
       "uoregon/spectrum-mpi/spack.yaml",
       "summit/spack.yaml",
-      "uoregon/openmpi/spack.yaml",
+      "uoregon/mpich/spack.yaml",
       "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml"
+      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
+      "uoregon/openmpi/spack.yaml",
+      "uoregon/mpich-container/spack.yaml",
+      "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/nalu-wind-demo",
     "latest_release": null,
@@ -1565,19 +1579,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1614878670.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "tools/environments/ci/spack.yaml"
-    ],
-    "full_name": "haampie-spack/ci-example",
-    "latest_release": null,
-    "stargazers_count": 1,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1616661789.0
   },
   {
     "data_format": 2,
@@ -1625,10 +1626,10 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
+      "hosts/peak/envs/base/spack.yaml",
       "hosts/lyra/envs/base/spack.yaml",
       "hosts/andes/envs/base/spack.yaml",
-      "hosts/summit/envs/base/spack.yaml",
-      "hosts/peak/envs/base/spack.yaml"
+      "hosts/summit/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1640,48 +1641,32 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Spack tutorial",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "MiddelkoopT/spack-tutorial",
-    "latest_release": null,
-    "stargazers_count": 2,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1619553175.0
-  },
-  {
-    "data_format": 2,
     "description": "RADIUSS CI project aims at providing sensible default configurations and tools for GitLab CI.",
     "filenames": [
-      "spack-environments/radiuss/spack.yaml",
-      "spack-environments/conduit/intel_17_0_0_conduit/spack.yaml",
-      "spack-environments/radiuss-concretize/spack.yaml",
-      "spack-environments/conduit/clang_4_0_0_conduit/spack.yaml",
-      "spack-environments/conduit/gcc_4_9_3_conduit/spack.yaml"
+      "spack-environments/empty/spack.yaml",
+      "spack-environments/radiuss/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-ci",
     "latest_release": null,
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-radiuss-ci\" class=\"anchor\" href=\"#radiuss-ci\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRADIUSS CI\u003c/h1\u003e\n\u003cp\u003eThe RADIUSS project promotes and supports key High Performance Computing (HPC) open-source software developed at the LLNL. These tools and libraries cover a wide range of features a team would need to develop a modern simulation code targeting HPC plaftorms.\u003c/p\u003e\n\u003cp\u003eRADIUSS CI project aims at providing sensible default configurations and tools for GitLab CI.\u003c/p\u003e\n\u003cp\u003eAccess the \u003ca href=\"https://radiuss-ci.readthedocs.io/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eThis project may be used as a submodule (for its tools) or remotely (for its configuration files).\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cp\u003eThe pipeline generator is a python tools which requires pyyaml@5.1 at least.\u003c/p\u003e\n\u003cp\u003eExample of python configuration:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evirtualenv radiuss-ci\n. radiuss-ci/bin/activate\npip install pyyaml\npip freeze | grep pyyaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h3\u003e\n\u003cp\u003eThis project requires no installation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-running-the-tests\" class=\"anchor\" href=\"#running-the-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning the tests\u003c/h2\u003e\n\u003cp\u003eTODO: Explain how to run python tests once available.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease read \u003ca href=\"https://github.com/LLNL/radiuss-ci/CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for details on our code of conduct, and the process for submitting pull requests to us.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-versioning\" class=\"anchor\" href=\"#versioning\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersioning\u003c/h2\u003e\n\u003cp\u003eversion: 1.0.0\u003c/p\u003e\n\u003cp\u003eTODO: Not even sure how to handle versioning here.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eDavid A Beckingsale, Adrien M Bernede\u003c/p\u003e\n\u003cp\u003eSee also the list of \u003ca href=\"https://github.com/LLNL/radiuss-ci/contributors\"\u003econtributors\u003c/a\u003e who participated in this project.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eThis project is licensed under the MIT License - see the \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e file for details\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under the MIT License.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/LLNL/radiuss-ci/blob/master/LICENSE\"\u003eLICENSE\u003c/a\u003e,\n\u003ca href=\"https://github.com/LLNL/radiuss-ci/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/LLNL/radiuss-ci/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-793462\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-acknowledgments\" class=\"anchor\" href=\"#acknowledgments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n",
     "stargazers_count": 3,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [
       "radiuss"
     ],
-    "updated_at": 1625095321.0
+    "updated_at": 1625188425.0
   },
   {
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-nightlies-debug/spack.yaml",
-      "environments/key4hep-debug/spack.yaml",
-      "environments/key4hep-release-broadwell/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-debug/spack.yaml",
       "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-release/spack.yaml"
+      "environments/key4hep-release/spack.yaml",
+      "environments/key4hep-release-broadwell/spack.yaml",
+      "environments/geant4-data-share/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1709,8 +1694,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1743,8 +1728,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1795,8 +1780,8 @@ var data =
     "data_format": 2,
     "description": "Object-oriented numerical library",
     "filenames": [
-      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml",
-      "docs/source/spack.yaml"
+      "docs/source/spack.yaml",
+      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml"
     ],
     "full_name": "tachidok/scicellxx",
     "latest_release": null,
@@ -1840,7 +1825,7 @@ var data =
     "stargazers_count": 7,
     "subscribers_count": 7,
     "topics": [],
-    "updated_at": 1625001894.0
+    "updated_at": 1625142677.0
   },
   {
     "data_format": 2,
@@ -1863,21 +1848,21 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/jun19/sim/spack.yaml",
-      "test/env/fairmq/spack.yaml",
       "env/nov20/sim_mt_headless/spack.yaml",
-      "env/dev/sim/spack.yaml",
-      "env/dev/sim_mt_headless/spack.yaml",
-      "env/nov20/sim/spack.yaml",
-      "env/apr21/sim_mt/spack.yaml",
-      "test/env/fairlogger/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "test/env/dds/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
-      "env/apr21/sim/spack.yaml",
       "env/apr21/sim_mt_headless/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
       "env/nov20/sim_mt/spack.yaml",
+      "test/env/r3broot/spack.yaml",
+      "env/jun19/sim/spack.yaml",
+      "test/env/dds/spack.yaml",
+      "test/env/fairmq/spack.yaml",
+      "env/apr21/sim/spack.yaml",
+      "env/dev/sim_mt_headless/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
+      "env/apr21/sim_mt/spack.yaml",
+      "env/dev/sim/spack.yaml",
+      "env/nov20/sim/spack.yaml",
+      "test/env/fairlogger/spack.yaml",
       "test/env/fairroot_develop/spack.yaml",
       "test/env/jun19_fairroot_18_4/spack.yaml"
     ],
@@ -1918,11 +1903,11 @@ var data =
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
-      "build/2_compiler/spack.yaml",
+      "build/1_ccache/spack.yaml",
       "build/3_more_tools/spack.yaml",
       "build/5_runtime/spack.yaml",
-      "build/6_spack/spack.yaml",
-      "build/1_ccache/spack.yaml"
+      "build/2_compiler/spack.yaml",
+      "build/6_spack/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
     "latest_release": "develop",
@@ -1940,18 +1925,18 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/superlu-sc/spack.yaml",
-      "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
-      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
-      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
       "spack-sdk-environments/pmr_core/spack.yaml",
-      "spack-sdk-environments/compilers_and_support/spack.yaml",
-      "spack-sdk-environments/tools_and_technology/spack.yaml",
-      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
+      "spack-sdk-environments/data-mgmt_io-services_checkpoint-restart/spack.yaml",
       "spack-sdk-environments/xsdk/spack.yaml",
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
-      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml"
+      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
+      "spack-sdk-environments/tools_and_technology/spack.yaml",
+      "docker-recipes/superlu-sc/spack.yaml",
+      "spack-sdk-environments/visualization_analysis_reduction/spack.yaml",
+      "spack-sdk-environments/compilers_and_support/spack.yaml",
+      "spack-sdk-environments/e4s_ecosystem/spack.yaml",
+      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1998,34 +1983,34 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "NERSC/cori/e4s-21.02/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
       "NERSC/cori/e4s-stacks/knl/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "NERSC/cori/e4s-20.10/spack.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NERSC/cori/e4s-stacks/x86/spack.yaml",
       "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
       "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NERSC/cori/e4s-21.02/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
       "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml"
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -2060,11 +2045,11 @@ var data =
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
       "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
-      "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml"
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
     "latest_release": "v0.7.1",
@@ -2131,7 +2116,7 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1625092502.0
+    "updated_at": 1625201434.0
   },
   {
     "data_format": 2,
@@ -2142,10 +2127,10 @@ var data =
     "full_name": "hpc/mpifileutils",
     "latest_release": "v0.11",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-mpifileutils\" class=\"anchor\" href=\"#mpifileutils\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003empiFileUtils\u003c/h1\u003e\n\u003cp\u003empiFileUtils provides both a library called \u003ca href=\"src/common/README.md\"\u003elibmfu\u003c/a\u003e and a suite of MPI-based tools to manage large datasets, which may vary from large directory trees to large files. High-performance computing users often generate large datasets with parallel applications that run with many processes (millions in some cases). However those users are then stuck with single-process tools like cp and rm to manage their datasets. This suite provides MPI-based tools to handle typical jobs like copy, remove, and compare for such datasets, providing speedups of up to 20-30x.  It also provides a library that simplifies the creation of new tools or can be used in applications.\u003c/p\u003e\n\u003cp\u003eDocumentation is available on \u003ca href=\"http://mpifileutils.readthedocs.io\" rel=\"nofollow\"\u003eReadTheDocs\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-daos-support\" class=\"anchor\" href=\"#daos-support\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDAOS Support\u003c/h2\u003e\n\u003cp\u003empiFileUtils supports a DAOS backend for dcp, dsync, and dcmp. Custom serialization and deserialization for DAOS containers to and from a POSIX filesystem is provided with daos-serialize and daos-deserialize. Details and usage examples are provided in \u003ca href=\"DAOS-Support.md\"\u003eDAOS Support\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributors\" class=\"anchor\" href=\"#contributors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributors\u003c/h2\u003e\n\u003cp\u003eWe welcome contributions to the project.  For details on how to help, see our \u003ca href=\".github/CONTRIBUTING.md\"\u003eContributor Guide\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-copyrights\" class=\"anchor\" href=\"#copyrights\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyrights\u003c/h3\u003e\n\u003cp\u003eCopyright (c) 2013-2015, Lawrence Livermore National Security, LLC.\nProduced at the Lawrence Livermore National Laboratory\nCODE-673838\u003c/p\u003e\n\u003cp\u003eCopyright (c) 2006-2007,2011-2015, Los Alamos National Security, LLC.\n(LA-CC-06-077, LA-CC-10-066, LA-CC-14-046)\u003c/p\u003e\n\u003cp\u003eCopyright (2013-2015) UT-Battelle, LLC under Contract No.\nDE-AC05-00OR22725 with the Department of Energy.\u003c/p\u003e\n\u003cp\u003eCopyright (c) 2015, DataDirect Networks, Inc.\u003c/p\u003e\n\u003cp\u003eAll rights reserved.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-build-status\" class=\"anchor\" href=\"#build-status\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild Status\u003c/h2\u003e\n\u003cp\u003eThe current status of the mpiFileUtils master branch is \u003ca href=\"https://travis-ci.org/hpc/mpifileutils\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/76717f664d99534173ac7e9fb8e904b0e4bd14fbd51ac6969a88de2e6e86a94f/68747470733a2f2f7472617669732d63692e6f72672f6870632f6d706966696c657574696c732e706e673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/hpc/mpifileutils.png?branch=master\" style=\"max-width:100%;\"\u003e\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 108,
+    "stargazers_count": 109,
     "subscribers_count": 23,
     "topics": [],
-    "updated_at": 1624921025.0
+    "updated_at": 1625192268.0
   },
   {
     "data_format": 2,
