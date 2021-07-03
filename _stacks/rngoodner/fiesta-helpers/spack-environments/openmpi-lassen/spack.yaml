@@ -1,0 +1,8 @@
+spack:
+  concretization: separately
+  specs:
+  - cmake@lassen.3.14.5
+  - cuda@lassen.11.1.1
+  - openmpi@4.0.5+cuda ^cuda@lassen.11.1.1
+  - hdf5@1.12.0+cxx+fortran+hl+szip+threadsafe ^openmpi@4.0.5+cuda ^cuda@lassen.11.1.1
+  view: true
