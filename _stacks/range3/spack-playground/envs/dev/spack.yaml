@@ -18,9 +18,16 @@ spack:
   - memkind
   - doctest
   - nlohmann-json
+  - ior@develop +pmdk
   concretization: together
   view: true
   packages:
+    openmpi:
+      externals:
+      - spec: openmpi@4.0.3%clang@10.0.0~cuda+cxx~cxx_exceptions+java~memchecker+pmi~sqlite3~static~thread_multiple~wrapper-rpath
+          fabrics=ofi,psm,psm2 schedulers=slurm
+        prefix: /
+      buildable: false
     all:
       compiler: [clang, gcc]
     cmake:
