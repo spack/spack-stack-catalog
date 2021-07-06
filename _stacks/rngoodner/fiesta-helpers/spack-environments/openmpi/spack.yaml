@@ -3,6 +3,6 @@ spack:
   specs:
   - cmake@3.20.3
   - cuda@11.1.1
-  - openmpi@4.0.5+cuda@11.1.1
+  - openmpi@4.0.5+cuda ^cuda@11.1.1
   - hdf5@1.12.0+cxx+fortran+hl+szip+threadsafe ^openmpi@4.0.5+cuda ^cuda@11.1.1
   view: true

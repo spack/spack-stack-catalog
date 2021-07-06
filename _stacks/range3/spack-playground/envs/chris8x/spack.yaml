@@ -16,10 +16,13 @@ spack:
   - memkind
   - doctest
   - nlohmann-json
+  - ior@fix-pmdk +pmdk
   concretization: together
   view: true
   packages:
-    autoconf:
+    all:
+      compiler: [gcc@9.3.1]
+    autpconf:
       externals:
       - spec: autoconf@2.69
         prefix: /usr
@@ -123,11 +126,6 @@ spack:
       externals:
       - spec: ncurses@5.9.20130511+termlib abi=5
         prefix: /usr
-    openmpi:
-      externals:
-      - spec: openmpi@4.1.0rc5%gcc@4.8.5~cuda~cxx~cxx_exceptions~java~memchecker+pmi~sqlite3~static~thread_multiple~wrapper-rpath
-          fabrics=ucx schedulers=slurm
-        prefix: /usr/mpi/gcc/openmpi-4.1.0rc5
     openssh:
       externals:
       - spec: openssh@7.4p1

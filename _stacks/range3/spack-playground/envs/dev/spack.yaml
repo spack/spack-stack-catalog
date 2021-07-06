@@ -19,6 +19,7 @@ spack:
   - doctest
   - nlohmann-json
   - ior@develop +pmdk
+  - fio +pmdk
   concretization: together
   view: true
   packages:
