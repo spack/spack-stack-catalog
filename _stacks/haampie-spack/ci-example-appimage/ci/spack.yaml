@@ -1,0 +1,22 @@
+spack:
+  view: false
+  config:
+    ccache: true
+    source_cache: ~/.spack-ci/source_cache
+    misc_cache: ~/.spack-ci/misc_cache
+    test_cache: ~/.spack-ci/test_cache
+    install_tree:
+      root: ~/.spack-ci/install
+  packages:
+    mypkg:
+      variants: ~cuda +mpi +tests build_type=Debug
+    mpich:
+      variants: ~fortran
+    all:
+      target: [x86_64]
+      providers:
+        mpi: [mpich]
+  develop:
+    mypkg:
+      path: ../
+      spec: mypkg@main
