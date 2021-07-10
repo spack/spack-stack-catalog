@@ -7,5 +7,6 @@ dependencies:
   - pygithub
   - gitpython
   - pandas
+  - urllib3
   - pyaml
   - scikit-learn
