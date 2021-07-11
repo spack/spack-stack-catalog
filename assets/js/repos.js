@@ -9,7 +9,7 @@ var data =
     ],
     "full_name": "FluidNumerics/hpc-apps-gcp",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eFluid Numerics provides support and consulting services to help you get up and running on Google Cloud. \u003ca href=\"https://help.fluidnumerics.com/support\" rel=\"nofollow\"\u003eReach out to Fluid Numerics for Support\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-hpc-applications-in-the-cloud\" class=\"anchor\" href=\"#hpc-applications-in-the-cloud\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Applications in the Cloud\u003c/h2\u003e\n\u003cp\u003eFluid Numerics intends to provide you with many options for getting started with HPC and Research Computing applications on Google Cloud.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-free-and-open-source-solutions\" class=\"anchor\" href=\"#free-and-open-source-solutions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFree and Open Source Solutions\u003c/h3\u003e\n\u003cp\u003eFluid Numerics develops and maintains this repository to help you get started with VM image baking and Terraform infrastructure-as-code.\u003c/p\u003e\n\u003cp\u003eSome VM images are sponsored by organizations to make them freely available to the community for use. These free images are licensed for use under the \u003ca href=\"./LICENSE\"\u003eApache 2.0 License\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFreely available images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eGromacs\u003c/strong\u003e - \u003ccode\u003eselfLink: projects/hpc-apps/global/images/gromacs-gcp-foss-latest\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWRF v4.2\u003c/strong\u003e - \u003ccode\u003eselfLink: projects/hpc-apps/global/images/wrf-gcp-slurm-gcp-centos7-latest\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-fluid-numerics-hpc-apps-vm-image-library\" class=\"anchor\" href=\"#fluid-numerics-hpc-apps-vm-image-library\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFluid Numerics\u0027 HPC Apps VM Image Library\u003c/h3\u003e\n\u003cp\u003eFluid Numerics builds all of the applications in this repository, provides useful base images with a variety of compiler stacks, and actively supports adding upgrades and updates to our managed VM library. Access to this VM image library also comes with support from Fluid Numerics to help you use these images. This can save you time in cloud design and engineering and provide you access to tested VM images ready for launch on GCP.\u003c/p\u003e\n\u003cp\u003eWe currently offer the following images through a VM Image Library subscription with Fluid Numerics\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eImage Contents\u003c/th\u003e\n\u003cth\u003eImage Family\u003c/th\u003e\n\u003cth\u003eImage Name\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 7.5.0, 8.5.0, 9.4.0, 10.2.0; Intel Compilers 2021, OpenMPI 4.0.2, Singularity, ROCm, lmod\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-devplatform\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-devplatform-1e35f2d\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSingularity (GCC 10.2.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-singularity-gcc-10-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-singularity-gcc-10-ompi-4-\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eOpenFOAM v8 + Paraview 5.9.0 (GCC 10.2.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-openfoam-gcc-10-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-openfoam-gcc-10-ompi-4-2f78318\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWRF v4.2 (GCC 9.4.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-gcc-9-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-gcc-9-ompi-4-99596c7\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWRF v4.2 (Intel OneAPI Compilers + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-intel-oneapi-compilers-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-intel-oneapi-compilers-ompi-4-99596c7\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGromacs 2021.2 (GCC 10.2.0 + CUDA 11)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-gromacs-gcc-10\u003c/td\u003e\n\u003ctd\u003efluid-hpc-gromacs-gcc-10-\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 10.2.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-10-2-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-10-2-0-e7a73f9\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 9.4.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-9-4-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-9-4-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 8.5.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-8-5-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-8-5-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 7.5.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-7-5-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-7-5-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eIntel OneAPI Compilers 2021\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-intel-oneapi-compilers\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-intel-oneapi-compilers-e7a73f9\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eNotes\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIf you want to build images on top of these image, you need to set \u003ccode\u003e_SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e and set \u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e to the value in the \"Image Family\" column from the table above.\u003c/li\u003e\n\u003cli\u003eWhen deploying one of these images with the terraform deployments in this repository, you need to set the VM image to \u003ccode\u003eprojects/hpc-apps/global/images/IMAGE-NAME\u003c/code\u003e, replacing \u003ccode\u003eIMAGE-NAME\u003c/code\u003e  with a value in the \"Image Name\" column from the table above.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eImages currently in development\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eParaview\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFEOTS\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSELF-Fluids\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eFluid HPC Apps VM Image Library Base Images\u003c/strong\u003e\n\u003cem\u003eVM Image Library access available via subscription\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@10.2.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-10-2-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@9.4.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-9-4-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@8.5.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-8-5-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@7.5.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-7-5-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + Intel@2021 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-intel-oneapi-compilers, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eTo use the Fluid HPC Apps VM Image Library Base Images, you must set the \u003ccode\u003e_INSTALL_ROOT=/opt\u003c/code\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-hpc-apps-for-gcp\" class=\"anchor\" href=\"#hpc-apps-for-gcp\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Apps for GCP\u003c/h1\u003e\n\u003cp\u003eCopyright 2021 Fluid Numerics LLC\u003c/p\u003e\n\u003cp\u003eThis repository contains code for creating VM images compatible with \u003ca href=\"https://github.com/schedmd/slurm-gcp\"\u003eSlurm-GCP\u003c/a\u003e that have common HPC applications pre-installed.\u003c/p\u003e\n\u003cp\u003eFluid Numerics provides support and consulting services to help you get up and running on Google Cloud. \u003ca href=\"https://help.fluidnumerics.com/support\" rel=\"nofollow\"\u003eReach out to Fluid Numerics for Support\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-hpc-applications-in-the-cloud\" class=\"anchor\" href=\"#hpc-applications-in-the-cloud\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHPC Applications in the Cloud\u003c/h2\u003e\n\u003cp\u003eFluid Numerics intends to provide you with many options for getting started with HPC and Research Computing applications on Google Cloud.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-free-and-open-source-solutions\" class=\"anchor\" href=\"#free-and-open-source-solutions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFree and Open Source Solutions\u003c/h3\u003e\n\u003cp\u003eFluid Numerics develops and maintains this repository to help you get started with VM image baking and Terraform infrastructure-as-code.\u003c/p\u003e\n\u003cp\u003eSome VM images are sponsored by organizations to make them freely available to the community for use. These free images are licensed for use under the \u003ca href=\"./LICENSE\"\u003eApache 2.0 License\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFreely available images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"./gromacs/tf/slurm\"\u003e\u003cstrong\u003eGromacs\u003c/strong\u003e\u003c/a\u003e - \u003ccode\u003eselfLink: projects/hpc-apps/global/images/gromacs-gcp-foss-latest\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"./wrf/tf/slurm\"\u003e\u003cstrong\u003eWRF v4.2\u003c/strong\u003e\u003c/a\u003e - \u003ccode\u003eselfLink: projects/hpc-apps/global/images/wrf-gcp-slurm-gcp-centos7-latest\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-fluid-numerics-hpc-apps-vm-image-library\" class=\"anchor\" href=\"#fluid-numerics-hpc-apps-vm-image-library\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFluid Numerics\u0027 HPC Apps VM Image Library\u003c/h3\u003e\n\u003cp\u003eFluid Numerics builds all of the applications in this repository, provides useful base images with a variety of compiler stacks, and actively supports adding upgrades and updates to our managed VM library. Access to this VM image library also comes with support from Fluid Numerics to help you use these images. This can save you time in cloud design and engineering and provide you access to tested VM images ready for launch on GCP.\u003c/p\u003e\n\u003cp\u003eWe currently offer the following images through a VM Image Library subscription with Fluid Numerics\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eImage Contents\u003c/th\u003e\n\u003cth\u003eImage Family\u003c/th\u003e\n\u003cth\u003eImage Name\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 7.5.0, 8.5.0, 9.4.0, 10.2.0; Intel Compilers 2021, OpenMPI 4.0.2, Singularity, ROCm, lmod\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-devplatform\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-devplatform-1e35f2d\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSingularity (GCC 10.2.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-singularity-gcc-10-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-singularity-gcc-10-ompi-4-99596c7\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eOpenFOAM v8 + Paraview 5.9.0 (GCC 10.2.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-openfoam-gcc-10-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-openfoam-gcc-10-ompi-4-2f78318\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWRF v4.2 (GCC 9.4.0 + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-gcc-9-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-gcc-9-ompi-4-99596c7\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWRF v4.2 (Intel OneAPI Compilers + OpenMPI 4.0.2)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-intel-oneapi-compilers-ompi-4\u003c/td\u003e\n\u003ctd\u003efluid-hpc-wrf-intel-oneapi-compilers-ompi-4-99596c7\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGromacs 2021.2 (GCC 10.2.0 + CUDA 11)\u003c/td\u003e\n\u003ctd\u003efluid-hpc-gromacs-gcc-10\u003c/td\u003e\n\u003ctd\u003efluid-hpc-gromacs-gcc-10-d7af66a\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 10.2.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-10-2-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-10-2-0-e7a73f9\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 9.4.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-9-4-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-9-4-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 8.5.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-8-5-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-8-5-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eGCC 7.5.0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-7-5-0\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-gcc-7-5-0-b97e4d2\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eIntel OneAPI Compilers 2021\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-intel-oneapi-compilers\u003c/td\u003e\n\u003ctd\u003efluid-hpc-centos-7-intel-oneapi-compilers-e7a73f9\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eNotes\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIf you want to build images on top of these image, you need to set \u003ccode\u003e_SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e and set \u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e to the value in the \"Image Family\" column from the table above.\u003c/li\u003e\n\u003cli\u003eWhen deploying one of these images with the terraform deployments in this repository, you need to set the VM image to \u003ccode\u003eprojects/hpc-apps/global/images/IMAGE-NAME\u003c/code\u003e, replacing \u003ccode\u003eIMAGE-NAME\u003c/code\u003e  with a value in the \"Image Name\" column from the table above.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eImages currently in development\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eParaview\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFEOTS\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSELF-Fluids\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eEach subdirectory in this repository contains\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003epacker.json\u003c/code\u003e - \u003ca href=\"https://packer.io\" rel=\"nofollow\"\u003ePacker\u003c/a\u003e build script\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecloudbuild.yaml\u003c/code\u003e - \u003ca href=\"https://cloud.google.com/build\" rel=\"nofollow\"\u003eCloud Build\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003einstall.sh\u003c/code\u003e - An installation file for the package\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eEach package, by default, builds on top of the \u003ca href=\"https://console.cloud.google.com/marketplace/product/schedmd-slurm-public/schedmd-slurm-gcp\" rel=\"nofollow\"\u003eSlurm-GCP\u003c/a\u003e marketplace solution. Building on top of the VM image for this solution will provide you with a VM image that is capable of being used with the Slurm-GCP solution.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cloud.google.com/sdk/docs/install\" rel=\"nofollow\"\u003egcloud SDK\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003eActive GCP project\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-building-a-package\" class=\"anchor\" href=\"#building-a-package\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding a package\u003c/h3\u003e\n\u003cp\u003eTo build one of the packages, submit the build to cloud build using one of the application\u0027s provided cloudbuild.yaml file, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --config=wrf/cloudbuild.yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-understanding-the-cloud-build-files\" class=\"anchor\" href=\"#understanding-the-cloud-build-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUnderstanding the Cloud Build files\u003c/h3\u003e\n\u003cp\u003eEach \u003ccode\u003ecloudbuild.yaml\u003c/code\u003e has the following variables\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e_ZONE\u003c/code\u003e -  The GCP Zone where the imaging node is deployed\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SUBNETWORK\u003c/code\u003e - The GCP Subnet used to deploy the imaging node\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family on GCP to start the build from. Using the image family pulls the latest image in that family\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_SOURCE_IMAGE_PROJECT\u003c/code\u003e - The GCP project hosting the VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_NAME\u003c/code\u003e - The name of the resulting VM image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_IMAGE_FAMILY\u003c/code\u003e - The name of the VM image family to sort the resulting image\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e_INSTALL_ROOT\u003c/code\u003e - The location within the VM image where Spack and the HPC packages are installed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe value of these variables can be changed when executing a build using \u003ccode\u003e--substitutions=\u003c/code\u003e, e.g.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egcloud builds submit . --async --project=PROJECT-ID --substitutions=_SOURCE_IMAGE=centos-7-v20210401,_SOURCE_IMAGE_PROJECT=centos-cloud\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-common-base-images\" class=\"anchor\" href=\"#common-base-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommon Base Images\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eFluid HPC Apps VM Image Library Base Images\u003c/strong\u003e\n\u003cem\u003eVM Image Library access available via subscription\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@10.2.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-10-2-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@9.4.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-9-4-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@8.5.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-8-5-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + GCC@7.5.0 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-gcc-7-5-0, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 + Slurm + Intel@2021 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-hpc-centos-7-intel-oneapi-compilers, _SOURCE_IMAGE_PROJECT=hpc-apps\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eTo use the Fluid HPC Apps VM Image Library Base Images, you must set the \u003ccode\u003e_INSTALL_ROOT=/opt\u003c/code\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBase Operating System Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=centos-7, _SOURCE_IMAGE_PROJECT=centos-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=debian-10, _SOURCE_IMAGE_PROJECT=debian-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04 - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=ubuntu-2004-lts, _SOURCE_IMAGE_PROJECT=ubuntu-os-cloud\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7 HPC VM Image - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=hpc-centos-7, _SOURCE_IMAGE_PROJECT=click-to-deploy-images\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eSlurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, HPC SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-hpc-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCentOS 7, SchedMD Slurm-GCP CentOS - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-centos-7, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eDebian 10, SchedMD Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=schedmd-slurm-20-11-4-debian-10, _SOURCE_IMAGE_PROJECT=schedmd-slurm-public\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eFluid-Slurm-GCP Compatible Base Images\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCentOS 7, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-centos, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUbuntu 20.04, Fluid-Slurm-GCP - \u003ccode\u003e_SOURCE_IMAGE_FAMILY=fluid-slurm-gcp-compute-ubuntu, _SOURCE_IMAGE_PROJECT=fluid-cluster-ops\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [
@@ -18,15 +18,15 @@ var data =
       "slurm",
       "wrf"
     ],
-    "updated_at": 1625790989.0
+    "updated_at": 1625870987.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
+      "envs/chris8x/spack.yaml",
       "envs/cygnus/spack.yaml",
       "envs/broken-verbs-chris8x/spack.yaml",
-      "envs/chris8x/spack.yaml",
       "envs/dev/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
@@ -141,15 +141,15 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/power9le/flecsi/spack.yaml",
+      "env/broadwell/flecsalemm-deps/spack.yaml",
+      "env/power9le/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
       "env/x86_64/flecsi/spack.yaml",
       "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/root-build/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
       "env/broadwell/flecsi/spack.yaml",
-      ".gitlab-ci/env/dry-run/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
-      "env/broadwell/flecsalemm-deps/spack.yaml",
-      "env/power9le/flecsalemm-deps/spack.yaml"
+      ".gitlab-ci/env/root-build/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -176,12 +176,12 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "v0133gccSpectrum/spack.yaml",
-      "v0162gccSpectrum/spack.yaml",
-      "v0133gcc/spack.yaml",
+      "rhel8NvhpcWdmapp/spack.yaml",
       "v0160gcc/spack.yaml",
+      "v0162gccSpectrum/spack.yaml",
       "spack.yaml",
-      "rhel8NvhpcWdmapp/spack.yaml"
+      "v0133gccSpectrum/spack.yaml",
+      "v0133gcc/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -229,7 +229,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1624336227.0
+    "updated_at": 1625839563.0
   },
   {
     "data_format": 2,
@@ -254,7 +254,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-06_E4S-Tutorial",
     "latest_release": null,
     "stargazers_count": 0,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1623424083.0
   },
@@ -351,7 +351,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1622221140.0
+    "updated_at": 1625823166.0
   },
   {
     "data_format": 2,
@@ -398,8 +398,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.13.2/spack.yaml",
-      "v0.15.4/spack.yaml"
+      "v0.15.4/spack.yaml",
+      "v0.13.2/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -413,9 +413,9 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "examples/zeus_marco/environment1_compchem/spack.yaml",
+      "examples/zeus_marco/environment2_python/spack.yaml",
       "examples/topaz_marco/environment_compchem/spack.yaml",
-      "examples/zeus_marco/environment2_python/spack.yaml"
+      "examples/zeus_marco/environment1_compchem/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -448,7 +448,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-05_ExaWind-AMRWind",
     "latest_release": null,
     "stargazers_count": 0,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1624483199.0
   },
@@ -512,29 +512,29 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/x86_64/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent7/library/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
       "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent7/mpis/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent7/py_376/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "compilers/envs/compilers/spack.yaml",
-      "cent7/python_376/spack.yaml",
+      "cent7/library/spack.yaml",
       "cent7/apps/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "cent7/mpis/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/library/bak/spack.yaml",
+      "cent7/py_376/spack.yaml",
       "cent8/envs/avx/python/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml"
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -548,15 +548,15 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/rhodes/software/spack.yaml",
+      "configs/eagle/software/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
       "envs/exawind/spack.yaml",
       "configs/rhodes/base/spack.yaml",
-      "configs/eagle/software/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/software/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
       "configs/eagle/base/spack.yaml",
-      "configs/eagle/utilities/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml"
+      "configs/eagle/compilers/spack.yaml",
+      "configs/eagle/utilities/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -570,8 +570,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -765,10 +765,24 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Personal fork of the sds-key Mochi microservice.",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "srini009/sds-keyval",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-sdskv-sds-keyval\" class=\"anchor\" href=\"#sdskv-sds-keyval\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSDSKV (SDS Key/Val)\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eSDSKV can easily be installed using Spack:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install sdskeyval\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis will install SDSKV (and any required dependencies).\nAvailable backends will be \u003cem\u003eMap\u003c/em\u003e (in-memory C++ std::map, useful for testing)\nand BwTree (deprecated). To enable the BerkeleyDB and LevelDB backends,\nass \u003ccode\u003e+bdb\u003c/code\u003e and \u003ccode\u003e+leveldb\u003c/code\u003e respectively. For example:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install sdskeyval+bdb+leveldb\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eNote that if you are using a system boost path in spack (in your\npackages.yaml) rather than letting spack build boost, then you must\ninstall libboost-system-dev and libboost-filesystem-dev packages on\nyour system.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-architecture\" class=\"anchor\" href=\"#architecture\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArchitecture\u003c/h2\u003e\n\u003cp\u003eList most mochi services, SDSKV relies on a client/provider architecture.\nA provider, identified by its \u003cem\u003eaddress\u003c/em\u003e and \u003cem\u003emultiplex id\u003c/em\u003e, manages one or more\ndatabases, referenced externally by their database id.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-starting-a-daemon\" class=\"anchor\" href=\"#starting-a-daemon\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStarting a daemon\u003c/h2\u003e\n\u003cp\u003eSDSKV ships with a default daemon program that can setup providers and\ndatabases. This daemon can be started as follows:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003esdskv-server-daemon [OPTIONS] \u0026lt;listen_addr\u0026gt; \u0026lt;db name 1\u0026gt;[:map|:bwt|:bdb|:ldb] \u0026lt;db name 2\u0026gt;[:map|:bwt|:bdb|:ldb] ...\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eFor example:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003esdskv-server-daemon tcp://localhost:1234 foo:bdb bar\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003elisten_addr is the address at which to listen; database names should be provided in the form\n\u003cem\u003ename:type\u003c/em\u003e where \u003cem\u003etype\u003c/em\u003e is \u003cem\u003emap\u003c/em\u003e (std::map), \u003cem\u003ebwt\u003c/em\u003e (BwTree), \u003cem\u003ebdb\u003c/em\u003e (Berkeley DB), or \u003cem\u003eldb\u003c/em\u003e (LevelDB).\u003c/p\u003e\n\u003cp\u003eFor database that are persistent like BerkeleyDB or LevelDB, the name should be a path to the\nfile where the database will be put (this file should not exist).\u003c/p\u003e\n\u003cp\u003eThe following additional options are accepted:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-f\u003c/code\u003e provides the name of the file in which to write the address of the daemon.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-m\u003c/code\u003e provides the mode (providers or databases).\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe providers mode indicates that, if multiple SDSKV databases are used (as above),\nthese databases should be managed by multiple providers, accessible through\ndifferent multiplex ids 1, 2, ... N where N is the number of databases\nto manage. The targets mode indicates that a single provider should be used to\nmanage all the databases. This provider will be accessible at multiplex id 1.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-client-api\" class=\"anchor\" href=\"#client-api\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eClient API\u003c/h2\u003e\n\u003cp\u003eThe client API is available in \u003cem\u003esdskv-client.h\u003c/em\u003e.\nThe codes in the \u003cem\u003etest\u003c/em\u003e folder illustrate how to use it.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-provider-api\" class=\"anchor\" href=\"#provider-api\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProvider API\u003c/h2\u003e\n\u003cp\u003eThe server-side API is available in \u003cem\u003esdskv-server.h\u003c/em\u003e.\nThe code of the daemon (\u003cem\u003esrc/sdskv-server-daemon.c\u003c/em\u003e) can be used as an example.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-custom-key-comparison-function\" class=\"anchor\" href=\"#custom-key-comparison-function\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCustom key comparison function\u003c/h3\u003e\n\u003cp\u003eIt is possible to specify a custom function for comparing/sorting keys\nwhen creating a provider. A comparison function must have the following prototype:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eint (*)(const void* key1, size_t keysize1, const void* key2, size_t keysize2)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eIts return value must be \u0026lt; 0 if key1 \u0026lt; key2, 0 if key1 = key2, \u0026gt; 0 if key1 \u0026gt; key2.\nIt must define a total order of the key space.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-c-api\" class=\"anchor\" href=\"#c-api\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eC++ API\u003c/h2\u003e\n\u003cp\u003eAn object-oriented C++ API is available in \u003ccode\u003esdskv-client.hpp\u003c/code\u003e and \u003ccode\u003esdskv-server.hpp\u003c/code\u003e.\nOn the client side this API provides the \u003ccode\u003eclient\u003c/code\u003e, \u003ccode\u003eprovider_handle\u003c/code\u003e, and \u003ccode\u003edatabase\u003c/code\u003e objects.\nExamples of usage of these objects can be found in the \u003ccode\u003etest/sdskv-cxx-test.cc\u003c/code\u003e.\nOn the server side, this API provides a \u003ccode\u003eprovider\u003c/code\u003e object.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-benchmark\" class=\"anchor\" href=\"#benchmark\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBenchmark\u003c/h2\u003e\n\u003cp\u003eSDSKV can be compiled with \u003ccode\u003e--enable-benchmark\u003c/code\u003e (or \u003ccode\u003e+benchmark\u003c/code\u003e in Spack). In this case,\nSDSKV requires the JsonCPP and MPI dependencies (when compiling manually, use \u003ccode\u003eCXX=mpicxx\u003c/code\u003e in\nyour configure step, for example), and it will build and install the \u003ccode\u003esdskv-benchmark\u003c/code\u003e program.\u003c/p\u003e\n\u003cp\u003eThis program is an MPI program that reads a JSON file describing a series of access patterns.\nRank 0 of this MPI program acts as an SDSKV server. Other ranks act as clients, all executing\nthis access pattern.\u003c/p\u003e\n\u003cp\u003eThe following is an example of a JSON file.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-json\"\u003e\u003cpre\u003e{\n\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eprotocol\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etcp\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eseed\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e,\n\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eserver\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : {\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003euse-progress-thread\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003efalse\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003erpc-thread-count\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003edatabase\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : {\n\t\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etype\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emap\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n\t\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ename\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ebenchmark-db\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n\t\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epath\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/dev/shm\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\t\t}\n\t},\n\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ebenchmarks\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : [\n\t{\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etype\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eput\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003erepetitions\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e10\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003enum-entries\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e30\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ekey-sizes\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : [ \u003cspan class=\"pl-c1\"\u003e8\u003c/span\u003e, \u003cspan class=\"pl-c1\"\u003e32\u003c/span\u003e ],\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eval-sizes\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : [ \u003cspan class=\"pl-c1\"\u003e24\u003c/span\u003e, \u003cspan class=\"pl-c1\"\u003e48\u003c/span\u003e ],\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eerase-on-teardown\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003etrue\u003c/span\u003e\n\t},\n\t{\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etype\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eget\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003erepetitions\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e10\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003enum-entries\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e30\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ekey-sizes\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e64\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eval-sizes\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003e128\u003c/span\u003e,\n\t\t\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eerase-on-teardown\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e : \u003cspan class=\"pl-c1\"\u003etrue\u003c/span\u003e\n\t}\n\t]\n}\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThe JSON file starts with the protocol to use, and a seed for the random-number generator (RNG).\nThe actual seed used on each rank will actually be a function of this global seed and the rank of\nthe client. The RNG will be reset with this seed after each benchmark.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eserver\u003c/code\u003e field sets up the provider and the database. Database types can be \u003ccode\u003emap\u003c/code\u003e, \u003ccode\u003eldb\u003c/code\u003e, or \u003ccode\u003ebdb\u003c/code\u003e.\nThen follows the \u003ccode\u003ebenchmarks\u003c/code\u003e entry, which is a list of benchmarks to execute. Each benchmark is composed\nof three steps. A \u003cem\u003esetup\u003c/em\u003e phase, an \u003cem\u003eexecution\u003c/em\u003e phase, and a \u003cem\u003eteardown\u003c/em\u003e phase. The setup phase may for\nexample store a bunch of keys in the database that the execution phase will read by (in the case of a\n\u003cem\u003eget\u003c/em\u003e benchmark, for example). The teardown phase will usually remove all the keys that were written\nduring the benchmark, if \"erase-on-teardown\" is set to \u003ccode\u003etrue\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eEach benchmark entry has a \u003ccode\u003etype\u003c/code\u003e (which may be \u003ccode\u003eput\u003c/code\u003e, \u003ccode\u003eput-multi\u003c/code\u003e, \u003ccode\u003eget\u003c/code\u003e, \u003ccode\u003eget-multi\u003c/code\u003e, \u003ccode\u003elength\u003c/code\u003e,\n\u003ccode\u003elength-multi\u003c/code\u003e, \u003ccode\u003eerase\u003c/code\u003e, and \u003ccode\u003eerase-multi\u003c/code\u003e), and a number of repetitions. The benchmark will be\nexecuted as many times as requested (without resetting the RNG in between repetitions). Taking the\nexample of the \u003ccode\u003eput\u003c/code\u003e benchmark above, each repetition will put 30 key/value pairs into the database.\nThe key size will be chosen randomly in a uniform manner in the interval \u003ccode\u003e[8, 32 [\u003c/code\u003e (32 excluded).\nThe value size will be chosen randomly in a uniform manner in \u003ccode\u003e[24, 48 [\u003c/code\u003e (48 excluded). Note that\nyou may also set a specific size instead of a range.\u003c/p\u003e\n\u003cp\u003eAn MPI barrier between clients is executed in between each benchmark and in between the setup,\nexecution, and teardown phases, so that the execution phase is always executed at the same time\non all the clients. Once all the repetitions are done for a given benchmark entry, the program\nwill report statistics on the timings: average time, variance, standard deviation, mininum, maximum,\nmedian, first and third quartiles. Note that these times are for a repetition, not for single operations\nwithin a repetition. To get the timing of each individual operation, it is then necessary to divide\nthe times by the number of key/value pairs involved in the benchmark.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1625971295.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
-      "builds/openmp/spack.yaml",
-      "builds/cuda/spack.yaml"
+      "builds/cuda/spack.yaml",
+      "builds/openmp/spack.yaml"
     ],
     "full_name": "DavidPoliakoff/tuning-spack",
     "latest_release": null,
@@ -831,7 +845,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1625788795.0
+    "updated_at": 1625812028.0
   },
   {
     "data_format": 2,
@@ -865,8 +879,8 @@ var data =
     "data_format": 2,
     "description": "Recipes to generate container images and experiment with Github registry",
     "filenames": [
-      "gromacs/spack.yaml",
-      "quantum-espresso/spack.yaml"
+      "quantum-espresso/spack.yaml",
+      "gromacs/spack.yaml"
     ],
     "full_name": "alalazo/container-images",
     "latest_release": null,
@@ -967,9 +981,9 @@ var data =
     "description": null,
     "filenames": [
       "spack_environments/developer_release_osx_spack.yaml",
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/developer_release_x86_64_cuda_spack.yaml",
       "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
@@ -1020,7 +1034,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-04_ExaWind-NaluWind",
     "latest_release": null,
     "stargazers_count": 0,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1618419090.0
   },
@@ -1033,7 +1047,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-04_ECP-Tutorial",
     "latest_release": null,
     "stargazers_count": 0,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1618424747.0
   },
@@ -1068,8 +1082,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
-      "etc/spack.yaml"
+      "etc/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "CUP-ECS/ExaCLAMR",
     "latest_release": null,
@@ -1179,8 +1193,8 @@ var data =
     "data_format": 2,
     "description": "Experiments using Colza for In Situ Analysis",
     "filenames": [
-      "cori/resizing/spack.yaml",
-      "cori/overhead/spack.yaml"
+      "cori/overhead/spack.yaml",
+      "cori/resizing/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/colza-experiments",
     "latest_release": null,
@@ -1194,9 +1208,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "spack-llvm.yaml",
       "spack-qmcpack.yaml",
-      "spack.yaml",
-      "spack-llvm.yaml"
+      "spack.yaml"
     ],
     "full_name": "eugeneswalker/qmcpack-demo",
     "latest_release": null,
@@ -1269,52 +1283,52 @@ var data =
     ],
     "full_name": "SC-SGS/CPPuddle",
     "latest_release": null,
-    "readme": "\u003ch3\u003e\n\u003ca id=\"user-content-cppuddle\" class=\"anchor\" href=\"#cppuddle\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCPPuddle\u003c/h3\u003e\n\u003cp\u003eWARNING: This repository is a work in progress and should not be relied on for production use!\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/SC-SGS/CPPuddle/actions/workflows/cmake.yml\"\u003e\u003cimg src=\"https://github.com/SC-SGS/CPPuddle/actions/workflows/cmake.yml/badge.svg\" alt=\"ctests\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-purpose\" class=\"anchor\" href=\"#purpose\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePurpose\u003c/h4\u003e\n\u003cp\u003eThis repository was initially created to explore how to best use HPX and Kokkos together!\nFor fine-grained GPU tasks, we needed a way to avoid excessive allocations of one-usage GPU buffers (as allocations block the device for all streams) and creation/deletion of GPU executors (as those are usually tied to a stream which is expensive to create as well).\u003c/p\u003e\n\u003cp\u003eWe currently test it in the experimental build of \u003ca href=\"https://github.com/STEllAR-GROUP/octotiger\"\u003eOcto-Tiger\u003c/a\u003e, together with \u003ca href=\"https://github.com/STEllAR-GROUP/hpx-kokkos\"\u003eHPX-Kokkos\u003c/a\u003e.\nIn this use-case, allocating GPU buffers for all sub-grids in advance would have wasted a lot of memory. On the other hand, unified memory would have caused unnecessary GPU to CPU page migrations (as the old input data gets overwritten anyway). Allocating buffers on-the-fly would have blocked the device. Hence, we currently test this buffer management solution!\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-tools-provided-by-this-repository\" class=\"anchor\" href=\"#tools-provided-by-this-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools provided by this repository\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eAllocators that reuse previousely allocated buffers if available (works with normal heap memory, pinned memory, aligned memory, CUDA device memory, and Kokkos Views). Note that separate buffers do not coexist on a single chunk of continuous memory, but use different allocations.\u003c/li\u003e\n\u003cli\u003eExecutor pools and various scheduling policies (round robin, priority queue, multi-gpu), which rely on reference counting to gauge the current load of a executor instead of querying the device itself.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-requirements\" class=\"anchor\" href=\"#requirements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRequirements\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eC++14\u003c/li\u003e\n\u003cli\u003eCMake (\u0026gt;= 3.11)\u003c/li\u003e\n\u003cli\u003eOptional (for the header-only utilities / test): CUDA, Boost, \u003ca href=\"https://github.com/STEllAR-GROUP/hpx\"\u003eHPX\u003c/a\u003e, \u003ca href=\"https://github.com/kokkos/kokkos\"\u003eKokkos\u003c/a\u003e, \u003ca href=\"https://github.com/STEllAR-GROUP/hpx-kokkos\"\u003eHPX-Kokkos\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe submodules can be used to obtain the optional dependencies which are required for testing the header-only utilities. If these tests are not required, the submodule (and the respective buildscripts in /scripts) can be ignored safely.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-build--install\" class=\"anchor\" href=\"#build--install\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild / Install\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003e  cmake -H/path/to/source -B$/path/to/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/cppuddle -DCPPUDDLE_WITH_TESTS=OFF -DCPPUDDLE_WITH_COUNTERS=OFF                                                             \n  cmake --build /path/to/build -- -j4 VERBOSE=1                                                                                                                                                                                                          \n  cmake --build /path/to/build --target install  \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf installed correctly, cppuddle can be used in other cmake-based projects via\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efind_package(CPPuddle REQUIRED)\n\u003c/code\u003e\u003c/pre\u003e\n",
+    "readme": "\u003ch3\u003e\n\u003ca id=\"user-content-cppuddle\" class=\"anchor\" href=\"#cppuddle\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCPPuddle\u003c/h3\u003e\n\u003cp\u003eWARNING: This repository is a work in progress and should not be relied on for production use!\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/SC-SGS/CPPuddle/actions/workflows/cmake.yml\"\u003e\u003cimg src=\"https://github.com/SC-SGS/CPPuddle/actions/workflows/cmake.yml/badge.svg\" alt=\"ctests\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://simsgs.informatik.uni-stuttgart.de/jenkins/view/Octo-Tiger%20and%20Dependencies/job/CPPuddle/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/ec38ec8936a40009dcc7e71b7728d5a255a44c690213d5cec29d9f5c7ef16603/68747470733a2f2f73696d7367732e696e666f726d6174696b2e756e692d7374757474676172742e64652f6a656e6b696e732f6275696c645374617475732f69636f6e3f7374796c653d666c6174267375626a6563743d6a656e6b696e732d6374657374266a6f623d4350507564646c65\" alt=\"Build Status\" data-canonical-src=\"https://simsgs.informatik.uni-stuttgart.de/jenkins/buildStatus/icon?style=flat\u0026amp;subject=jenkins-ctest\u0026amp;job=CPPuddle\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-purpose\" class=\"anchor\" href=\"#purpose\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePurpose\u003c/h4\u003e\n\u003cp\u003eThis repository was initially created to explore how to best use HPX and Kokkos together!\nFor fine-grained GPU tasks, we needed a way to avoid excessive allocations of one-usage GPU buffers (as allocations block the device for all streams) and creation/deletion of GPU executors (as those are usually tied to a stream which is expensive to create as well).\u003c/p\u003e\n\u003cp\u003eWe currently test it in the experimental build of \u003ca href=\"https://github.com/STEllAR-GROUP/octotiger\"\u003eOcto-Tiger\u003c/a\u003e, together with \u003ca href=\"https://github.com/STEllAR-GROUP/hpx-kokkos\"\u003eHPX-Kokkos\u003c/a\u003e.\nIn this use-case, allocating GPU buffers for all sub-grids in advance would have wasted a lot of memory. On the other hand, unified memory would have caused unnecessary GPU to CPU page migrations (as the old input data gets overwritten anyway). Allocating buffers on-the-fly would have blocked the device. Hence, we currently test this buffer management solution!\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-tools-provided-by-this-repository\" class=\"anchor\" href=\"#tools-provided-by-this-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTools provided by this repository\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eAllocators that reuse previousely allocated buffers if available (works with normal heap memory, pinned memory, aligned memory, CUDA device memory, and Kokkos Views). Note that separate buffers do not coexist on a single chunk of continuous memory, but use different allocations.\u003c/li\u003e\n\u003cli\u003eExecutor pools and various scheduling policies (round robin, priority queue, multi-gpu), which rely on reference counting to gauge the current load of a executor instead of querying the device itself.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-requirements\" class=\"anchor\" href=\"#requirements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRequirements\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eC++14\u003c/li\u003e\n\u003cli\u003eCMake (\u0026gt;= 3.11)\u003c/li\u003e\n\u003cli\u003eOptional (for the header-only utilities / test): CUDA, Boost, \u003ca href=\"https://github.com/STEllAR-GROUP/hpx\"\u003eHPX\u003c/a\u003e, \u003ca href=\"https://github.com/kokkos/kokkos\"\u003eKokkos\u003c/a\u003e, \u003ca href=\"https://github.com/STEllAR-GROUP/hpx-kokkos\"\u003eHPX-Kokkos\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe submodules can be used to obtain the optional dependencies which are required for testing the header-only utilities. If these tests are not required, the submodule (and the respective buildscripts in /scripts) can be ignored safely.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"user-content-build--install\" class=\"anchor\" href=\"#build--install\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild / Install\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003e  cmake -H/path/to/source -B$/path/to/build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/cppuddle -DCPPUDDLE_WITH_TESTS=OFF -DCPPUDDLE_WITH_COUNTERS=OFF                                                             \n  cmake --build /path/to/build -- -j4 VERBOSE=1                                                                                                                                                                                                          \n  cmake --build /path/to/build --target install  \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf installed correctly, cppuddle can be used in other cmake-based projects via\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003efind_package(CPPuddle REQUIRED)\n\u003c/code\u003e\u003c/pre\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1624354423.0
+    "updated_at": 1625844116.0
   },
   {
     "data_format": 2,
     "description": "NMC software deployment environments leveraging Spack.",
     "filenames": [
-      "prod/ecp-x86_64/5-e4s/spack.yaml",
-      "prod/ecp-p9-4v100/1-core/spack.yaml",
-      "dev/ecp-p9-4v100/2-compute/spack.yaml",
-      "prod/xx-fe1/4-py/spack.yaml",
-      "dev/ecp-p9-4v100/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
-      "dev/gitlab-runner/1-core/spack.yaml",
-      "prod/ecp-x86_64/3-sdk/spack.yaml",
-      "dev/ecp-p9-4v100/4-py/spack.yaml",
-      "dev/ecp-x86_64/2-compute/spack.yaml",
-      "dev/ecp-x86_64/4-py/spack.yaml",
-      "prod/xx-fe1/0-base/spack.yaml",
-      "prod/ecp-x86_64/2-compute/spack.yaml",
-      "dev/ecp-x86_64/1-core/spack.yaml",
-      "prod/ecp-x86_64/1-core/spack.yaml",
-      "prod/ecp-x86_64/4-py/spack.yaml",
-      "dev/xx-fe1/4-py/spack.yaml",
-      "prod/ecp-x86_64/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
-      "prod/xx-fe1/_manual/spack.yaml",
-      "prod/ecp-p9-4v100/4-py/spack.yaml",
-      "dev/ecp-x86_64/3-sdk/spack.yaml",
       "dev/ecp-x86_64/0-base/spack.yaml",
-      "dev/ecp-p9-4v100/1-core/spack.yaml",
-      "dev/xx-fe1/0-base/spack.yaml",
-      "prod/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/xx-fe1/0-base/spack.yaml",
       "dev/ecp-x86_64/5-e4s/spack.yaml",
-      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
-      "prod/ecp-p9-4v100/0-base/spack.yaml",
-      "dev/xx-fe1/_manual/spack.yaml",
-      "dev/ecp-p9-4v100/_manual/spack.yaml",
+      "dev/ecp-p9-4v100/2-compute/spack.yaml",
+      "dev/ecp-x86_64/2-compute/spack.yaml",
+      "prod/ecp-p9-4v100/1-core/spack.yaml",
+      "prod/ecp-x86_64/3-sdk/spack.yaml",
       "dev/ecp-x86_64/_manual/spack.yaml",
-      "prod/gitlab-runner/1-core/spack.yaml",
-      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "dev/ecp-p9-4v100/5-e4s/spack.yaml",
+      "dev/ecp-p9-4v100/4-py/spack.yaml",
+      "dev/ecp-x86_64/4-py/spack.yaml",
+      "dev/ecp-x86_64/3-sdk/spack.yaml",
+      "dev/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-p9-4v100/4-py/spack.yaml",
+      "prod/ecp-x86_64/_manual/spack.yaml",
       "prod/ecp-p9-4v100/_manual/spack.yaml",
-      "prod/ecp-x86_64/0-base/spack.yaml"
+      "dev/xx-fe1/0-base/spack.yaml",
+      "prod/xx-fe1/4-py/spack.yaml",
+      "dev/xx-fe1/4-py/spack.yaml",
+      "prod/gitlab-runner/1-core/spack.yaml",
+      "prod/ecp-p9-4v100/2-compute/spack.yaml",
+      "prod/ecp-x86_64/5-e4s/spack.yaml",
+      "prod/ecp-p9-4v100/3-sdk/spack.yaml",
+      "prod/ecp-x86_64/1-core/spack.yaml",
+      "prod/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/0-base/spack.yaml",
+      "dev/gitlab-runner/1-core/spack.yaml",
+      "prod/ecp-x86_64/2-compute/spack.yaml",
+      "dev/ecp-p9-4v100/1-core/spack.yaml",
+      "prod/ecp-p9-4v100/5-e4s/spack.yaml",
+      "prod/ecp-x86_64/0-base/spack.yaml",
+      "dev/ecp-p9-4v100/_manual/spack.yaml",
+      "prod/ecp-x86_64/4-py/spack.yaml",
+      "prod/xx-fe1/_manual/spack.yaml",
+      "dev/ecp-x86_64/1-core/spack.yaml",
+      "dev/xx-fe1/_manual/spack.yaml"
     ],
     "full_name": "paulbry/nmc-swd",
     "latest_release": null,
@@ -1328,8 +1342,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/production/rcm/spack.yaml",
-      "environments/production/base/spack.yaml"
+      "environments/production/base/spack.yaml",
+      "environments/production/rcm/spack.yaml"
     ],
     "full_name": "RemoteConnectionManager/CINECA_RCM_deployments",
     "latest_release": null,
@@ -1444,7 +1458,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-04_Miniapp-Ascent",
     "latest_release": null,
     "stargazers_count": 1,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1618418090.0
   },
@@ -1466,13 +1480,13 @@ var data =
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1491,7 +1505,7 @@ var data =
     "full_name": "cinemascienceworkflows/2021-04_Nyx-Ascent",
     "latest_release": null,
     "stargazers_count": 1,
-    "subscribers_count": 5,
+    "subscribers_count": 6,
     "topics": [],
     "updated_at": 1618418744.0
   },
@@ -1527,14 +1541,14 @@ var data =
     "data_format": 2,
     "description": "exawind/nalu-wind deployment using Spack and E4S build cache (demo)",
     "filenames": [
-      "uoregon/spectrum-mpi/spack.yaml",
+      "uoregon/mpich-container/spack.yaml",
       "summit/spack.yaml",
-      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml",
-      "uoregon/mpich/spack.yaml",
-      "uoregon/openmpi/spack.yaml",
       "uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml",
+      "uoregon/openmpi/spack.yaml",
       "uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml",
-      "uoregon/mpich-container/spack.yaml"
+      "uoregon/spectrum-mpi/spack.yaml",
+      "uoregon/mpich/spack.yaml",
+      "uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/nalu-wind-demo",
     "latest_release": null,
@@ -1589,10 +1603,10 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/summit/envs/base/spack.yaml",
       "hosts/lyra/envs/base/spack.yaml",
-      "hosts/peak/envs/base/spack.yaml",
-      "hosts/andes/envs/base/spack.yaml"
+      "hosts/andes/envs/base/spack.yaml",
+      "hosts/summit/envs/base/spack.yaml",
+      "hosts/peak/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1623,11 +1637,11 @@ var data =
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-release-broadwell/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/key4hep-release-broadwell/spack.yaml",
       "environments/key4hep-debug/spack.yaml",
       "environments/key4hep-release/spack.yaml"
     ],
@@ -1719,11 +1733,11 @@ var data =
     ],
     "full_name": "CODARcode/z-checker-installer",
     "latest_release": "0.6.0",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-z-checker-installer\" class=\"anchor\" href=\"#z-checker-installer\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eZ-checker installer\u003c/h1\u003e\n\u003cp\u003e(C) 2017-2021 by Mathematics and Computer Science (MCS), Argonne National Laboratory.\u003c/p\u003e\n\u003cp\u003eSee COPYRIGHT in top-level directory.\u003c/p\u003e\n\u003cp\u003eMajor authors: Sheng Di, Dingwen Tao, Hanqi Guo\nOther contributors: Robert Underwood, Hengzhi Chen\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-3rd-party-librariestools\" class=\"anchor\" href=\"#3rd-party-librariestools\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3rd party libraries/tools\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ecmake (version: 3.13+)\u003c/li\u003e\n\u003cli\u003egcc (version: 7.3+)\u003c/li\u003e\n\u003cli\u003eg++\u003c/li\u003e\n\u003cli\u003egit\u003c/li\u003e\n\u003cli\u003ecurl\u003c/li\u003e\n\u003cli\u003etexlive (e.g., execute \u0027sudo yum install texlive-*\u0027 on linux)\u003c/li\u003e\n\u003cli\u003eghostscript(gsview) (z-checker-install.sh can install it automatically if missing)\u003c/li\u003e\n\u003cli\u003elatexmk (z-checker-install.sh will install latexmk automatically if missing)\u003c/li\u003e\n\u003cli\u003egnuplot (z-checker-install.sh will install gnuplot automatically if missing)\u003c/li\u003e\n\u003cli\u003eperl (used by only web-visualization support)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe following libraries - libpng, tif22pnm and sam2p are used to convert slice image png files to eps. If plotSliceImag option is disabled (in zc.config), these three libraries are not needed.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003elibpng (z-checker-install.sh will install tif22pnm automatically if missing; in fact, libpng can be installed using system installation command such as \u0027yum install libpng-devel\u0027 on linux.)\u003c/li\u003e\n\u003cli\u003etif22pnm (z-checker-install.sh will install tif22pnm automatically if missing)\u003c/li\u003e\n\u003cli\u003esam2p (z-checker-install.sh will install sam2p automatically if missing)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor simplicity,\nthe Fedora users need to run the following command for installation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo dnf install -y gcc gcc-c++ git cmake zlib-devel libzstd-devel gfortran which xorg-x11-server-Xorg gnuplot libpng-devel findutils unzip latexmk texlive\n\u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e!\u003c/span\u003e-- required texlive package: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${comment.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${pifont.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${natbib.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${amsmath.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${morefloats.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${geometry.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${nopageno.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${subfigure.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(\u003cspan class=\"pl-smi\"\u003e${enumitem.sty}\u003c/span\u003e)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e--\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\ngit clone http://github.com/CODARcode/z-checker-installer\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e z-checker-installer\n./z-checker-install.sh\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ethe Ubuntu users need to run the following command for installation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo sudo apt-get install -y gcc g++ git cmake zlib-devel gfortran gnuplot libpng-devel xorg openbox findutils unzip latexmk texlive-full texlive-fonts-recommends --no-install-recommends\ngit clone http://github.com/CODARcode/z-checker-installer\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e z-checker-installer\n./z-checker-install.sh\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-testinginstallation-method\" class=\"anchor\" href=\"#testinginstallation-method\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTesting/Installation method\u003c/h2\u003e\n\u003cp\u003ez-checker-install.sh will download latexmk, gnuplot, Z-checker, ZFP, and SZ and install them one by one automatically, and then add the patches to let ZFP and SZ fit for Z-checker.\u003c/p\u003e\n\u003cp\u003eAfter installation, please download the two testing data sets, CESM-ATM and MD-simulation (exaalt). The two data sets are available only for the purpose of research of compression. Please ask for the data by contacting \u003ca href=\"\"\u003esdi1@anl.gov\u003c/a\u003e if interested.\u003c/p\u003e\n\u003cp\u003eLibpressioOPT is a library that is able to search for the appropriate error bound setting based on user-sepcified metric values such as compression ratio and PSNR. Z-checker itself has some simple built-in algorithms to do this work, which may not be as accurate as LibpressioOPT. To this end, you also need to install spack and use spack to install some preliminary libraries. For more details, please read the z-checker-installer-instruction.pdf in the ./doc/ directory. If you don\u0027t need LibpressioOPT, you just need to run \u0027./z-checker-installer.sh\u0027 to install everything.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-quick-start\" class=\"anchor\" href=\"#quick-start\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuick Start\u003c/h3\u003e\n\u003cp\u003eThen, you are ready to conduct the compression checking.\nYou can generate compression results with SZ and ZFP using the following simple steps:\n(Note: you have to run z-checker-install.sh to install the software before doing the following tests)\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eConfigure the error bound setting and comparison cases in errBounds.cfg.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a new test-case, by executing \"createZCCase.sh [test-case-name]\". You need to replace [test-case-name] by a meaningful name.\nFor example:\n[user@localhost z-checker-installer] ./createZCCase.sh CESM-ATM-tylor-data\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePerform the checking by running the command \"runZCCase.sh\": runZCCase.sh [data_type] [error-bound-mode] [test-case-name] [data dir] [extension] [dimensions....].\nExample:\n[user@localhost z-checker-installer] ./runZCCase.sh -f REL CESM-ATM-tylor-data /home/shdi/CESM-testdata/1800x3600 dat 3600 1800\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThen, you can find the report generated in z-checker-installer/Z-checker/[test-case-name]/report.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-step-by-step-checking\" class=\"anchor\" href=\"#step-by-step-checking\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step Checking\u003c/h3\u003e\n\u003cp\u003eUnlike the above one-command checking, the following steps present the generation of compression results step by step.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eGo to zfp/utils/, and then execute \"zfp-zc-ratedistortion.sh [data directory] [dimension sizes....]\". The compression results are stored in the compressionResults/ directory.\nFor example, suppose the directory of CESM-ATM data set is here: /home/shdi/CESM-testdata/1800x3600, then the command is \"zfp-zc-ratedistortion.sh /home/shdi/CESM-testdata/1800x3600 3600 1800\". Note: the data files stored in the directory are also ending with .dat and the dimension sizes are the same (1800x3600) in this test-case.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSimilarly, go to SZ/example/, and then generate compression results by SZ compressor as follows: \"sz-zc-ratedistortion.sh [data directory] [dimension sizes....]\". The compression results are stored in the compressionResults/ directory.\nAs for the example CESM-ATM, the test command is \"sz-zc-ratedistortion.sh /home/shdi/CESM-testdata/1800x3600 3600 1800\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThen, go to Z-checker/examples/ directory, and run the command \"./analyzeDataProperty.sh [data directory] [dimension sizes....]\" to generate the data properties based on the data sets. This step has nothing to do with the compressors. The data analysis results are stored in the dataProperties/ directory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGenerate the figure files: run the command \"./generateReport.sh\" simply. The results of comparing different compressors (such as sz and zfp in this test-case) are stored in the directory called compareCompressors/.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-create-a-new-case\" class=\"anchor\" href=\"#create-a-new-case\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCreate a new case\u003c/h3\u003e\n\u003cp\u003e\"createZCCase.sh [test-case-name]\" allows you to create a new test-case.  This command will create a new workspace directory in Z-checker, SZ, and zfp respectively. The compression results will be put in those workspace directories to avoid bing messed with other test-cases.\u003c/p\u003e\n\u003cp\u003eFor example, if you run the generateReport.sh in the directory ./Z-checker/examples, it is actually one test case, where the compression results and data analysis results will be put in the dataProperty/ and compressionResults/ under it.\nFor another test case with another set of data or application, you can create a new workspace directory by the script createZCCase.sh (which calls ./Z-checker/createNewCase.sh).\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-z-checker-updatesh\" class=\"anchor\" href=\"#z-checker-updatesh\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ez-checker-update.sh\u003c/h3\u003e\n\u003cp\u003ez-checker-update.sh can be used to update the repository (pull the new update from the server), so that you don\u0027t have to perform the update manually.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-web-installation\" class=\"anchor\" href=\"#web-installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eweb installation\u003c/h3\u003e\n\u003cp\u003eWeb installation allows to install a web server on the local machine, such that you can visualize the data through a local webpage and other people can view the data/results via that page if public ip is provided.\nz-checker-web-install.sh\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-add-a-new-compressor\" class=\"anchor\" href=\"#add-a-new-compressor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdd a new compressor\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003eMake a monitoring program (e.g., called testfloat_CompDecomp.c) for your compressor. An example can be found in SZ/example/testfloat_CompDecomp.c, which is used for SZ compressor.)\u003c/li\u003e\n\u003cli\u003eModify the manageCompressor.cfg based on the workspaceDir on your computer and directory containing the compiled executable monitoring program.\u003c/li\u003e\n\u003cli\u003eSuppose the new compressor\u0027s name is zz and the compression mode is called \u0027best\u0027; then, run the following command to add the new compressor:\n./manageCompressor -a zz -m best -c manageCompressor.cfg\u003c/li\u003e\n\u003cli\u003eThen, open errBounds.cfg to modify the error bounds for the new compressor; and also modify the comparison cases as follows (the compressor name \u0027zz_b\u0027 was set in manageCompressor.cfg):\ncomparisonCases=\"sz_f(1E-1),sz_d(1E-1),zfp(1E-1) sz_f(1E-2),sz_d(1E-2),zfp(1E-2)\" --\u0026gt; comparisonCases=\"sz_f(1E-1),sz_d(1E-1),zfp(1E-1),zz_b(1E-2) sz_f(1E-2),sz_d(1E-2),zfp(1E-2),zz_b(1E-2)\"\u003c/li\u003e\n\u003cli\u003eFinally, create a test case like this: ./createZCCase.sh case_name\u003c/li\u003e\n\u003cli\u003ePerform the assessment by runZCCase.sh.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-remove-a-compressor\" class=\"anchor\" href=\"#remove-a-compressor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRemove a compressor\u003c/h3\u003e\n\u003cp\u003eRemove sz_f (sz fast mode):\n$ manageCompressor -d sz -m fast -c manageCompressor-sz-f.cfg\nRemove sz_d (sz fast mode):\n$ manageCompressor -d sz -m deft -c manageCompressor-sz-d.cfg\nRemove zfp:\n$ manageCompressor -d zfp -c manageCompressor-zfp.cfg\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-generate-z-checker-report-based-on-hdf5-files\" class=\"anchor\" href=\"#generate-z-checker-report-based-on-hdf5-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGenerate Z-checker report based on HDF5 files\u003c/h3\u003e\n\u003cp\u003eYou can generate Z-checker report directly based on an HDF5 file.\nTo this end, you need to install HDF5 library before hand, and then compile the Z-checker/HDF5Reader as follows:\u003c/p\u003e\n\u003cp\u003eYou need to modify Makefile.linux2 by replacing \"HDF5PATH = /home/sdi/Install/hdf5-1.10.1-install\" by your HDF5 installation path.\nThen:\nmake -f Makefile.linux2\u003c/p\u003e\n\u003cp\u003eYou will find the executable \u0027testHDF5_CompDecomp\u0027 generated on Z-checker/HDF5Reader/test/ directory.\nYou can use this command to read HDF5 file and generate analysis results.\u003c/p\u003e\n\u003cp\u003eAfter that, you can use \u0027installHDF5Reader.sh\u0027 and \u0027runZCCase_hdf5.sh\u0027 to generate the .pdf report.\nMore details can be found in testHDF5/README.txt\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-generate-z-checker-report-based-on-adios2-files\" class=\"anchor\" href=\"#generate-z-checker-report-based-on-adios2-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGenerate Z-checker report based on ADIOS2 files\u003c/h3\u003e\n\u003cp\u003eGo to the directory ADIOS2Header, and then do the following steps:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eModify the ADIOS2\u0027s installation path in Makefile\u003c/li\u003e\n\u003cli\u003emake\u003c/li\u003e\n\u003cli\u003eexecute \u0027testAdios2\u0027\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eExample:\ntestAdios2 -i myVector_cpp.bp -n 2 -v bpFloats bpInts -o [target output directory]\u003c/p\u003e\n\u003cp\u003eThe generated binary data files will be put in the target output directory. A meta file called \u0027varInfo.txt\u0027 contains the extracted variables\u0027 information and it will be put in the target output directory as well.\nvarInfo.txt and the binary files can be processed by runZCCase.sh\u003c/p\u003e\n",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-z-checker-installer\" class=\"anchor\" href=\"#z-checker-installer\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eZ-checker installer\u003c/h1\u003e\n\u003cp\u003e(C) 2017-2021 by Mathematics and Computer Science (MCS), Argonne National Laboratory.\u003c/p\u003e\n\u003cp\u003eSee COPYRIGHT in top-level directory.\u003c/p\u003e\n\u003cp\u003eMajor authors: Sheng Di, Dingwen Tao, Hanqi Guo\nOther contributors: Robert Underwood, Hengzhi Chen\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-3rd-party-librariestools\" class=\"anchor\" href=\"#3rd-party-librariestools\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3rd party libraries/tools\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ecmake (version: 3.13+)\u003c/li\u003e\n\u003cli\u003egcc (version: 7.3+)\u003c/li\u003e\n\u003cli\u003eg++\u003c/li\u003e\n\u003cli\u003egit\u003c/li\u003e\n\u003cli\u003ecurl\u003c/li\u003e\n\u003cli\u003etexlive (e.g., execute \u0027sudo yum install texlive-*\u0027 on linux)\u003c/li\u003e\n\u003cli\u003eghostscript(gsview) (z-checker-install.sh can install it automatically if missing)\u003c/li\u003e\n\u003cli\u003elatexmk (z-checker-install.sh will install latexmk automatically if missing)\u003c/li\u003e\n\u003cli\u003egnuplot (z-checker-install.sh will install gnuplot automatically if missing)\u003c/li\u003e\n\u003cli\u003eperl (used by only web-visualization support)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote: if you install only texlive (e.g., sudo yum install texlive), then you also need to install latex packages \u0027comment.sty\u0027, \u0027subfigure.sty\u0027, \u0027nopageno.sty\u0027 and \u0027morefloats.sty\u0027 by running \u0027sudo yum -y install \"tex(${latexpkg})\"\u0027 (e.g., sudo yum -y install \"tex(comment.sty)\")\u003c/p\u003e\n\u003cp\u003eThe following libraries - libpng, tif22pnm and sam2p are used to convert slice image png files to eps. If plotSliceImag option is disabled (in zc.config), these three libraries are not needed.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003elibpng (z-checker-install.sh will install tif22pnm automatically if missing; in fact, libpng can be installed using system installation command such as \u0027yum install libpng-devel\u0027 on linux.)\u003c/li\u003e\n\u003cli\u003etif22pnm (z-checker-install.sh will install tif22pnm automatically if missing)\u003c/li\u003e\n\u003cli\u003esam2p (z-checker-install.sh will install sam2p automatically if missing)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor simplicity,\nthe Fedora users need to run the following command for installation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo dnf install -y gcc gcc-c++ git cmake zlib-devel libzstd-devel gfortran which xorg-x11-server-Xorg gnuplot libpng-devel findutils unzip latexmk texlive-\u003cspan class=\"pl-k\"\u003e*\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e!\u003c/span\u003e-- required texlive package: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(comment.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(pifont.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(natbib.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(amsmath.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(morefloats.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(geometry.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(nopageno.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(subfigure.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(enumitem.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etex(morefloats.sty)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e--\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\ngit clone http://github.com/CODARcode/z-checker-installer\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e z-checker-installer\n./z-checker-install.sh\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ethe Ubuntu users need to run the following command for installation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo sudo apt-get install -y gcc g++ git cmake zlib-devel gfortran gnuplot libpng-devel xorg openbox findutils unzip latexmk texlive-full texlive-fonts-recommends --no-install-recommends\ngit clone http://github.com/CODARcode/z-checker-installer\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e z-checker-installer\n./z-checker-install.sh\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-testinginstallation-method\" class=\"anchor\" href=\"#testinginstallation-method\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTesting/Installation method\u003c/h2\u003e\n\u003cp\u003ez-checker-install.sh will download latexmk, gnuplot, Z-checker, ZFP, and SZ and install them one by one automatically, and then add the patches to let ZFP and SZ fit for Z-checker.\u003c/p\u003e\n\u003cp\u003eAfter installation, please download the two testing data sets, CESM-ATM and MD-simulation (exaalt). The two data sets are available only for the purpose of research of compression. Please ask for the data by contacting \u003ca href=\"\"\u003esdi1@anl.gov\u003c/a\u003e if interested.\u003c/p\u003e\n\u003cp\u003eLibpressioOPT is a library that is able to search for the appropriate error bound setting based on user-sepcified metric values such as compression ratio and PSNR. Z-checker itself has some simple built-in algorithms to do this work, which may not be as accurate as LibpressioOPT. To this end, you also need to install spack and use spack to install some preliminary libraries. For more details, please read the z-checker-installer-instruction.pdf in the ./doc/ directory. If you don\u0027t need LibpressioOPT, you just need to run \u0027./z-checker-installer.sh\u0027 to install everything.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-quick-start\" class=\"anchor\" href=\"#quick-start\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuick Start\u003c/h3\u003e\n\u003cp\u003eThen, you are ready to conduct the compression checking.\nYou can generate compression results with SZ and ZFP using the following simple steps:\n(Note: you have to run z-checker-install.sh to install the software before doing the following tests)\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eConfigure the error bound setting and comparison cases in errBounds.cfg.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a new test-case, by executing \"createZCCase.sh [test-case-name]\". You need to replace [test-case-name] by a meaningful name.\nFor example:\n[user@localhost z-checker-installer] ./createZCCase.sh CESM-ATM-tylor-data\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePerform the checking by running the command \"runZCCase.sh\": runZCCase.sh [data_type] [error-bound-mode] [test-case-name] [data dir] [extension] [dimensions....].\nExample:\n[user@localhost z-checker-installer] ./runZCCase.sh -f REL CESM-ATM-tylor-data /home/shdi/CESM-testdata/1800x3600 dat 3600 1800\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThen, you can find the report generated in z-checker-installer/Z-checker/[test-case-name]/report.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-step-by-step-checking\" class=\"anchor\" href=\"#step-by-step-checking\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step Checking\u003c/h3\u003e\n\u003cp\u003eUnlike the above one-command checking, the following steps present the generation of compression results step by step.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eGo to zfp/utils/, and then execute \"zfp-zc-ratedistortion.sh [data directory] [dimension sizes....]\". The compression results are stored in the compressionResults/ directory.\nFor example, suppose the directory of CESM-ATM data set is here: /home/shdi/CESM-testdata/1800x3600, then the command is \"zfp-zc-ratedistortion.sh /home/shdi/CESM-testdata/1800x3600 3600 1800\". Note: the data files stored in the directory are also ending with .dat and the dimension sizes are the same (1800x3600) in this test-case.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSimilarly, go to SZ/example/, and then generate compression results by SZ compressor as follows: \"sz-zc-ratedistortion.sh [data directory] [dimension sizes....]\". The compression results are stored in the compressionResults/ directory.\nAs for the example CESM-ATM, the test command is \"sz-zc-ratedistortion.sh /home/shdi/CESM-testdata/1800x3600 3600 1800\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThen, go to Z-checker/examples/ directory, and run the command \"./analyzeDataProperty.sh [data directory] [dimension sizes....]\" to generate the data properties based on the data sets. This step has nothing to do with the compressors. The data analysis results are stored in the dataProperties/ directory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGenerate the figure files: run the command \"./generateReport.sh\" simply. The results of comparing different compressors (such as sz and zfp in this test-case) are stored in the directory called compareCompressors/.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-create-a-new-case\" class=\"anchor\" href=\"#create-a-new-case\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCreate a new case\u003c/h3\u003e\n\u003cp\u003e\"createZCCase.sh [test-case-name]\" allows you to create a new test-case.  This command will create a new workspace directory in Z-checker, SZ, and zfp respectively. The compression results will be put in those workspace directories to avoid bing messed with other test-cases.\u003c/p\u003e\n\u003cp\u003eFor example, if you run the generateReport.sh in the directory ./Z-checker/examples, it is actually one test case, where the compression results and data analysis results will be put in the dataProperty/ and compressionResults/ under it.\nFor another test case with another set of data or application, you can create a new workspace directory by the script createZCCase.sh (which calls ./Z-checker/createNewCase.sh).\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-z-checker-updatesh\" class=\"anchor\" href=\"#z-checker-updatesh\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ez-checker-update.sh\u003c/h3\u003e\n\u003cp\u003ez-checker-update.sh can be used to update the repository (pull the new update from the server), so that you don\u0027t have to perform the update manually.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-web-installation\" class=\"anchor\" href=\"#web-installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eweb installation\u003c/h3\u003e\n\u003cp\u003eWeb installation allows to install a web server on the local machine, such that you can visualize the data through a local webpage and other people can view the data/results via that page if public ip is provided.\nz-checker-web-install.sh\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-add-a-new-compressor\" class=\"anchor\" href=\"#add-a-new-compressor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdd a new compressor\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003eMake a monitoring program (e.g., called testfloat_CompDecomp.c) for your compressor. An example can be found in SZ/example/testfloat_CompDecomp.c, which is used for SZ compressor.)\u003c/li\u003e\n\u003cli\u003eModify the manageCompressor.cfg based on the workspaceDir on your computer and directory containing the compiled executable monitoring program.\u003c/li\u003e\n\u003cli\u003eSuppose the new compressor\u0027s name is zz and the compression mode is called \u0027best\u0027; then, run the following command to add the new compressor:\n./manageCompressor -a zz -m best -c manageCompressor.cfg\u003c/li\u003e\n\u003cli\u003eThen, open errBounds.cfg to modify the error bounds for the new compressor; and also modify the comparison cases as follows (the compressor name \u0027zz_b\u0027 was set in manageCompressor.cfg):\ncomparisonCases=\"sz_f(1E-1),sz_d(1E-1),zfp(1E-1) sz_f(1E-2),sz_d(1E-2),zfp(1E-2)\" --\u0026gt; comparisonCases=\"sz_f(1E-1),sz_d(1E-1),zfp(1E-1),zz_b(1E-2) sz_f(1E-2),sz_d(1E-2),zfp(1E-2),zz_b(1E-2)\"\u003c/li\u003e\n\u003cli\u003eFinally, create a test case like this: ./createZCCase.sh case_name\u003c/li\u003e\n\u003cli\u003ePerform the assessment by runZCCase.sh.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-remove-a-compressor\" class=\"anchor\" href=\"#remove-a-compressor\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRemove a compressor\u003c/h3\u003e\n\u003cp\u003eRemove sz_f (sz fast mode):\n$ manageCompressor -d sz -m fast -c manageCompressor-sz-f.cfg\nRemove sz_d (sz fast mode):\n$ manageCompressor -d sz -m deft -c manageCompressor-sz-d.cfg\nRemove zfp:\n$ manageCompressor -d zfp -c manageCompressor-zfp.cfg\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-generate-z-checker-report-based-on-hdf5-files\" class=\"anchor\" href=\"#generate-z-checker-report-based-on-hdf5-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGenerate Z-checker report based on HDF5 files\u003c/h3\u003e\n\u003cp\u003eYou can generate Z-checker report directly based on an HDF5 file.\nTo this end, you need to install HDF5 library before hand, and then compile the Z-checker/HDF5Reader as follows:\u003c/p\u003e\n\u003cp\u003eYou need to modify Makefile.linux2 by replacing \"HDF5PATH = /home/sdi/Install/hdf5-1.10.1-install\" by your HDF5 installation path.\nThen:\nmake -f Makefile.linux2\u003c/p\u003e\n\u003cp\u003eYou will find the executable \u0027testHDF5_CompDecomp\u0027 generated on Z-checker/HDF5Reader/test/ directory.\nYou can use this command to read HDF5 file and generate analysis results.\u003c/p\u003e\n\u003cp\u003eAfter that, you can use \u0027installHDF5Reader.sh\u0027 and \u0027runZCCase_hdf5.sh\u0027 to generate the .pdf report.\nMore details can be found in testHDF5/README.txt\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-generate-z-checker-report-based-on-adios2-files\" class=\"anchor\" href=\"#generate-z-checker-report-based-on-adios2-files\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGenerate Z-checker report based on ADIOS2 files\u003c/h3\u003e\n\u003cp\u003eGo to the directory ADIOS2Header, and then do the following steps:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eModify the ADIOS2\u0027s installation path in Makefile\u003c/li\u003e\n\u003cli\u003emake\u003c/li\u003e\n\u003cli\u003eexecute \u0027testAdios2\u0027\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eExample:\ntestAdios2 -i myVector_cpp.bp -n 2 -v bpFloats bpInts -o [target output directory]\u003c/p\u003e\n\u003cp\u003eThe generated binary data files will be put in the target output directory. A meta file called \u0027varInfo.txt\u0027 contains the extracted variables\u0027 information and it will be put in the target output directory as well.\nvarInfo.txt and the binary files can be processed by runZCCase.sh\u003c/p\u003e\n",
     "stargazers_count": 4,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1625594844.0
+    "updated_at": 1625965109.0
   },
   {
     "data_format": 2,
@@ -1811,23 +1825,23 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/dev/sim_mt/spack.yaml",
+      "test/env/r3broot/spack.yaml",
+      "env/dev/sim_mt_headless/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
       "env/nov20/sim_mt/spack.yaml",
-      "env/apr21/sim/spack.yaml",
       "env/dev/sim/spack.yaml",
       "env/jun19/sim_mt/spack.yaml",
-      "test/env/jun19_fairroot_18_4/spack.yaml",
       "test/env/dds/spack.yaml",
-      "env/dev/sim_mt_headless/spack.yaml",
       "env/apr21/sim_mt/spack.yaml",
-      "env/jun19/sim/spack.yaml",
+      "test/env/jun19_fairroot_18_4/spack.yaml",
+      "env/apr21/sim/spack.yaml",
       "test/env/fairlogger/spack.yaml",
-      "test/env/fairmq/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
       "test/env/fairroot_develop/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "env/nov20/sim/spack.yaml",
       "env/nov20/sim_mt_headless/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml"
+      "test/env/fairmq/spack.yaml",
+      "env/jun19/sim/spack.yaml",
+      "env/nov20/sim/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "jun19p3",
@@ -1866,11 +1880,11 @@ var data =
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
-      "build/3_more_tools/spack.yaml",
       "build/6_spack/spack.yaml",
+      "build/5_runtime/spack.yaml",
+      "build/3_more_tools/spack.yaml",
       "build/1_ccache/spack.yaml",
-      "build/2_compiler/spack.yaml",
-      "build/5_runtime/spack.yaml"
+      "build/2_compiler/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
     "latest_release": "develop",
@@ -1888,10 +1902,10 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
       "docker-recipes/rhel8-runner-x86_64/spack.yaml",
       "docker-recipes/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel7-runner-ppc64le/spack.yaml"
+      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1924,34 +1938,34 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/cori/e4s-21.02/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
       "NREL/configs/rhodes/base/spack.yaml",
       "OLCF/e4s-stacks/etc/spack.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "NERSC/cori/e4s-stacks/x86/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/cori/e4s-21.02/spack.yaml",
+      "NERSC/cori/e4s-20.10/spack.yaml",
       "NREL/configs/eagle/software/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml"
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1980,7 +1994,7 @@ var data =
       "json-schema",
       "buildtest"
     ],
-    "updated_at": 1625774272.0
+    "updated_at": 1625925557.0
   },
   {
     "data_format": 2,
@@ -2007,16 +2021,16 @@ var data =
       "opendata",
       "cpp14"
     ],
-    "updated_at": 1625808757.0
+    "updated_at": 1625850345.0
   },
   {
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
       "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
@@ -2061,7 +2075,7 @@ var data =
       "radiuss",
       "data-management"
     ],
-    "updated_at": 1625789458.0
+    "updated_at": 1625876791.0
   },
   {
     "data_format": 2,
@@ -2084,19 +2098,19 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1625788444.0
+    "updated_at": 1625886839.0
   },
   {
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/darwin/spack.yaml",
-      ".spack_env/llnl/spack.yaml"
+      ".spack_env/llnl/spack.yaml",
+      ".spack_env/darwin/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v5.0.1",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content---umpire-v501\" class=\"anchor\" href=\"#--umpire-v501\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" width=\"128\" valign=\"middle\" alt=\"Umpire\" data-canonical-src=\"https://cdn.rawgit.com/LLNL/Umpire/develop/share/umpire/logo/umpire-logo.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e  Umpire v5.0.1\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/36f0f474aacbade149e980682a28b1b97aa3ea7737006edce896fa4ebbc9ffa7/68747470733a2f2f7472617669732d63692e636f6d2f4c4c4e4c2f556d706972652e7376673f6272616e63683d646576656c6f70\" alt=\"Travis Build Status\" data-canonical-src=\"https://travis-ci.com/LLNL/Umpire.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/davidbeckingsale/Umpire/_build/latest?definitionId=1\u0026amp;branchName=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/615ebc663bd8e7bce0a236693071d360c1f3d4b04bfabb454ba50068b0bac3c0/68747470733a2f2f6465762e617a7572652e636f6d2f64617669646265636b696e6773616c652f556d706972652f5f617069732f6275696c642f7374617475732f4c4c4e4c2e556d706972653f6272616e63684e616d653d646576656c6f70\" alt=\"Azure Pipelines Build Status\" data-canonical-src=\"https://dev.azure.com/davidbeckingsale/Umpire/_apis/build/status/LLNL.Umpire?branchName=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://umpire.readthedocs.io/en/develop/?badge=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7fd7eef5a102528cae391ff45e9ae1026690d979c1413498b1604b23febeffaf/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f756d706972652f62616467652f3f76657273696f6e3d646576656c6f70\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/umpire/badge/?version=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d567cb288d0416a63a2faa83e8b2d5265860c1a3e9af604f4b6730340fa830c7/68747470733a2f2f636f6465636f762e696f2f67682f4c4c4e4c2f556d706972652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/LLNL/Umpire/branch/develop/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://gitter.im/LLNL/Umpire?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d812b594e8c008b20bc4b4e508035cb3ffd814a168debe18107da92e6c7e5f88/68747470733a2f2f6261646765732e6769747465722e696d2f4c4c4e4c2f556d706972652e737667\" alt=\"Join the chat at https://gitter.im/LLNL/Umpire\" data-canonical-src=\"https://badges.gitter.im/LLNL/Umpire.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUmpire is a resource management library that allows the discovery, provision,\nand management of memory on machines with multiple memory devices like NUMA and GPUs.\u003c/p\u003e\n\u003cp\u003eUmpire uses CMake and BLT to handle builds. Since BLT is included as a\nsubmodule, first make sure you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git submodule init \u0026amp;\u0026amp; git submodule update\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen, make sure that you have a modern compiler loaded, and the configuration is as\nsimple as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build \u0026amp;\u0026amp; cd build\n$ cmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCMake will provide output about which compiler is being used. Once CMake has\ncompleted, Umpire can be built with Make:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more advanced configuration you can use standard CMake variables.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eBoth user and code documentation is available \u003ca href=\"http://umpire.readthedocs.io/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe Umpire \u003ca href=\"https://umpire.readthedocs.io/en/develop/tutorial.html\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e provides a step by step introduction to Umpire features.\u003c/p\u003e\n\u003cp\u003eIf you have build problems, we have comprehensive \u003ca href=\"https://umpire.readthedocs.io/en/develop/advanced_configuration.html\" rel=\"nofollow\"\u003ebuild system documentation\u003c/a\u003e too!\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-getting-involved\" class=\"anchor\" href=\"#getting-involved\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Involved\u003c/h1\u003e\n\u003cp\u003eUmpire is an open-source project, and we welcome contributions from the community.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-mailing-list\" class=\"anchor\" href=\"#mailing-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h2\u003e\n\u003cp\u003eThe Umpire mailing list is hosted on Google Groups, and is a great place to ask questions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://groups.google.com/forum/#!forum/umpire-users\" rel=\"nofollow\"\u003eUmpire Users Google Group\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributions\" class=\"anchor\" href=\"#contributions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h2\u003e\n\u003cp\u003eWe welcome all kinds of contributions: new features, bug fixes, documentation edits; it\u0027s all great!\u003c/p\u003e\n\u003cp\u003eTo contribute, make a \u003ca href=\"https://github.com/LLNL/Umpire/compare\"\u003epull request\u003c/a\u003e, with \u003ccode\u003edevelop\u003c/code\u003e as the destination branch.\nWe use Travis to run CI tests, and your branch must pass these tests before being merged.\u003c/p\u003e\n\u003cp\u003eFor more information, see the \u003ca href=\"https://github.com/LLNL/Umpire/blob/develop/CONTRIBUTING.md\"\u003econtributing guide\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h1\u003e\n\u003cp\u003eThanks to all of Umpire\u0027s\n\u003ca href=\"https://github.com/LLNL/Umpire/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eUmpire was created by David Beckingsale (\u003ca href=\"mailto:david@llnl.gov\"\u003edavid@llnl.gov\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-citing-umpire\" class=\"anchor\" href=\"#citing-umpire\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Umpire\u003c/h2\u003e\n\u003cp\u003eIf you are referencing Umpire in a publication, please use the following citation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eD. Beckingsale, M. Mcfadden, J. Dahm, R. Pankajakshan and R. Hornung, \u003ca href=\"https://ieeexplore.ieee.org/document/8907404\" rel=\"nofollow\"\u003e\"Umpire: Application-Focused Management and Coordination of Complex Hierarchical Memory,\"\u003c/a\u003e in IBM Journal of Research and Development. 2019. doi: 10.1147/JRD.2019.2954403\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-release\" class=\"anchor\" href=\"#release\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease\u003c/h1\u003e\n\u003cp\u003eUmpire is released under an MIT license. For more details, please see the\n\u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"./RELEASE\"\u003eRELEASE\u003c/a\u003e files.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLLNL-CODE-747640\u003c/code\u003e\n\u003ccode\u003eOCEC-18-031\u003c/code\u003e\u003c/p\u003e\n",
-    "stargazers_count": 174,
+    "stargazers_count": 175,
     "subscribers_count": 14,
     "topics": [
       "hpc",
@@ -2107,7 +2121,7 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1625573693.0
+    "updated_at": 1625978777.0
   },
   {
     "data_format": 2,
@@ -2142,6 +2156,6 @@ var data =
       "cupti",
       "modular-design"
     ],
-    "updated_at": 1625723221.0
+    "updated_at": 1625867677.0
   }
 ]
