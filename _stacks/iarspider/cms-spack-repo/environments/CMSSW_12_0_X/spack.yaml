@@ -11,17 +11,15 @@ spack:
       buildable: true
       compiler: [gcc@9.3.0]
       target:
-      - haswell
+      - prescott
       version: []
       variants: [cxxstd=17, build_type=Release]
   view: false
   specs:
   - cms-config
-  - dcap@2.47.8
-  - dcap-toolfile
   - autoconf@2.69
   - automake@1.16.1
-  - pkg-config@0.29.2+internal_glib
+  - bison@3.5
   - boost@1.75.0~icu~atomic~container~context~coroutine~exception~graph~locale~log~math~random~wave+shared+multithreaded~debug+mpi+python+iostreams
   - bzip2@1.0.6
   - bzip2-toolfile
@@ -32,6 +30,8 @@ spack:
   - davix@0.7.6
   - davix-toolfile
   - berkeley-db@6.2.32
+  - dcap@2.47.12
+  - dcap-toolfile
   - db6-toolfile
   - expat@2.1.0~libbsd
   - expat-toolfile
@@ -53,7 +53,7 @@ spack:
   - gsl-toolfile
   - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
   - intel-tbb@2021.2.0
-  - libffi@3.2.1
+  - libffi@3.2.1    
   - libjpeg-turbo@2.0.2
   - libjpeg-turbo-toolfile
   - libpciaccess@0.16
@@ -78,16 +78,17 @@ spack:
   - pacparser-toolfile
   - pcre@8.43~jit~multibyte+utf
   - pcre-toolfile
-  - py-cython@0.29.22
+  - pkg-config@0.29.2+internal_glib
+  - py-cython@0.29.23
   - py-numpy@1.17.5
   - py-pip@20.3.3
   - py-setuptools@51.3.3
   - python@3.8.2~libxml2
   - python-toolfile
   - re2c@0.13.5
-  - root@6.22.00.patches_cms_a15e883+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
+  - root@6.22.08.patches_cms_a15e883+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
   - root-toolfile
-  - scram@3.0.23
+  - scram@3.0.29
   - sqlite@3.22.0~fts
   - sqlite-toolfile
   - util-linux-uuid@2.34
