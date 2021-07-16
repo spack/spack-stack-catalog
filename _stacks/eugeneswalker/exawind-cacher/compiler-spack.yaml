@@ -1,0 +1,25 @@
+spack:
+  view: false
+  concretization: separately
+
+  config:
+    install_tree:
+      padded_length: 128
+
+  specs:
+  - gcc@10.3.0 target=x86_64 %apple-clang@12.0.0
+
+  compilers:
+  - compiler:
+      spec: apple-clang@12.0.0
+      paths:
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: catalina
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
