@@ -1,0 +1,17 @@
+spack:
+  concretization: together
+  specs:
+    - cmake~doc~ncurses+openssl~ownlibs~qt
+    - mesa~llvm
+    - openmpi~gpfs+static~vt
+    - pdiplugin-decl-hdf5
+    - pdiplugin-decl-netcdf
+    - pdiplugin-flowvr
+    - pdiplugin-mpi
+    - pdiplugin-pycall
+    - pdiplugin-serialize
+    - pdiplugin-set-value
+    - pdiplugin-trace
+    - pdiplugin-user-code
+    - pdiplugin-decl-sion
+    - pdiplugin-fti
