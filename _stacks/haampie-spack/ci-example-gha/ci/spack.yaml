@@ -6,6 +6,8 @@ spack:
     test_cache: ~/.spack-ci/test_cache
     install_tree:
       root: ~/.spack-ci/install
+  repos:
+  - repo
   packages:
     mypkg:
       variants: ~cuda +mpi +tests build_type=Debug
