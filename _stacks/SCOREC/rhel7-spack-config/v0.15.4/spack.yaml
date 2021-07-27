@@ -103,6 +103,12 @@ spack:
   - pumiSim16:
     - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-210202dev
+  - pumiSim16.0-210606:
+    - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-210606dev
+  - pumiSim16.0-210606_gcc74:
+    - pumi@master %gcc@7.4.0 +shared simmodsuite=full ~simmodsuite_version_check +zoltan
+      ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-210606dev
 
   specs:
   - gcc@10.1.0 %gcc@6.5.0
@@ -121,8 +127,12 @@ spack:
   - mpich %gcc@10.1.0
   - openmpi +cuda %gcc@10.1.0
   - $pumiSim16
+  - $pumiSim16.0-210606
   - $pumiSim15
   - $pumi
+  - gcc@7.4.0 %gcc@6.5.0
+  - mpich %gcc@7.4.0
+  - $pumiSim16.0-210606_gcc74
 
   compilers:
   - compiler:
