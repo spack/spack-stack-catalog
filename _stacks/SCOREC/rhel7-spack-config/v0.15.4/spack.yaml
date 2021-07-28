@@ -133,7 +133,6 @@ spack:
   - gcc@7.4.0 %gcc@6.5.0
   - mpich %gcc@7.4.0
   - $pumiSim16.0-210606_gcc74
-
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
@@ -168,6 +167,19 @@ spack:
         cxx: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/g++
         f77: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/gfortran
         fc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-6.5.0/gcc-10.1.0-tf5jjaditemasrbsl7tz6pnqa6duqwkg/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.4.0
+      paths:
+        cc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/gcc-7.4.0-vqxte7fv5j6ujoi3jvh7dntjipe54djq/bin/gcc
+        cxx: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/gcc-7.4.0-vqxte7fv5j6ujoi3jvh7dntjipe54djq/bin/g++
+        f77: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/gcc-7.4.0-vqxte7fv5j6ujoi3jvh7dntjipe54djq/bin/gfortran
+        fc: /opt/scorec/spack/v0154_2/install/linux-rhel7-x86_64/gcc-10.1.0/gcc-7.4.0-vqxte7fv5j6ujoi3jvh7dntjipe54djq/bin/gfortran
       flags: {}
       operating_system: rhel7
       target: x86_64
