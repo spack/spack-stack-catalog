@@ -20,6 +20,7 @@ spack:
   - nlohmann-json
   - ior@develop +pmdk
   - fio +pmdk
+  - range-v3
   concretization: together
   view: true
   packages:
