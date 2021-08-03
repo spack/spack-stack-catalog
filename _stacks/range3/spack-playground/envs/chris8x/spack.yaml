@@ -17,6 +17,7 @@ spack:
   - doctest
   - nlohmann-json
   - ior@fix-pmdk +pmdk
+  - range-v3
   concretization: together
   view: true
   packages:
