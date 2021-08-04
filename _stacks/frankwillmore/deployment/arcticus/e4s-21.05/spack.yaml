@@ -178,7 +178,8 @@ spack:
     - hpx@1.6.0 +cuda cuda_arch=70
     - kokkos@3.4.00 +cuda +wrapper cuda_arch=70
     - kokkos-kernels@3.2.00 +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
-    - magma@2.5.4 cuda_arch=70
+#    - magma@2.5.4 cuda_arch=70
+# ==> Warning: Skipping build of magma-2.5.4-a3tczp3qm2sx47l2wvcdobdcbtskg6ji since openblas-0.3.10-eahj4j73tw2dub2tkyab774oc7xbbmor failed
     - raja@0.13.0 +cuda cuda_arch=70
     - slate@2021.05.02 +cuda cuda_arch=70
     - strumpack@5.1.1 +cuda ~slate cuda_arch=70
@@ -256,7 +257,8 @@ spack:
     - papyrus@1.0.1
     - parallel-netcdf@1.12.2
     - pdt@3.25.1
-    - petsc@3.15.0
+#    - petsc@3.15.0
+# ==> Warning: Skipping build of petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
     - plasma@20.9.20
     - precice@2.2.1
     - pumi@2.2.5
@@ -268,14 +270,38 @@ spack:
     - py-warpx@21.05 ^warpx dims=rz
     - qt@5.15.2
     - qthreads@1.16 scheduler=distrib
-    - qwt@6.1.6
+#    - qwt@6.1.6
+# ==> qwt: Executing phase: 'qmake'                                                                                                                  
+# ==> qwt: Executing phase: 'build'                                                                                                                  
+# ==> Error: ProcessError: Command exited with status 2:                                                                                             
+#     'make' '-j16'                                                                                                                                  
+                                                                                                                                                   
+# 58 errors found in build log:                                                                                                                      
+#      31     g++ -c -pipe -Wall -W -O2 -fPIC  -DQT_NO_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT -I/soft/spack/opt/spack/lin 
+#             ux-opensuse_leap15-x86_64/gcc-9.3.0/qt-3.3.8b-axxsp3n42yevy64fhr7ze5i42py64v6r/mkspecs/default -I. -I/soft/spack/opt/spack/linux-opens 
+#             use_leap15-x86_64/gcc-9.3.0/qt-3.3.8b-axxsp3n42yevy64fhr7ze5i42py64v6r/include -Imoc/ -o obj/qwt_painter.o qwt_painter.cpp             
+#      32     In file included from qwt_scale_div.h:14,                                                                                              
+#      33                      from qwt_abstract_scale_draw.h:14,                                                                                    
+#      34                      from qwt_scale_draw.h:14,                                                                                             
+#      35                      from qwt_date_scale_draw.h:14,                                                                                        
+#      36                      from qwt_date_scale_draw.cpp:10:                                                                                      
+#   >> 37     qwt_interval.h:14:10: fatal error: qmetatype.h: No such file or directory                                                              
+#      38        14 | #include <qmetatype.h>                                                                                                         
+#      39           |          ^~~~~~~~~~~~~                                                                                                         
+
     - raja@0.13.0
     - rempi@1.1.0
     - scr@3.0rc1
     - slate@2021.05.02 ~cuda
     - slepc@3.15.0
     - stc@0.9.0
-    - strumpack@5.1.1 ~slate
+#    - strumpack@5.1.1 ~slate
+#   >> 55    make: *** [Makefile.prebuild:70: getarch_2nd] Error 1
+#     56    Makefile:154: *** OpenBLAS: Detecting CPU failed. Please set TARGET explicitly, e
+#           .g. make TARGET=your_cpu_target. Please read README for the detail..  Stop.
+
+#==> Warning: Skipping build of strumpack-5.1.1-bwxfaxuwcwph3zazs6n3arljadx3hwkv since openbla
+#s-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
     - sundials@5.7.0
     - superlu@5.2.1
     - superlu-dist@6.4.0

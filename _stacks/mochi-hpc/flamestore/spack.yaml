@@ -1,0 +1,19 @@
+spack:
+  specs:
+  - jsoncpp
+  - spdlog
+  - python
+  - py-pip
+  - py-pybind11
+  - py-pkgconfig
+  - py-mochi-tmci
+  - py-spdlog
+  - py-mochi-margo
+  - mochi-margo@master
+  - mochi-thallium
+  - mochi-sdskv
+  - mochi-ssg
+  - mochi-bake@master
+  - py-mochi-bake
+  - py-mpi4py
+  concretization: together

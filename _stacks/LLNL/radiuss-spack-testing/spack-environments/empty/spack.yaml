@@ -1,0 +1,11 @@
+###############################################################################
+# Copyright (c) 2019-2021, Lawrence Livermore National Security, LLC and other
+# RADIUSS-CI project contributors. See top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: MIT
+###############################################################################
+
+spack:
+  include: [../radiuss/$SYS_TYPE]
+  view: false
+  concretization: separately

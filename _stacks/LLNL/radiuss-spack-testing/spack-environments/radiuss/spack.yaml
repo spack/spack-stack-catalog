@@ -1,0 +1,108 @@
+##############################################################################
+# Copyright (c) 2021, Lawrence Livermore National Security, LLC and
+# RADIUSS Stack project contributors. See the LICENSE file for details.
+#
+# SPDX-License-Identifier: MIT
+##############################################################################
+
+spack:
+  #[general--]
+  include: [$SYS_TYPE]
+  concretization: separately
+  view: false
+  #[--general]
+  #[config-override--]
+  config:
+    install_tree:
+      root: /usr/workspace/radiuss/install/radiuss-stack
+      padded_length: 128
+      projections:
+        all: '{architecture}/{compiler.name}-{compiler.version}/{name}-{version}-{hash}'
+    misc_cache: $spack/.misc_cache
+    test_stage: $spack/.test_stage
+    'build_stage:':
+    - $spack/var/spack/stage
+  #[--config-override]
+  mirrors:
+    mirror: file:///usr/workspace/radiuss/mirrors/llnl-stack
+  #[definitions--]
+  definitions:
+  - compilers: ['%gcc@8.1.0', '%gcc@8.3.1', '%clang@10.0.0']
+    when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
+  - compilers: ['%xl@16.1.1.7']
+    when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
+  #[definitions--]
+  - radiuss-projects:
+    - mfem@4.2.0
+    - hypre@2.20.0
+    - sundials@5.5.0
+    - samrai@3.12.0
+    - xbraid@3.0.0
+    - umpire@5.0.1+openmp
+    - raja@0.13.0
+    - py-maestrowf@1.1.8
+    - conduit@0.7.1
+    - zfp@0.5.5
+    - axom@0.5.0 ^conduit@0.7.1
+    - caliper@2.5.0 ~libdw
+    - caliper@2.5.0 ~libdw ~papi
+    #- ascent@0.7.0 #ascent requires vtk-m and vtk-h, which fail to build
+    #- scr@2.0.0
+    when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
+  - radiuss-projects:
+    - mfem@4.2.0
+    #- hypre@2.20.0
+    #- sundials@5.5.0
+    #- samrai@3.12.0
+    - xbraid@3.0.0
+    - umpire@4.1.2+openmp #axom requires +openmp
+    - raja@0.12.1
+    - py-maestrowf@1.1.8
+    - conduit@0.7.1
+    - zfp@0.5.5
+    #- axom@develop ^conduit@0.7.1
+    - caliper@2.5.0 ~libdw ~papi
+    #- ascent@0.7.0 #ascent requires vtk-m and vtk-h, which fail to build
+    #- scr@2.0.0
+    when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
+  - dependencies:
+    - hdf5@1.8.21~shared #axom requires shared variant
+  specs:
+  - matrix:
+    - [$radiuss-projects, $dependencies]
+    - [$compilers]
+    exclude:
+    - ascent@0.7.0 %clang@10.0.0
+    #- axom@0.5.0 ^conduit@0.7.1 %clang@10.0.0
+
+  gitlab-ci:
+    mappings:
+
+      # quartz
+      # [runner-mapping--]
+      - match:
+        - target=broadwell
+        runner-attributes:
+          tags: [quartz, shell]
+      # [--runner-mapping]
+          script:
+          - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+          - cd ${SPACK_CONCRETE_ENV_DIR} && spack env activate --without-view .
+          - spack -d ci rebuild
+
+      # lassen
+      - match:
+        - 'target=ppc64le:'
+        runner-attributes:
+          tags: [lassen, shell]
+          script:
+          #[child-variables--]
+          - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+          #[--child-variables]
+          - cd ${SPACK_CONCRETE_ENV_DIR} && spack env activate --without-view .
+          - spack -d ci rebuild
+    service-job-attributes:
+      tags: [quartz, shell]
+      before_script:
+      - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+
