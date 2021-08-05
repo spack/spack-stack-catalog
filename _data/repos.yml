@@ -539,11 +539,11 @@ Alpine-DAV/ascent:
   description: A flyweight in situ visualization and analysis runtime for multi-physics
     HPC simulations
   filenames:
-  - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
   - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
   - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
+  - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
   full_name: Alpine-DAV/ascent
   latest_release: v0.7.1
   readme: '<h1>
@@ -1142,8 +1142,8 @@ CUP-ECS/ExaCLAMR:
   data_format: 2
   description: null
   filenames:
-  - spack.yaml
   - etc/spack.yaml
+  - spack.yaml
   full_name: CUP-ECS/ExaCLAMR
   latest_release: null
   readme: '<h1>
@@ -1373,8 +1373,8 @@ DavidPoliakoff/tuning-spack:
   data_format: 2
   description: null
   filenames:
-  - builds/cuda/spack.yaml
   - builds/openmp/spack.yaml
+  - builds/cuda/spack.yaml
   full_name: DavidPoliakoff/tuning-spack
   latest_release: null
   readme: '<p>Steps: get spack, as of this moment 0.16.1 seems good</p>
@@ -2595,7 +2595,7 @@ ECP-WarpX/WarpX:
   - particle-in-cell
   - pic
   - research
-  updated_at: 1628038517.0
+  updated_at: 1628088229.0
 ECP-WarpX/artemis:
   data_format: 2
   description: ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver
@@ -2714,7 +2714,7 @@ ECP-WarpX/artemis:
   stargazers_count: 1
   subscribers_count: 6
   topics: []
-  updated_at: 1628029825.0
+  updated_at: 1628094633.0
 FTHPC/libpressio_tutorial:
   data_format: 2
   description: A Tutorial for LibPressio
@@ -2745,23 +2745,23 @@ FairRootGroup/FairSoft:
   description: Repository for installation routines of the external software required
     by FairRoot
   filenames:
-  - env/jun19/sim_mt/spack.yaml
-  - env/nov20/sim_mt_headless/spack.yaml
-  - test/env/fairroot_develop/spack.yaml
-  - test/env/dds/spack.yaml
-  - env/apr21/sim_mt/spack.yaml
-  - env/nov20/sim_mt/spack.yaml
-  - env/dev/sim_mt_headless/spack.yaml
-  - env/nov20/sim/spack.yaml
   - env/dev/sim_mt/spack.yaml
-  - env/apr21/sim_mt_headless/spack.yaml
-  - test/env/fairmq/spack.yaml
-  - env/jun19/sim/spack.yaml
-  - test/env/fairlogger/spack.yaml
-  - test/env/r3broot/spack.yaml
-  - env/apr21/sim/spack.yaml
-  - test/env/jun19_fairroot_18_4/spack.yaml
+  - env/dev/sim_mt_headless/spack.yaml
+  - env/apr21/sim_mt/spack.yaml
   - env/dev/sim/spack.yaml
+  - env/jun19/sim_mt/spack.yaml
+  - test/env/r3broot/spack.yaml
+  - test/env/fairroot_develop/spack.yaml
+  - env/nov20/sim_mt_headless/spack.yaml
+  - env/nov20/sim_mt/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
+  - test/env/dds/spack.yaml
+  - env/jun19/sim/spack.yaml
+  - env/apr21/sim/spack.yaml
+  - test/env/fairmq/spack.yaml
+  - env/nov20/sim/spack.yaml
+  - env/apr21/sim_mt_headless/spack.yaml
+  - test/env/fairlogger/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: jun19p3
   readme: "<h1>\n<a id=\"user-content-fairsoft\" class=\"anchor\" href=\"#fairsoft\"\
@@ -2860,8 +2860,8 @@ LLNL/Umpire:
   data_format: 2
   description: An application-focused API for memory management on NUMA & GPU architectures
   filenames:
-  - .spack_env/llnl/spack.yaml
   - .spack_env/darwin/spack.yaml
+  - .spack_env/llnl/spack.yaml
   full_name: LLNL/Umpire
   latest_release: v5.0.1
   readme: '<h1>
@@ -3134,14 +3134,14 @@ LLNL/conduit:
   - hdf5
   - radiuss
   - data-management
-  updated_at: 1627511173.0
+  updated_at: 1628135913.0
 LLNL/radiuss-ci:
   data_format: 2
   description: RADIUSS CI project aims at providing sensible default configurations
     and tools for GitLab CI.
   filenames:
-  - spack-environments/empty/spack.yaml
   - spack-environments/radiuss/spack.yaml
+  - spack-environments/empty/spack.yaml
   full_name: LLNL/radiuss-ci
   latest_release: null
   readme: '<h1>
@@ -3266,8 +3266,8 @@ LLNL/radiuss-spack-testing:
   data_format: 2
   description: Gitlab CI automation of Spack testing with RADIUSS projects builds.
   filenames:
-  - spack-environments/empty/spack.yaml
   - spack-environments/radiuss/spack.yaml
+  - spack-environments/empty/spack.yaml
   full_name: LLNL/radiuss-spack-testing
   latest_release: null
   readme: '<h1>
@@ -3368,7 +3368,7 @@ LLNL/radiuss-spack-testing:
   subscribers_count: 4
   topics:
   - radiuss
-  updated_at: 1628003198.0
+  updated_at: 1628091886.0
 LLNL/radiuss-stack:
   data_format: 2
   description: A spack stack with radiuss (some) radiuss packages
@@ -3653,10 +3653,10 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
+  - examples/zeus_marco/environment2_python/spack.yaml
+  - examples/topaz_marco/environment_compchem/spack.yaml
   - examples/zeus_marco/environment3_clingo/spack.yaml
   - examples/zeus_marco/environment1_compchem/spack.yaml
-  - examples/topaz_marco/environment_compchem/spack.yaml
-  - examples/zeus_marco/environment2_python/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1>
@@ -3722,9 +3722,9 @@ ResearchComputing/core-software:
   description: Documentation and automation for provisioning the core software environment
     at University of Colorado Boulder Research Computing
   filenames:
-  - spack/environments/summer2020/spack.yaml
   - spack/environments/develop/spack.yaml
   - spack/environments/spring2020/spack.yaml
+  - spack/environments/summer2020/spack.yaml
   full_name: ResearchComputing/core-software
   latest_release: null
   readme: '<p>The Research Computing core software environment provides compilers,
@@ -3876,12 +3876,12 @@ SCOREC/dcs-spack-config:
   data_format: 2
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
-  - spack.yaml
-  - rhel8NvhpcWdmapp/spack.yaml
-  - v0162gccSpectrum/spack.yaml
   - v0160gcc/spack.yaml
-  - v0133gccSpectrum/spack.yaml
+  - spack.yaml
+  - v0162gccSpectrum/spack.yaml
   - v0133gcc/spack.yaml
+  - v0133gccSpectrum/spack.yaml
+  - rhel8NvhpcWdmapp/spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
   readme: '<h1>
@@ -4007,8 +4007,8 @@ SCOREC/rhel7-spack-config:
   data_format: 2
   description: rhel7 spack configuration and scripts
   filenames:
-  - v0.15.4/spack.yaml
   - v0.13.2/spack.yaml
+  - v0.15.4/spack.yaml
   full_name: SCOREC/rhel7-spack-config
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
@@ -4088,8 +4088,8 @@ SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
   filenames:
-  - deployment/default-env-utils-images/image-files/amd64/spack.yaml
   - deployment/default-env-utils-images/image-files/arm64/spack.yaml
+  - deployment/default-env-utils-images/image-files/amd64/spack.yaml
   full_name: SeisSol/seissol-spack-aid
   latest_release: null
   readme: '<h1>
@@ -4196,9 +4196,9 @@ UO-OACISS/e4s:
   description: E4S Spack environments and container recipes
   filenames:
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
-  - docker-recipes/rhel8-runner-x86_64/spack.yaml
   - docker-recipes/rhel7-runner-x86_64/spack.yaml
   - docker-recipes/rhel8-runner-ppc64le/spack.yaml
+  - docker-recipes/rhel8-runner-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -4246,29 +4246,29 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/library/bak/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - cent7/libs_old/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
   - cent8/envs/avx/python/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent7/apps/spack.yaml
-  - cent7/ece_hpc/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
-  - cent8/envs/avx512/lusoft/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
-  - cent8/envs/avx2/rproject/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
-  - compilers/envs/compilers/spack.yaml
-  - cent7/py_376/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
   - cent7/python_376/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
+  - cent7/library/bak/spack.yaml
+  - cent7/mpis/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent8/envs/avx2/rproject/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
   - cent7/bioinformatics/spack.yaml
   - cent8/envs/x86_64/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent7/bio_old/spack.yaml
   - cent7/library/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
-  - cent7/mpis/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent7/py_376/spack.yaml
+  - cent7/apps/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
+  - cent7/ece_hpc/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -4482,16 +4482,16 @@ buildtesters/buildtest:
   - hpc
   - json-schema
   - buildtest
-  updated_at: 1627935205.0
+  updated_at: 1628132232.0
 bvanessen/lbann_distconv:
   data_format: 2
   description: null
   filenames:
-  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
-  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
-  - spack_environments/developer_release_osx_spack.yaml
   - spack_environments/developer_release_ppc64le_cuda_spack.yaml
+  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
+  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
   - spack_environments/developer_release_x86_64_cuda_spack.yaml
+  - spack_environments/developer_release_osx_spack.yaml
   full_name: bvanessen/lbann_distconv
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
@@ -5225,7 +5225,7 @@ eth-cscs/reframe:
     \ is an open-source project and we welcome and encourage contributions!\nCheck\
     \ out our Contribution Guide <a href=\"https://github.com/eth-cscs/reframe/wiki/contributing-to-reframe\"\
     >here</a>.</p>\n"
-  stargazers_count: 112
+  stargazers_count: 113
   subscribers_count: 21
   topics:
   - regression-testing
@@ -5236,7 +5236,7 @@ eth-cscs/reframe:
   - benchmarking
   - validation-testing
   - performance-testing
-  updated_at: 1628025583.0
+  updated_at: 1628112155.0
 eugeneswalker/exawind-cacher:
   data_format: 2
   description: null
@@ -5269,8 +5269,8 @@ eugeneswalker/exawind-containers:
   data_format: 2
   description: null
   filenames:
-  - amr-wind-container/spack.yaml
   - spack.yaml
+  - amr-wind-container/spack.yaml
   full_name: eugeneswalker/exawind-containers
   latest_release: null
   readme: '<h2>
@@ -5432,8 +5432,8 @@ eugeneswalker/llvm-containers:
   data_format: 2
   description: null
   filenames:
-  - x86_64/spack.yaml
   - ppc64le/spack.yaml
+  - x86_64/spack.yaml
   full_name: eugeneswalker/llvm-containers
   latest_release: null
   stargazers_count: 1
@@ -5444,14 +5444,14 @@ eugeneswalker/nalu-wind-demo:
   data_format: 2
   description: exawind/nalu-wind deployment using Spack and E4S build cache (demo)
   filenames:
-  - uoregon/mpich-container/spack.yaml
   - uoregon/spectrum-mpi/spack.yaml
-  - summit/spack.yaml
+  - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
   - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
+  - uoregon/openmpi/spack.yaml
   - uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml
   - uoregon/mpich/spack.yaml
-  - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
-  - uoregon/openmpi/spack.yaml
+  - uoregon/mpich-container/spack.yaml
+  - summit/spack.yaml
   full_name: eugeneswalker/nalu-wind-demo
   latest_release: null
   stargazers_count: 1
@@ -5481,9 +5481,9 @@ eugeneswalker/qmcpack-demo:
   data_format: 2
   description: null
   filenames:
-  - spack-qmcpack.yaml
   - spack.yaml
   - spack-llvm.yaml
+  - spack-qmcpack.yaml
   full_name: eugeneswalker/qmcpack-demo
   latest_release: null
   stargazers_count: 0
@@ -5619,7 +5619,7 @@ frankwillmore/deployment:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1628013048.0
+  updated_at: 1628112357.0
 frankwillmore/derkommissar:
   data_format: 2
   description: null
@@ -5805,8 +5805,8 @@ haampie/sirius-appimage:
   data_format: 2
   description: SIRIUS AppImage (using just the bare minimum)
   filenames:
-  - sirius/spack.yaml
   - libtree/spack.yaml
+  - sirius/spack.yaml
   full_name: haampie/sirius-appimage
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-creating-an-appimage-from-a-spack-environment\"\
@@ -5887,11 +5887,11 @@ haampie/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
-  - build/3_more_tools/spack.yaml
   - build/6_spack/spack.yaml
   - build/2_compiler/spack.yaml
-  - build/5_runtime/spack.yaml
+  - build/3_more_tools/spack.yaml
   - build/1_ccache/spack.yaml
+  - build/5_runtime/spack.yaml
   full_name: haampie/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -6133,15 +6133,15 @@ jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
+  - configs/rhodes/compilers/spack.yaml
   - configs/eagle/utilities/spack.yaml
-  - envs/exawind/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/rhodes/utilities/spack.yaml
   - configs/eagle/compilers/spack.yaml
-  - configs/eagle/base/spack.yaml
   - configs/rhodes/software/spack.yaml
   - configs/rhodes/base/spack.yaml
-  - configs/rhodes/compilers/spack.yaml
+  - configs/rhodes/utilities/spack.yaml
+  - envs/exawind/spack.yaml
+  - configs/eagle/base/spack.yaml
+  - configs/eagle/software/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -6332,12 +6332,12 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/key4hep-release-broadwell/spack.yaml
-  - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-release-user/spack.yaml
-  - environments/key4hep-debug/spack.yaml
-  - environments/key4hep-release/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
+  - environments/key4hep-release-user/spack.yaml
+  - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-debug/spack.yaml
+  - environments/geant4-data-share/spack.yaml
+  - environments/key4hep-release/spack.yaml
   - environments/key4hep-nightlies-debug/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-05-13'
@@ -6387,15 +6387,15 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
-  - env/x86_64/flecsi/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
-  - .gitlab-ci/env/root-build/spack.yaml
-  - env/broadwell/flecsalemm-deps/spack.yaml
-  - env/power9le/flecsi/spack.yaml
-  - env/power9le/flecsalemm-deps/spack.yaml
-  - env/x86_64/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
   - .gitlab-ci/env/dry-run/spack.yaml
+  - env/x86_64/flecsalemm-deps/spack.yaml
+  - env/broadwell/flecsalemm-deps/spack.yaml
+  - .gitlab-ci/env/root-build/spack.yaml
+  - env/power9le/flecsalemm-deps/spack.yaml
+  - env/power9le/flecsi/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
+  - env/x86_64/flecsi/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -7639,7 +7639,7 @@ mochi-hpc/mochi-sonata:
   stargazers_count: 0
   subscribers_count: 5
   topics: []
-  updated_at: 1628024731.0
+  updated_at: 1628101343.0
 mochi-hpc/mochi-thallium:
   data_format: 2
   description: Thallium is a C++14 library wrapping Margo, Mercury, and Argobots and
@@ -7982,7 +7982,7 @@ openPMD/openPMD-api:
   filenames:
   - .github/ci/spack-envs/clang8_py38_mpich_h5_ad1_ad2/spack.yaml
   full_name: openPMD/openPMD-api
-  latest_release: 0.14.0
+  latest_release: 0.14.1
   readme: "<h1>\n<a id=\"user-content-c--python-api-for-scientific-io-with-openpmd\"\
     \ class=\"anchor\" href=\"#c--python-api-for-scientific-io-with-openpmd\" aria-hidden=\"\
     true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>C++\
@@ -8501,18 +8501,18 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1628036332.0
+  updated_at: 1628129901.0
 pace-gt/PACE-ProvBench:
   data_format: 2
   description: Provenance based Benchmark suite
   filenames:
-  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
   - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
   full_name: pace-gt/PACE-ProvBench
   latest_release: v1.0.0
   readme: "<h1>\n<a id=\"user-content-pace-provbench\" class=\"anchor\" href=\"#pace-provbench\"\
@@ -8632,25 +8632,33 @@ pace-gt/PACE-ProvBench:
   subscribers_count: 1
   topics: []
   updated_at: 1614293355.0
+panosc-eu/spack-repo:
+  data_format: 2
+  description: EuXFEL Spack Package Repository
+  filenames:
+  - .docker/opt/spack/etc/spack/spack.yaml
+  full_name: panosc-eu/spack-repo
+  latest_release: null
+  stargazers_count: 1
+  subscribers_count: 3
+  topics: []
+  updated_at: 1626965915.0
 paulbry/nmc-swd:
   data_format: 2
   description: NMC software deployment environments leveraging Spack.
   filenames:
-  - dev/ecp-x86_64/4-py/spack.yaml
-  - prod/ecp-p9-4v100/4-py/spack.yaml
-  - prod/gitlab-runner/1-core/spack.yaml
-  - prod/ecp-p9-4v100/2-compute/spack.yaml
-  - dev/ecp-p9-4v100/0-base/spack.yaml
   - dev/xx-fe1/4-py/spack.yaml
-  - prod/xx-fe1/_manual/spack.yaml
+  - prod/gitlab-runner/1-core/spack.yaml
+  - dev/ecp-x86_64/4-py/spack.yaml
   - prod/ecp-x86_64/3-sdk/spack.yaml
-  - dev/ecp-x86_64/5-e4s/spack.yaml
-  - prod/ecp-x86_64/_manual/spack.yaml
-  - prod/ecp-p9-4v100/1-core/spack.yaml
-  - prod/ecp-x86_64/5-e4s/spack.yaml
-  - dev/ecp-x86_64/3-sdk/spack.yaml
+  - prod/xx-fe1/_manual/spack.yaml
   - dev/ecp-x86_64/0-base/spack.yaml
+  - prod/ecp-p9-4v100/4-py/spack.yaml
+  - prod/ecp-p9-4v100/2-compute/spack.yaml
+  - prod/ecp-x86_64/_manual/spack.yaml
+  - dev/ecp-x86_64/5-e4s/spack.yaml
   - prod/ecp-p9-4v100/_manual/spack.yaml
+  - prod/ecp-x86_64/5-e4s/spack.yaml
   full_name: paulbry/nmc-swd
   latest_release: null
   readme: '<h1>
@@ -8946,15 +8954,15 @@ pscedu/singularity-octave:
   topics:
   - singularity
   - numerical-computation
-  updated_at: 1627932124.0
+  updated_at: 1628105918.0
 range3/spack-playground:
   data_format: 2
   description: null
   filenames:
+  - envs/broken-verbs-chris8x/spack.yaml
+  - envs/chris8x/spack.yaml
   - envs/dev/spack.yaml
   - envs/cygnus/spack.yaml
-  - envs/chris8x/spack.yaml
-  - envs/broken-verbs-chris8x/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
   readme: '<h1>
@@ -8985,9 +8993,9 @@ rngoodner/fiesta-helpers:
   data_format: 2
   description: null
   filenames:
-  - spack-environments/openmpi/spack.yaml
   - spack-environments/mvapich2-lassen/spack.yaml
   - spack-environments/openmpi-lassen/spack.yaml
+  - spack-environments/openmpi/spack.yaml
   full_name: rngoodner/fiesta-helpers
   latest_release: null
   readme: '<h1>
@@ -9348,20 +9356,23 @@ spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
   - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - NERSC/cori/e4s-21.02/prod/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
+  - NERSC/cori/e4s-21.05/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
   - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
+  - NERSC/cori/e4s-21.02/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -9408,33 +9419,7 @@ spack/spack-configs:
   stargazers_count: 31
   subscribers_count: 24
   topics: []
-  updated_at: 1628022668.0
-spack/spack-cscs2019:
-  data_format: 2
-  description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
-  filenames:
-  - docker/spack.yaml
-  full_name: spack/spack-cscs2019
-  latest_release: null
-  readme: '<p>"Software Development and Deployment with Spack"</p>
-
-    <p>Slides for the "Software Management Course" at CSCS (May 14th, 2019) in Lugano,
-    based on the awesome <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>MIT licensed</p>
-
-    <p>Copyright (C) 2019 Hakim El Hattab, Massimiliano Culpo</p>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 2
-  topics: []
-  updated_at: 1621966087.0
+  updated_at: 1628114382.0
 srini009/aggregator:
   data_format: 2
   description: Aggregator microservice built using Mochi that is a part of SYMBIOMON
@@ -9733,6 +9718,155 @@ srini009/collector:
   subscribers_count: 1
   topics: []
   updated_at: 1615253014.0
+srini009/reducer:
+  data_format: 2
+  description: Reduces SYMBIOMON metrics
+  filenames:
+  - spack.yaml
+  full_name: srini009/reducer
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-margo-microservice-template\" class=\"anchor\"\
+    \ href=\"#margo-microservice-template\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Margo Microservice Template</h1>\n\
+    <p>This project is a template to start developing a Mochi microservice based on\
+    \ Margo.\nIf you want to implement your own microservice, please read ahead. Though\
+    \ this project\nprovides many examples of how to use the Margo API, you may want\
+    \ to refer to the Margo\ndocumentation <a href=\"https://mochi.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">here</a> for more detail.</p>\n<h2>\n<a id=\"user-content-the-mochi-philosophy\"\
+    \ class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>The Mochi philosophy</h2>\n<p>The\
+    \ philosophy of the Mochi project consists of providing a set of building blocks\n\
+    for developing HPC data service. Each building block is meant to offer <strong>efficient</strong>,\n\
+    <strong>location-agnostic</strong> access to a <strong>simple set of functionalities</strong>\
+    \ through\n<strong>modular backends</strong>, while <strong>seamlessly sharing\
+    \ hardware</strong> (compute and network)\nwith other building blocks.</p>\n<p>A\
+    \ <strong>simple set of functionalities</strong> may be, for example, <em>\"storing\
+    \ and retrieving\nsmall key/value pairs\"</em>, a common feature found in many\
+    \ storage systems to manage\nmetadata. The <strong>location-agnostic</strong>\
+    \ aspect aims at making such a feature available\nto user programs in the same\
+    \ manner and through the same API regardless of whether\nthe service runs in the\
+    \ same process, on the same node but on different processes,\nor on a different\
+    \ node across a network. The <strong>modular backends</strong> aspect makes it\n\
+    possible to abstract the implementation of such a feature and, if not providing\n\
+    multiple implementations, at least providing the means for someone to easily swap\n\
+    the default implementation of the feature for their own. Because multiple building\n\
+    blocks may be running on the same node, such a building block should efficiently\n\
+    share the compute and network hardware with other building blocks. This is done\n\
+    by sharing a common networking and threading layer: Margo.</p>\n<h2>\n<a id=\"\
+    user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Design\
+    \ overview</h2>\n<p>The typical design of a Mochi microservice revolves around\
+    \ three libraries:\n<strong>server</strong>, <strong>client</strong>, and <strong>admin</strong>.</p>\n\
+    <ul>\n<li>The server library contains a service <strong>provider</strong>, that\
+    \ is, an object that\ncan receive some predefined RPCs to offer a particular functionality.\
+    \ Within\nthe same process, multiple providers of the same service may be instantiated,\n\
+    using distinct <strong>provider ids</strong> (<code>uint16_t</code>). A provider\
+    \ is responsible for\nmanaging a set of <strong>resources</strong>. In the example\
+    \ of a storage for key/value\npairs, a resource may be a database. The functionalities\
+    \ of a provider may\nbe enabled by multiple <strong>backends</strong>. For example,\
+    \ a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an\
+    \ in-memory hash table.\nPrograms sending requests to a provider should <strong>not</strong>\
+    \ be unaware of the backend used\nto implement the requested functionality. This\
+    \ allows multiple backends to be\ntested, and for backends to evolve independently\
+    \ from user applications.</li>\n<li>The client library is the library through\
+    \ which user applications or higher-level\nservices interact with providers. It\
+    \ will typically provide a <strong>client</strong> structure\nthat is used to\
+    \ register the set of RPCs that can be invoked, and a <strong>resource handle</strong>\n\
+    structure that references a particular resource located on a particular provider.\n\
+    User applications will typically initialize a singe client object for a service,\
+    \ and\nfrom this client object instantiate as many resource handles as needed\
+    \ to interact with\navailable resources. Resources are identified by a <strong>resource\
+    \ id</strong>, which are generally\neither a name, an integer, or a\n<a href=\"\
+    https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\
+    >uuid</a> (this template\nproject uses uuids).</li>\n<li>The admin library is\
+    \ the library through which a user application can send\nrequests that are meant\
+    \ for the provider itself rather than for a resource.\nA few most common such\
+    \ requests include the creation and destruction of\nresources, their migration,\
+    \ etc. It can be useful to think of the admin\nlibrary as the set of features\
+    \ you would want to provide to the person or\napplication that sets up the service,\
+    \ rather than the person or application\nthat uses its functionalities.</li>\n\
+    </ul>\n<h2>\n<a id=\"user-content-organization-of-this-template-project\" class=\"\
+    anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Organization\
+    \ of this template project</h2>\n<p>This template project illustrates how a Margo-based\
+    \ microservice could\nbe architected. It can be compiled as-is, and provides a\
+    \ couple of\nfunctionalities that make the provider print a \"Hello World\" message\n\
+    on its standard output, or compute the sum of two integers.</p>\n<p>This template\
+    \ project uses <strong>alpha</strong> as the name of your microservice.\nFunctions,\
+    \ types, files, and libraries therefore use the <strong>alpha</strong> prefix.\n\
+    The first step in setting up this project for your microservice will be\nto replace\
+    \ this prefix. The generic name <strong>resource</strong> should also be\nreplaced\
+    \ with a more specific name, such as <strong>database</strong>. This renaming\n\
+    step can be done by using the <em>setup.py</em> script at the root of this repository\n\
+    (see next section).</p>\n<p>The <em>include</em> directory of this template project\
+    \ provides public header files.</p>\n<ul>\n<li>\n<em>alpha/alpha-common.h</em>\
+    \ contains APIs that are common to the three\nlibraries, such as error codes or\
+    \ common types;</li>\n<li>\n<em>alpha/alpha-client.h</em> contains the client-side\
+    \ functions to create\nand destroy a client object;</li>\n<li>\n<em>alpha/alpha-resource.h</em>\
+    \ contains the client-side functions to create\nand destroy resource handles,\
+    \ and to interact with a resource through\na resource handle;</li>\n<li>\n<em>alpha/alpha-server.h</em>\
+    \ contains functions to register and destroy\na provider;</li>\n<li>\n<em>alpha/alpha-backend.h</em>\
+    \ contains the definition of a structure that\none would need to implement in\
+    \ order to provide a new backend for\nyour microservice;</li>\n<li>\n<em>alpha/alpha-admin.h</em>\
+    \ contains the functions to create and destroy\nan admin object, as well as admin\
+    \ functions to interact with a provider;</li>\n<li>\n<em>alpha/alpha-provider-handle.h</em>\
+    \ contains the definition of a provider handle.\nThis type of construct is often\
+    \ used in Mochi services to encapsulate\nan address and a provider id.</li>\n\
+    </ul>\n<p>The implementation of all these functions is located in the <em>src</em>\
+    \ directory.\nThe source also includes functionalities such as a small header-based\
+    \ logging library.\nThe <em>src/dummy</em> directory provides a default implementation\
+    \ of a backend. This\nbackend also exemplifies the use of the <a href=\"https://github.com/json-c/json-c\"\
+    >json-c</a> library\nfor JSON-based resource configuration. We recommend that\
+    \ you implement a dummy backend for your\nservice, as a way of testing application\
+    \ logic and RPCs without the burden of complex\nexternal dependencies. For instance,\
+    \ a dummy backend may be a backend that simply\nacknowledges requests but does\
+    \ not process them, or provides mock results.</p>\n<p>The <em>examples</em> directory\
+    \ contains an example using the microservice:\nthe server example will start a\
+    \ provider and print its address (if logging was enabled).\nThe admin example\
+    \ will connect to this provider and have it create a resource, then\nprint the\
+    \ resource id. The client example can be run next to interact with the resource.</p>\n\
+    <p>The <em>tests</em> directory contains a set of unit tests for your service.\n\
+    It relies on <a href=\"https://nemequ.github.io/munit\" rel=\"nofollow\">\xB5\
+    nit</a> (included in this repository),\na C unit-test library under an MIT license.\
+    \ Feel free to continue using it as you\nadd more functionalities to your microservice;\
+    \ unit-testing is just good software\ndevelopment practice in general.</p>\n<p>The\
+    \ template also contains a <em>spack.yaml</em> file at its root that can be used\
+    \ to\ninstall its dependencies. You may add additional dependencies into this\
+    \ file as\nyour microservice gets more complex.</p>\n<p>As you modify this project\
+    \ to implement your own microservice, feel free to remove\nany dependencies you\
+    \ don't like (such as json-c or \xB5nit) and adapt it to your needs!</p>\n<h2>\n\
+    <a id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Setting up your project</h2>\n<p>Let's assume you want to create a\
+    \ microservice called \"yellow\", which manages\na phone directory (association\
+    \ between names and phone numbers). The following\nshows how to setup your project:</p>\n\
+    <pre><code>git clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\n\
+    mv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n\
+    $ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g.,\
+    \ database): phonebook\n</code></pre>\n<p>The python script will edit and rename\
+    \ all the files, replacing <em>alpha</em> with <em>yellow</em>\nand <em>resource</em>\
+    \ with <em>phonebook</em>.</p>\n<h2>\n<a id=\"user-content-building-the-project\"\
+    \ class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Building the project</h2>\n<p>The\
+    \ project's dependencies may be build using <a href=\"https://spack.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">spack</a>.\nYou will need to have setup <a href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\"\
+    \ rel=\"nofollow\">sds-repo</a> as external\nnamespace for spack, which can be\
+    \ done as follows.</p>\n<pre><code># from outside of your project directory\n\
+    git clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\
+    </code></pre>\n<p>The easiest way to setup the dependencies for this project is\
+    \ to create a spack environment\nusing the <em>spack.yaml</em> file located at\
+    \ the root of the project, as follows.</p>\n<pre><code># create an anonymous environment\n\
+    cd margo-microservice-template\nspack env activate .\nspack install\n</code></pre>\n\
+    <p>or as follows.</p>\n<pre><code># create an environment named myenv\ncd margo-microservice-template\n\
+    spack env create myenv spack.yaml\nspack env activate myenv\nspack install\n</code></pre>\n\
+    <p>Once the dependencies have been installed, you may build the project as follows.</p>\n\
+    <pre><code>mkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON\
+    \ -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n</code></pre>\n\
+    <p>You can test the project using <code>make test</code> from the build directory.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1626236060.0
 srini009/sds-keyval:
   data_format: 2
   description: Personal fork of the sds-key Mochi microservice.
@@ -9891,6 +10025,155 @@ srini009/sds-keyval:
   subscribers_count: 1
   topics: []
   updated_at: 1626335944.0
+srini009/symbiomon:
+  data_format: 2
+  description: SYMBIOMON Monitoring Microservice
+  filenames:
+  - spack.yaml
+  full_name: srini009/symbiomon
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-margo-microservice-template\" class=\"anchor\"\
+    \ href=\"#margo-microservice-template\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Margo Microservice Template</h1>\n\
+    <p>This project is a template to start developing a Mochi microservice based on\
+    \ Margo.\nIf you want to implement your own microservice, please read ahead. Though\
+    \ this project\nprovides many examples of how to use the Margo API, you may want\
+    \ to refer to the Margo\ndocumentation <a href=\"https://mochi.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">here</a> for more detail.</p>\n<h2>\n<a id=\"user-content-the-mochi-philosophy\"\
+    \ class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>The Mochi philosophy</h2>\n<p>The\
+    \ philosophy of the Mochi project consists of providing a set of building blocks\n\
+    for developing HPC data service. Each building block is meant to offer <strong>efficient</strong>,\n\
+    <strong>location-agnostic</strong> access to a <strong>simple set of functionalities</strong>\
+    \ through\n<strong>modular backends</strong>, while <strong>seamlessly sharing\
+    \ hardware</strong> (compute and network)\nwith other building blocks.</p>\n<p>A\
+    \ <strong>simple set of functionalities</strong> may be, for example, <em>\"storing\
+    \ and retrieving\nsmall key/value pairs\"</em>, a common feature found in many\
+    \ storage systems to manage\nmetadata. The <strong>location-agnostic</strong>\
+    \ aspect aims at making such a feature available\nto user programs in the same\
+    \ manner and through the same API regardless of whether\nthe service runs in the\
+    \ same process, on the same node but on different processes,\nor on a different\
+    \ node across a network. The <strong>modular backends</strong> aspect makes it\n\
+    possible to abstract the implementation of such a feature and, if not providing\n\
+    multiple implementations, at least providing the means for someone to easily swap\n\
+    the default implementation of the feature for their own. Because multiple building\n\
+    blocks may be running on the same node, such a building block should efficiently\n\
+    share the compute and network hardware with other building blocks. This is done\n\
+    by sharing a common networking and threading layer: Margo.</p>\n<h2>\n<a id=\"\
+    user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Design\
+    \ overview</h2>\n<p>The typical design of a Mochi microservice revolves around\
+    \ three libraries:\n<strong>server</strong>, <strong>client</strong>, and <strong>admin</strong>.</p>\n\
+    <ul>\n<li>The server library contains a service <strong>provider</strong>, that\
+    \ is, an object that\ncan receive some predefined RPCs to offer a particular functionality.\
+    \ Within\nthe same process, multiple providers of the same service may be instantiated,\n\
+    using distinct <strong>provider ids</strong> (<code>uint16_t</code>). A provider\
+    \ is responsible for\nmanaging a set of <strong>resources</strong>. In the example\
+    \ of a storage for key/value\npairs, a resource may be a database. The functionalities\
+    \ of a provider may\nbe enabled by multiple <strong>backends</strong>. For example,\
+    \ a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an\
+    \ in-memory hash table.\nPrograms sending requests to a provider should <strong>not</strong>\
+    \ be unaware of the backend used\nto implement the requested functionality. This\
+    \ allows multiple backends to be\ntested, and for backends to evolve independently\
+    \ from user applications.</li>\n<li>The client library is the library through\
+    \ which user applications or higher-level\nservices interact with providers. It\
+    \ will typically provide a <strong>client</strong> structure\nthat is used to\
+    \ register the set of RPCs that can be invoked, and a <strong>resource handle</strong>\n\
+    structure that references a particular resource located on a particular provider.\n\
+    User applications will typically initialize a singe client object for a service,\
+    \ and\nfrom this client object instantiate as many resource handles as needed\
+    \ to interact with\navailable resources. Resources are identified by a <strong>resource\
+    \ id</strong>, which are generally\neither a name, an integer, or a\n<a href=\"\
+    https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\
+    >uuid</a> (this template\nproject uses uuids).</li>\n<li>The admin library is\
+    \ the library through which a user application can send\nrequests that are meant\
+    \ for the provider itself rather than for a resource.\nA few most common such\
+    \ requests include the creation and destruction of\nresources, their migration,\
+    \ etc. It can be useful to think of the admin\nlibrary as the set of features\
+    \ you would want to provide to the person or\napplication that sets up the service,\
+    \ rather than the person or application\nthat uses its functionalities.</li>\n\
+    </ul>\n<h2>\n<a id=\"user-content-organization-of-this-template-project\" class=\"\
+    anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Organization\
+    \ of this template project</h2>\n<p>This template project illustrates how a Margo-based\
+    \ microservice could\nbe architected. It can be compiled as-is, and provides a\
+    \ couple of\nfunctionalities that make the provider print a \"Hello World\" message\n\
+    on its standard output, or compute the sum of two integers.</p>\n<p>This template\
+    \ project uses <strong>alpha</strong> as the name of your microservice.\nFunctions,\
+    \ types, files, and libraries therefore use the <strong>alpha</strong> prefix.\n\
+    The first step in setting up this project for your microservice will be\nto replace\
+    \ this prefix. The generic name <strong>resource</strong> should also be\nreplaced\
+    \ with a more specific name, such as <strong>database</strong>. This renaming\n\
+    step can be done by using the <em>setup.py</em> script at the root of this repository\n\
+    (see next section).</p>\n<p>The <em>include</em> directory of this template project\
+    \ provides public header files.</p>\n<ul>\n<li>\n<em>alpha/alpha-common.h</em>\
+    \ contains APIs that are common to the three\nlibraries, such as error codes or\
+    \ common types;</li>\n<li>\n<em>alpha/alpha-client.h</em> contains the client-side\
+    \ functions to create\nand destroy a client object;</li>\n<li>\n<em>alpha/alpha-resource.h</em>\
+    \ contains the client-side functions to create\nand destroy resource handles,\
+    \ and to interact with a resource through\na resource handle;</li>\n<li>\n<em>alpha/alpha-server.h</em>\
+    \ contains functions to register and destroy\na provider;</li>\n<li>\n<em>alpha/alpha-backend.h</em>\
+    \ contains the definition of a structure that\none would need to implement in\
+    \ order to provide a new backend for\nyour microservice;</li>\n<li>\n<em>alpha/alpha-admin.h</em>\
+    \ contains the functions to create and destroy\nan admin object, as well as admin\
+    \ functions to interact with a provider;</li>\n<li>\n<em>alpha/alpha-provider-handle.h</em>\
+    \ contains the definition of a provider handle.\nThis type of construct is often\
+    \ used in Mochi services to encapsulate\nan address and a provider id.</li>\n\
+    </ul>\n<p>The implementation of all these functions is located in the <em>src</em>\
+    \ directory.\nThe source also includes functionalities such as a small header-based\
+    \ logging library.\nThe <em>src/dummy</em> directory provides a default implementation\
+    \ of a backend. This\nbackend also exemplifies the use of the <a href=\"https://github.com/json-c/json-c\"\
+    >json-c</a> library\nfor JSON-based resource configuration. We recommend that\
+    \ you implement a dummy backend for your\nservice, as a way of testing application\
+    \ logic and RPCs without the burden of complex\nexternal dependencies. For instance,\
+    \ a dummy backend may be a backend that simply\nacknowledges requests but does\
+    \ not process them, or provides mock results.</p>\n<p>The <em>examples</em> directory\
+    \ contains an example using the microservice:\nthe server example will start a\
+    \ provider and print its address (if logging was enabled).\nThe admin example\
+    \ will connect to this provider and have it create a resource, then\nprint the\
+    \ resource id. The client example can be run next to interact with the resource.</p>\n\
+    <p>The <em>tests</em> directory contains a set of unit tests for your service.\n\
+    It relies on <a href=\"https://nemequ.github.io/munit\" rel=\"nofollow\">\xB5\
+    nit</a> (included in this repository),\na C unit-test library under an MIT license.\
+    \ Feel free to continue using it as you\nadd more functionalities to your microservice;\
+    \ unit-testing is just good software\ndevelopment practice in general.</p>\n<p>The\
+    \ template also contains a <em>spack.yaml</em> file at its root that can be used\
+    \ to\ninstall its dependencies. You may add additional dependencies into this\
+    \ file as\nyour microservice gets more complex.</p>\n<p>As you modify this project\
+    \ to implement your own microservice, feel free to remove\nany dependencies you\
+    \ don't like (such as json-c or \xB5nit) and adapt it to your needs!</p>\n<h2>\n\
+    <a id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Setting up your project</h2>\n<p>Let's assume you want to create a\
+    \ microservice called \"yellow\", which manages\na phone directory (association\
+    \ between names and phone numbers). The following\nshows how to setup your project:</p>\n\
+    <pre><code>git clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\n\
+    mv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n\
+    $ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g.,\
+    \ database): phonebook\n</code></pre>\n<p>The python script will edit and rename\
+    \ all the files, replacing <em>alpha</em> with <em>yellow</em>\nand <em>resource</em>\
+    \ with <em>phonebook</em>.</p>\n<h2>\n<a id=\"user-content-building-the-project\"\
+    \ class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Building the project</h2>\n<p>The\
+    \ project's dependencies may be build using <a href=\"https://spack.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">spack</a>.\nYou will need to have setup <a href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\"\
+    \ rel=\"nofollow\">sds-repo</a> as external\nnamespace for spack, which can be\
+    \ done as follows.</p>\n<pre><code># from outside of your project directory\n\
+    git clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\
+    </code></pre>\n<p>The easiest way to setup the dependencies for this project is\
+    \ to create a spack environment\nusing the <em>spack.yaml</em> file located at\
+    \ the root of the project, as follows.</p>\n<pre><code># create an anonymous environment\n\
+    cd margo-microservice-template\nspack env activate .\nspack install\n</code></pre>\n\
+    <p>or as follows.</p>\n<pre><code># create an environment named myenv\ncd margo-microservice-template\n\
+    spack env create myenv spack.yaml\nspack env activate myenv\nspack install\n</code></pre>\n\
+    <p>Once the dependencies have been installed, you may build the project as follows.</p>\n\
+    <pre><code>mkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON\
+    \ -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n</code></pre>\n\
+    <p>You can test the project using <code>make test</code> from the build directory.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1626236017.0
 supercontainers/ecp-tutorial:
   data_format: 2
   description: ECP Tutorial
