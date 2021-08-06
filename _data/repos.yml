@@ -539,11 +539,11 @@ Alpine-DAV/ascent:
   description: A flyweight in situ visualization and analysis runtime for multi-physics
     HPC simulations
   filenames:
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
   - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
   - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
-  - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
   - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
+  - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
   full_name: Alpine-DAV/ascent
   latest_release: v0.7.1
   readme: '<h1>
@@ -614,7 +614,7 @@ Alpine-DAV/ascent:
   - scientific-computing
   - data-viz
   - radiuss
-  updated_at: 1628038103.0
+  updated_at: 1628181266.0
 BetterWang/g4e:
   data_format: 2
   description: null
@@ -1142,8 +1142,8 @@ CUP-ECS/ExaCLAMR:
   data_format: 2
   description: null
   filenames:
-  - etc/spack.yaml
   - spack.yaml
+  - etc/spack.yaml
   full_name: CUP-ECS/ExaCLAMR
   latest_release: null
   readme: '<h1>
@@ -1373,8 +1373,8 @@ DavidPoliakoff/tuning-spack:
   data_format: 2
   description: null
   filenames:
-  - builds/openmp/spack.yaml
   - builds/cuda/spack.yaml
+  - builds/openmp/spack.yaml
   full_name: DavidPoliakoff/tuning-spack
   latest_release: null
   readme: '<p>Steps: get spack, as of this moment 0.16.1 seems good</p>
@@ -1400,996 +1400,45 @@ E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
-  - spack.yaml
+  - environments/20.10/spack.yaml
+  - environments/21.05/spack.yaml
+  - environments/21.02/spack.yaml
   full_name: E4S-Project/e4s
   latest_release: v21.05
-  readme: '<h2>
-
-    <a id="user-content-e4s-release-2105" class="anchor" href="#e4s-release-2105"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>E4S
-    Release 21.05</h2>
-
-    <p>May 2021 release of E4S</p>
-
-    <h3>
-
-    <a id="user-content-files" class="anchor" href="#files" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Files</h3>
-
-    <ul>
-
-    <li>
-
-    <code>spack.yaml</code> -- Model Spack environment</li>
-
-    </ul>
-
-    <p><em>Specs in the Model Spack Environment are commented out if (a) there are
-    outstanding build issues or (b) if they track branches and are not available in
-    versioned form</em></p>
-
-    <h3>
-
-    <a id="user-content-spack-version" class="anchor" href="#spack-version" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Spack Version</h3>
-
-    <p>E4S 21.05 uses Spack branch <code>e4s-21.05</code></p>
-
-    <ul>
-
-    <li><a href="https://github.com/spack/spack">https://github.com/spack/spack</a></li>
-
-    <li>Branch <code>e4s-21.05</code>
-
-    </li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-spack-build-cache" class="anchor" href="#spack-build-cache"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spack
-    Build Cache</h3>
-
-    <ul>
-
-    <li><a href="https://cache.e4s.io" rel="nofollow">https://cache.e4s.io</a></li>
-
-    <li><a href="https://cache.e4s.io/21.05" rel="nofollow">https://cache.e4s.io/21.05</a></li>
-
-    </ul>
-
-    <pre><code>$&gt; spack mirror add E4S https://cache.e4s.io/21.05
-
-    $&gt; spack buildcache keys -it
-
-    </code></pre>
-
-    <h3>
-
-    <a id="user-content-facility-adaptation-examples" class="anchor" href="#facility-adaptation-examples"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Facility
-    Adaptation Examples</h3>
-
-    <ul>
-
-    <li>
-
-    <a href="https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml">NERSC
-    Cori - Intel 19.1.3.304</a> (<a href="https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori">Instructions</a>)</li>
-
-    <li>
-
-    <a href="https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml">NERSC
-    Cori - GCC 9.3.0</a> (<a href="https://github.com/spack/spack-configs/tree/main/UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori">Instructions</a>)</li>
-
-    <li><a href="https://github.com/spack/spack-configs/blob/main/UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml">Frank
-    Jupiter - GCC 9.3.0</a></li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-packages" class="anchor" href="#packages" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Packages</h3>
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>Package</th>
-
-    <th>Version</th>
-
-    <th>Group</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    <tr>
-
-    <td>adios</td>
-
-    <td>1.13.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>adios2</td>
-
-    <td>2.7.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>aml</td>
-
-    <td>0.1.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>amrex</td>
-
-    <td>21.05</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>arborx</td>
-
-    <td>1.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>archer</td>
-
-    <td>2.0.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>argobots</td>
-
-    <td>1.1</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>ascent</td>
-
-    <td>0.7.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>axom</td>
-
-    <td>0.5.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>bolt</td>
-
-    <td>2.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>cabana</td>
-
-    <td>0.3.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>caliper</td>
-
-    <td>2.5.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>chai</td>
-
-    <td>2.3.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>conduit</td>
-
-    <td>0.7.2</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>darshan-runtime</td>
-
-    <td>3.3.0</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>darshan-util</td>
-
-    <td>3.3.0</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>dyninst</td>
-
-    <td>11.0.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>faodel</td>
-
-    <td>1.1906.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>flecsi</td>
-
-    <td>1.4</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>flit</td>
-
-    <td>2.1.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>fortrilinos</td>
-
-    <td>2.0.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>gasnet</td>
-
-    <td>2021.3.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>ginkgo</td>
-
-    <td>1.3.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>globalarrays</td>
-
-    <td>5.8</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>gmp</td>
-
-    <td>6.2.1</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>gotcha</td>
-
-    <td>1.0.3</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>hdf5</td>
-
-    <td>1.10.7</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>heffte</td>
-
-    <td>2.0.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>hpctoolkit</td>
-
-    <td>2021.03.1</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>hpx</td>
-
-    <td>1.6.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>hypre</td>
-
-    <td>2.20.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>kokkos</td>
-
-    <td>3.4.00</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>kokkos-kernels</td>
-
-    <td>3.2.00</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>legion</td>
-
-    <td>21.03.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>libnrm</td>
-
-    <td>0.1.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>libquo</td>
-
-    <td>1.3.1</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>libunwind</td>
-
-    <td>1.5.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>llvm-doe</td>
-
-    <td>doe</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>loki</td>
-
-    <td>0.1.7</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>magma</td>
-
-    <td>2.5.4</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>mercury</td>
-
-    <td>2.0.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>metall</td>
-
-    <td>0.13</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>mfem</td>
-
-    <td>4.2.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>mpark-variant</td>
-
-    <td>1.4.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>mpifileutils</td>
-
-    <td>0.11</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>ninja</td>
-
-    <td>1.10.2</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>nrm</td>
-
-    <td>0.1.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>omega-h</td>
-
-    <td>9.32.5</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>openmpi</td>
-
-    <td>4.0.5</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>openpmd-api</td>
-
-    <td>0.13.4</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>papi</td>
-
-    <td>6.0.0.1</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>papyrus</td>
-
-    <td>1.0.1</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>parallel-netcdf</td>
-
-    <td>1.12.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>pdt</td>
-
-    <td>3.25.1</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>petsc</td>
-
-    <td>3.15.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>phist</td>
-
-    <td>1.9.4</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>plasma</td>
-
-    <td>20.9.20</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>precice</td>
-
-    <td>2.2.1</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>pumi</td>
-
-    <td>2.2.5</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>py-jupyterhub</td>
-
-    <td>1.0.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>py-libensemble</td>
-
-    <td>0.7.1</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>py-petsc4py</td>
-
-    <td>3.15.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>py-warpx</td>
-
-    <td>21.05</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>qt</td>
-
-    <td>5.15.2</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>qthreads</td>
-
-    <td>1.16</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>qwt</td>
-
-    <td>6.1.6</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>raja</td>
-
-    <td>0.13.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>rempi</td>
-
-    <td>1.1.0</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>scr</td>
-
-    <td>3.0rc1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>slate</td>
-
-    <td>2021.05.2</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>slepc</td>
-
-    <td>3.15.0</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>stc</td>
-
-    <td>0.9.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>strumpack</td>
-
-    <td>5.1.1</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>sundials</td>
-
-    <td>5.7.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>superlu</td>
-
-    <td>5.2.1</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>superlu-dist</td>
-
-    <td>6.4.0</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>swig</td>
-
-    <td>4.0.2-f</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>sz</td>
-
-    <td>2.1.11.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>tasmanian</td>
-
-    <td>7.5</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>tau</td>
-
-    <td>2.30.1</td>
-
-    <td>dev tools</td>
-
-    </tr>
-
-    <tr>
-
-    <td>trilinos</td>
-
-    <td>13.0.1</td>
-
-    <td>math</td>
-
-    </tr>
-
-    <tr>
-
-    <td>turbine</td>
-
-    <td>1.3.0</td>
-
-    <td></td>
-
-    </tr>
-
-    <tr>
-
-    <td>umap</td>
-
-    <td>2.1.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>umpire</td>
-
-    <td>4.1.2</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>unifyfs</td>
-
-    <td>0.9.1</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    <tr>
-
-    <td>upcxx</td>
-
-    <td>2021.3.0</td>
-
-    <td>pmr core</td>
-
-    </tr>
-
-    <tr>
-
-    <td>zfp</td>
-
-    <td>0.5.5</td>
-
-    <td>data+viz</td>
-
-    </tr>
-
-    </tbody>
-
-    </table>
-
-    '
+  readme: "<p><a href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/E4S-Project/e4s/raw/master/logos/E4S-dark-green.png\"\
+    \ width=\"200\" alt=\"E4S\" style=\"max-width:100%;\"></a></p> \n<h1>\n<a id=\"\
+    user-content-e4s\" class=\"anchor\" href=\"#e4s\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>E4S</h1>\n<p>The Extreme-scale\
+    \ Scientific Software Stack (E4S) is a community effort to provide open source\n\
+    software packages for developing, deploying and running scientific applications\
+    \ on high-performance\ncomputing (HPC) platforms. E4S provides from-source builds\
+    \ and containers of a\n<a href=\"https://e4s-project.github.io/Resources/ProductInfo.html\"\
+    \ rel=\"nofollow\">broad collection of HPC software packages</a>.</p>\n<h2>\n\
+    <a id=\"user-content-related-projects\" class=\"anchor\" href=\"#related-projects\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Related Projects</h2>\n<ul>\n<li>\n<p><a href=\"https://github.com/E4S-Project/E4S-Project.github.io\"\
+    >E4S-Project/E4S-Project.github.io</a> - E4S Documentation repo that is hosted\
+    \ on <a href=\"https://e4s-project.github.io/\" rel=\"nofollow\">https://e4s-project.github.io/</a></p>\n\
+    </li>\n<li>\n<p><a href=\"https://github.com/E4S-Project/testsuite\">E4S-Project/testsuite</a>\
+    \ - E4S Testsuite with collection of validation tests that can be run post-install.</p>\n\
+    </li>\n<li>\n<p><a href=\"https://github.com/E4S-Project/e4s-cl\">E4S-Project/e4s-cl</a>\
+    \ - E4S Container Launcher is a tool to easily run MPI applications in E4S containers.</p>\n\
+    </li>\n<li>\n<p><a href=\"https://github.com/E4S-Project/e4s-ci-badges\">E4S-Project/e4s-ci-badges</a>\
+    \ - Display CI badges for E4S products that are available from <a href=\"https://shields.io/\"\
+    \ rel=\"nofollow\">shields.io</a></p>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-license\"\
+    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>E4S is released\
+    \ as MIT license for more details see <a href=\"https://github.com/E4S-Project/e4s/blob/master/LICENSE\"\
+    >LICENSE</a> file</p>\n<h2>\n<a id=\"user-content-contact\" class=\"anchor\" href=\"\
+    #contact\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Contact</h2>\n<ul>\n<li>Mike Heroux (<a href=\"mailto:maherou@sandia.gov\"\
+    >maherou@sandia.gov</a>)</li>\n<li>Sameer Shende (<a href=\"mailto:sameer@cs.uoregon.edu\"\
+    >sameer@cs.uoregon.edu</a>)</li>\n</ul>\n"
   stargazers_count: 6
   subscribers_count: 6
   topics: []
-  updated_at: 1627397698.0
+  updated_at: 1628201413.0
 ECP-CANDLE/Supervisor:
   data_format: 2
   description: null
@@ -2595,7 +1644,7 @@ ECP-WarpX/WarpX:
   - particle-in-cell
   - pic
   - research
-  updated_at: 1628088229.0
+  updated_at: 1628209688.0
 ECP-WarpX/artemis:
   data_format: 2
   description: ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver
@@ -2745,23 +1794,23 @@ FairRootGroup/FairSoft:
   description: Repository for installation routines of the external software required
     by FairRoot
   filenames:
-  - env/dev/sim_mt/spack.yaml
   - env/dev/sim_mt_headless/spack.yaml
-  - env/apr21/sim_mt/spack.yaml
-  - env/dev/sim/spack.yaml
-  - env/jun19/sim_mt/spack.yaml
-  - test/env/r3broot/spack.yaml
-  - test/env/fairroot_develop/spack.yaml
-  - env/nov20/sim_mt_headless/spack.yaml
-  - env/nov20/sim_mt/spack.yaml
-  - test/env/jun19_fairroot_18_4/spack.yaml
   - test/env/dds/spack.yaml
+  - env/nov20/sim_mt_headless/spack.yaml
+  - env/jun19/sim_mt/spack.yaml
+  - env/nov20/sim_mt/spack.yaml
+  - test/env/fairlogger/spack.yaml
+  - test/env/fairmq/spack.yaml
+  - env/dev/sim/spack.yaml
   - env/jun19/sim/spack.yaml
   - env/apr21/sim/spack.yaml
-  - test/env/fairmq/spack.yaml
   - env/nov20/sim/spack.yaml
   - env/apr21/sim_mt_headless/spack.yaml
-  - test/env/fairlogger/spack.yaml
+  - env/dev/sim_mt/spack.yaml
+  - env/apr21/sim_mt/spack.yaml
+  - test/env/fairroot_develop/spack.yaml
+  - test/env/r3broot/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: jun19p3
   readme: "<h1>\n<a id=\"user-content-fairsoft\" class=\"anchor\" href=\"#fairsoft\"\
@@ -3140,8 +2189,8 @@ LLNL/radiuss-ci:
   description: RADIUSS CI project aims at providing sensible default configurations
     and tools for GitLab CI.
   filenames:
-  - spack-environments/radiuss/spack.yaml
   - spack-environments/empty/spack.yaml
+  - spack-environments/radiuss/spack.yaml
   full_name: LLNL/radiuss-ci
   latest_release: null
   readme: '<h1>
@@ -3266,8 +2315,8 @@ LLNL/radiuss-spack-testing:
   data_format: 2
   description: Gitlab CI automation of Spack testing with RADIUSS projects builds.
   filenames:
-  - spack-environments/radiuss/spack.yaml
   - spack-environments/empty/spack.yaml
+  - spack-environments/radiuss/spack.yaml
   full_name: LLNL/radiuss-spack-testing
   latest_release: null
   readme: '<h1>
@@ -3486,8 +2535,8 @@ MeteoSwiss-APN/spack:
   data_format: 2
   description: null
   filenames:
-  - var/spack/environments/tsa/spack.yaml
   - var/spack/environments/daint/spack.yaml
+  - var/spack/environments/tsa/spack.yaml
   full_name: MeteoSwiss-APN/spack
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-the-meteoschweiz-spack-deployment\" class=\"\
@@ -3653,9 +2702,9 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - examples/zeus_marco/environment2_python/spack.yaml
-  - examples/topaz_marco/environment_compchem/spack.yaml
   - examples/zeus_marco/environment3_clingo/spack.yaml
+  - examples/topaz_marco/environment_compchem/spack.yaml
+  - examples/zeus_marco/environment2_python/spack.yaml
   - examples/zeus_marco/environment1_compchem/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
@@ -3705,7 +2754,7 @@ PawseySC/pawsey-spack-config:
   stargazers_count: 0
   subscribers_count: 10
   topics: []
-  updated_at: 1628049616.0
+  updated_at: 1628230264.0
 RanieryMendes/study_spack:
   data_format: 2
   description: Learning & Studying Spack Package manager
@@ -3723,8 +2772,8 @@ ResearchComputing/core-software:
     at University of Colorado Boulder Research Computing
   filenames:
   - spack/environments/develop/spack.yaml
-  - spack/environments/spring2020/spack.yaml
   - spack/environments/summer2020/spack.yaml
+  - spack/environments/spring2020/spack.yaml
   full_name: ResearchComputing/core-software
   latest_release: null
   readme: '<p>The Research Computing core software environment provides compilers,
@@ -3837,8 +2886,8 @@ SCOREC/centos7-spack-config:
   data_format: 2
   description: spack config for erp cluster
   filenames:
-  - v61c1b71_gcc910/spack.yaml
   - openFoam24/spack.yaml
+  - v61c1b71_gcc910/spack.yaml
   full_name: SCOREC/centos7-spack-config
   latest_release: null
   readme: '<h1>
@@ -3877,10 +2926,10 @@ SCOREC/dcs-spack-config:
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
   - v0160gcc/spack.yaml
-  - spack.yaml
   - v0162gccSpectrum/spack.yaml
-  - v0133gcc/spack.yaml
   - v0133gccSpectrum/spack.yaml
+  - spack.yaml
+  - v0133gcc/spack.yaml
   - rhel8NvhpcWdmapp/spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
@@ -4088,8 +3137,8 @@ SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
   filenames:
-  - deployment/default-env-utils-images/image-files/arm64/spack.yaml
   - deployment/default-env-utils-images/image-files/amd64/spack.yaml
+  - deployment/default-env-utils-images/image-files/arm64/spack.yaml
   full_name: SeisSol/seissol-spack-aid
   latest_release: null
   readme: '<h1>
@@ -4190,14 +3239,14 @@ TurbulentDynamics/tdLBCpp:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1628028302.0
+  updated_at: 1628199202.0
 UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
+  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
   - docker-recipes/rhel7-runner-x86_64/spack.yaml
-  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - docker-recipes/rhel8-runner-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
@@ -4218,10 +3267,10 @@ UO-OACISS/e4s:
     build the container image for each stack.</p>
 
     '
-  stargazers_count: 14
+  stargazers_count: 15
   subscribers_count: 6
   topics: []
-  updated_at: 1624419922.0
+  updated_at: 1628220334.0
 alalazo/container-images:
   data_format: 2
   description: Recipes to generate container images and experiment with Github registry
@@ -4247,28 +3296,28 @@ alexpacheco/spackenv:
   description: 'Spack Environments '
   filenames:
   - cent8/envs/avx/python/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
   - cent7/python_376/spack.yaml
-  - cent8/envs/avx512/lusoft/spack.yaml
   - cent7/bioinformatics_default/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
   - cent7/library/bak/spack.yaml
-  - cent7/mpis/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
-  - cent7/libs_old/spack.yaml
-  - cent8/envs/avx2/rproject/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
   - cent8/envs/avx512/python/spack.yaml
-  - cent7/bioinformatics/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - compilers/envs/compilers/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - cent7/library/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - cent7/py_376/spack.yaml
   - cent7/apps/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
   - cent7/ece_hpc/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
+  - cent7/py_376/spack.yaml
+  - cent8/envs/avx2/rproject/spack.yaml
+  - cent7/library/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
+  - cent7/bioinformatics/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent7/mpis/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
+  - cent7/bio_old/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -4482,16 +3531,16 @@ buildtesters/buildtest:
   - hpc
   - json-schema
   - buildtest
-  updated_at: 1628132232.0
+  updated_at: 1628193746.0
 bvanessen/lbann_distconv:
   data_format: 2
   description: null
   filenames:
-  - spack_environments/developer_release_ppc64le_cuda_spack.yaml
-  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
   - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
-  - spack_environments/developer_release_x86_64_cuda_spack.yaml
+  - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
+  - spack_environments/developer_release_ppc64le_cuda_spack.yaml
   - spack_environments/developer_release_osx_spack.yaml
+  - spack_environments/developer_release_x86_64_cuda_spack.yaml
   full_name: bvanessen/lbann_distconv
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
@@ -4625,8 +3674,8 @@ eic/eic-spack:
   data_format: 2
   description: Spack packages for the Electron Ion Collider
   filenames:
-  - environments/athena/spack.yaml
   - environments/eic/spack.yaml
+  - environments/athena/spack.yaml
   full_name: eic/eic-spack
   latest_release: v0.15
   readme: '<h1>
@@ -5269,8 +4318,8 @@ eugeneswalker/exawind-containers:
   data_format: 2
   description: null
   filenames:
-  - spack.yaml
   - amr-wind-container/spack.yaml
+  - spack.yaml
   full_name: eugeneswalker/exawind-containers
   latest_release: null
   readme: '<h2>
@@ -5444,14 +4493,14 @@ eugeneswalker/nalu-wind-demo:
   data_format: 2
   description: exawind/nalu-wind deployment using Spack and E4S build cache (demo)
   filenames:
-  - uoregon/spectrum-mpi/spack.yaml
+  - summit/spack.yaml
+  - uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml
+  - uoregon/mpich-container/spack.yaml
+  - uoregon/mpich/spack.yaml
   - uoregon/mpich-container-ubuntu20.04-x86_64/spack.yaml
   - uoregon/mpich-container-ubuntu18.04-x86_64/spack.yaml
   - uoregon/openmpi/spack.yaml
-  - uoregon/mpich-cuda-container-ubuntu18.04-x86_64/spack.yaml
-  - uoregon/mpich/spack.yaml
-  - uoregon/mpich-container/spack.yaml
-  - summit/spack.yaml
+  - uoregon/spectrum-mpi/spack.yaml
   full_name: eugeneswalker/nalu-wind-demo
   latest_release: null
   stargazers_count: 1
@@ -5482,8 +4531,8 @@ eugeneswalker/qmcpack-demo:
   description: null
   filenames:
   - spack.yaml
-  - spack-llvm.yaml
   - spack-qmcpack.yaml
+  - spack-llvm.yaml
   full_name: eugeneswalker/qmcpack-demo
   latest_release: null
   stargazers_count: 0
@@ -5887,11 +4936,11 @@ haampie/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
+  - build/1_ccache/spack.yaml
   - build/6_spack/spack.yaml
   - build/2_compiler/spack.yaml
-  - build/3_more_tools/spack.yaml
-  - build/1_ccache/spack.yaml
   - build/5_runtime/spack.yaml
+  - build/3_more_tools/spack.yaml
   full_name: haampie/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/haampie/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -6079,7 +5128,7 @@ iarspider/cms-spack-repo:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1626681527.0
+  updated_at: 1628180509.0
 jacobmerson/spack-develop-env:
   data_format: 2
   description: My development environment built with spack
@@ -6133,15 +5182,15 @@ jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
-  - configs/rhodes/compilers/spack.yaml
-  - configs/eagle/utilities/spack.yaml
-  - configs/eagle/compilers/spack.yaml
-  - configs/rhodes/software/spack.yaml
-  - configs/rhodes/base/spack.yaml
-  - configs/rhodes/utilities/spack.yaml
   - envs/exawind/spack.yaml
-  - configs/eagle/base/spack.yaml
+  - configs/rhodes/base/spack.yaml
+  - configs/rhodes/compilers/spack.yaml
   - configs/eagle/software/spack.yaml
+  - configs/eagle/compilers/spack.yaml
+  - configs/eagle/utilities/spack.yaml
+  - configs/rhodes/utilities/spack.yaml
+  - configs/eagle/base/spack.yaml
+  - configs/rhodes/software/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -6332,13 +5381,13 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/key4hep-nightlies/spack.yaml
+  - environments/key4hep-release/spack.yaml
   - environments/key4hep-release-user/spack.yaml
   - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
+  - environments/key4hep-nightlies/spack.yaml
   - environments/key4hep-debug/spack.yaml
   - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-release/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-05-13'
   readme: '<h1>
@@ -6382,20 +5431,20 @@ key4hep/key4hep-spack:
   stargazers_count: 3
   subscribers_count: 9
   topics: []
-  updated_at: 1625743476.0
+  updated_at: 1628189883.0
 laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
+  - env/power9le/flecsalemm-deps/spack.yaml
   - .gitlab-ci/env/dry-run/spack.yaml
+  - env/power9le/flecsi/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
+  - env/x86_64/flecsi/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
   - env/x86_64/flecsalemm-deps/spack.yaml
   - env/broadwell/flecsalemm-deps/spack.yaml
   - .gitlab-ci/env/root-build/spack.yaml
-  - env/power9le/flecsalemm-deps/spack.yaml
-  - env/power9le/flecsi/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
-  - env/x86_64/flecsi/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -6717,8 +5766,8 @@ mochi-hpc-experiments/colza-experiments:
   data_format: 2
   description: Experiments using Colza for In Situ Analysis
   filenames:
-  - cori/overhead/spack.yaml
   - cori/resizing/spack.yaml
+  - cori/overhead/spack.yaml
   full_name: mochi-hpc-experiments/colza-experiments
   latest_release: sc21
   readme: '<h1>
@@ -7560,7 +6609,7 @@ mochi-hpc/mochi-sdskv:
   stargazers_count: 0
   subscribers_count: 7
   topics: []
-  updated_at: 1623056677.0
+  updated_at: 1628192864.0
 mochi-hpc/mochi-sonata:
   data_format: 2
   description: Sonata is a Mochi service for JSON document storage. It is based on
@@ -8486,7 +7535,7 @@ openPMD/openPMD-api:
     >openPMD-standard</a> by <a href=\"https://github.com/ax3l\">Axel Huebl (HZDR,\
     \ now LBNL)</a> and <a href=\"https://github.com/openPMD/openPMD-standard/blob/latest/AUTHORS.md\"\
     >contributors</a>\n</li>\n</ul>\n"
-  stargazers_count: 71
+  stargazers_count: 72
   subscribers_count: 9
   topics:
   - openpmd
@@ -8501,17 +7550,17 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1628129901.0
+  updated_at: 1628153171.0
 pace-gt/PACE-ProvBench:
   data_format: 2
   description: Provenance based Benchmark suite
   filenames:
   - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
   - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
   full_name: pace-gt/PACE-ProvBench
   latest_release: v1.0.0
@@ -8647,18 +7696,14 @@ paulbry/nmc-swd:
   data_format: 2
   description: NMC software deployment environments leveraging Spack.
   filenames:
-  - dev/xx-fe1/4-py/spack.yaml
-  - prod/gitlab-runner/1-core/spack.yaml
-  - dev/ecp-x86_64/4-py/spack.yaml
-  - prod/ecp-x86_64/3-sdk/spack.yaml
-  - prod/xx-fe1/_manual/spack.yaml
-  - dev/ecp-x86_64/0-base/spack.yaml
   - prod/ecp-p9-4v100/4-py/spack.yaml
   - prod/ecp-p9-4v100/2-compute/spack.yaml
-  - prod/ecp-x86_64/_manual/spack.yaml
-  - dev/ecp-x86_64/5-e4s/spack.yaml
-  - prod/ecp-p9-4v100/_manual/spack.yaml
+  - prod/gitlab-runner/1-core/spack.yaml
   - prod/ecp-x86_64/5-e4s/spack.yaml
+  - prod/ecp-x86_64/3-sdk/spack.yaml
+  - prod/ecp-p9-4v100/_manual/spack.yaml
+  - dev/ecp-x86_64/0-base/spack.yaml
+  - prod/xx-fe1/_manual/spack.yaml
   full_name: paulbry/nmc-swd
   latest_release: null
   readme: '<h1>
@@ -8960,8 +8005,8 @@ range3/spack-playground:
   description: null
   filenames:
   - envs/broken-verbs-chris8x/spack.yaml
-  - envs/chris8x/spack.yaml
   - envs/dev/spack.yaml
+  - envs/chris8x/spack.yaml
   - envs/cygnus/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
@@ -8993,9 +8038,9 @@ rngoodner/fiesta-helpers:
   data_format: 2
   description: null
   filenames:
-  - spack-environments/mvapich2-lassen/spack.yaml
-  - spack-environments/openmpi-lassen/spack.yaml
   - spack-environments/openmpi/spack.yaml
+  - spack-environments/openmpi-lassen/spack.yaml
+  - spack-environments/mvapich2-lassen/spack.yaml
   full_name: rngoodner/fiesta-helpers
   latest_release: null
   readme: '<h1>
@@ -9252,7 +8297,7 @@ smutch/playbooks:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1628054215.0
+  updated_at: 1628205457.0
 smutch/regrider:
   data_format: 2
   description: Downsample gbpTrees and VELOCIraptor cartesian grids using FFTW
@@ -9303,6 +8348,120 @@ smutch/regrider:
   subscribers_count: 1
   topics: []
   updated_at: 1627973220.0
+spack/localized-docs:
+  data_format: 2
+  description: Localized documentation for Spack
+  filenames:
+  - spack.yaml
+  full_name: spack/localized-docs
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-localized-documentation-for-spack\" class=\"\
+    anchor\" href=\"#localized-documentation-for-spack\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Localized Documentation\
+    \ for Spack</h1>\n<p>This repository contains translations of <a href=\"/spack/spack\"\
+    >Spack</a>'s\ndocumentation.  It implements the workflow described in the\n<a\
+    \ href=\"https://www.sphinx-doc.org/en/master/usage/advanced/intl.html\" rel=\"\
+    nofollow\">Sphinx docs</a>.</p>\n<p>The instructions here describe how you can\
+    \ contribute by:</p>\n<ol>\n<li>Adding to an existing translation, and</li>\n\
+    <li>Creating a translation in a new language.</li>\n</ol>\n<h2>\n<a id=\"user-content-prerequisites\"\
+    \ class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Prerequisites</h2>\n<ol>\n<li>\n\
+    <p>First, init the <code>spack</code> submodule:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre>$ <span class=\"pl-s1\">git clone https://github.com/spack/localized-docs</span>\n\
+    $ <span class=\"pl-s1\"><span class=\"pl-c1\">cd</span> localized-docs</span>\n\
+    $ <span class=\"pl-s1\">git submodule init</span>\n$ <span class=\"pl-s1\">git\
+    \ submodule update</span></pre></div>\n</li>\n<li>\n<p>To use this repository\
+    \ you'll need Sphinx, some plugins for it, and\n<code>gettext</code>.  To install\
+    \ these dependencies, using <code>pip</code> and <code>brew</code>, you\ncan run:</p>\n\
+    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
+    >pip3 install -r requirements.txt</span>\n$ <span class=\"pl-s1\">brew install\
+    \ gettext</span></pre></div>\n<p>Using Spack, you can just take advantage of the\
+    \ <code>spack.yaml</code> file at\nthe root of this repo:</p>\n<div class=\"highlight\
+    \ highlight-text-shell-session\"><pre><span class=\"pl-c1\">spack install</span>\n\
+    <span class=\"pl-c1\">spack env activate .</span></pre></div>\n<p>This will install\
+    \ the tools you need and put them in your <code>PATH</code>.</p>\n</li>\n</ol>\n\
+    <h2>\n<a id=\"user-content-adding-to-an-existing-translation\" class=\"anchor\"\
+    \ href=\"#adding-to-an-existing-translation\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Adding to an existing translation</h2>\n\
+    <p>Translations in this repository are stored in <code>.po</code> files under\n\
+    <code>translations</code>.  There is one translation per languages, and each file\
+    \ is\nnamed according to its\n<a href=\"https://www.gnu.org/software/gettext/manual/html_node/Language-Codes.html#Language-Codes\"\
+    \ rel=\"nofollow\">ISO-639 language code</a>.\nSo, the Japanese translation data\
+    \ for Spack is stored in\n<code>translations/ja.po</code>.</p>\n<p>If you want\
+    \ to add to an existing translation, all you need to do is edit\nthe appropriate\
+    \ <code>.po</code> file and add translated strings to it.  <code>.po</code> files\n\
+    are comprised of <code>msgid</code>/<code>msgstr</code> pairs.  The <code>msgid</code>\
+    \ corresponds to an\nEnglish string in the original documentation, and the <code>msgstr</code>\
+    \ is its\ntranslation in the target language.  For example, for Japanese, the\n\
+    translation of \"Basic Usage\" is stored like this:</p>\n<pre><code>#: ../spack/lib/spack/docs/basic_usage.rst:10\n\
+    msgid \"Basic Usage\"\nmsgstr \"\u57FA\u672C\u7684\u306A\u4F7F\u3044\u65B9\"\n\
+    </code></pre>\n<p>To add a translation:</p>\n<ol>\n<li>Update <code>msgstr</code>\
+    \ elements in the appropriate <code>.po</code> files;</li>\n<li>Run <code>make</code>;</li>\n\
+    <li>Commit the results;</li>\n<li>Submit a pull request so that we can merge your\
+    \ changes.</li>\n</ol>\n<p>That's all!  Merged pull requests will automatically\
+    \ trigger a rebuild of\nthe translated docs, and you should see your changes at\n\
+    <a href=\"https://spack.readthedocs.io/\" rel=\"nofollow\">spack.readthedocs.io</a>.</p>\n\
+    <p>If you want to look at the documentation while you're editing it, running\n\
+    <code>make</code> also generates per-language builds of the docs in <code>html/&lt;lang&gt;</code>.\n\
+    So, to see the Japanese documentation, you can run <code>make</code> and open\n\
+    <code>html/ja/index.html</code> in a local web browser.</p>\n<h2>\n<a id=\"user-content-creating-a-new-translation\"\
+    \ class=\"anchor\" href=\"#creating-a-new-translation\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Creating a new\
+    \ translation</h2>\n<p>To create a new translation, add the language to the <code>languages</code>\
+    \ list in\nthe <code>Makefile</code>.  For example, if the only language is Japanese\
+    \ (<code>ja</code>) and\nyou want to add German (<code>de</code>), just add <code>de</code>:</p>\n\
+    <div class=\"highlight highlight-source-makefile\"><pre><span class=\"pl-smi\"\
+    >languages</span> = ja de</pre></div>\n<p>Running <code>make</code>, will create\
+    \ files in <code>docs</code>, <code>locale</code>, and\n<code>translations</code>,\
+    \ and <code>html</code>:</p>\n<pre><code>    translations/de.po          # German\
+    \ translation file\n    translations/de.mo          # generated from de.po\n \
+    \   locale/de/LC_MESSAGES/*.mo  # symlinks to translations/de.mo\n    docs/de/\
+    \                    # a Sphinx build directory for German docs\n    html/de/\
+    \                    # HTML built by Sphinx from docs/de\n</code></pre>\n<p>Add\
+    \ everything <em>except</em> <code>html</code>, then commit. <code>html</code>\
+    \ is ignored by default\n(see <code>.gitignore</code>), so you can just run this:</p>\n\
+    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
+    >git add <span class=\"pl-c1\">.</span></span>\n$ <span class=\"pl-s1\">git commit</span></pre></div>\n\
+    <p>See instructions above for how to start translating.</p>\n<h2>\n<a id=\"user-content-workflow\"\
+    \ class=\"anchor\" href=\"#workflow\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Workflow</h2>\n<p>This repository\
+    \ implements the\n<a href=\"https://www.sphinx-doc.org/en/master/usage/advanced/intl.html\"\
+    \ rel=\"nofollow\">workflow described here</a>.\nMost users will only need to\
+    \ concern themselves with <code>translations/*.po</code>\nfiles, but we provide\
+    \ a short summary here so that you can understand how\neverything works.</p>\n\
+    <p>Translation is done as follows:</p>\n<ol>\n<li>\n<p>First, we use (or rather\
+    \ Sphinx uses) the <code>gettext</code> tool to extract\nstrings to be translated\
+    \ from each <code>.rst</code> document in the Spack\ndocumentation. This results\
+    \ in a set of <code>.pot</code> files in\n<code>templates/*.pot</code>.  These\
+    \ contain keys (<code>msgid</code>s) for unique strings,\nas well as their location\
+    \ (file and line number) in the documentation.</p>\n</li>\n<li>\n<p>We merge the\
+    \ <code>.pot</code> files into a single <code>merged.pot</code> file to eliminate\n\
+    duplicate strings in multiple files.</p>\n</li>\n<li>\n<p><code>merged.pot</code>\
+    \ is used to create an initial <code>translations/&lt;lang&gt;.po</code>\nfile.\
+    \  Translations are added to <code>msgstr</code> fields in the <code>.po</code>\
+    \ file.</p>\n</li>\n<li>\n<p>A single <code>translations/&lt;lang&gt;.mo</code>\
+    \ file is generated from the <code>.po</code>\nfile. The <code>.mo</code> file\
+    \ is in a special binary format.</p>\n</li>\n<li>\n<p>We generate symlinks in\
+    \ <code>locale/&lt;lang&gt;/LC_MESSAGES/*.mo</code> that all\npoint back to the\
+    \ single, unified <code>translations/&lt;lang&gt;.mo</code> file.  The\n<code>locale</code>\
+    \ directory can then be used with Sphinx to build translated\ndocumentation.</p>\n\
+    </li>\n</ol>\n<p>The top-level <code>Makefile</code> implements this workflow,\
+    \ so you don't have to\nthink too much about it.</p>\n<h2>\n<a id=\"user-content-license\"\
+    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>This repository\
+    \ is part of Spack, which distributed under the terms of\nboth the MIT license\
+    \ and the Apache License (Version 2.0). Users may\nchoose either license, at their\
+    \ option.</p>\n<p>All new contributions must be made under both the MIT and Apache-2.0\n\
+    licenses.</p>\n<p>See <a href=\"https://github.com/spack/localized-docs/blob/master/LICENSE-MIT\"\
+    >LICENSE-MIT</a>,\n<a href=\"https://github.com/spack/localized-docs//blob/master/LICENSE-APACHE\"\
+    >LICENSE-APACHE</a>,\n<a href=\"https://github.com/spack/localized-docs/blob/master/COPYRIGHT\"\
+    >COPYRIGHT</a>,\nand <a href=\"https://github.com/spack/localized-docs/blob/master/NOTICE\"\
+    >NOTICE</a>\nfor details.</p>\n<p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>\n\
+    <p>LLNL-CODE-647188</p>\n"
+  stargazers_count: 3
+  subscribers_count: 7
+  topics: []
+  updated_at: 1621989548.0
 spack/spack-ci-containers:
   data_format: 2
   description: Container recipes used by Spack for test purposes
@@ -9357,22 +8516,22 @@ spack/spack-configs:
   description: Share Spack configuration files with other HPC sites
   filenames:
   - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
   - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
   - NERSC/cori/e4s-21.02/spack.yaml
   - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - NERSC/cori/e4s-21.02/prod/spack.yaml
+  - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
+  - NERSC/cori/e4s-21.05/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -9420,6 +8579,32 @@ spack/spack-configs:
   subscribers_count: 24
   topics: []
   updated_at: 1628114382.0
+spack/spack-cscs2019:
+  data_format: 2
+  description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
+  filenames:
+  - docker/spack.yaml
+  full_name: spack/spack-cscs2019
+  latest_release: null
+  readme: '<p>"Software Development and Deployment with Spack"</p>
+
+    <p>Slides for the "Software Management Course" at CSCS (May 14th, 2019) in Lugano,
+    based on the awesome <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
+
+    <h2>
+
+    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+    <p>MIT licensed</p>
+
+    <p>Copyright (C) 2019 Hakim El Hattab, Massimiliano Culpo</p>
+
+    '
+  stargazers_count: 1
+  subscribers_count: 2
+  topics: []
+  updated_at: 1621966087.0
 srini009/aggregator:
   data_format: 2
   description: Aggregator microservice built using Mochi that is a part of SYMBIOMON
@@ -10962,8 +10147,8 @@ ucsd-galaxy-lab/gizmo-spack:
   data_format: 2
   description: Spack package manager customization for GIZMO
   filenames:
-  - environments/gizmo-deps/spack.yaml
   - environments/gizmo-grackle/spack.yaml
+  - environments/gizmo-deps/spack.yaml
   full_name: ucsd-galaxy-lab/gizmo-spack
   latest_release: null
   readme: '<h1>
