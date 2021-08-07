@@ -1,0 +1,37 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    # hdf5 with different api's
+    - hdf5@1.12.1 +fortran+hl +cxx ~mpi +szip api=v112
+    - hdf5@1.12.1 +fortran+hl +cxx ~mpi +szip api=v110
+    - hdf5@1.12.1 +fortran+hl +cxx ~mpi +szip api=v18
+    - hdf5@1.12.1 +fortran+hl ~cxx +mpi +szip api=v112
+    - hdf5@1.12.1 +fortran+hl ~cxx +mpi +szip api=v110
+    - hdf5@1.12.1 +fortran+hl ~cxx +mpi +szip api=v18
+
+    # netcdf set 
+    - netcdf-c@4.8.0 +mpi ~parallel-netcdf
+    - netcdf-c@4.8.0 +mpi +parallel-netcdf
+    - netcdf-fortran@4.5.3 
+    - netcdf-cxx4@4.3.1 
+    - parallel-netcdf@1.12.2 
+
+    # adios2 set
+    - adios2@2.7.1 +blosc +dataspaces +hdf5
+    - adios@1.13.1 +blosc +bzip2 +hdf5
+
+    # python io libraries
+    # currently left blank as ideally 
+    # pip install with appropriate modules 
+    # might be a better way to install them 
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@7.2.0', '%intel@19.0.5.281', '%cce@9.1.2']
+  view: false

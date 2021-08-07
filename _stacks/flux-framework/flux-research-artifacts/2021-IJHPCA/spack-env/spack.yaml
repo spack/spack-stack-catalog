@@ -1,0 +1,13 @@
+spack:
+  specs:
+  - python@3.7.6
+  - py-pandas
+  - py-scikit-learn
+  - py-tqdm
+  - py-matplotlib
+  - lua@5.1.4
+  - flux-sched@master
+  - stream
+  - hpl
+  concretization: together
+  view: /home/herbein1/spack-views/hierarchical-sched

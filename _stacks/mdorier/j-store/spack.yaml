@@ -1,0 +1,6 @@
+spack:
+  specs:
+  - cmake
+  - spdlog
+  - nlohmann-json
+  concretization: together
