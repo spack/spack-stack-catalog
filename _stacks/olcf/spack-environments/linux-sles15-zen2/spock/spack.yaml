@@ -1,0 +1,202 @@
+# OLCF Spock Spack Environment
+
+spack:
+  #############################################################################
+  specs: []  ## FIXME - Add desired specs to environment here
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/spock/spack-env/mirrors/builds
+    ## OPTIONAL - Add user-defined mirror here
+  #############################################################################
+  packages:
+    openmpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    mpich:
+      version: [3.4.1]
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+      variants: +verbs+slurm device=ch4 netmod=ofi pmi=pmi
+    cray-mpich:
+      version: [8.1.4]
+      externals:
+      - spec: cray-mpich@8.1.4
+        modules:
+        - cray-mpich/8.1.4
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    slurm:
+      buildable: false
+      version: [20.11.3]
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: slurm@20.11.3
+        prefix: /usr
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      target: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+    libfabric:
+      version: [1.11.0.3.71]
+      buildable: false
+      externals:
+      - spec: libfabric@1.11.0.3.71
+        prefix: /opt/cray/libfabric/1.11.0.3.71
+    rocfft:
+      variants: amdgpu_target=gfx908 amdgpu_target_sram_ecc=gfx908
+    all:
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers:
+        mpi: [mpich]
+        lapack: [openblas, mkl]
+        blas: [openblas, mlk]
+        scalapack: [netlib-scalapack]
+      compiler: [gcc@7.5.0, gcc]
+  view: false
+  modules:
+    enable:
+    - lmod
+    - tcl
+    lmod:
+      core_compilers: [gcc@7.5.0]
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+    tcl:
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+      projections: {}
+  upstreams:
+    olcf:
+      install_tree: /sw/spock/spack-envs/base/opt
+    modules:
+      lmod: /sw/spock/spack-envs/base/modules/spack
+      tcl: /sw/spock/spack-envs/base/modules/flat
+  config:
+    install_tree:
+      root: $spack/opt/spack
+      ## FIXME: User customized
+      ## /ccs/proj/<PROJID>/... # for persistant installs
+      ## /gpfs/alpine/... # for ephemeral installs
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_SOURCE_CACHE}
+    extensions:
+    - /sw/sources/facspack/share/spack/extensions/spack-olcf
+    misc_cache: $spack/var/spack/.mcache ## FIXME: directory must be created prior to use
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: original
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7-os
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+        unset: []
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.6/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.6/bin/CC
+        f77: /opt/cray/pe/craype/2.7.6/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.6/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      - craype-accel-amd-gfx908
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.6/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.6/bin/CC
+        f77: /opt/cray/pe/craype/2.7.6/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.6/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.2.0
+      - craype-accel-amd-gfx908
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@11.0.4
+      paths:
+        cc: /opt/cray/pe/craype/2.7.6/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.6/bin/CC
+        f77: /opt/cray/pe/craype/2.7.6/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.6/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/11.0.4                             ## Override PrgEnv default
+      - craype-accel-amd-gfx908                ## Base performance option
+      environment: {}
+      extra_rpaths: []

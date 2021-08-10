@@ -1,0 +1,323 @@
+# NOT FOR USE - THIS IS ONLY AN EXAMPLE
+
+# OLCF Summit Spack Environment (RHEL8)
+
+spack:
+  specs: [] # FIXME Add necessary dependencies here
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/summit/spack-envs/mirrors/builds
+    # OPTIONAL: user-defined mirror
+  #############################################################################
+  # These are pre-installed,pre-built packages
+  packages:
+    # OPTIONAL: user added packages that are already installed
+    # EXAMPLE
+    # cmake:
+    #   version: [3.18.2]
+    #   buildable: false
+    #   externals:
+    #   - spec: cmake@3.18.2
+    #     modules:
+    #     - cmake/3.18.2
+    spectrum-mpi:
+      version: [10.4.0.3-20210112]
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+      externals:
+      - spec: spectrum-mpi@10.4.0.3-20210112
+        modules:
+        - spectrum-mpi/10.4.0.3-20210112
+    cuda:
+      buildable: false
+      version:
+      - 11.0.2
+      externals:
+      - spec: cuda@11.0.2
+        modules:
+        - cuda/11.0.2
+      target: []
+      providers: {}
+      compiler: []
+    lsf:
+      version: [10.1.0.10]
+      buildable: false
+      externals:
+      - spec: lsf@10.1.0.10
+        prefix: /opt/ibm/spectrumcomputing/lsf/10.1.0.10
+      target: []
+      compiler: []
+      providers: {}
+    hcoll:
+      buildable: false
+      version: [4.4]
+      externals:
+      - spec: hcoll@4.4
+        prefix: /opt/mellanox/hcoll
+      target: []
+      compiler: []
+      providers: {}
+    knem:
+      buildable: false
+      version: [1.1.3]
+      externals:
+      - spec: knem@1.1.3
+        prefix: /opt/knem-1.1.3.90mlnx1
+      target: []
+      compiler: []
+      providers: {}
+    go-bootstrap:
+      buildable: false
+      version: [1.7.1-bootstrap]
+      externals:
+      - spec: go-bootstrap@1.7.1-bootstrap
+        prefix: /sw/summit/go/1.7.1-bootstrap
+      target: []
+      providers: {}
+      compiler: []
+    gtkplus:
+      version: [3.22.30, 2.24.32]
+      buildable: false
+      externals:
+      - spec: gtkplus@2.24.32
+        prefix: /usr
+      - spec: gtkplus@3.22.30
+        prefix: /usr
+      target: []
+      providers: {}
+      compiler: []
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+      target: []
+      providers: {}
+      compiler: []
+    all:
+      compiler: [gcc@8.3.1, gcc, clang, xl, nvhpc, pgi]
+      providers:
+        mpi: [spectrum-mpi]
+      buildable: true
+      version: []
+      target: [ppc64le]
+  view: false
+  modules:
+    enable:
+    - lmod
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+  upstreams:
+    olcf:
+      install_tree: /sw/summit/spack-envs/base/opt
+    modules:
+      lmod: /sw/summit/spack-envs/base/modules/site
+      tcl: /sw/summit/spack-envs/base/modules/flat
+  config:
+    install_tree:
+      # FIXME: User customized
+      # /ccs/proj/<PROJID>/... # for persistant installs
+      # /gpfs/alpine/... # for ephemeral installs
+      root: $spack/opt/spack
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    misc_cache: $spack/var/spack/.mcache # TODO: directory must be created prior to use
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: original
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.3.1
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {unset: []}
+      flags: {}
+  - compiler:
+      spec: gcc@8-os
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {unset: []}
+      flags: {}
+  - compiler:
+      spec: gcc@9.1.0
+      operating_system: rhel8
+      modules: [gcc/9.1.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: gcc@9.3.0
+      operating_system: rhel8
+      modules: [gcc/9.3.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: gcc@10.2.0
+      operating_system: rhel8
+      modules: [gcc/10.2.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: pgi@18.10
+      operating_system: rhel8
+      modules: [pgi/18.10]
+      paths:
+        cc: pgcc
+        cxx: pgc++
+        f77: pgfortran
+        fc: pgfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: pgi@19.10
+      operating_system: rhel8
+      modules: [pgi/19.10]
+      paths:
+        cc: pgcc
+        cxx: pgc++
+        f77: pgfortran
+        fc: pgfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: pgi@20.1
+      operating_system: rhel8
+      modules: [pgi/20.1]
+      paths:
+        cc: pgcc
+        cxx: pgc++
+        f77: pgfortran
+        fc: pgfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: pgi@20.4
+      operating_system: rhel8
+      modules: [pgi/20.4]
+      paths:
+        cc: pgcc
+        cxx: pgc++
+        f77: pgfortran
+        fc: pgfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: nvhpc@20.9
+      operating_system: rhel8
+      modules: [nvhpc/20.9]
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: clang@9.0.0-1
+      operating_system: rhel8
+      modules: [llvm/9.0.0-1]
+      paths:
+        cc: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang
+        cxx: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: clang@9.0.0-2
+      operating_system: rhel8
+      modules: [llvm/9.0.0-2]
+      paths:
+        cc: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang
+        cxx: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: clang@10.0.1-0
+      operating_system: rhel8
+      modules: [llvm/10.0.1]
+      paths:
+        cc: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang
+        cxx: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: xl@16.1.1-8
+      operating_system: rhel8
+      modules: [xl/16.1.1-8]
+      paths:
+        cc: /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf_r
+        fc: /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/summit/xl/16.1.1-8-1/lib
+      - /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/lib
+      - /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/lib
+      environment: {}
+      flags: {}
+

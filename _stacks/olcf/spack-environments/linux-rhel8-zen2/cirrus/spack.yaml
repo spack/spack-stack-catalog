@@ -1,0 +1,287 @@
+# OLCF Cirrus Spack Environment
+
+spack:
+  #############################################################################
+  specs: []  #FIXME - add desired specs here
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/cirrus/spack-envs/mirrors/builds
+  ## OPTIONAL - add link to custom repos as needed
+  ## NOTE - repos are resolved in order of this list, then default repos
+  #repos:
+  #- <path/to/user/custom/repos>
+  #- /sw/sources/facility-spack/cirrus/share/spack/repos/olcf
+  #############################################################################
+  packages:
+    openmpi:
+      variants: +pmi +thread_multiple +legacylaunchers fabrics=ucx,hcoll,ofi schedulers=slurm
+      buildable: false
+      version: [4.0.4]
+      target: []
+      providers: {}
+      compiler: []
+    qt:
+      variants: ~ssl
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    ncurses:
+      variants: +termlib
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    slurm:
+      buildable: false
+      version: [20-02-0-0]
+      target: []
+      providers: {}
+      externals:
+      - spec: slurm@20-02-0-0
+        prefix: /usr
+      compiler: []
+    m4:
+      buildable: false
+      version: [1.4.18]
+      target: []
+      providers: {}
+      externals:
+      - spec: m4%intel
+        prefix: /usr
+      compiler: []
+    ucx:
+      buildable: false
+      version: [1.10.0]
+      target: []
+      providers: {}
+      externals:
+      - spec: ucx@1.8.0+thread_multiple
+        prefix: /usr
+      compiler: []
+      variants: +thread_multiple
+    hcoll:
+      buildable: false
+      version: [4.7]
+      externals:
+      - spec: hcoll@4.7
+        prefix: /opt/mellanox/hcoll
+      target: []
+      compiler: []
+      providers: {}
+    rdma-core:
+      buildable: false
+      version: [28.0]
+      target: []
+      providers: {}
+      externals:
+      - spec: rdma-core@28.0
+        prefix: /usr
+      compiler: []
+    libfabric:
+      buildable: false
+      version: [1.8.0]
+      target: []
+      providers: {}
+      compiler: []
+    binutils:
+      buildable: false
+      target: []
+      providers: {}
+      compiler: []
+      variants: +libiberty
+      version: []
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      target: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+      compiler: []
+    octave:
+      variants: +magick+arpack+curl+fftw+fontconfig+freetype+glpk+gnuplot+hdf5+opengl+qhull+qrupdate+qt+readline+suitesparse+zlib
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libtool:
+      buildable: false
+      version: [2.4.6]
+      target: []
+      providers: {}
+      compiler: []
+    r:
+      variants: ~X
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    fftw:
+      variants: precision=float,double,long_double
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    hdf5:
+      variants: +hl+cxx+fortran
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    papi:
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netlib-scalapack:
+      variants: +fpic
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netcdf-c:
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    parallel-netcdf:
+      variants: +cxx+fortran+fpic
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    darshan-runtime:
+      variants: +lsf+grouplogs logpath=/gpfs/wolf/darshan/cirrus
+      buildable: false
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    strumpack:
+      variants: ~cuda
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    paraview:
+      variants: +mpi+hdf5+opengl2+osmesa+silo+visit
+      compiler: [gcc@8.3.1]
+      version: []
+      target: []
+      buildable: false
+      providers: {}
+    all:
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers:
+        mpi: [builtin.openmpi]
+        lapack: [openblas, mkl]
+        blas: [openblas, mlk]
+        scalapack: [netlib-scalapack]
+      compiler: [gcc@8.3.1, gcc, intel]
+  view: false
+  upstreams:
+    olcf:
+      install_tree: /sw/cirrus/spack-envs/base/opt
+    modules:
+      lmod: /sw/cirrus/spack-envs/base/modules/spack
+      tcl: /sw/cirrus/spack-envs/base/modules/flat
+  modules:
+    enable:
+    - lmod
+    - tcl
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+    tcl:
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+      projections: {}
+  config:
+    install_tree:
+      root: $spack/opt/spack
+      ## FIXME: User customized
+      ## /ccs/proj/<PROJID>/... # for persistant installs
+      ## /gpfs/alpine/... # for ephemeral installs
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
+    extensions:
+    - /sw/sources/facility-spack/cirrus/share/spack/extensions/spack-olcf
+    misc_cache: $spack/var/spack/.mcache ## FIXME: directory must be created prior to use
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: original
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.3.1
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        unset: []
+      flags: {}
+  - compiler:
+      spec: gcc@10.3.0
+      operating_system: rhel8
+      modules: [gcc/10.3.0]
+      paths:
+        cc: /sw/cirrus/gcc/10.3.0/bin/gcc
+        cxx: /sw/cirrus/gcc/10.3.0/bin/g++
+        f77: /sw/cirrus/gcc/10.3.0/bin/gfortran
+        fc: /sw/cirrus/gcc/10.3.0/bin/gfortran
+      extra_rpaths: [/sw/cirrus/gcc/10.3.0/lib64]
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: intel@20.0.4
+      operating_system: rhel8
+      modules: [intel/20.0.4]
+      paths:
+        cc: /sw/cirrus/intel/20.0.4/bin/icc
+        cxx: /sw/cirrus/intel/20.0.4/bin/icpc
+        f77: /sw/cirrus/intel/20.0.4/bin/ifort
+        fc: /sw/cirrus/intel/20.0.4/bin/ifort
+      extra_rpaths: [/sw/cirrus/intel/20.0.4/lib/intel64]
+      environment: {}
+      flags: {}
