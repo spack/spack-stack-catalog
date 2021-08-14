@@ -87,7 +87,7 @@ spack:
   - cfdapps:
     - adios2@2.6.0
     - scotch@6.0.10
-    - openfoam@2006
+#    - openfoam@2006
 #    - kahip@2.00
 #    - paraview@5.8.1 ^freetype@2.7.1
   - cfdapps_gcc:
@@ -178,7 +178,7 @@ spack:
       ^openjdk@11.0.2
     - py-tensorflow@2.3.1 +cuda cuda_arch=61 +mpi ^openjdk@11.0.2 ^cuda@10.2.89
     - py-ase@3.21.1 ^python@3.8.6 +tkinter +tix
-    - py-pymol@2.4.0 ^python@3.8.6 +tkinter +tix
+#    - py-pymol@2.4.0 ^python@3.8.6 +tkinter +tix
     - py-multiqc@1.7
   specs:
   - matrix:
@@ -220,7 +220,13 @@ spack:
     - [$^mpis, $^ompis]
     - [target=skylake_avx512]
   - matrix:
-    - [$cfdapps_gcc, $data_science]
+    - [$cfdapps_gcc]
+    - [$%core_compiler, $%gnu_compilers]
+    - [$^blas_libs]
+    - [$^mpis, $^ompis]
+    - [$targets]
+  - matrix:
+    - [$data_science]
     - [$%core_compiler]
     - [$^blas_libs]
     - [$^mpis, $^ompis]

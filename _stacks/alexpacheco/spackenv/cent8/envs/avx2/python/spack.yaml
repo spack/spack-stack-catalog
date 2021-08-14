@@ -3,6 +3,28 @@ spack:
 #  - /share/Apps/lusoft/var/spack/environments/skylake/packages.yaml
 #  - /share/Apps/lusoft/var/spack/environments/avx-python/modules.yaml
   packages:
+    arrow:
+      variants: [+cuda cuda_arch=61]
+    cairo:
+      variants: [+fc +ft +pdf]
+    magma:
+      variants: [+cuda cuda_arch=61]
+    nccl:
+      variants: [+cuda cuda_arch=61]
+    py-pyarrow:
+      variants: [+cuda cuda_arch=61]
+    py-horovod:
+      variants: [+cuda cuda_arch=61 tensor_ops=nccl controllers=gloo]
+    py-tensorflow:
+      variants: [+cuda cuda_arch=61 +nccl]
+    py-theano:
+      variants: [+cuda cuda_arch=61]
+    py-torch:
+      variants: [+cuda cuda_arch=61 +nccl +cudnn +magma]
+    py-h5py:
+      variants: [~mpi]
+    hdf5:
+      variants: [~mpi]
     all:
       target: [haswell]
       version: []
@@ -26,7 +48,7 @@ spack:
       - mpi
       core_specs:
       - gcc@8.3.1
-      whitelist: [^python]
+      whitelist: [python, ^python]
       python:
         autoload: direct
         template: python.lua
@@ -50,7 +72,7 @@ spack:
       ^python:
         autoload: direct
         filter:
-          environment_blacklist: []
+          environment_blacklist: [CPATH, LIBRARY_PATH]
         conflict: []
         load: []
         environment:
@@ -98,7 +120,7 @@ spack:
     - py-moltemplate@2.5.8
     - py-keras@2.2.4
     - py-phonopy@1.10.0
-    - py-pyspark@2.4.4
+    - py-pyspark@3.0.1
     - py-scikit-build@0.10.0
     - py-scikit-image@0.17.2
     - py-scikit-learn@0.23.2
@@ -109,6 +131,12 @@ spack:
     - py-virtualenv@16.7.6
     - py-virtualenvwrapper@4.8.2
     - py-htseq@0.11.2
+    - py-torch@1.7.0
+    - py-horovod frameworks=keras,pytorch,spark
+    - node-js@14.13.0
+#    - py-numba@0.50.1
+#    - py-tensorflow@2.4.1 ^openjdk@11.0.2
+#    - caffe@1.0 ~cuda  ^hdf5~mpi
 #    - py-multiqc@1.7 # depends on matplotlib 2.x
 #    - py-pymol@2.4.0
   specs:
@@ -116,5 +144,6 @@ spack:
     - [$pythonapps]
     - [$%core_compiler]
     - [$^blas_libs]
-  concretization: together
-  view: /share/Apps/py_spack/3.8.6/avx2
+#  concretization: together
+  view: false
+#  view: /share/Apps/py_spack/3.8.6/avx2

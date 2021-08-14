@@ -18,7 +18,8 @@ spack:
   - memkind
   - doctest
   - nlohmann-json
-  - ior@develop +pmdk
+  - mpich ~fortran
+  - ior@fix-pmdk +pmdk
   - fio +pmdk
   - range-v3
   concretization: together

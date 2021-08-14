@@ -137,13 +137,14 @@ spack:
     - r-ncdf4@1.16.1
     - r-hdf5r@1.2.0
     - r-rhdf5@2.28.1
+    - r-irkernel
 #    - r-rmysql@0.10.17
   specs:
   - matrix:
     - [$rapps]
     - [$%core_compiler]
     - [$^blas_libs]
-  view:
-    default:
-      root: /share/Apps/r_spack/4.0.3/avx
-      select: [r, ^r]
+  view: false
+#    default:
+#      root: /share/Apps/r_spack/4.0.3/avx
+#      select: [r, ^r]

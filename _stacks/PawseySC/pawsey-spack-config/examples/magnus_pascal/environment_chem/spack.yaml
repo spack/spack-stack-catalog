@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    - cp2k@7.1 +plumed ^plumed@2.6.1
+# gromacs: had to use ^fftw, as cray-fftw fails with cmake
+    - gromacs@2020.2 +double+lapack+plumed ^plumed@2.6.1 ^fftw
+# lammps: had to disable ffmpeg due to an error;
+# also had to use ^fftw, as cray-fftw fails with cmake;
+# also had to use ^hdf5@1.12.1, as cray-hdf5 was throwing an error
+    - lammps@20200721 +class2+kspace+manybody+misc+molecule+user-h5md+user-misc~ffmpeg ^fftw ^hdf5@1.12.1
+    - namd@2.14 fftw=3
+    - nwchem@7.0.2
+    - quantum-espresso@6.6 +openmp hdf5=parallel
+
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@7.2.0'] #, '%intel@19.0.5.281', '%cce@9.1.2']
+    - ['target=haswell']
+
+  view: false

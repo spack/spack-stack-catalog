@@ -12,6 +12,23 @@ spack:
       version: []
       buildable: true
       providers: {}
+  modules:
+    enable:
+    - lmod
+    lmod:
+      blacklist:
+      - gcc
+      - lmod
+      - cuda
+      - intel
+      - nvhpc
+      - intel-mkl
+      - intel-tbb
+#    default:
+#      lmod:
+#        core_compilers: [gcc@8.3.1]
+#        hash_length: 0
+#        blacklist_implicits: true
   specs:
   - gcc@9.3.0
   - cuda@11.1.0
@@ -19,4 +36,12 @@ spack:
   - cuda@10.2.89
   - lmod@8.4.7
   - lmod@8.4.13
+  - slurm@19-05-6-1
+  - rdma-core@20
+  - gcc@10.3.0
+  - gcc@10.3.0+nvptx ^cuda@10.2.89
+  - intel-oneapi-compilers@2021.3.0
+  - intel-oneapi-mkl@2021.3.0
+  - intel-oneapi-mpi@2021.3.0
+  - intel-oneapi-tbb@2021.3.0
   view: false
