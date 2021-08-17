@@ -24,6 +24,8 @@ spack:
   - bzip2@1.0.6
   - bzip2-toolfile
   - cmake@3.17.3~ownlibs~ncurses
+  - cmssw-config@V06-03-01
+  - coral@2.3.21py3
   - cppunit@1.15.x
   - cuda@11.2.2
   - curl@7.70.0~libssh2+gssapi
@@ -56,7 +58,7 @@ spack:
   - gsl-toolfile
   - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
   - intel-tbb@2021.2.0
-  - libffi@3.2.1    
+  - libffi@3.2.1
   - libjpeg-turbo@2.0.2
   - libjpeg-turbo-toolfile
   - libpciaccess@0.16
@@ -72,10 +74,12 @@ spack:
   - nasm@2.14.02
   - ninja@1.10.0
   - numactl@2.0.14
+  - onnx-runtime@1.7.2.cms
   - openblas@0.3.15
   - openloops@2.1.2
   - openloops-process@2.1.2
   - openloops-toolfile
+  - openmpi@4.1.0
   - openssl@1.1.0l
   - openssl-toolfile
   - oracleocci-abi-hack-cms
@@ -95,17 +99,17 @@ spack:
   - py-keras-applications@1.0.8
   - py-keras-preprocessing@1.1.2
   - py-mock@3.0.5
-  - py-numpy@1.17.5
+  - py-numpy@1.19.5
   - py-opt-einsum@3.3.0
   - py-pip@20.3.3
   - py-protobuf@3.15.1
   - py-setuptools@51.3.3
   - py-six@1.15.0
-  - py-tensorflow@2.4.1~cuda~nccl
+  - py-tensorflow@2.5.0.cms~cuda~nccl~only_python
   - py-termcolor@1.1.0
   - py-typing-extensions@3.7.4.3
-  - py-wheel@0.33.6
-  - py-wrapt@1.11.2
+  - py-wheel@0.36.2
+  - py-wrapt@1.12.1
   - python@3.8.2~libxml2
   - python-toolfile
   - re2c@0.13.5
