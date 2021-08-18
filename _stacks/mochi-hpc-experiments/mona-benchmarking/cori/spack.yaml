@@ -1,7 +1,6 @@
 spack:
   specs:
   - mochi-mona@main +benchmark %gcc@9.3.0
-  - mpi
   concretization: together
   compilers:
   - compiler:
@@ -22,7 +21,7 @@ spack:
   packages:
     all:
       providers:
-        mpi: [ cray-mpich ]
+        mpi: [ openmpi, cray-mpich ]
       compiler:
       - gcc@9.3.0
       target:
@@ -188,9 +187,29 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: cray-mpich@7.7.6 arch=cray-cnl7-any
+      - spec: cray-mpich@7.7.10 arch=cray-cnl7-any
         modules:
-        - cray-mpich/7.7.6
+        - cray-mpich/7.7.10
+    mpich:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: mpich@3.3.1 arch=cray-cnl7-any
+        modules:
+        - mpich/3.3.1-debug
+    openmpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openmpi@4.0.2 arch=cray-cnl7-any
+        modules:
+        - openmpi/4.0.2
     ncurses:
       buildable: false
       version: []

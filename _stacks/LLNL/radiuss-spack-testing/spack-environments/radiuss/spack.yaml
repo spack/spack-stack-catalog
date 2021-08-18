@@ -25,11 +25,17 @@ spack:
   #[--config-override]
   mirrors:
     mirror: file:///usr/workspace/radiuss/mirrors/llnl-stack
+#    mirror: file:///usr/workspace/radiuss/mirrors/llnl-stack-new
   #[definitions--]
   definitions:
-  - compilers: ['%gcc@8.1.0', '%gcc@8.3.1', '%clang@10.0.0']
+  - compilers:
+      - '%gcc@8.1.0'
+      - '%gcc@8.3.1'
+      - '%clang@10.0.0'
     when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
-  - compilers: ['%xl@16.1.1.7']
+  - compilers:
+      - '%xl@16.1.1.7'
+      #- '%xl@16.1.1.7 cxxflags=--gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1 cflags=--gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1'
     when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
   #[definitions--]
   - radiuss-projects:
@@ -43,7 +49,7 @@ spack:
     - py-maestrowf@1.1.8
     - conduit@0.7.1
     - zfp@0.5.5
-    - axom@0.5.0 ^conduit@0.7.1
+    - axom@0.5.0
     - caliper@2.5.0 ~libdw
     - caliper@2.5.0 ~libdw ~papi
     #- ascent@0.7.0 #ascent requires vtk-m and vtk-h, which fail to build
@@ -56,17 +62,19 @@ spack:
     #- samrai@3.12.0
     - xbraid@3.0.0
     - umpire@4.1.2+openmp #axom requires +openmp
-    - raja@0.12.1
+    - raja@0.13.0
     - py-maestrowf@1.1.8
     - conduit@0.7.1
     - zfp@0.5.5
-    #- axom@develop ^conduit@0.7.1
+    - axom@0.5.0 +mfem ~openmp ~cpp14
     - caliper@2.5.0 ~libdw ~papi
     #- ascent@0.7.0 #ascent requires vtk-m and vtk-h, which fail to build
     #- scr@2.0.0
     when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
   - dependencies:
     - hdf5@1.8.21~shared #axom requires shared variant
+  #[--definitions]
+
   specs:
   - matrix:
     - [$radiuss-projects, $dependencies]

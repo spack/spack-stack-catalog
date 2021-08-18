@@ -8,11 +8,18 @@ spack:
     - package1@version +variants ^deps
     - package2@version +variants ^deps
     - ..
+  - utilities:
+    - utility1@version ..
+    - ..
 
   specs:
   - matrix:
     - [$packages]
     - ['%gcc@7.2.0', '%intel@19.0.5.281', '%cce@9.1.2']
+    - ['target=haswell']
+  - matrix:
+    - [$utilities]
+    - ['%gcc@7.2.0']
     - ['target=haswell']
 
   view: false

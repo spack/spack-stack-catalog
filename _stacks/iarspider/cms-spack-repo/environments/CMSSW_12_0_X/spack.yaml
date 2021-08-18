@@ -24,8 +24,6 @@ spack:
   - bzip2@1.0.6
   - bzip2-toolfile
   - cmake@3.17.3~ownlibs~ncurses
-  - cmssw-config@V06-03-01
-  - coral@2.3.21py3
   - cppunit@1.15.x
   - cuda@11.2.2
   - curl@7.70.0~libssh2+gssapi
@@ -79,7 +77,6 @@ spack:
   - openloops@2.1.2
   - openloops-process@2.1.2
   - openloops-toolfile
-  - openmpi@4.1.0
   - openssl@1.1.0l
   - openssl-toolfile
   - oracleocci-abi-hack-cms
