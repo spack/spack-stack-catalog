@@ -2,16 +2,46 @@ var data =
 [
   {
     "data_format": 2,
+    "description": null,
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "LuisSalbey/environment_containers",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1629379833.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "envs/cygnus/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml",
+      "envs/chris8x/spack.yaml",
+      "envs/dev/spack.yaml"
+    ],
+    "full_name": "range3/spack-playground",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-spack-playground\" class=\"anchor\" href=\"#spack-playground\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003espack-playground\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-env\" class=\"anchor\" href=\"#env\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEnv\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e /workspaces/spack-playground\n$ spack env create -d envs/dev\n$ spack env activate -p -d envs/dev\n$ spack external find\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-3rd-party-library-license\" class=\"anchor\" href=\"#3rd-party-library-license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3rd Party Library License\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-akka-httpsgithubcomakkaakka\" class=\"anchor\" href=\"#akka-httpsgithubcomakkaakka\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAkka (\u003ca href=\"https://github.com/akka/akka\"\u003ehttps://github.com/akka/akka\u003c/a\u003e)\u003c/h3\u003e\n\u003cdetails\u003e\u003csummary\u003eApache 2 license\u003c/summary\u003e\n\u003cpre\u003e\u003ccode\u003eThis software is licensed under the Apache 2 license, quoted below.\n\nCopyright 2009-2018 Lightbend Inc. \u0026lt;https://www.lightbend.com\u0026gt;\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not\nuse this file except in compliance with the License. You may obtain a copy of\nthe License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\nWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\nLicense for the specific language governing permissions and limitations under\nthe License.\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/details\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1629346722.0
+  },
+  {
+    "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
       "examples/magnus_pascal/environment_astro/spack.yaml",
-      "examples/magnus_pascal/environment_chem/spack.yaml",
-      "examples/zeus_marco/environment3_clingo/spack.yaml",
-      "examples/zeus_marco/environment1_compchem/spack.yaml",
-      "examples/magnus_pascal/environment_iolib/spack.yaml",
       "examples/magnus_pascal/template_environment/spack.yaml",
       "examples/zeus_marco/environment2_python/spack.yaml",
-      "examples/topaz_marco/environment_compchem/spack.yaml"
+      "examples/magnus_pascal/environment_chem/spack.yaml",
+      "examples/zeus_marco/environment1_compchem/spack.yaml",
+      "examples/topaz_marco/environment_compchem/spack.yaml",
+      "examples/magnus_pascal/environment_iolib/spack.yaml",
+      "examples/zeus_marco/environment3_clingo/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -19,21 +49,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 11,
     "topics": [],
-    "updated_at": 1629259037.0
-  },
-  {
-    "data_format": 2,
-    "description": "Miniapp to test the interface between Eigen vectors/matricies and CVODE integration",
-    "filenames": [
-      "spack-env/spack.yaml"
-    ],
-    "full_name": "cmauney/sundials_eigen",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-sundials_eigen\" class=\"anchor\" href=\"#sundials_eigen\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esundials_eigen\u003c/h1\u003e\n\u003cp\u003eMiniapp to test the interface between Eigen vectors/matricies and CVODE integration\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1629240754.0
+    "updated_at": 1629295118.0
   },
   {
     "data_format": 2,
@@ -56,9 +72,9 @@ var data =
     "data_format": 2,
     "description": "Mona benchmarking",
     "filenames": [
-      "theta/spack.yaml",
       "bebop/spack.yaml",
-      "cori/spack.yaml"
+      "cori/spack.yaml",
+      "theta/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/mona-benchmarking",
     "latest_release": null,
@@ -72,9 +88,9 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "spack-environments/isambard-cascadelake/spack.yaml",
+      "spack-environments/myriad/spack.yaml",
       "spack-environments/csd3/spack.yaml",
-      "spack-environments/myriad/spack.yaml"
+      "spack-environments/isambard-cascadelake/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -101,29 +117,29 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent7/mpis/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "compilers/envs/compilers/spack.yaml",
-      "cent7/python_376/spack.yaml",
-      "cent7/py_376/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
       "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent7/libs_old/spack.yaml",
       "cent7/apps/spack.yaml",
+      "cent7/library/spack.yaml",
+      "cent8/envs/avx/python/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/library/bak/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
       "cent8/envs/avx512/rproject/spack.yaml",
       "cent7/ece_hpc/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx/python/spack.yaml",
-      "cent8/envs/x86_64/spack.yaml",
-      "cent7/library/spack.yaml"
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent7/mpis/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -135,27 +151,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "envs/cygnus/spack.yaml",
-      "envs/dev/spack.yaml",
-      "envs/chris8x/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml"
-    ],
-    "full_name": "range3/spack-playground",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-spack-playground\" class=\"anchor\" href=\"#spack-playground\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003espack-playground\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-env\" class=\"anchor\" href=\"#env\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEnv\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e /workspaces/spack-playground\n$ spack env create -d envs/dev\n$ spack env activate -p -d envs/dev\n$ spack external find\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-3rd-party-library-license\" class=\"anchor\" href=\"#3rd-party-library-license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3rd Party Library License\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-akka-httpsgithubcomakkaakka\" class=\"anchor\" href=\"#akka-httpsgithubcomakkaakka\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAkka (\u003ca href=\"https://github.com/akka/akka\"\u003ehttps://github.com/akka/akka\u003c/a\u003e)\u003c/h3\u003e\n\u003cdetails\u003e\u003csummary\u003eApache 2 license\u003c/summary\u003e\n\u003cpre\u003e\u003ccode\u003eThis software is licensed under the Apache 2 license, quoted below.\n\nCopyright 2009-2018 Lightbend Inc. \u0026lt;https://www.lightbend.com\u0026gt;\n\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not\nuse this file except in compliance with the License. You may obtain a copy of\nthe License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT\nWARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the\nLicense for the specific language governing permissions and limitations under\nthe License.\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/details\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1628962372.0
-  },
-  {
-    "data_format": 2,
     "description": "Mochi messaging over NA",
     "filenames": [
-      "benchmark/cori/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "benchmark/cori/spack.yaml"
     ],
     "full_name": "mochi-hpc/mochi-mona",
     "latest_release": "sc21",
@@ -184,9 +183,9 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-rhel7-ppc64le/summit/spack.yaml",
-      "linux-rhel8-ppc64le/summit/spack.yaml",
       "linux-sles15-zen2/spock/spack.yaml",
+      "linux-rhel8-ppc64le/summit/spack.yaml",
+      "linux-rhel7-ppc64le/summit/spack.yaml",
       "linux-rhel8-zen2/cirrus/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
@@ -256,14 +255,14 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      "env/x86_64/flecsi/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml",
-      "env/broadwell/flecsalemm-deps/spack.yaml",
-      "env/power9le/flecsi/spack.yaml",
       ".gitlab-ci/env/dry-run/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
       "env/power9le/flecsalemm-deps/spack.yaml",
+      "env/x86_64/flecsi/spack.yaml",
+      "env/broadwell/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
       ".gitlab-ci/env/root-build/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
@@ -305,8 +304,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
-      "amr-wind-container/spack.yaml"
+      "amr-wind-container/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "eugeneswalker/exawind-containers",
     "latest_release": null,
@@ -320,8 +319,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "compiler-spack.yaml",
-      "exawind-spack.yaml"
+      "exawind-spack.yaml",
+      "compiler-spack.yaml"
     ],
     "full_name": "eugeneswalker/exawind-cacher",
     "latest_release": null,
@@ -361,9 +360,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-environments/mvapich2-lassen/spack.yaml",
       "spack-environments/openmpi/spack.yaml",
-      "spack-environments/openmpi-lassen/spack.yaml"
+      "spack-environments/openmpi-lassen/spack.yaml",
+      "spack-environments/mvapich2-lassen/spack.yaml"
     ],
     "full_name": "rngoodner/fiesta-helpers",
     "latest_release": null,
@@ -377,11 +376,11 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "v0160gcc/spack.yaml",
-      "v0133gcc/spack.yaml",
-      "v0133gccSpectrum/spack.yaml",
-      "rhel8NvhpcWdmapp/spack.yaml",
       "spack.yaml",
+      "v0133gccSpectrum/spack.yaml",
+      "v0133gcc/spack.yaml",
+      "rhel8NvhpcWdmapp/spack.yaml",
+      "v0160gcc/spack.yaml",
       "v0162gccSpectrum/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
@@ -430,7 +429,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1625839563.0
+    "updated_at": 1629416490.0
   },
   {
     "data_format": 2,
@@ -669,14 +668,14 @@ var data =
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
       "configs/eagle/utilities/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
       "configs/eagle/software/spack.yaml",
       "configs/eagle/base/spack.yaml",
-      "configs/rhodes/software/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
+      "envs/exawind/spack.yaml",
       "configs/eagle/compilers/spack.yaml",
-      "envs/exawind/spack.yaml"
+      "configs/rhodes/software/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -690,8 +689,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -999,8 +998,8 @@ var data =
     "data_format": 2,
     "description": "Recipes to generate container images and experiment with Github registry",
     "filenames": [
-      "quantum-espresso/spack.yaml",
-      "gromacs/spack.yaml"
+      "gromacs/spack.yaml",
+      "quantum-espresso/spack.yaml"
     ],
     "full_name": "alalazo/container-images",
     "latest_release": null,
@@ -1100,11 +1099,11 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
-      "spack_environments/developer_release_osx_spack.yaml",
       "spack_environments/developer_release_x86_64_cuda_spack.yaml",
       "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml"
+      "spack_environments/developer_release_osx_spack.yaml",
+      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -1119,8 +1118,8 @@ var data =
     "description": "Documentation and automation for provisioning the core software environment at University of Colorado Boulder Research Computing",
     "filenames": [
       "spack/environments/develop/spack.yaml",
-      "spack/environments/summer2020/spack.yaml",
-      "spack/environments/spring2020/spack.yaml"
+      "spack/environments/spring2020/spack.yaml",
+      "spack/environments/summer2020/spack.yaml"
     ],
     "full_name": "ResearchComputing/core-software",
     "latest_release": null,
@@ -1257,8 +1256,8 @@ var data =
     "data_format": 2,
     "description": "Spack package manager customization for GIZMO",
     "filenames": [
-      "environments/gizmo-deps/spack.yaml",
-      "environments/gizmo-grackle/spack.yaml"
+      "environments/gizmo-grackle/spack.yaml",
+      "environments/gizmo-deps/spack.yaml"
     ],
     "full_name": "ucsd-galaxy-lab/gizmo-spack",
     "latest_release": null,
@@ -1267,20 +1266,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1609960311.0
-  },
-  {
-    "data_format": 2,
-    "description": "A suite of FIRE-2 simulations targeting LBG-like galaxies",
-    "filenames": [
-      "env/env-spack.yaml"
-    ],
-    "full_name": "ucsd-galaxy-lab/fire-lbg-suite",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-fire-lbg-suite-wip\" class=\"anchor\" href=\"#fire-lbg-suite-wip\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFIRE LBG Suite (WIP)\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-reproduction-notes\" class=\"anchor\" href=\"#reproduction-notes\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReproduction Notes\u003c/h2\u003e\n\u003cp\u003eThere are three major steps to reproduce this work:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"pre-process/\"\u003epre-process\u003c/a\u003e: prepare a sample of zoom ICs\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"run/\"\u003erun\u003c/a\u003e: evolve ICs to the target redshift\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"post-process/\"\u003epost-process\u003c/a\u003e: find galaxy structures and measure their basic properties\u003c/li\u003e\n\u003c/ol\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1609960347.0
   },
   {
     "data_format": 2,
@@ -1464,12 +1449,12 @@ var data =
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
@@ -1531,13 +1516,13 @@ var data =
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-release/spack.yaml",
       "environments/geant4-data-share/spack.yaml",
-      "environments/key4hep-release-user/spack.yaml",
       "environments/key4hep-debug/spack.yaml",
       "environments/key4hep-release-broadwell/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml"
+      "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-nightlies-debug/spack.yaml",
+      "environments/key4hep-release/spack.yaml",
+      "environments/key4hep-nightlies/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1565,8 +1550,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1594,8 +1579,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1632,8 +1617,8 @@ var data =
     "data_format": 2,
     "description": "Object-oriented numerical library",
     "filenames": [
-      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml",
-      "docs/source/spack.yaml"
+      "docs/source/spack.yaml",
+      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml"
     ],
     "full_name": "tachidok/scicellxx",
     "latest_release": null,
@@ -1654,26 +1639,11 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack/spack.yaml"
-    ],
-    "full_name": "ECP-CANDLE/Supervisor",
-    "latest_release": null,
-    "stargazers_count": 6,
-    "subscribers_count": 10,
-    "topics": [
-      "nci-doe-collaboration-capability"
-    ],
-    "updated_at": 1627991581.0
-  },
-  {
-    "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
+      "environments/21.02/spack.yaml",
       "environments/21.05/spack.yaml",
-      "environments/20.10/spack.yaml",
-      "environments/21.02/spack.yaml"
+      "environments/20.10/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v21.05",
@@ -1681,7 +1651,7 @@ var data =
     "stargazers_count": 7,
     "subscribers_count": 7,
     "topics": [],
-    "updated_at": 1628577887.0
+    "updated_at": 1629423444.0
   },
   {
     "data_format": 2,
@@ -1718,23 +1688,23 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "test/env/fairmq/spack.yaml",
-      "env/dev/sim/spack.yaml",
-      "env/nov20/sim/spack.yaml",
-      "test/env/jun19_fairroot_18_4/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "env/nov20/sim_mt_headless/spack.yaml",
       "env/apr21/sim/spack.yaml",
       "test/env/dds/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
+      "env/nov20/sim_mt_headless/spack.yaml",
+      "test/env/r3broot/spack.yaml",
+      "test/env/fairlogger/spack.yaml",
+      "test/env/fairmq/spack.yaml",
+      "env/jun19/sim/spack.yaml",
+      "env/apr21/sim_mt/spack.yaml",
+      "env/dev/sim/spack.yaml",
+      "test/env/jun19_fairroot_18_4/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
+      "env/nov20/sim/spack.yaml",
       "env/dev/sim_mt_headless/spack.yaml",
       "env/nov20/sim_mt/spack.yaml",
-      "env/apr21/sim_mt/spack.yaml",
       "test/env/fairroot_develop/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
-      "env/jun19/sim/spack.yaml",
-      "test/env/fairlogger/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml"
+      "env/dev/sim_mt/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "jun19p3",
@@ -1748,11 +1718,11 @@ var data =
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
-      "build/1_ccache/spack.yaml",
-      "build/6_spack/spack.yaml",
-      "build/3_more_tools/spack.yaml",
       "build/5_runtime/spack.yaml",
-      "build/2_compiler/spack.yaml"
+      "build/6_spack/spack.yaml",
+      "build/2_compiler/spack.yaml",
+      "build/1_ccache/spack.yaml",
+      "build/3_more_tools/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
     "latest_release": "develop",
@@ -1789,15 +1759,15 @@ var data =
       "data-science",
       "pandas"
     ],
-    "updated_at": 1629152980.0
+    "updated_at": 1629385694.0
   },
   {
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
       "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
       "docker-recipes/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
       "docker-recipes/rhel7-runner-ppc64le/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
@@ -1810,56 +1780,40 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "ForTrilinos provides portable object-oriented Fortran interfaces to Trilinos C++ packages.",
-    "filenames": [
-      "scripts/spack.yaml"
-    ],
-    "full_name": "trilinos/ForTrilinos",
-    "latest_release": "v2.0.0",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-fortrilinos\" class=\"anchor\" href=\"#fortrilinos\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eForTrilinos\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://cloud.cees.ornl.gov/jenkins-ci/job/ForTrilinos-master-continuous\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/857fffb6b672ed62abe998b01a81c3932111fcba10541918cb2f938f414440e6/68747470733a2f2f636c6f75642e636565732e6f726e6c2e676f762f6a656e6b696e732d63692f6275696c645374617475732f69636f6e3f6a6f623d466f725472696c696e6f732d6d61737465722d636f6e74696e756f7573\" alt=\"Build Status\" data-canonical-src=\"https://cloud.cees.ornl.gov/jenkins-ci/buildStatus/icon?job=ForTrilinos-master-continuous\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://fortrilinos.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/e261f09cffcfcbf7e647f541614bf7912e3018ccd3a085f035a1219a854f5867/687474703a2f2f72656164746865646f63732e6f72672f70726f6a656374732f666f727472696c696e6f732f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"http://readthedocs.org/projects/fortrilinos/badge/?version=latest\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/trilinos/ForTrilinos/branch/develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fbeea009914f87218441791dba76a1a512b7c287749f94ff47d7b76f49902d23/68747470733a2f2f636f6465636f762e696f2f67682f7472696c696e6f732f466f725472696c696e6f732f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/trilinos/ForTrilinos/branch/develop/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://trilinos.org/packages/fortrilinos\" rel=\"nofollow\"\u003eForTrilinos\u003c/a\u003e is a part of the \u003ca href=\"http://trilinos.org\" rel=\"nofollow\"\u003eTrilinos\u003c/a\u003e project and provides object-oriented Fortran interfaces to Trilinos C++ packages.\u003c/p\u003e\n\u003cp\u003eThis is the new effort to provide Fortran interfaces to Trilinos through\nautomatic code generation using SWIG. The previous effort (ca. 2008-2012) can\nbe obtained by downloading Trilinos releases prior to 12.12. See \u003ca href=\"https://fortrilinos.readthedocs.io/en/latest/install.html#version-compatibility\" rel=\"nofollow\"\u003ethe\ndocumentation\u003c/a\u003e for details on version compatibility.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-provided-functionality\" class=\"anchor\" href=\"#provided-functionality\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProvided functionality\u003c/h2\u003e\n\u003cp\u003eForTrilinos provides Fortran interfaces for the following capabilities:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eParameter lists and XML parsers (through Teuchos);\u003c/li\u003e\n\u003cli\u003eDistributed linear algebra object including sparse graphs, sparse matrices, and dense vectors (through Tpetra);\u003c/li\u003e\n\u003cli\u003eLinear solvers and preconditioners (through Stratimikos, Ifpack2, Belos, MueLu);\u003c/li\u003e\n\u003cli\u003eEigen solvers (through Anasazi).\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://fortrilinos.readthedocs.org\" rel=\"nofollow\"\u003eDocumentation\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://trilinos.github.io/ForTrilinos/\" rel=\"nofollow\"\u003eSummary\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing-fortrilinos\" class=\"anchor\" href=\"#installing-fortrilinos\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling ForTrilinos\u003c/h2\u003e\n\u003cp\u003ePlease consult the documentation available \u003ca href=\"https://fortrilinos.readthedocs.io/en/latest/install.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-questions-bug-reporting-and-issue-tracking\" class=\"anchor\" href=\"#questions-bug-reporting-and-issue-tracking\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuestions, Bug Reporting, and Issue Tracking\u003c/h2\u003e\n\u003cp\u003eQuestions, bug reporting and issue tracking are provided by GitHub. Please\nreport all bugs by creating a new issue with the bug tag. You can ask\nquestions by creating a new issue with the question tag.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eWe encourage you to contribute to ForTrilinos! Please check out the\n\u003ca href=\"CONTRIBUTING.md\"\u003eguidelines\u003c/a\u003e about how to proceed.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eForTrilinos is licensed under a BSD license.\u003c/p\u003e\n",
-    "stargazers_count": 22,
-    "subscribers_count": 10,
-    "topics": [
-      "trilinos",
-      "fortran",
-      "swig",
-      "scientific-computing"
-    ],
-    "updated_at": 1617156538.0
-  },
-  {
-    "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
       "NERSC/cori/e4s-21.02/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "NERSC/cori/e4s-21.05/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
       "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
       "NERSC/cori/e4s-stacks/hsw/spack.yaml",
       "OLCF/e4s-stacks/etc/spack.yaml",
+      "NERSC/cori/e4s-21.05/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml",
       "NREL/configs/eagle/utilities/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml"
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "NERSC/cori/e4s-20.10/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1867,7 +1821,7 @@ var data =
     "stargazers_count": 31,
     "subscribers_count": 24,
     "topics": [],
-    "updated_at": 1628114382.0
+    "updated_at": 1629337354.0
   },
   {
     "data_format": 2,
@@ -1888,7 +1842,7 @@ var data =
       "json-schema",
       "buildtest"
     ],
-    "updated_at": 1629151694.0
+    "updated_at": 1629389407.0
   },
   {
     "data_format": 2,
@@ -1961,15 +1915,15 @@ var data =
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
       "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
     "latest_release": "v0.7.1",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-ascent\" class=\"anchor\" href=\"#ascent\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAscent\u003c/h1\u003e\n\u003cp\u003eAscent is an open source many-core capable lightweight in situ visualization and analysis infrastructure for multi-physics HPC simulations.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eTo get started building and using Ascent, check out the full documentation:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://alpine-dav.github.io/ascent/\" rel=\"nofollow\"\u003ehttps://alpine-dav.github.io/ascent/\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-source-repo\" class=\"anchor\" href=\"#source-repo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSource Repo\u003c/h1\u003e\n\u003cp\u003eAscent\u0027s source is hosted on GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/Alpine-DAV/ascent\"\u003ehttps://github.com/Alpine-DAV/ascent\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h1\u003e\n\u003cp\u003eAscent is released under a BSD-style license - for detailed license info, refer to:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://ascent.readthedocs.io/en/latest/Licenses.html\" rel=\"nofollow\"\u003ehttp://ascent.readthedocs.io/en/latest/Licenses.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eor the following files in the Ascent source tree:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/LICENSE\"\u003eLICENSE\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-changelog\" class=\"anchor\" href=\"#changelog\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eChangelog\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/CHANGELOG.md\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 83,
+    "stargazers_count": 84,
     "subscribers_count": 13,
     "topics": [
       "hpc",
@@ -1982,7 +1936,7 @@ var data =
       "data-viz",
       "radiuss"
     ],
-    "updated_at": 1628723763.0
+    "updated_at": 1629290816.0
   },
   {
     "data_format": 2,
@@ -2012,29 +1966,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "WarpX is an advanced electromagnetic Particle-In-Cell code.",
-    "filenames": [
-      "Docs/spack.yaml"
-    ],
-    "full_name": "ECP-WarpX/WarpX",
-    "latest_release": "21.08",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-warpx\" class=\"anchor\" href=\"#warpx\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWarpX\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build/latest?definitionId=1\u0026amp;branchName=development\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/992695de99c1381c366d74cf333cc4b4a29d53878b4808d643fb673748a73c5b/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e57617270583f6272616e63684e616d653d646576656c6f706d656e74\" alt=\"Code Status development\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.WarpX?branchName=development\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build?definitionId=2\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f95e83fed565d15a3d259197389c3fbb68e0e9d529df7da1f73702528739c16f/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e4e696768746c793f6272616e63684e616d653d6e696768746c79266c6162656c3d6e696768746c792532307061636b61676573\" alt=\"Nightly Installation Tests\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.Nightly?branchName=nightly\u0026amp;label=nightly%20packages\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://warpx.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2fe6e4a1201d33edf1bdd9968c6c0446da41d44fef1b7a1e532cddc4fbd4c2ae/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f77617270782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/warpx/badge/?version=latest\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spack.readthedocs.io/en/latest/package_list.html#warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/86cd172f84e0a3b89161faaeb17eb247cdb10062ed0e65f9f291db3011697416/68747470733a2f2f696d672e736869656c64732e696f2f737061636b2f762f7761727078\" alt=\"Spack Version\" data-canonical-src=\"https://img.shields.io/spack/v/warpx\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://anaconda.org/conda-forge/warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4434c608221acef026a4af7cb491f491413ab135a781e3537087938592334617/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f766e2f636f6e64612d666f7267652f7761727078\" alt=\"Conda Version\" data-canonical-src=\"https://img.shields.io/conda/vn/conda-forge/warpx\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://gitter.im/ECP-WarpX/community?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c1799ddb014bc7c83ab051f3668c05f25049c81bbf1ae3c4e4dd6a61c68314aa/68747470733a2f2f6261646765732e6769747465722e696d2f4543502d57617270582f636f6d6d756e6974792e737667\" alt=\"Gitter\" data-canonical-src=\"https://badges.gitter.im/ECP-WarpX/community.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://warpx.readthedocs.io/en/latest/install/users.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/114e64f6c29b3e409c6de5b19ee4074ec3053396d43319fe4876231f1480e0d1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d732d6c696e75782532302537432532306f737825323025374325323077696e2d626c7565\" alt=\"Supported Platforms\" data-canonical-src=\"https://img.shields.io/badge/platforms-linux%20%7C%20osx%20%7C%20win-blue\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/ECP-WarpX/WarpX/compare/development\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4cb34757a4ca0098f7c5b01c1d559e13991f5cb4e6add106761194c2967a7911/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d6974732d73696e63652f4543502d57617270582f57617270582f6c61746573742f646576656c6f706d656e742e737667\" alt=\"GitHub commits since last release\" data-canonical-src=\"https://img.shields.io/github/commits-since/ECP-WarpX/WarpX/latest/development.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.exascaleproject.org/research/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fe7a996983f2a22d3a469de3af6e13b7062bca7f02ffad7974bb724b27c2b218/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f737570706f7274656425323062792d4543502d6f72616e6765\" alt=\"Exascale Computing Project\" data-canonical-src=\"https://img.shields.io/badge/supported%20by-ECP-orange\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8d8c054b6da1ff81634c84041dfe111aec24b166c8ea31edb0ade140ea2c9015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646576656c6f706d656e742532307374617475732d626574612d6f72616e67652e737667\" alt=\"Development Status\" data-canonical-src=\"https://img.shields.io/badge/development%20status-beta-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://isocpp.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/1a52aaad4dbed7aa6cf7d2e23d60345c14458372f5c090f6210a85bc04727f62/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4325324225324231342d6f72616e67652e737667\" alt=\"Language: C++14\" data-canonical-src=\"https://img.shields.io/badge/language-C%2B%2B14-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://python.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9cf7ec75b074af6953db1304db75950ab917ecd8a1aecb41f0d1191d10872298/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e2d6f72616e67652e737667\" alt=\"Language: Python\" data-canonical-src=\"https://img.shields.io/badge/language-Python-orange.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://spdx.org/licenses/BSD-3-Clause-LBNL.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667\" alt=\"License WarpX\" data-canonical-src=\"https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.4571577\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a80e066c199b28e39d95c8a3cd8a7061bb4c190c717db8b58ff8cea2de0952be/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f4925323028736f75726365292d31302e353238312f7a656e6f646f2e343537313537372d626c75652e737667\" alt=\"DOI (source)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(source)-10.5281/zenodo.4571577-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.1063/5.0028512\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/217b9933935ad7327449ffac67bc3cf4c7054f7be207bcc3c43a5a694f81efff/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f49253230287061706572292d31302e313036332f352e303032383531322d626c75652e737667\" alt=\"DOI (paper)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(paper)-10.1063/5.0028512-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-overview\" class=\"anchor\" href=\"#overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h2\u003e\n\u003cp\u003eWarpX is an advanced electromagnetic Particle-In-Cell code.\nIt supports many features including Perfectly-Matched Layers (PML), mesh refinement, and the boosted-frame technique.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://picmi-standard.github.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/343c1eefa7d19641daf3e00da21e54db3a6211fe5f692c3004f2836a185668d8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532325049434d4925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICMI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22PICMI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.openPMD.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/062e5330b80f6eca55b1df50d6d154214f5a2033b7a87344ef2a580fd7a616dc/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532326f70656e504d4425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22openPMD%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://yt-project.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9e6cacd2df0d5a581d8afad30a57807b71f4b67c58e74faa4080dad7d81c6184/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d253232797425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"yt-project\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22yt%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIn order to learn how to install and run the code, please see the online documentation:\n\u003ca href=\"https://warpx.readthedocs.io\" rel=\"nofollow\"\u003ehttps://warpx.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTo contact the developers, feel free to open an issue on this repo, or visit our Gitter room at \u003ca href=\"https://gitter.im/ECP-WarpX/community\" rel=\"nofollow\"\u003ehttps://gitter.im/ECP-WarpX/community\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://amrex-codes.github.io/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7053679f4412132d376afadf481432a9d435336f8127e7c8650808bc66d019b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232414d52655825323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"AMReX\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22AMReX%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://picsar.net\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/793037a9842c5343f4942ce7475c7c7696e69b44621531f666492ac87b5e80b8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323250494353415225323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICSAR\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22PICSAR%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://openpmd-api.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b7108e47d5ad6b76b60f07a4e04173ba260c5eef9bb244680f65ff91d8a319f8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532326f70656e504d442d61706925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD-api\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22openPMD-api%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://csmd.ornl.gov/adios\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d525e37817dc6dfc5f173eb31f4e9fd52947e668793967565910166b335ced93/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324144494f5325323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"ADIOS\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22ADIOS%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.hdfgroup.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/005f778c667adb78e4302d47579b9bedc5ec0f59f88c13552f6b4bb399f93438/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324844463525323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"HDF5\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22HDF5%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://www.ascent-dav.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/204f53a0d216a0a2fce9a367e3ba3a1957ac2285ed89026cb80321df6a125fc4/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232417363656e7425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"Ascent\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22Ascent%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://sensei-insitu.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/6f870e29c1d57a4e4209ec97a00fbe4f73c8fd6fb589bf4c12f3feef9d3aaaeb/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323253454e53454925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"SENSEI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22SENSEI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOur workflow is described in \u003ca href=\"CONTRIBUTING.rst\"\u003eCONTRIBUTING.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eWarpX Copyright (c) 2018-2021, The Regents of the University of California,\nthrough Lawrence Berkeley National Laboratory (subject to receipt of any\nrequired approvals from the U.S. Dept. of Energy).  All rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software,\nplease contact Berkeley Lab\u0027s Innovation \u0026amp; Partnerships Office at\n\u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE.  This Software was developed under funding from the U.S. Department\nof Energy and the U.S. Government consequently retains certain rights. As\nsuch, the U.S. Government has been granted for itself and others acting on\nits behalf a paid-up, nonexclusive, irrevocable, worldwide license in the\nSoftware to reproduce, distribute copies to the public, prepare derivative\nworks, and perform publicly and display publicly, and to permit other to do\nso.\u003c/p\u003e\n\u003cp\u003eLicense for WarpX can be found at \u003ca href=\"LICENSE.txt\"\u003eLICENSE.txt\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 102,
-    "subscribers_count": 14,
-    "topics": [
-      "laser",
-      "plasma",
-      "physics",
-      "gpu",
-      "simulation",
-      "particle-in-cell",
-      "pic",
-      "research"
-    ],
-    "updated_at": 1629239850.0
-  },
-  {
-    "data_format": 2,
     "description": "A powerful Python framework for writing and running portable regression tests and benchmarks for HPC systems.",
     "filenames": [
       "tutorials/build_systems/spack/src/myenv/spack.yaml"
@@ -2054,18 +1985,18 @@ var data =
       "validation-testing",
       "performance-testing"
     ],
-    "updated_at": 1629214584.0
+    "updated_at": 1629376180.0
   },
   {
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/llnl/spack.yaml",
-      ".spack_env/darwin/spack.yaml"
+      ".spack_env/darwin/spack.yaml",
+      ".spack_env/llnl/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
-    "latest_release": "v5.0.1",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content---umpire-v501\" class=\"anchor\" href=\"#--umpire-v501\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" width=\"128\" valign=\"middle\" alt=\"Umpire\" data-canonical-src=\"https://cdn.rawgit.com/LLNL/Umpire/develop/share/umpire/logo/umpire-logo.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e  Umpire v5.0.1\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/36f0f474aacbade149e980682a28b1b97aa3ea7737006edce896fa4ebbc9ffa7/68747470733a2f2f7472617669732d63692e636f6d2f4c4c4e4c2f556d706972652e7376673f6272616e63683d646576656c6f70\" alt=\"Travis Build Status\" data-canonical-src=\"https://travis-ci.com/LLNL/Umpire.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/davidbeckingsale/Umpire/_build/latest?definitionId=1\u0026amp;branchName=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/615ebc663bd8e7bce0a236693071d360c1f3d4b04bfabb454ba50068b0bac3c0/68747470733a2f2f6465762e617a7572652e636f6d2f64617669646265636b696e6773616c652f556d706972652f5f617069732f6275696c642f7374617475732f4c4c4e4c2e556d706972653f6272616e63684e616d653d646576656c6f70\" alt=\"Azure Pipelines Build Status\" data-canonical-src=\"https://dev.azure.com/davidbeckingsale/Umpire/_apis/build/status/LLNL.Umpire?branchName=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://umpire.readthedocs.io/en/develop/?badge=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7fd7eef5a102528cae391ff45e9ae1026690d979c1413498b1604b23febeffaf/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f756d706972652f62616467652f3f76657273696f6e3d646576656c6f70\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/umpire/badge/?version=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d567cb288d0416a63a2faa83e8b2d5265860c1a3e9af604f4b6730340fa830c7/68747470733a2f2f636f6465636f762e696f2f67682f4c4c4e4c2f556d706972652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/LLNL/Umpire/branch/develop/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://gitter.im/LLNL/Umpire?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d812b594e8c008b20bc4b4e508035cb3ffd814a168debe18107da92e6c7e5f88/68747470733a2f2f6261646765732e6769747465722e696d2f4c4c4e4c2f556d706972652e737667\" alt=\"Join the chat at https://gitter.im/LLNL/Umpire\" data-canonical-src=\"https://badges.gitter.im/LLNL/Umpire.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUmpire is a resource management library that allows the discovery, provision,\nand management of memory on machines with multiple memory devices like NUMA and GPUs.\u003c/p\u003e\n\u003cp\u003eUmpire uses CMake and BLT to handle builds. Since BLT is included as a\nsubmodule, first make sure you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git submodule init \u0026amp;\u0026amp; git submodule update\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen, make sure that you have a modern compiler loaded, and the configuration is as\nsimple as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build \u0026amp;\u0026amp; cd build\n$ cmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCMake will provide output about which compiler is being used. Once CMake has\ncompleted, Umpire can be built with Make:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more advanced configuration you can use standard CMake variables.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eBoth user and code documentation is available \u003ca href=\"http://umpire.readthedocs.io/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe Umpire \u003ca href=\"https://umpire.readthedocs.io/en/develop/tutorial.html\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e provides a step by step introduction to Umpire features.\u003c/p\u003e\n\u003cp\u003eIf you have build problems, we have comprehensive \u003ca href=\"https://umpire.readthedocs.io/en/develop/advanced_configuration.html\" rel=\"nofollow\"\u003ebuild system documentation\u003c/a\u003e too!\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-getting-involved\" class=\"anchor\" href=\"#getting-involved\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Involved\u003c/h1\u003e\n\u003cp\u003eUmpire is an open-source project, and we welcome contributions from the community.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-mailing-list\" class=\"anchor\" href=\"#mailing-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h2\u003e\n\u003cp\u003eThe Umpire mailing list is hosted on Google Groups, and is a great place to ask questions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://groups.google.com/forum/#!forum/umpire-users\" rel=\"nofollow\"\u003eUmpire Users Google Group\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributions\" class=\"anchor\" href=\"#contributions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h2\u003e\n\u003cp\u003eWe welcome all kinds of contributions: new features, bug fixes, documentation edits; it\u0027s all great!\u003c/p\u003e\n\u003cp\u003eTo contribute, make a \u003ca href=\"https://github.com/LLNL/Umpire/compare\"\u003epull request\u003c/a\u003e, with \u003ccode\u003edevelop\u003c/code\u003e as the destination branch.\nWe use Travis to run CI tests, and your branch must pass these tests before being merged.\u003c/p\u003e\n\u003cp\u003eFor more information, see the \u003ca href=\"https://github.com/LLNL/Umpire/blob/develop/CONTRIBUTING.md\"\u003econtributing guide\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h1\u003e\n\u003cp\u003eThanks to all of Umpire\u0027s\n\u003ca href=\"https://github.com/LLNL/Umpire/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eUmpire was created by David Beckingsale (\u003ca href=\"mailto:david@llnl.gov\"\u003edavid@llnl.gov\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-citing-umpire\" class=\"anchor\" href=\"#citing-umpire\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Umpire\u003c/h2\u003e\n\u003cp\u003eIf you are referencing Umpire in a publication, please use the following citation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eD. Beckingsale, M. Mcfadden, J. Dahm, R. Pankajakshan and R. Hornung, \u003ca href=\"https://ieeexplore.ieee.org/document/8907404\" rel=\"nofollow\"\u003e\"Umpire: Application-Focused Management and Coordination of Complex Hierarchical Memory,\"\u003c/a\u003e in IBM Journal of Research and Development. 2019. doi: 10.1147/JRD.2019.2954403\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-release\" class=\"anchor\" href=\"#release\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease\u003c/h1\u003e\n\u003cp\u003eUmpire is released under an MIT license. For more details, please see the\n\u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"./RELEASE\"\u003eRELEASE\u003c/a\u003e files.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLLNL-CODE-747640\u003c/code\u003e\n\u003ccode\u003eOCEC-18-031\u003c/code\u003e\u003c/p\u003e\n",
+    "latest_release": "v6.0.0",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content---umpire-v600\" class=\"anchor\" href=\"#--umpire-v600\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003ca href=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" width=\"128\" valign=\"middle\" alt=\"Umpire\" data-canonical-src=\"https://cdn.rawgit.com/LLNL/Umpire/develop/share/umpire/logo/umpire-logo.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e  Umpire v6.0.0\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/36f0f474aacbade149e980682a28b1b97aa3ea7737006edce896fa4ebbc9ffa7/68747470733a2f2f7472617669732d63692e636f6d2f4c4c4e4c2f556d706972652e7376673f6272616e63683d646576656c6f70\" alt=\"Travis Build Status\" data-canonical-src=\"https://travis-ci.com/LLNL/Umpire.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/davidbeckingsale/Umpire/_build/latest?definitionId=1\u0026amp;branchName=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/615ebc663bd8e7bce0a236693071d360c1f3d4b04bfabb454ba50068b0bac3c0/68747470733a2f2f6465762e617a7572652e636f6d2f64617669646265636b696e6773616c652f556d706972652f5f617069732f6275696c642f7374617475732f4c4c4e4c2e556d706972653f6272616e63684e616d653d646576656c6f70\" alt=\"Azure Pipelines Build Status\" data-canonical-src=\"https://dev.azure.com/davidbeckingsale/Umpire/_apis/build/status/LLNL.Umpire?branchName=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://umpire.readthedocs.io/en/develop/?badge=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7fd7eef5a102528cae391ff45e9ae1026690d979c1413498b1604b23febeffaf/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f756d706972652f62616467652f3f76657273696f6e3d646576656c6f70\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/umpire/badge/?version=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d567cb288d0416a63a2faa83e8b2d5265860c1a3e9af604f4b6730340fa830c7/68747470733a2f2f636f6465636f762e696f2f67682f4c4c4e4c2f556d706972652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/LLNL/Umpire/branch/develop/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://gitter.im/LLNL/Umpire?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d812b594e8c008b20bc4b4e508035cb3ffd814a168debe18107da92e6c7e5f88/68747470733a2f2f6261646765732e6769747465722e696d2f4c4c4e4c2f556d706972652e737667\" alt=\"Join the chat at https://gitter.im/LLNL/Umpire\" data-canonical-src=\"https://badges.gitter.im/LLNL/Umpire.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUmpire is a resource management library that allows the discovery, provision,\nand management of memory on machines with multiple memory devices like NUMA and GPUs.\u003c/p\u003e\n\u003cp\u003eUmpire uses CMake and BLT to handle builds. Since BLT is included as a\nsubmodule, first make sure you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git submodule init \u0026amp;\u0026amp; git submodule update\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen, make sure that you have a modern compiler loaded, and the configuration is as\nsimple as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build \u0026amp;\u0026amp; cd build\n$ cmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCMake will provide output about which compiler is being used. Once CMake has\ncompleted, Umpire can be built with Make:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more advanced configuration you can use standard CMake variables.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eBoth user and code documentation is available \u003ca href=\"http://umpire.readthedocs.io/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe Umpire \u003ca href=\"https://umpire.readthedocs.io/en/develop/tutorial.html\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e provides a step by step introduction to Umpire features.\u003c/p\u003e\n\u003cp\u003eIf you have build problems, we have comprehensive \u003ca href=\"https://umpire.readthedocs.io/en/develop/advanced_configuration.html\" rel=\"nofollow\"\u003ebuild system documentation\u003c/a\u003e too!\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-getting-involved\" class=\"anchor\" href=\"#getting-involved\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Involved\u003c/h1\u003e\n\u003cp\u003eUmpire is an open-source project, and we welcome contributions from the community.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-mailing-list\" class=\"anchor\" href=\"#mailing-list\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h2\u003e\n\u003cp\u003eThe Umpire mailing list is hosted on Google Groups, and is a great place to ask questions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://groups.google.com/forum/#!forum/umpire-users\" rel=\"nofollow\"\u003eUmpire Users Google Group\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributions\" class=\"anchor\" href=\"#contributions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h2\u003e\n\u003cp\u003eWe welcome all kinds of contributions: new features, bug fixes, documentation edits; it\u0027s all great!\u003c/p\u003e\n\u003cp\u003eTo contribute, make a \u003ca href=\"https://github.com/LLNL/Umpire/compare\"\u003epull request\u003c/a\u003e, with \u003ccode\u003edevelop\u003c/code\u003e as the destination branch.\nWe use Travis to run CI tests, and your branch must pass these tests before being merged.\u003c/p\u003e\n\u003cp\u003eFor more information, see the \u003ca href=\"https://github.com/LLNL/Umpire/blob/develop/CONTRIBUTING.md\"\u003econtributing guide\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h1\u003e\n\u003cp\u003eThanks to all of Umpire\u0027s\n\u003ca href=\"https://github.com/LLNL/Umpire/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eUmpire was created by David Beckingsale (\u003ca href=\"mailto:david@llnl.gov\"\u003edavid@llnl.gov\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-citing-umpire\" class=\"anchor\" href=\"#citing-umpire\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Umpire\u003c/h2\u003e\n\u003cp\u003eIf you are referencing Umpire in a publication, please use the following citation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eD. Beckingsale, M. Mcfadden, J. Dahm, R. Pankajakshan and R. Hornung, \u003ca href=\"https://ieeexplore.ieee.org/document/8907404\" rel=\"nofollow\"\u003e\"Umpire: Application-Focused Management and Coordination of Complex Hierarchical Memory,\"\u003c/a\u003e in IBM Journal of Research and Development. 2019. doi: 10.1147/JRD.2019.2954403\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-release\" class=\"anchor\" href=\"#release\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease\u003c/h1\u003e\n\u003cp\u003eUmpire is released under an MIT license. For more details, please see the\n\u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"./RELEASE\"\u003eRELEASE\u003c/a\u003e files.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLLNL-CODE-747640\u003c/code\u003e\n\u003ccode\u003eOCEC-18-031\u003c/code\u003e\u003c/p\u003e\n",
     "stargazers_count": 179,
     "subscribers_count": 14,
     "topics": [
@@ -2077,6 +2008,6 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1629230782.0
+    "updated_at": 1629395654.0
   }
 ]

@@ -5,6 +5,10 @@
 spack:
   # add package specs to the `specs` list
   specs:
+  - openssl@1.1.1k
+  - python@3.8.10+ssl
+  - py-setuptools^python@3.8.10
+  - py-pip^python@3.8.10
   - py-cmake-format
   - py-pyyaml
   - libfabric@1.12.1 fabrics=rxm,sockets,tcp
@@ -23,7 +27,12 @@ spack:
   - fio +pmdk
   - range-v3
   concretization: together
-  view: true
+  view:
+    default:
+      root: /workspaces/spack-playground/envs/dev/.spack-env/view
+      select:
+      - python@3.8.10
+      - py-pip^python@3.8.10
   packages:
     openmpi:
       externals:

@@ -1,0 +1,128 @@
+spack:
+  view: false
+  packages:
+    all:
+      compiler: [gcc@9.2.0]
+      target: [x86_64]
+      providers:
+        mpi:
+        - mpich
+        blas:
+        - netlib-lapack
+        lapack:
+        - netlib-lapack
+      variants: +mpi+pic build_type=Release
+    openmpi:
+      buildable: false
+      version: [3.0.0]
+    mpich:
+      version: [3.3.2]
+      variants: ~wrapperrpath
+    cmake:
+      version: [3.17.3]
+    libz:
+      version: [1.2.8]
+    libxml2:
+      version: [2.9.8]
+    bzip2:
+      version: [1.0.6]
+    m4:
+      version: [1.4.18]
+    boost:
+      version: [1.61]
+      variants: cxxstd=14
+      variants: +mpi+cxx+hl~fortran
+    netcdf-fortran:
+      version: [4.5.2]
+    nco:
+      version: [4.8.1]
+    parallel-netcdf:
+      version: [1.12.1]
+    jpeg:
+      version: [9.1.0]
+    zlib: 
+      version: [1.2.11]
+    png: 
+      version: [1.6.35]
+    szip:
+      version: [2.1.1]
+    jasper:
+      version: [2.0.22]
+    udunits: 
+      version: [2.2.26]
+    hdf5: 
+      version: [1.10.6]
+    netcdf-c:
+      version: [4.7.4]
+    netcdf-cxx:
+      version: [4.3.1]
+    netcdf-fortran:
+      version: [4.5.3]
+    parallel-netcdf:
+      version: [1.12.2]
+    nccmp: 
+      version: [1.8.7.0]
+    esmf: 
+      version: [8_1_0_beta_snapshot_27]
+    bacio: 
+      version: [2.4.1]
+    sigio:
+      version: [2.3.2]
+    sfcio: 
+      version: [1.4.1]
+    gfsio: 
+      version: [1.4.1]
+    w3nco: 
+      version: [2.4.1]
+    sp: 
+     version: [2.3.3]
+    ip: 
+     version: [3.3.3]
+    ip2: 
+     version: [1.1.2]
+    landsfcutil: 
+      version: [2.4.1]
+    nemsio: 
+      version: [2.5.2]
+    nemsiogfs: 
+      version: [2.5.3]
+    w3emc: 
+      version: [2.7.3]
+    g2: 
+     version: [3.4.1]
+    g2tmpl: 
+      version: [1.9.1]
+    crtm: 
+      version: [2.3.0]
+    nceppost: 
+      version: [dceca26]
+    upp: 
+      version: [upp_v10.0.0]
+    wrf_io: 
+      version: [v1.1.1-cmake-v5]
+    bufr: 
+      version: [bufr_v11.4.0]
+    wgrib2: 
+      version: [v2.0.8-cmake-v6]
+    prod_util: 
+      version: [1.2.2]
+    grib_util: 
+      version: [1.2.2]
+
+  specs:
+  - env-model
+
+  compilers:
+  - compiler:
+      spec: gcc@9.2.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/cpp
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: centos:7.9.2009
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
