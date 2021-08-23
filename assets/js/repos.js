@@ -18,10 +18,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-rhel8-zen2/cirrus/spack.yaml",
-      "linux-rhel7-ppc64le/summit/spack.yaml",
+      "linux-rhel8-ppc64le/summit/spack.yaml",
       "linux-sles15-zen2/spock/spack.yaml",
-      "linux-rhel8-ppc64le/summit/spack.yaml"
+      "linux-rhel8-zen2/cirrus/spack.yaml",
+      "linux-rhel7-ppc64le/summit/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -48,10 +48,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "envs/dev/spack.yaml",
-      "envs/cygnus/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml",
       "envs/chris8x/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml"
+      "envs/dev/spack.yaml",
+      "envs/cygnus/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -65,14 +65,14 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "examples/topaz_marco/environment_compchem/spack.yaml",
-      "examples/zeus_marco/environment2_python/spack.yaml",
       "examples/magnus_pascal/environment_chem/spack.yaml",
-      "examples/zeus_marco/environment3_clingo/spack.yaml",
-      "examples/magnus_pascal/environment_iolib/spack.yaml",
-      "examples/zeus_marco/environment1_compchem/spack.yaml",
+      "examples/topaz_marco/environment_compchem/spack.yaml",
       "examples/magnus_pascal/template_environment/spack.yaml",
-      "examples/magnus_pascal/environment_astro/spack.yaml"
+      "examples/magnus_pascal/environment_iolib/spack.yaml",
+      "examples/zeus_marco/environment2_python/spack.yaml",
+      "examples/magnus_pascal/environment_astro/spack.yaml",
+      "examples/zeus_marco/environment1_compchem/spack.yaml",
+      "examples/zeus_marco/environment3_clingo/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -84,24 +84,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Miniapp to test the interface between Eigen vectors/matricies and CVODE integration",
-    "filenames": [
-      "spack-env/spack.yaml"
-    ],
-    "full_name": "cmauney/sundials_eigen",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-sundials_eigen\" class=\"anchor\" href=\"#sundials_eigen\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esundials_eigen\u003c/h1\u003e\n\u003cp\u003eMiniapp to test the interface between Eigen vectors/matricies and CVODE integration\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1629240754.0
-  },
-  {
-    "data_format": 2,
     "description": "Gitlab CI automation of Spack testing with RADIUSS projects builds.",
     "filenames": [
-      "spack-environments/empty/spack.yaml",
-      "spack-environments/radiuss/spack.yaml"
+      "spack-environments/radiuss/spack.yaml",
+      "spack-environments/empty/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-spack-testing",
     "latest_release": null,
@@ -117,8 +103,8 @@ var data =
     "data_format": 2,
     "description": "Mona benchmarking",
     "filenames": [
-      "theta/spack.yaml",
       "bebop/spack.yaml",
+      "theta/spack.yaml",
       "cori/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/mona-benchmarking",
@@ -133,9 +119,9 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "spack-environments/isambard-cascadelake/spack.yaml",
+      "spack-environments/csd3/spack.yaml",
       "spack-environments/myriad/spack.yaml",
-      "spack-environments/csd3/spack.yaml"
+      "spack-environments/isambard-cascadelake/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -162,29 +148,29 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "compilers/envs/compilers/spack.yaml",
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx/python/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent7/mpis/spack.yaml",
-      "cent7/bio_old/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent7/python_376/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
-      "cent7/apps/spack.yaml",
-      "cent8/envs/x86_64/spack.yaml",
-      "cent7/py_376/spack.yaml",
       "cent7/bioinformatics/spack.yaml",
+      "cent7/apps/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent8/envs/x86_64/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent8/envs/avx/python/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent7/library/bak/spack.yaml",
       "cent7/library/spack.yaml",
-      "cent7/ece_hpc/spack.yaml"
+      "cent7/mpis/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -198,8 +184,8 @@ var data =
     "data_format": 2,
     "description": "Mochi messaging over NA",
     "filenames": [
-      "benchmark/cori/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "benchmark/cori/spack.yaml"
     ],
     "full_name": "mochi-hpc/mochi-mona",
     "latest_release": "sc21",
@@ -213,8 +199,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.15.4/spack.yaml",
-      "v0.13.2/spack.yaml"
+      "v0.13.2/spack.yaml",
+      "v0.15.4/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -283,15 +269,15 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      ".gitlab-ci/env/root-build/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml",
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      "env/power9le/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
-      ".gitlab-ci/env/dry-run/spack.yaml",
       "env/power9le/flecsi/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
       "env/x86_64/flecsi/spack.yaml",
-      "env/broadwell/flecsalemm-deps/spack.yaml"
+      ".gitlab-ci/env/local-build/spack.yaml",
+      ".gitlab-ci/env/root-build/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
+      "env/broadwell/flecsalemm-deps/spack.yaml",
+      "env/power9le/flecsalemm-deps/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -332,8 +318,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "amr-wind-container/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "amr-wind-container/spack.yaml"
     ],
     "full_name": "eugeneswalker/exawind-containers",
     "latest_release": null,
@@ -404,12 +390,12 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "rhel8NvhpcWdmapp/spack.yaml",
-      "v0133gccSpectrum/spack.yaml",
-      "v0160gcc/spack.yaml",
-      "spack.yaml",
       "v0133gcc/spack.yaml",
-      "v0162gccSpectrum/spack.yaml"
+      "spack.yaml",
+      "rhel8NvhpcWdmapp/spack.yaml",
+      "v0162gccSpectrum/spack.yaml",
+      "v0133gccSpectrum/spack.yaml",
+      "v0160gcc/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -610,20 +596,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Container recipes used by Spack for test purposes",
-    "filenames": [
-      "clingo/spack.yaml"
-    ],
-    "full_name": "spack/spack-ci-containers",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-spack-ci-containers\" class=\"anchor\" href=\"#spack-ci-containers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack CI containers\u003c/h1\u003e\n\u003cp\u003eThis repository contains recipes for containers that are\nused to test Spack under CI.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0 licenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack-ci-containers/blob/master/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-ci-containers/blob/master/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-ci-containers/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack-ci-containers/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 5,
-    "topics": [],
-    "updated_at": 1621989328.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
       "inputs/spack/spack.yaml"
@@ -695,15 +667,15 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/rhodes/compilers/spack.yaml",
-      "envs/exawind/spack.yaml",
-      "configs/rhodes/software/spack.yaml",
-      "configs/eagle/utilities/spack.yaml",
-      "configs/eagle/software/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
       "configs/eagle/base/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml"
+      "configs/rhodes/software/spack.yaml",
+      "configs/eagle/compilers/spack.yaml",
+      "configs/eagle/utilities/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "envs/exawind/spack.yaml",
+      "configs/eagle/software/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -717,8 +689,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -926,21 +898,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "builds/cuda/spack.yaml",
-      "builds/openmp/spack.yaml"
-    ],
-    "full_name": "DavidPoliakoff/tuning-spack",
-    "latest_release": null,
-    "readme": "\u003cp\u003eSteps: get spack, as of this moment 0.16.1 seems good\u003c/p\u003e\n\u003cp\u003eClone this repo\u003c/p\u003e\n\u003cp\u003eSpack repo add /path/to/this/repo/root\u003c/p\u003e\n\u003cp\u003ecd builds/openmp or builds/cuda\u003c/p\u003e\n\u003cp\u003espack env activate .\u003c/p\u003e\n\u003cp\u003espack concretize -f\u003c/p\u003e\n\u003cp\u003espack install\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1615229727.0
-  },
-  {
-    "data_format": 2,
     "description": "Aggregator microservice built using Mochi that is a part of SYMBIOMON",
     "filenames": [
       "spack.yaml"
@@ -1007,35 +964,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1609796820.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack_bwa_docker_ubuntu2004_x86_64.yaml"
-    ],
-    "full_name": "CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-container_bioinfo_bwa_ubuntu2004_x86_64\" class=\"anchor\" href=\"#container_bioinfo_bwa_ubuntu2004_x86_64\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtainer_bioinfo_bwa_ubuntu2004_x86_64\u003c/h1\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 3,
-    "topics": [],
-    "updated_at": 1612456323.0
-  },
-  {
-    "data_format": 2,
-    "description": "Recipes to generate container images and experiment with Github registry",
-    "filenames": [
-      "quantum-espresso/spack.yaml",
-      "gromacs/spack.yaml"
-    ],
-    "full_name": "alalazo/container-images",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-container-images\" class=\"anchor\" href=\"#container-images\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtainer-images\u003c/h1\u003e\n\u003cp\u003eRecipes to generate container images and experiment with Github registry\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1617251520.0
   },
   {
     "data_format": 2,
@@ -1127,11 +1055,11 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack_environments/developer_release_x86_64_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
       "spack_environments/developer_release_osx_spack.yaml",
       "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml"
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
+      "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
+      "spack_environments/developer_release_x86_64_cuda_spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -1145,9 +1073,9 @@ var data =
     "data_format": 2,
     "description": "Documentation and automation for provisioning the core software environment at University of Colorado Boulder Research Computing",
     "filenames": [
+      "spack/environments/develop/spack.yaml",
       "spack/environments/spring2020/spack.yaml",
-      "spack/environments/summer2020/spack.yaml",
-      "spack/environments/develop/spack.yaml"
+      "spack/environments/summer2020/spack.yaml"
     ],
     "full_name": "ResearchComputing/core-software",
     "latest_release": null,
@@ -1161,8 +1089,8 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "v61c1b71_gcc910/spack.yaml",
-      "openFoam24/spack.yaml"
+      "openFoam24/spack.yaml",
+      "v61c1b71_gcc910/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -1202,8 +1130,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "etc/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "etc/spack.yaml"
     ],
     "full_name": "CUP-ECS/ExaCLAMR",
     "latest_release": null,
@@ -1477,13 +1405,13 @@ var data =
     "data_format": 2,
     "description": "Provenance based Benchmark suite",
     "filenames": [
-      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml",
       "Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
       "Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml",
-      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml"
+      "Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/base_intel/spack.yaml",
+      "Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml"
     ],
     "full_name": "pace-gt/PACE-ProvBench",
     "latest_release": "v1.0.0",
@@ -1523,32 +1451,13 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Spack packages for the Electron Ion Collider",
-    "filenames": [
-      "environments/athena/spack.yaml"
-    ],
-    "full_name": "eic/eic-spack",
-    "latest_release": "v0.15",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-eic-spack-repository\" class=\"anchor\" href=\"#eic-spack-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEIC Spack Repository\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/eic/eic-spack/actions?query=workflow%3A%22Build+Environments%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack/workflows/Build%20Environments/badge.svg\" alt=\"Build Environments\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/eic/eic-spack-docker/actions?query=workflow%3A%22Build+Docker+Images%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack-docker/workflows/Build%20Docker%20Images/badge.svg\" alt=\"Build Docker Images\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/eic/eic-spack-cvmfs-tests/actions?query=workflow%3A%22EIC+CI+against+CVMFS+Software+Stack%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack-cvmfs-tests/workflows/EIC%20CI%20against%20CVMFS%20Software%20Stack/badge.svg\" alt=\"EIC CI against CVMFS Software Stack\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThis repository contains \u003ca href=\"https://spack.readthedocs.io/en/latest/index.html\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e packages for the EIC.\u003c/p\u003e\n\u003cp\u003eWhile we encourage the inclusion of Spack packages in the upstream repository, we realize that some packages may not be mature enough or have too small of a user base to be accepted there.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing-spack\" class=\"anchor\" href=\"#installing-spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling Spack\u003c/h2\u003e\n\u003cp\u003eInstalling Spack is outside the scope of this repository, but described in the Spack \u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003eGetting Started\u003c/a\u003e page.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-adding-the-eic-spack-repository\" class=\"anchor\" href=\"#adding-the-eic-spack-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdding the EIC Spack Repository\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eClone this repository:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone https://github.com/eic/eic-spack.git\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eAdd this repository to your Spack configuration:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack repo add eic-spack\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing-eic-spack-packages\" class=\"anchor\" href=\"#installing-eic-spack-packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling EIC Spack Packages\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eFind an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack find eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eInstall an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack install eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf this is the first package you install, it will also install all dependencies.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-using-eic-spack-packages\" class=\"anchor\" href=\"#using-eic-spack-packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing EIC Spack Packages\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eLoad the EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack load eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eUnload the EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack unload eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eUnload all Spack packages:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack unload -a\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-using-eic-spack-packages-in-environments\" class=\"anchor\" href=\"#using-eic-spack-packages-in-environments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing EIC Spack Packages in Environments\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eCreate and activate a new Spack environment:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env create eic-smear\nspack env activate eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eInstall an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack install eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you already installed this package earlier, this will go very quick.\u003c/p\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eDeactivate the Spack environment:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env deactivate\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou can verify with \u003ccode\u003ewhich root\u003c/code\u003e inside and outside the environment that you did indeed use a different installation base.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-containerizing-a-spack-environment\" class=\"anchor\" href=\"#containerizing-a-spack-environment\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContainerizing a Spack Environment\u003c/h2\u003e\n\u003cp\u003eOnce you have a Spack environment setup, you can easily turn it into a Docker container recipe from any directory with an environment spack.yaml file:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$SPACK_ROOT\u003c/span\u003e/var/spack/environments/eic-smear/\nspack containerize \u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e Dockerfile\u003c/pre\u003e\u003c/div\u003e\n",
-    "stargazers_count": 3,
-    "subscribers_count": 9,
-    "topics": [
-      "spack",
-      "spack-packages",
-      "spack-repo",
-      "eic"
-    ],
-    "updated_at": 1628635524.0
-  },
-  {
-    "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
       "environments/key4hep-nightlies/spack.yaml",
-      "environments/key4hep-debug/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml",
       "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-release/spack.yaml",
+      "environments/key4hep-debug/spack.yaml",
+      "environments/key4hep-nightlies-debug/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
       "environments/key4hep-release-broadwell/spack.yaml"
     ],
@@ -1592,8 +1501,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1621,8 +1530,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1685,8 +1594,8 @@ var data =
     "description": "E4S for Spack",
     "filenames": [
       "environments/21.05/spack.yaml",
-      "environments/20.10/spack.yaml",
-      "environments/21.02/spack.yaml"
+      "environments/21.02/spack.yaml",
+      "environments/20.10/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v21.05",
@@ -1712,42 +1621,25 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "[Experimental] AMReX Python Bindings",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "AMReX-Codes/pyamrex",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-pyamrex\" class=\"anchor\" href=\"#pyamrex\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003epyAMReX\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://www.python.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/acd285afab5d7ddd4942e5215ade53e84551c9d7d635642ba92c19fde7d4345b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e332d79656c6c6f77677265656e\" alt=\"Python3\" title=\"Python3 API\" data-canonical-src=\"https://img.shields.io/badge/language-Python3-yellowgreen\" style=\"max-width:100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e\" alt=\"Python3 API: Pre-Alpha\" title=\"Status: Pre-Alpha\" data-canonical-src=\"https://img.shields.io/badge/phase-pre--alpha-yellowgreen\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spdx.org/licenses/BSD-3-Clause-LBNL.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667\" alt=\"License AMReX\" data-canonical-src=\"https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development\" alt=\"linux\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development\" alt=\"macos\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development\" alt=\"windows\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003epyAMReX is part of AMReX.\u003c/p\u003e\n\u003cp\u003eDue to its \u003cstrong\u003ehighly experimental\u003c/strong\u003e nature, we develop it currently in a separate respository.\u003c/p\u003e\n\u003cp\u003eWe will add further information here once first development versions are ready for testing.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-users\" class=\"anchor\" href=\"#users\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsers\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003eto do\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003epip/pypa\u003c/li\u003e\n\u003cli\u003econda-forge\u003c/li\u003e\n\u003cli\u003espack\u003c/li\u003e\n\u003cli\u003ebrew\u003c/li\u003e\n\u003cli\u003e...\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h3\u003e\n\u003cp\u003e\u003cem\u003eto do\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eamrex\u003c/span\u003e\n\n\u003cspan class=\"pl-s1\"\u003esmall_end\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eamrex\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eInt_Vect\u003c/span\u003e()\n\u003cspan class=\"pl-s1\"\u003ebig_end\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eamrex\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eInt_Vect\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003e2\u003c/span\u003e, \u003cspan class=\"pl-c1\"\u003e3\u003c/span\u003e, \u003cspan class=\"pl-c1\"\u003e4\u003c/span\u003e)\n\n\u003cspan class=\"pl-s1\"\u003eb\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eamrex\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eBox\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esmall_end\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ebig_end\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eb\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e# ...\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-developers\" class=\"anchor\" href=\"#developers\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopers\u003c/h2\u003e\n\u003cp\u003eIf you are new to CMake, \u003ca href=\"https://hsf-training.github.io/hsf-training-cmake-webpage/\" rel=\"nofollow\"\u003ethis short tutorial\u003c/a\u003e from the HEP Software foundation is the perfect place to get started with it.\u003c/p\u003e\n\u003cp\u003eIf you just want to use CMake to build the project, jump into sections \u003cem\u003e1. Introduction\u003c/em\u003e, \u003cem\u003e2. Building with CMake\u003c/em\u003e and \u003cem\u003e9. Finding Packages\u003c/em\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-dependencies\" class=\"anchor\" href=\"#dependencies\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDependencies\u003c/h3\u003e\n\u003cp\u003epyAMReX depends on the following popular third party software.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ea mature \u003ca href=\"https://en.wikipedia.org/wiki/C%2B%2B14\" rel=\"nofollow\"\u003eC++14\u003c/a\u003e compiler: e.g. g++ 5.0+, clang 5.0+, VS 2017+\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cmake.org\" rel=\"nofollow\"\u003eCMake 3.18.0+\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://amrex-codes.github.io\" rel=\"nofollow\"\u003eAMReX \u003cem\u003edevelopment\u003c/em\u003e\u003c/a\u003e: we automatically download and compile a copy of AMReX\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/pybind/pybind11/\"\u003epybind11\u003c/a\u003e 2.6.2+: we automatically download and compile a copy of pybind11 (\u003ca href=\"https://github.com/pybind/pybind11/blob/master/LICENSE\"\u003enew BSD\u003c/a\u003e)\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://python.org\" rel=\"nofollow\"\u003ePython\u003c/a\u003e 3.6+\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://numpy.org\" rel=\"nofollow\"\u003eNumpy\u003c/a\u003e 1.15+\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eOptional dependencies include:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://www.openmp.org\" rel=\"nofollow\"\u003empi4py\u003c/a\u003e 2.1+: for multi-node and/or multi-GPU execution\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://ccache.dev\" rel=\"nofollow\"\u003eCCache\u003c/a\u003e: to speed up rebuilds (needs 3.7.9+ for CUDA)\u003c/li\u003e\n\u003cli\u003efurther \u003ca href=\"https://github.com/AMReX-Codes/amrex/\"\u003eoptional dependencies of AMReX\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://docs.pytest.org/en/stable/\" rel=\"nofollow\"\u003epytest\u003c/a\u003e 6.2+: for running unit tests\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-install-dependencies\" class=\"anchor\" href=\"#install-dependencies\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall Dependencies\u003c/h3\u003e\n\u003cp\u003emacOS/Linux:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env activate -d \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optional:\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e spack add cuda\u003c/span\u003e\nspack install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003e(in new terminals, re-activate the environment with \u003ccode\u003espack env activate -d .\u003c/code\u003e again)\u003c/p\u003e\n\u003cp\u003eor macOS/Linux:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ebrew update\nbrew install ccache cmake libomp mpi4py numpy open-mpi python\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNow, \u003ccode\u003ecmake --version\u003c/code\u003e should be at version 3.18.0 or newer.\u003c/p\u003e\n\u003cp\u003eOr go:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optional:                                    --user\u003c/span\u003e\npython3 -m pip install -U pip setuptools wheel\npython3 -m pip install -U cmake\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you wish to run unit tests, then please install \u003ccode\u003epytest\u003c/code\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epython3 -m pip install -U pytest\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-configure-your-compiler\" class=\"anchor\" href=\"#configure-your-compiler\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConfigure your compiler\u003c/h3\u003e\n\u003cp\u003eFor example, using the Clang compiler:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CC=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich clang\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CXX=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich clang++\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you also want to select a CUDA compiler:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CUDACXX=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich nvcc\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CUDAHOSTCXX=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich clang++\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-build--test\" class=\"anchor\" href=\"#build--test\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild \u0026amp; Test\u003c/h3\u003e\n\u003cp\u003eFrom the base of the pyAMReX source directory, execute:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optional controls (example):\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport AMREX_SPACEDIM=3\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport AMREX_MPI=ON\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport AMREX_OMP=ON\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport AMREX_GPU_BACKEND=CUDA\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport AMREX_SRC=$PWD/../amrex\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003eexport CMAKE_BUILD_PARALLEL_LEVEL=8\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optional:                 --force-reinstall --user\u003c/span\u003e\npython3 -m pip install -v \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eOn successful installation, you can run the unit tests (assuming \u003ccode\u003epytest\u003c/code\u003e is\ninstalled). If \u003ccode\u003eAMREX_MPI=ON\u003c/code\u003e, then please prepend the following commands with \u003ccode\u003empiexec -np \u0026lt;NUM_PROCS\u0026gt;\u003c/code\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e Run all tests \u003c/span\u003e\npython -m pytest tests/\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e Run tests from a single file\u003c/span\u003e\npython -m pytest tests/test_intvect.py\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e Run a single test (useful during debugging)\u003c/span\u003e\npython -m pytest tests/test_intvect.py::test_iv_conversions\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you are iterating on C++ builds, it might be faster to just call CMake:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build\ncmake --build build -j 8  \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e repeat this step to fix compile errors\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-build-options\" class=\"anchor\" href=\"#build-options\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild Options\u003c/h3\u003e\n\u003cp\u003eIf you are using the pip-driven install, selected \u003ca href=\"https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html#building-with-cmake\" rel=\"nofollow\"\u003eAMReX CMake options\u003c/a\u003e can be controlled with environment variables:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eEnvironment Variable\u003c/th\u003e\n\u003cth\u003eDefault \u0026amp; Values\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_OMP\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eON/\u003cstrong\u003eOFF\u003c/strong\u003e\n\u003c/td\u003e\n\u003ctd\u003eEnable OpenMP\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_GPU_BACKEND\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\n\u003cstrong\u003eNONE\u003c/strong\u003e/SYCL/CUDA/HIP\u003c/td\u003e\n\u003ctd\u003eOn-node, accelerated GPU backend\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_MPI\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eON/\u003cstrong\u003eOFF\u003c/strong\u003e\n\u003c/td\u003e\n\u003ctd\u003eEnable MPI\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_PRECISION\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eSINGLE/\u003cstrong\u003eDOUBLE\u003c/strong\u003e\n\u003c/td\u003e\n\u003ctd\u003ePrecision of AMReX Real type\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_SPACEDIM\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e1/2/\u003cstrong\u003e3\u003c/strong\u003e\n\u003c/td\u003e\n\u003ctd\u003eDimension of AMReX\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_BUILD_SHARED_LIBS\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eON/\u003cstrong\u003eOFF\u003c/strong\u003e\n\u003c/td\u003e\n\u003ctd\u003eBuild the core AMReX library as shared library\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_SRC\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003cem\u003eNone\u003c/em\u003e\u003c/td\u003e\n\u003ctd\u003eAbsolute path to AMReX source directory (preferred if set)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_REPO\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ehttps://github.com/AMReX-Codes/amrex.git\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eRepository URI to pull and build AMReX from\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_BRANCH\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003edevelopment\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eRepository branch for \u003ccode\u003eAMREX_REPO\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_INTERNAL\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\n\u003cstrong\u003eON\u003c/strong\u003e/OFF\u003c/td\u003e\n\u003ctd\u003eNeeds a pre-installed AMReX library if set to \u003ccode\u003eOFF\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eAMREX_LIBDIR\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\n\u003cem\u003eNone\u003c/em\u003e         (note: not yet implemented)\u003c/td\u003e\n\u003ctd\u003eIf set, search for pre-built AMReX C++ libraries (see below)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003eCMAKE_BUILD_PARALLEL_LEVEL\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e2\u003c/td\u003e\n\u003ctd\u003eNumber of parallel build threads\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eFor example, one can also build against a local AMReX copy.\nAssuming AMReX\u0027 source is located in \u003ccode\u003e$HOME/src/amrex\u003c/code\u003e, then \u003ccode\u003eexport AMREX_SRC=$HOME/src/amrex\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eOr as a one-liner, assuming your AMReX source directory is located in \u003ccode\u003e../amrex\u003c/code\u003e:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003eAMREX_SRC=\u003cspan class=\"pl-smi\"\u003e$PWD\u003c/span\u003e/../amrex python3 -m pip install -v --force-reinstall \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNote that you need to use absolute paths for external source trees, because pip builds in a temporary directory.\u003c/p\u003e\n\u003cp\u003eOr build against an AMReX feature branch of a colleague.\nAssuming your colleague pushed AMReX to \u003ccode\u003ehttps://github.com/WeiqunZhang/amrex/\u003c/code\u003e in a branch \u003ccode\u003enew-feature\u003c/code\u003e then\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003eunset\u003c/span\u003e AMREX_SRC  \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e preferred if set\u003c/span\u003e\nAMREX_REPO=https://github.com/WeiqunZhang/amrex.git AMREX_BRANCH=new-feature python3 -m pip install -v --force-reinstall \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou can speed up the install further if you pre-install AMReX, e.g. with a package manager.\nSet \u003ccode\u003eAMREX_INTERNAL=OFF\u003c/code\u003e and add installation prefix of AMReX to the environment variable \u003ca href=\"https://cmake.org/cmake/help/latest/envvar/CMAKE_PREFIX_PATH.html\" rel=\"nofollow\"\u003eCMAKE_PREFIX_PATH\u003c/a\u003e.\nPlease see the \u003ca href=\"#Developers\"\u003eshort CMake tutorial that we linked above\u003c/a\u003e if this sounds new to you.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003epyAMReX Copyright (c) 2021, The Regents of the University of California,\nthrough Lawrence Berkeley National Laboratory (subject to receipt of any\nrequired approvals from the U.S. Dept. of Energy).  All rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software,\nplease contact Berkeley Lab\u0027s Innovation \u0026amp; Partnerships Office at\n\u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE.  This Software was developed under funding from the U.S. Department\nof Energy and the U.S. Government consequently retains certain rights. As\nsuch, the U.S. Government has been granted for itself and others acting on\nits behalf a paid-up, nonexclusive, irrevocable, worldwide license in the\nSoftware to reproduce, distribute copies to the public, prepare derivative\nworks, and perform publicly and display publicly, and to permit other to do\nso.\u003c/p\u003e\n\u003cp\u003eLicense for pyamrex can be found at \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 8,
-    "subscribers_count": 16,
-    "topics": [
-      "amrex",
-      "python"
-    ],
-    "updated_at": 1618432257.0
-  },
-  {
-    "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/nov20/sim_mt/spack.yaml",
-      "test/env/fairmq/spack.yaml",
-      "test/env/r3broot/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
-      "env/apr21/sim_mt_headless/spack.yaml",
-      "env/jun19/sim_mt/spack.yaml",
       "test/env/dds/spack.yaml",
-      "test/env/jun19_fairroot_18_4/spack.yaml",
-      "env/nov20/sim/spack.yaml",
-      "test/env/fairlogger/spack.yaml",
-      "env/apr21/sim/spack.yaml",
-      "env/jun19/sim/spack.yaml",
-      "env/nov20/sim_mt_headless/spack.yaml",
-      "env/dev/sim_mt_headless/spack.yaml",
       "env/apr21/sim_mt/spack.yaml",
+      "env/jun19/sim/spack.yaml",
+      "env/jun19/sim_mt/spack.yaml",
+      "env/dev/sim_mt_headless/spack.yaml",
+      "env/nov20/sim_mt_headless/spack.yaml",
+      "test/env/jun19_fairroot_18_4/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "test/env/fairmq/spack.yaml",
+      "env/dev/sim_mt/spack.yaml",
       "env/dev/sim/spack.yaml",
-      "test/env/fairroot_develop/spack.yaml"
+      "env/apr21/sim/spack.yaml",
+      "env/nov20/sim_mt/spack.yaml",
+      "test/env/fairlogger/spack.yaml",
+      "env/nov20/sim/spack.yaml",
+      "test/env/fairroot_develop/spack.yaml",
+      "test/env/r3broot/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "jun19p3",
@@ -1761,10 +1653,10 @@ var data =
     "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
+      "build/1_ccache/spack.yaml",
+      "build/3_more_tools/spack.yaml",
       "build/6_spack/spack.yaml",
       "build/5_runtime/spack.yaml",
-      "build/3_more_tools/spack.yaml",
-      "build/1_ccache/spack.yaml",
       "build/2_compiler/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
@@ -1802,16 +1694,16 @@ var data =
       "data-science",
       "pandas"
     ],
-    "updated_at": 1629541052.0
+    "updated_at": 1629654929.0
   },
   {
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
       "docker-recipes/rhel8-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml"
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel7-runner-x86_64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1825,38 +1717,30 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NREL/configs/rhodes/software/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
       "NERSC/cori/e4s-21.05/spack.yaml",
       "NREL/configs/eagle/base/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NERSC/cori/e4s-20.10/spack.yaml",
       "NREL/configs/rhodes/base/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
       "NERSC/cori/e4s-21.02/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "NERSC/cori/e4s-stacks/x86/spack.yaml",
       "NREL/configs/eagle/utilities/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
-      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml"
+      "NREL/configs/eagle/compilers/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1957,8 +1841,8 @@ var data =
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
       "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
       "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
       "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml"
@@ -2034,8 +1918,8 @@ var data =
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/darwin/spack.yaml",
-      ".spack_env/llnl/spack.yaml"
+      ".spack_env/llnl/spack.yaml",
+      ".spack_env/darwin/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v6.0.0",

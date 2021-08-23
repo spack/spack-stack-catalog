@@ -1,546 +1,10 @@
-AMReX-Codes/pyamrex:
-  data_format: 2
-  description: '[Experimental] AMReX Python Bindings'
-  filenames:
-  - spack.yaml
-  full_name: AMReX-Codes/pyamrex
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-pyamrex" class="anchor" href="#pyamrex" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>pyAMReX</h1>
-
-    <p><a href="https://www.python.org/" rel="nofollow"><img src="https://camo.githubusercontent.com/acd285afab5d7ddd4942e5215ade53e84551c9d7d635642ba92c19fde7d4345b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e332d79656c6c6f77677265656e"
-    alt="Python3" title="Python3 API" data-canonical-src="https://img.shields.io/badge/language-Python3-yellowgreen"
-    style="max-width:100%;"></a> <a href="https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e"
-    target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e"
-    alt="Python3 API: Pre-Alpha" title="Status: Pre-Alpha" data-canonical-src="https://img.shields.io/badge/phase-pre--alpha-yellowgreen"
-    style="max-width:100%;"></a>
-
-    <a href="https://spdx.org/licenses/BSD-3-Clause-LBNL.html" rel="nofollow"><img
-    src="https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667"
-    alt="License AMReX" data-canonical-src="https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg"
-    style="max-width:100%;"></a><br>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development"
-    alt="linux" style="max-width:100%;"></a>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development"
-    alt="macos" style="max-width:100%;"></a>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development"
-    alt="windows" style="max-width:100%;"></a></p>
-
-    <p>pyAMReX is part of AMReX.</p>
-
-    <p>Due to its <strong>highly experimental</strong> nature, we develop it currently
-    in a separate respository.</p>
-
-    <p>We will add further information here once first development versions are ready
-    for testing.</p>
-
-    <h2>
-
-    <a id="user-content-users" class="anchor" href="#users" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Users</h2>
-
-    <p><em>to do</em></p>
-
-    <ul>
-
-    <li>pip/pypa</li>
-
-    <li>conda-forge</li>
-
-    <li>spack</li>
-
-    <li>brew</li>
-
-    <li>...</li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
-
-    <p><em>to do</em></p>
-
-    <div class="highlight highlight-source-python"><pre><span class="pl-k">import</span>
-    <span class="pl-s1">amrex</span>
-
-
-    <span class="pl-s1">small_end</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Int_Vect</span>()
-
-    <span class="pl-s1">big_end</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Int_Vect</span>(<span class="pl-c1">2</span>, <span class="pl-c1">3</span>,
-    <span class="pl-c1">4</span>)
-
-
-    <span class="pl-s1">b</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Box</span>(<span class="pl-s1">small_end</span>, <span class="pl-s1">big_end</span>)
-
-    <span class="pl-en">print</span>(<span class="pl-s1">b</span>)
-
-
-    <span class="pl-c"># ...</span></pre></div>
-
-    <h2>
-
-    <a id="user-content-developers" class="anchor" href="#developers" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Developers</h2>
-
-    <p>If you are new to CMake, <a href="https://hsf-training.github.io/hsf-training-cmake-webpage/"
-    rel="nofollow">this short tutorial</a> from the HEP Software foundation is the
-    perfect place to get started with it.</p>
-
-    <p>If you just want to use CMake to build the project, jump into sections <em>1.
-    Introduction</em>, <em>2. Building with CMake</em> and <em>9. Finding Packages</em>.</p>
-
-    <h3>
-
-    <a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h3>
-
-    <p>pyAMReX depends on the following popular third party software.</p>
-
-    <ul>
-
-    <li>a mature <a href="https://en.wikipedia.org/wiki/C%2B%2B14" rel="nofollow">C++14</a>
-    compiler: e.g. g++ 5.0+, clang 5.0+, VS 2017+</li>
-
-    <li><a href="https://cmake.org" rel="nofollow">CMake 3.18.0+</a></li>
-
-    <li>
-
-    <a href="https://amrex-codes.github.io" rel="nofollow">AMReX <em>development</em></a>:
-    we automatically download and compile a copy of AMReX</li>
-
-    <li>
-
-    <a href="https://github.com/pybind/pybind11/">pybind11</a> 2.6.2+: we automatically
-    download and compile a copy of pybind11 (<a href="https://github.com/pybind/pybind11/blob/master/LICENSE">new
-    BSD</a>)
-
-    <ul>
-
-    <li>
-
-    <a href="https://python.org" rel="nofollow">Python</a> 3.6+</li>
-
-    <li>
-
-    <a href="https://numpy.org" rel="nofollow">Numpy</a> 1.15+</li>
-
-    </ul>
-
-    </li>
-
-    </ul>
-
-    <p>Optional dependencies include:</p>
-
-    <ul>
-
-    <li>
-
-    <a href="https://www.openmp.org" rel="nofollow">mpi4py</a> 2.1+: for multi-node
-    and/or multi-GPU execution</li>
-
-    <li>
-
-    <a href="https://ccache.dev" rel="nofollow">CCache</a>: to speed up rebuilds (needs
-    3.7.9+ for CUDA)</li>
-
-    <li>further <a href="https://github.com/AMReX-Codes/amrex/">optional dependencies
-    of AMReX</a>
-
-    </li>
-
-    <li>
-
-    <a href="https://docs.pytest.org/en/stable/" rel="nofollow">pytest</a> 6.2+: for
-    running unit tests</li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-install-dependencies" class="anchor" href="#install-dependencies"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install
-    Dependencies</h3>
-
-    <p>macOS/Linux:</p>
-
-    <div class="highlight highlight-source-shell"><pre>spack env activate -d <span
-    class="pl-c1">.</span>
-
-    <span class="pl-c"><span class="pl-c">#</span> optional:</span>
-
-    <span class="pl-c"><span class="pl-c">#</span> spack add cuda</span>
-
-    spack install</pre></div>
-
-    <p>(in new terminals, re-activate the environment with <code>spack env activate
-    -d .</code> again)</p>
-
-    <p>or macOS/Linux:</p>
-
-    <div class="highlight highlight-source-shell"><pre>brew update
-
-    brew install ccache cmake libomp mpi4py numpy open-mpi python</pre></div>
-
-    <p>Now, <code>cmake --version</code> should be at version 3.18.0 or newer.</p>
-
-    <p>Or go:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    optional:                                    --user</span>
-
-    python3 -m pip install -U pip setuptools wheel
-
-    python3 -m pip install -U cmake</pre></div>
-
-    <p>If you wish to run unit tests, then please install <code>pytest</code></p>
-
-    <div class="highlight highlight-source-shell"><pre>python3 -m pip install -U pytest</pre></div>
-
-    <h3>
-
-    <a id="user-content-configure-your-compiler" class="anchor" href="#configure-your-compiler"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure
-    your compiler</h3>
-
-    <p>For example, using the Clang compiler:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span>
-    CC=<span class="pl-s"><span class="pl-pds">$(</span>which clang<span class="pl-pds">)</span></span>
-
-    <span class="pl-k">export</span> CXX=<span class="pl-s"><span class="pl-pds">$(</span>which
-    clang++<span class="pl-pds">)</span></span></pre></div>
-
-    <p>If you also want to select a CUDA compiler:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span>
-    CUDACXX=<span class="pl-s"><span class="pl-pds">$(</span>which nvcc<span class="pl-pds">)</span></span>
-
-    <span class="pl-k">export</span> CUDAHOSTCXX=<span class="pl-s"><span class="pl-pds">$(</span>which
-    clang++<span class="pl-pds">)</span></span></pre></div>
-
-    <h3>
-
-    <a id="user-content-build--test" class="anchor" href="#build--test" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Build &amp; Test</h3>
-
-    <p>From the base of the pyAMReX source directory, execute:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    optional controls (example):</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_SPACEDIM=3</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_MPI=ON</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_OMP=ON</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_GPU_BACKEND=CUDA</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_SRC=$PWD/../amrex</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export CMAKE_BUILD_PARALLEL_LEVEL=8</span>
-
-
-    <span class="pl-c"><span class="pl-c">#</span> optional:                 --force-reinstall
-    --user</span>
-
-    python3 -m pip install -v <span class="pl-c1">.</span></pre></div>
-
-    <p>On successful installation, you can run the unit tests (assuming <code>pytest</code>
-    is
-
-    installed). If <code>AMREX_MPI=ON</code>, then please prepend the following commands
-    with <code>mpiexec -np &lt;NUM_PROCS&gt;</code></p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    Run all tests </span>
-
-    python -m pytest tests/
-
-
-    <span class="pl-c"><span class="pl-c">#</span> Run tests from a single file</span>
-
-    python -m pytest tests/test_intvect.py
-
-
-    <span class="pl-c"><span class="pl-c">#</span> Run a single test (useful during
-    debugging)</span>
-
-    python -m pytest tests/test_intvect.py::test_iv_conversions</pre></div>
-
-    <p>If you are iterating on C++ builds, it might be faster to just call CMake:</p>
-
-    <div class="highlight highlight-source-shell"><pre>cmake -S <span class="pl-c1">.</span>
-    -B build
-
-    cmake --build build -j 8  <span class="pl-c"><span class="pl-c">#</span> repeat
-    this step to fix compile errors</span></pre></div>
-
-    <h3>
-
-    <a id="user-content-build-options" class="anchor" href="#build-options" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Build Options</h3>
-
-    <p>If you are using the pip-driven install, selected <a href="https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html#building-with-cmake"
-    rel="nofollow">AMReX CMake options</a> can be controlled with environment variables:</p>
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>Environment Variable</th>
-
-    <th>Default &amp; Values</th>
-
-    <th>Description</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    <tr>
-
-    <td><code>AMREX_OMP</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Enable OpenMP</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_GPU_BACKEND</code></td>
-
-    <td>
-
-    <strong>NONE</strong>/SYCL/CUDA/HIP</td>
-
-    <td>On-node, accelerated GPU backend</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_MPI</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Enable MPI</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_PRECISION</code></td>
-
-    <td>SINGLE/<strong>DOUBLE</strong>
-
-    </td>
-
-    <td>Precision of AMReX Real type</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_SPACEDIM</code></td>
-
-    <td>1/2/<strong>3</strong>
-
-    </td>
-
-    <td>Dimension of AMReX</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_BUILD_SHARED_LIBS</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Build the core AMReX library as shared library</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_SRC</code></td>
-
-    <td><em>None</em></td>
-
-    <td>Absolute path to AMReX source directory (preferred if set)</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_REPO</code></td>
-
-    <td><code>https://github.com/AMReX-Codes/amrex.git</code></td>
-
-    <td>Repository URI to pull and build AMReX from</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_BRANCH</code></td>
-
-    <td><code>development</code></td>
-
-    <td>Repository branch for <code>AMREX_REPO</code>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_INTERNAL</code></td>
-
-    <td>
-
-    <strong>ON</strong>/OFF</td>
-
-    <td>Needs a pre-installed AMReX library if set to <code>OFF</code>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_LIBDIR</code></td>
-
-    <td>
-
-    <em>None</em>         (note: not yet implemented)</td>
-
-    <td>If set, search for pre-built AMReX C++ libraries (see below)</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>CMAKE_BUILD_PARALLEL_LEVEL</code></td>
-
-    <td>2</td>
-
-    <td>Number of parallel build threads</td>
-
-    </tr>
-
-    </tbody>
-
-    </table>
-
-    <p>For example, one can also build against a local AMReX copy.
-
-    Assuming AMReX'' source is located in <code>$HOME/src/amrex</code>, then <code>export
-    AMREX_SRC=$HOME/src/amrex</code>.</p>
-
-    <p>Or as a one-liner, assuming your AMReX source directory is located in <code>../amrex</code>:</p>
-
-    <div class="highlight highlight-source-shell"><pre>AMREX_SRC=<span class="pl-smi">$PWD</span>/../amrex
-    python3 -m pip install -v --force-reinstall <span class="pl-c1">.</span></pre></div>
-
-    <p>Note that you need to use absolute paths for external source trees, because
-    pip builds in a temporary directory.</p>
-
-    <p>Or build against an AMReX feature branch of a colleague.
-
-    Assuming your colleague pushed AMReX to <code>https://github.com/WeiqunZhang/amrex/</code>
-    in a branch <code>new-feature</code> then</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c1">unset</span>
-    AMREX_SRC  <span class="pl-c"><span class="pl-c">#</span> preferred if set</span>
-
-    AMREX_REPO=https://github.com/WeiqunZhang/amrex.git AMREX_BRANCH=new-feature python3
-    -m pip install -v --force-reinstall <span class="pl-c1">.</span></pre></div>
-
-    <p>You can speed up the install further if you pre-install AMReX, e.g. with a
-    package manager.
-
-    Set <code>AMREX_INTERNAL=OFF</code> and add installation prefix of AMReX to the
-    environment variable <a href="https://cmake.org/cmake/help/latest/envvar/CMAKE_PREFIX_PATH.html"
-    rel="nofollow">CMAKE_PREFIX_PATH</a>.
-
-    Please see the <a href="#Developers">short CMake tutorial that we linked above</a>
-    if this sounds new to you.</p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>pyAMReX Copyright (c) 2021, The Regents of the University of California,
-
-    through Lawrence Berkeley National Laboratory (subject to receipt of any
-
-    required approvals from the U.S. Dept. of Energy).  All rights reserved.</p>
-
-    <p>If you have questions about your rights to use or distribute this software,
-
-    please contact Berkeley Lab''s Innovation &amp; Partnerships Office at
-
-    <a href="mailto:IPO@lbl.gov">IPO@lbl.gov</a>.</p>
-
-    <p>NOTICE.  This Software was developed under funding from the U.S. Department
-
-    of Energy and the U.S. Government consequently retains certain rights. As
-
-    such, the U.S. Government has been granted for itself and others acting on
-
-    its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the
-
-    Software to reproduce, distribute copies to the public, prepare derivative
-
-    works, and perform publicly and display publicly, and to permit other to do
-
-    so.</p>
-
-    <p>License for pyamrex can be found at <a href="LICENSE">LICENSE</a>.</p>
-
-    '
-  stargazers_count: 8
-  subscribers_count: 16
-  topics:
-  - amrex
-  - python
-  updated_at: 1618432257.0
 Alpine-DAV/ascent:
   data_format: 2
   description: A flyweight in situ visualization and analysis runtime for multi-physics
     HPC simulations
   filenames:
-  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
   - scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml
+  - scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml
   - scripts/uberenv/spack_envs/llnl/quartz/spack.yaml
   - scripts/uberenv/spack_envs/olcf/summit/spack.yaml
   - scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml
@@ -671,23 +135,6 @@ CINECA-HPC/container_bioinfo_bismark_ubuntu2004_x86_64:
   subscribers_count: 3
   topics: []
   updated_at: 1606916803.0
-CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64:
-  data_format: 2
-  description: null
-  filenames:
-  - spack_bwa_docker_ubuntu2004_x86_64.yaml
-  full_name: CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-container_bioinfo_bwa_ubuntu2004_x86_64" class="anchor" href="#container_bioinfo_bwa_ubuntu2004_x86_64"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>container_bioinfo_bwa_ubuntu2004_x86_64</h1>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 3
-  topics: []
-  updated_at: 1612456323.0
 CINECA-HPC/container_spack_centos_x86_64:
   data_format: 2
   description: Containers for arch x86_64 based on Centos 7 and 8 with GNU 7 and 8
@@ -1142,8 +589,8 @@ CUP-ECS/ExaCLAMR:
   data_format: 2
   description: null
   filenames:
-  - etc/spack.yaml
   - spack.yaml
+  - etc/spack.yaml
   full_name: CUP-ECS/ExaCLAMR
   latest_release: null
   readme: '<h1>
@@ -1369,40 +816,13 @@ CUP-ECS/ExaCLAMR:
   subscribers_count: 5
   topics: []
   updated_at: 1621375461.0
-DavidPoliakoff/tuning-spack:
-  data_format: 2
-  description: null
-  filenames:
-  - builds/cuda/spack.yaml
-  - builds/openmp/spack.yaml
-  full_name: DavidPoliakoff/tuning-spack
-  latest_release: null
-  readme: '<p>Steps: get spack, as of this moment 0.16.1 seems good</p>
-
-    <p>Clone this repo</p>
-
-    <p>Spack repo add /path/to/this/repo/root</p>
-
-    <p>cd builds/openmp or builds/cuda</p>
-
-    <p>spack env activate .</p>
-
-    <p>spack concretize -f</p>
-
-    <p>spack install</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1615229727.0
 E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
   - environments/21.05/spack.yaml
-  - environments/20.10/spack.yaml
   - environments/21.02/spack.yaml
+  - environments/20.10/spack.yaml
   full_name: E4S-Project/e4s
   latest_release: v21.05
   readme: "<p><a href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -1600,23 +1020,23 @@ FairRootGroup/FairSoft:
   description: Repository for installation routines of the external software required
     by FairRoot
   filenames:
-  - env/nov20/sim_mt/spack.yaml
-  - test/env/fairmq/spack.yaml
-  - test/env/r3broot/spack.yaml
-  - env/dev/sim_mt/spack.yaml
-  - env/apr21/sim_mt_headless/spack.yaml
-  - env/jun19/sim_mt/spack.yaml
   - test/env/dds/spack.yaml
-  - test/env/jun19_fairroot_18_4/spack.yaml
-  - env/nov20/sim/spack.yaml
-  - test/env/fairlogger/spack.yaml
-  - env/apr21/sim/spack.yaml
-  - env/jun19/sim/spack.yaml
-  - env/nov20/sim_mt_headless/spack.yaml
-  - env/dev/sim_mt_headless/spack.yaml
   - env/apr21/sim_mt/spack.yaml
+  - env/jun19/sim/spack.yaml
+  - env/jun19/sim_mt/spack.yaml
+  - env/dev/sim_mt_headless/spack.yaml
+  - env/nov20/sim_mt_headless/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
+  - env/apr21/sim_mt_headless/spack.yaml
+  - test/env/fairmq/spack.yaml
+  - env/dev/sim_mt/spack.yaml
   - env/dev/sim/spack.yaml
+  - env/apr21/sim/spack.yaml
+  - env/nov20/sim_mt/spack.yaml
+  - test/env/fairlogger/spack.yaml
+  - env/nov20/sim/spack.yaml
   - test/env/fairroot_develop/spack.yaml
+  - test/env/r3broot/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: jun19p3
   readme: "<h1>\n<a id=\"user-content-fairsoft\" class=\"anchor\" href=\"#fairsoft\"\
@@ -1715,8 +1135,8 @@ LLNL/Umpire:
   data_format: 2
   description: An application-focused API for memory management on NUMA & GPU architectures
   filenames:
-  - .spack_env/darwin/spack.yaml
   - .spack_env/llnl/spack.yaml
+  - .spack_env/darwin/spack.yaml
   full_name: LLNL/Umpire
   latest_release: v6.0.0
   readme: '<h1>
@@ -1994,8 +1414,8 @@ LLNL/radiuss-spack-testing:
   data_format: 2
   description: Gitlab CI automation of Spack testing with RADIUSS projects builds.
   filenames:
-  - spack-environments/empty/spack.yaml
   - spack-environments/radiuss/spack.yaml
+  - spack-environments/empty/spack.yaml
   full_name: LLNL/radiuss-spack-testing
   latest_release: null
   readme: '<h1>
@@ -2392,14 +1812,14 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - examples/topaz_marco/environment_compchem/spack.yaml
-  - examples/zeus_marco/environment2_python/spack.yaml
   - examples/magnus_pascal/environment_chem/spack.yaml
-  - examples/zeus_marco/environment3_clingo/spack.yaml
-  - examples/magnus_pascal/environment_iolib/spack.yaml
-  - examples/zeus_marco/environment1_compchem/spack.yaml
+  - examples/topaz_marco/environment_compchem/spack.yaml
   - examples/magnus_pascal/template_environment/spack.yaml
+  - examples/magnus_pascal/environment_iolib/spack.yaml
+  - examples/zeus_marco/environment2_python/spack.yaml
   - examples/magnus_pascal/environment_astro/spack.yaml
+  - examples/zeus_marco/environment1_compchem/spack.yaml
+  - examples/zeus_marco/environment3_clingo/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1>
@@ -2465,9 +1885,9 @@ ResearchComputing/core-software:
   description: Documentation and automation for provisioning the core software environment
     at University of Colorado Boulder Research Computing
   filenames:
+  - spack/environments/develop/spack.yaml
   - spack/environments/spring2020/spack.yaml
   - spack/environments/summer2020/spack.yaml
-  - spack/environments/develop/spack.yaml
   full_name: ResearchComputing/core-software
   latest_release: null
   readme: '<p>The Research Computing core software environment provides compilers,
@@ -2515,8 +1935,8 @@ SCOREC/centos7-spack-config:
   data_format: 2
   description: spack config for erp cluster
   filenames:
-  - v61c1b71_gcc910/spack.yaml
   - openFoam24/spack.yaml
+  - v61c1b71_gcc910/spack.yaml
   full_name: SCOREC/centos7-spack-config
   latest_release: null
   readme: '<h1>
@@ -2554,12 +1974,12 @@ SCOREC/dcs-spack-config:
   data_format: 2
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
+  - v0133gcc/spack.yaml
+  - spack.yaml
   - rhel8NvhpcWdmapp/spack.yaml
+  - v0162gccSpectrum/spack.yaml
   - v0133gccSpectrum/spack.yaml
   - v0160gcc/spack.yaml
-  - spack.yaml
-  - v0133gcc/spack.yaml
-  - v0162gccSpectrum/spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
   readme: '<h1>
@@ -2685,8 +2105,8 @@ SCOREC/rhel7-spack-config:
   data_format: 2
   description: rhel7 spack configuration and scripts
   filenames:
-  - v0.15.4/spack.yaml
   - v0.13.2/spack.yaml
+  - v0.15.4/spack.yaml
   full_name: SCOREC/rhel7-spack-config
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-setup-on-scorec\" class=\"anchor\" href=\"#setup-on-scorec\"\
@@ -2766,8 +2186,8 @@ SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
   filenames:
-  - deployment/default-env-utils-images/image-files/arm64/spack.yaml
   - deployment/default-env-utils-images/image-files/amd64/spack.yaml
+  - deployment/default-env-utils-images/image-files/arm64/spack.yaml
   full_name: SeisSol/seissol-spack-aid
   latest_release: null
   readme: '<h1>
@@ -2873,10 +2293,10 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/rhel7-runner-x86_64/spack.yaml
-  - docker-recipes/rhel7-runner-ppc64le/spack.yaml
   - docker-recipes/rhel8-runner-x86_64/spack.yaml
   - docker-recipes/rhel8-runner-ppc64le/spack.yaml
+  - docker-recipes/rhel7-runner-ppc64le/spack.yaml
+  - docker-recipes/rhel7-runner-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -2900,53 +2320,33 @@ UO-OACISS/e4s:
   subscribers_count: 6
   topics: []
   updated_at: 1628220334.0
-alalazo/container-images:
-  data_format: 2
-  description: Recipes to generate container images and experiment with Github registry
-  filenames:
-  - quantum-espresso/spack.yaml
-  - gromacs/spack.yaml
-  full_name: alalazo/container-images
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-container-images" class="anchor" href="#container-images"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>container-images</h1>
-
-    <p>Recipes to generate container images and experiment with Github registry</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1617251520.0
 alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - compilers/envs/compilers/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - cent8/envs/avx/python/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
-  - cent7/mpis/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
-  - cent7/python_376/spack.yaml
-  - cent7/library/bak/spack.yaml
-  - cent7/libs_old/spack.yaml
-  - cent8/envs/avx512/lusoft/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
-  - cent8/envs/avx2/rproject/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
-  - cent7/apps/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent7/py_376/spack.yaml
   - cent7/bioinformatics/spack.yaml
-  - cent7/library/spack.yaml
+  - cent7/apps/spack.yaml
+  - cent7/bio_old/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
   - cent7/ece_hpc/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent7/python_376/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent8/envs/avx2/rproject/spack.yaml
+  - cent8/envs/avx/python/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
+  - cent7/py_376/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
+  - cent7/library/bak/spack.yaml
+  - cent7/library/spack.yaml
+  - cent7/mpis/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -3165,11 +2565,11 @@ bvanessen/lbann_distconv:
   data_format: 2
   description: null
   filenames:
-  - spack_environments/developer_release_x86_64_cuda_spack.yaml
-  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
   - spack_environments/developer_release_osx_spack.yaml
   - spack_environments/developer_release_ppc64le_cuda_spack.yaml
   - spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml
+  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
+  - spack_environments/developer_release_x86_64_cuda_spack.yaml
   full_name: bvanessen/lbann_distconv
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
@@ -3288,204 +2688,6 @@ class4kayaker/GPGPU_self_study:
   subscribers_count: 1
   topics: []
   updated_at: 1616469892.0
-cmauney/sundials_eigen:
-  data_format: 2
-  description: Miniapp to test the interface between Eigen vectors/matricies and CVODE
-    integration
-  filenames:
-  - spack-env/spack.yaml
-  full_name: cmauney/sundials_eigen
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-sundials_eigen" class="anchor" href="#sundials_eigen" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>sundials_eigen</h1>
-
-    <p>Miniapp to test the interface between Eigen vectors/matricies and CVODE integration</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1629240754.0
-eic/eic-spack:
-  data_format: 2
-  description: Spack packages for the Electron Ion Collider
-  filenames:
-  - environments/athena/spack.yaml
-  full_name: eic/eic-spack
-  latest_release: v0.15
-  readme: '<h1>
-
-    <a id="user-content-eic-spack-repository" class="anchor" href="#eic-spack-repository"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EIC
-    Spack Repository</h1>
-
-    <p><a href="https://github.com/eic/eic-spack/actions?query=workflow%3A%22Build+Environments%22"><img
-    src="https://github.com/eic/eic-spack/workflows/Build%20Environments/badge.svg"
-    alt="Build Environments" style="max-width:100%;"></a>
-
-    <a href="https://github.com/eic/eic-spack-docker/actions?query=workflow%3A%22Build+Docker+Images%22"><img
-    src="https://github.com/eic/eic-spack-docker/workflows/Build%20Docker%20Images/badge.svg"
-    alt="Build Docker Images" style="max-width:100%;"></a>
-
-    <a href="https://github.com/eic/eic-spack-cvmfs-tests/actions?query=workflow%3A%22EIC+CI+against+CVMFS+Software+Stack%22"><img
-    src="https://github.com/eic/eic-spack-cvmfs-tests/workflows/EIC%20CI%20against%20CVMFS%20Software%20Stack/badge.svg"
-    alt="EIC CI against CVMFS Software Stack" style="max-width:100%;"></a></p>
-
-    <p>This repository contains <a href="https://spack.readthedocs.io/en/latest/index.html"
-    rel="nofollow">Spack</a> packages for the EIC.</p>
-
-    <p>While we encourage the inclusion of Spack packages in the upstream repository,
-    we realize that some packages may not be mature enough or have too small of a
-    user base to be accepted there.</p>
-
-    <h2>
-
-    <a id="user-content-installing-spack" class="anchor" href="#installing-spack"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing
-    Spack</h2>
-
-    <p>Installing Spack is outside the scope of this repository, but described in
-    the Spack <a href="https://spack.readthedocs.io/en/latest/getting_started.html"
-    rel="nofollow">Getting Started</a> page.</p>
-
-    <h2>
-
-    <a id="user-content-adding-the-eic-spack-repository" class="anchor" href="#adding-the-eic-spack-repository"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Adding
-    the EIC Spack Repository</h2>
-
-    <ol>
-
-    <li>Clone this repository:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>git clone https://github.com/eic/eic-spack.git</pre></div>
-
-    <ol start="2">
-
-    <li>Add this repository to your Spack configuration:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack repo add eic-spack</pre></div>
-
-    <h2>
-
-    <a id="user-content-installing-eic-spack-packages" class="anchor" href="#installing-eic-spack-packages"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing
-    EIC Spack Packages</h2>
-
-    <ol>
-
-    <li>Find an EIC Spack package:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack find eic-smear</pre></div>
-
-    <ol start="2">
-
-    <li>Install an EIC Spack package:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack install eic-smear</pre></div>
-
-    <p>If this is the first package you install, it will also install all dependencies.</p>
-
-    <h2>
-
-    <a id="user-content-using-eic-spack-packages" class="anchor" href="#using-eic-spack-packages"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
-    EIC Spack Packages</h2>
-
-    <ol>
-
-    <li>Load the EIC Spack package:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack load eic-smear</pre></div>
-
-    <ol start="2">
-
-    <li>Unload the EIC Spack package:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack unload eic-smear</pre></div>
-
-    <ol start="3">
-
-    <li>Unload all Spack packages:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack unload -a</pre></div>
-
-    <h2>
-
-    <a id="user-content-using-eic-spack-packages-in-environments" class="anchor" href="#using-eic-spack-packages-in-environments"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
-    EIC Spack Packages in Environments</h2>
-
-    <ol>
-
-    <li>Create and activate a new Spack environment:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack env create eic-smear
-
-    spack env activate eic-smear</pre></div>
-
-    <ol start="2">
-
-    <li>Install an EIC Spack package:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack install eic-smear</pre></div>
-
-    <p>If you already installed this package earlier, this will go very quick.</p>
-
-    <ol start="3">
-
-    <li>Deactivate the Spack environment:</li>
-
-    </ol>
-
-    <div class="highlight highlight-source-shell"><pre>spack env deactivate</pre></div>
-
-    <p>You can verify with <code>which root</code> inside and outside the environment
-    that you did indeed use a different installation base.</p>
-
-    <h2>
-
-    <a id="user-content-containerizing-a-spack-environment" class="anchor" href="#containerizing-a-spack-environment"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Containerizing
-    a Spack Environment</h2>
-
-    <p>Once you have a Spack environment setup, you can easily turn it into a Docker
-    container recipe from any directory with an environment spack.yaml file:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span>
-    <span class="pl-smi">$SPACK_ROOT</span>/var/spack/environments/eic-smear/
-
-    spack containerize <span class="pl-k">&gt;</span> Dockerfile</pre></div>
-
-    '
-  stargazers_count: 3
-  subscribers_count: 9
-  topics:
-  - spack
-  - spack-packages
-  - spack-repo
-  - eic
-  updated_at: 1628635524.0
 electronic-structure/SIRIUS:
   data_format: 2
   description: Domain specific library for electronic structure calculations
@@ -4050,8 +3252,8 @@ eugeneswalker/exawind-containers:
   data_format: 2
   description: null
   filenames:
-  - amr-wind-container/spack.yaml
   - spack.yaml
+  - amr-wind-container/spack.yaml
   full_name: eugeneswalker/exawind-containers
   latest_release: null
   readme: '<h2>
@@ -4569,10 +3771,10 @@ haampie/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
+  - build/1_ccache/spack.yaml
+  - build/3_more_tools/spack.yaml
   - build/6_spack/spack.yaml
   - build/5_runtime/spack.yaml
-  - build/3_more_tools/spack.yaml
-  - build/1_ccache/spack.yaml
   - build/2_compiler/spack.yaml
   full_name: haampie/spack-batteries-included
   latest_release: develop
@@ -4777,15 +3979,15 @@ jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
-  - configs/rhodes/compilers/spack.yaml
-  - envs/exawind/spack.yaml
-  - configs/rhodes/software/spack.yaml
-  - configs/eagle/utilities/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/rhodes/base/spack.yaml
-  - configs/eagle/compilers/spack.yaml
   - configs/eagle/base/spack.yaml
+  - configs/rhodes/software/spack.yaml
+  - configs/eagle/compilers/spack.yaml
+  - configs/eagle/utilities/spack.yaml
+  - configs/rhodes/compilers/spack.yaml
+  - configs/rhodes/base/spack.yaml
   - configs/rhodes/utilities/spack.yaml
+  - envs/exawind/spack.yaml
+  - configs/eagle/software/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -4977,10 +4179,10 @@ key4hep/key4hep-spack:
   description: A Spack overlay repository of HEP software packaging.
   filenames:
   - environments/key4hep-nightlies/spack.yaml
-  - environments/key4hep-debug/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
   - environments/geant4-data-share/spack.yaml
   - environments/key4hep-release/spack.yaml
+  - environments/key4hep-debug/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
   - environments/key4hep-release-user/spack.yaml
   - environments/key4hep-release-broadwell/spack.yaml
   full_name: key4hep/key4hep-spack
@@ -5031,15 +4233,15 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
-  - .gitlab-ci/env/root-build/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
-  - env/x86_64/flecsalemm-deps/spack.yaml
-  - env/power9le/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
   - env/power9le/flecsi/spack.yaml
+  - env/x86_64/flecsalemm-deps/spack.yaml
   - env/x86_64/flecsi/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
+  - .gitlab-ci/env/root-build/spack.yaml
+  - .gitlab-ci/env/dry-run/spack.yaml
   - env/broadwell/flecsalemm-deps/spack.yaml
+  - env/power9le/flecsalemm-deps/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -5372,8 +4574,8 @@ mochi-hpc-experiments/mona-benchmarking:
   data_format: 2
   description: Mona benchmarking
   filenames:
-  - theta/spack.yaml
   - bebop/spack.yaml
+  - theta/spack.yaml
   - cori/spack.yaml
   full_name: mochi-hpc-experiments/mona-benchmarking
   latest_release: null
@@ -5944,8 +5146,8 @@ mochi-hpc/mochi-mona:
   data_format: 2
   description: Mochi messaging over NA
   filenames:
-  - benchmark/cori/spack.yaml
   - spack.yaml
+  - benchmark/cori/spack.yaml
   full_name: mochi-hpc/mochi-mona
   latest_release: sc21
   readme: '<h1>
@@ -6607,10 +5809,10 @@ olcf/spack-environments:
   data_format: 2
   description: Spack Environments Templates for OLCF resources
   filenames:
+  - linux-rhel8-ppc64le/summit/spack.yaml
+  - linux-sles15-zen2/spock/spack.yaml
   - linux-rhel8-zen2/cirrus/spack.yaml
   - linux-rhel7-ppc64le/summit/spack.yaml
-  - linux-sles15-zen2/spock/spack.yaml
-  - linux-rhel8-ppc64le/summit/spack.yaml
   full_name: olcf/spack-environments
   latest_release: null
   readme: '<p>OLCF Spack Environments Templates</p>
@@ -7188,13 +6390,13 @@ pace-gt/PACE-ProvBench:
   data_format: 2
   description: Provenance based Benchmark suite
   filenames:
+  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
   - Utilities/spack-config/var/spack/environments/base_gcc/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
+  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
   - Utilities/spack-config/var/spack/environments/base_intel/spack.yaml
   - Utilities/spack-config/var/spack/environments/bench_intel_mvapich/spack.yaml
-  - Utilities/spack-config/var/spack/environments/base_gcc_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel19_ompi_external_apps/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel_openmpi/spack.yaml
-  - Utilities/spack-config/var/spack/environments/bench_intel19_mv2_external_apps/spack.yaml
   full_name: pace-gt/PACE-ProvBench
   latest_release: v1.0.0
   readme: "<h1>\n<a id=\"user-content-pace-provbench\" class=\"anchor\" href=\"#pace-provbench\"\
@@ -7598,10 +6800,10 @@ range3/spack-playground:
   data_format: 2
   description: null
   filenames:
+  - envs/broken-verbs-chris8x/spack.yaml
+  - envs/chris8x/spack.yaml
   - envs/dev/spack.yaml
   - envs/cygnus/spack.yaml
-  - envs/chris8x/spack.yaml
-  - envs/broken-verbs-chris8x/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-spack-playground\" class=\"anchor\" href=\"\
@@ -8059,91 +7261,34 @@ spack/localized-docs:
   subscribers_count: 7
   topics: []
   updated_at: 1621989548.0
-spack/spack-ci-containers:
-  data_format: 2
-  description: Container recipes used by Spack for test purposes
-  filenames:
-  - clingo/spack.yaml
-  full_name: spack/spack-ci-containers
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack-ci-containers" class="anchor" href="#spack-ci-containers"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spack
-    CI containers</h1>
-
-    <p>This repository contains recipes for containers that are
-
-    used to test Spack under CI.</p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>Spack is distributed under the terms of both the MIT license and the
-
-    Apache License (Version 2.0). Users may choose either license, at their
-
-    option.</p>
-
-    <p>All new contributions must be made under both the MIT and Apache-2.0 licenses.</p>
-
-    <p>See <a href="https://github.com/spack/spack-ci-containers/blob/master/LICENSE-MIT">LICENSE-MIT</a>,
-
-    <a href="https://github.com/spack/spack-ci-containers/blob/master/LICENSE-APACHE">LICENSE-APACHE</a>,
-
-    <a href="https://github.com/spack/spack-ci-containers/blob/master/COPYRIGHT">COPYRIGHT</a>,
-    and
-
-    <a href="https://github.com/spack/spack-ci-containers/blob/master/NOTICE">NOTICE</a>
-    for details.</p>
-
-    <p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>
-
-    <p>LLNL-CODE-811652</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 5
-  topics: []
-  updated_at: 1621989328.0
 spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - NERSC/cori/e4s-stacks/hsw/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NERSC/cori/e4s-20.10/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - OLCF/e4s-stacks/etc/spack.yaml
+  - NREL/configs/rhodes/compilers/spack.yaml
+  - NREL/configs/rhodes/utilities/spack.yaml
+  - NREL/configs/rhodes/software/spack.yaml
+  - NERSC/cori/e4s-21.02/prod/spack.yaml
+  - NERSC/cori/e4s-stacks/hsw/spack.yaml
+  - NERSC/cori/e4s-stacks/knl/spack.yaml
   - NERSC/cori/e4s-21.05/spack.yaml
   - NREL/configs/eagle/base/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
   - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NERSC/cori/e4s-20.10/spack.yaml
+  - NREL/configs/rhodes/base/spack.yaml
+  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
+  - NERSC/cori/e4s-21.02/spack.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - NERSC/cori/e4s-stacks/x86/spack.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - NREL/configs/eagle/compilers/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -9076,8 +8221,8 @@ supercontainers/isc-tutorial:
   data_format: 2
   description: ISC 2021 -- Getting Started with Containers on HPC
   filenames:
-  - exercises/spack_contenerize/spack.yaml
   - files/spack_contenerize/spack.yaml
+  - exercises/spack_contenerize/spack.yaml
   full_name: supercontainers/isc-tutorial
   latest_release: null
   readme: '<h1>
@@ -9248,8 +8393,8 @@ supercontainers/sc20-tutorial:
   data_format: 2
   description: HPC Container Tutorial at SC20
   filenames:
-  - exercises/spack_contenerize/spack.yaml
   - files/spack_contenerize/spack.yaml
+  - exercises/spack_contenerize/spack.yaml
   full_name: supercontainers/sc20-tutorial
   latest_release: null
   readme: '<h1>
@@ -9755,9 +8900,9 @@ ukri-excalibur/excalibur-tests:
   data_format: 2
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
-  - spack-environments/isambard-cascadelake/spack.yaml
-  - spack-environments/myriad/spack.yaml
   - spack-environments/csd3/spack.yaml
+  - spack-environments/myriad/spack.yaml
+  - spack-environments/isambard-cascadelake/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-excalibur-tests\" class=\"anchor\" href=\"#excalibur-tests\"\
@@ -9869,7 +9014,7 @@ veit/jupyter-tutorial:
   - dvc
   - data-science
   - pandas
-  updated_at: 1629541052.0
+  updated_at: 1629654929.0
 wangzhezhe/mona-vtk:
   data_format: 2
   description: null
