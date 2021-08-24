@@ -27,12 +27,7 @@ spack:
   - fio +pmdk
   - range-v3
   concretization: together
-  view:
-    default:
-      root: /workspaces/spack-playground/envs/dev/.spack-env/view
-      select:
-      - python@3.8.10
-      - py-pip^python@3.8.10
+  view: true
   packages:
     openmpi:
       externals:
