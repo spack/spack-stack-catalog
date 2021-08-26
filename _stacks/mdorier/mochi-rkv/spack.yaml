@@ -1,0 +1,19 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - uuid
+  - nlohmann-json
+  - mochi-margo
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
+  - leveldb@1.22
+  - rocksdb
+  - berkeley-db+cxx+stl
+  - tkrzw
+  - gdbm
+  - lmdb
+  - unqlite@master
+  - lua-sol2
+#  - pmemkv
+#  - upscaledb
+  concretization: together
