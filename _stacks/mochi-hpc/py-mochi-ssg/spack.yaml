@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - py-pkgconfig
+  - py-pybind11
+  - py-mpi4py
+  - mochi-ssg@main
+  - py-mochi-margo
+  concretization: together
