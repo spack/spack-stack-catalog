@@ -1,0 +1,75 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  config:
+    concretizer: clingo
+    install_missing_compilers: true
+  packages:
+    openssh:
+      externals:
+      - spec: openssh@7.4p1
+        prefix: /usr
+      buildable: false
+    python:
+      variants: ~pythoncmd
+    cmake:
+      version: [3.17.5]
+      externals:
+      - spec: cmake@3.17.5
+        prefix: /usr/local
+      buildable: false
+    all:
+      compiler: ['gcc@11:']
+      providers:
+        blas: [openblas]
+        mpi: [openmpi]
+  definitions:
+  - compilers:
+    - gcc@11.2.0
+  - cuda:
+    - cuda
+    - cuda@10.2:10.3
+  - blas:
+    - openblas
+    - intel-mkl
+    - netlib-lapack
+  - mpi:
+    - 'openmpi@4.1: fabrics=auto'
+    - nvhpc+blas+lapack+mpi
+    - mpich
+  - devtools:
+    - git
+    - gmake
+    - lmod
+  - python: ['python@3.9:']
+  - pypkgs:
+    - py-clustershell
+    - py-pip
+    - py-numpy
+    - py-scipy
+
+  specs:
+  - matrix:
+    - [$compilers]
+    - ['%gcc@4.8.5']
+  - julia
+  - miniconda3
+  - matrix:
+    - [netlib-scalapack, fftw]
+    - ['^openmpi@4.1: fabrics=auto']
+  - libxc
+  - matrix:
+    - [$cuda, $blas, $mpi, $devtools, $python]
+    - [$%compilers]
+  - matrix:
+    - [$pypkgs]
+    - [$^python]
+    - [$%compilers]
+  view: false
+  modules:
+    default:
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
