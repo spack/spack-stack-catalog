@@ -1,0 +1,7 @@
+spack:
+  specs:
+  - mochi-margo
+  - py-numpy
+  - py-pkgconfig
+  - py-pybind11
+  concretization: together
