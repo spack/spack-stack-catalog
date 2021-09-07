@@ -1,0 +1,20 @@
+spack:
+  specs:
+  - pkgconf
+  config:
+    clingo: true
+  container:
+    format: docker
+  view: false
+  packages:
+    all:
+      target: [x86_64]
+    # Specify versions known to be in the e4s buildcache
+    openssl:
+      version: [1.1.1g]
+    openblas:
+      version: [0.3.10]
+    openmpi:
+      version: [3.1.6]
+    perl:
+      version: [5.30.3]
