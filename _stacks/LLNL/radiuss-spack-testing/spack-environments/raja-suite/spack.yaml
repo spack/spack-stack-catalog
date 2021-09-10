@@ -1,0 +1,111 @@
+##############################################################################
+# Copyright (c) 2021, Lawrence Livermore National Security, LLC and
+# RADIUSS Stack project contributors. See the LICENSE file for details.
+#
+# SPDX-License-Identifier: MIT
+##############################################################################
+
+spack:
+  include: [$SYS_TYPE]
+  concretization: separately
+  view: false
+  config:
+    install_tree:
+      root: /usr/workspace/radiuss/install/raja-suite
+      padded_length: 128
+      projections:
+        all: '{architecture}/{compiler.name}-{compiler.version}/{name}-{version}-{hash}'
+    misc_cache: $spack/.misc_cache
+    test_stage: $spack/.test_stage
+    'build_stage:':
+    - $spack/var/spack/stage
+  mirrors:
+    mirror: file:///usr/workspace/radiuss/mirrors/raja-suite
+  definitions:
+  - compilers:
+      - '%gcc@8.3.1'
+    when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
+  - compilers:
+      - '%clang@10.0.1'
+    when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
+  - projects:
+    - chai@develop
+    - chai@main
+    - chai@2.4.0
+    - chai@2.3.0
+    - chai@2.2.2
+    - chai@2.2.1
+    - chai@2.2.0
+    - chai@develop+raja
+    - chai@main+raja
+    - chai@2.4.0+raja
+    - chai@2.3.0+raja
+    - chai@2.2.2+raja
+    - chai@2.2.1+raja
+    - chai@2.2.0+raja
+    - raja@develop
+    - raja@main
+    - raja@0.14.0
+    - raja@0.13.0
+    - raja@0.12.1
+    - raja@0.12.0
+    - umpire@develop
+    - umpire@main
+    - umpire@6.0.0
+    - umpire@5.0.1
+    - umpire@5.0.0
+    - umpire@4.1.2
+    - umpire@4.1.1
+    - umpire@4.1.0
+    - umpire@4.0.1
+    - umpire@4.0.0
+    when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
+  - projects:
+    - chai@develop+cuda
+    - chai@main+cuda
+    - chai@2.4.0+cuda
+    - chai@2.3.0+cuda
+    - chai@develop+cuda+raja
+    - chai@main+cuda+raja
+    - chai@2.4.0+cuda+raja
+    - chai@2.3.0+cuda+raja
+    - raja@develop+cuda
+    - raja@main+cuda
+    - raja@0.14.0+cuda
+    - raja@0.13.0+cuda
+    - umpire@develop+cuda
+    - umpire@main+cuda
+    - umpire@6.0.0+cuda
+    - umpire@5.0.1+cuda
+    when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
+  specs:
+  - matrix:
+    - [$projects]
+    - [$compilers]
+
+  gitlab-ci:
+    mappings:
+      # quartz
+      - match:
+        - target=broadwell
+        runner-attributes:
+          tags: [quartz, shell]
+          script:
+          - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+          - cd ${SPACK_CONCRETE_ENV_DIR} && spack env activate --without-view .
+          - spack -d ci rebuild
+
+      # lassen
+      - match:
+        - 'target=ppc64le:'
+        runner-attributes:
+          tags: [lassen, shell]
+          script:
+          - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+          - cd ${SPACK_CONCRETE_ENV_DIR} && spack env activate --without-view .
+          - spack -d ci rebuild
+    service-job-attributes:
+      tags: [quartz, shell]
+      before_script:
+      - . ${CHILD_SPACK_PATH}/share/spack/setup-env.sh
+

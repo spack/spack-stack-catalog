@@ -21,12 +21,11 @@ spack:
         prefix: /usr/local
       buildable: false
     all:
-      compiler: ['gcc@11:']
       providers:
         blas: [openblas]
         mpi: [openmpi]
   definitions:
-  - compilers:
+  - compiler:
     - gcc@11.2.0
   - cuda:
     - cuda
@@ -39,34 +38,35 @@ spack:
     - 'openmpi@4.1: fabrics=auto'
     - nvhpc+blas+lapack+mpi
     - mpich
-  - devtools:
-    - git
-    - gmake
-    - lmod
   - python: ['python@3.9:']
   - pypkgs:
     - py-clustershell
     - py-pip
     - py-numpy
     - py-scipy
+  - misc:
+    - git
+    - gmake
+    - lmod
+    - julia
+    - miniconda3
+    - libxc
 
   specs:
   - matrix:
-    - [$compilers]
+    - [$compiler]
     - ['%gcc@4.8.5']
-  - julia
-  - miniconda3
   - matrix:
     - [netlib-scalapack, fftw]
     - ['^openmpi@4.1: fabrics=auto']
-  - libxc
+    - [$%compiler]
   - matrix:
-    - [$cuda, $blas, $mpi, $devtools, $python]
-    - [$%compilers]
+    - [$cuda, $blas, $mpi, $python, $misc]
+    - [$%compiler]
   - matrix:
     - [$pypkgs]
     - [$^python]
-    - [$%compilers]
+    - [$%compiler]
   view: false
   modules:
     default:

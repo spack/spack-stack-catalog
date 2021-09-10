@@ -2,6 +2,37 @@ var data =
 [
   {
     "data_format": 2,
+    "description": "Spack Repos and Configuration Files",
+    "filenames": [
+      "environments/common/spack.yaml"
+    ],
+    "full_name": "ArjunaCluster/spack",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1631232572.0
+  },
+  {
+    "data_format": 2,
+    "description": "Gitlab CI automation of Spack testing with RADIUSS projects builds.",
+    "filenames": [
+      "spack-environments/raja-suite/spack.yaml",
+      "spack-environments/empty/spack.yaml",
+      "spack-environments/radiuss/spack.yaml"
+    ],
+    "full_name": "LLNL/radiuss-spack-testing",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-radiuss-spack-testing\" class=\"anchor\" href=\"#radiuss-spack-testing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRADIUSS SPACK TESTING\u003c/h1\u003e\n\u003cp\u003eThe RADIUSS project promotes and supports key High Performance Computing (HPC) open-source software developed at the LLNL. These tools and libraries cover a wide range of features a team would need to develop a modern simulation code targeting HPC plaftorms.\u003c/p\u003e\n\u003cp\u003eRADIUSS Spack Testing is a sub-project from the RADIUSS initiative providing a\ntesting infrastructure to test Spack Packages automatically in GitLab while\ntracking changes in Spack.\u003c/p\u003e\n\u003cp\u003eAccess the \u003ca href=\"https://radiuss-spack-testing.readthedocs.io/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eThe primary goal of this repo is to be used in Gitlab. The Gitlab CI configuration is such that it will use Spack pipeline feature to generate and run a pipeline that builds one of the environments in the \u003ccode\u003espack-environments\u003c/code\u003e directory.\u003c/p\u003e\n\u003cp\u003eThe specific environment to be built is controlled by the CI variable \u003ccode\u003eENV_NAME\u003c/code\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h3\u003e\n\u003cp\u003eThis project requires no installation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease read \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for details on our code of conduct, and the process for submitting pull requests to us.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-versioning\" class=\"anchor\" href=\"#versioning\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersioning\u003c/h2\u003e\n\u003cp\u003eversion: 1.0.0\u003c/p\u003e\n\u003cp\u003eTODO: Not even sure how to handle versioning here.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eAdrien M Bernede\u003c/p\u003e\n\u003cp\u003eSee also the list of \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/contributors\"\u003econtributors\u003c/a\u003e who participated in this project.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eThis project is licensed under the MIT License - see the \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e file for details\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under the MIT License.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/LICENSE\"\u003eLICENSE\u003c/a\u003e,\n\u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-793462\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-acknowledgments\" class=\"anchor\" href=\"#acknowledgments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 4,
+    "topics": [
+      "radiuss"
+    ],
+    "updated_at": 1631217303.0
+  },
+  {
+    "data_format": 2,
     "description": "Repo to use free github actions to build my docker containers in kaniko",
     "filenames": [
       "spack.yaml"
@@ -26,19 +57,6 @@ var data =
     "subscribers_count": 6,
     "topics": [],
     "updated_at": 1630404986.0
-  },
-  {
-    "data_format": 2,
-    "description": "Spack Repos and Configuration Files",
-    "filenames": [
-      "environments/common/spack.yaml"
-    ],
-    "full_name": "ArjunaCluster/spack",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1630361949.0
   },
   {
     "data_format": 2,
@@ -86,9 +104,9 @@ var data =
     "description": null,
     "filenames": [
       "envs/dev/spack.yaml",
+      "envs/chris8x/spack.yaml",
       "envs/cygnus/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml",
-      "envs/chris8x/spack.yaml"
+      "envs/broken-verbs-chris8x/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -103,8 +121,8 @@ var data =
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
       "spack-environments/isambard-cascadelake/spack.yaml",
-      "spack-environments/csd3/spack.yaml",
-      "spack-environments/myriad/spack.yaml"
+      "spack-environments/myriad/spack.yaml",
+      "spack-environments/csd3/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -118,11 +136,11 @@ var data =
     "data_format": 2,
     "description": "spack envs",
     "filenames": [
-      "envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml",
-      "envs/alpinedav/ubuntu_18_devel/spack.yaml",
-      "envs/llnl/pascal-cuda/spack.yaml",
       "envs/olcf/summit/spack.yaml",
-      "envs/llnl/quartz/spack.yaml"
+      "envs/llnl/quartz/spack.yaml",
+      "envs/alpinedav/ubuntu_18_devel/spack.yaml",
+      "envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "envs/llnl/pascal-cuda/spack.yaml"
     ],
     "full_name": "Alpine-DAV/spack_configs",
     "latest_release": null,
@@ -150,10 +168,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-rhel7-ppc64le/summit/spack.yaml",
       "linux-sles15-zen2/spock/spack.yaml",
       "linux-rhel8-ppc64le/summit/spack.yaml",
-      "linux-rhel8-zen2/cirrus/spack.yaml"
+      "linux-rhel8-zen2/cirrus/spack.yaml",
+      "linux-rhel7-ppc64le/summit/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -182,12 +200,12 @@ var data =
     "filenames": [
       "examples/magnus_pascal/template_environment/spack.yaml",
       "examples/magnus_pascal/environment_iolib/spack.yaml",
-      "examples/magnus_pascal/environment_chem/spack.yaml",
       "examples/topaz_marco/environment_compchem/spack.yaml",
-      "examples/magnus_pascal/environment_astro/spack.yaml",
       "examples/zeus_marco/environment2_python/spack.yaml",
+      "examples/magnus_pascal/environment_astro/spack.yaml",
+      "examples/zeus_marco/environment3_clingo/spack.yaml",
       "examples/zeus_marco/environment1_compchem/spack.yaml",
-      "examples/zeus_marco/environment3_clingo/spack.yaml"
+      "examples/magnus_pascal/environment_chem/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -213,28 +231,11 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Gitlab CI automation of Spack testing with RADIUSS projects builds.",
-    "filenames": [
-      "spack-environments/radiuss/spack.yaml",
-      "spack-environments/empty/spack.yaml"
-    ],
-    "full_name": "LLNL/radiuss-spack-testing",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-radiuss-spack-testing\" class=\"anchor\" href=\"#radiuss-spack-testing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRADIUSS SPACK TESTING\u003c/h1\u003e\n\u003cp\u003eThe RADIUSS project promotes and supports key High Performance Computing (HPC) open-source software developed at the LLNL. These tools and libraries cover a wide range of features a team would need to develop a modern simulation code targeting HPC plaftorms.\u003c/p\u003e\n\u003cp\u003eRADIUSS Spack Testing is a sub-project from the RADIUSS initiative providing a\ntesting infrastructure to test Spack Packages automatically in GitLab while\ntracking changes in Spack.\u003c/p\u003e\n\u003cp\u003eAccess the \u003ca href=\"https://radiuss-spack-testing.readthedocs.io/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Started\u003c/h2\u003e\n\u003cp\u003eThe primary goal of this repo is to be used in Gitlab. The Gitlab CI configuration is such that it will use Spack pipeline feature to generate and run a pipeline that builds one of the environments in the \u003ccode\u003espack-environments\u003c/code\u003e directory.\u003c/p\u003e\n\u003cp\u003eThe specific environment to be built is controlled by the CI variable \u003ccode\u003eENV_NAME\u003c/code\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h3\u003e\n\u003cp\u003eThis project requires no installation.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease read \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for details on our code of conduct, and the process for submitting pull requests to us.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-versioning\" class=\"anchor\" href=\"#versioning\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersioning\u003c/h2\u003e\n\u003cp\u003eversion: 1.0.0\u003c/p\u003e\n\u003cp\u003eTODO: Not even sure how to handle versioning here.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-authors\" class=\"anchor\" href=\"#authors\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eAdrien M Bernede\u003c/p\u003e\n\u003cp\u003eSee also the list of \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/contributors\"\u003econtributors\u003c/a\u003e who participated in this project.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eThis project is licensed under the MIT License - see the \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e file for details\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under the MIT License.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/LICENSE\"\u003eLICENSE\u003c/a\u003e,\n\u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/LLNL/radiuss-spack-testing/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-793462\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-acknowledgments\" class=\"anchor\" href=\"#acknowledgments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 3,
-    "topics": [
-      "radiuss"
-    ],
-    "updated_at": 1629233795.0
-  },
-  {
-    "data_format": 2,
     "description": "Mona benchmarking",
     "filenames": [
       "cori/spack.yaml",
-      "bebop/spack.yaml",
-      "theta/spack.yaml"
+      "theta/spack.yaml",
+      "bebop/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/mona-benchmarking",
     "latest_release": null,
@@ -261,28 +262,28 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx/lusoft/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent7/apps/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent7/py_376/spack.yaml",
-      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
       "cent8/envs/solhawk/spack.yaml",
       "cent8/envs/avx2/rproject/spack.yaml",
-      "cent8/envs/avx512/python/spack.yaml",
-      "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/bio_old/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml",
       "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
       "cent7/mpis/spack.yaml",
       "cent8/envs/avx/python/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent7/python_376/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
       "cent8/envs/x86_64/spack.yaml",
+      "cent7/library/bak/spack.yaml",
+      "cent8/envs/avx/lusoft/spack.yaml",
+      "cent7/python_376/spack.yaml",
       "compilers/envs/compilers/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml",
       "cent7/library/spack.yaml",
+      "cent8/envs/avx512/python/spack.yaml",
+      "cent7/apps/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent7/py_376/spack.yaml",
       "cent7/bioinformatics_default/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
@@ -382,15 +383,15 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      ".gitlab-ci/env/dry-run/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
-      ".gitlab-ci/env/root-build/spack.yaml",
       "env/broadwell/flecsalemm-deps/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml",
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      "env/power9le/flecsi/spack.yaml",
       "env/power9le/flecsalemm-deps/spack.yaml",
-      "env/x86_64/flecsi/spack.yaml"
+      "env/x86_64/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
+      ".gitlab-ci/env/root-build/spack.yaml",
+      "env/x86_64/flecsi/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -398,7 +399,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 3,
     "topics": [],
-    "updated_at": 1630713528.0
+    "updated_at": 1631210397.0
   },
   {
     "data_format": 2,
@@ -417,8 +418,22 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack.yaml",
-      "amr-wind-container/spack.yaml"
+      "openmpi-all-tgpu/spack.yaml"
+    ],
+    "full_name": "frankwillmore/alcf-stacks",
+    "latest_release": null,
+    "readme": "\u003cp\u003eThese are environments, to build on top of base layers as\nenumerated in:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://github.com/frankwillmore/derkommissar\"\u003ehttp://github.com/frankwillmore/derkommissar\u003c/a\u003e\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1626474269.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "amr-wind-container/spack.yaml",
+      "spack.yaml"
     ],
     "full_name": "eugeneswalker/exawind-containers",
     "latest_release": null,
@@ -432,8 +447,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "exawind-spack.yaml",
-      "compiler-spack.yaml"
+      "compiler-spack.yaml",
+      "exawind-spack.yaml"
     ],
     "full_name": "eugeneswalker/exawind-cacher",
     "latest_release": null,
@@ -460,9 +475,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-environments/mvapich2-lassen/spack.yaml",
+      "spack-environments/openmpi-lassen/spack.yaml",
       "spack-environments/openmpi/spack.yaml",
-      "spack-environments/openmpi-lassen/spack.yaml"
+      "spack-environments/mvapich2-lassen/spack.yaml"
     ],
     "full_name": "rngoodner/fiesta-helpers",
     "latest_release": null,
@@ -476,11 +491,11 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "rhel8NvhpcWdmapp/spack.yaml",
+      "spack.yaml",
       "v0162gccSpectrum/spack.yaml",
       "v0160gcc/spack.yaml",
       "v0133gccSpectrum/spack.yaml",
-      "spack.yaml",
+      "rhel8NvhpcWdmapp/spack.yaml",
       "v0133gcc/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
@@ -753,15 +768,15 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/base/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
-      "envs/exawind/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
-      "configs/rhodes/software/spack.yaml",
-      "configs/eagle/utilities/spack.yaml",
       "configs/eagle/software/spack.yaml",
-      "configs/rhodes/base/spack.yaml"
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/eagle/base/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "configs/eagle/compilers/spack.yaml",
+      "configs/eagle/utilities/spack.yaml",
+      "envs/exawind/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
+      "configs/rhodes/software/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -841,20 +856,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1612626420.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "wangzhezhe/mona-vtk",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-mona-vtk-examples\" class=\"anchor\" href=\"#mona-vtk-examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMoNA-VTK examples\u003c/h1\u003e\n\u003cp\u003eThis repo shows how to implement the MonaController and use it for Paraview Catalyst to do the in-situ data analytics. The \u003ccode\u003esrc\u003c/code\u003e folder contains the implementation details of the MonaController based on the MonaCommunicator which is implemented based on \u003ca href=\"https://github.com/mochi-hpc/mochi-mona\"\u003emochi-mona\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThere are several examples in the \u003ccode\u003eexample\u003c/code\u003e folder:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ebasic: This example shows that how the MonaController can be used to execute the basic vtk parallel operations such as send and recv vtk object.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eicetExample: This exmaple shows that how the mochi-mona can be used to execute the iceT test cases based on the iceT wrapper for the mochi-mona.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMandelbulbCatalystExample: This example shows how the MonaController can be used to execute the tightly coupled in-situ analytics in distributed way.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eMandelbulbColza: This example shows how the MonaController can be used to execute the loosely coupled in-situ analytics in distributed way, the \u003ca href=\"https://github.com/mochi-hpc/mochi-colza\"\u003emochi-colza\u003c/a\u003e is used as the data staging service for this example.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGrayScottColza: This example is similar with the MandelbulbColza case but the simulation data is generated by Gray-Scott simulation.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing\" class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003cp\u003eWe assume there is a new account on cori system, and we need following operations to install necessary depedencies\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eSpack configuration\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThere are two ways to use the Spack to install the software packages, the first one is to init the package.yaml file and the second one is to use the spack env.\u003c/p\u003e\n\u003cp\u003eFor example, we use \u003ccode\u003espack arch -p\u003c/code\u003e to check the current architecture. If the architecture is the cray, the \u003ccode\u003epackage.yaml\u003c/code\u003e file should locate at the \u003ccode\u003e~/.spack/cray/\u003c/code\u003e. And we update the \u003ccode\u003epackage.yaml\u003c/code\u003e file as needed for installing the mochi-software stacks. One sample \u003ccode\u003epackage.yaml\u003c/code\u003e for cori system is located in \u003ccode\u003e./config/cori/packages.yaml\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe repo of the spack used by the mochi project: \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo.git\" rel=\"nofollow\"\u003ehttps://xgitlab.cels.anl.gov/sds/sds-repo.git\u003c/a\u003e, we need to add this repo into the spack system by executing \u003ccode\u003espack repo add sds-repo\u003c/code\u003e at the current direactly.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eBuilding ParaView patch version\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThe source code of ParaView patch is located at this repo: \u003ca href=\"https://gitlab.kitware.com/mdorier/paraview/-/tree/dev-icet-integration\" rel=\"nofollow\"\u003ehttps://gitlab.kitware.com/mdorier/paraview/-/tree/dev-icet-integration\u003c/a\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://gitlab.kitware.com/mdorier/paraview.git\ncd paraview\ngit checkout ecb0a075f459c9db78bdd57bf83d715a99f0fe55\ngit submodule update --init --recursive\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe ParaView needs the osmesa to support the capability of in-situ rendering. We use the osmesa installed by the spack on the cori system:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emodule load spack\nspack load -r mesa/qozjngg\nPATH=\"/global/common/cori/software/altd/2.0/bin:$PATH\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe also need to set the compiler on the cori before building the ParaView\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# for compiling vtk on cori\nexport CRAYPE_LINK_TYPE=dynamic\n\n# let cc and CC to be the gnu compier\nmodule swap PrgEnv-intel PrgEnv-gnu\n\nmodule swap gcc/8.3.0 gcc/9.3.0\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAt the build direactory of the ParaView, we use cmake commands as follows (if we assume the source direactory is \u003ccode\u003e~/cworkspace/src/ParaView_patch/paraview\u003c/code\u003e):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecmake ~/cworkspace/src/ParaView_patch/paraview -DPARAVIEW_USE_QT=OFF -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_OPENGL_HAS_OSMESA:BOOL=TRUE -DVTK_USE_X:BOOL=FALSE -DCMAKE_CXX_COMPILER=CC -DCMAKE_C_COMPILER=cc -DVTK_PYTHON_OPTIONAL_LINK=OFF -DCMAKE_BUILD_TYPE=Release\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ewith the gcc and openmpi\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emodule unload cray-mpich/7.7.10\nmodule load cgpu cuda openmpi\n\ncmake ~/cworkspace/src/ParaView_matthieu/paraview/ -DPARAVIEW_USE_QT=OFF -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_OPENGL_HAS_OSMESA:BOOL=TRUE -DVTK_USE_X:BOOL=FALSE -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DVTK_PYTHON_OPTIONAL_LINK=OFF -DCMAKE_BUILD_TYPE=Release\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eBuilding and installing Colza\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eThis command will install the mochi-colza and other related mochi softwares\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack install mochi-colza@main+drc+examples%gcc@9.3.0\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eBuilding all examples\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eWe can load these depedencies if all packages are installed successfully. The sample commands are located in \u003ccode\u003econfig/cori/monavtkEnv.sh\u003c/code\u003e. We execute these commands before building the mona-vtk examples.\u003c/p\u003e\n\u003cp\u003eThen we can build the mona-vtk the cmake command like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecmake ~/cworkspace/src/mona-vtk/ -DCMAKE_CXX_COMPILER=CC -DCMAKE_C_COMPILER=cc -DVTK_DIR=$SCRATCH/build_paraview_matthieu_release/ -DENABLE_EXAMPLE=ON -DParaView_DIR=$SCRATCH/build_paraview_matthieu_release/ -DBUILD_SHARED_LIBS=ON \n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-running\" class=\"anchor\" href=\"#running\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning\u003c/h2\u003e\n\u003cp\u003eThe scripts for scale evaluation are located at the \u003ccode\u003eexample/MandelbulbColza/testScripts\u003c/code\u003e and \u003ccode\u003e./example/GrayScottColza/testScripts\u003c/code\u003e separately.\u003c/p\u003e\n\u003cp\u003eFor example, we can set the build and src dir properly at the beginning of the scripts, such as\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eBUILDDIR=/global/cscratch1/sd/zw241/build_monavtk\nSRCDIR=/global/homes/z/zw241/cworkspace/src/mona-vtk\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand then use sbatch to submit jobs with specific node configurations as needed:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esbatch ~/cworkspace/src/mona-vtk/example/MandelbulbColza/testScripts/strongscale/cori_strongscale_mona_4.scripts\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esbatch ~/cworkspace/src/mona-vtk/example/GrayScottColza/testScripts/strongscale/cori_gsstrongscale_mona_128_512.scripts\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe can check the corresponding server and log file to get the particular data put and analysing time.\u003c/p\u003e\n\u003cp\u003eFor example, the \u003ccode\u003embclient_mona_4_512.log\u003c/code\u003e records the client information when there are 4 staging processes and 512 client pracesses.\u003c/p\u003e\n\u003cp\u003eFor the \u003ccode\u003eMandelbulbColza\u003c/code\u003e example, we can set the size of the data block by updating the \u003ccode\u003eBLOCKLENW\u003c/code\u003e, \u003ccode\u003eBLOCKLENH\u003c/code\u003e and \u003ccode\u003eBLOCKLEND\u003c/code\u003e in the associated script.\u003c/p\u003e\n\u003cp\u003eFor the \u003ccode\u003eGrayScottColza\u003c/code\u003e example, we can set the size of the data block by updating the \u003ccode\u003eL\u003c/code\u003e value at the client configuration file. For example, at the \u003ccode\u003eclient_settings_monaback_408.json\u003c/code\u003e, we set the \u003ccode\u003eL\u003c/code\u003e as 408, which means there are \u003ccode\u003e408*408*408\u003c/code\u003e cells for each data block.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-other-potential-issues\" class=\"anchor\" href=\"#other-potential-issues\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOther potential issues\u003c/h2\u003e\n\u003cp\u003eWe could also try to install osmesa by spack manaully:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack install mesa+osmesa~llvm swr=none\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://discourse.paraview.org/t/undefined-symbol-pyexc-valueerror/5494/5\" rel=\"nofollow\"\u003ehttps://discourse.paraview.org/t/undefined-symbol-pyexc-valueerror/5494/5\u003c/a\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e/usr/bin/ld: /global/common/sw/cray/sles15/x86_64/mesa/18.3.6/gcc/8.2.0/qozjngg/lib/libOSMesa.so: undefined reference to `del_curterm@NCURSES6_TINFO_5.0.19991023\u0027\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003etry this:\u003c/p\u003e\n\u003cp\u003eSET(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -ltinfo\")\u003c/p\u003e\n\u003cp\u003erefer to\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/halide/Halide/issues/1112\"\u003ehttps://github.com/halide/Halide/issues/1112\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eif the MPICH_GNI_NDREG_ENTRIES is not set properly\n\u003ca href=\"https://github.com/mercury-hpc/mercury/issues/426\"\u003ehttps://github.com/mercury-hpc/mercury/issues/426\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003esome osmesa warning from paraview if it is built in the Debug mode for building paraview (it is ok when we use the Release mode to build the paraview)\u003c/p\u003e\n\u003cp\u003e(  44.958s) [pvbatch.3       ]vtkOpenGLFramebufferObj:356    ERR| vtkOpenGLFramebufferObject (0x10005dc58e0): failed at glGenFramebuffers 1 OpenGL errors detected\n1:   0 : (1280) Invalid enum\u003c/p\u003e\n\u003cp\u003evtkOpenGLState.cxx:505   WARN| Error glBindFramebuffer1 OpenGL errors detected\n2:   0 : (1280) Invalid enum\u003c/p\u003e\n\u003cp\u003eTry to build the paraview with the Release mode, otherwise, there are mosa related warnings\u003c/p\u003e\n\u003cp\u003eFor the python on cori, refer to this (\u003ca href=\"https://docs.nersc.gov/development/languages/python/nersc-python/\" rel=\"nofollow\"\u003ehttps://docs.nersc.gov/development/languages/python/nersc-python/\u003c/a\u003e)\nIf you only use the module option, but the python is not the default one, there are some issues\u003c/p\u003e\n\u003cp\u003eOne issue is \"unnamed python module encoding\", or other issues that have different gcc version which may cause the byte code issue\nIt is prefered to use the conda activate then the python virtual env if you not use the default python3 system on cori\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1623227410.0
   },
   {
     "data_format": 2,
@@ -986,8 +987,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "builds/cuda/spack.yaml",
-      "builds/openmp/spack.yaml"
+      "builds/openmp/spack.yaml",
+      "builds/cuda/spack.yaml"
     ],
     "full_name": "DavidPoliakoff/tuning-spack",
     "latest_release": null,
@@ -1013,20 +1014,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Collector microservice built using Mochi that is part of SYMBIOMON",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "srini009/collector",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-margo-microservice-template\" class=\"anchor\" href=\"#margo-microservice-template\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMargo Microservice Template\u003c/h1\u003e\n\u003cp\u003eThis project is a template to start developing a Mochi microservice based on Margo.\nIf you want to implement your own microservice, please read ahead. Though this project\nprovides many examples of how to use the Margo API, you may want to refer to the Margo\ndocumentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more detail.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-the-mochi-philosophy\" class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThe Mochi philosophy\u003c/h2\u003e\n\u003cp\u003eThe philosophy of the Mochi project consists of providing a set of building blocks\nfor developing HPC data service. Each building block is meant to offer \u003cstrong\u003eefficient\u003c/strong\u003e,\n\u003cstrong\u003elocation-agnostic\u003c/strong\u003e access to a \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e through\n\u003cstrong\u003emodular backends\u003c/strong\u003e, while \u003cstrong\u003eseamlessly sharing hardware\u003c/strong\u003e (compute and network)\nwith other building blocks.\u003c/p\u003e\n\u003cp\u003eA \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e may be, for example, \u003cem\u003e\"storing and retrieving\nsmall key/value pairs\"\u003c/em\u003e, a common feature found in many storage systems to manage\nmetadata. The \u003cstrong\u003elocation-agnostic\u003c/strong\u003e aspect aims at making such a feature available\nto user programs in the same manner and through the same API regardless of whether\nthe service runs in the same process, on the same node but on different processes,\nor on a different node across a network. The \u003cstrong\u003emodular backends\u003c/strong\u003e aspect makes it\npossible to abstract the implementation of such a feature and, if not providing\nmultiple implementations, at least providing the means for someone to easily swap\nthe default implementation of the feature for their own. Because multiple building\nblocks may be running on the same node, such a building block should efficiently\nshare the compute and network hardware with other building blocks. This is done\nby sharing a common networking and threading layer: Margo.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign overview\u003c/h2\u003e\n\u003cp\u003eThe typical design of a Mochi microservice revolves around three libraries:\n\u003cstrong\u003eserver\u003c/strong\u003e, \u003cstrong\u003eclient\u003c/strong\u003e, and \u003cstrong\u003eadmin\u003c/strong\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe server library contains a service \u003cstrong\u003eprovider\u003c/strong\u003e, that is, an object that\ncan receive some predefined RPCs to offer a particular functionality. Within\nthe same process, multiple providers of the same service may be instantiated,\nusing distinct \u003cstrong\u003eprovider ids\u003c/strong\u003e (\u003ccode\u003euint16_t\u003c/code\u003e). A provider is responsible for\nmanaging a set of \u003cstrong\u003eresources\u003c/strong\u003e. In the example of a storage for key/value\npairs, a resource may be a database. The functionalities of a provider may\nbe enabled by multiple \u003cstrong\u003ebackends\u003c/strong\u003e. For example, a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an in-memory hash table.\nPrograms sending requests to a provider should \u003cstrong\u003enot\u003c/strong\u003e be unaware of the backend used\nto implement the requested functionality. This allows multiple backends to be\ntested, and for backends to evolve independently from user applications.\u003c/li\u003e\n\u003cli\u003eThe client library is the library through which user applications or higher-level\nservices interact with providers. It will typically provide a \u003cstrong\u003eclient\u003c/strong\u003e structure\nthat is used to register the set of RPCs that can be invoked, and a \u003cstrong\u003eresource handle\u003c/strong\u003e\nstructure that references a particular resource located on a particular provider.\nUser applications will typically initialize a singe client object for a service, and\nfrom this client object instantiate as many resource handles as needed to interact with\navailable resources. Resources are identified by a \u003cstrong\u003eresource id\u003c/strong\u003e, which are generally\neither a name, an integer, or a\n\u003ca href=\"https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\u003euuid\u003c/a\u003e (this template\nproject uses uuids).\u003c/li\u003e\n\u003cli\u003eThe admin library is the library through which a user application can send\nrequests that are meant for the provider itself rather than for a resource.\nA few most common such requests include the creation and destruction of\nresources, their migration, etc. It can be useful to think of the admin\nlibrary as the set of features you would want to provide to the person or\napplication that sets up the service, rather than the person or application\nthat uses its functionalities.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-organization-of-this-template-project\" class=\"anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOrganization of this template project\u003c/h2\u003e\n\u003cp\u003eThis template project illustrates how a Margo-based microservice could\nbe architected. It can be compiled as-is, and provides a couple of\nfunctionalities that make the provider print a \"Hello World\" message\non its standard output, or compute the sum of two integers.\u003c/p\u003e\n\u003cp\u003eThis template project uses \u003cstrong\u003ealpha\u003c/strong\u003e as the name of your microservice.\nFunctions, types, files, and libraries therefore use the \u003cstrong\u003ealpha\u003c/strong\u003e prefix.\nThe first step in setting up this project for your microservice will be\nto replace this prefix. The generic name \u003cstrong\u003eresource\u003c/strong\u003e should also be\nreplaced with a more specific name, such as \u003cstrong\u003edatabase\u003c/strong\u003e. This renaming\nstep can be done by using the \u003cem\u003esetup.py\u003c/em\u003e script at the root of this repository\n(see next section).\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003einclude\u003c/em\u003e directory of this template project provides public header files.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-common.h\u003c/em\u003e contains APIs that are common to the three\nlibraries, such as error codes or common types;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-client.h\u003c/em\u003e contains the client-side functions to create\nand destroy a client object;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-resource.h\u003c/em\u003e contains the client-side functions to create\nand destroy resource handles, and to interact with a resource through\na resource handle;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-server.h\u003c/em\u003e contains functions to register and destroy\na provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-backend.h\u003c/em\u003e contains the definition of a structure that\none would need to implement in order to provide a new backend for\nyour microservice;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-admin.h\u003c/em\u003e contains the functions to create and destroy\nan admin object, as well as admin functions to interact with a provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-provider-handle.h\u003c/em\u003e contains the definition of a provider handle.\nThis type of construct is often used in Mochi services to encapsulate\nan address and a provider id.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe implementation of all these functions is located in the \u003cem\u003esrc\u003c/em\u003e directory.\nThe source also includes functionalities such as a small header-based logging library.\nThe \u003cem\u003esrc/dummy\u003c/em\u003e directory provides a default implementation of a backend. This\nbackend also exemplifies the use of the \u003ca href=\"https://github.com/json-c/json-c\"\u003ejson-c\u003c/a\u003e library\nfor JSON-based resource configuration. We recommend that you implement a dummy backend for your\nservice, as a way of testing application logic and RPCs without the burden of complex\nexternal dependencies. For instance, a dummy backend may be a backend that simply\nacknowledges requests but does not process them, or provides mock results.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003eexamples\u003c/em\u003e directory contains an example using the microservice:\nthe server example will start a provider and print its address (if logging was enabled).\nThe admin example will connect to this provider and have it create a resource, then\nprint the resource id. The client example can be run next to interact with the resource.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etests\u003c/em\u003e directory contains a set of unit tests for your service.\nIt relies on \u003ca href=\"https://nemequ.github.io/munit\" rel=\"nofollow\"\u003e\u00b5nit\u003c/a\u003e (included in this repository),\na C unit-test library under an MIT license. Feel free to continue using it as you\nadd more functionalities to your microservice; unit-testing is just good software\ndevelopment practice in general.\u003c/p\u003e\n\u003cp\u003eThe template also contains a \u003cem\u003espack.yaml\u003c/em\u003e file at its root that can be used to\ninstall its dependencies. You may add additional dependencies into this file as\nyour microservice gets more complex.\u003c/p\u003e\n\u003cp\u003eAs you modify this project to implement your own microservice, feel free to remove\nany dependencies you don\u0027t like (such as json-c or \u00b5nit) and adapt it to your needs!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSetting up your project\u003c/h2\u003e\n\u003cp\u003eLet\u0027s assume you want to create a microservice called \"yellow\", which manages\na phone directory (association between names and phone numbers). The following\nshows how to setup your project:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\nmv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n$ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g., database): phonebook\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe python script will edit and rename all the files, replacing \u003cem\u003ealpha\u003c/em\u003e with \u003cem\u003eyellow\u003c/em\u003e\nand \u003cem\u003eresource\u003c/em\u003e with \u003cem\u003ephonebook\u003c/em\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building-the-project\" class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the project\u003c/h2\u003e\n\u003cp\u003eThe project\u0027s dependencies may be build using \u003ca href=\"https://spack.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003espack\u003c/a\u003e.\nYou will need to have setup \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\" rel=\"nofollow\"\u003esds-repo\u003c/a\u003e as external\nnamespace for spack, which can be done as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# from outside of your project directory\ngit clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe easiest way to setup the dependencies for this project is to create a spack environment\nusing the \u003cem\u003espack.yaml\u003c/em\u003e file located at the root of the project, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an anonymous environment\ncd margo-microservice-template\nspack env activate .\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an environment named myenv\ncd margo-microservice-template\nspack env create myenv spack.yaml\nspack env activate myenv\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce the dependencies have been installed, you may build the project as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can test the project using \u003ccode\u003emake test\u003c/code\u003e from the build directory.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1615253014.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
       "spack.yaml"
@@ -1037,20 +1024,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1614701026.0
-  },
-  {
-    "data_format": 2,
-    "description": "SYMBIOMON Monitoring Microservice",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "srini009/symbiomon",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-margo-microservice-template\" class=\"anchor\" href=\"#margo-microservice-template\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMargo Microservice Template\u003c/h1\u003e\n\u003cp\u003eThis project is a template to start developing a Mochi microservice based on Margo.\nIf you want to implement your own microservice, please read ahead. Though this project\nprovides many examples of how to use the Margo API, you may want to refer to the Margo\ndocumentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more detail.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-the-mochi-philosophy\" class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThe Mochi philosophy\u003c/h2\u003e\n\u003cp\u003eThe philosophy of the Mochi project consists of providing a set of building blocks\nfor developing HPC data service. Each building block is meant to offer \u003cstrong\u003eefficient\u003c/strong\u003e,\n\u003cstrong\u003elocation-agnostic\u003c/strong\u003e access to a \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e through\n\u003cstrong\u003emodular backends\u003c/strong\u003e, while \u003cstrong\u003eseamlessly sharing hardware\u003c/strong\u003e (compute and network)\nwith other building blocks.\u003c/p\u003e\n\u003cp\u003eA \u003cstrong\u003esimple set of functionalities\u003c/strong\u003e may be, for example, \u003cem\u003e\"storing and retrieving\nsmall key/value pairs\"\u003c/em\u003e, a common feature found in many storage systems to manage\nmetadata. The \u003cstrong\u003elocation-agnostic\u003c/strong\u003e aspect aims at making such a feature available\nto user programs in the same manner and through the same API regardless of whether\nthe service runs in the same process, on the same node but on different processes,\nor on a different node across a network. The \u003cstrong\u003emodular backends\u003c/strong\u003e aspect makes it\npossible to abstract the implementation of such a feature and, if not providing\nmultiple implementations, at least providing the means for someone to easily swap\nthe default implementation of the feature for their own. Because multiple building\nblocks may be running on the same node, such a building block should efficiently\nshare the compute and network hardware with other building blocks. This is done\nby sharing a common networking and threading layer: Margo.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign overview\u003c/h2\u003e\n\u003cp\u003eThe typical design of a Mochi microservice revolves around three libraries:\n\u003cstrong\u003eserver\u003c/strong\u003e, \u003cstrong\u003eclient\u003c/strong\u003e, and \u003cstrong\u003eadmin\u003c/strong\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe server library contains a service \u003cstrong\u003eprovider\u003c/strong\u003e, that is, an object that\ncan receive some predefined RPCs to offer a particular functionality. Within\nthe same process, multiple providers of the same service may be instantiated,\nusing distinct \u003cstrong\u003eprovider ids\u003c/strong\u003e (\u003ccode\u003euint16_t\u003c/code\u003e). A provider is responsible for\nmanaging a set of \u003cstrong\u003eresources\u003c/strong\u003e. In the example of a storage for key/value\npairs, a resource may be a database. The functionalities of a provider may\nbe enabled by multiple \u003cstrong\u003ebackends\u003c/strong\u003e. For example, a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an in-memory hash table.\nPrograms sending requests to a provider should \u003cstrong\u003enot\u003c/strong\u003e be unaware of the backend used\nto implement the requested functionality. This allows multiple backends to be\ntested, and for backends to evolve independently from user applications.\u003c/li\u003e\n\u003cli\u003eThe client library is the library through which user applications or higher-level\nservices interact with providers. It will typically provide a \u003cstrong\u003eclient\u003c/strong\u003e structure\nthat is used to register the set of RPCs that can be invoked, and a \u003cstrong\u003eresource handle\u003c/strong\u003e\nstructure that references a particular resource located on a particular provider.\nUser applications will typically initialize a singe client object for a service, and\nfrom this client object instantiate as many resource handles as needed to interact with\navailable resources. Resources are identified by a \u003cstrong\u003eresource id\u003c/strong\u003e, which are generally\neither a name, an integer, or a\n\u003ca href=\"https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\u003euuid\u003c/a\u003e (this template\nproject uses uuids).\u003c/li\u003e\n\u003cli\u003eThe admin library is the library through which a user application can send\nrequests that are meant for the provider itself rather than for a resource.\nA few most common such requests include the creation and destruction of\nresources, their migration, etc. It can be useful to think of the admin\nlibrary as the set of features you would want to provide to the person or\napplication that sets up the service, rather than the person or application\nthat uses its functionalities.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-organization-of-this-template-project\" class=\"anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOrganization of this template project\u003c/h2\u003e\n\u003cp\u003eThis template project illustrates how a Margo-based microservice could\nbe architected. It can be compiled as-is, and provides a couple of\nfunctionalities that make the provider print a \"Hello World\" message\non its standard output, or compute the sum of two integers.\u003c/p\u003e\n\u003cp\u003eThis template project uses \u003cstrong\u003ealpha\u003c/strong\u003e as the name of your microservice.\nFunctions, types, files, and libraries therefore use the \u003cstrong\u003ealpha\u003c/strong\u003e prefix.\nThe first step in setting up this project for your microservice will be\nto replace this prefix. The generic name \u003cstrong\u003eresource\u003c/strong\u003e should also be\nreplaced with a more specific name, such as \u003cstrong\u003edatabase\u003c/strong\u003e. This renaming\nstep can be done by using the \u003cem\u003esetup.py\u003c/em\u003e script at the root of this repository\n(see next section).\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003einclude\u003c/em\u003e directory of this template project provides public header files.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-common.h\u003c/em\u003e contains APIs that are common to the three\nlibraries, such as error codes or common types;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-client.h\u003c/em\u003e contains the client-side functions to create\nand destroy a client object;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-resource.h\u003c/em\u003e contains the client-side functions to create\nand destroy resource handles, and to interact with a resource through\na resource handle;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-server.h\u003c/em\u003e contains functions to register and destroy\na provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-backend.h\u003c/em\u003e contains the definition of a structure that\none would need to implement in order to provide a new backend for\nyour microservice;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-admin.h\u003c/em\u003e contains the functions to create and destroy\nan admin object, as well as admin functions to interact with a provider;\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003ealpha/alpha-provider-handle.h\u003c/em\u003e contains the definition of a provider handle.\nThis type of construct is often used in Mochi services to encapsulate\nan address and a provider id.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe implementation of all these functions is located in the \u003cem\u003esrc\u003c/em\u003e directory.\nThe source also includes functionalities such as a small header-based logging library.\nThe \u003cem\u003esrc/dummy\u003c/em\u003e directory provides a default implementation of a backend. This\nbackend also exemplifies the use of the \u003ca href=\"https://github.com/json-c/json-c\"\u003ejson-c\u003c/a\u003e library\nfor JSON-based resource configuration. We recommend that you implement a dummy backend for your\nservice, as a way of testing application logic and RPCs without the burden of complex\nexternal dependencies. For instance, a dummy backend may be a backend that simply\nacknowledges requests but does not process them, or provides mock results.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003eexamples\u003c/em\u003e directory contains an example using the microservice:\nthe server example will start a provider and print its address (if logging was enabled).\nThe admin example will connect to this provider and have it create a resource, then\nprint the resource id. The client example can be run next to interact with the resource.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etests\u003c/em\u003e directory contains a set of unit tests for your service.\nIt relies on \u003ca href=\"https://nemequ.github.io/munit\" rel=\"nofollow\"\u003e\u00b5nit\u003c/a\u003e (included in this repository),\na C unit-test library under an MIT license. Feel free to continue using it as you\nadd more functionalities to your microservice; unit-testing is just good software\ndevelopment practice in general.\u003c/p\u003e\n\u003cp\u003eThe template also contains a \u003cem\u003espack.yaml\u003c/em\u003e file at its root that can be used to\ninstall its dependencies. You may add additional dependencies into this file as\nyour microservice gets more complex.\u003c/p\u003e\n\u003cp\u003eAs you modify this project to implement your own microservice, feel free to remove\nany dependencies you don\u0027t like (such as json-c or \u00b5nit) and adapt it to your needs!\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSetting up your project\u003c/h2\u003e\n\u003cp\u003eLet\u0027s assume you want to create a microservice called \"yellow\", which manages\na phone directory (association between names and phone numbers). The following\nshows how to setup your project:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\nmv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n$ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g., database): phonebook\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe python script will edit and rename all the files, replacing \u003cem\u003ealpha\u003c/em\u003e with \u003cem\u003eyellow\u003c/em\u003e\nand \u003cem\u003eresource\u003c/em\u003e with \u003cem\u003ephonebook\u003c/em\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building-the-project\" class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the project\u003c/h2\u003e\n\u003cp\u003eThe project\u0027s dependencies may be build using \u003ca href=\"https://spack.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003espack\u003c/a\u003e.\nYou will need to have setup \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\" rel=\"nofollow\"\u003esds-repo\u003c/a\u003e as external\nnamespace for spack, which can be done as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# from outside of your project directory\ngit clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe easiest way to setup the dependencies for this project is to create a spack environment\nusing the \u003cem\u003espack.yaml\u003c/em\u003e file located at the root of the project, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an anonymous environment\ncd margo-microservice-template\nspack env activate .\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# create an environment named myenv\ncd margo-microservice-template\nspack env create myenv spack.yaml\nspack env activate myenv\nspack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce the dependencies have been installed, you may build the project as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can test the project using \u003ccode\u003emake test\u003c/code\u003e from the build directory.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1626236017.0
   },
   {
     "data_format": 2,
@@ -1084,8 +1057,8 @@ var data =
     "data_format": 2,
     "description": "Recipes to generate container images and experiment with Github registry",
     "filenames": [
-      "gromacs/spack.yaml",
-      "quantum-espresso/spack.yaml"
+      "quantum-espresso/spack.yaml",
+      "gromacs/spack.yaml"
     ],
     "full_name": "alalazo/container-images",
     "latest_release": null,
@@ -1170,8 +1143,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/daint/spack.yaml",
-      "var/spack/environments/tsa/spack.yaml"
+      "var/spack/environments/tsa/spack.yaml",
+      "var/spack/environments/daint/spack.yaml"
     ],
     "full_name": "MeteoSwiss-APN/spack",
     "latest_release": null,
@@ -1186,10 +1159,10 @@ var data =
     "description": null,
     "filenames": [
       "spack_environments/developer_release_osx_spack.yaml",
-      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml",
       "spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml",
       "spack_environments/developer_release_x86_64_cuda_spack.yaml",
-      "spack_environments/developer_release_ppc64le_cuda_spack.yaml"
+      "spack_environments/developer_release_ppc64le_cuda_spack.yaml",
+      "spack_environments/users/llnl_lc/x86_64_cuda/spack.yaml"
     ],
     "full_name": "bvanessen/lbann_distconv",
     "latest_release": null,
@@ -1219,8 +1192,8 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "openFoam24/spack.yaml",
-      "v61c1b71_gcc910/spack.yaml"
+      "v61c1b71_gcc910/spack.yaml",
+      "openFoam24/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -1272,6 +1245,33 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "A Tutorial for LibPressio",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "FTHPC/libpressio_tutorial",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-libpressio-tutorial\" class=\"anchor\" href=\"#libpressio-tutorial\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLibPressio Tutorial\u003c/h1\u003e\n\u003cp\u003eThis repository contains a number of example applications to help you learn how\nto use LibPressio lossy compression.  The exercises are located in \u003ccode\u003eexercises/\u003c/code\u003e\nand have their own instructions in the README.md file.\u003c/p\u003e\n",
+    "stargazers_count": 1,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1626054769.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "ci/spack.yaml"
+    ],
+    "full_name": "haampie-spack/ci-example-docker",
+    "latest_release": null,
+    "stargazers_count": 1,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1625582972.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
       "jlse/spack.yaml"
@@ -1283,6 +1283,20 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1627944419.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "tests/spack.yaml"
+    ],
+    "full_name": "SeisSol/yateto",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-yateto\" class=\"anchor\" href=\"#yateto\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYATeTo\u003c/h1\u003e\n\u003cp\u003eIt is \u003cstrong\u003eY\u003c/strong\u003eet \u003cstrong\u003eA\u003c/strong\u003enother \u003cstrong\u003eTe\u003c/strong\u003ensor \u003cstrong\u003eTo\u003c/strong\u003eolbox for discontinuous Galerkin methods and other\napplications. You can find much more information about the package\n\u003ca href=\"https://arxiv.org/abs/1903.11521\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epip install -e \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eyateto\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\n\n...\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e):\n  \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e8\u003c/span\u003e\n  \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027A\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027B\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027w\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e,))\n  \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027C\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \n  \u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e2.0\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027lj\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ikl\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027k\u0027\u003c/span\u003e]\n  \u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027kernel\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003east\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e# \u0027d\u0027 - double precision; \u0027hsw\u0027 - haswell-like architecture\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003euseArchitectureIdentifiedBy\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"dhsw\"\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eGenerator\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003egenerate\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eoutput_dir\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eGeneratorCollection\u003c/span\u003e([\u003cspan class=\"pl-v\"\u003eLIBXSMM\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e), \u003cspan class=\"pl-v\"\u003eEigen\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)]))\n...\u003c/pre\u003e\u003c/div\u003e\n",
+    "stargazers_count": 1,
+    "subscribers_count": 11,
+    "topics": [],
+    "updated_at": 1630667753.0
   },
   {
     "data_format": 2,
@@ -1415,6 +1429,25 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Spack packages for the Electron Ion Collider",
+    "filenames": [
+      "environments/athena/spack.yaml"
+    ],
+    "full_name": "eic/eic-spack",
+    "latest_release": "v0.15",
+    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-eic-spack-repository\" class=\"anchor\" href=\"#eic-spack-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEIC Spack Repository\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/eic/eic-spack/actions?query=workflow%3A%22Build+Environments%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack/workflows/Build%20Environments/badge.svg\" alt=\"Build Environments\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/eic/eic-spack-docker/actions?query=workflow%3A%22Build+Docker+Images%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack-docker/workflows/Build%20Docker%20Images/badge.svg\" alt=\"Build Docker Images\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/eic/eic-spack-cvmfs-tests/actions?query=workflow%3A%22EIC+CI+against+CVMFS+Software+Stack%22\"\u003e\u003cimg src=\"https://github.com/eic/eic-spack-cvmfs-tests/workflows/EIC%20CI%20against%20CVMFS%20Software%20Stack/badge.svg\" alt=\"EIC CI against CVMFS Software Stack\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThis repository contains \u003ca href=\"https://spack.readthedocs.io/en/latest/index.html\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e packages for the EIC.\u003c/p\u003e\n\u003cp\u003eWhile we encourage the inclusion of Spack packages in the upstream repository, we realize that some packages may not be mature enough or have too small of a user base to be accepted there.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing-spack\" class=\"anchor\" href=\"#installing-spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling Spack\u003c/h2\u003e\n\u003cp\u003eInstalling Spack is outside the scope of this repository, but described in the Spack \u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003eGetting Started\u003c/a\u003e page.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-adding-the-eic-spack-repository\" class=\"anchor\" href=\"#adding-the-eic-spack-repository\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdding the EIC Spack Repository\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eClone this repository:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone https://github.com/eic/eic-spack.git\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eAdd this repository to your Spack configuration:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack repo add eic-spack\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installing-eic-spack-packages\" class=\"anchor\" href=\"#installing-eic-spack-packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling EIC Spack Packages\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eFind an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack find eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eInstall an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack install eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf this is the first package you install, it will also install all dependencies.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-using-eic-spack-packages\" class=\"anchor\" href=\"#using-eic-spack-packages\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing EIC Spack Packages\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eLoad the EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack load eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eUnload the EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack unload eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eUnload all Spack packages:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack unload -a\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-using-eic-spack-packages-in-environments\" class=\"anchor\" href=\"#using-eic-spack-packages-in-environments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing EIC Spack Packages in Environments\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eCreate and activate a new Spack environment:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env create eic-smear\nspack env activate eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eInstall an EIC Spack package:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack install eic-smear\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you already installed this package earlier, this will go very quick.\u003c/p\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eDeactivate the Spack environment:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env deactivate\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou can verify with \u003ccode\u003ewhich root\u003c/code\u003e inside and outside the environment that you did indeed use a different installation base.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-containerizing-a-spack-environment\" class=\"anchor\" href=\"#containerizing-a-spack-environment\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContainerizing a Spack Environment\u003c/h2\u003e\n\u003cp\u003eOnce you have a Spack environment setup, you can easily turn it into a Docker container recipe from any directory with an environment spack.yaml file:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$SPACK_ROOT\u003c/span\u003e/var/spack/environments/eic-smear/\nspack containerize \u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e Dockerfile\u003c/pre\u003e\u003c/div\u003e\n",
+    "stargazers_count": 3,
+    "subscribers_count": 9,
+    "topics": [
+      "spack",
+      "spack-packages",
+      "spack-repo",
+      "eic"
+    ],
+    "updated_at": 1628635524.0
+  },
+  {
+    "data_format": 2,
     "description": "Localized documentation for Spack",
     "filenames": [
       "spack.yaml"
@@ -1445,8 +1478,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1461,12 +1494,12 @@ var data =
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
       "environments/key4hep-nightlies-debug/spack.yaml",
-      "environments/key4hep-nightlies/spack.yaml",
       "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-release/spack.yaml",
       "environments/key4hep-release-broadwell/spack.yaml",
+      "environments/key4hep-release-user/spack.yaml",
       "environments/key4hep-debug/spack.yaml",
-      "environments/key4hep-release-user/spack.yaml"
+      "environments/key4hep-nightlies/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1480,8 +1513,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "exercises/spack_contenerize/spack.yaml",
-      "files/spack_contenerize/spack.yaml"
+      "files/spack_contenerize/spack.yaml",
+      "exercises/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1504,8 +1537,8 @@ var data =
     "data_format": 2,
     "description": "SciCell++ is an object-oriented framework for the simulation of biological and physical phenomena modelled as continuous or discrete processes.",
     "filenames": [
-      "docs/source/spack.yaml",
-      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml"
+      "tools/docker_and_spack/01_build_docker_container_from_spack/spack.yaml",
+      "docs/source/spack.yaml"
     ],
     "full_name": "tachidok/scicellxx",
     "latest_release": null,
@@ -1546,10 +1579,10 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/21.05/spack.yaml",
       "environments/21.08/spack.yaml",
       "environments/21.02/spack.yaml",
-      "environments/20.10/spack.yaml"
+      "environments/20.10/spack.yaml",
+      "environments/21.05/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v21.05",
@@ -1594,13 +1627,12 @@ var data =
     "data_format": 2,
     "description": "Repository for installation routines of the external software required by FairRoot",
     "filenames": [
-      "env/apr21/sim_mt_headless/spack.yaml",
-      "test/env/fairroot_develop/spack.yaml",
-      "test/env/r3broot/spack.yaml",
       "test/env/fairmq/spack.yaml",
+      "env/apr21/sim_mt_headless/spack.yaml",
+      "env/apr21/sim/spack.yaml",
       "env/dev/sim/spack.yaml",
-      "env/dev/sim_mt/spack.yaml",
-      "env/apr21/sim/spack.yaml"
+      "test/env/r3broot/spack.yaml",
+      "test/env/fairroot_develop/spack.yaml"
     ],
     "full_name": "FairRootGroup/FairSoft",
     "latest_release": "jun19p3",
@@ -1612,32 +1644,12 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "TorchGeo: datasets, transforms, and models for geospatial data",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "microsoft/torchgeo",
-    "latest_release": null,
-    "readme": "\u003cp\u003e\u003ca href=\"logo/logo-color.svg\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"logo/logo-color.svg\" width=\"400\" alt=\"TorchGeo\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTorchGeo is a \u003ca href=\"https://pytorch.org/\" rel=\"nofollow\"\u003ePyTorch\u003c/a\u003e domain library, similar to \u003ca href=\"https://pytorch.org/vision\" rel=\"nofollow\"\u003etorchvision\u003c/a\u003e, that provides datasets, transforms, samplers, and pre-trained models specific to geospatial data.\u003c/p\u003e\n\u003cp\u003eThe goal of this library is to make it simple:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003efor machine learning experts to use geospatial data in their workflows, and\u003c/li\u003e\n\u003cli\u003efor remote sensing experts to use their data in machine learning workflows.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eSee our \u003ca href=\"#installation-instructions\"\u003einstallation instructions\u003c/a\u003e, \u003ca href=\"#documentation\"\u003edocumentation\u003c/a\u003e, and \u003ca href=\"#example-usage\"\u003eexamples\u003c/a\u003e to learn how to use torchgeo.\u003c/p\u003e\n\u003cp\u003eExternal links:\n\u003ca href=\"https://torchgeo.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c55a1abcbc27f68634a41f9341ba1c05261d59f3e051c1e4abc7aeb27b170596/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f746f72636867656f2f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"docs\" data-canonical-src=\"https://readthedocs.org/projects/torchgeo/badge/?version=latest\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/microsoft/torchgeo\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f720479f1045e72ef33a9d8900c04a4da6a9e60017900642284c8077df5cbccc/68747470733a2f2f636f6465636f762e696f2f67682f6d6963726f736f66742f746f72636867656f2f6272616e63682f6d61696e2f67726170682f62616467652e7376673f746f6b656e3d6f61335a33504d564f67\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/microsoft/torchgeo/branch/main/graph/badge.svg?token=oa3Z3PMVOg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTests:\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/docs.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/docs.yaml/badge.svg\" alt=\"docs\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/style.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/style.yaml/badge.svg\" alt=\"style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/tests.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/tests.yaml/badge.svg\" alt=\"tests\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation-instructions\" class=\"anchor\" href=\"#installation-instructions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation instructions\u003c/h2\u003e\n\u003cp\u003eUntil the first release, you can install an environment compatible with torchgeo with \u003ccode\u003econda\u003c/code\u003e, \u003ccode\u003epip\u003c/code\u003e, or \u003ccode\u003espack\u003c/code\u003e as shown below.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-conda\" class=\"anchor\" href=\"#conda\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConda\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eNote\u003c/strong\u003e: if you do not have access to a GPU or are running on macOS, replace \u003ccode\u003epytorch-gpu\u003c/code\u003e with \u003ccode\u003epytorch-cpu\u003c/code\u003e in the \u003ccode\u003eenvironment.yml\u003c/code\u003e file.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003econda config --set channel_priority strict\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003econda env create --file environment.yml\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003econda activate torchgeo\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-pip\" class=\"anchor\" href=\"#pip\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePip\u003c/h3\u003e\n\u003cp\u003eWith Python 3.6 or later:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003epip install -r requirements.txt\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack\" class=\"anchor\" href=\"#spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003espack env activate \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack install\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eYou can find the documentation for torchgeo on \u003ca href=\"https://torchgeo.readthedocs.io\" rel=\"nofollow\"\u003eReadTheDocs\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-example-usage\" class=\"anchor\" href=\"#example-usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample usage\u003c/h2\u003e\n\u003cp\u003eThe following sections give basic examples of what you can do with torchgeo. For more examples, check out our \u003ca href=\"https://torchgeo.readthedocs.io/en/latest/tutorials/getting_started.html\" rel=\"nofollow\"\u003etutorials\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-train-and-test-models-using-our-pytorch-lightning-based-training-script\" class=\"anchor\" href=\"#train-and-test-models-using-our-pytorch-lightning-based-training-script\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrain and test models using our PyTorch Lightning based training script\u003c/h3\u003e\n\u003cp\u003eWe provide a script, \u003ccode\u003etrain.py\u003c/code\u003e for training models using a subset of the datasets. We do this with the PyTorch Lightning \u003ccode\u003eLightningModule\u003c/code\u003es and \u003ccode\u003eLightningDataModule\u003c/code\u003es implemented under the \u003ccode\u003etorchgeo.trainders\u003c/code\u003e namespace.\nThe \u003ccode\u003etrain.py\u003c/code\u003e script is configurable via the command line and/or via YAML configuration files. See the \u003ca href=\"conf/\"\u003econf/\u003c/a\u003e directory for example configuration files that can be customized for different training runs.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003epython train.py config_file=conf/landcoverai.yaml\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-download-and-use-the-tropical-cyclone-wind-estimation-competition-dataset\" class=\"anchor\" href=\"#download-and-use-the-tropical-cyclone-wind-estimation-competition-dataset\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDownload and use the Tropical Cyclone Wind Estimation Competition dataset\u003c/h3\u003e\n\u003cp\u003eThis dataset is from a competition hosted by \u003ca href=\"https://www.drivendata.org/\" rel=\"nofollow\"\u003eDriven Data\u003c/a\u003e in collaboration with \u003ca href=\"https://www.radiant.earth/\" rel=\"nofollow\"\u003eRadiant Earth\u003c/a\u003e. See \u003ca href=\"https://www.drivendata.org/competitions/72/predict-wind-speeds/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more information.\u003c/p\u003e\n\u003cp\u003eUsing this dataset in torchgeo is as simple as importing and instantiating the appropriate class.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etorchgeo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003edatasets\u003c/span\u003e\n\n\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etorchgeo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003edatasets\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eTropicalCycloneWindEstimation\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esplit\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\"train\"\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003edownload\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003eTrue\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e][\u003cspan class=\"pl-s\"\u003e\"image\"\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003eshape\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e][\u003cspan class=\"pl-s\"\u003e\"wind_speed\"\u003c/span\u003e])\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eThis project welcomes contributions and suggestions.  Most contributions require you to agree to a\nContributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us\nthe rights to use your contribution. For details, visit \u003ca href=\"https://cla.opensource.microsoft.com\" rel=\"nofollow\"\u003ehttps://cla.opensource.microsoft.com\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eWhen you submit a pull request, a CLA bot will automatically determine whether you need to provide\na CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions\nprovided by the bot. You will only need to do this once across all repos using our CLA.\u003c/p\u003e\n\u003cp\u003eThis project has adopted the \u003ca href=\"https://opensource.microsoft.com/codeofconduct/\" rel=\"nofollow\"\u003eMicrosoft Open Source Code of Conduct\u003c/a\u003e.\nFor more information see the \u003ca href=\"https://opensource.microsoft.com/codeofconduct/faq/\" rel=\"nofollow\"\u003eCode of Conduct FAQ\u003c/a\u003e or\ncontact \u003ca href=\"mailto:opencode@microsoft.com\"\u003eopencode@microsoft.com\u003c/a\u003e with any additional questions or comments.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-trademarks\" class=\"anchor\" href=\"#trademarks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrademarks\u003c/h2\u003e\n\u003cp\u003eThis project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft\ntrademarks or logos is subject to and must follow\n\u003ca href=\"https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general\" rel=\"nofollow\"\u003eMicrosoft\u0027s Trademark \u0026amp; Brand Guidelines\u003c/a\u003e.\nUse of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.\nAny use of third-party trademarks or logos are subject to those third-party\u0027s policies.\u003c/p\u003e\n",
-    "stargazers_count": 10,
-    "subscribers_count": 10,
-    "topics": [
-      "pytorch",
-      "torchvision",
-      "datasets",
-      "models",
-      "transforms"
-    ],
-    "updated_at": 1631135296.0
-  },
-  {
-    "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
+      "build/1_ccache/spack.yaml",
       "build/5_runtime/spack.yaml",
       "build/6_spack/spack.yaml",
       "build/3_more_tools/spack.yaml",
-      "build/1_ccache/spack.yaml",
       "build/2_compiler/spack.yaml"
     ],
     "full_name": "haampie/spack-batteries-included",
@@ -1654,12 +1666,32 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "TorchGeo: datasets, transforms, and models for geospatial data",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "microsoft/torchgeo",
+    "latest_release": null,
+    "readme": "\u003cp\u003e\u003ca href=\"logo/logo-color.svg\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"logo/logo-color.svg\" width=\"400\" alt=\"TorchGeo\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTorchGeo is a \u003ca href=\"https://pytorch.org/\" rel=\"nofollow\"\u003ePyTorch\u003c/a\u003e domain library, similar to \u003ca href=\"https://pytorch.org/vision\" rel=\"nofollow\"\u003etorchvision\u003c/a\u003e, that provides datasets, transforms, samplers, and pre-trained models specific to geospatial data.\u003c/p\u003e\n\u003cp\u003eThe goal of this library is to make it simple:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003efor machine learning experts to use geospatial data in their workflows, and\u003c/li\u003e\n\u003cli\u003efor remote sensing experts to use their data in machine learning workflows.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eSee our \u003ca href=\"#installation-instructions\"\u003einstallation instructions\u003c/a\u003e, \u003ca href=\"#documentation\"\u003edocumentation\u003c/a\u003e, and \u003ca href=\"#example-usage\"\u003eexamples\u003c/a\u003e to learn how to use torchgeo.\u003c/p\u003e\n\u003cp\u003eExternal links:\n\u003ca href=\"https://torchgeo.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c55a1abcbc27f68634a41f9341ba1c05261d59f3e051c1e4abc7aeb27b170596/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f746f72636867656f2f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"docs\" data-canonical-src=\"https://readthedocs.org/projects/torchgeo/badge/?version=latest\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/microsoft/torchgeo\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f720479f1045e72ef33a9d8900c04a4da6a9e60017900642284c8077df5cbccc/68747470733a2f2f636f6465636f762e696f2f67682f6d6963726f736f66742f746f72636867656f2f6272616e63682f6d61696e2f67726170682f62616467652e7376673f746f6b656e3d6f61335a33504d564f67\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/microsoft/torchgeo/branch/main/graph/badge.svg?token=oa3Z3PMVOg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTests:\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/docs.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/docs.yaml/badge.svg\" alt=\"docs\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/style.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/style.yaml/badge.svg\" alt=\"style\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/microsoft/torchgeo/actions/workflows/tests.yaml\"\u003e\u003cimg src=\"https://github.com/microsoft/torchgeo/actions/workflows/tests.yaml/badge.svg\" alt=\"tests\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation-instructions\" class=\"anchor\" href=\"#installation-instructions\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation instructions\u003c/h2\u003e\n\u003cp\u003eUntil the first release, you can install an environment compatible with torchgeo with \u003ccode\u003econda\u003c/code\u003e, \u003ccode\u003epip\u003c/code\u003e, or \u003ccode\u003espack\u003c/code\u003e as shown below.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-conda\" class=\"anchor\" href=\"#conda\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConda\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eNote\u003c/strong\u003e: if you do not have access to a GPU or are running on macOS, replace \u003ccode\u003epytorch-gpu\u003c/code\u003e with \u003ccode\u003epytorch-cpu\u003c/code\u003e in the \u003ccode\u003eenvironment.yml\u003c/code\u003e file.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003econda config --set channel_priority strict\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003econda env create --file environment.yml\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003econda activate torchgeo\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-pip\" class=\"anchor\" href=\"#pip\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePip\u003c/h3\u003e\n\u003cp\u003eWith Python 3.6 or later:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003epip install -r requirements.txt\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack\" class=\"anchor\" href=\"#spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003espack env activate \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack install\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eYou can find the documentation for torchgeo on \u003ca href=\"https://torchgeo.readthedocs.io\" rel=\"nofollow\"\u003eReadTheDocs\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-example-usage\" class=\"anchor\" href=\"#example-usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample usage\u003c/h2\u003e\n\u003cp\u003eThe following sections give basic examples of what you can do with torchgeo. For more examples, check out our \u003ca href=\"https://torchgeo.readthedocs.io/en/latest/tutorials/getting_started.html\" rel=\"nofollow\"\u003etutorials\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-train-and-test-models-using-our-pytorch-lightning-based-training-script\" class=\"anchor\" href=\"#train-and-test-models-using-our-pytorch-lightning-based-training-script\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrain and test models using our PyTorch Lightning based training script\u003c/h3\u003e\n\u003cp\u003eWe provide a script, \u003ccode\u003etrain.py\u003c/code\u003e for training models using a subset of the datasets. We do this with the PyTorch Lightning \u003ccode\u003eLightningModule\u003c/code\u003es and \u003ccode\u003eLightningDataModule\u003c/code\u003es implemented under the \u003ccode\u003etorchgeo.trainders\u003c/code\u003e namespace.\nThe \u003ccode\u003etrain.py\u003c/code\u003e script is configurable via the command line and/or via YAML configuration files. See the \u003ca href=\"conf/\"\u003econf/\u003c/a\u003e directory for example configuration files that can be customized for different training runs.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003epython train.py config_file=conf/landcoverai.yaml\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-download-and-use-the-tropical-cyclone-wind-estimation-competition-dataset\" class=\"anchor\" href=\"#download-and-use-the-tropical-cyclone-wind-estimation-competition-dataset\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDownload and use the Tropical Cyclone Wind Estimation Competition dataset\u003c/h3\u003e\n\u003cp\u003eThis dataset is from a competition hosted by \u003ca href=\"https://www.drivendata.org/\" rel=\"nofollow\"\u003eDriven Data\u003c/a\u003e in collaboration with \u003ca href=\"https://www.radiant.earth/\" rel=\"nofollow\"\u003eRadiant Earth\u003c/a\u003e. See \u003ca href=\"https://www.drivendata.org/competitions/72/predict-wind-speeds/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e for more information.\u003c/p\u003e\n\u003cp\u003eUsing this dataset in torchgeo is as simple as importing and instantiating the appropriate class.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etorchgeo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003edatasets\u003c/span\u003e\n\n\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etorchgeo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003edatasets\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eTropicalCycloneWindEstimation\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esplit\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\"train\"\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003edownload\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003eTrue\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e][\u003cspan class=\"pl-s\"\u003e\"image\"\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003eshape\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003edataset\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e][\u003cspan class=\"pl-s\"\u003e\"wind_speed\"\u003c/span\u003e])\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eThis project welcomes contributions and suggestions.  Most contributions require you to agree to a\nContributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us\nthe rights to use your contribution. For details, visit \u003ca href=\"https://cla.opensource.microsoft.com\" rel=\"nofollow\"\u003ehttps://cla.opensource.microsoft.com\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eWhen you submit a pull request, a CLA bot will automatically determine whether you need to provide\na CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions\nprovided by the bot. You will only need to do this once across all repos using our CLA.\u003c/p\u003e\n\u003cp\u003eThis project has adopted the \u003ca href=\"https://opensource.microsoft.com/codeofconduct/\" rel=\"nofollow\"\u003eMicrosoft Open Source Code of Conduct\u003c/a\u003e.\nFor more information see the \u003ca href=\"https://opensource.microsoft.com/codeofconduct/faq/\" rel=\"nofollow\"\u003eCode of Conduct FAQ\u003c/a\u003e or\ncontact \u003ca href=\"mailto:opencode@microsoft.com\"\u003eopencode@microsoft.com\u003c/a\u003e with any additional questions or comments.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-trademarks\" class=\"anchor\" href=\"#trademarks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTrademarks\u003c/h2\u003e\n\u003cp\u003eThis project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft\ntrademarks or logos is subject to and must follow\n\u003ca href=\"https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general\" rel=\"nofollow\"\u003eMicrosoft\u0027s Trademark \u0026amp; Brand Guidelines\u003c/a\u003e.\nUse of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.\nAny use of third-party trademarks or logos are subject to those third-party\u0027s policies.\u003c/p\u003e\n",
+    "stargazers_count": 11,
+    "subscribers_count": 10,
+    "topics": [
+      "pytorch",
+      "torchvision",
+      "datasets",
+      "models",
+      "transforms"
+    ],
+    "updated_at": 1631225546.0
+  },
+  {
+    "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
       "docker-recipes/rhel8-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
+      "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
       "docker-recipes/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/rhel7-runner-ppc64le/spack.yaml"
+      "docker-recipes/rhel8-runner-ppc64le/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1673,30 +1705,38 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NERSC/cori/e4s-21.05/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
-      "NERSC/cori/e4s-21.02/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
       "NREL/configs/eagle/compilers/spack.yaml",
-      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
+      "NERSC/cori/e4s-20.10/spack.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
       "NERSC/cori/e4s-stacks/hsw/spack.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml",
       "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "NERSC/cori/e4s-21.05/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
       "NREL/configs/rhodes/software/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
       "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
+      "NERSC/cori/e4s-21.02/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
       "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml"
+      "NERSC/cori/e4s-21.02/prod/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1713,7 +1753,7 @@ var data =
       "tutorials/spack/example/spack.yaml"
     ],
     "full_name": "buildtesters/buildtest",
-    "latest_release": "v0.10.2",
+    "latest_release": "v0.11.0",
     "stargazers_count": 46,
     "subscribers_count": 4,
     "topics": [
@@ -1725,7 +1765,7 @@ var data =
       "json-schema",
       "buildtest"
     ],
-    "updated_at": 1631060372.0
+    "updated_at": 1631222773.0
   },
   {
     "data_format": 2,
@@ -1797,11 +1837,11 @@ var data =
     "data_format": 2,
     "description": "A flyweight in situ visualization and analysis runtime for multi-physics HPC simulations",
     "filenames": [
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
-      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml",
       "scripts/uberenv/spack_envs/olcf/summit/spack.yaml",
-      "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml"
+      "scripts/uberenv/spack_envs/llnl/quartz/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/ci/ubuntu_18_cuda_10.1_devel/spack.yaml",
+      "scripts/uberenv/spack_envs/llnl/pascal-cuda/spack.yaml"
     ],
     "full_name": "Alpine-DAV/ascent",
     "latest_release": "v0.7.1",
@@ -1830,7 +1870,7 @@ var data =
     "full_name": "LLNL/conduit",
     "latest_release": "v0.7.2",
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-conduit\" class=\"anchor\" href=\"#conduit\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConduit\u003c/h1\u003e\n\u003cp\u003e\u003cstrong\u003eConduit: Simplified Data Exchange for HPC Simulations\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eConduit is an open source project from Lawrence Livermore National Laboratory that provides an intuitive model for describing hierarchical scientific data in C++, C, Fortran, and Python. It is used for data coupling between packages in-core, serialization, and I/O tasks.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.org/LLNL/conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/478365930966f70f879ae04d59ea3f5c5888bee7d2a50e7e281dc1da3cf9aff1/68747470733a2f2f7472617669732d63692e6f72672f4c4c4e4c2f636f6e647569742e706e67\" alt=\"Travis CI Build Status\" data-canonical-src=\"https://travis-ci.org/LLNL/conduit.png\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://ci.appveyor.com/project/cyrush/conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a0839e4a484ebb633a1c2ebcd90e345a176f5edc60e42f32636eefa9c3c79fad/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f6769746875622f6c6c6e6c2f636f6e647569743f6272616e63683d646576656c6f70267376673d74727565\" alt=\"Appveyor Build Status\" data-canonical-src=\"https://ci.appveyor.com/api/projects/status/github/llnl/conduit?branch=develop\u0026amp;svg=true\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/LLNL/conduit?branch=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/50b12c605f0f4bcc64b6db415dddf2de99c5e19a526d7bc53e45db45c95b2931/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f4c4c4e4c2f636f6e647569742f62616467652e7376673f6272616e63683d646576656c6f70\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/LLNL/conduit/badge.svg?branch=develop\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://scan.coverity.com/projects/llnl-conduit\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d4b204e42fe1ef30b166cdfd7cba043d5d74600b343aedd5e094a810b4c5c727/68747470733a2f2f7363616e2e636f7665726974792e636f6d2f70726f6a656374732f383432362f62616467652e7376673f666c61743d31\" alt=\"Static Analysis Status\" data-canonical-src=\"https://scan.coverity.com/projects/8426/badge.svg?flat=1\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-documentation\" class=\"anchor\" href=\"#documentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eTo get started building and using Conduit, check out the full documentation:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://llnl-conduit.readthedocs.io/\" rel=\"nofollow\"\u003ehttp://llnl-conduit.readthedocs.io/\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-source-repo\" class=\"anchor\" href=\"#source-repo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSource Repo\u003c/h1\u003e\n\u003cp\u003eConduit\u0027s source is hosted on GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/llnl/conduit\"\u003ehttps://github.com/llnl/conduit\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h1\u003e\n\u003cp\u003eConduit is released under a BSD-style license - for detailed license info, refer to:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://llnl-conduit.readthedocs.io/en/latest/licenses.html\" rel=\"nofollow\"\u003ehttps://llnl-conduit.readthedocs.io/en/latest/licenses.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eor the following files in the Conduit source tree:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/LICENSE\"\u003eLICENSE\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"/thirdparty_licenses.md\"\u003ethirdparty_licenses.md\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"user-content-changelog\" class=\"anchor\" href=\"#changelog\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eChangelog\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"/CHANGELOG.md\"\u003eChangelog\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 94,
+    "stargazers_count": 95,
     "subscribers_count": 18,
     "topics": [
       "hpc",
@@ -1845,7 +1885,7 @@ var data =
       "radiuss",
       "data-management"
     ],
-    "updated_at": 1630983464.0
+    "updated_at": 1631249353.0
   },
   {
     "data_format": 2,
@@ -1868,6 +1908,6 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1631145698.0
+    "updated_at": 1631216204.0
   }
 ]
