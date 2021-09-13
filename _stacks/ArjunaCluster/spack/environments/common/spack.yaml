@@ -69,7 +69,23 @@ spack:
     - [$%compiler]
   view: false
   modules:
+    'enable:':
+    - lmod
+    - tcl
     default:
       lmod:
         core_compilers:
         - gcc@4.8.5
+        hierarchy:
+        - compiler
+        - mpi
+        blacklist_implicits: true
+        hash_length: 0
+    lmod:
+      all:
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      projections:
+        all: '{name}/{version}'
+        ^lapack: '{name}/{version}-{^lapack.name}'
