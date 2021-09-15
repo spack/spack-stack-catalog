@@ -1,0 +1,145 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+# NOTICE: intel-tbb should not be replaced with intel-oneapi-tbb, the latter one is pre-built and not configurable
+# NOTICE: ~cuda~nvml for now
+spack:
+  concretization: together
+  packages:
+    all:
+      buildable: true
+      compiler: [gcc@9.3.0]
+      target:
+      - prescott
+      version: []
+      variants: [cxxstd=17, build_type=Release]
+  view: false
+  specs:
+  - cms-config
+  - autoconf@2.69
+  - automake@1.16.1
+  - bazel@3.7.2
+  - bison@3.5
+  - boost@1.75.0~icu~atomic~container~context~coroutine~exception~graph~locale~log~math~random~wave+shared+multithreaded~debug+mpi+python+iostreams
+  - bzip2@1.0.6
+  - bzip2-toolfile
+  - cmake@3.18.2~ownlibs~ncurses
+  - cmssw-config@V06-03-01
+  - coral@2.3.21py3
+  - cppunit@1.15.x
+  - cuda@11.2.2
+  - curl@7.70.0~libssh2+gssapi~libidn2
+  - davix@0.7.6
+  - davix-toolfile
+  - berkeley-db@6.2.32
+  - dcap@2.47.12
+  - dcap-toolfile
+  - db6-toolfile
+  - eigen@f612df273689a19d25b45ca4f8269463207c4fee
+  - expat@2.1.0~libbsd
+  - expat-toolfile
+  - flatbuffers@1.12.0
+  - flex@2.6.4
+  - fftw@3.3.8~mpi~openmp precision=double
+  - fftw3-toolfile
+  - freetype@2.10.0
+  - freetype-toolfile
+  - frontier-client@2.9.1.cms
+  - frontier-client-toolfile
+  - gcc-compiler-toolfile
+  - gdbm@1.10
+  - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
+  - giflib@5.2.0
+  - giflib-toolfile
+  - git@2.23.0~man~nls
+  - gmake@4.3~nls
+  - gmake-toolfile
+  - gmp@6.2.0
+  - grpc@1.35.0+shared
+  - gsl@2.6+external-cblas
+  - gsl-toolfile
+  - hdf5@1.10.6+mpi+shared
+  - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
+  - intel-tbb@2021.3
+  - isl@0.21
+  - libffi@3.2.1
+  - libjpeg-turbo@2.0.2
+  - libjpeg-turbo-toolfile
+  - libpciaccess@0.16
+  - libpng@1.6.37
+  - libpng-toolfile
+  - libtiff@4.0.10
+  - libtiff-toolfile
+  - libtool@2.4.6
+  - libxml2@2.9.10~python
+  - libxml2-toolfile
+  - lz4@1.9.2
+  - m4@1.4.18~sigsegv
+  - mpc@1.1.0
+  - mpfr@4.0.2
+  - nasm@2.14.02
+  - ninja@1.10.0
+  - numactl@2.0.14
+  - onnx-runtime@1.7.2.cms
+  - openblas@0.3.15
+  - openloops@2.1.2
+  - openloops-process@2.1.2
+  - openloops-toolfile
+  - openmpi@4.1.0
+  - openssl@1.1.0l
+  - openssl-toolfile
+  - oracle-instant-client@19.11.0.0.0
+  - oracleocci-abi-hack-cms
+  - oracleocci-abi-hack-cms-toolfile
+  - pacparser@1.3.5
+  - pacparser-toolfile
+  - pcre@8.43~jit~multibyte+utf
+  - pcre-toolfile
+  - pkg-config@0.29.2+internal_glib
+  - protobuf@3.15.1
+  - py-absl-py@0.11.0
+  - py-astor@0.8.1
+  - py-astunparse@1.6.3
+  - py-cython@0.29.23
+  - py-future@0.18.2
+  - py-gast@0.4.0
+  - py-google-common@0.0.1
+  - py-google-pasta@0.2.0
+  - py-grpcio@1.36.0
+  - py-h5py@2.10.0
+  - py-keras-applications@1.0.8
+  - py-keras-preprocessing@1.1.2
+  - py-mock@3.0.5
+  - py-numpy@1.19.5
+  - py-onnx@1.8.1
+  - py-opt-einsum@3.3.0
+  - py-pip@20.3.3
+  - py-pkgconfig@1.5.2
+  - py-protobuf@3.15.1
+  - py-pybind11@2.6.2
+  - py-setuptools@51.3.3
+  - py-six@1.15.0
+  - py-tensorflow@2.5.0.cms~cuda~nccl~only_python+mpi
+  - py-termcolor@1.1.0
+  - py-typing-extensions@3.7.4.3
+  - py-wheel@0.36.2
+  - py-wrapt@1.12.1
+  - python@3.9.6~libxml2
+  - python-toolfile
+  - re2c@0.13.5
+  - root@6.22.08.patches_cms_abd79a9716+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
+  - root-toolfile
+  - scram@3.0.30
+  - sqlite@3.22.0~fts
+  - sqlite-toolfile
+  - util-linux-uuid@2.34
+  - xerces-c@3.1.3 netaccessor=none transcoder=none
+  - xrootd@4.12.3+http~readline+python
+  - xrootd-toolfile
+  - xz@5.2.4 libs=shared
+  - xz-toolfile
+  - zlib@1.2.11.cms+optimize
+  - zlib-toolfile
+  - zstd@1.4.5+shared~static~programs~legacy
+  - zstd-toolfile

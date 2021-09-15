@@ -1,14 +1,14 @@
 spack:
   specs:
-  - mercury
   - mpich
-  - boost+serialization
-  - yaml-cpp@develop
-  - libuuid
-  - mochi-ch-placement
   - cmake
+  - boost~atomic~chrono~date_time~exception~filesystem~graph~iostreams~locale~log~math~multithreaded~program_options~random~regex~signals~system~test~thread~timer~wave+serialization+singlethreaded
+  - libuuid
   - cppunit
-  - mochi-sdskv ~leveldb ~bdb
-  - mochi-thallium
   - spdlog
+  - nlohmann-json
+  - mochi-thallium
+  - mochi-ch-placement
+  - mochi-sdskv~leveldb~bdb+bedrock
+  - mochi-bedrock+mpi
   concretization: together
