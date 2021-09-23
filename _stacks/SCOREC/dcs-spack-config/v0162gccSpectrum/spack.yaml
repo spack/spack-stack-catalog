@@ -12,8 +12,9 @@ spack:
     - pumi@master +zoltan ^zoltan+parmetis~fortran
   specs:
   - matrix:
-    - [cmake, openblas, boost, libxml2, xz, netlib-scalapack, netlib-lapack, netcdf-cxx4
-        ^netcdf-c@4.8.0+parallel-netcdf ^hdf5@1.10.3+hl+cxx, $pumi, hypre, fftw@3.3.8]
+    - [cuda, spectrum-mpi, cmake, openblas, boost, libxml2, xz, netlib-scalapack,
+      netlib-lapack, netcdf-cxx4 ^netcdf-c@4.8.0+parallel-netcdf ^hdf5@1.10.3+hl+cxx,
+      $pumi, hypre, fftw@3.3.8, adios2]
     - ['%gcc@8.4.1']
   packages:
     autoconf:
@@ -125,7 +126,7 @@ spack:
       - spec: xz@5.2.4
         prefix: /usr
     all:
-      compiler: [gcc@7.5.0]
+      compiler: [gcc@8.4.1]
       providers:
         mpi: [spectrum-mpi]
     spectrum-mpi:
