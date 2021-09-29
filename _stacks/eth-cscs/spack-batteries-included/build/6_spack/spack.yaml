@@ -1,0 +1,76 @@
+spack:
+  specs:
+  - binutils ~gold ~ld ~nls ~gas ~plugins libs=shared
+  - bzip2
+  - ca-certificates-mozilla
+  - ccache
+  - clingo-bootstrap@spack
+  - curl
+  - file
+  - git ~perl ~nls ~man
+  - gmake ~nls
+  - gnupg@:1.4
+  - gzip
+  - patch
+  - patchelf
+  - py-boto3
+  - python ~dbm ~libxml2
+  - rpm berkeley-db=none crypto=openssl ~gpg ~lua ~nls ~openmp ~posix ~python ~selinux
+    ~sqlite ~zstd
+  - squashfs +gzip +zstd +lz4 +lzo +xz default_compression=zstd
+  - tar
+  - unzip
+  - xz libs=static
+  - zstd +programs
+  concretization: together
+  view: /build/6_spack/view
+  packages:
+    all:
+      target:
+      - ${TARGET}
+    gettext:
+      variants: ~bzip2 ~curses ~git ~libxml2 ~tar ~xz ~openmp ~libasprintf
+    openssl:
+      variants: ~systemcerts
+    berkeley-db:
+      variants: ~cxx ~stl
+    zlib:
+      variants: ~shared
+    lzo:
+      variants: libs=static
+    lz4:
+      variants: libs=static
+    cmake:
+      externals:
+      - spec: cmake@3.20.1
+        prefix: /usr/local
+      buildable: false
+    gawk:
+      externals:
+      - spec: gawk@4.0.2
+        prefix: /
+      buildable: false
+  config:
+    ccache: true
+    concretizer: clingo
+    source_cache: /build/source_cache
+    install_tree:
+      root: ./install
+  'compilers:':
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /build/2_compiler/view/bin/gcc
+        cxx: /build/2_compiler/view/bin/g++
+        f77: null
+        fc: null
+      flags:
+        cflags: -s -static-libstdc++ -static-libgcc -fPIC -ffunction-sections -fdata-sections
+          -Wl,--gc-sections
+        cxxflags: -s -static-libstdc++ -static-libgcc -fPIC -ffunction-sections -fdata-sections
+          -Wl,--gc-sections
+        ldflags: -Wl,--gc-sections
+      operating_system: centos7
+      modules: []
+      environment: {}
+      extra_rpaths: []
