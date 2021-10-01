@@ -14,7 +14,7 @@ spack:
   - matrix:
     - [cuda, spectrum-mpi, cmake, openblas, boost, libxml2, xz, netlib-scalapack,
       netlib-lapack, netcdf-cxx4 ^netcdf-c@4.8.0+parallel-netcdf ^hdf5@1.10.3+hl+cxx,
-      $pumi, hypre, fftw@3.3.8, adios2]
+      $pumi, hypre, fftw@3.3.8, adios2, libconfig]
     - ['%gcc@8.4.1']
   packages:
     autoconf:
@@ -116,10 +116,6 @@ spack:
     tar:
       externals:
       - spec: tar@1.30
-        prefix: /usr
-    texinfo:
-      externals:
-      - spec: texinfo@6.5
         prefix: /usr
     xz:
       externals:
