@@ -1,0 +1,19 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    - cp2k@7.1 +plumed ^plumed@2.6.1
+    - gromacs@2020.2 +double+lapack+plumed ^plumed@2.6.1
+    - lammps@20200721 +class2+kspace+manybody+misc+molecule+user-h5md+user-misc
+    - namd@2.14 fftw=3   # this should be mkl (spack error)
+    - nwchem@7.0.2
+    - quantum-espresso@6.6 +openmp hdf5=parallel
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@8.3.0']
+  view: false
