@@ -1,0 +1,10 @@
+spack:
+  specs:
+  - clingo-bootstrap@spack ^python@3.9.2 %gcc@9.3.0
+  - python@3.9.2
+  concretization: together
+  config:
+    install_tree:
+      root: ./store
+    concretizer: original
+  view: ./view

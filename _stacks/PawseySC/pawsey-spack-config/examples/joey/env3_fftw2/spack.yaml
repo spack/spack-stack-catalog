@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - matrix:
+    - [fftw@2.1.5+openmp]
+    - ['%gcc@10.3.0', '%cce', '%aocc']
+    - [target=zen2]
+  packages:
+    fftw-api:
+      buildable: true
+    fftw:
+      buildable: true
+  view: false

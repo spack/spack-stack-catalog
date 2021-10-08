@@ -1,0 +1,26 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    - python@3.8.6 #+optimizations #commenting just to re-use python from env1_compchem
+    - py-cython@0.29.21
+    - py-dask@2.16.0
+    - py-h5py@2.10.0
+    - py-ipython@7.18.1
+    - py-matplotlib@3.3.3 +movies
+    - py-mpi4py@3.0.3
+    - py-numba@0.50.1
+    - py-numpy@1.19.4
+    - py-pandas@1.1.4
+    - py-plotly@2.2.0
+    - py-scikit-learn@0.23.2
+    - py-scipy@1.5.4
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+  view: false
