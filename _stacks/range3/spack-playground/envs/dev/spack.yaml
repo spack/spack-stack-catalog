@@ -16,8 +16,8 @@ spack:
   - mochi-thallium
   - cxxopts
   - fmt
-  - pmdk@master +rpmem
-  - libpmemobj-cpp
+  - pmdk@master
+  - libpmemobj-cpp@1.13.0
   - pmemkv +cmap+csmap
   - memkind
   - doctest

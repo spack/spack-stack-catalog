@@ -4,19 +4,19 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "examples/magnus/environment_iolib/spack.yaml",
+      "examples/zeus/environment2_python/spack.yaml",
+      "examples/zeus/environment1_compchem/spack.yaml",
       "examples/joey/env2_clingo/spack.yaml",
-      "examples/magnus/environment_chem/spack.yaml",
-      "examples/joey/env3_fftw2/spack.yaml",
+      "examples/magnus/template_environment/spack.yaml",
       "examples/magnus/environment_astro/spack.yaml",
       "examples/joey/env4_compchem/spack.yaml",
-      "examples/magnus/template_environment/spack.yaml",
-      "examples/topaz/environment_compchem/spack.yaml",
+      "examples/magnus/environment_iolib/spack.yaml",
       "examples/zeus/environment3_clingo/spack.yaml",
+      "examples/magnus/environment_chem/spack.yaml",
       "examples/joey/env5_python/spack.yaml",
-      "examples/zeus/environment1_compchem/spack.yaml",
-      "examples/zeus/environment2_python/spack.yaml",
-      "examples/joey/env1_clingo_spack/spack.yaml"
+      "examples/joey/env1_clingo_spack/spack.yaml",
+      "examples/joey/env3_fftw2/spack.yaml",
+      "examples/topaz/environment_compchem/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -25,21 +25,6 @@ var data =
     "subscribers_count": 11,
     "topics": [],
     "updated_at": 1633684130.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "docs/spack.yaml",
-      "docs/example_files/spack.yaml"
-    ],
-    "full_name": "StreamAzure/NotesOnSC21",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-initial-page\" class=\"anchor\" href=\"#initial-page\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInitial page\u003c/h1\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1633606757.0
   },
   {
     "data_format": 2,
@@ -73,12 +58,12 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "rhel8NvhpcWdmapp/spack.yaml",
-      "v0162gccSpectrum/spack.yaml",
       "v0133gccSpectrum/spack.yaml",
-      "v0160gcc/spack.yaml",
       "v0133gcc/spack.yaml",
-      "spack.yaml"
+      "rhel8NvhpcWdmapp/spack.yaml",
+      "v0160gcc/spack.yaml",
+      "spack.yaml",
+      "v0162gccSpectrum/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -92,9 +77,9 @@ var data =
     "data_format": 2,
     "description": "Gitlab CI automation of Spack testing with RADIUSS projects builds.",
     "filenames": [
-      "spack-environments/radiuss/spack.yaml",
       "spack-environments/raja-suite/spack.yaml",
-      "spack-environments/empty/spack.yaml"
+      "spack-environments/empty/spack.yaml",
+      "spack-environments/radiuss/spack.yaml"
     ],
     "full_name": "LLNL/radiuss-spack-testing",
     "latest_release": null,
@@ -150,8 +135,8 @@ var data =
     "data_format": 2,
     "description": "Spack Repos and Configuration Files",
     "filenames": [
-      "environments/bootstrap/spack.yaml",
-      "environments/common/spack.yaml"
+      "environments/common/spack.yaml",
+      "environments/bootstrap/spack.yaml"
     ],
     "full_name": "ArjunaCluster/spack",
     "latest_release": null,
@@ -232,10 +217,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "envs/cygnus/spack.yaml",
       "envs/dev/spack.yaml",
+      "envs/broken-verbs-chris8x/spack.yaml",
       "envs/chris8x/spack.yaml",
-      "envs/broken-verbs-chris8x/spack.yaml"
+      "envs/cygnus/spack.yaml"
     ],
     "full_name": "range3/spack-playground",
     "latest_release": null,
@@ -243,7 +228,7 @@ var data =
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1629778586.0
+    "updated_at": 1633929752.0
   },
   {
     "data_format": 2,
@@ -257,7 +242,7 @@ var data =
     "latest_release": null,
     "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-excalibur-tests\" class=\"anchor\" href=\"#excalibur-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExCALIBUR tests\u003c/h1\u003e\n\u003cp\u003ePerformance benchmarks and regression tests for the ExCALIBUR project.\u003c/p\u003e\n\u003cp\u003eThese benchmarks are based on a similar project by\n\u003ca href=\"https://github.com/stackhpc/hpc-tests\"\u003eStackHPC\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003eNote\u003c/strong\u003e: at the moment the ExCALIBUR benchmarks are a work-in-progress.\u003c/em\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-requirements\" class=\"anchor\" href=\"#requirements\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRequirements\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-spack\" class=\"anchor\" href=\"#spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h3\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003eNote\u003c/strong\u003e: in some HPC facilities there may be already a central Spack\ninstallation available.  In principle you should be able to use that one (you\nonly need to set the \u003ccode\u003eSPACK_ROOT\u003c/code\u003e environment variable), but you may need an\nup-to-date version of Spack in order to install some packages.  Instructions\nbelow show you how to install Spack locally.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e is a package manager specifically designed for HPC\nfacilities.  Follow the \u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003eofficial\ninstructions\u003c/a\u003e to\ninstall the latest version of Spack.  Remember to run the commands to get shell\nsupport, or add them to your shell init script to do it automatically.  For\nexample, if you use a shell of the family bash/zsh/sh you can add to your init\nscript:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e SPACK_ROOT=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/path/to/spack\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e [ \u003cspan class=\"pl-k\"\u003e-f\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e${SPACK_ROOT}\u003c/span\u003e/share/spack/setup-env.sh\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e ]\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e \u003cspan class=\"pl-k\"\u003ethen\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003esource\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e${SPACK_ROOT}\u003c/span\u003e/share/spack/setup-env.sh\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efi\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ereplacing \u003ccode\u003e/path/to/spack\u003c/code\u003e with the actual path to Spack.\u003c/p\u003e\n\u003cp\u003eReFrame, the framework we use to run the benchmarks (see below) requires a\n\u003ca href=\"https://spack.readthedocs.io/en/latest/environments.html\" rel=\"nofollow\"\u003eSpack Environment\u003c/a\u003e.\nWe provide Spack environments for some of the systems that are part of the\nExCALIBUR project.  If you want to use a different Spack environment, set the\nenvironment variable \u003ccode\u003eEXCALIBUR_SPACK_ENV\u003c/code\u003e to the path of the directory where\nthe environment is.  If this is not set, ReFrame will try to use the environment\nfor the current system, if known, otherwise it will automatically create a very\nbasic environment.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-reframe\" class=\"anchor\" href=\"#reframe\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReFrame\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://reframe-hpc.readthedocs.io/en/stable/\" rel=\"nofollow\"\u003eReFrame\u003c/a\u003e is a high-level\nframework for writing regression tests for HPC systems.  For our tests we\nrequire ReFrame 3.7.3.  Follow the \u003ca href=\"https://reframe-hpc.readthedocs.io/en/stable/started.html\" rel=\"nofollow\"\u003eofficial\ninstructions\u003c/a\u003e to\ninstall this package.  Note that ReFrame requires Python 3.6: in your HPC system\nyou may need to load a specific module to have this version of Python available.\u003c/p\u003e\n\u003cp\u003eWe provide a ReFrame configuration file with the settings of some systems that\nare part of the ExCALIBUR project.  You can point ReFrame to this file by\nsetting the\n\u003ca href=\"https://reframe-hpc.readthedocs.io/en/stable/manpage.html#envvar-RFM_CONFIG_FILE\" rel=\"nofollow\"\u003e\u003ccode\u003eRFM_CONFIG_FILE\u003c/code\u003e\u003c/a\u003e\nenvironment variable:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e RFM_CONFIG_FILE=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e${PWD}\u003c/span\u003e/reframe_config.py\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you want to use a different ReFrame configuration file, for example because\nyou use a different system, you can set this environment variable to the path of\nthat file.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNote\u003c/strong\u003e: in order to use the Spack build system in ReFrame, the \u003ccode\u003espack\u003c/code\u003e\nexecutable must be in the \u003ccode\u003ePATH\u003c/code\u003e, also on the computing nodes of a cluster, if\nyou want to run your benchmarks on them.  Note that by default ReFrame uses\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003e!\u003c/span\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e/bin/bash\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eas \u003ca href=\"https://en.wikipedia.org/wiki/Shebang_(Unix)\" rel=\"nofollow\"\u003eshebang\u003c/a\u003e, which would not load\nthe user\u0027s init script.  You may want to set the\n\u003ca href=\"https://reframe-hpc.readthedocs.io/en/stable/manpage.html#envvar-RFM_USE_LOGIN_SHELL\" rel=\"nofollow\"\u003e\u003ccode\u003eRFM_USE_LOGIN_SHELL\u003c/code\u003e\u003c/a\u003e\nenvironment variable in order to make ReFrame use\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003e!\u003c/span\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e/bin/bash -l\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eas shebang line, instead.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003eTODO: expand\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e/path/to/reframe/bin/reframe -c apps/hpgmg -r --performance-report\n/path/to/reframe/bin/reframe -c apps/sombrero -r --performance-report\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThe provided ReFrame configuration file contains the settings for multiple\nsystems.  If you use it, the automatic detection of the system may fail, as some\nsystems may use clashing hostnames.  You can always use the flag \u003ca href=\"https://reframe-hpc.readthedocs.io/en/stable/manpage.html#cmdoption-system\" rel=\"nofollow\"\u003e\u003ccode\u003e--system NAME:PARTITION\u003c/code\u003e\u003c/a\u003e\nto specify the system (and optionally the partition) to use.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-contributing-new-systems-or-benchmarks\" class=\"anchor\" href=\"#contributing-new-systems-or-benchmarks\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing new systems or benchmarks\u003c/h2\u003e\n\u003cp\u003eFeel free to add new benchmark apps or support new systems that are part of the\nExCALIBUR benchmarking collaboration.  Read\n\u003ca href=\"./CONTRIBUTING.md\"\u003e\u003ccode\u003eCONTRIBUTING.md\u003c/code\u003e\u003c/a\u003e for more details.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 3,
+    "subscribers_count": 4,
     "topics": [],
     "updated_at": 1629978803.0
   },
@@ -266,10 +251,10 @@ var data =
     "description": "spack envs",
     "filenames": [
       "envs/olcf/summit/spack.yaml",
-      "envs/llnl/quartz/spack.yaml",
+      "envs/alpinedav/ubuntu_18_devel/spack.yaml",
       "envs/llnl/pascal-cuda/spack.yaml",
-      "envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml",
-      "envs/alpinedav/ubuntu_18_devel/spack.yaml"
+      "envs/llnl/quartz/spack.yaml",
+      "envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml"
     ],
     "full_name": "Alpine-DAV/spack_configs",
     "latest_release": null,
@@ -297,10 +282,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
+      "linux-rhel8-zen2/cirrus/spack.yaml",
       "linux-rhel8-ppc64le/summit/spack.yaml",
       "linux-sles15-zen2/spock/spack.yaml",
-      "linux-rhel7-ppc64le/summit/spack.yaml",
-      "linux-rhel8-zen2/cirrus/spack.yaml"
+      "linux-rhel7-ppc64le/summit/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -325,61 +310,31 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Miniapp to test the interface between Eigen vectors/matricies and CVODE integration",
-    "filenames": [
-      "spack-env/spack.yaml"
-    ],
-    "full_name": "cmauney/sundials_eigen",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-sundials_eigen\" class=\"anchor\" href=\"#sundials_eigen\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esundials_eigen\u003c/h1\u003e\n\u003cp\u003eMiniapp to test the interface between Eigen vectors/matricies and CVODE integration\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1629240754.0
-  },
-  {
-    "data_format": 2,
-    "description": "Mona benchmarking",
-    "filenames": [
-      "bebop/spack.yaml",
-      "theta/spack.yaml",
-      "cori/spack.yaml"
-    ],
-    "full_name": "mochi-hpc-experiments/mona-benchmarking",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-mona-benchmarking\" class=\"anchor\" href=\"#mona-benchmarking\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMoNA benchmarking\u003c/h1\u003e\n\u003cp\u003eThis repository contains scripts to run the MoNA benchmarks on various\nsupercomputing platforms.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1629225591.0
-  },
-  {
-    "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "compilers/envs/compilers/spack.yaml",
-      "cent7/bioinformatics/spack.yaml",
-      "cent7/apps/spack.yaml",
-      "cent8/envs/avx2/python/spack.yaml",
-      "cent8/envs/avx2/lusoft/spack.yaml",
       "cent8/envs/avx/lusoft/spack.yaml",
-      "cent7/ece_hpc/spack.yaml",
-      "cent8/envs/solhawk/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/libs_old/spack.yaml",
-      "cent7/python_376/spack.yaml",
-      "cent8/envs/avx2/rproject/spack.yaml",
-      "cent7/py_376/spack.yaml",
+      "cent8/envs/avx512/lusoft/spack.yaml",
+      "cent7/library/spack.yaml",
       "cent7/bio_old/spack.yaml",
       "cent7/library/bak/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent8/envs/avx512/lusoft/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
+      "cent8/envs/avx2/python/spack.yaml",
+      "cent7/apps/spack.yaml",
       "cent8/envs/avx512/python/spack.yaml",
-      "cent7/library/spack.yaml",
+      "compilers/envs/compilers/spack.yaml",
+      "cent7/bioinformatics/spack.yaml",
+      "cent7/libs_old/spack.yaml",
+      "cent8/envs/avx2/rproject/spack.yaml",
+      "cent7/ece_hpc/spack.yaml",
+      "cent7/mpis/spack.yaml",
       "cent8/envs/avx/python/spack.yaml",
+      "cent7/bioinformatics_default/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/py_376/spack.yaml",
+      "cent7/python_376/spack.yaml",
+      "cent8/envs/avx2/lusoft/spack.yaml",
+      "cent8/envs/solhawk/spack.yaml",
       "cent8/envs/x86_64/spack.yaml",
-      "cent7/mpis/spack.yaml"
+      "cent8/envs/avx512/rproject/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -393,8 +348,8 @@ var data =
     "data_format": 2,
     "description": "Mochi messaging over NA",
     "filenames": [
-      "benchmark/cori/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "benchmark/cori/spack.yaml"
     ],
     "full_name": "mochi-hpc/mochi-mona",
     "latest_release": "sc21",
@@ -477,15 +432,15 @@ var data =
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
-      "env/broadwell/flecsi/spack.yaml",
-      "env/x86_64/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/root-build/spack.yaml",
-      "env/broadwell/flecsalemm-deps/spack.yaml",
-      ".gitlab-ci/env/local-build/spack.yaml",
-      "env/power9le/flecsalemm-deps/spack.yaml",
       ".gitlab-ci/env/dry-run/spack.yaml",
+      ".gitlab-ci/env/root-build/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
       "env/x86_64/flecsi/spack.yaml",
-      "env/power9le/flecsi/spack.yaml"
+      "env/power9le/flecsi/spack.yaml",
+      "env/x86_64/flecsalemm-deps/spack.yaml",
+      "env/power9le/flecsalemm-deps/spack.yaml",
+      ".gitlab-ci/env/local-build/spack.yaml",
+      "env/broadwell/flecsalemm-deps/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -569,9 +524,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-environments/openmpi/spack.yaml",
       "spack-environments/mvapich2-lassen/spack.yaml",
-      "spack-environments/openmpi-lassen/spack.yaml"
+      "spack-environments/openmpi-lassen/spack.yaml",
+      "spack-environments/openmpi/spack.yaml"
     ],
     "full_name": "rngoodner/fiesta-helpers",
     "latest_release": null,
@@ -772,20 +727,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Mobject is a prototype Mochi object storage system based on RADOS",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/mobject",
-    "latest_release": "v0.5",
-    "readme": "",
-    "stargazers_count": 0,
-    "subscribers_count": 6,
-    "topics": [],
-    "updated_at": 1622062106.0
-  },
-  {
-    "data_format": 2,
     "description": "A microservice (i.e., Mochi provider) for high performance bulk storage of raw data regions",
     "filenames": [
       "spack.yaml"
@@ -831,14 +772,14 @@ var data =
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
       "configs/eagle/software/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
-      "configs/rhodes/base/spack.yaml",
-      "envs/exawind/spack.yaml",
       "configs/rhodes/software/spack.yaml",
+      "configs/rhodes/base/spack.yaml",
       "configs/eagle/base/spack.yaml",
-      "configs/eagle/utilities/spack.yaml"
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "envs/exawind/spack.yaml",
+      "configs/eagle/utilities/spack.yaml",
+      "configs/eagle/compilers/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -852,8 +793,8 @@ var data =
     "data_format": 2,
     "description": "Spack support for SeisSol and related tools",
     "filenames": [
-      "deployment/default-env-utils-images/image-files/arm64/spack.yaml",
-      "deployment/default-env-utils-images/image-files/amd64/spack.yaml"
+      "deployment/default-env-utils-images/image-files/amd64/spack.yaml",
+      "deployment/default-env-utils-images/image-files/arm64/spack.yaml"
     ],
     "full_name": "SeisSol/seissol-spack-aid",
     "latest_release": null,
@@ -1049,8 +990,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "builds/cuda/spack.yaml",
-      "builds/openmp/spack.yaml"
+      "builds/openmp/spack.yaml",
+      "builds/cuda/spack.yaml"
     ],
     "full_name": "DavidPoliakoff/tuning-spack",
     "latest_release": null,
@@ -1315,20 +1256,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "tests/spack.yaml"
-    ],
-    "full_name": "SeisSol/yateto",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-yateto\" class=\"anchor\" href=\"#yateto\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYATeTo\u003c/h1\u003e\n\u003cp\u003eIt is \u003cstrong\u003eY\u003c/strong\u003eet \u003cstrong\u003eA\u003c/strong\u003enother \u003cstrong\u003eTe\u003c/strong\u003ensor \u003cstrong\u003eTo\u003c/strong\u003eolbox for discontinuous Galerkin methods and other\napplications. You can find much more information about the package\n\u003ca href=\"https://arxiv.org/abs/1903.11521\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-installation\" class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epip install -e \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-usage\" class=\"anchor\" href=\"#usage\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eyateto\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\n\n...\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e):\n  \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e8\u003c/span\u003e\n  \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027A\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027B\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027w\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e,))\n  \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eTensor\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027C\u0027\u003c/span\u003e, (\u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eN\u003c/span\u003e))\n  \n  \u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e2.0\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eC\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ij\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eA\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027lj\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eB\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027ikl\u0027\u003c/span\u003e] \u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ew\u003c/span\u003e[\u003cspan class=\"pl-s\"\u003e\u0027k\u0027\u003c/span\u003e]\n  \u003cspan class=\"pl-s1\"\u003eg\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027kernel\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003east\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ekernel\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e# \u0027d\u0027 - double precision; \u0027hsw\u0027 - haswell-like architecture\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003euseArchitectureIdentifiedBy\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"dhsw\"\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eGenerator\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)\n\u003cspan class=\"pl-en\"\u003eadd\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003egenerator\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003egenerate\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eoutput_dir\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eGeneratorCollection\u003c/span\u003e([\u003cspan class=\"pl-v\"\u003eLIBXSMM\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e), \u003cspan class=\"pl-v\"\u003eEigen\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003earch\u003c/span\u003e)]))\n...\u003c/pre\u003e\u003c/div\u003e\n",
-    "stargazers_count": 1,
-    "subscribers_count": 11,
-    "topics": [],
-    "updated_at": 1630667753.0
-  },
-  {
-    "data_format": 2,
     "description": "Slides for the \"Software Management Course\" at CSCS (May, 14th 2019)",
     "filenames": [
       "docker/spack.yaml"
@@ -1494,8 +1421,8 @@ var data =
     "data_format": 2,
     "description": "HPC Container Tutorial at SC20",
     "filenames": [
-      "files/spack_contenerize/spack.yaml",
-      "exercises/spack_contenerize/spack.yaml"
+      "exercises/spack_contenerize/spack.yaml",
+      "files/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/sc20-tutorial",
     "latest_release": null,
@@ -1509,13 +1436,13 @@ var data =
     "data_format": 2,
     "description": "A Spack overlay repository of HEP software packaging.",
     "filenames": [
-      "environments/key4hep-release-broadwell/spack.yaml",
-      "environments/key4hep-nightlies-debug/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
-      "environments/key4hep-debug/spack.yaml",
+      "environments/key4hep-nightlies-debug/spack.yaml",
       "environments/key4hep-nightlies/spack.yaml",
       "environments/key4hep-release/spack.yaml",
-      "environments/geant4-data-share/spack.yaml"
+      "environments/geant4-data-share/spack.yaml",
+      "environments/key4hep-debug/spack.yaml",
+      "environments/key4hep-release-broadwell/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-05-13",
@@ -1529,8 +1456,8 @@ var data =
     "data_format": 2,
     "description": "ISC 2021 -- Getting Started with Containers on HPC",
     "filenames": [
-      "files/spack_contenerize/spack.yaml",
-      "exercises/spack_contenerize/spack.yaml"
+      "exercises/spack_contenerize/spack.yaml",
+      "files/spack_contenerize/spack.yaml"
     ],
     "full_name": "supercontainers/isc-tutorial",
     "latest_release": null,
@@ -1553,10 +1480,10 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
+      "environments/21.02/spack.yaml",
       "environments/21.08/spack.yaml",
       "environments/20.10/spack.yaml",
-      "environments/21.05/spack.yaml",
-      "environments/21.02/spack.yaml"
+      "environments/21.05/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v21.05",
@@ -1585,27 +1512,13 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Argobots bindings for the Mercury RPC library",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/mochi-margo",
-    "latest_release": "v0.9.5",
-    "readme": "\u003ch1\u003e\n\u003ca id=\"user-content-margo\" class=\"anchor\" href=\"#margo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMargo\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/mochi-hpc/mochi-margo/actions/workflows/test.yml/badge.svg?branch=main\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mochi-margo/actions/workflows/test.yml/badge.svg?branch=main\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/mochi-hpc/mochi-margo\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c64ae5809121f4158ced0cf46c628aca60e6db908b2639f6758b0595a6fdd779/68747470733a2f2f636f6465636f762e696f2f67682f6d6f6368692d6870632f6d6f6368692d6d6172676f2f6272616e63682f6d61696e2f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/mochi-hpc/mochi-margo/branch/main/graph/badge.svg\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMargo provides Argobots-aware bindings to the Mercury RPC library.\u003c/p\u003e\n\u003cp\u003eMercury (\u003ca href=\"https://mercury-hpc.github.io/\" rel=\"nofollow\"\u003ehttps://mercury-hpc.github.io/\u003c/a\u003e) is a remote procedure call\nlibrary optimized for use in HPC environments.  Its native API presents a\ncallback-oriented interface to manage asynchronous operation.  Argobots\n(\u003ca href=\"https://www.argobots.org/\" rel=\"nofollow\"\u003ehttps://www.argobots.org/\u003c/a\u003e) is a user-level threading package.\u003c/p\u003e\n\u003cp\u003eMargo combines Mercury and Argobots to simplify development of distributed\nservices.  Mercury operations are presented as conventional blocking\noperations, and RPC handlers are presented as sequential threads.  This\nconfiguration enables high degree of concurrency while hiding the\ncomplexity associated with asynchronous communication progress and callback\nmanagement.\u003c/p\u003e\n\u003cp\u003eInternally, Margo suspends callers after issuing a Mercury operation, and\nautomatically resumes them when the operation completes.  This allows\nother concurrent user-level threads to make progress while Mercury\noperations are in flight without consuming operating system threads.\nThe goal of this design is to combine the performance advantages of\nMercury\u0027s native event-driven execution model with the progamming\nsimplicity of a multi-threaded execution model.\u003c/p\u003e\n\u003cp\u003eA companion library called abt-io provides similar wrappers for POSIX I/O\nfunctions: \u003ca href=\"https://github.com/mochi-hpc/mochi-abt-io\"\u003ehttps://github.com/mochi-hpc/mochi-abt-io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eNote that Margo should be compatible with any Mercury network\ntransport (NA plugin).  The documentation assumes the use of\nthe NA SM (shared memory) plugin that is built into Mercury for\nsimplicity.  This plugin is only valid for communication between\nprocesses on a single node.  See \u003ca href=\"##using-margo-with-other-mercury-na-plugins\"\u003eUsing Margo with other Mercury NA\nplugins\u003c/a\u003e for information\non other configuration options.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-spack\" class=\"anchor\" href=\"#spack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h2\u003e\n\u003cp\u003eThe simplest way to install Margo is by installing the \"mochi-margo\" package\nin spack (\u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003ehttps://spack.io/\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-dependencies\" class=\"anchor\" href=\"#dependencies\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDependencies\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003emercury  (git clone --recurse-submodules \u003ca href=\"https://github.com/mercury-hpc/mercury.git\"\u003ehttps://github.com/mercury-hpc/mercury.git\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eargobots (git clone \u003ca href=\"https://github.com/pmodels/argobots.git\"\u003ehttps://github.com/pmodels/argobots.git\u003c/a\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"user-content-recommended-mercury-build-options\" class=\"anchor\" href=\"#recommended-mercury-build-options\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRecommended Mercury build options\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eMercury must be compiled with -DMERCURY_USE_BOOST_PP:BOOL=ON to enable the\nBoost preprocessor macros for encoding.\u003c/li\u003e\n\u003cli\u003eMercury should be compiled with -DMERCURY_USE_SELF_FORWARD:BOOL=ON in order to enable\nfast execution path for cases in which a Mercury service is linked into the same\nexecutable as the client\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExample Mercury compilation:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build\ncd build\ncmake -DMERCURY_USE_SELF_FORWARD:BOOL=ON \\\n -DBUILD_TESTING:BOOL=ON -DMERCURY_USE_BOOST_PP:BOOL=ON \\\n -DCMAKE_INSTALL_PREFIX=/home/pcarns/working/install \\\n -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE:STRING=Debug ../\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-building\" class=\"anchor\" href=\"#building\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding\u003c/h2\u003e\n\u003cp\u003eExample configuration:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e../configure --prefix=/home/pcarns/working/install \\\n    PKG_CONFIG_PATH=/home/pcarns/working/install/lib/pkgconfig \\\n    CFLAGS=\"-g -Wall\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-running-examples\" class=\"anchor\" href=\"#running-examples\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning examples\u003c/h2\u003e\n\u003cp\u003eThe examples subdirectory contains:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003emargo-example-client.c: an example client\u003c/li\u003e\n\u003cli\u003emargo-example-server.c: an example server\u003c/li\u003e\n\u003cli\u003emy-rpc.[ch]: an example RPC definition\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe following example shows how to execute them.  Note that when the server starts it will display the address that the client can use to connect to it.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ examples/margo-example-server na+sm://\n# accepting RPCs on address \"na+sm://13367/0\"\nGot RPC request with input_val: 0\nGot RPC request with input_val: 1\nGot RPC request with input_val: 2\nGot RPC request with input_val: 3\nGot RPC request to shutdown\n\n$ examples/margo-example-client na+sm://13367/0\nULT [0] running.\nULT [1] running.\nULT [2] running.\nULT [3] running.\nGot response ret: 0\nULT [0] done.\nGot response ret: 0\nULT [1] done.\nGot response ret: 0\nULT [2] done.\nGot response ret: 0\nULT [3] done.\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe client will issue 4 concurrent RPCs to the server and wait for them to\ncomplete.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-running-tests\" class=\"anchor\" href=\"#running-tests\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning tests\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003emake check\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-using-margo-with-the-other-na-plugins\" class=\"anchor\" href=\"#using-margo-with-the-other-na-plugins\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing Margo with the other NA plugins\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"http://mercury-hpc.github.io/documentation/\" rel=\"nofollow\"\u003eMercury\ndocumentation\u003c/a\u003e for details.\nMargo is compatible with any Mercury transport and uses the same address\nformat.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-instrumentation\" class=\"anchor\" href=\"#instrumentation\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstrumentation\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"doc/instrumentation.md\"\u003eInstrumentation documentation\u003c/a\u003e for\ninformation on how to extract diagnostic instrumentation from Margo.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-debugging\" class=\"anchor\" href=\"#debugging\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDebugging\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"doc/debugging.md\"\u003eDebugging documentation\u003c/a\u003e for Margo debugging\nfeatures and strategies.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"user-content-design-details\" class=\"anchor\" href=\"#design-details\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDesign details\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"doc/fig/margo-diagram.png\" target=\"_blank\" rel=\"noopener noreferrer\"\u003e\u003cimg src=\"doc/fig/margo-diagram.png\" alt=\"Margo architecture\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMargo provides Argobots-aware wrappers to common Mercury library functions\nlike HG_Forward(), HG_Addr_lookup(), and HG_Bulk_transfer().  The wrappers\nhave the same arguments as their native Mercury counterparts except that no\ncallback function is specified.  Each function blocks until the operation\nis complete.  The above diagram illustrates a typical control flow.\u003c/p\u003e\n\u003cp\u003eMargo launches a long-running user-level thread internally to drive\nprogress on Mercury and execute Mercury callback functions (labeled\n\u003ccode\u003e__margo_progress()\u003c/code\u003e above).  This thread can be assigned to a\ndedicated Argobots execution stream (i.e., an operating system thread)\nto drive network progress with a dedicated core.  Otherwise it will be\nautomatically scheduled when the caller\u0027s execution stream is blocked\nwaiting for network events as shown in the above diagram.\u003c/p\u003e\n\u003cp\u003eArgobots eventual constructs are used to suspend and resume user-level\nthreads while Mercury operations are in flight.\u003c/p\u003e\n\u003cp\u003eMargo allows several different threading/multicore configurations:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe progress loop can run on a dedicated operating system thread or not\u003c/li\u003e\n\u003cli\u003eMultiple Margo instances (and thus progress loops) can be\nexecuted on different operating system threads\u003c/li\u003e\n\u003cli\u003e(for servers) a single Margo instance can launch RPC handlers\non different operating system threads\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 9,
-    "subscribers_count": 7,
-    "topics": [],
-    "updated_at": 1631843343.0
-  },
-  {
-    "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
+      "build/6_spack/spack.yaml",
       "build/2_compiler/spack.yaml",
-      "build/1_ccache/spack.yaml",
       "build/3_more_tools/spack.yaml",
-      "build/5_runtime/spack.yaml",
-      "build/6_spack/spack.yaml"
+      "build/1_ccache/spack.yaml",
+      "build/5_runtime/spack.yaml"
     ],
     "full_name": "eth-cscs/spack-batteries-included",
     "latest_release": "develop",
@@ -1638,9 +1551,9 @@ var data =
     "description": "E4S Spack environments and container recipes",
     "filenames": [
       "docker-recipes/rhel7-runner-ppc64le/spack.yaml",
-      "docker-recipes/rhel8-runner-x86_64/spack.yaml",
       "docker-recipes/rhel8-runner-ppc64le/spack.yaml",
-      "docker-recipes/rhel7-runner-x86_64/spack.yaml"
+      "docker-recipes/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/rhel8-runner-x86_64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1654,40 +1567,32 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml",
-      "OLCF/spock/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
-      "OLCF/e4s-stacks/etc/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
-      "NERSC/cori/e4s-21.05/spack.yaml",
-      "UOREGON/E4S-Develop/spack-centos8-x86_64.yaml",
-      "NERSC/cori/e4s-stacks/knl/spack.yaml",
-      "OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
       "UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml",
+      "OLCF/spock/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
       "NREL/configs/eagle/software/spack.yaml",
       "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NERSC/cori/e4s-20.10/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml",
+      "OLCF/e4s-stacks/etc/spack.yaml",
       "UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NREL/configs/rhodes/base/spack.yaml",
-      "NREL/configs/rhodes/software/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/cori/e4s-stacks/x86/spack.yaml",
-      "NERSC/cori/e4s-21.02/spack.yaml",
-      "NERSC/cori/e4s-stacks/hsw/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "UOREGON/E4S-21.08-Facility-Examples/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
       "NREL/configs/eagle/compilers/spack.yaml",
-      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml"
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/cori/e4s-stacks/knl/spack.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "NREL/configs/rhodes/base/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml",
+      "UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml",
+      "NERSC/cori/e4s-21.02/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "UOREGON/E4S-21.08-Facility-Examples/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1814,8 +1719,8 @@ var data =
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/llnl/spack.yaml",
-      ".spack_env/darwin/spack.yaml"
+      ".spack_env/darwin/spack.yaml",
+      ".spack_env/llnl/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v6.0.0",
