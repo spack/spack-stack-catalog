@@ -1,0 +1,16 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:   # these are just examples
+    - gromacs@2020.2 +double+lapack+plumed ^plumed@2.6.1
+    - namd@2.14 fftw=3  
+
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+
+  view: false

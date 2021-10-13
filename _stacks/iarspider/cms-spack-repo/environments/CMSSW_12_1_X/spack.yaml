@@ -4,6 +4,10 @@
 # configuration settings.
 # NOTICE: intel-tbb should not be replaced with intel-oneapi-tbb, the latter one is pre-built and not configurable
 # NOTICE: ~cuda~nvml for now
+#   - onnx-runtime@1.7.2.cms
+#   - py-tensorflow@2.5.0.cms~cuda~nccl~only_python+mpi
+# nlohmann-json     version('3.10.2', sha256='081ed0f9f89805c2d96335c3acfa993b39a0a5b4b4cef7edb68dd2210a13458c')
+#   - cudnn@8.2.2.26
 spack:
   concretization: together
   packages:
@@ -14,9 +18,17 @@ spack:
       - prescott
       version: []
       variants: [cxxstd=17, build_type=Release]
+    mesa-glu:
+      buildable: false
+      externals:
+      - spec: mesa-glu@9.0.0
+        prefix: /usr
+    mesa:
+      variants: [~llvm]
   view: false
   specs:
   - cms-config
+  - alpaka@0.7.0
   - autoconf@2.69
   - automake@1.16.1
   - bazel@3.7.2
@@ -24,31 +36,53 @@ spack:
   - boost@1.75.0~icu~atomic~container~context~coroutine~exception~graph~locale~log~math~random~wave+shared+multithreaded~debug+mpi+python+iostreams
   - bzip2@1.0.6
   - bzip2-toolfile
+  - catch2@2.13.7
+  - clhep@2.4.5.1.cms
   - cmake@3.18.2~ownlibs~ncurses
   - cmssw-config@V06-03-01
+  - collier@1.2.5
   - coral@2.3.21py3
   - cppunit@1.15.x
-  - cuda@11.2.2
+  - cuda@11.4.2
   - curl@7.70.0~libssh2+gssapi~libidn2
   - davix@0.7.6
   - davix-toolfile
   - berkeley-db@6.2.32
+  - db6-toolfile
   - dcap@2.47.12
   - dcap-toolfile
-  - db6-toolfile
-  - eigen@f612df273689a19d25b45ca4f8269463207c4fee
+  - dd4hep@1.18x+xercesc+geant4units~edm4hep # CMS: +geant4 is set internally to build static version of ddg4
+  - dmtcp@3.0.0-dev
+  - eigen@82dd3710dac619448f50331c1d6a35da673f764a
+  - evtgen@02.00.00+pythia8+tauola+photos
   - expat@2.1.0~libbsd
   - expat-toolfile
-  - flatbuffers@1.12.0
-  - flex@2.6.4
+  - fastjet@3.4.0~atlas+python thread-safety=limited plugins=allcxx
   - fftw@3.3.8~mpi~openmp precision=double
   - fftw3-toolfile
+  - fjcontrib@1.044.cms
+  - flatbuffers@1.12.0
+  - flex@2.6.4
+  - fmt@8.0.1+shared
+  - form@4.2.1~gmp
   - freetype@2.10.0
   - freetype-toolfile
   - frontier-client@2.9.1.cms
   - frontier-client-toolfile
+  - g4abla@3.1
+  - g4emlow@7.13
+  - g4ensdfstate@2.3
+  - g4incl@1.0
+  - g4ndl@4.6
+  - g4particlexs@3.1.1
+  - g4photonevaporation@5.7
+  - g4radioactivedecay@5.6
+  - g4realsurface@2.2
+  - g4saiddata@2.0
   - gcc-compiler-toolfile
+  - gdb@10.2+python+xz
   - gdbm@1.10
+  - gengetopt@2.22.6
   - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
   - giflib@5.2.0
   - giflib-toolfile
@@ -56,13 +90,25 @@ spack:
   - gmake@4.3~nls
   - gmake-toolfile
   - gmp@6.2.0
+  - gnuplot@5.2.8~cairo~X~wx~gd~pbm~libcerf
+  - py-gosam@2.1.1
+  - geant4@10.7.2 +threads+vecgeom
+  - geant4-data@10.7.2
+  - gosam-contrib@2.0 libs=shared,static
+  - gperftools@2.9.1+libunwind+sized_delete+dynamic_sized_delete_support~debugalloc
   - grpc@1.35.0+shared
   - gsl@2.6+external-cblas
   - gsl-toolfile
   - hdf5@1.10.6+mpi+shared
+  - hepmc@2.06.10.cms
+  - herwig3@7.2.2
   - hwloc@2.4.0~cuda~nvml+libxml2~cairo~netloc+pci
+  - igprof@5.9.16
   - intel-tbb@2021.3
   - isl@0.21
+  - jemalloc@5.2.1~documentation+stats libs=shared
+  - lcov@1.15
+  - lhapdf@6.3.0
   - libffi@3.2.1
   - libjpeg-turbo@2.0.2
   - libjpeg-turbo-toolfile
@@ -72,21 +118,24 @@ spack:
   - libtiff@4.0.10
   - libtiff-toolfile
   - libtool@2.4.6
+  - libunwind@1.5.0 +zlib~block_signals~docs
   - libxml2@2.9.10~python
   - libxml2-toolfile
   - lz4@1.9.2
   - m4@1.4.18~sigsegv
+  - madgraph5amc@2.7.3.py3 +cms+ninja+collier+golem~syscalc nb_core=4
   - mpc@1.1.0
   - mpfr@4.0.2
   - nasm@2.14.02
   - ninja@1.10.0
+  - nlohmann-json@3.10.2
   - numactl@2.0.14
   - onnx-runtime@1.7.2.cms
   - openblas@0.3.15
   - openloops@2.1.2
   - openloops-process@2.1.2
   - openloops-toolfile
-  - openmpi@4.1.0
+  - openmpi@4.1.1
   - openssl@1.1.0l
   - openssl-toolfile
   - oracle-instant-client@19.11.0.0.0
@@ -96,44 +145,59 @@ spack:
   - pacparser-toolfile
   - pcre@8.43~jit~multibyte+utf
   - pcre-toolfile
+  - photos@3.64
   - pkg-config@0.29.2+internal_glib
   - protobuf@3.15.1
   - py-absl-py@0.11.0
   - py-astor@0.8.1
   - py-astunparse@1.6.3
+  - py-certifi@2020.6.20
+  - py-cycler@0.10.0
   - py-cython@0.29.23
   - py-future@0.18.2
   - py-gast@0.4.0
-  - py-google-common@0.0.1
   - py-google-pasta@0.2.0
   - py-grpcio@1.36.0
   - py-h5py@2.10.0
   - py-keras-applications@1.0.8
   - py-keras-preprocessing@1.1.2
+  - py-kiwisolver@1.3.2
+  - py-matplotlib@3.4.3
   - py-mock@3.0.5
   - py-numpy@1.19.5
   - py-onnx@1.8.1
   - py-opt-einsum@3.3.0
+  - py-pyparsing@2.4.7
+  - py-pillow@8.0.0
   - py-pip@20.3.3
   - py-pkgconfig@1.5.2
   - py-protobuf@3.15.1
+  - py-python-dateutil@2.8.1
   - py-pybind11@2.6.2
   - py-setuptools@51.3.3
+  - py-setuptools-scm@4.1.2
   - py-six@1.15.0
   - py-tensorflow@2.5.0.cms~cuda~nccl~only_python+mpi
   - py-termcolor@1.1.0
   - py-typing-extensions@3.7.4.3
   - py-wheel@0.36.2
   - py-wrapt@1.12.1
-  - python@3.9.6~libxml2
+  - pythia8@8.306+hepmc~hepmc3+lhapdf
+  - python@3.9.6~libxml2~debug
   - python-toolfile
+  - qgraf@3.4.2
   - re2c@0.13.5
-  - root@6.22.08.patches_cms_abd79a9716+davix+fftw~fits~graphviz+math+minuit+mlp~mysql~opengl~postgres~pythia6~pythia8+python+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
+  - rivet@3.1.4 hepmc=2
+  - root@6.22.08.patches_cms_18c440c+davix+fftw~fits~graphviz+math+minuit+mlp~mysql+opengl~postgres~pythia6~pythia8+python~qt4+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd
   - root-toolfile
-  - scram@3.0.30
+  - scram@3.0.31
   - sqlite@3.22.0~fts
   - sqlite-toolfile
+  - tauola@1.1.8 +hepmc+lhapdf+pythia8
+  - thepeg@2.2.2 hepmc=2
   - util-linux-uuid@2.34
+  - veccore
+  - vecgeom@1.1.17 ~root~geant4 vector=sse3
   - xerces-c@3.1.3 netaccessor=none transcoder=none
   - xrootd@4.12.3+http~readline+python
   - xrootd-toolfile
@@ -143,3 +207,4 @@ spack:
   - zlib-toolfile
   - zstd@1.4.5+shared~static~programs~legacy
   - zstd-toolfile
+  - yoda@1.9.0+root

@@ -1,0 +1,7 @@
+spack:
+  specs:
+  - mochi-bake
+  - py-mochi-margo
+  - py-pkgconfig
+  - py-pybind11
+  concretization: together
