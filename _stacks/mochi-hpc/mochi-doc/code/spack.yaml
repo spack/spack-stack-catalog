@@ -9,4 +9,5 @@ spack:
   - mochi-bedrock
   - mpich
   - argobots
+  - mochi-yokan+bedrock+python+lua
   concretization: together

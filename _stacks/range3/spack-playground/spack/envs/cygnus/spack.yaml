@@ -1,0 +1,63 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  # module load pmdk
+  # - pmdk@master +rpmem
+  # - libpmemobj-cpp
+  # - pmemkv +cmap+csmap
+  # - memkind
+  specs:
+  - libfabric@1.12.1 fabrics=rxm,sockets,tcp
+  - mercury ~boostsys+ofi
+  - mochi-thallium
+  - intel-tbb
+  - cxxopts
+  - fmt
+  - doctest
+  - nlohmann-json
+  concretization: together
+  view: true
+  packages:
+    all:
+      compiler: [gcc]
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.27.1
+        prefix: /
+      buildable: false
+  repos:
+  - ../../spack-repos/dev
+  - ../../extern/mochi-spack-packages
+  config:
+    build_stage:
+    - /work/NBB/$user/spack-stage
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.3.1
+      paths:
+        cc: /opt/rh/devtoolset-8/root/usr/bin/gcc
+        cxx: /opt/rh/devtoolset-8/root/usr/bin/g++
+        f77: /opt/rh/devtoolset-8/root/usr/bin/gfortran
+        fc: /opt/rh/devtoolset-8/root/usr/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

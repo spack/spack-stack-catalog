@@ -1,0 +1,289 @@
+# OLCF Spock Spack Environment
+    
+  #- ginkgo+rocm amdgpu_target=gfx908 %cce@12.0.1
+  #- sundials+rocm amdgpu_target=gfx908 %cce@12.0.1 ^cray-mpich
+  #- amrex+rocm amdgpu_target=gfx908 %cce@12.0.1 ^cray-mpich
+  #- xsdk~rocm ~trilinos ~dealii ~butterflypack %cce@12.0.1 ^cray-mpich
+  #^libiconv%gcc@7.5.0 ^pkgconf%gcc@7.5.0 ^diffutils%gcc@7.5.0 ^xz%gcc@7.5.0
+
+spack:
+  #############################################################################
+  specs:
+  - hypre ^cray-libsci %cce@12.0.1 ^cray-mpich
+  - superlu-dist ^parmetis@4.0.3 %cce@12.0.1 ^cray-mpich
+  - xsdk@0.7.0+rocm~cuda ~trilinos ~dealii ~butterflypack amdgpu_target=gfx908 %cce@12.0.1
+    ^cray-mpich ^libiconv%gcc@7.5.0 ^pkgconf%gcc@7.5.0 ^diffutils%gcc@7.5.0 ^xz%gcc@7.5.0
+  mirrors:
+    facility_builds: /sw/spock/spack-env/mirrors/builds
+  packages:
+    cmake:
+      externals:
+      - spec: cmake@3.20.0
+        prefix: /sw/spock/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/cmake-3.20.0-cyd2wge36qpevlwtsd3ce22mhyzhu7dg
+      buildable: false
+    hip:
+      externals:
+      - spec: hip@4.3.0
+        prefix: /opt/rocm-4.3.0/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.3.0/llvm/bin/clang
+            c++: /opt/rocm-4.3.0/llvm/bin/clang++
+            hip: /opt/rocm-4.3.0/hip/bin/hipcc
+      buildable: false
+    hsa-rocr-dev:
+      externals:
+      - spec: hsa-rocr-dev@4.3.0
+        prefix: /opt/rocm-4.3.0
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.3.0/llvm/bin/clang
+            cxx: /opt/rocm-4.3.0/llvm/bin/clang++
+      buildable: false
+    llvm-amdgpu:
+      externals:
+      - spec: llvm-amdgpu@4.3.0
+        prefix: /opt/rocm-4.3.0/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.3.0/llvm/bin/clang
+            cxx: /opt/rocm-4.3.0/llvm/bin/clang++
+      buildable: false
+    hipcub:
+      externals:
+      - spec: hipcub@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/hipcub
+    hipblas:
+      externals:
+      - spec: hipblas@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/hipblas
+    rocblas:
+      externals:
+      - spec: rocblas@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocblas
+    rocsolver:
+      externals:
+      - spec: rocsolver@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocsolver
+    hipsparse:
+      externals:
+      - spec: hipsparse@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/hipsparse
+    rocsparse:
+      externals:
+      - spec: rocsparse@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocsparse
+    rocthrust:
+      externals:
+      - spec: rocthrust@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocthrust
+    rocrand:
+      externals:
+      - spec: rocrand@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocrand
+    rocprim:
+      externals:
+      - spec: rocprim@4.3.0 ^hip@4.3.0
+        prefix: /opt/rocm-4.3.0/rocprim
+    rocfft:
+      variants: amdgpu_target=gfx908 amdgpu_target_sram_ecc=gfx908
+    python:
+      externals:
+      - spec: python@3.8.5+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /opt/cray/pe/python/3.8.5.1
+    openmpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+    mpich:
+      version: [3.4.1]
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+      variants: +verbs+slurm device=ch4 netmod=ofi pmi=pmi
+    cray-mpich:
+      version: [8.1.7]
+      externals:
+      - spec: cray-mpich@8.1.7
+        modules:
+        - cray-mpich/8.1.7
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+    cray-libsci:
+      buildable: false
+      version: [21.0.6.1.1]
+      externals:
+      - spec: cray-libsci@21.0.6.1.1
+        modules:
+        - cray-libsci/21.0.6.1.1
+    openblas:
+      buildable: false
+      target: []
+      compiler: []
+      providers: {}
+    parmetis:
+      buildable: false
+      version: [4.0.3]
+      externals:
+      - spec: parmetis@4.0.3
+        prefix: /sw/spock/spack-envs/base/opt/cray-sles15-zen2/cce-12.0.1/parmetis-4.0.3-knqkbwbxotgxtjsqpaqcexsflwpahs3z
+    slurm:
+      buildable: false
+      version: [20.11.3]
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: slurm@20.11.3
+        prefix: /usr
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      target: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+    libfabric:
+      version: [1.11.0.3.71]
+      buildable: false
+      externals:
+      - spec: libfabric@1.11.0.3.71
+        prefix: /opt/cray/libfabric/1.11.0.3.71
+    libiconv:
+      version: [1.16]
+      compiler: [gcc@7.5.0]
+    libxml2:
+      version: [2.9.10]
+      buildable: false
+      externals:
+      - spec: libxml2@2.9.10
+        modules:
+        - libxml2/2.9.10
+    pkgconf:
+      version: []
+      compiler: [gcc@7.5.0]
+    arpack-ng:
+      version: [3.8.0]
+      buildable: false
+      compiler: [cce@12.0.1]
+      externals:
+      - spec: arpack-ng@3.8.0
+        modules:
+        - arpack-ng/3.8.0
+    all:
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers:
+        mpi: [cray-mpich]
+        lapack: [cray-libsci]
+        blas: [cray-libsci]
+        scalapack: [netlib-scalapack]
+      compiler: [cce@12.0.1, gcc@7.5.0]
+  view: false
+  modules:
+    enable:
+    - lmod
+    - tcl
+    lmod:
+      core_compilers: [gcc@7.5.0]
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+    tcl:
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+      projections: {}
+    default:
+      lmod:
+        core_compilers:
+        - gcc@7.5.0
+        - gcc@7-os
+  upstreams:
+    olcf:
+      install_tree: /sw/spock/spack-envs/base/opt
+  config:
+    install_tree:
+      root: $spack/opt/spack
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_SOURCE_CACHE}
+    extensions:
+    - /sw/sources/facspack/share/spack/extensions/spack-olcf
+    misc_cache: $spack/var/spack/.mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout: null
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: clingo
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: together
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.8/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
+        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.2.0
+      - craype-accel-amd-gfx908
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@12.0.1
+      paths:
+        cc: /opt/cray/pe/craype/2.7.8/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
+        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/12.0.1                             ## Override PrgEnv default
+      - craype-accel-amd-gfx908                ## Base performance option
+      - rocm/4.3.0
+      - libfabric/1.11.0.4.75
+      environment: {}
+      extra_rpaths: []
