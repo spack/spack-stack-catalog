@@ -1,0 +1,17 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler: [gcc@9.3.0]
+    cmake:
+      version: [3.19.2]
+    mpfr:
+      version: [3.1.6] # Required by gcc@9.3.0
+    openmpi:
+      version: [4.0.0]
+  specs: [ninja@1.10.0, parmetis@4.0.3, cmake@3.19.2, openmpi@4.0.0, hdf5@1.10.7,
+    superlu-dist@6.4.0, suite-sparse@5.7.2, ccache@3.7.11, sundials@5.6.1]
+  view: false
