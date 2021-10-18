@@ -538,11 +538,11 @@ Alpine-DAV/spack_configs:
   data_format: 2
   description: spack envs
   filenames:
-  - envs/llnl/quartz/spack.yaml
-  - envs/alpinedav/ubuntu_18_devel/spack.yaml
-  - envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
-  - envs/olcf/summit/spack.yaml
   - envs/llnl/pascal-cuda/spack.yaml
+  - envs/alpinedav/ubuntu_18_devel/spack.yaml
+  - envs/llnl/quartz/spack.yaml
+  - envs/olcf/summit/spack.yaml
+  - envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
   full_name: Alpine-DAV/spack_configs
   latest_release: null
   readme: '<h1>
@@ -573,8 +573,8 @@ DavidPoliakoff/tuning-spack:
   data_format: 2
   description: null
   filenames:
-  - builds/openmp/spack.yaml
   - builds/cuda/spack.yaml
+  - builds/openmp/spack.yaml
   full_name: DavidPoliakoff/tuning-spack
   latest_release: null
   readme: '<p>Steps: get spack, as of this moment 0.16.1 seems good</p>
@@ -600,10 +600,10 @@ E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
-  - environments/20.10/spack.yaml
-  - environments/21.08/spack.yaml
-  - environments/21.05/spack.yaml
   - environments/21.02/spack.yaml
+  - environments/20.10/spack.yaml
+  - environments/21.05/spack.yaml
+  - environments/21.08/spack.yaml
   full_name: E4S-Project/e4s
   latest_release: v21.05
   readme: "<p><a href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -916,8 +916,8 @@ LLNL/Umpire:
   data_format: 2
   description: An application-focused API for memory management on NUMA & GPU architectures
   filenames:
-  - .spack_env/llnl/spack.yaml
   - .spack_env/darwin/spack.yaml
+  - .spack_env/llnl/spack.yaml
   full_name: LLNL/Umpire
   latest_release: v6.0.0
   readme: '<h1>
@@ -1314,20 +1314,20 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - examples/zeus/environment3_clingo/spack.yaml
-  - examples/topaz/environment_compchem/spack.yaml
-  - examples/joey/env5_python/spack.yaml
-  - examples/joey_sprint/template_environment/spack.yaml
-  - examples/zeus/environment1_compchem/spack.yaml
   - examples/joey/env3_fftw2/spack.yaml
   - examples/magnus/environment_astro/spack.yaml
-  - examples/magnus/template_environment/spack.yaml
-  - examples/zeus/environment2_python/spack.yaml
-  - examples/joey/env1_clingo_spack/spack.yaml
-  - examples/magnus/environment_chem/spack.yaml
-  - examples/magnus/environment_iolib/spack.yaml
-  - examples/joey/env2_clingo/spack.yaml
   - examples/joey/env4_compchem/spack.yaml
+  - examples/topaz/environment_compchem/spack.yaml
+  - examples/zeus/environment2_python/spack.yaml
+  - examples/joey/env5_python/spack.yaml
+  - examples/magnus/environment_chem/spack.yaml
+  - examples/joey_sprint/template_environment/spack.yaml
+  - examples/zeus/environment1_compchem/spack.yaml
+  - examples/joey/env1_clingo_spack/spack.yaml
+  - examples/magnus/environment_iolib/spack.yaml
+  - examples/zeus/environment3_clingo/spack.yaml
+  - examples/magnus/template_environment/spack.yaml
+  - examples/joey/env2_clingo/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1>
@@ -1709,8 +1709,8 @@ SeisSol/seissol-spack-aid:
   data_format: 2
   description: Spack support for SeisSol and related tools
   filenames:
-  - deployment/default-env-utils-images/image-files/amd64/spack.yaml
   - deployment/default-env-utils-images/image-files/arm64/spack.yaml
+  - deployment/default-env-utils-images/image-files/amd64/spack.yaml
   full_name: SeisSol/seissol-spack-aid
   latest_release: null
   readme: '<h1>
@@ -1786,8 +1786,8 @@ StreamAzure/NotesOnSC21:
   data_format: 2
   description: null
   filenames:
-  - docs/spack.yaml
   - docs/example_files/spack.yaml
+  - docs/spack.yaml
   full_name: StreamAzure/NotesOnSC21
   latest_release: null
   readme: '<h1>
@@ -1888,10 +1888,10 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
-  - docker-recipes/rhel7-runner-x86_64/spack.yaml
   - docker-recipes/rhel8-runner-x86_64/spack.yaml
+  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
+  - docker-recipes/rhel7-runner-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -2049,29 +2049,29 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent8/envs/avx2/lusoft/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent7/python_376/spack.yaml
   - cent8/envs/avx/python/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - compilers/envs/compilers/spack.yaml
+  - cent7/library/bak/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
   - cent8/envs/avx/rproject/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
   - cent7/library/spack.yaml
+  - cent7/bio_old/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
   - cent7/mpis/spack.yaml
-  - cent7/apps/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent7/bioinformatics/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
   - cent8/envs/avx2/rproject/spack.yaml
-  - cent8/envs/avx512/rproject/spack.yaml
   - cent8/envs/solhawk/spack.yaml
   - cent7/ece_hpc/spack.yaml
-  - cent7/bio_old/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent7/library/bak/spack.yaml
+  - cent7/apps/spack.yaml
+  - compilers/envs/compilers/spack.yaml
   - cent8/envs/avx512/lusoft/spack.yaml
-  - cent7/bioinformatics/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
-  - cent7/python_376/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
   - cent7/py_376/spack.yaml
-  - cent7/libs_old/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -2296,7 +2296,7 @@ buildtesters/buildtest:
   - hpc
   - json-schema
   - buildtest
-  updated_at: 1634330551.0
+  updated_at: 1634502983.0
 cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   data_format: 2
   description: null
@@ -2516,15 +2516,324 @@ eic/eic-spack:
   - spack-packages
   - spack-repo
   - eic
-  updated_at: 1634318773.0
+  updated_at: 1634527329.0
+electronic-structure/SIRIUS:
+  data_format: 2
+  description: Domain specific library for electronic structure calculations
+  filenames:
+  - dockerfile/spack.yaml
+  full_name: electronic-structure/SIRIUS
+  latest_release: v7.2.6
+  readme: "<p align=\"center\">\n<a href=\"doc/images/sirius_logo.png\" target=\"\
+    _blank\" rel=\"noopener noreferrer\"><img src=\"doc/images/sirius_logo.png\" width=\"\
+    500\" style=\"max-width:100%;\"></a>\n</p>\n<p><a href=\"https://github.com/electronic-structure/SIRIUS/releases\"\
+    ><img src=\"https://camo.githubusercontent.com/c73d057bc0ce51b550eae93560992046fe3d43509c00b3276aa1ec03a899bdc0/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f656c656374726f6e69632d7374727563747572652f7369726975732e737667\"\
+    \ alt=\"GitHub Releases\" data-canonical-src=\"https://img.shields.io/github/release/electronic-structure/sirius.svg\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://electronic-structure.github.io/SIRIUS-doc\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/baa66788db0de398c9b2722c3d7063864d0f32fb76a004c4149f1da7f0c48939/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f63732d646f787967656e2d626c75652e737667\"\
+    \ alt=\"Documentation\" data-canonical-src=\"https://img.shields.io/badge/docs-doxygen-blue.svg\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://raw.githubusercontent.com/electronic-structure/SIRIUS/master/LICENSE\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/44c92aa855b3a4b0b5c6f84818afb96ab66b53a102115f5167a396a3f0ff8f3a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d626c75652e737667\"\
+    \ alt=\"Licence\" data-canonical-src=\"https://img.shields.io/badge/license-BSD-blue.svg\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://github.com/electronic-structure/SIRIUS/actions\"\
+    ><img src=\"https://github.com/electronic-structure/SIRIUS/workflows/Build/badge.svg?branch=master\"\
+    \ alt=\"Build\" style=\"max-width:100%;\"></a>\n<a href=\"https://gitlab.com/cscs-ci/electronic-structure/SIRIUS/-/commits/master\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/fb638ee73d7ef0f107eee37c02a3785fc83287cb88e7417bfc650631ff047d92/68747470733a2f2f6769746c61622e636f6d2f637363732d63692f656c656374726f6e69632d7374727563747572652f5349524955532f6261646765732f6d61737465722f706970656c696e652e7376673f6b65795f746578743d6d6173746572\"\
+    \ alt=\"Verification tests master\" data-canonical-src=\"https://gitlab.com/cscs-ci/electronic-structure/SIRIUS/badges/master/pipeline.svg?key_text=master\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://gitlab.com/cscs-ci/electronic-structure/SIRIUS/-/commits/develop\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/632a3c9a8846d5d83954d9f31cc544fffccb9f40e1b3012ae790ccfd0d5e9ff1/68747470733a2f2f6769746c61622e636f6d2f637363732d63692f656c656374726f6e69632d7374727563747572652f5349524955532f6261646765732f646576656c6f702f706970656c696e652e7376673f6b65795f746578743d646576656c6f70\"\
+    \ alt=\"Verification tests develop\" data-canonical-src=\"https://gitlab.com/cscs-ci/electronic-structure/SIRIUS/badges/develop/pipeline.svg?key_text=develop\"\
+    \ style=\"max-width:100%;\"></a></p>\n<h2>\n<a id=\"user-content-table-of-contents\"\
+    \ class=\"anchor\" href=\"#table-of-contents\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Table of contents</h2>\n<ul>\n\
+    <li><a href=\"#introduction\">Introduction</a></li>\n<li>\n<a href=\"#installation\"\
+    >Installation</a>\n<ul>\n<li><a href=\"#configuring-sirius\">Configuring SIRIUS</a></li>\n\
+    <li><a href=\"#developing-and-debugging-sirius\">Developing and debugging SIRIUS</a></li>\n\
+    <li><a href=\"#manual-installation\">Manual installation</a></li>\n<li><a href=\"\
+    #archlinux\">Archlinux</a></li>\n<li><a href=\"#installation-on-piz-daint\">Installation\
+    \ on Piz Daint</a></li>\n</ul>\n</li>\n<li>\n<a href=\"#accelerating-dft-codes\"\
+    >Accelerating DFT codes</a>\n<ul>\n<li><a href=\"#quantum-espresso\">Quantum ESPRESSO</a></li>\n\
+    <li><a href=\"#cp2k\">CP2K</a></li>\n</ul>\n</li>\n<li><a href=\"#contacts\">Contacts</a></li>\n\
+    <li><a href=\"#acknowledgements\">Acknowledgements</a></li>\n</ul>\n<h2>\n<a id=\"\
+    user-content-introduction\" class=\"anchor\" href=\"#introduction\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Introduction</h2>\n\
+    <p>SIRIUS is a domain specific library for electronic structure calculations.\
+    \ It implements pseudopotential plane wave (PP-PW)\nand full potential linearized\
+    \ augmented plane wave (FP-LAPW) methods and is designed for GPU acceleration\
+    \ of popular community\ncodes such as Exciting, Elk and Quantum ESPRESSO. SIRIUS\
+    \ is written in C++14 with MPI, OpenMP and CUDA/ROCm programming models.\nSIRIUS\
+    \ is organised as a collection of classes that abstract away the different building\
+    \ blocks of DFT self-consistency cycle.</p>\n<p>The following functionality is\
+    \ currently implemented in SIRIUS:</p>\n<ul>\n<li>(PP-PW) Norm-conserving, ultrasoft\
+    \ and PAW pseudopotentials</li>\n<li>(PP-PW) Spin-orbit coupling</li>\n<li>(PP-PW)\
+    \ Stress tensor</li>\n<li>(PP-PW, FP-LAPW) Atomic forces</li>\n<li>(PP-PW, FP-LAPW)\
+    \ Collinear and non-collinear magnetism</li>\n<li>(FP-LAPW) APW and LAPW basis\
+    \ sets with arbitrary number of local orbitals</li>\n<li>(FP-LAPW) ZORA and IORA\
+    \ approximations for valence states; full relativistic Dirac equation for core\
+    \ states</li>\n<li>Symmetrization of lattice-periodic functions and on-site matrices</li>\n\
+    <li>Generation of irreducible k-meshes</li>\n<li>Python frontend</li>\n</ul>\n\
+    <h2>\n<a id=\"user-content-installation\" class=\"anchor\" href=\"#installation\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Installation</h2>\n<p>It is recommended to install SIRIUS through\
+    \ <a href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"\
+    nofollow\">Spack</a>. To set it up, use</p>\n<div class=\"highlight highlight-source-shell\"\
+    ><pre>git clone https://github.com/spack/spack.git\n<span class=\"pl-c1\">.</span>\
+    \ spack/share/spack/setup-env.sh\nspack install sirius</pre></div>\n<h3>\n<a id=\"\
+    user-content-configuring-sirius\" class=\"anchor\" href=\"#configuring-sirius\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Configuring SIRIUS</h3>\n<p>SIRIUS has many different configurations\
+    \ to enable specific hardware and library support. Some common setups include:</p>\n\
+    <div class=\"highlight highlight-source-shell\"><pre><span class=\"pl-c\"><span\
+    \ class=\"pl-c\">#</span> Use default BLAS, LAPACK, MPI and FFTW3 implementations,\
+    \ without GPU support, using the latest GCC 9.x</span>\n$ spack install sirius\
+    \ %gcc@:9\n\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Explicitly use\
+    \ the latest 3.x release of MPICH for MPI, OpenBLAS for BLAS and LAPACK, FFTW\
+    \ for FFTW3, without GPU support</span>\n$ spack install sirius ^mpich@:3 ^fftw\
+    \ ^openblas\n\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Enable distributed\
+    \ linear algebra, and use Intel MKL for BLAS, ScaLAPACK and FFTW3, without GPU\
+    \ support</span>\n$ spack install sirius +scalapack ^intel-mkl\n\n<span class=\"\
+    pl-c\"><span class=\"pl-c\">#</span> Build with CUDA support for NVIDIA GPUs</span>\n\
+    $ spack install sirius +cuda cuda_arch=75\n\n<span class=\"pl-c\"><span class=\"\
+    pl-c\">#</span> Build with ROCm support for AMD GPUs</span>\n$ spack install sirius\
+    \ +rocm amdgpu_target=gfx906\n\n<span class=\"pl-c\"><span class=\"pl-c\">#</span>\
+    \ Build with MAGMA</span>\n$ spack install sirius +cuda +magma\n\n<span class=\"\
+    pl-c\"><span class=\"pl-c\">#</span> Build with ELPA</span>\n$ spack install sirius\
+    \ +scalapack +elpa</pre></div>\n<p>Language interop with Fortran and Python can\
+    \ be enabled with <code>+fortran</code> and <code>+python</code> respectively.</p>\n\
+    <p>See <code>spack info sirius</code> for the full list of support variants.</p>\n\
+    <h3>\n<a id=\"user-content-developing-and-debugging-sirius\" class=\"anchor\"\
+    \ href=\"#developing-and-debugging-sirius\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Developing and debugging SIRIUS</h3>\n\
+    <p>The recommended way to install the latest development version of SIRIUS is\
+    \ through <code>spack dev-build</code>.</p>\n<p>As an example, the following builds\
+    \ SIRIUS with CUDA support in debug mode:</p>\n<div class=\"highlight highlight-source-shell\"\
+    ><pre>$ git clone --recursive -b develop https://github.com/electronic-structure/SIRIUS.git\n\
+    $ <span class=\"pl-c1\">cd</span> SIRIUS\n$ spack dev-build sirius@develop build_type=Debug\
+    \ +cuda</pre></div>\n<p>When more control over the build commands is necessary,\
+    \ use <code>spack build-env [spec] -- [command]</code>:</p>\n<div class=\"highlight\
+    \ highlight-source-shell\"><pre>$ mkdir SIRIUS/build <span class=\"pl-k\">&amp;&amp;</span>\
+    \ <span class=\"pl-c1\">cd</span> SIRIUS/build\n$ <span class=\"pl-k\">export</span>\
+    \ SPEC=<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>sirius@develop build_type=Debug\
+    \ +cuda<span class=\"pl-pds\">\"</span></span>\n$ spack install --only=dependencies\
+    \ <span class=\"pl-smi\">$SPEC</span>\n$ spack build-env <span class=\"pl-smi\"\
+    >$SPEC</span> -- cmake ..\n$ spack build-env <span class=\"pl-smi\">$SPEC</span>\
+    \ -- make -j<span class=\"pl-s\"><span class=\"pl-pds\">$(</span>nproc<span class=\"\
+    pl-pds\">)</span></span></pre></div>\n<h3>\n<a id=\"user-content-manual-installation\"\
+    \ class=\"anchor\" href=\"#manual-installation\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Manual installation</h3>\n<p>When\
+    \ installing SIRIUS without Spack, make sure to install the required dependencies\
+    \ first:</p>\n<ul>\n<li>CMake \u2265 3.14</li>\n<li>C++ compiler with C++14 support</li>\n\
+    <li>MPI (OpenMPI or MPICH)</li>\n<li>BLAS/LAPACK (OpenBLAS or Intel MKL)</li>\n\
+    <li>\n<a href=\"https://www.gnu.org/software/gsl/\" rel=\"nofollow\">GSL</a> -\
+    \ GNU scientific library</li>\n<li>\n<a href=\"https://www.tddft.org/programs/libxc/\"\
+    \ rel=\"nofollow\">LibXC</a> - library of exchange-correlation potentials</li>\n\
+    <li><a href=\"https://www.hdfgroup.org/solutions/hdf5/\" rel=\"nofollow\">HDF5</a></li>\n\
+    <li>\n<a href=\"https://atztogo.github.io/spglib/\" rel=\"nofollow\">spglib</a>\
+    \ - library for finding and handling crystal symmetries</li>\n<li>\n<a href=\"\
+    https://github.com/eth-cscs/SpFFT\">SpFFT</a> - domain-specific FFT library</li>\n\
+    <li>\n<a href=\"https://github.com/eth-cscs/spla\">SPLA</a> - domain-specific\
+    \ distributed GEMM library</li>\n</ul>\n<p>and optionally any of the additional\
+    \ libraries:</p>\n<ul>\n<li>ScaLAPACK (Intel MKL or netlib scalapack)</li>\n<li><a\
+    \ href=\"https://elpa.mpcdf.mpg.de/software\" rel=\"nofollow\">ELPA</a></li>\n\
+    <li><a href=\"https://icl.cs.utk.edu/magma/\" rel=\"nofollow\">MAGMA</a></li>\n\
+    <li>CUDA/ROCm</li>\n<li>\n<a href=\"https://www.boost.org/doc/libs/1_73_0/libs/filesystem/doc/index.htm\"\
+    \ rel=\"nofollow\">Boost Filesystem</a>*</li>\n</ul>\n<p>* Only required when\
+    \ <code>BUILD_APPS=On</code> and your compiler does not support <code>std::filesystem</code>\
+    \ or <code>std::experimental::filesystem</code>.</p>\n<p>Clone the repository\
+    \ and build as follows:</p>\n<div class=\"highlight highlight-source-shell\"><pre>git\
+    \ clone --recursive https://github.com/electronic-structure/SIRIUS.git\nmkdir\
+    \ SIRIUS/build\n<span class=\"pl-c1\">cd</span> SIRIUS/build\n<span class=\"pl-k\"\
+    >export</span> CXX=mpicxx CC=mpicc FC=mpif90\n<span class=\"pl-k\">export</span>\
+    \ CMAKE_PREFIX_PATH=<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>path/to/BLAS;path/to/GSL;path/to/LibXC;path/to/HDF5;...<span\
+    \ class=\"pl-pds\">\"</span></span>\ncmake -DCMAKE_INSTALL_PREFIX=<span class=\"\
+    pl-smi\">$PWD</span>/sirius\nmake -j install</pre></div>\n<p>where <code>CMAKE_PREFIX_PATH</code>\
+    \ is a list of installation paths of dependencies installed in non-standard locations.</p>\n\
+    <h4>\n<a id=\"user-content-adding-gpu-support\" class=\"anchor\" href=\"#adding-gpu-support\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Adding GPU support</h4>\n<p>To enable CUDA you need to pass the following\
+    \ options to CMake: <code>-DUSE_CUDA=On -DCUDA_ARCH='60;70'</code>, where <code>CUDA_ARCH</code>\
+    \ is\na list of NVIDIA architectures. Use <code>60</code>, <code>61</code>, <code>62</code>\
+    \ for Pascal; <code>70</code>, <code>72</code> for Volta; <code>75</code> for\
+    \ Turing; and <code>80</code> for Ampere.\nIf CUDA is installed in a non-standard\
+    \ directory, you have to pass additional parameter to cmake <code>-DCUDA_TOOLKIT_ROOT_DIR=/path/to/cuda</code>.</p>\n\
+    <p>To enable MAGMA (GPU implementation of LAPACK) use <code>-DUSE_MAGMA=On</code>.\
+    \ Append MAGMA's installation directory to <code>CMAKE_PREFIX_PATH</code> if necessary.</p>\n\
+    <h4>\n<a id=\"user-content-parallel-eigensolvers\" class=\"anchor\" href=\"#parallel-eigensolvers\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Parallel eigensolvers</h4>\n<p>To compile with ScaLAPACK use <code>-DUSE_SCALAPACK=On</code>.\
+    \ To use ELPA, both <code>-DUSE_SCALAPACK=On</code> and <code>-DUSE_ELPA=On</code>\
+    \ are\nrequired, as we need ScaLAPACK functionality to transform the generalized\
+    \ eigenvalue problem to standard form,\nwhich can then be solved by ELPA. Append\
+    \ ScaLAPACK's and ELPA's install directory to <code>CMAKE_PREFIX_PATH</code> if\
+    \ necessary.</p>\n<h4>\n<a id=\"user-content-python-module\" class=\"anchor\"\
+    \ href=\"#python-module\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Python module</h4>\n<p>Use <code>-DCREATE_PYTHON_MODULE=On</code>\
+    \ to build the Python module. The SIRIUS Python module depends on <code>mpi4py</code>\
+    \ and\n<code>pybind11</code>, which need to be installed on your system.</p>\n\
+    <h4>\n<a id=\"user-content-additional-options\" class=\"anchor\" href=\"#additional-options\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Additional options</h4>\n<p>To link against Intel MKL use <code>-DUSE_MKL=On</code>.\
+    \ For Cray libsci use <code>-DUSE_CRAY_LIBSCI=On</code>. Building tests requires\
+    \ <code>-DBUILD_TESTING=On</code>.</p>\n<p>By default example applications are\
+    \ built. This can be turned off via <code>-DBUILD_APPS=Off</code>, which is recommended\
+    \ when just building Fortran bindings.</p>\n<h3>\n<a id=\"user-content-arch-linux\"\
+    \ class=\"anchor\" href=\"#arch-linux\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Arch Linux</h3>\n<p>Arch Linux\
+    \ users can find SIRIUS in the <a href=\"https://aur.archlinux.org/packages/sirius-git/\"\
+    \ rel=\"nofollow\">AUR</a>.</p>\n<h3>\n<a id=\"user-content-installation-on-piz-daint\"\
+    \ class=\"anchor\" href=\"#installation-on-piz-daint\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Installation\
+    \ on Piz Daint</h3>\n<p>Please refer to the <a href=\"https://github.com/electronic-structure/SIRIUS/wiki/Build-on-Piz-Daint\"\
+    >SIRIUS wiki page</a> and\n<a href=\"https://user.cscs.ch/computing/applications/sirius/\"\
+    \ rel=\"nofollow\">CSCS User portal</a> for detailed instructions.</p>\n<h2>\n\
+    <a id=\"user-content-accelerating-dft-codes\" class=\"anchor\" href=\"#accelerating-dft-codes\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Accelerating DFT codes</h2>\n<h3>\n<a id=\"user-content-quantum-espresso\"\
+    \ class=\"anchor\" href=\"#quantum-espresso\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Quantum ESPRESSO</h3>\n<p><a\
+    \ href=\"https://www.quantum-espresso.org/\" rel=\"nofollow\">Quantum ESPRESSO</a>\
+    \ is a popular open source suite of computer codes for\nelectronic-structure calculations\
+    \ and materials modeling at the nanoscale. It is based on DFT, plane waves, and\n\
+    pseudopotentials. We maintain the GPU-accelerated version of\n<a href=\"https://github.com/electronic-structure/q-e-sirius\"\
+    >Quantum ESPRESSO with SIRIUS bindings</a>.\nThis version is frequently synchronised\
+    \ with the\n<code>develop</code> branch of the official <a href=\"https://gitlab.com/QEF/q-e\"\
+    \ rel=\"nofollow\">QE repository</a>. A typical example of using SIRIUS\ninside\
+    \ QE is listed below:</p>\n<div class=\"highlight highlight-source-fortran\"><pre><span\
+    \ class=\"pl-k\">subroutine</span> <span class=\"pl-en\">get_band_energies_from_sirius</span>\n\
+    \  !\n  use wvfct,    only : nbnd, et\n  use klist,    only : nkstot, nks\n  use\
+    \ lsda_mod, only : nspin\n  use sirius\n  !\n  <span class=\"pl-k\">implicit none</span>\n\
+    \  !\n  <span class=\"pl-k\">integer</span>, <span class=\"pl-k\">external</span>\
+    \ <span class=\"pl-k\">::</span> global_kpoint_index\n  !\n  <span class=\"pl-k\"\
+    >real</span>(<span class=\"pl-c1\">8</span>), allocatable <span class=\"pl-k\"\
+    >::</span> band_e(:,:)\n  <span class=\"pl-k\">integer</span> <span class=\"pl-k\"\
+    >::</span> ik, nk, nb, nfv\n\n  allocate(band_e(nbnd, nkstot))\n\n  ! get band\
+    \ energies\n  <span class=\"pl-k\">if</span> (nspin<span class=\"pl-k\">.ne.</span><span\
+    \ class=\"pl-c1\">2</span>) <span class=\"pl-k\">then</span>\n    ! non<span class=\"\
+    pl-k\">-</span>magnetic or non<span class=\"pl-k\">-</span>collinear case\n  \
+    \  <span class=\"pl-k\">do</span> ik <span class=\"pl-k\">=</span> <span class=\"\
+    pl-c1\">1</span>, nkstot\n      <span class=\"pl-k\">call</span> sirius_get_band_energies(ks_handler,\
+    \ ik, <span class=\"pl-c1\">0</span>, band_e(<span class=\"pl-c1\">1</span>, ik))\n\
+    \    <span class=\"pl-k\">end do</span>\n  <span class=\"pl-k\">else</span>\n\
+    \    ! collinear magnetic case\n    nk <span class=\"pl-k\">=</span> nkstot <span\
+    \ class=\"pl-k\">/</span> <span class=\"pl-c1\">2</span>\n    ! get band energies\n\
+    \    <span class=\"pl-k\">do</span> ik <span class=\"pl-k\">=</span> <span class=\"\
+    pl-c1\">1</span>, nk\n      <span class=\"pl-k\">call</span> sirius_get_band_energies(ks_handler,\
+    \ ik, <span class=\"pl-c1\">0</span>, band_e(<span class=\"pl-c1\">1</span>, ik))\n\
+    \      <span class=\"pl-k\">call</span> sirius_get_band_energies(ks_handler, ik,\
+    \ <span class=\"pl-c1\">1</span>, band_e(<span class=\"pl-c1\">1</span>, nk <span\
+    \ class=\"pl-k\">+</span> ik))\n    <span class=\"pl-k\">end do</span>\n\n  <span\
+    \ class=\"pl-k\">endif</span>\n\n  ! convert <span class=\"pl-k\">to</span> Ry\n\
+    \  <span class=\"pl-k\">do</span> ik <span class=\"pl-k\">=</span> <span class=\"\
+    pl-c1\">1</span>, nks\n    et(:, ik) <span class=\"pl-k\">=</span> <span class=\"\
+    pl-c1\">2.d0</span> <span class=\"pl-k\">*</span> band_e(:, global_kpoint_index(nkstot,\
+    \ ik))\n  <span class=\"pl-k\">enddo</span>\n\n  deallocate(band_e)\n\n<span class=\"\
+    pl-k\">end</span> <span class=\"pl-k\">subroutine</span><span class=\"pl-en\"\
+    > get_band_energies_from_sirius</span></pre></div>\n<p>To compile Quantum ESPRESSO\
+    \ with SIRIUS it is easiest to use Spack. The following installs a CUDA enabled\
+    \ version:</p>\n<div class=\"highlight highlight-source-shell\"><pre>spack install\
+    \ q-e-sirius ^sirius +shared +scalapack +cuda <span class=\"pl-k\">~</span>apps\
+    \ ^intel-mkl ^mpich</pre></div>\n<p>Now you can load <code>pw.x</code> and MPI\
+    \ related executables:</p>\n<div class=\"highlight highlight-source-shell\"><pre>spack\
+    \ load q-e-sirius</pre></div>\n<p>Run <code>pw.x</code> using the same parameters\
+    \ and input files as you would with native QE. Note that you have to explicitly\n\
+    enable SIRIUS through the command-line option <code>-sirius</code> in <code>pw.x</code>.\
+    \ For instance:</p>\n<div class=\"highlight highlight-source-shell\"><pre><span\
+    \ class=\"pl-c\"><span class=\"pl-c\">#</span> run in default mode</span>\npw.x\
+    \ -i pw.in\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> run with SIRIUS\
+    \ enabled</span>\npw.x -i pw.in -sirius</pre></div>\n<p>The SIRIUS library is\
+    \ using OpenMP for node-level parallelization. To run QE/SIRIUS efficiently, follow\
+    \ these simple rules:</p>\n<ul>\n<li>always prefer k-point pool parallelization\
+    \ over band parallelization</li>\n<li>use as few MPI ranks as possible for band\
+    \ parallelization</li>\n<li>by default, use one rank per node and many OMP threads;\
+    \ if the calculated system is really small, try to saturate\nthe GPU card by using\
+    \ more MPI ranks (e.g.: on a 12-core node, use 2-3-4 ranks with 6-4-3 OMP threads)</li>\n\
+    </ul>\n<h4>\n<a id=\"user-content-benchmarks\" class=\"anchor\" href=\"#benchmarks\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Benchmarks</h4>\n<p>In the following examples we compare the performance\
+    \ of native and SIRIUS-enabled versions of QE. CPU-only runs are executed\non\
+    \ dual-socket multi-core nodes containing two 18-core Intel Broadwell CPUs. GPU\
+    \ runs are executed on hybrid\nnodes containing a 12-core Intel Haswell CPU and\
+    \ an NVIDIA Tesla P100 card:</p>\n<table>\n<thead>\n<tr>\n<th>Hybrid partition\
+    \ (Cray XC50)</th>\n<th>Multicore partition (Cray XC40)</th>\n</tr>\n</thead>\n\
+    <tbody>\n<tr>\n<td>Intel Xeon E5-2690 v3 @2.60GHz, 12 cores <br> NVIDIA Tesla\
+    \ P100 16GB</td>\n<td>Two Intel Xeon E5-2695 v4 @2.10GHz (2 x 18 cores)</td>\n\
+    </tr>\n</tbody>\n</table>\n<p>Ground state calculation (<a href=\"https://github.com/electronic-structure/benchmarks/tree/master/performance/Si511Ge\"\
+    >input</a>)\nof Si511Ge.</p>\n<p align=\"center\">\n<a href=\"doc/images/Si511Ge_perf.png\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"doc/images/Si511Ge_perf.png\"\
+    \ style=\"max-width:100%;\"></a>\n</p>\n<p>Another example is the variable cell\
+    \ relaxation of B6Ni8 (<a href=\"https://github.com/electronic-structure/benchmarks/tree/master/performance/B6Ni8\"\
+    >input</a>).\nThe Brillouin zone contains 204 irreducible k-points and only k-pool\
+    \ parallelization is used.</p>\n<p align=\"center\">\n<a href=\"doc/images/B6Ni8_perf.png\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"doc/images/B6Ni8_perf.png\"\
+    \ style=\"max-width:100%;\"></a>\n</p>\n<h3>\n<a id=\"user-content-cp2k\" class=\"\
+    anchor\" href=\"#cp2k\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>CP2K</h3>\n<p><a href=\"https://www.cp2k.org/\"\
+    \ rel=\"nofollow\">CP2K</a> uses the SIRIUS library to enable plane-wave functionality.\
+    \ The detailed description of the input parameters\ncan be found <a href=\"https://manual.cp2k.org\"\
+    \ rel=\"nofollow\">here</a> under the <code>/CP2K_INPUT/FORCE_EVAL/PW_DFT</code>\
+    \ section.</p>\n<h2>\n<a id=\"user-content-contacts\" class=\"anchor\" href=\"\
+    #contacts\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Contacts</h2>\n<p>If you have any questions, feel free to contact\
+    \ us:</p>\n<ul>\n<li>Anton Kozhevnikov (<a href=\"mailto:anton.kozhevnikov@cscs.ch\"\
+    >anton.kozhevnikov@cscs.ch</a>)</li>\n<li>Mathieu Taillefumier (<a href=\"mailto:mathieu.taillefumier@cscs.ch\"\
+    >mathieu.taillefumier@cscs.ch</a>)</li>\n<li>Simon Pintarelli (<a href=\"mailto:simon.pintarelli@cscs.ch\"\
+    >simon.pintarelli@cscs.ch</a>)</li>\n</ul>\n<h2>\n<a id=\"user-content-acknowledgements\"\
+    \ class=\"anchor\" href=\"#acknowledgements\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Acknowledgements</h2>\n<p>The\
+    \ development of the SIRIUS library would not be possible without support of the\
+    \ following organizations:</p>\n<table>\n<thead>\n<tr>\n<th align=\"center\">Logo</th>\n\
+    <th align=\"center\">Name</th>\n<th align=\"center\">URL</th>\n</tr>\n</thead>\n\
+    <tbody>\n<tr>\n<td align=\"center\"><a href=\"doc/images/logo_ethz.png\" target=\"\
+    _blank\" rel=\"noopener noreferrer\"><img src=\"doc/images/logo_ethz.png\" alt=\"\
+    ethz\" style=\"max-width:100%;\"></a></td>\n<td align=\"center\">Swiss Federal\
+    \ Institute of Technology in Z\xFCrich</td>\n<td align=\"center\"><a href=\"https://www.ethz.ch/\"\
+    \ rel=\"nofollow\">https://www.ethz.ch/</a></td>\n</tr>\n<tr>\n<td align=\"center\"\
+    ><a href=\"doc/images/logo_cscs.png\" target=\"_blank\" rel=\"noopener noreferrer\"\
+    ><img src=\"doc/images/logo_cscs.png\" alt=\"cscs\" style=\"max-width:100%;\"\
+    ></a></td>\n<td align=\"center\">Swiss National Supercomputing Centre</td>\n<td\
+    \ align=\"center\"><a href=\"https://www.cscs.ch/\" rel=\"nofollow\">https://www.cscs.ch/</a></td>\n\
+    </tr>\n<tr>\n<td align=\"center\"><a href=\"doc/images/logo_pasc.png\" target=\"\
+    _blank\" rel=\"noopener noreferrer\"><img src=\"doc/images/logo_pasc.png\" alt=\"\
+    pasc\" style=\"max-width:100%;\"></a></td>\n<td align=\"center\">Platform for\
+    \ Advanced Scientific Computing</td>\n<td align=\"center\"><a href=\"https://www.pasc-ch.org/\"\
+    \ rel=\"nofollow\">https://www.pasc-ch.org/</a></td>\n</tr>\n<tr>\n<td align=\"\
+    center\"><a href=\"doc/images/logo_marvel.png\" target=\"_blank\" rel=\"noopener\
+    \ noreferrer\"><img src=\"doc/images/logo_marvel.png\" alt=\"pasc\" style=\"max-width:100%;\"\
+    ></a></td>\n<td align=\"center\">NCCR MARVEL <br> Centre on Computational Design\
+    \ and Discovery of Novel Materials</td>\n<td align=\"center\"><a href=\"https://nccr-marvel.ch/\"\
+    \ rel=\"nofollow\">https://nccr-marvel.ch/</a></td>\n</tr>\n<tr>\n<td align=\"\
+    center\"><a href=\"doc/images/logo_max.png\" target=\"_blank\" rel=\"noopener\
+    \ noreferrer\"><img src=\"doc/images/logo_max.png\" alt=\"pasc\" style=\"max-width:100%;\"\
+    ></a></td>\n<td align=\"center\">MAX (MAterials design at the eXascale) <br> European\
+    \ Centre of Excellence</td>\n<td align=\"center\"><a href=\"http://www.max-centre.eu/\"\
+    \ rel=\"nofollow\">http://www.max-centre.eu/</a></td>\n</tr>\n<tr>\n<td align=\"\
+    center\"><a href=\"doc/images/logo_prace.png\" target=\"_blank\" rel=\"noopener\
+    \ noreferrer\"><img src=\"doc/images/logo_prace.png\" alt=\"pasc\" style=\"max-width:100%;\"\
+    ></a></td>\n<td align=\"center\">Partnership for Advanced Computing in Europe</td>\n\
+    <td align=\"center\"><a href=\"https://prace-ri.eu/\" rel=\"nofollow\">https://prace-ri.eu/</a></td>\n\
+    </tr>\n</tbody>\n</table>\n"
+  stargazers_count: 67
+  subscribers_count: 15
+  topics:
+  - density-functional-theory
+  - electronic-structure-calculations
+  - pseudopotential
+  - full-potential
+  - planewave
+  - lapw
+  - gpu
+  - cuda
+  - rocm
+  - mpi
+  updated_at: 1634312641.0
 eth-cscs/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
-  - build/5_runtime/spack.yaml
-  - build/1_ccache/spack.yaml
   - build/6_spack/spack.yaml
+  - build/1_ccache/spack.yaml
   - build/2_compiler/spack.yaml
+  - build/5_runtime/spack.yaml
   - build/3_more_tools/spack.yaml
   full_name: eth-cscs/spack-batteries-included
   latest_release: develop
@@ -2641,8 +2950,8 @@ eugeneswalker/exawind-cacher:
   data_format: 2
   description: null
   filenames:
-  - compiler-spack.yaml
   - exawind-spack.yaml
+  - compiler-spack.yaml
   full_name: eugeneswalker/exawind-cacher
   latest_release: null
   readme: '<h2>
@@ -3052,6 +3361,17 @@ haampie-spack/ci-example-gha:
   subscribers_count: 2
   topics: []
   updated_at: 1626953351.0
+haampie-spack/setup-spack:
+  data_format: 2
+  description: null
+  filenames:
+  - example-environment/spack.yaml
+  full_name: haampie-spack/setup-spack
+  latest_release: v1.2.1
+  stargazers_count: 2
+  subscribers_count: 2
+  topics: []
+  updated_at: 1629841307.0
 haampie/libtree:
   data_format: 2
   description: ldd as a tree with an option to bundle dependencies into a single folder
@@ -3357,14 +3677,14 @@ jrood-nrel/spack-configs:
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
   - configs/eagle/compilers/spack.yaml
+  - configs/eagle/utilities/spack.yaml
+  - configs/eagle/software/spack.yaml
+  - envs/exawind/spack.yaml
   - configs/rhodes/compilers/spack.yaml
   - configs/eagle/base/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/eagle/utilities/spack.yaml
-  - envs/exawind/spack.yaml
   - configs/rhodes/utilities/spack.yaml
-  - configs/rhodes/software/spack.yaml
   - configs/rhodes/base/spack.yaml
+  - configs/rhodes/software/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -3532,13 +3852,13 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/key4hep-release/spack.yaml
-  - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-debug/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
   - environments/key4hep-release-user/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
   - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-debug/spack.yaml
+  - environments/geant4-data-share/spack.yaml
+  - environments/key4hep-release/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-05-13'
   readme: '<h1>
@@ -3587,15 +3907,15 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
+  - .gitlab-ci/env/local-build/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
+  - .gitlab-ci/env/dry-run/spack.yaml
+  - .gitlab-ci/env/root-build/spack.yaml
   - env/power9le/flecsi/spack.yaml
   - env/broadwell/flecsalemm-deps/spack.yaml
-  - env/x86_64/flecsi/spack.yaml
   - env/x86_64/flecsalemm-deps/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
+  - env/x86_64/flecsi/spack.yaml
   - env/power9le/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
-  - .gitlab-ci/env/root-build/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -3836,9 +4156,9 @@ mayrmt/spack_environments:
   data_format: 2
   description: A set of spack environemts for some of my projects
   filenames:
-  - env_trilinos/spack.yaml
   - env_4c/spack.yaml
   - env_baci/spack.yaml
+  - env_trilinos/spack.yaml
   full_name: mayrmt/spack_environments
   latest_release: null
   readme: '<h1>
@@ -4581,8 +4901,8 @@ mochi-hpc/mochi-mona:
   data_format: 2
   description: Mochi messaging over NA
   filenames:
-  - benchmark/cori/spack.yaml
   - spack.yaml
+  - benchmark/cori/spack.yaml
   full_name: mochi-hpc/mochi-mona
   latest_release: sc21
   readme: '<h1>
@@ -5366,10 +5686,10 @@ olcf/spack-environments:
   data_format: 2
   description: Spack Environments Templates for OLCF resources
   filenames:
-  - linux-rhel8-zen2/cirrus/spack.yaml
   - linux-sles15-zen2/spock/spack.yaml
-  - linux-rhel7-ppc64le/summit/spack.yaml
   - linux-rhel8-ppc64le/summit/spack.yaml
+  - linux-rhel7-ppc64le/summit/spack.yaml
+  - linux-rhel8-zen2/cirrus/spack.yaml
   full_name: olcf/spack-environments
   latest_release: null
   readme: '<p>OLCF Spack Environments Templates</p>
@@ -6131,9 +6451,9 @@ rngoodner/fiesta-helpers:
   data_format: 2
   description: null
   filenames:
-  - spack-environments/mvapich2-lassen/spack.yaml
   - spack-environments/openmpi-lassen/spack.yaml
   - spack-environments/openmpi/spack.yaml
+  - spack-environments/mvapich2-lassen/spack.yaml
   full_name: rngoodner/fiesta-helpers
   latest_release: null
   readme: '<h1>
@@ -6555,46 +6875,75 @@ spack/localized-docs:
   subscribers_count: 7
   topics: []
   updated_at: 1621989548.0
+spack/spack-ci-containers:
+  data_format: 2
+  description: Container recipes used by Spack for test purposes
+  filenames:
+  - clingo/spack.yaml
+  full_name: spack/spack-ci-containers
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-spack-ci-containers" class="anchor" href="#spack-ci-containers"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spack
+    CI containers</h1>
+
+    <p>This repository contains recipes for containers that are
+
+    used to test Spack under CI.</p>
+
+    <h2>
+
+    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+    <p>Spack is distributed under the terms of both the MIT license and the
+
+    Apache License (Version 2.0). Users may choose either license, at their
+
+    option.</p>
+
+    <p>All new contributions must be made under both the MIT and Apache-2.0 licenses.</p>
+
+    <p>See <a href="https://github.com/spack/spack-ci-containers/blob/master/LICENSE-MIT">LICENSE-MIT</a>,
+
+    <a href="https://github.com/spack/spack-ci-containers/blob/master/LICENSE-APACHE">LICENSE-APACHE</a>,
+
+    <a href="https://github.com/spack/spack-ci-containers/blob/master/COPYRIGHT">COPYRIGHT</a>,
+    and
+
+    <a href="https://github.com/spack/spack-ci-containers/blob/master/NOTICE">NOTICE</a>
+    for details.</p>
+
+    <p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>
+
+    <p>LLNL-CODE-811652</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 5
+  topics: []
+  updated_at: 1621989328.0
 spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
   - OLCF/summit/spack.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
   - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - NERSC/cori/e4s-20.10/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - NERSC/cori/e4s-stacks/hsw/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - OLCF/spock/spack.yaml
-  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
   - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
+  - OLCF/spock/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - NERSC/cori/e4s-21.05/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -7273,6 +7622,155 @@ srini009/sds-keyval:
   subscribers_count: 1
   topics: []
   updated_at: 1631578722.0
+srini009/symbiomon:
+  data_format: 2
+  description: SYMBIOMON Monitoring Microservice
+  filenames:
+  - spack.yaml
+  full_name: srini009/symbiomon
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-margo-microservice-template\" class=\"anchor\"\
+    \ href=\"#margo-microservice-template\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Margo Microservice Template</h1>\n\
+    <p>This project is a template to start developing a Mochi microservice based on\
+    \ Margo.\nIf you want to implement your own microservice, please read ahead. Though\
+    \ this project\nprovides many examples of how to use the Margo API, you may want\
+    \ to refer to the Margo\ndocumentation <a href=\"https://mochi.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">here</a> for more detail.</p>\n<h2>\n<a id=\"user-content-the-mochi-philosophy\"\
+    \ class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>The Mochi philosophy</h2>\n<p>The\
+    \ philosophy of the Mochi project consists of providing a set of building blocks\n\
+    for developing HPC data service. Each building block is meant to offer <strong>efficient</strong>,\n\
+    <strong>location-agnostic</strong> access to a <strong>simple set of functionalities</strong>\
+    \ through\n<strong>modular backends</strong>, while <strong>seamlessly sharing\
+    \ hardware</strong> (compute and network)\nwith other building blocks.</p>\n<p>A\
+    \ <strong>simple set of functionalities</strong> may be, for example, <em>\"storing\
+    \ and retrieving\nsmall key/value pairs\"</em>, a common feature found in many\
+    \ storage systems to manage\nmetadata. The <strong>location-agnostic</strong>\
+    \ aspect aims at making such a feature available\nto user programs in the same\
+    \ manner and through the same API regardless of whether\nthe service runs in the\
+    \ same process, on the same node but on different processes,\nor on a different\
+    \ node across a network. The <strong>modular backends</strong> aspect makes it\n\
+    possible to abstract the implementation of such a feature and, if not providing\n\
+    multiple implementations, at least providing the means for someone to easily swap\n\
+    the default implementation of the feature for their own. Because multiple building\n\
+    blocks may be running on the same node, such a building block should efficiently\n\
+    share the compute and network hardware with other building blocks. This is done\n\
+    by sharing a common networking and threading layer: Margo.</p>\n<h2>\n<a id=\"\
+    user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Design\
+    \ overview</h2>\n<p>The typical design of a Mochi microservice revolves around\
+    \ three libraries:\n<strong>server</strong>, <strong>client</strong>, and <strong>admin</strong>.</p>\n\
+    <ul>\n<li>The server library contains a service <strong>provider</strong>, that\
+    \ is, an object that\ncan receive some predefined RPCs to offer a particular functionality.\
+    \ Within\nthe same process, multiple providers of the same service may be instantiated,\n\
+    using distinct <strong>provider ids</strong> (<code>uint16_t</code>). A provider\
+    \ is responsible for\nmanaging a set of <strong>resources</strong>. In the example\
+    \ of a storage for key/value\npairs, a resource may be a database. The functionalities\
+    \ of a provider may\nbe enabled by multiple <strong>backends</strong>. For example,\
+    \ a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an\
+    \ in-memory hash table.\nPrograms sending requests to a provider should <strong>not</strong>\
+    \ be unaware of the backend used\nto implement the requested functionality. This\
+    \ allows multiple backends to be\ntested, and for backends to evolve independently\
+    \ from user applications.</li>\n<li>The client library is the library through\
+    \ which user applications or higher-level\nservices interact with providers. It\
+    \ will typically provide a <strong>client</strong> structure\nthat is used to\
+    \ register the set of RPCs that can be invoked, and a <strong>resource handle</strong>\n\
+    structure that references a particular resource located on a particular provider.\n\
+    User applications will typically initialize a singe client object for a service,\
+    \ and\nfrom this client object instantiate as many resource handles as needed\
+    \ to interact with\navailable resources. Resources are identified by a <strong>resource\
+    \ id</strong>, which are generally\neither a name, an integer, or a\n<a href=\"\
+    https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\
+    >uuid</a> (this template\nproject uses uuids).</li>\n<li>The admin library is\
+    \ the library through which a user application can send\nrequests that are meant\
+    \ for the provider itself rather than for a resource.\nA few most common such\
+    \ requests include the creation and destruction of\nresources, their migration,\
+    \ etc. It can be useful to think of the admin\nlibrary as the set of features\
+    \ you would want to provide to the person or\napplication that sets up the service,\
+    \ rather than the person or application\nthat uses its functionalities.</li>\n\
+    </ul>\n<h2>\n<a id=\"user-content-organization-of-this-template-project\" class=\"\
+    anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Organization\
+    \ of this template project</h2>\n<p>This template project illustrates how a Margo-based\
+    \ microservice could\nbe architected. It can be compiled as-is, and provides a\
+    \ couple of\nfunctionalities that make the provider print a \"Hello World\" message\n\
+    on its standard output, or compute the sum of two integers.</p>\n<p>This template\
+    \ project uses <strong>alpha</strong> as the name of your microservice.\nFunctions,\
+    \ types, files, and libraries therefore use the <strong>alpha</strong> prefix.\n\
+    The first step in setting up this project for your microservice will be\nto replace\
+    \ this prefix. The generic name <strong>resource</strong> should also be\nreplaced\
+    \ with a more specific name, such as <strong>database</strong>. This renaming\n\
+    step can be done by using the <em>setup.py</em> script at the root of this repository\n\
+    (see next section).</p>\n<p>The <em>include</em> directory of this template project\
+    \ provides public header files.</p>\n<ul>\n<li>\n<em>alpha/alpha-common.h</em>\
+    \ contains APIs that are common to the three\nlibraries, such as error codes or\
+    \ common types;</li>\n<li>\n<em>alpha/alpha-client.h</em> contains the client-side\
+    \ functions to create\nand destroy a client object;</li>\n<li>\n<em>alpha/alpha-resource.h</em>\
+    \ contains the client-side functions to create\nand destroy resource handles,\
+    \ and to interact with a resource through\na resource handle;</li>\n<li>\n<em>alpha/alpha-server.h</em>\
+    \ contains functions to register and destroy\na provider;</li>\n<li>\n<em>alpha/alpha-backend.h</em>\
+    \ contains the definition of a structure that\none would need to implement in\
+    \ order to provide a new backend for\nyour microservice;</li>\n<li>\n<em>alpha/alpha-admin.h</em>\
+    \ contains the functions to create and destroy\nan admin object, as well as admin\
+    \ functions to interact with a provider;</li>\n<li>\n<em>alpha/alpha-provider-handle.h</em>\
+    \ contains the definition of a provider handle.\nThis type of construct is often\
+    \ used in Mochi services to encapsulate\nan address and a provider id.</li>\n\
+    </ul>\n<p>The implementation of all these functions is located in the <em>src</em>\
+    \ directory.\nThe source also includes functionalities such as a small header-based\
+    \ logging library.\nThe <em>src/dummy</em> directory provides a default implementation\
+    \ of a backend. This\nbackend also exemplifies the use of the <a href=\"https://github.com/json-c/json-c\"\
+    >json-c</a> library\nfor JSON-based resource configuration. We recommend that\
+    \ you implement a dummy backend for your\nservice, as a way of testing application\
+    \ logic and RPCs without the burden of complex\nexternal dependencies. For instance,\
+    \ a dummy backend may be a backend that simply\nacknowledges requests but does\
+    \ not process them, or provides mock results.</p>\n<p>The <em>examples</em> directory\
+    \ contains an example using the microservice:\nthe server example will start a\
+    \ provider and print its address (if logging was enabled).\nThe admin example\
+    \ will connect to this provider and have it create a resource, then\nprint the\
+    \ resource id. The client example can be run next to interact with the resource.</p>\n\
+    <p>The <em>tests</em> directory contains a set of unit tests for your service.\n\
+    It relies on <a href=\"https://nemequ.github.io/munit\" rel=\"nofollow\">\xB5\
+    nit</a> (included in this repository),\na C unit-test library under an MIT license.\
+    \ Feel free to continue using it as you\nadd more functionalities to your microservice;\
+    \ unit-testing is just good software\ndevelopment practice in general.</p>\n<p>The\
+    \ template also contains a <em>spack.yaml</em> file at its root that can be used\
+    \ to\ninstall its dependencies. You may add additional dependencies into this\
+    \ file as\nyour microservice gets more complex.</p>\n<p>As you modify this project\
+    \ to implement your own microservice, feel free to remove\nany dependencies you\
+    \ don't like (such as json-c or \xB5nit) and adapt it to your needs!</p>\n<h2>\n\
+    <a id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Setting up your project</h2>\n<p>Let's assume you want to create a\
+    \ microservice called \"yellow\", which manages\na phone directory (association\
+    \ between names and phone numbers). The following\nshows how to setup your project:</p>\n\
+    <pre><code>git clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\n\
+    mv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n\
+    $ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g.,\
+    \ database): phonebook\n</code></pre>\n<p>The python script will edit and rename\
+    \ all the files, replacing <em>alpha</em> with <em>yellow</em>\nand <em>resource</em>\
+    \ with <em>phonebook</em>.</p>\n<h2>\n<a id=\"user-content-building-the-project\"\
+    \ class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Building the project</h2>\n<p>The\
+    \ project's dependencies may be build using <a href=\"https://spack.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">spack</a>.\nYou will need to have setup <a href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\"\
+    \ rel=\"nofollow\">sds-repo</a> as external\nnamespace for spack, which can be\
+    \ done as follows.</p>\n<pre><code># from outside of your project directory\n\
+    git clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\
+    </code></pre>\n<p>The easiest way to setup the dependencies for this project is\
+    \ to create a spack environment\nusing the <em>spack.yaml</em> file located at\
+    \ the root of the project, as follows.</p>\n<pre><code># create an anonymous environment\n\
+    cd margo-microservice-template\nspack env activate .\nspack install\n</code></pre>\n\
+    <p>or as follows.</p>\n<pre><code># create an environment named myenv\ncd margo-microservice-template\n\
+    spack env create myenv spack.yaml\nspack env activate myenv\nspack install\n</code></pre>\n\
+    <p>Once the dependencies have been installed, you may build the project as follows.</p>\n\
+    <pre><code>mkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON\
+    \ -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n</code></pre>\n\
+    <p>You can test the project using <code>make test</code> from the build directory.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1626236017.0
 supercontainers/ecp-tutorial:
   data_format: 2
   description: ECP Tutorial
@@ -7378,8 +7876,8 @@ supercontainers/isc-tutorial:
   data_format: 2
   description: ISC 2021 -- Getting Started with Containers on HPC
   filenames:
-  - files/spack_contenerize/spack.yaml
   - exercises/spack_contenerize/spack.yaml
+  - files/spack_contenerize/spack.yaml
   full_name: supercontainers/isc-tutorial
   latest_release: null
   readme: '<h1>
@@ -7550,8 +8048,8 @@ supercontainers/sc-tutorials:
   data_format: 2
   description: SC Tutorials
   filenames:
-  - files/spack_contenerize/spack.yaml
   - exercises/spack_contenerize/spack.yaml
+  - files/spack_contenerize/spack.yaml
   full_name: supercontainers/sc-tutorials
   latest_release: null
   readme: '<h1>
@@ -7714,9 +8212,9 @@ ukri-excalibur/excalibur-tests:
   data_format: 2
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
+  - spack-environments/csd3/spack.yaml
   - spack-environments/isambard-cascadelake/spack.yaml
   - spack-environments/cosma8/spack.yaml
-  - spack-environments/csd3/spack.yaml
   - spack-environments/myriad/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
