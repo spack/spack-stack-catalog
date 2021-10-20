@@ -538,10 +538,10 @@ Alpine-DAV/spack_configs:
   data_format: 2
   description: spack envs
   filenames:
-  - envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
-  - envs/llnl/quartz/spack.yaml
   - envs/olcf/summit/spack.yaml
   - envs/alpinedav/ubuntu_18_devel/spack.yaml
+  - envs/llnl/quartz/spack.yaml
+  - envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
   - envs/llnl/pascal-cuda/spack.yaml
   full_name: Alpine-DAV/spack_configs
   latest_release: null
@@ -561,8 +561,8 @@ ArjunaCluster/spack:
   data_format: 2
   description: Spack Repos and Configuration Files
   filenames:
-  - environments/common/spack.yaml
   - environments/bootstrap/spack.yaml
+  - environments/common/spack.yaml
   full_name: ArjunaCluster/spack
   latest_release: null
   stargazers_count: 0
@@ -626,6 +626,211 @@ E4S-Project/e4s:
   subscribers_count: 7
   topics: []
   updated_at: 1632260898.0
+Exawind/exawind-builder:
+  data_format: 2
+  description: Scripts to help building Exawind codes on various systems
+  filenames:
+  - etc/spack/ornl-summit/spack-matrix.yaml
+  full_name: Exawind/exawind-builder
+  latest_release: v0.1.0
+  readme: '<h1>
+
+    <a id="user-content-exawind-code-builder" class="anchor" href="#exawind-code-builder"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ExaWind
+    Code Builder</h1>
+
+    <p><a href="https://exawind.github.io/exawind-builder" rel="nofollow">Documentation</a></p>
+
+    <p>ExaWind Builder is a collection of bash scripts to configure and compile the
+
+    codes used within the <a href="https://github.com/exawind">ExaWind</a> project
+    on various
+
+    high-performance computing (HPC) systems. The builder provides the following</p>
+
+    <ul>
+
+    <li>
+
+    <p><strong>Platform configuration</strong>: Provides the minimal set of modules
+    that must be
+
+    loaded when compiling with different compilers and MPI libraries on different
+
+    HPC systems.</p>
+
+    </li>
+
+    <li>
+
+    <p><strong>Software configuration</strong>: Provides baseline CMake configuration
+    that can be
+
+    used to configure the various options when building a <em>project</em>, e.g.,
+
+    enable/disable optional modules, automate specification of paths to various
+
+    libraries, configure release vs. debug builds.</p>
+
+    </li>
+
+    <li>
+
+    <p><strong>Build script generation</strong>: Generates an executable end-user
+    script for a
+
+    combination of <em>system</em>, <em>compiler</em>, and <em>project</em>.</p>
+
+    </li>
+
+    <li>
+
+    <p><strong>Exawind environment generation</strong>: Generates a source-able, platform-specific
+
+    script that allows the user to recreate the exact environment used to build
+
+    the codes during runtime.</p>
+
+    </li>
+
+    </ul>
+
+    <p>The build scripts are intended for developers who might want to compile the
+
+    codes with different configuration options, build different branches during
+
+    their development cycle, or link to a different development version of a library
+
+    that is currently not available in the standard installation on the system. Please
+    see the
+
+    <a href="https://exawind.github.io/exawind-builder" rel="nofollow">documentation</a>
+    for
+
+    details on how to use this to build ExaWind software.</p>
+
+    <h2>
+
+    <a id="user-content-installation-and-usage" class="anchor" href="#installation-and-usage"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation
+    and usage</h2>
+
+    <h3>
+
+    <a id="user-content-using-exawind-builder-with-pre-installed-exawind-environment"
+    class="anchor" href="#using-exawind-builder-with-pre-installed-exawind-environment"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    exawind-builder with pre-installed ExaWind environment</h3>
+
+    <p>ExaWind Builder is already installed and setup on OLCF Summit, NREL
+
+    Eagle/Rhodes, and NERSC Cori systems. On these systems, you can proceed directly
+
+    to using build scripts from the central installation. Please consult <a href="https://exawind.github.io/exawind-builder/basic.html#basic-usage"
+    rel="nofollow">user
+
+    manual</a> to
+
+    learn how to use the scripts.</p>
+
+    <h3>
+
+    <a id="user-content-bootstrapping-exawind-builder-with-pre-configured-system-definitions"
+    class="anchor" href="#bootstrapping-exawind-builder-with-pre-configured-system-definitions"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bootstrapping
+    exawind-builder with pre-configured system definitions</h3>
+
+    <p>ExaWind builder has <a href="https://exawind.github.io/exawind-builder/introduction.html#pre-configured-systems"
+    rel="nofollow">pre-built
+
+    configurations</a>
+
+    for several systems. On these systems you can use the <code>bootstrap</code> script
+    to
+
+    quickly get up and running. Please consult <a href="https://exawind.github.io/exawind-builder/installation.html"
+    rel="nofollow">installation
+
+    manual</a>. The
+
+    relevant steps are shown below.</p>
+
+    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
+    Download bootstrap script</span>
+
+    curl -fsSL -o bootstrap.sh https://raw.githubusercontent.com/exawind/exawind-builder/master/bootstrap.sh
+
+
+    <span class="pl-c"><span class="pl-c">#</span> Make it executable</span>
+
+    chmod a+x bootstrap.sh
+
+
+    <span class="pl-c"><span class="pl-c">#</span> Execute bootstrap and provide system/compiler
+    combination</span>
+
+    ./bootstrap.sh -s [SYSTEM] -c [COMPILER]
+
+
+    <span class="pl-c"><span class="pl-c">#</span> Examples</span>
+
+    ./bootstrap.sh -s spack -c clang       <span class="pl-c"><span class="pl-c">#</span>
+    On MacOS with homebrew</span>
+
+    ./bootstrap.sh -s ornl-summit -c gcc   $ Oakridge Summit system
+
+    ./bootstrap.sh -s eagle -c gcc         <span class="pl-c"><span class="pl-c">#</span>
+    NREL Eagle</span>
+
+    ./bootstrap.sh -s cori -c intel        <span class="pl-c"><span class="pl-c">#</span>
+    NERSC Cori</span>
+
+    ./bootstrap.sh -s snl-ascicgpu -c gcc  <span class="pl-c"><span class="pl-c">#</span>
+    SNL GPU development machine</span></pre></div>
+
+    <h3>
+
+    <a id="user-content-creating-new-system-configuration" class="anchor" href="#creating-new-system-configuration"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating
+    new system configuration</h3>
+
+    <p>You can add new system definitions to exawind-builder for use on new systems
+
+    that are not used by ExaWind team. Please see <a href="https://exawind.github.io/exawind-builder/advanced.html"
+    rel="nofollow">manual
+
+    installation</a> and
+
+    <a href="https://exawind.github.io/exawind-builder/newsys.html" rel="nofollow">adding
+    a new system</a>
+
+    sections in the user manual.</p>
+
+    <h2>
+
+    <a id="user-content-links" class="anchor" href="#links" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Links</h2>
+
+    <ul>
+
+    <li><a href="https://www.exawind.org" rel="nofollow">ExaWind</a></li>
+
+    <li><a href="https://github.com/exawind">ExaWind GitHub Organization</a></li>
+
+    <li><a href="https://a2e.energy.gov/about/hfm" rel="nofollow">A2e HFM</a></li>
+
+    </ul>
+
+    '
+  stargazers_count: 3
+  subscribers_count: 5
+  topics:
+  - cmake
+  - build
+  - exawind
+  - hpc
+  - exawind-builder
+  updated_at: 1630526821.0
 FTHPC/libpressio_tutorial:
   data_format: 2
   description: A Tutorial for LibPressio
@@ -856,7 +1061,7 @@ LLNL/Umpire:
   - portability
   - radiuss
   - cpp
-  updated_at: 1634548757.0
+  updated_at: 1634678673.0
 LLNL/conduit:
   data_format: 2
   description: Simplified Data Exchange for HPC Simulations
@@ -963,9 +1168,9 @@ LLNL/radiuss-spack-testing:
   data_format: 2
   description: Gitlab CI automation of Spack testing with RADIUSS projects builds.
   filenames:
+  - spack-environments/empty/spack.yaml
   - spack-environments/radiuss/spack.yaml
   - spack-environments/raja-suite/spack.yaml
-  - spack-environments/empty/spack.yaml
   full_name: LLNL/radiuss-spack-testing
   latest_release: null
   readme: '<h1>
@@ -1083,19 +1288,19 @@ PawseySC/pawsey-spack-config:
   description: Configuration files for Spack at Pawsey
   filenames:
   - examples/zeus/environment3_clingo/spack.yaml
-  - examples/joey/env2_clingo/spack.yaml
-  - examples/zeus/environment2_python/spack.yaml
   - examples/joey/env4_compchem/spack.yaml
-  - examples/zeus/environment1_compchem/spack.yaml
-  - examples/magnus/environment_astro/spack.yaml
-  - examples/topaz/environment_compchem/spack.yaml
   - examples/joey/env5_python/spack.yaml
-  - examples/joey/env3_fftw2/spack.yaml
-  - examples/magnus/environment_chem/spack.yaml
   - examples/magnus/environment_iolib/spack.yaml
-  - examples/joey_sprint/template_environment/spack.yaml
-  - examples/joey/env1_clingo_spack/spack.yaml
+  - examples/joey/env3_fftw2/spack.yaml
+  - examples/joey/env2_clingo/spack.yaml
+  - examples/magnus/environment_astro/spack.yaml
   - examples/magnus/template_environment/spack.yaml
+  - examples/magnus/environment_chem/spack.yaml
+  - examples/topaz/environment_compchem/spack.yaml
+  - examples/joey_sprint/template_environment/spack.yaml
+  - examples/zeus/environment2_python/spack.yaml
+  - examples/joey/env1_clingo_spack/spack.yaml
+  - examples/zeus/environment1_compchem/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1>
@@ -1550,6 +1755,24 @@ SeisSol/yateto:
   subscribers_count: 11
   topics: []
   updated_at: 1630667753.0
+StreamAzure/NotesOnSC21:
+  data_format: 2
+  description: null
+  filenames:
+  - docs/example_files/spack.yaml
+  - docs/spack.yaml
+  full_name: StreamAzure/NotesOnSC21
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-initial-page" class="anchor" href="#initial-page" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Initial page</h1>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1633606757.0
 TurbulentDynamics/tdLBCpp:
   data_format: 2
   description: null
@@ -1638,9 +1861,9 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
+  - docker-recipes/rhel7-runner-x86_64/spack.yaml
   - docker-recipes/rhel7-runner-ppc64le/spack.yaml
   - docker-recipes/rhel8-runner-x86_64/spack.yaml
-  - docker-recipes/rhel7-runner-x86_64/spack.yaml
   - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
@@ -1799,18 +2022,29 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/ece_hpc/spack.yaml
-  - cent7/bioinformatics/spack.yaml
-  - cent7/mpis/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
   - cent8/envs/solhawk/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent7/libs_old/spack.yaml
-  - cent7/py_376/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
   - cent7/python_376/spack.yaml
+  - cent8/envs/avx/rproject/spack.yaml
+  - cent7/bio_old/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent7/py_376/spack.yaml
   - cent7/library/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent8/envs/avx512/rproject/spack.yaml
+  - cent7/mpis/spack.yaml
+  - cent7/bioinformatics/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent8/envs/avx2/rproject/spack.yaml
   - cent7/library/bak/spack.yaml
   - cent7/apps/spack.yaml
-  - cent7/bio_old/spack.yaml
+  - cent7/ece_hpc/spack.yaml
+  - cent8/envs/avx/python/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -2035,7 +2269,7 @@ buildtesters/buildtest:
   - hpc
   - json-schema
   - buildtest
-  updated_at: 1634502983.0
+  updated_at: 1634666159.0
 cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   data_format: 2
   description: null
@@ -2058,6 +2292,26 @@ cinemascienceworkflows/2021-06_E4S-Tutorial:
   subscribers_count: 6
   topics: []
   updated_at: 1623424083.0
+cmauney/sundials_eigen:
+  data_format: 2
+  description: Miniapp to test the interface between Eigen vectors/matricies and CVODE
+    integration
+  filenames:
+  - spack-env/spack.yaml
+  full_name: cmauney/sundials_eigen
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-sundials_eigen" class="anchor" href="#sundials_eigen" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>sundials_eigen</h1>
+
+    <p>Miniapp to test the interface between Eigen vectors/matricies and CVODE integration</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1629240754.0
 electronic-structure/SIRIUS:
   data_format: 2
   description: Domain specific library for electronic structure calculations
@@ -2372,10 +2626,10 @@ eth-cscs/spack-batteries-included:
   description: Installing spack without system dependencies
   filenames:
   - build/5_runtime/spack.yaml
+  - build/3_more_tools/spack.yaml
+  - build/6_spack/spack.yaml
   - build/1_ccache/spack.yaml
   - build/2_compiler/spack.yaml
-  - build/6_spack/spack.yaml
-  - build/3_more_tools/spack.yaml
   full_name: eth-cscs/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/eth-cscs/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -2519,8 +2773,8 @@ eugeneswalker/exawind-containers:
   data_format: 2
   description: null
   filenames:
-  - spack.yaml
   - amr-wind-container/spack.yaml
+  - spack.yaml
   full_name: eugeneswalker/exawind-containers
   latest_release: null
   readme: '<h2>
@@ -2678,101 +2932,6 @@ eugeneswalker/exawind-containers:
   subscribers_count: 1
   topics: []
   updated_at: 1626420401.0
-felixthieme/2020_ASPECT_IGG:
-  data_format: 2
-  description: null
-  filenames:
-  - contrib/spack/spack.yaml
-  full_name: felixthieme/2020_ASPECT_IGG
-  latest_release: null
-  readme: "<p>(Cloned from ASPECT by Felix Thieme (Idaho Geodynamics Group) on 5/27/2020)</p>\n\
-    <h1>\n<a id=\"user-content-aspect---advanced-solver-for-problems-in-earths-convection\"\
-    \ class=\"anchor\" href=\"#aspect---advanced-solver-for-problems-in-earths-convection\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>ASPECT - Advanced Solver for Problems in Earth's ConvecTion</h1>\n\
-    <p><a href=\"https://github.com/geodynamics/aspect/blob/master/LICENSE\"><img\
-    \ src=\"https://camo.githubusercontent.com/6bdbfedce993ff7baeecb8c93e87eeebe79d7ae3d19002c54f87e301ec0e7cdc/68747470733a2f2f696d672e736869656c64732e696f2f6372616e2f6c2f646576746f6f6c732e737667\"\
-    \ alt=\"License GPL2:\" data-canonical-src=\"https://img.shields.io/cran/l/devtools.svg\"\
-    \ style=\"max-width:100%;\"></a>\n<a href=\"https://doi.org/10.5281/zenodo.2653531\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/91da28a81e083b7f3b47a26fd70f2dfcf0a87a9306f2b6f0d457a65ebe089752/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e323635333533312e737667\"\
-    \ alt=\"DOI\" data-canonical-src=\"https://zenodo.org/badge/DOI/10.5281/zenodo.2653531.svg\"\
-    \ style=\"max-width:100%;\"></a>\n<a href=\"https://doi.org/10.6084/m9.figshare.4865333\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7f17ee0a3d31869d37f8d1b1f43540d6fb99d9a8c72bcf879977682693cbe1a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6765742d5044462d677265656e2e737667\"\
-    \ alt=\"pdf manual\" data-canonical-src=\"https://img.shields.io/badge/get-PDF-green.svg\"\
-    \ style=\"max-width:100%;\"></a></p>\n<h2>\n<a id=\"user-content-about\" class=\"\
-    anchor\" href=\"#about\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>About</h2>\n<p>ASPECT is a code to simulate\
-    \ convection in Earth's mantle and elsewhere.\nIt has grown from a pure mantle-convection\
-    \ code into a tool for many\ngeodynamic applications including applications for\
-    \ inner core convection,\nlithospheric scale deformation, two-phase flow, and\
-    \ numerical methods development.\nThe project is supported by CIG (<a href=\"\
-    http://geodynamics.org\" rel=\"nofollow\">http://geodynamics.org</a>).</p>\n<h2>\n\
-    <a id=\"user-content-installation-instructions\" class=\"anchor\" href=\"#installation-instructions\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Installation instructions</h2>\n<p>The steps to install the necessary\
-    \ dependencies and ASPECT itself are described\nin the Installation instructions\
-    \ section of the ASPECT\n<a href=\"http://www.math.clemson.edu/~heister/manual.pdf\"\
-    \ rel=\"nofollow\">manual</a>. If you encounter\nproblems during the installation,\
-    \ please consult our\n<a href=\"https://github.com/geodynamics/aspect/wiki\">wiki</a>\
-    \ for typical installation\nproblems or specific instructions for MacOS users,\
-    \ before asking your question\non the mailing list.</p>\n<h2>\n<a id=\"user-content-running-and-extending-aspect\"\
-    \ class=\"anchor\" href=\"#running-and-extending-aspect\" aria-hidden=\"true\"\
-    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Running\
-    \ and extending ASPECT</h2>\n<p>Instructions on how to run and extend, as well\
-    \ as on how to interpret the\noutput of ASPECT can also be found in the ASPECT\n\
-    <a href=\"http://www.math.clemson.edu/~heister/manual.pdf\" rel=\"nofollow\">manual</a>.\
-    \ This manual also\ndiscusses the structure of the source code.</p>\n<p>For getting\
-    \ started, you can also watch our online\n<a href=\"https://geodynamics.org/cig/events/calendar/2016-cig-all-hands-meeting/aspect-tutorial/tutorial/\"\
-    \ rel=\"nofollow\">tutorial</a>.</p>\n<h2>\n<a id=\"user-content-contributing-to-aspect\"\
-    \ class=\"anchor\" href=\"#contributing-to-aspect\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Contributing\
-    \ to ASPECT</h2>\n<p>ASPECT is a community project that lives by the participation\
-    \ of its\nmembers \u2014 i.e., including you! It is our goal to build an inclusive\n\
-    and participatory community so we are happy that you are interested in\nparticipating!\
-    \ We have collected a set of guidelines and advice on how\nto get involved in\
-    \ the community and keep them in the\n<a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a>\n\
-    file in ASPECT's repository.</p>\n<h2>\n<a id=\"user-content-more-information\"\
-    \ class=\"anchor\" href=\"#more-information\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>More information</h2>\n<p>For\
-    \ more information see:</p>\n<ul>\n<li>\n<p>The official website at <a href=\"\
-    https://aspect.geodynamics.org\" rel=\"nofollow\">https://aspect.geodynamics.org</a></p>\n\
-    </li>\n<li>\n<p>The current <a href=\"http://www.math.clemson.edu/~heister/manual.pdf\"\
-    \ rel=\"nofollow\">manual</a></p>\n</li>\n<li>\n<p><a href=\"https://aspect.geodynamics.org/cite.html\"\
-    \ rel=\"nofollow\">How to cite ASPECT</a></p>\n</li>\n<li>\n<p>For questions on\
-    \ the source code of ASPECT, portability, installation, new or existing features,\
-    \ etc., use the <a href=\"https://community.geodynamics.org/c/aspect\" rel=\"\
-    nofollow\">ASPECT forum</a>. This forum is where the ASPECT users and developers\
-    \ all hang out. Archived discussions from the inactive aspect-devel mailing list\
-    \ can be downloaded at <a href=\"http://lists.geodynamics.org/pipermail/aspect-devel\"\
-    \ rel=\"nofollow\">aspect-devel archives</a>.</p>\n</li>\n<li>\n<p>ASPECT is primarily\
-    \ based on the deal.II library. If you have particular questions about deal.II,\
-    \ contact the <a href=\"https://www.dealii.org/mail.html\" rel=\"nofollow\">deal.II\
-    \ discussion groups</a>.</p>\n</li>\n<li>\n<p>In case of more general questions\
-    \ about mantle convection, you can contact the <a href=\"http://lists.geodynamics.org/cgi-bin/mailman/listinfo/cig-MC\"\
-    \ rel=\"nofollow\">CIG mantle convection mailing lists</a>.</p>\n</li>\n<li>\n\
-    <p>ASPECT is being developed by a large, collaborative, and inclusive community.\
-    \ It is currently maintained by the following people:</p>\n<ul>\n<li>Wolfgang\
-    \ Bangerth: <a href=\"mailto:bangerth@math.colostate.edu\">bangerth@math.colostate.edu</a>\n\
-    </li>\n<li>Juliane Dannberg: <a href=\"mailto:judannberg@gmail.com\">judannberg@gmail.com</a>\n\
-    </li>\n<li>Rene Gassmoeller: <a href=\"mailto:rene.gassmoeller@mailbox.org\">rene.gassmoeller@mailbox.org</a>\n\
-    </li>\n<li>Timo Heister: <a href=\"mailto:heister@clemson.edu\">heister@clemson.edu</a>\n\
-    </li>\n</ul>\n</li>\n<li>\n<p>The following people have significantly contributed\
-    \ and furthered ASPECT's goals and are therefore Principal Developers:</p>\n<ul>\n\
-    <li>Jacky Austermann</li>\n<li>Wolfgang Bangerth</li>\n<li>Juliane Dannberg</li>\n\
-    <li>Menno Fraters</li>\n<li>Rene Gassmoeller</li>\n<li>Anne Glerum</li>\n<li>Timo\
-    \ Heister</li>\n<li>John Naliboff</li>\n</ul>\n</li>\n<li>\n<p>A complete and\
-    \ growing list of the many authors that have contributed over the years can be\
-    \ found at <a href=\"https://github.com/geodynamics/aspect/graphs/contributors\"\
-    >github</a></p>\n</li>\n<li>\n<p>If you have specific questions about ASPECT that\
-    \ are not suitable for public and archived mailing lists, feel free to contact\
-    \ the maintainers or principal developers.</p>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-license\"\
-    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>ASPECT is published\
-    \ under <a href=\"LICENSE\">GPL v2 or newer</a>.</p>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1590610476.0
 flux-framework/flux-research-artifacts:
   data_format: 2
   description: Collection of Research Artifacts from Papers Involving Flux
@@ -2792,41 +2951,6 @@ flux-framework/flux-research-artifacts:
   subscribers_count: 8
   topics: []
   updated_at: 1628308190.0
-frankwillmore/alcf-stacks:
-  data_format: 2
-  description: null
-  filenames:
-  - openmpi-all-tgpu/spack.yaml
-  full_name: frankwillmore/alcf-stacks
-  latest_release: null
-  readme: '<p>These are environments, to build on top of base layers as
-
-    enumerated in:</p>
-
-    <p><a href="http://github.com/frankwillmore/derkommissar">http://github.com/frankwillmore/derkommissar</a></p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1626474269.0
-frankwillmore/deployment:
-  data_format: 2
-  description: null
-  filenames:
-  - arcticus/e4s-21.05/spack.yaml
-  full_name: frankwillmore/deployment
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-deployment" class="anchor" href="#deployment" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>deployment</h1>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1628112357.0
 frankwillmore/derkommissar:
   data_format: 2
   description: null
@@ -2913,6 +3037,127 @@ haampie-spack/setup-spack:
   subscribers_count: 2
   topics: []
   updated_at: 1629841307.0
+haampie/libtree:
+  data_format: 2
+  description: ldd as a tree with an option to bundle dependencies into a single folder
+  filenames:
+  - ci/spack.yaml
+  full_name: haampie/libtree
+  latest_release: v2.0.0
+  readme: "<p><a href=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\"\
+    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\"\
+    \ alt=\"Test\" style=\"max-width:100%;\"></a>\n<a href=\"https://aur.archlinux.org/packages/libtree/\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7e7cc860b359b4e8c852178856fed7ba2f3ceb557ab7e2c021ab84d695412362/68747470733a2f2f696d672e736869656c64732e696f2f6175722f76657273696f6e2f6c6962747265653f6c6f676f3d417263682d4c696e7578\"\
+    \ alt=\"AUR version\" data-canonical-src=\"https://img.shields.io/aur/version/libtree?logo=Arch-Linux\"\
+    \ style=\"max-width:100%;\"></a></p>\n<h1>\n<a id=\"user-content-libtree\" class=\"\
+    anchor\" href=\"#libtree\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>libtree</h1>\n<p>A tool that:</p>\n<ul>\n<li>\n\
+    <g-emoji class=\"g-emoji\" alias=\"deciduous_tree\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f333.png\"\
+    >\U0001F333</g-emoji> turns <code>ldd</code> into a tree</li>\n<li>\n<g-emoji\
+    \ class=\"g-emoji\" alias=\"point_up\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/261d.png\"\
+    >\u261D\uFE0F</g-emoji> explains why shared libraries are found and why not</li>\n\
+    <li>\n<g-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\"\
+    >\U0001F4E6</g-emoji> optionally deploys executables and dependencies into a single\
+    \ directory</li>\n</ul>\n<p><a href=\"doc/screenshot.png\" target=\"_blank\" rel=\"\
+    noopener noreferrer\"><img src=\"doc/screenshot.png\" alt=\"example\" style=\"\
+    max-width:100%;\"></a></p>\n<h2>\n<a id=\"user-content-installation\" class=\"\
+    anchor\" href=\"#installation\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>Installation</h2>\n<p>Download the\
+    \ <a href=\"https://github.com/haampie/libtree/releases\"><strong>latest release</strong></a>\
+    \ from Github.</p>\n<p><strong>Static executable</strong></p>\n<div class=\"highlight\
+    \ highlight-source-shell\"><pre>wget -qO libtree https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64\n\
+    chmod +x libtree\n./libtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which\
+    \ man<span class=\"pl-pds\">)</span></span></pre></div>\n<p><strong>Static executable\
+    \ + optional dependencies</strong></p>\n<div class=\"highlight highlight-source-shell\"\
+    ><pre>wget -qO libtree.tar.gz https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64.tar.gz\n\
+    mkdir libtree\ntar -xf libtree.tar.gz -C libtree\n<span class=\"pl-k\">export</span>\
+    \ PATH=<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-smi\"\
+    >$PWD</span>/libtree:<span class=\"pl-smi\">$PATH</span><span class=\"pl-pds\"\
+    >\"</span></span>\nlibtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which\
+    \ man<span class=\"pl-pds\">)</span></span></pre></div>\n<h2>\n<a id=\"user-content-deploying-binaries--dependencies-into-a-folder\"\
+    \ class=\"anchor\" href=\"#deploying-binaries--dependencies-into-a-folder\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Deploying\
+    \ binaries + dependencies into a folder</h2>\n<div class=\"highlight highlight-source-shell\"\
+    ><pre>$ libtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which man<span\
+    \ class=\"pl-pds\">)</span></span> -d man.bundle --chrpath --strip\nman\n\u251C\
+    \u2500\u2500 libmandb-2.9.1.so [runpath]\n\u2502   \u251C\u2500\u2500 libman-2.9.1.so\
+    \ [runpath]\n\u2502   \u2502   \u251C\u2500\u2500 libpipeline.so.1 [ld.so.conf]\n\
+    \u2502   \u2502   \u2514\u2500\u2500 libseccomp.so.2 [ld.so.conf]\n\u2502   \u2514\
+    \u2500\u2500 libgdbm.so.6 [ld.so.conf]\n\u251C\u2500\u2500 libman-2.9.1.so (collapsed)\
+    \ [runpath]\n\u2514\u2500\u2500 libpipeline.so.1 (collapsed) [ld.so.conf]\n\n\
+    Deploying to <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr<span\
+    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
+    >\"</span>/usr/bin/man<span class=\"pl-pds\">\"</span></span> =<span class=\"\
+    pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/bin/man<span\
+    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
+    >\"</span>/usr/lib/man-db/libmandb-2.9.1.so<span class=\"pl-pds\">\"</span></span>\
+    \ =<span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\"\
+    >\"</span>man.bundle/usr/lib/libmandb-2.9.1.so<span class=\"pl-pds\">\"</span></span>\n\
+    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/man-db/libman-2.9.1.so<span\
+    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
+    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libman-2.9.1.so<span\
+    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
+    >\"</span>/usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.2<span class=\"pl-pds\"\
+    >\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span\
+    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libpipeline.so.1.5.2<span class=\"\
+    pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span class=\"\
+    pl-pds\">\"</span>man.bundle/usr/lib/libpipeline.so.1<span class=\"pl-pds\">\"\
+    </span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.1<span\
+    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
+    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libseccomp.so.2.5.1<span\
+    \ class=\"pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span\
+    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libseccomp.so.2<span class=\"pl-pds\"\
+    >\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/x86_64-linux-gnu/libgdbm.so.6.0.0<span\
+    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
+    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libgdbm.so.6.0.0<span\
+    \ class=\"pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span\
+    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libgdbm.so.6<span class=\"pl-pds\"\
+    >\"</span></span>\n\n$ tree man.bundle/\nman.bundle/\n\u2514\u2500\u2500 usr\n\
+    \    \u251C\u2500\u2500 bin\n    \u2502\_\_ \u2514\u2500\u2500 man\n    \u2514\
+    \u2500\u2500 lib\n        \u251C\u2500\u2500 libgdbm.so.6 -<span class=\"pl-k\"\
+    >&gt;</span> libgdbm.so.6.0.0\n        \u251C\u2500\u2500 libgdbm.so.6.0.0\n \
+    \       \u251C\u2500\u2500 libman-2.9.1.so\n        \u251C\u2500\u2500 libmandb-2.9.1.so\n\
+    \        \u251C\u2500\u2500 libpipeline.so.1 -<span class=\"pl-k\">&gt;</span>\
+    \ libpipeline.so.1.5.2\n        \u251C\u2500\u2500 libpipeline.so.1.5.2\n    \
+    \    \u251C\u2500\u2500 libseccomp.so.2 -<span class=\"pl-k\">&gt;</span> libseccomp.so.2.5.1\n\
+    \        \u2514\u2500\u2500 libseccomp.so.2.5.1\n\n3 directories, 9 files</pre></div>\n\
+    <h2>\n<a id=\"user-content-verbose-output\" class=\"anchor\" href=\"#verbose-output\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Verbose output</h2>\n<p>By default certain standard depenendencies\
+    \ are not shown. For more verbose output use</p>\n<ul>\n<li>\n<code>libtree -v\
+    \ $(which man)</code> to show skipped libraries without their children</li>\n\
+    <li>\n<code>libtree -a $(which apt-get)</code> to show the full recursive list\
+    \ of libraries</li>\n</ul>\n<p>Use the <code>--path</code> or <code>-p</code>\
+    \ flags to show paths rather than sonames:</p>\n<ul>\n<li><code>libtree -p $(which\
+    \ tar)</code></li>\n</ul>\n<h2>\n<a id=\"user-content-changing-search-paths\"\
+    \ class=\"anchor\" href=\"#changing-search-paths\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Changing search\
+    \ paths</h2>\n<p><code>libtree</code> follows the rules of <code>ld.so</code>\
+    \ to locate libraries, but does not use <code>ldconfig</code>'s\ncache. Instead\
+    \ it parses <code>/etc/ld.so.conf</code> at runtime. In fact you can change the\
+    \ search\npath config by setting <code>--ldconf mylibs.conf</code>. Search paths\
+    \ can be added as well via\n<code>LD_LIBRARY_PATH=\"path1:path2:$LD_LIBRARY_PATH\"\
+    \ libtree ...</code>.</p>\n<h2>\n<a id=\"user-content-building\" class=\"anchor\"\
+    \ href=\"#building\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Building</h2>\n<ul>\n<li>\n<strong>From source</strong>:\n\
+    <div class=\"highlight highlight-source-shell\"><pre>git clone https://github.com/haampie/libtree.git\n\
+    <span class=\"pl-c1\">cd</span> libtree\nmkdir build\n<span class=\"pl-c1\">cd</span>\
+    \ build\ncmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=<span class=\"pl-s\"\
+    ><span class=\"pl-pds\">\"</span>/path/to/cxxopts;/path/to/elfio;/path/to/termcolor<span\
+    \ class=\"pl-pds\">\"</span></span> ..\nmake -j\nmake install</pre></div>\n</li>\n\
+    <li>\n<strong>Using <a href=\"https://github.com/spack/spack\">spack</a></strong>:\n\
+    <pre><code>spack install libtree +chrpath +strip\nspack load libtree\n</code></pre>\n\
+    </li>\n</ul>\n<h2>\n<a id=\"user-content-known-issues\" class=\"anchor\" href=\"\
+    #known-issues\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Known issues</h2>\n<ul>\n<li>When deploying libs with\
+    \ <code>libtree app -d folder.bundle --chrpath</code>, the runpaths are only\n\
+    changed when the binaries already have an an rpath or runpath. This is a limitation\
+    \ of\n<code>chrpath</code>. Another option is to use <code>patchelf</code> instead,\
+    \ but this tool is known to break\nbinaries sometimes.</li>\n</ul>\n"
+  stargazers_count: 70
+  subscribers_count: 5
+  topics: []
+  updated_at: 1628688008.0
 hariharan-devarajan/emacs:
   data_format: 2
   description: null
@@ -2978,17 +3223,6 @@ hepnos/HEPnOS-PEP-Benchmark:
   subscribers_count: 2
   topics: []
   updated_at: 1631521274.0
-iarspider/cms-spack-repo:
-  data_format: 2
-  description: null
-  filenames:
-  - environments/CMSSW_12_1_X/spack.yaml
-  full_name: iarspider/cms-spack-repo
-  latest_release: null
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1634120659.0
 icl-utk-edu/fiber:
   data_format: 2
   description: null
@@ -3096,15 +3330,7 @@ jrood-nrel/spack-configs:
   data_format: 2
   description: Spack configuration files and scripts for use on machines at NREL
   filenames:
-  - configs/rhodes/base/spack.yaml
-  - configs/rhodes/utilities/spack.yaml
-  - configs/rhodes/software/spack.yaml
-  - configs/eagle/compilers/spack.yaml
-  - configs/eagle/base/spack.yaml
-  - configs/eagle/software/spack.yaml
   - envs/exawind/spack.yaml
-  - configs/eagle/utilities/spack.yaml
-  - configs/rhodes/compilers/spack.yaml
   full_name: jrood-nrel/spack-configs
   latest_release: null
   readme: '<h1>
@@ -3272,13 +3498,13 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
+  - environments/key4hep-release-user/spack.yaml
   - environments/key4hep-debug/spack.yaml
-  - environments/key4hep-release-broadwell/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
+  - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
   - environments/geant4-data-share/spack.yaml
   - environments/key4hep-release/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
-  - environments/key4hep-release-user/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-05-13'
   readme: '<h1>
@@ -3322,20 +3548,12 @@ key4hep/key4hep-spack:
   stargazers_count: 5
   subscribers_count: 9
   topics: []
-  updated_at: 1634221640.0
+  updated_at: 1634662185.0
 laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
-  - env/x86_64/flecsi/spack.yaml
-  - .gitlab-ci/env/root-build/spack.yaml
   - .gitlab-ci/env/local-build/spack.yaml
-  - env/power9le/flecsalemm-deps/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
-  - env/x86_64/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
-  - env/power9le/flecsi/spack.yaml
-  - env/broadwell/flecsalemm-deps/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -3576,9 +3794,9 @@ mayrmt/spack_environments:
   data_format: 2
   description: A set of spack environemts for some of my projects
   filenames:
-  - env_4c/spack.yaml
-  - env_baci/spack.yaml
   - env_trilinos/spack.yaml
+  - env_baci/spack.yaml
+  - env_4c/spack.yaml
   full_name: mayrmt/spack_environments
   latest_release: null
   readme: '<h1>
@@ -3745,6 +3963,30 @@ mdorier/test-ssg-cori:
   subscribers_count: 2
   topics: []
   updated_at: 1614179535.0
+mochi-hpc-experiments/mona-benchmarking:
+  data_format: 2
+  description: Mona benchmarking
+  filenames:
+  - bebop/spack.yaml
+  - cori/spack.yaml
+  - theta/spack.yaml
+  full_name: mochi-hpc-experiments/mona-benchmarking
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-mona-benchmarking" class="anchor" href="#mona-benchmarking"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MoNA
+    benchmarking</h1>
+
+    <p>This repository contains scripts to run the MoNA benchmarks on various
+
+    supercomputing platforms.</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1629225591.0
 mochi-hpc/flamestore:
   data_format: 2
   description: Storage system for Deep Learning models designed using the Mochi components.
@@ -4641,7 +4883,7 @@ mochi-hpc/mochi-sonata:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1634560484.0
+  updated_at: 1634660571.0
 mochi-hpc/mochi-thallium:
   data_format: 2
   description: Thallium is a C++14 library wrapping Margo, Mercury, and Argobots and
@@ -4699,6 +4941,18 @@ mochi-hpc/mochi-yokan:
   subscribers_count: 1
   topics: []
   updated_at: 1634310079.0
+mochi-hpc/py-mochi-bake:
+  data_format: 2
+  description: Python wrapper for BAKE
+  filenames:
+  - spack.yaml
+  full_name: mochi-hpc/py-mochi-bake
+  latest_release: null
+  readme: ''
+  stargazers_count: 0
+  subscribers_count: 5
+  topics: []
+  updated_at: 1633975348.0
 mochi-hpc/py-mochi-bedrock:
   data_format: 2
   description: Python interface for Mochi's Bedrock service.
@@ -5070,10 +5324,10 @@ olcf/spack-environments:
   data_format: 2
   description: Spack Environments Templates for OLCF resources
   filenames:
+  - linux-sles15-zen2/spock/spack.yaml
   - linux-rhel7-ppc64le/summit/spack.yaml
   - linux-rhel8-ppc64le/summit/spack.yaml
   - linux-rhel8-zen2/cirrus/spack.yaml
-  - linux-sles15-zen2/spock/spack.yaml
   full_name: olcf/spack-environments
   latest_release: null
   readme: '<p>OLCF Spack Environments Templates</p>
@@ -5626,7 +5880,7 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1634598154.0
+  updated_at: 1634674526.0
 player1537-playground/metem:
   data_format: 2
   description: null
@@ -5784,9 +6038,9 @@ range3/spack-playground:
   description: null
   filenames:
   - spack/envs/dev/spack.yaml
-  - spack/envs/cygnus/spack.yaml
-  - spack/envs/broken-verbs-chris8x/spack.yaml
   - spack/envs/chris8x/spack.yaml
+  - spack/envs/broken-verbs-chris8x/spack.yaml
+  - spack/envs/cygnus/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-spack-playground\" class=\"anchor\" href=\"\
@@ -5835,9 +6089,9 @@ rngoodner/fiesta-helpers:
   data_format: 2
   description: null
   filenames:
+  - spack-environments/openmpi-lassen/spack.yaml
   - spack-environments/openmpi/spack.yaml
   - spack-environments/mvapich2-lassen/spack.yaml
-  - spack-environments/openmpi-lassen/spack.yaml
   full_name: rngoodner/fiesta-helpers
   latest_release: null
   readme: '<h1>
@@ -6198,36 +6452,16 @@ spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - NREL/configs/eagle/base/spack.yaml
   - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - OLCF/summit/spack.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - OLCF/spock/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - NERSC/cori/e4s-stacks/hsw/spack.yaml
-  - NERSC/cori/e4s-20.10/spack.yaml
   - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
   - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
   - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -6275,32 +6509,6 @@ spack/spack-configs:
   subscribers_count: 24
   topics: []
   updated_at: 1632844010.0
-spack/spack-cscs2019:
-  data_format: 2
-  description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
-  filenames:
-  - docker/spack.yaml
-  full_name: spack/spack-cscs2019
-  latest_release: null
-  readme: '<p>"Software Development and Deployment with Spack"</p>
-
-    <p>Slides for the "Software Management Course" at CSCS (May 14th, 2019) in Lugano,
-    based on the awesome <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>MIT licensed</p>
-
-    <p>Copyright (C) 2019 Hakim El Hattab, Massimiliano Culpo</p>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 2
-  topics: []
-  updated_at: 1621966087.0
 supercontainers/isc-tutorial:
   data_format: 2
   description: ISC 2021 -- Getting Started with Containers on HPC
@@ -6642,8 +6850,8 @@ ukri-excalibur/excalibur-tests:
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
   - spack-environments/cosma8/spack.yaml
-  - spack-environments/isambard-cascadelake/spack.yaml
   - spack-environments/csd3/spack.yaml
+  - spack-environments/isambard-cascadelake/spack.yaml
   - spack-environments/myriad/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
@@ -6733,7 +6941,7 @@ ukri-excalibur/excalibur-tests:
   stargazers_count: 0
   subscribers_count: 4
   topics: []
-  updated_at: 1634230799.0
+  updated_at: 1634639587.0
 wangzhezhe/mona-vtk:
   data_format: 2
   description: null
