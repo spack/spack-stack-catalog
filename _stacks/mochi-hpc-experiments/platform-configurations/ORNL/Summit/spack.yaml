@@ -19,7 +19,7 @@ spack:
       flags: {}
       spec: gcc@9.1.0
   repos:
-  - /ccs/home/mdorier1/sds-repo
+  - /ccs/home/mdorier1/mochi-spack-packages
   packages:
     all:
       compiler: [gcc@9.1.0]
@@ -40,7 +40,7 @@ spack:
       compiler: []
     automake:
       externals:
-      - spec: automake@1.13.4
+      - spec: automake@1.16.1
         prefix: /usr
       buildable: false
       version: []
@@ -54,11 +54,11 @@ spack:
       providers: {}
       externals:
       - modules:
-        - cmake/3.18.2
-        spec: cmake@3.18.2
+        - cmake/3.20.2
+        spec: cmake@3.20.2
       compiler: []
     libfabric:
-      variants: fabrics=verbs,rxm,mrail
+      variants: fabrics=tcp,verbs,rxm,mrail
       buildable: true
       version: []
       target: []
@@ -76,7 +76,7 @@ spack:
       compiler: []
     libtool:
       externals:
-      - spec: libtool@2.4.2
+      - spec: libtool@2.4.6
         prefix: /usr
       buildable: false
       version: []
@@ -92,7 +92,7 @@ spack:
       compiler: []
     openssl:
       externals:
-      - spec: openssl@1.0.2k
+      - spec: openssl@1.1.1k
         prefix: /usr
       buildable: false
       version: []
@@ -101,7 +101,7 @@ spack:
       compiler: []
     rdma-core:
       externals:
-      - spec: rdma-core@20
+      - spec: rdma-core@34
         prefix: /usr
       buildable: false
       version: []
@@ -110,39 +110,9 @@ spack:
       compiler: []
     python:
       externals:
-      - spec: python@3.7.0
+      - spec: python@3.7.7
         modules:
-        - python/3.7.0
-      buildable: false
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    py-nose:
-      externals:
-      - spec: py-nose@1.3.7
-        modules:
-        - py-nose/1.3.7
-      buildable: false
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    py-pip:
-      externals:
-      - spec: py-pip@10.0.1
-        modules:
-        - py-pip/10.0.1-py3
-      buildable: false
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    py-setuptools:
-      externals:
-      - spec: py-setuptools@40.4.3
-        modules:
-        - py-setuptools/40.4.3-py3
+        - python/3.7.7
       buildable: false
       version: []
       target: []
@@ -150,18 +120,9 @@ spack:
       compiler: []
     spectrum-mpi:
       externals:
-      - spec: spectrum-mpi@10.3.1.2%gcc@9.1.0
+      - spec: spectrum-mpi@10.4.0.3%gcc@9.1.0
         modules:
-        - spectrum-mpi/10.3.1.2-20200121
-      buildable: false
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    ucx:
-      externals:
-      - spec: ucx@1.5.1
-        prefix: /usr
+        - spectrum-mpi/10.4.0.3-20210112
       buildable: false
       version: []
       target: []
