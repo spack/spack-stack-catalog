@@ -142,8 +142,7 @@ spack:
       providers: {}
       externals:
       - spec: intel-mpi@2019.8.254 arch=linux-centos7-x86_64
-        modules:
-        - intel-mpi/2019.8.254-hviu7j6
+        prefix: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-10.2.0/intel-mpi-2019.8.254-hviu7j6
     libfabric:
       variants: fabrics=psm2,sockets
       version: []

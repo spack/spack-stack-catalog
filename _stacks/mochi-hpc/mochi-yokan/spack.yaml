@@ -5,6 +5,7 @@ spack:
   - uuid
   - nlohmann-json
   - mochi-margo
+  - tclap
   - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - leveldb@1.22
   - rocksdb

@@ -19,7 +19,7 @@ spack:
       flags: {}
       spec: gcc@9.3.0
   repos:
-  - path/to/sds-repo
+  - /path/to/mochi-spack-packages
   packages:
     all:
       providers:
@@ -66,6 +66,16 @@ spack:
       externals:
       - spec: bison@2.7
         prefix: /usr
+    rdma-credentials:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: rdma-credentials@1.2.25 arch=cray-cnl7-mic_knl
+        modules:
+        - rdma-credentials/1.2.25-7.0.2.1_2.74__g1542270.ari
     boost:
       buildable: false
       version: []
