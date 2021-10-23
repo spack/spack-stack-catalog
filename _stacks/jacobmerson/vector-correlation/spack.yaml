@@ -1,0 +1,13 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [llvm@11.0.0%gcc@7.4.0,
+          fmt@7.1.2%clang@11.0.0,
+          kokkos@3.2.00%clang@11.0.0+openmp+serial std=17,
+          spdlog@1.8.1%clang@11.0.0,
+          cmake@3.19.1,
+          catch2@3.0.0-preview3%clang@11.0.0]
+  view: true

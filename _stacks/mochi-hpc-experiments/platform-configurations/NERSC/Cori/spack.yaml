@@ -19,7 +19,7 @@ spack:
       flags: {}
       spec: gcc@9.3.0
   repos:
-  - path/to/sds-repo
+  - /path/to/mochi-spack-packages
   packages:
     all:
       providers:
