@@ -1,546 +1,10 @@
-AMReX-Codes/pyamrex:
-  data_format: 2
-  description: '[Experimental] AMReX Python Bindings'
-  filenames:
-  - spack.yaml
-  full_name: AMReX-Codes/pyamrex
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-pyamrex" class="anchor" href="#pyamrex" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>pyAMReX</h1>
-
-    <p><a href="https://www.python.org/" rel="nofollow"><img src="https://camo.githubusercontent.com/acd285afab5d7ddd4942e5215ade53e84551c9d7d635642ba92c19fde7d4345b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e332d79656c6c6f77677265656e"
-    alt="Python3" title="Python3 API" data-canonical-src="https://img.shields.io/badge/language-Python3-yellowgreen"
-    style="max-width:100%;"></a> <a href="https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e"
-    target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/b4bbc2488e2de908b64d4a3c99de80e3b0842cc33e938283b89433bf1193a072/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f70686173652d7072652d2d616c7068612d79656c6c6f77677265656e"
-    alt="Python3 API: Pre-Alpha" title="Status: Pre-Alpha" data-canonical-src="https://img.shields.io/badge/phase-pre--alpha-yellowgreen"
-    style="max-width:100%;"></a>
-
-    <a href="https://spdx.org/licenses/BSD-3-Clause-LBNL.html" rel="nofollow"><img
-    src="https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667"
-    alt="License AMReX" data-canonical-src="https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg"
-    style="max-width:100%;"></a><br>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/linux/badge.svg?branch=development"
-    alt="linux" style="max-width:100%;"></a>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/macos/badge.svg?branch=development"
-    alt="macos" style="max-width:100%;"></a>
-
-    <a href="https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development"
-    target="_blank" rel="noopener noreferrer"><img src="https://github.com/AMReX-Codes/pyamrex/workflows/windows/badge.svg?branch=development"
-    alt="windows" style="max-width:100%;"></a></p>
-
-    <p>pyAMReX is part of AMReX.</p>
-
-    <p>Due to its <strong>highly experimental</strong> nature, we develop it currently
-    in a separate respository.</p>
-
-    <p>We will add further information here once first development versions are ready
-    for testing.</p>
-
-    <h2>
-
-    <a id="user-content-users" class="anchor" href="#users" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Users</h2>
-
-    <p><em>to do</em></p>
-
-    <ul>
-
-    <li>pip/pypa</li>
-
-    <li>conda-forge</li>
-
-    <li>spack</li>
-
-    <li>brew</li>
-
-    <li>...</li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
-
-    <p><em>to do</em></p>
-
-    <div class="highlight highlight-source-python"><pre><span class="pl-k">import</span>
-    <span class="pl-s1">amrex</span>
-
-
-    <span class="pl-s1">small_end</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Int_Vect</span>()
-
-    <span class="pl-s1">big_end</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Int_Vect</span>(<span class="pl-c1">2</span>, <span class="pl-c1">3</span>,
-    <span class="pl-c1">4</span>)
-
-
-    <span class="pl-s1">b</span> <span class="pl-c1">=</span> <span class="pl-s1">amrex</span>.<span
-    class="pl-v">Box</span>(<span class="pl-s1">small_end</span>, <span class="pl-s1">big_end</span>)
-
-    <span class="pl-en">print</span>(<span class="pl-s1">b</span>)
-
-
-    <span class="pl-c"># ...</span></pre></div>
-
-    <h2>
-
-    <a id="user-content-developers" class="anchor" href="#developers" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Developers</h2>
-
-    <p>If you are new to CMake, <a href="https://hsf-training.github.io/hsf-training-cmake-webpage/"
-    rel="nofollow">this short tutorial</a> from the HEP Software foundation is the
-    perfect place to get started with it.</p>
-
-    <p>If you just want to use CMake to build the project, jump into sections <em>1.
-    Introduction</em>, <em>2. Building with CMake</em> and <em>9. Finding Packages</em>.</p>
-
-    <h3>
-
-    <a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h3>
-
-    <p>pyAMReX depends on the following popular third party software.</p>
-
-    <ul>
-
-    <li>a mature <a href="https://en.wikipedia.org/wiki/C%2B%2B14" rel="nofollow">C++14</a>
-    compiler: e.g. g++ 5.0+, clang 5.0+, VS 2017+</li>
-
-    <li><a href="https://cmake.org" rel="nofollow">CMake 3.18.0+</a></li>
-
-    <li>
-
-    <a href="https://amrex-codes.github.io" rel="nofollow">AMReX <em>development</em></a>:
-    we automatically download and compile a copy of AMReX</li>
-
-    <li>
-
-    <a href="https://github.com/pybind/pybind11/">pybind11</a> 2.6.2+: we automatically
-    download and compile a copy of pybind11 (<a href="https://github.com/pybind/pybind11/blob/master/LICENSE">new
-    BSD</a>)
-
-    <ul>
-
-    <li>
-
-    <a href="https://python.org" rel="nofollow">Python</a> 3.6+</li>
-
-    <li>
-
-    <a href="https://numpy.org" rel="nofollow">Numpy</a> 1.15+</li>
-
-    </ul>
-
-    </li>
-
-    </ul>
-
-    <p>Optional dependencies include:</p>
-
-    <ul>
-
-    <li>
-
-    <a href="https://www.openmp.org" rel="nofollow">mpi4py</a> 2.1+: for multi-node
-    and/or multi-GPU execution</li>
-
-    <li>
-
-    <a href="https://ccache.dev" rel="nofollow">CCache</a>: to speed up rebuilds (needs
-    3.7.9+ for CUDA)</li>
-
-    <li>further <a href="https://github.com/AMReX-Codes/amrex/">optional dependencies
-    of AMReX</a>
-
-    </li>
-
-    <li>
-
-    <a href="https://docs.pytest.org/en/stable/" rel="nofollow">pytest</a> 6.2+: for
-    running unit tests</li>
-
-    </ul>
-
-    <h3>
-
-    <a id="user-content-install-dependencies" class="anchor" href="#install-dependencies"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install
-    Dependencies</h3>
-
-    <p>macOS/Linux:</p>
-
-    <div class="highlight highlight-source-shell"><pre>spack env activate -d <span
-    class="pl-c1">.</span>
-
-    <span class="pl-c"><span class="pl-c">#</span> optional:</span>
-
-    <span class="pl-c"><span class="pl-c">#</span> spack add cuda</span>
-
-    spack install</pre></div>
-
-    <p>(in new terminals, re-activate the environment with <code>spack env activate
-    -d .</code> again)</p>
-
-    <p>or macOS/Linux:</p>
-
-    <div class="highlight highlight-source-shell"><pre>brew update
-
-    brew install ccache cmake libomp mpi4py numpy open-mpi python</pre></div>
-
-    <p>Now, <code>cmake --version</code> should be at version 3.18.0 or newer.</p>
-
-    <p>Or go:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    optional:                                    --user</span>
-
-    python3 -m pip install -U pip setuptools wheel
-
-    python3 -m pip install -U cmake</pre></div>
-
-    <p>If you wish to run unit tests, then please install <code>pytest</code></p>
-
-    <div class="highlight highlight-source-shell"><pre>python3 -m pip install -U pytest</pre></div>
-
-    <h3>
-
-    <a id="user-content-configure-your-compiler" class="anchor" href="#configure-your-compiler"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure
-    your compiler</h3>
-
-    <p>For example, using the Clang compiler:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span>
-    CC=<span class="pl-s"><span class="pl-pds">$(</span>which clang<span class="pl-pds">)</span></span>
-
-    <span class="pl-k">export</span> CXX=<span class="pl-s"><span class="pl-pds">$(</span>which
-    clang++<span class="pl-pds">)</span></span></pre></div>
-
-    <p>If you also want to select a CUDA compiler:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span>
-    CUDACXX=<span class="pl-s"><span class="pl-pds">$(</span>which nvcc<span class="pl-pds">)</span></span>
-
-    <span class="pl-k">export</span> CUDAHOSTCXX=<span class="pl-s"><span class="pl-pds">$(</span>which
-    clang++<span class="pl-pds">)</span></span></pre></div>
-
-    <h3>
-
-    <a id="user-content-build--test" class="anchor" href="#build--test" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Build &amp; Test</h3>
-
-    <p>From the base of the pyAMReX source directory, execute:</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    optional controls (example):</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_SPACEDIM=3</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_MPI=ON</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_OMP=ON</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_GPU_BACKEND=CUDA</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export AMREX_SRC=$PWD/../amrex</span>
-
-    <span class="pl-c"><span class="pl-c">#</span>export CMAKE_BUILD_PARALLEL_LEVEL=8</span>
-
-
-    <span class="pl-c"><span class="pl-c">#</span> optional:                 --force-reinstall
-    --user</span>
-
-    python3 -m pip install -v <span class="pl-c1">.</span></pre></div>
-
-    <p>On successful installation, you can run the unit tests (assuming <code>pytest</code>
-    is
-
-    installed). If <code>AMREX_MPI=ON</code>, then please prepend the following commands
-    with <code>mpiexec -np &lt;NUM_PROCS&gt;</code></p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span>
-    Run all tests </span>
-
-    python -m pytest tests/
-
-
-    <span class="pl-c"><span class="pl-c">#</span> Run tests from a single file</span>
-
-    python -m pytest tests/test_intvect.py
-
-
-    <span class="pl-c"><span class="pl-c">#</span> Run a single test (useful during
-    debugging)</span>
-
-    python -m pytest tests/test_intvect.py::test_iv_conversions</pre></div>
-
-    <p>If you are iterating on C++ builds, it might be faster to just call CMake:</p>
-
-    <div class="highlight highlight-source-shell"><pre>cmake -S <span class="pl-c1">.</span>
-    -B build
-
-    cmake --build build -j 8  <span class="pl-c"><span class="pl-c">#</span> repeat
-    this step to fix compile errors</span></pre></div>
-
-    <h3>
-
-    <a id="user-content-build-options" class="anchor" href="#build-options" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Build Options</h3>
-
-    <p>If you are using the pip-driven install, selected <a href="https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html#building-with-cmake"
-    rel="nofollow">AMReX CMake options</a> can be controlled with environment variables:</p>
-
-    <table>
-
-    <thead>
-
-    <tr>
-
-    <th>Environment Variable</th>
-
-    <th>Default &amp; Values</th>
-
-    <th>Description</th>
-
-    </tr>
-
-    </thead>
-
-    <tbody>
-
-    <tr>
-
-    <td><code>AMREX_OMP</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Enable OpenMP</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_GPU_BACKEND</code></td>
-
-    <td>
-
-    <strong>NONE</strong>/SYCL/CUDA/HIP</td>
-
-    <td>On-node, accelerated GPU backend</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_MPI</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Enable MPI</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_PRECISION</code></td>
-
-    <td>SINGLE/<strong>DOUBLE</strong>
-
-    </td>
-
-    <td>Precision of AMReX Real type</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_SPACEDIM</code></td>
-
-    <td>1/2/<strong>3</strong>
-
-    </td>
-
-    <td>Dimension of AMReX</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_BUILD_SHARED_LIBS</code></td>
-
-    <td>ON/<strong>OFF</strong>
-
-    </td>
-
-    <td>Build the core AMReX library as shared library</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_SRC</code></td>
-
-    <td><em>None</em></td>
-
-    <td>Absolute path to AMReX source directory (preferred if set)</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_REPO</code></td>
-
-    <td><code>https://github.com/AMReX-Codes/amrex.git</code></td>
-
-    <td>Repository URI to pull and build AMReX from</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_BRANCH</code></td>
-
-    <td><code>development</code></td>
-
-    <td>Repository branch for <code>AMREX_REPO</code>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_INTERNAL</code></td>
-
-    <td>
-
-    <strong>ON</strong>/OFF</td>
-
-    <td>Needs a pre-installed AMReX library if set to <code>OFF</code>
-
-    </td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>AMREX_LIBDIR</code></td>
-
-    <td>
-
-    <em>None</em>         (note: not yet implemented)</td>
-
-    <td>If set, search for pre-built AMReX C++ libraries (see below)</td>
-
-    </tr>
-
-    <tr>
-
-    <td><code>CMAKE_BUILD_PARALLEL_LEVEL</code></td>
-
-    <td>2</td>
-
-    <td>Number of parallel build threads</td>
-
-    </tr>
-
-    </tbody>
-
-    </table>
-
-    <p>For example, one can also build against a local AMReX copy.
-
-    Assuming AMReX'' source is located in <code>$HOME/src/amrex</code>, then <code>export
-    AMREX_SRC=$HOME/src/amrex</code>.</p>
-
-    <p>Or as a one-liner, assuming your AMReX source directory is located in <code>../amrex</code>:</p>
-
-    <div class="highlight highlight-source-shell"><pre>AMREX_SRC=<span class="pl-smi">$PWD</span>/../amrex
-    python3 -m pip install -v --force-reinstall <span class="pl-c1">.</span></pre></div>
-
-    <p>Note that you need to use absolute paths for external source trees, because
-    pip builds in a temporary directory.</p>
-
-    <p>Or build against an AMReX feature branch of a colleague.
-
-    Assuming your colleague pushed AMReX to <code>https://github.com/WeiqunZhang/amrex/</code>
-    in a branch <code>new-feature</code> then</p>
-
-    <div class="highlight highlight-source-shell"><pre><span class="pl-c1">unset</span>
-    AMREX_SRC  <span class="pl-c"><span class="pl-c">#</span> preferred if set</span>
-
-    AMREX_REPO=https://github.com/WeiqunZhang/amrex.git AMREX_BRANCH=new-feature python3
-    -m pip install -v --force-reinstall <span class="pl-c1">.</span></pre></div>
-
-    <p>You can speed up the install further if you pre-install AMReX, e.g. with a
-    package manager.
-
-    Set <code>AMREX_INTERNAL=OFF</code> and add installation prefix of AMReX to the
-    environment variable <a href="https://cmake.org/cmake/help/latest/envvar/CMAKE_PREFIX_PATH.html"
-    rel="nofollow">CMAKE_PREFIX_PATH</a>.
-
-    Please see the <a href="#Developers">short CMake tutorial that we linked above</a>
-    if this sounds new to you.</p>
-
-    <h2>
-
-    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-    <p>pyAMReX Copyright (c) 2021, The Regents of the University of California,
-
-    through Lawrence Berkeley National Laboratory (subject to receipt of any
-
-    required approvals from the U.S. Dept. of Energy).  All rights reserved.</p>
-
-    <p>If you have questions about your rights to use or distribute this software,
-
-    please contact Berkeley Lab''s Innovation &amp; Partnerships Office at
-
-    <a href="mailto:IPO@lbl.gov">IPO@lbl.gov</a>.</p>
-
-    <p>NOTICE.  This Software was developed under funding from the U.S. Department
-
-    of Energy and the U.S. Government consequently retains certain rights. As
-
-    such, the U.S. Government has been granted for itself and others acting on
-
-    its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the
-
-    Software to reproduce, distribute copies to the public, prepare derivative
-
-    works, and perform publicly and display publicly, and to permit other to do
-
-    so.</p>
-
-    <p>License for pyamrex can be found at <a href="LICENSE">LICENSE</a>.</p>
-
-    '
-  stargazers_count: 8
-  subscribers_count: 16
-  topics:
-  - amrex
-  - python
-  updated_at: 1618432257.0
 Alpine-DAV/spack_configs:
   data_format: 2
   description: spack envs
   filenames:
-  - envs/llnl/quartz/spack.yaml
   - envs/llnl/pascal-cuda/spack.yaml
   - envs/alpinedav/ubuntu_18_devel/spack.yaml
+  - envs/llnl/quartz/spack.yaml
   - envs/olcf/summit/spack.yaml
   - envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
   full_name: Alpine-DAV/spack_configs
@@ -561,22 +25,56 @@ ArjunaCluster/spack:
   data_format: 2
   description: Spack Repos and Configuration Files
   filenames:
-  - environments/common/spack.yaml
   - environments/bootstrap/spack.yaml
+  - environments/common/spack.yaml
   full_name: ArjunaCluster/spack
   latest_release: null
   stargazers_count: 0
   subscribers_count: 2
   topics: []
   updated_at: 1632930981.0
+CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64:
+  data_format: 2
+  description: null
+  filenames:
+  - spack_bwa_docker_ubuntu2004_x86_64.yaml
+  full_name: CINECA-HPC/container_bioinfo_bwa_ubuntu2004_x86_64
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-container_bioinfo_bwa_ubuntu2004_x86_64" class="anchor" href="#container_bioinfo_bwa_ubuntu2004_x86_64"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>container_bioinfo_bwa_ubuntu2004_x86_64</h1>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 3
+  topics: []
+  updated_at: 1612456323.0
+CINECA-HPC/container_spack_ubuntu2004_x86_64:
+  data_format: 2
+  description: null
+  filenames:
+  - spack_openmpi_strip_ubuntu2004.yaml
+  full_name: CINECA-HPC/container_spack_ubuntu2004_x86_64
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-container_spack_ubuntu2004_x86_64" class="anchor" href="#container_spack_ubuntu2004_x86_64"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>container_spack_ubuntu2004_x86_64</h1>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 3
+  topics: []
+  updated_at: 1613997573.0
 E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
+  - environments/21.08/spack.yaml
   - environments/21.05/spack.yaml
   - environments/21.02/spack.yaml
   - environments/20.10/spack.yaml
-  - environments/21.08/spack.yaml
   full_name: E4S-Project/e4s
   latest_release: v21.05
   readme: "<p><a href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -867,30 +365,12 @@ HEPonHPC/hepnos_eventselection:
   subscribers_count: 5
   topics: []
   updated_at: 1630514936.0
-KoyamaSohei/raft:
-  data_format: 2
-  description: Raft implementation which depends on Mochi Project and Symas LMDB
-  filenames:
-  - spack.yaml
-  full_name: KoyamaSohei/raft
-  latest_release: null
-  readme: "<h2>\n<a id=\"user-content-raft\" class=\"anchor\" href=\"#raft\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>raft</h2>\n\
-    <p><a href=\"https://raft.github.io/\" rel=\"nofollow\">Raft</a> implementation\
-    \ which depends on <a href=\"https://mochi.readthedocs.io/\" rel=\"nofollow\"\
-    >Mochi Project</a> and <a href=\"https://symas.com/lmdb/\" rel=\"nofollow\">Symas\
-    \ LMDB</a></p>\n<p>this is one of projects in <a href=\"http://www.hpcs.cs.tsukuba.ac.jp/~tatebe/lecture/r02/dpro/\"\
-    \ rel=\"nofollow\">\u4E3B\u5C02\u653B\u5B9F\u9A13 K-16</a></p>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1612626420.0
 LLNL/Umpire:
   data_format: 2
   description: An application-focused API for memory management on NUMA & GPU architectures
   filenames:
-  - .spack_env/darwin/spack.yaml
   - .spack_env/llnl/spack.yaml
+  - .spack_env/darwin/spack.yaml
   full_name: LLNL/Umpire
   latest_release: v6.0.0
   readme: '<h1>
@@ -1051,7 +531,7 @@ LLNL/Umpire:
     <code>OCEC-18-031</code></p>
 
     '
-  stargazers_count: 190
+  stargazers_count: 191
   subscribers_count: 15
   topics:
   - hpc
@@ -1061,7 +541,7 @@ LLNL/Umpire:
   - portability
   - radiuss
   - cpp
-  updated_at: 1634678673.0
+  updated_at: 1635098867.0
 LLNL/conduit:
   data_format: 2
   description: Simplified Data Exchange for HPC Simulations
@@ -1169,8 +649,8 @@ LLNL/radiuss-spack-testing:
   description: Gitlab CI automation of Spack testing with RADIUSS projects builds.
   filenames:
   - spack-environments/radiuss/spack.yaml
-  - spack-environments/empty/spack.yaml
   - spack-environments/raja-suite/spack.yaml
+  - spack-environments/empty/spack.yaml
   full_name: LLNL/radiuss-spack-testing
   latest_release: null
   readme: '<h1>
@@ -1272,6 +752,119 @@ LLNL/radiuss-spack-testing:
   topics:
   - radiuss
   updated_at: 1632927952.0
+LLNL/radiuss-stack:
+  data_format: 2
+  description: A spack stack with radiuss (some) radiuss packages
+  filenames:
+  - spack.yaml
+  full_name: LLNL/radiuss-stack
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-radiuss-stack" class="anchor" href="#radiuss-stack" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>RADIUSS Stack</h1>
+
+    <p>The RADIUSS project promotes and supports key High Performance Computing (HPC)
+    open-source software developed at the LLNL. These tools and libraries cover a
+    wide range of features a team would need to develop a modern simulation code targeting
+    HPC plaftorms.</p>
+
+    <p>RADIUSS Stack project aims at creating a spack stack (environment) for RADIUSS
+    projects, and test it with CI.</p>
+
+    <h2>
+
+    <a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+    <p>This project is standalone and mainly consist of configuarion files for spack.</p>
+
+    <h3>
+
+    <a id="user-content-prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
+
+    <p>This project introduces a radiuss stack described in <code>spack.yaml</code>.</p>
+
+    <h3>
+
+    <a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Installing</h3>
+
+    <p>This project requires no installation. Installing RADIUSS stack simply requires
+    to run spack install in this directory.</p>
+
+    <p>This has only be tested on Livermore Computing quartz. The goal being both
+    to extend the number of machines it can be used on and complete the list of packages
+    in the stack.</p>
+
+    <h2>
+
+    <a id="user-content-running-the-tests" class="anchor" href="#running-the-tests"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running
+    the tests</h2>
+
+    <p>Testing consists in building the stack on LC Gitlab CI.</p>
+
+    <p>TODO: automate the update of spack.</p>
+
+    <h2>
+
+    <a id="user-content-contributing" class="anchor" href="#contributing" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+    <p>Please read <a href="https://github.com/LLNL/radiuss-ci/CONTRIBUTING.md">CONTRIBUTING.md</a>
+    for details on our code of conduct, and the process for submitting pull requests
+    to us.</p>
+
+    <h2>
+
+    <a id="user-content-versioning" class="anchor" href="#versioning" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Versioning</h2>
+
+    <p>version: 1.0.0</p>
+
+    <p>TODO: Not even sure how to handle versioning here.</p>
+
+    <h2>
+
+    <a id="user-content-authors" class="anchor" href="#authors" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Authors</h2>
+
+    <p>Adrien M Bernede</p>
+
+    <h2>
+
+    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+    <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a>
+    file for details</p>
+
+    <p>All new contributions must be made under the MIT License.</p>
+
+    <p>See <a href="https://github.com/LLNL/radiuss-stack/blob/master/LICENSE">LICENSE</a>,
+
+    <a href="https://github.com/LLNL/radiuss-stack/blob/master/COPYRIGHT">COPYRIGHT</a>,
+    and
+
+    <a href="https://github.com/LLNL/radiuss-stack/blob/master/NOTICE">NOTICE</a>
+    for details.</p>
+
+    <p>SPDX-License-Identifier: (MIT)</p>
+
+    <p>LLNL-CODE-793462</p>
+
+    <h2>
+
+    <a id="user-content-acknowledgments" class="anchor" href="#acknowledgments" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h2>
+
+    '
+  stargazers_count: 1
+  subscribers_count: 4
+  topics: []
+  updated_at: 1614636168.0
 LuisSalbey/environment_containers:
   data_format: 2
   description: null
@@ -1283,24 +876,191 @@ LuisSalbey/environment_containers:
   subscribers_count: 2
   topics: []
   updated_at: 1629379833.0
+MeteoSwiss-APN/spack:
+  data_format: 2
+  description: null
+  filenames:
+  - var/spack/environments/daint/spack.yaml
+  - var/spack/environments/tsa/spack.yaml
+  full_name: MeteoSwiss-APN/spack
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-the-meteoschweiz-spack-deployment\" class=\"\
+    anchor\" href=\"#the-meteoschweiz-spack-deployment\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>The Meteoschweiz\
+    \ Spack Deployment</h1>\n<p>Official Spack documentation <a href=\"#-spack\">below</a>.</p>\n\
+    <h2>\n<a id=\"user-content-building-software-on-tsadaint\" class=\"anchor\" href=\"\
+    #building-software-on-tsadaint\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>Building software on tsa/daint</h2>\n\
+    <p>First git clone the Meteoschweiz spack fork and source the spack file under\
+    \ spack/share/spack in order to use it</p>\n<pre><code>$ git clone https://github.com/elsagermann/spack.git\n\
+    $ cd spack/share/spack\n$ . setup-env.sh\n</code></pre>\n<p>Then activate the\
+    \ environment machine (tsa, daint)</p>\n<pre><code>$ spack env activate &lt;machine&gt;\n\
+    </code></pre>\n<p>You are then able to build any packages available (<em>spack\
+    \ list</em> to print the whole list of available packages)</p>\n<pre><code>$ spack\
+    \ install &lt;package&gt;@&lt;version&gt;%&lt;compiler&gt; +&lt;variants&gt;\n\
+    </code></pre>\n<p>Ex:</p>\n<pre><code>$ spack install cosmo@master%pgi cosmo_target=gpu\n\
+    </code></pre>\n<p>This will clone the package, build it and then install the chosen\
+    \ package and all its dependencies under <em>/scratch/$USER/install/tsa</em> (see\
+    \ <em>config.yaml</em> file section for details). The build-stage of your package\
+    \ and its dependencies are not kept (add <em>--keep-stage</em> after the install\
+    \ command in order to keep it). Module files are also created during this process\
+    \ and installed under <em>/scratch/$USER/modules/</em></p>\n<h2>\n<a id=\"user-content-dev-building-software-on-tsadaint\"\
+    \ class=\"anchor\" href=\"#dev-building-software-on-tsadaint\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Dev-building\
+    \ software on tsa/daint</h2>\n<p>If you do not want to git clone the source of\
+    \ the package you want to install, especially if you are developing, you can use\
+    \ a local source in order to install your package. In order to do so, first go\
+    \ to the base directory of the package and then use spack <em>dev-build</em> instead\
+    \ of spack install</p>\n<pre><code>$ cd &lt;package_base_directory&gt;\n$ spack\
+    \ dev-build &lt;package&gt;@&lt;version&gt;%&lt;compiler&gt; +&lt;variants&gt;\n\
+    </code></pre>\n<p>The package, its dependencies and its modules will be still\
+    \ installed under <em>/scratch/$USER/install/tsa</em> &amp; <em>/scratch/$USER/modules/</em></p>\n\
+    <h2>\n<a id=\"user-content-spack-info\" class=\"anchor\" href=\"#spack-info\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Spack info</h2>\n<p>Use the spack command</p>\n<pre><code>$ spack\
+    \ info &lt;package&gt;\n</code></pre>\n<p>in order to get a list of all possible\
+    \ building configuration available such as: version available, list of dependencies\
+    \ and variants. Variants are a key-feature of spack since it tells it which build\
+    \ configuration we want (i.e COSMO with target gpu or cpu)</p>\n<h2>\n<a id=\"\
+    user-content-spack-edit\" class=\"anchor\" href=\"#spack-edit\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Spack\
+    \ edit</h2>\n<p>Use the spack command</p>\n<pre><code>$ spack edit &lt;package&gt;\n\
+    </code></pre>\n<p>in order to open the correspondig <em>package.py</em> file and\
+    \ edit it directly</p>\n<h2>\n<a id=\"user-content-machine-specific-config-files\"\
+    \ class=\"anchor\" href=\"#machine-specific-config-files\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Machine\
+    \ specific config files</h2>\n<p>Are available under <em>spack/var/spack/environements/<code>&lt;machine&gt;</code></em>.\
+    \ Their structure is:</p>\n<ul>\n    <li>spack.yaml (spack environment file, describes\
+    \ the set of packages to be installed, and includes the below machine config files)</li>\n\
+    \    <li>config:</li>\n        <ul>\n            <li>\n\t    -compilers.yaml (all\
+    \ info about available compilers, machine specific compiler flags, module to load\
+    \ (PrgEnv) before compiling)</li>\n            <li>-packages.yaml (all info about\
+    \ the already installed dependencies, i.e their module names or paths)</li>\n\
+    \            <li>-modules.yaml (all info about the created modules, i.e which\
+    \ env variable or modules should be set once loaded)</li>\n            <li>-config.yaml\
+    \ (specifies the main installation path and the main module installation path,\
+    \ where to find the binaries etc.)</li>\n        </ul>\n    \n</ul>\n<h1>\n<a\
+    \ id=\"user-content--spack\" class=\"anchor\" href=\"#-spack\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a><a\
+    \ href=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\"\
+    \ target=\"_blank\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\"\
+    \ width=\"64\" valign=\"middle\" alt=\"Spack\" data-canonical-src=\"https://cdn.rawgit.com/spack/spack/develop/share/spack/logo/spack-logo.svg\"\
+    \ style=\"max-width:100%;\"></a> Spack</h1>\n<p><a href=\"https://travis-ci.org/spack/spack\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/be67f91ea78cc90b2cc005e3fc22f792ee6c6b9664537968cd5873f24a60b61d/68747470733a2f2f7472617669732d63692e6f72672f737061636b2f737061636b2e7376673f6272616e63683d646576656c6f70\"\
+    \ alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/spack/spack.svg?branch=develop\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://github.com/spack/spack/actions\"\
+    ><img src=\"https://github.com/spack/spack/workflows/linux%20builds/badge.svg\"\
+    \ alt=\"Linux Builds\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/spack/spack\"\
+    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/4e223725486ecdae463d02d6ebd2b814945366210a908fc6f04b044ada8a7820/68747470733a2f2f636f6465636f762e696f2f67682f737061636b2f737061636b2f6272616e63682f646576656c6f702f67726170682f62616467652e737667\"\
+    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/spack/spack/branch/develop/graph/badge.svg\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://spack.readthedocs.io\" rel=\"\
+    nofollow\"><img src=\"https://camo.githubusercontent.com/523aba38ec3f8d2294b874493fe63feed5805b98460c385611397b02be14a51c/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f737061636b2f62616467652f3f76657273696f6e3d6c6174657374\"\
+    \ alt=\"Read the Docs\" data-canonical-src=\"https://readthedocs.org/projects/spack/badge/?version=latest\"\
+    \ style=\"max-width:100%;\"></a>\n<a href=\"https://spackpm.herokuapp.com\" rel=\"\
+    nofollow\"><img src=\"https://camo.githubusercontent.com/39669916879beaeda0aef12ebdc4b5f7a626f48df14c253cf0b6db3b4c563202/68747470733a2f2f737061636b706d2e6865726f6b756170702e636f6d2f62616467652e737667\"\
+    \ alt=\"Slack\" data-canonical-src=\"https://spackpm.herokuapp.com/badge.svg\"\
+    \ style=\"max-width:100%;\"></a></p>\n<p>Spack is a multi-platform package manager\
+    \ that builds and installs\nmultiple versions and configurations of software.\
+    \ It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive:\
+    \ installing a\nnew version of a package does not break existing installations,\
+    \ so many\nconfigurations of the same package can coexist.</p>\n<p>Spack offers\
+    \ a simple \"spec\" syntax that allows users to specify versions\nand configuration\
+    \ options. Package files are written in pure Python, and\nspecs allow package\
+    \ authors to write a single script for many different\nbuilds of the same package.\
+    \  With Spack, you can build your software\n<em>all</em> the ways you want to.</p>\n\
+    <p>See the\n<a href=\"http://spack.readthedocs.io/en/latest/features.html\" rel=\"\
+    nofollow\">Feature Overview</a>\nfor examples and highlights.</p>\n<p>To install\
+    \ spack and your first package, make sure you have Python.\nThen:</p>\n<pre><code>$\
+    \ git clone https://github.com/spack/spack.git\n$ cd spack/bin\n$ ./spack install\
+    \ zlib\n</code></pre>\n<h2>\n<a id=\"user-content-documentation\" class=\"anchor\"\
+    \ href=\"#documentation\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
+    octicon octicon-link\"></span></a>Documentation</h2>\n<p><a href=\"http://spack.readthedocs.io/\"\
+    \ rel=\"nofollow\"><strong>Full documentation</strong></a> is available, or\n\
+    run <code>spack help</code> or <code>spack help --all</code>.</p>\n<h2>\n<a id=\"\
+    user-content-tutorial\" class=\"anchor\" href=\"#tutorial\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Tutorial</h2>\n\
+    <p>We maintain a\n<a href=\"http://spack.readthedocs.io/en/latest/tutorial.html\"\
+    \ rel=\"nofollow\"><strong>hands-on tutorial</strong></a>.\nIt covers basic to\
+    \ advanced usage, packaging, developer features, and large HPC\ndeployments. \
+    \ You can do all of the exercises on your own laptop using a\nDocker container.</p>\n\
+    <p>Feel free to use these materials to teach users at your organization\nabout\
+    \ Spack.</p>\n<h2>\n<a id=\"user-content-community\" class=\"anchor\" href=\"\
+    #community\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Community</h2>\n<p>Spack is an open source project.  Questions, discussion,\
+    \ and\ncontributions are welcome. Contributions can be anything from new\npackages\
+    \ to bugfixes, documentation, or even new core features.</p>\n<p>Resources:</p>\n\
+    <ul>\n<li>\n<strong>Slack workspace</strong>: <a href=\"https://spackpm.slack.com\"\
+    \ rel=\"nofollow\">spackpm.slack.com</a>.\nTo get an invitation, <a href=\"https://spackpm.herokuapp.com\"\
+    \ rel=\"nofollow\"><strong>click here</strong></a>.</li>\n<li>\n<strong>Mailing\
+    \ list</strong>: <a href=\"https://groups.google.com/d/forum/spack\" rel=\"nofollow\"\
+    >groups.google.com/d/forum/spack</a>\n</li>\n<li>\n<strong>Twitter</strong>: <a\
+    \ href=\"https://twitter.com/spackpm\" rel=\"nofollow\">@spackpm</a>. Be sure\
+    \ to\n<code>@mention</code> us!</li>\n</ul>\n<h2>\n<a id=\"user-content-contributing\"\
+    \ class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Contributing</h2>\n<p>Contributing\
+    \ to Spack is relatively easy.  Just send us a\n<a href=\"https://help.github.com/articles/using-pull-requests/\"\
+    >pull request</a>.\nWhen you send your request, make <code>develop</code> the\
+    \ destination branch on the\n<a href=\"https://github.com/spack/spack\">Spack\
+    \ repository</a>.</p>\n<p>Your PR must pass Spack's unit tests and documentation\
+    \ tests, and must be\n<a href=\"https://www.python.org/dev/peps/pep-0008/\" rel=\"\
+    nofollow\">PEP 8</a> compliant.  We enforce\nthese guidelines with <a href=\"\
+    https://travis-ci.org/spack/spack\" rel=\"nofollow\">Travis CI</a>.  To\nrun these\
+    \ tests locally, and for helpful tips on git, see our\n<a href=\"http://spack.readthedocs.io/en/latest/contribution_guide.html\"\
+    \ rel=\"nofollow\">Contribution Guide</a>.</p>\n<p>Spack uses a rough approximation\
+    \ of the\n<a href=\"http://nvie.com/posts/a-successful-git-branching-model/\"\
+    \ rel=\"nofollow\">Git Flow</a>\nbranching model.  The <code>develop</code> branch\
+    \ contains the latest\ncontributions, and <code>master</code> is always tagged\
+    \ and points to the latest\nstable release.</p>\n<h2>\n<a id=\"user-content-code-of-conduct\"\
+    \ class=\"anchor\" href=\"#code-of-conduct\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Code of Conduct</h2>\n<p>Please\
+    \ note that Spack has a\n<a href=\".github/CODE_OF_CONDUCT.md\"><strong>Code of\
+    \ Conduct</strong></a>. By participating in\nthe Spack community, you agree to\
+    \ abide by its rules.</p>\n<h2>\n<a id=\"user-content-authors\" class=\"anchor\"\
+    \ href=\"#authors\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Authors</h2>\n<p>Many thanks go to Spack's <a href=\"\
+    https://github.com/spack/spack/graphs/contributors\">contributors</a>.</p>\n<p>Spack\
+    \ was created by Todd Gamblin, <a href=\"mailto:tgamblin@llnl.gov\">tgamblin@llnl.gov</a>.</p>\n\
+    <h3>\n<a id=\"user-content-citing-spack\" class=\"anchor\" href=\"#citing-spack\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Citing Spack</h3>\n<p>If you are referencing Spack in a publication,\
+    \ please cite the following paper:</p>\n<ul>\n<li>Todd Gamblin, Matthew P. LeGendre,\
+    \ Michael R. Collette, Gregory L. Lee,\nAdam Moody, Bronis R. de Supinski, and\
+    \ W. Scott Futral.\n<a href=\"http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf\"\
+    \ rel=\"nofollow\"><strong>The Spack Package Manager: Bringing Order to HPC Software\
+    \ Chaos</strong></a>.\nIn <em>Supercomputing 2015 (SC\u201915)</em>, Austin, Texas,\
+    \ November 15-20 2015. LLNL-CONF-669890.</li>\n</ul>\n<h2>\n<a id=\"user-content-license\"\
+    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>Spack is distributed\
+    \ under the terms of both the MIT license and the\nApache License (Version 2.0).\
+    \ Users may choose either license, at their\noption.</p>\n<p>All new contributions\
+    \ must be made under both the MIT and Apache-2.0\nlicenses.</p>\n<p>See <a href=\"\
+    https://github.com/spack/spack/blob/develop/LICENSE-MIT\">LICENSE-MIT</a>,\n<a\
+    \ href=\"https://github.com/spack/spack/blob/develop/LICENSE-APACHE\">LICENSE-APACHE</a>,\n\
+    <a href=\"https://github.com/spack/spack/blob/develop/COPYRIGHT\">COPYRIGHT</a>,\
+    \ and\n<a href=\"https://github.com/spack/spack/blob/develop/NOTICE\">NOTICE</a>\
+    \ for details.</p>\n<p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>\n<p>LLNL-CODE-647188</p>\n"
+  stargazers_count: 0
+  subscribers_count: 3
+  topics: []
+  updated_at: 1584095247.0
 PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - examples/zeus/environment3_clingo/spack.yaml
-  - examples/joey/env1_clingo_spack/spack.yaml
-  - examples/zeus/environment1_compchem/spack.yaml
-  - examples/zeus/environment2_python/spack.yaml
-  - examples/magnus/environment_astro/spack.yaml
-  - examples/joey_sprint/template_environment/spack.yaml
-  - examples/topaz/environment_compchem/spack.yaml
-  - examples/joey/env2_clingo/spack.yaml
   - examples/magnus/environment_chem/spack.yaml
-  - examples/joey/env3_fftw2/spack.yaml
   - examples/joey/env4_compchem/spack.yaml
+  - examples/zeus/environment1_compchem/spack.yaml
+  - examples/joey/env5_python/spack.yaml
   - examples/magnus/environment_iolib/spack.yaml
   - examples/magnus/template_environment/spack.yaml
-  - examples/joey/env5_python/spack.yaml
+  - examples/joey_sprint/template_environment/spack.yaml
+  - examples/zeus/environment3_clingo/spack.yaml
+  - examples/topaz/environment_compchem/spack.yaml
+  - examples/joey/env1_clingo_spack/spack.yaml
+  - examples/joey/env2_clingo/spack.yaml
+  - examples/zeus/environment2_python/spack.yaml
+  - examples/magnus/environment_astro/spack.yaml
+  - examples/joey/env3_fftw2/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1>
@@ -1501,8 +1261,12 @@ SCOREC/dcs-spack-config:
   data_format: 2
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
+  - v0133gcc/spack.yaml
   - v0162gccSpectrum/spack.yaml
+  - v0133gccSpectrum/spack.yaml
+  - v0160gcc/spack.yaml
   - rhel8NvhpcWdmapp/spack.yaml
+  - spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
   readme: '<h1>
@@ -1598,6 +1362,32 @@ SCOREC/dcs-spack-config:
   subscribers_count: 4
   topics: []
   updated_at: 1633029356.0
+SCOREC/drp-spack-config:
+  data_format: 2
+  description: CCI DRP Spack configuration
+  filenames:
+  - openFoam24/spack.yaml
+  full_name: SCOREC/drp-spack-config
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-drp-spack-config" class="anchor" href="#drp-spack-config"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>drp-spack-config</h1>
+
+    <p>CCI DRP Spack configuration</p>
+
+    <h1>
+
+    <a id="user-content-contents" class="anchor" href="#contents" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>contents</h1>
+
+    <p>openFoam24 - spack environment for an OpenFoam Organization 2.4.0 install</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 3
+  topics: []
+  updated_at: 1593654195.0
 SCOREC/rhel7-spack-config:
   data_format: 2
   description: rhel7 spack configuration and scripts
@@ -1678,26 +1468,6 @@ SCOREC/rhel7-spack-config:
   subscribers_count: 5
   topics: []
   updated_at: 1628646763.0
-SeisSol/seissol-spack-aid:
-  data_format: 2
-  description: Spack support for SeisSol and related tools
-  filenames:
-  - deployment/default-env-utils-images/image-files/arm64/spack.yaml
-  - deployment/default-env-utils-images/image-files/amd64/spack.yaml
-  full_name: SeisSol/seissol-spack-aid
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack" class="anchor" href="#spack" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>spack</h1>
-
-    <p>Spack support for SeisSol and related tools</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 6
-  topics: []
-  updated_at: 1629050768.0
 SeisSol/yateto:
   data_format: 2
   description: null
@@ -1772,99 +1542,16 @@ StreamAzure/NotesOnSC21:
   stargazers_count: 0
   subscribers_count: 1
   topics: []
-  updated_at: 1633606757.0
-TurbulentDynamics/tdLBCpp:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: TurbulentDynamics/tdLBCpp
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-turbulent-dynamics-lattice-boltzmann-c" class="anchor" href="#turbulent-dynamics-lattice-boltzmann-c"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Turbulent
-    Dynamics Lattice Boltzmann (C++)</h1>
-
-    <p>This is a basic version of the multi-node heterogeneous HPC code to run simulation
-    with hundreds of billions of cells.</p>
-
-    <h2>
-
-    <a id="user-content-building" class="anchor" href="#building" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Building</h2>
-
-    <h3>
-
-    <a id="user-content-generic-build" class="anchor" href="#generic-build" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Generic build</h3>
-
-    <pre><code>bazel build //tdlbcpp/src:tdlbcpp --verbose_failures -s
-
-    </code></pre>
-
-    <h3>
-
-    <a id="user-content-gpu-build" class="anchor" href="#gpu-build" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>GPU build</h3>
-
-    <p>uses <code>nvcc</code> compiler for cuda files and main.cpp and sets WITH_GPU
-    | WITH_GPU_MEMSHARED define</p>
-
-    <pre><code>bazel build --config gpu //tdlbcpp/src:tdlbcpp
-
-    bazel build --config gpu_shared //tdlbcpp/src:tdlbcpp
-
-    </code></pre>
-
-    <p>For debug build add -c dbg switch:</p>
-
-    <pre><code>bazel build -c dbg --config gpu //tdlbcpp/src:tdlbcpp
-
-    </code></pre>
-
-    <p>Specify capabilities and custom cuda path using the following switches:</p>
-
-    <p><code>--@rules_cuda//cuda:cuda_targets=sm_XY</code>
-
-    <code>--repo_env=CUDA_PATH=/usr/local/cuda-ZZZ</code></p>
-
-    <pre><code>bazel build -c dbg --config gpu --@rules_cuda//cuda:cuda_targets=sm_30
-    --repo_env=CUDA_PATH=/usr/local/cuda-9.1 //tdlbcpp/src:tdlbcpp
-
-    </code></pre>
-
-    <h2>
-
-    <a id="user-content-package-structure" class="anchor" href="#package-structure"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Package
-    Structure</h2>
-
-    <p><a href="docs/Package-Structure.jpeg" target="_blank" rel="noopener noreferrer"><img
-    src="docs/Package-Structure.jpeg" alt="Package Structure" style="max-width:100%;"></a></p>
-
-    <h2>
-
-    <a id="user-content-vector-identification-see-headerh" class="anchor" href="#vector-identification-see-headerh"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vector
-    Identification (see <a href="tdlbcpp/src/Header.h">Header.h</a>)</h2>
-
-    <p><a href="docs/D2Q9-D3Q19.jpeg" target="_blank" rel="noopener noreferrer"><img
-    src="docs/D2Q9-D3Q19.jpeg" alt="D2Q9 and D3Q19" style="max-width:100%;"></a></p>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 4
-  topics: []
-  updated_at: 1634449753.0
+  updated_at: 1635062608.0
 UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/rhel8-runner-x86_64/spack.yaml
-  - docker-recipes/rhel7-runner-ppc64le/spack.yaml
-  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
   - docker-recipes/rhel7-runner-x86_64/spack.yaml
+  - docker-recipes/rhel8-runner-x86_64/spack.yaml
+  - docker-recipes/rhel8-runner-ppc64le/spack.yaml
+  - docker-recipes/rhel7-runner-ppc64le/spack.yaml
+  - docker-recipes/special/superlu-sc/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -1887,7 +1574,7 @@ UO-OACISS/e4s:
   stargazers_count: 17
   subscribers_count: 6
   topics: []
-  updated_at: 1633530459.0
+  updated_at: 1635129266.0
 akarmas/sample-ebrains-component:
   data_format: 2
   description: showcase how to mirror from github to EBRAINS Gitlab
@@ -2018,33 +1705,52 @@ akarmas/sample-ebrains-component:
   subscribers_count: 1
   topics: []
   updated_at: 1633429913.0
+alalazo/container-images:
+  data_format: 2
+  description: Recipes to generate container images and experiment with Github registry
+  filenames:
+  - quantum-espresso/spack.yaml
+  - gromacs/spack.yaml
+  full_name: alalazo/container-images
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-container-images" class="anchor" href="#container-images"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>container-images</h1>
+
+    <p>Recipes to generate container images and experiment with Github registry</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1617251520.0
 alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/bio_old/spack.yaml
-  - cent7/library/bak/spack.yaml
-  - cent8/envs/avx512/lusoft/spack.yaml
-  - cent8/envs/avx2/python/spack.yaml
-  - compilers/envs/compilers/spack.yaml
-  - cent7/mpis/spack.yaml
-  - cent7/libs_old/spack.yaml
-  - cent8/envs/avx/python/spack.yaml
-  - cent8/envs/avx/lusoft/spack.yaml
-  - cent8/envs/avx512/python/spack.yaml
-  - cent7/py_376/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
   - cent7/apps/spack.yaml
   - cent7/ece_hpc/spack.yaml
-  - cent7/bioinformatics_default/spack.yaml
-  - cent7/bioinformatics/spack.yaml
+  - cent8/envs/avx/python/spack.yaml
   - cent8/envs/avx/rproject/spack.yaml
+  - cent8/envs/avx512/python/spack.yaml
+  - cent7/bio_old/spack.yaml
   - cent8/envs/avx2/rproject/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - compilers/envs/compilers/spack.yaml
+  - cent8/envs/avx/lusoft/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
+  - cent8/envs/avx2/lusoft/spack.yaml
+  - cent8/envs/x86_64/spack.yaml
   - cent8/envs/avx512/rproject/spack.yaml
+  - cent7/py_376/spack.yaml
   - cent7/library/spack.yaml
-  - cent7/python_376/spack.yaml
+  - cent7/bioinformatics/spack.yaml
+  - cent7/library/bak/spack.yaml
+  - cent8/envs/avx2/python/spack.yaml
+  - cent8/envs/avx512/lusoft/spack.yaml
+  - cent7/libs_old/spack.yaml
+  - cent7/mpis/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1>
@@ -2270,6 +1976,64 @@ buildtesters/buildtest:
   - json-schema
   - buildtest
   updated_at: 1634927305.0
+bvanessen/lbann_distconv:
+  data_format: 2
+  description: null
+  filenames:
+  - spack_environments/developer_release_osx_spack.yaml
+  - spack_environments/users/llnl_lc/ppc64le_cuda/spack.yaml
+  full_name: bvanessen/lbann_distconv
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-lbann-livermore-big-artificial-neural-network-toolkit\"\
+    \ class=\"anchor\" href=\"#lbann-livermore-big-artificial-neural-network-toolkit\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>LBANN: Livermore Big Artificial Neural Network Toolkit</h1>\n<p>The\
+    \ Livermore Big Artificial Neural Network toolkit (LBANN) is an\nopen-source,\
+    \ HPC-centric, deep learning training framework that is\noptimized to compose\
+    \ multiple levels of parallelism.</p>\n<p>LBANN provides model-parallel acceleration\
+    \ through domain\ndecomposition to optimize for strong scaling of network training.\
+    \  It\nalso allows for composition of model-parallelism with both data\nparallelism\
+    \ and ensemble training methods for training large neural\nnetworks with massive\
+    \ amounts of data.  LBANN is able to advantage of\ntightly-coupled accelerators,\
+    \ low-latency high-bandwidth networking,\nand high-bandwidth parallel file systems.</p>\n\
+    <p>LBANN supports state-of-the-art training algorithms such as\nunsupervised,\
+    \ self-supervised, and adversarial (GAN) training methods\nin addition to traditional\
+    \ supervised learning.  It also supports\nrecurrent neural networks via back propagation\
+    \ through time (BPTT)\ntraining, transfer learning, and multi-model and ensemble\
+    \ training\nmethods.</p>\n<h2>\n<a id=\"user-content-building-lbann\" class=\"\
+    anchor\" href=\"#building-lbann\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>Building LBANN</h2>\n<p>The preferred\
+    \ method for LBANN users to install LBANN is to use\n<a href=\"https://github.com/llnl/spack\"\
+    >Spack</a>. After some system\nconfiguration, this should be as straightforward\
+    \ as</p>\n<div class=\"highlight highlight-source-shell\"><pre>spack install lbann</pre></div>\n\
+    <p>More detailed instructions for building and installing LBANN are\navailable\
+    \ at the <a href=\"https://lbann.readthedocs.io/en/latest/index.html\" rel=\"\
+    nofollow\">main LBANN\ndocumentation</a>.</p>\n<h2>\n<a id=\"user-content-running-lbann\"\
+    \ class=\"anchor\" href=\"#running-lbann\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Running LBANN</h2>\n<p>The basic\
+    \ template for running LBANN is</p>\n<div class=\"highlight highlight-source-shell\"\
+    ><pre><span class=\"pl-k\">&lt;</span>mpi-launcher<span class=\"pl-k\">&gt;</span>\
+    \ <span class=\"pl-k\">&lt;</span>mpi-options<span class=\"pl-k\">&gt;</span>\
+    \ \\\n    lbann <span class=\"pl-k\">&lt;</span>lbann-options<span class=\"pl-k\"\
+    >&gt;</span> \\\n    --model=model.prototext \\\n    --optimizer=opt.prototext\
+    \ \\\n    --reader=data_reader.prototext</pre></div>\n<p>When using GPGPU accelerators,\
+    \ users should be aware that LBANN is\noptimized for the case in which one assigns\
+    \ one GPU per MPI\n<em>rank</em>. This should be borne in mind when choosing the\
+    \ parameters for\nthe MPI launcher.</p>\n<p>More details about running LBANN are\
+    \ documented\n<a href=\"https://lbann.readthedocs.io/en/latest/running_lbann.html\"\
+    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-publications\" class=\"\
+    anchor\" href=\"#publications\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
+    \ class=\"octicon octicon-link\"></span></a>Publications</h2>\n<p>A list of publications,\
+    \ presentations and posters are shown\n<a href=\"https://lbann.readthedocs.io/en/latest/publications.html\"\
+    \ rel=\"nofollow\">here</a>.</p>\n<h2>\n<a id=\"user-content-reporting-issues\"\
+    \ class=\"anchor\" href=\"#reporting-issues\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Reporting issues</h2>\n<p>Issues,\
+    \ questions, and bugs can be raised on the <a href=\"https://github.com/llnl/lbann/issues\"\
+    >Github issue\ntracker</a>.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1570946110.0
 cinemascienceworkflows/2021-05_ExaWind-AMRWind:
   data_format: 2
   description: null
@@ -2927,11 +2691,11 @@ eth-cscs/spack-batteries-included:
   data_format: 2
   description: Installing spack without system dependencies
   filenames:
-  - build/1_ccache/spack.yaml
-  - build/3_more_tools/spack.yaml
   - build/6_spack/spack.yaml
-  - build/2_compiler/spack.yaml
   - build/5_runtime/spack.yaml
+  - build/3_more_tools/spack.yaml
+  - build/1_ccache/spack.yaml
+  - build/2_compiler/spack.yaml
   full_name: eth-cscs/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/eth-cscs/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -3234,101 +2998,6 @@ eugeneswalker/exawind-containers:
   subscribers_count: 1
   topics: []
   updated_at: 1626420401.0
-felixthieme/2020_ASPECT_IGG:
-  data_format: 2
-  description: null
-  filenames:
-  - contrib/spack/spack.yaml
-  full_name: felixthieme/2020_ASPECT_IGG
-  latest_release: null
-  readme: "<p>(Cloned from ASPECT by Felix Thieme (Idaho Geodynamics Group) on 5/27/2020)</p>\n\
-    <h1>\n<a id=\"user-content-aspect---advanced-solver-for-problems-in-earths-convection\"\
-    \ class=\"anchor\" href=\"#aspect---advanced-solver-for-problems-in-earths-convection\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>ASPECT - Advanced Solver for Problems in Earth's ConvecTion</h1>\n\
-    <p><a href=\"https://github.com/geodynamics/aspect/blob/master/LICENSE\"><img\
-    \ src=\"https://camo.githubusercontent.com/6bdbfedce993ff7baeecb8c93e87eeebe79d7ae3d19002c54f87e301ec0e7cdc/68747470733a2f2f696d672e736869656c64732e696f2f6372616e2f6c2f646576746f6f6c732e737667\"\
-    \ alt=\"License GPL2:\" data-canonical-src=\"https://img.shields.io/cran/l/devtools.svg\"\
-    \ style=\"max-width:100%;\"></a>\n<a href=\"https://doi.org/10.5281/zenodo.2653531\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/91da28a81e083b7f3b47a26fd70f2dfcf0a87a9306f2b6f0d457a65ebe089752/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e323635333533312e737667\"\
-    \ alt=\"DOI\" data-canonical-src=\"https://zenodo.org/badge/DOI/10.5281/zenodo.2653531.svg\"\
-    \ style=\"max-width:100%;\"></a>\n<a href=\"https://doi.org/10.6084/m9.figshare.4865333\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7f17ee0a3d31869d37f8d1b1f43540d6fb99d9a8c72bcf879977682693cbe1a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6765742d5044462d677265656e2e737667\"\
-    \ alt=\"pdf manual\" data-canonical-src=\"https://img.shields.io/badge/get-PDF-green.svg\"\
-    \ style=\"max-width:100%;\"></a></p>\n<h2>\n<a id=\"user-content-about\" class=\"\
-    anchor\" href=\"#about\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>About</h2>\n<p>ASPECT is a code to simulate\
-    \ convection in Earth's mantle and elsewhere.\nIt has grown from a pure mantle-convection\
-    \ code into a tool for many\ngeodynamic applications including applications for\
-    \ inner core convection,\nlithospheric scale deformation, two-phase flow, and\
-    \ numerical methods development.\nThe project is supported by CIG (<a href=\"\
-    http://geodynamics.org\" rel=\"nofollow\">http://geodynamics.org</a>).</p>\n<h2>\n\
-    <a id=\"user-content-installation-instructions\" class=\"anchor\" href=\"#installation-instructions\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Installation instructions</h2>\n<p>The steps to install the necessary\
-    \ dependencies and ASPECT itself are described\nin the Installation instructions\
-    \ section of the ASPECT\n<a href=\"http://www.math.clemson.edu/~heister/manual.pdf\"\
-    \ rel=\"nofollow\">manual</a>. If you encounter\nproblems during the installation,\
-    \ please consult our\n<a href=\"https://github.com/geodynamics/aspect/wiki\">wiki</a>\
-    \ for typical installation\nproblems or specific instructions for MacOS users,\
-    \ before asking your question\non the mailing list.</p>\n<h2>\n<a id=\"user-content-running-and-extending-aspect\"\
-    \ class=\"anchor\" href=\"#running-and-extending-aspect\" aria-hidden=\"true\"\
-    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Running\
-    \ and extending ASPECT</h2>\n<p>Instructions on how to run and extend, as well\
-    \ as on how to interpret the\noutput of ASPECT can also be found in the ASPECT\n\
-    <a href=\"http://www.math.clemson.edu/~heister/manual.pdf\" rel=\"nofollow\">manual</a>.\
-    \ This manual also\ndiscusses the structure of the source code.</p>\n<p>For getting\
-    \ started, you can also watch our online\n<a href=\"https://geodynamics.org/cig/events/calendar/2016-cig-all-hands-meeting/aspect-tutorial/tutorial/\"\
-    \ rel=\"nofollow\">tutorial</a>.</p>\n<h2>\n<a id=\"user-content-contributing-to-aspect\"\
-    \ class=\"anchor\" href=\"#contributing-to-aspect\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Contributing\
-    \ to ASPECT</h2>\n<p>ASPECT is a community project that lives by the participation\
-    \ of its\nmembers \u2014 i.e., including you! It is our goal to build an inclusive\n\
-    and participatory community so we are happy that you are interested in\nparticipating!\
-    \ We have collected a set of guidelines and advice on how\nto get involved in\
-    \ the community and keep them in the\n<a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a>\n\
-    file in ASPECT's repository.</p>\n<h2>\n<a id=\"user-content-more-information\"\
-    \ class=\"anchor\" href=\"#more-information\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>More information</h2>\n<p>For\
-    \ more information see:</p>\n<ul>\n<li>\n<p>The official website at <a href=\"\
-    https://aspect.geodynamics.org\" rel=\"nofollow\">https://aspect.geodynamics.org</a></p>\n\
-    </li>\n<li>\n<p>The current <a href=\"http://www.math.clemson.edu/~heister/manual.pdf\"\
-    \ rel=\"nofollow\">manual</a></p>\n</li>\n<li>\n<p><a href=\"https://aspect.geodynamics.org/cite.html\"\
-    \ rel=\"nofollow\">How to cite ASPECT</a></p>\n</li>\n<li>\n<p>For questions on\
-    \ the source code of ASPECT, portability, installation, new or existing features,\
-    \ etc., use the <a href=\"https://community.geodynamics.org/c/aspect\" rel=\"\
-    nofollow\">ASPECT forum</a>. This forum is where the ASPECT users and developers\
-    \ all hang out. Archived discussions from the inactive aspect-devel mailing list\
-    \ can be downloaded at <a href=\"http://lists.geodynamics.org/pipermail/aspect-devel\"\
-    \ rel=\"nofollow\">aspect-devel archives</a>.</p>\n</li>\n<li>\n<p>ASPECT is primarily\
-    \ based on the deal.II library. If you have particular questions about deal.II,\
-    \ contact the <a href=\"https://www.dealii.org/mail.html\" rel=\"nofollow\">deal.II\
-    \ discussion groups</a>.</p>\n</li>\n<li>\n<p>In case of more general questions\
-    \ about mantle convection, you can contact the <a href=\"http://lists.geodynamics.org/cgi-bin/mailman/listinfo/cig-MC\"\
-    \ rel=\"nofollow\">CIG mantle convection mailing lists</a>.</p>\n</li>\n<li>\n\
-    <p>ASPECT is being developed by a large, collaborative, and inclusive community.\
-    \ It is currently maintained by the following people:</p>\n<ul>\n<li>Wolfgang\
-    \ Bangerth: <a href=\"mailto:bangerth@math.colostate.edu\">bangerth@math.colostate.edu</a>\n\
-    </li>\n<li>Juliane Dannberg: <a href=\"mailto:judannberg@gmail.com\">judannberg@gmail.com</a>\n\
-    </li>\n<li>Rene Gassmoeller: <a href=\"mailto:rene.gassmoeller@mailbox.org\">rene.gassmoeller@mailbox.org</a>\n\
-    </li>\n<li>Timo Heister: <a href=\"mailto:heister@clemson.edu\">heister@clemson.edu</a>\n\
-    </li>\n</ul>\n</li>\n<li>\n<p>The following people have significantly contributed\
-    \ and furthered ASPECT's goals and are therefore Principal Developers:</p>\n<ul>\n\
-    <li>Jacky Austermann</li>\n<li>Wolfgang Bangerth</li>\n<li>Juliane Dannberg</li>\n\
-    <li>Menno Fraters</li>\n<li>Rene Gassmoeller</li>\n<li>Anne Glerum</li>\n<li>Timo\
-    \ Heister</li>\n<li>John Naliboff</li>\n</ul>\n</li>\n<li>\n<p>A complete and\
-    \ growing list of the many authors that have contributed over the years can be\
-    \ found at <a href=\"https://github.com/geodynamics/aspect/graphs/contributors\"\
-    >github</a></p>\n</li>\n<li>\n<p>If you have specific questions about ASPECT that\
-    \ are not suitable for public and archived mailing lists, feel free to contact\
-    \ the maintainers or principal developers.</p>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-license\"\
-    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>ASPECT is published\
-    \ under <a href=\"LICENSE\">GPL v2 or newer</a>.</p>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1590610476.0
 flux-framework/flux-research-artifacts:
   data_format: 2
   description: Collection of Research Artifacts from Papers Involving Flux
@@ -3447,17 +3116,6 @@ haampie-spack/ci-example-docker:
   subscribers_count: 2
   topics: []
   updated_at: 1625582972.0
-haampie-spack/ci-example-gha:
-  data_format: 2
-  description: Use setup-spack GitHub Action
-  filenames:
-  - ci/spack.yaml
-  full_name: haampie-spack/ci-example-gha
-  latest_release: null
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1626953351.0
 haampie-spack/setup-spack:
   data_format: 2
   description: null
@@ -3590,17 +3248,6 @@ haampie/libtree:
   subscribers_count: 5
   topics: []
   updated_at: 1628688008.0
-hariharan-devarajan/emacs:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: hariharan-devarajan/emacs
-  latest_release: null
-  stargazers_count: 1
-  subscribers_count: 1
-  topics: []
-  updated_at: 1620404607.0
 hepnos/HEPnOS:
   data_format: 2
   description: HEPnOS is a distributed object store for high energy physics applications,
@@ -3768,7 +3415,18 @@ icl-utk-edu/fiber:
   stargazers_count: 0
   subscribers_count: 3
   topics: []
-  updated_at: 1635006036.0
+  updated_at: 1635113740.0
+jacobmerson/spack-develop-env:
+  data_format: 2
+  description: My development environment built with spack
+  filenames:
+  - spack.yaml
+  full_name: jacobmerson/spack-develop-env
+  latest_release: null
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1588742157.0
 jacobmerson/vector-correlation:
   data_format: 2
   description: null
@@ -3794,193 +3452,16 @@ jacobmerson/vector-correlation:
   subscribers_count: 1
   topics: []
   updated_at: 1634889026.0
-jrood-nrel/spack-configs:
-  data_format: 2
-  description: Spack configuration files and scripts for use on machines at NREL
-  filenames:
-  - configs/eagle/base/spack.yaml
-  - configs/rhodes/compilers/spack.yaml
-  - configs/eagle/utilities/spack.yaml
-  - envs/exawind/spack.yaml
-  - configs/eagle/compilers/spack.yaml
-  - configs/rhodes/software/spack.yaml
-  - configs/eagle/software/spack.yaml
-  - configs/rhodes/base/spack.yaml
-  - configs/rhodes/utilities/spack.yaml
-  full_name: jrood-nrel/spack-configs
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-spack-configuration-files-and-scripts-for-use-on-machines-at-nrel"
-    class="anchor" href="#spack-configuration-files-and-scripts-for-use-on-machines-at-nrel"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spack
-    configuration files and scripts for use on machines at NREL</h1>
-
-    <p>These software installations are maintained by Jon Rood for the HPACF group
-    at NREL and are tailored to the applications our group develops. The list of available
-    modules can be seen in <a href="modules.txt">modules.txt</a>. They are open to
-    anyone to use on our machines. The software installations are organized by date
-    snapshots. The binaries, compilers, and utilties are not updated as often as the
-    software modules, so dated symlinks might point to older dates for those. However,
-    each date snapshot of the modules should be able to stand on its own so that older
-    snapshots can be purged safely over time.</p>
-
-    <ul>
-
-    <li>"base" is just a newer version of GCC to replace the system GCC 4.8.5 which
-    is far too old to build many recent projects.</li>
-
-    <li>"binaries" are generally the binary downloads of Paraview and Visit.</li>
-
-    <li>"compilers" are the latest set of compilers built using the base GCC.</li>
-
-    <li>"utilities" are the latest set of utility programs that don''t rely on MPI
-    and are built using the base GCC.</li>
-
-    <li>"software" are the latest set of generally larger programs and dependencies
-    that rely on MPI. Each date corresponds to a single MPI implementation so there
-    is no confusion as to which MPI was used for the applications. These modules are
-    built using a farily recent GCC, Clang, or Intel compiler provided from the "compilers"
-    modules, using the highest optimization flags specific to the machine architecture.</li>
-
-    </ul>
-
-    <p>The Spack hierarchy is linked in the following manner where each installation
-    is based on other upstream Spack installations. "software" depends on "utilities",
-    which both depend on "compilers". This hierarchy allows Spack to point to packages
-    it needs which are already built upstream. The "compilers" installation exposes
-    only the modules for compilers, while the "utilities" modules inherit modules
-    from itself as well as the dependency packages in the "compilers" installation
-    except the compiler modules themselves.</p>
-
-    <p>Currently there is no perfect way to advertise deprecation or addition, and
-    evolution of these modules. I have an MOTD you can cat in your login script to
-    see updates. Generally the latest 4 sets of modules will likely be kept and new
-    sets have been showing up around every 3 to 6 months.</p>
-
-    <p>To use these modules you can add the following to your <code>~/.bashrc</code>
-    for example and choose the module set (date) you prefer, and the GCC or Intel
-    compiled software modules:</p>
-
-    <pre><code>#------------------------------------------
-
-
-    #MPT 2.22
-
-    #MODULES=modules-2020-07
-
-    #COMPILER=gcc-8.4.0
-
-    #COMPILER=clang-10.0.0
-
-    #COMPILER=intel-18.0.4
-
-
-    #MPICH 3.3.1
-
-    #MODULES=modules-2019-10-08
-
-    #COMPILER=gcc-7.4.0
-
-    #COMPILER=clang-7.0.1
-
-    #COMPILER=intel-18.0.4
-
-
-    #MPICH 3.3
-
-    #MODULES=modules-2019-05-23
-
-    #COMPILER=gcc-7.4.0
-
-    #COMPILER=intel-18.0.4
-
-
-    #MPICH 3.3
-
-    #MODULES=modules-2019-05-08
-
-    #COMPILER=gcc-7.4.0
-
-    #COMPILER=intel-18.0.4
-
-
-    #MPICH 3.3
-
-    #MODULES=modules-2019-01-10
-
-    #COMPILER=gcc-7.3.0
-
-    #COMPILER=intel-18.0.4
-
-
-    #Recommended default according to where "modules" is currently symlinked
-
-    MODULES=modules
-
-    COMPILER=gcc-8.4.0
-
-    #COMPILER=clang-10.0.0
-
-    #COMPILER=intel-18.0.4
-
-
-    module purge
-
-    module unuse ${MODULEPATH}
-
-    module use /nopt/nrel/ecom/hpacf/binaries/${MODULES}
-
-    module use /nopt/nrel/ecom/hpacf/compilers/${MODULES}
-
-    module use /nopt/nrel/ecom/hpacf/utilities/${MODULES}
-
-    module use /nopt/nrel/ecom/hpacf/software/${MODULES}/${COMPILER}
-
-    module load gcc
-
-    module load git
-
-    module load python
-
-    #etc...
-
-
-    #------------------------------------------
-
-    </code></pre>
-
-    <p>If <code>module avail</code> does not show the modules on Eagle, try removing
-    the LMOD cache with <code>rm -rf ~/.lmod.d/.cache</code></p>
-
-    <p>Also included in this directory is a recommended Spack configurations you can
-    use to build your own packages on the machines supported at NREL. Once you have
-    <code>SPACK_ROOT</code> set you can run <code>/nopt/nrel/ecom/hpacf/spack-configs/scripts/setup-spack.sh</code>
-    which should copy the yaml files into your instance of Spack. Or you can copy
-    the yaml files into your <code>${SPACK_ROOT}/etc</code> directory manually. <code>spack
-    compilers</code> should then show you many available compilers. Source your Spack''s
-    <code>setup-env.sh</code> after you do the <code>module unuse ${MODULEPATH}</code>
-    in your <code>.bashrc</code> so that your Spack instance will add its own module
-    path to MODULEPATH. Remove <code>~/.spack/linux</code> if it exists and <code>spack
-    compilers</code> doesn''t show you the updated list of compilers. The <code>~/.spack</code>
-    directory takes highest precendence in the Spack configuration.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1624293183.0
 key4hep/key4hep-spack:
   data_format: 2
   description: A Spack overlay repository of HEP software packaging.
   filenames:
-  - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-nightlies/spack.yaml
-  - environments/key4hep-release/spack.yaml
-  - environments/key4hep-nightlies-debug/spack.yaml
   - environments/key4hep-debug/spack.yaml
-  - environments/key4hep-release-user/spack.yaml
+  - environments/key4hep-nightlies/spack.yaml
   - environments/key4hep-release-broadwell/spack.yaml
+  - environments/key4hep-release-user/spack.yaml
+  - environments/key4hep-nightlies-debug/spack.yaml
+  - environments/key4hep-release/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-05-13'
   readme: '<h1>
@@ -4029,15 +3510,15 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
-  - env/broadwell/flecsi/spack.yaml
-  - env/x86_64/flecsi/spack.yaml
+  - .gitlab-ci/env/dry-run/spack.yaml
+  - env/broadwell/flecsalemm-deps/spack.yaml
   - .gitlab-ci/env/local-build/spack.yaml
   - env/x86_64/flecsalemm-deps/spack.yaml
-  - env/broadwell/flecsalemm-deps/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
+  - env/x86_64/flecsi/spack.yaml
+  - env/power9le/flecsi/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
   - env/power9le/flecsalemm-deps/spack.yaml
   - .gitlab-ci/env/root-build/spack.yaml
-  - env/power9le/flecsi/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1>
@@ -4149,71 +3630,13 @@ le-raffael/AdaptiveTimeSteppingSEAS:
   subscribers_count: 1
   topics: []
   updated_at: 1623696683.0
-m-s-will/nyx:
-  data_format: 2
-  description: null
-  filenames:
-  - nyx/inputs/spack/spack.yaml
-  full_name: m-s-will/nyx
-  latest_release: null
-  readme: '<h1>
-
-    <a id="user-content-nyx-with-ascent-in-container" class="anchor" href="#nyx-with-ascent-in-container"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nyx
-    with Ascent in Container</h1>
-
-    <p>This project contains a Dockerfile and all necessary components to create a
-    Docker container for Nyx.
-
-    The container is available on <a href="https://hub.docker.com/repository/docker/mswill/elwe_nyx"
-    rel="nofollow">Dockerhub</a>, however these versions may not always be up to date.</p>
-
-    <h2>
-
-    <a id="user-content-building-the-container" class="anchor" href="#building-the-container"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building
-    the container</h2>
-
-    <p>The Ascent actions can be changed by editing <a href="https://github.com/m-s-will/nyx/blob/main/nyx/inputs/ascent/ascent_actions.yaml">ascent_actions.yaml</a>.
-
-    When finished with the customization, the container can be rebuilt by navigating
-    into the source directory and executing:</p>
-
-    <pre><code>$ docker build -t &lt;mytag&gt; .
-
-    </code></pre>
-
-    <p>The Nyx simulation is being run during container creation and provides a Cinema
-    database.</p>
-
-    <h2>
-
-    <a id="user-content-running-the-container" class="anchor" href="#running-the-container"
-    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running
-    the container</h2>
-
-    <p>After either pulling or building the container, it can be run by calling:</p>
-
-    <pre><code>$ docker run -p 80:80 &lt;mytag&gt;.
-
-    </code></pre>
-
-    <p><code>-p 80:80</code> makes port 80 available on the outside which is needed
-    for the Cinema viewer. We can then connect to it by visiting <code>localhost:80</code>
-    in our browser.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1619455896.0
 mayrmt/spack_environments:
   data_format: 2
   description: A set of spack environemts for some of my projects
   filenames:
+  - env_baci/spack.yaml
   - env_4c/spack.yaml
   - env_trilinos/spack.yaml
-  - env_baci/spack.yaml
   full_name: mayrmt/spack_environments
   latest_release: null
   readme: '<h1>
@@ -4303,9 +3726,9 @@ mochi-hpc-experiments/mona-benchmarking:
   data_format: 2
   description: Mona benchmarking
   filenames:
+  - theta/spack.yaml
   - bebop/spack.yaml
   - cori/spack.yaml
-  - theta/spack.yaml
   full_name: mochi-hpc-experiments/mona-benchmarking
   latest_release: null
   readme: '<h1>
@@ -4328,12 +3751,12 @@ mochi-hpc-experiments/platform-configurations:
   description: This repository provides a set of configuration files and example scripts
     for running Mochi experiments on various platforms.
   filenames:
-  - NERSC/Cori/spack.yaml
-  - ORNL/Summit/spack.yaml
+  - ANL/Cooley/spack.yaml
   - ANL/JLSE/spack.yaml
   - ANL/Theta/spack.yaml
-  - ANL/Cooley/spack.yaml
   - ANL/Bebop/spack.yaml
+  - NERSC/Cori/spack.yaml
+  - ORNL/Summit/spack.yaml
   full_name: mochi-hpc-experiments/platform-configurations
   latest_release: null
   readme: '<h1>
@@ -4964,133 +4387,12 @@ mochi-hpc/mochi-doc:
   subscribers_count: 4
   topics: []
   updated_at: 1634327215.0
-mochi-hpc/mochi-margo:
-  data_format: 2
-  description: Argobots bindings for the Mercury RPC library
-  filenames:
-  - spack.yaml
-  full_name: mochi-hpc/mochi-margo
-  latest_release: v0.9.5
-  readme: "<h1>\n<a id=\"user-content-margo\" class=\"anchor\" href=\"#margo\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Margo</h1>\n\
-    <p><a href=\"https://github.com/mochi-hpc/mochi-margo/actions/workflows/test.yml/badge.svg?branch=main\"\
-    \ target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://github.com/mochi-hpc/mochi-margo/actions/workflows/test.yml/badge.svg?branch=main\"\
-    \ alt=\"\" style=\"max-width:100%;\"></a>\n<a href=\"https://codecov.io/gh/mochi-hpc/mochi-margo\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/c64ae5809121f4158ced0cf46c628aca60e6db908b2639f6758b0595a6fdd779/68747470733a2f2f636f6465636f762e696f2f67682f6d6f6368692d6870632f6d6f6368692d6d6172676f2f6272616e63682f6d61696e2f67726170682f62616467652e737667\"\
-    \ alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/mochi-hpc/mochi-margo/branch/main/graph/badge.svg\"\
-    \ style=\"max-width:100%;\"></a></p>\n<p>Margo provides Argobots-aware bindings\
-    \ to the Mercury RPC library.</p>\n<p>Mercury (<a href=\"https://mercury-hpc.github.io/\"\
-    \ rel=\"nofollow\">https://mercury-hpc.github.io/</a>) is a remote procedure call\n\
-    library optimized for use in HPC environments.  Its native API presents a\ncallback-oriented\
-    \ interface to manage asynchronous operation.  Argobots\n(<a href=\"https://www.argobots.org/\"\
-    \ rel=\"nofollow\">https://www.argobots.org/</a>) is a user-level threading package.</p>\n\
-    <p>Margo combines Mercury and Argobots to simplify development of distributed\n\
-    services.  Mercury operations are presented as conventional blocking\noperations,\
-    \ and RPC handlers are presented as sequential threads.  This\nconfiguration enables\
-    \ high degree of concurrency while hiding the\ncomplexity associated with asynchronous\
-    \ communication progress and callback\nmanagement.</p>\n<p>Internally, Margo suspends\
-    \ callers after issuing a Mercury operation, and\nautomatically resumes them when\
-    \ the operation completes.  This allows\nother concurrent user-level threads to\
-    \ make progress while Mercury\noperations are in flight without consuming operating\
-    \ system threads.\nThe goal of this design is to combine the performance advantages\
-    \ of\nMercury's native event-driven execution model with the progamming\nsimplicity\
-    \ of a multi-threaded execution model.</p>\n<p>A companion library called abt-io\
-    \ provides similar wrappers for POSIX I/O\nfunctions: <a href=\"https://github.com/mochi-hpc/mochi-abt-io\"\
-    >https://github.com/mochi-hpc/mochi-abt-io</a></p>\n<p>Note that Margo should\
-    \ be compatible with any Mercury network\ntransport (NA plugin).  The documentation\
-    \ assumes the use of\nthe NA SM (shared memory) plugin that is built into Mercury\
-    \ for\nsimplicity.  This plugin is only valid for communication between\nprocesses\
-    \ on a single node.  See <a href=\"##using-margo-with-other-mercury-na-plugins\"\
-    >Using Margo with other Mercury NA\nplugins</a> for information\non other configuration\
-    \ options.</p>\n<h2>\n<a id=\"user-content-spack\" class=\"anchor\" href=\"#spack\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Spack</h2>\n<p>The simplest way to install Margo is by installing\
-    \ the \"mochi-margo\" package\nin spack (<a href=\"https://spack.io/\" rel=\"\
-    nofollow\">https://spack.io/</a>).</p>\n<h2>\n<a id=\"user-content-dependencies\"\
-    \ class=\"anchor\" href=\"#dependencies\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Dependencies</h2>\n<ul>\n<li>mercury\
-    \  (git clone --recurse-submodules <a href=\"https://github.com/mercury-hpc/mercury.git\"\
-    >https://github.com/mercury-hpc/mercury.git</a>)</li>\n<li>argobots (git clone\
-    \ <a href=\"https://github.com/pmodels/argobots.git\">https://github.com/pmodels/argobots.git</a>)</li>\n\
-    </ul>\n<h3>\n<a id=\"user-content-recommended-mercury-build-options\" class=\"\
-    anchor\" href=\"#recommended-mercury-build-options\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Recommended Mercury\
-    \ build options</h3>\n<ul>\n<li>Mercury must be compiled with -DMERCURY_USE_BOOST_PP:BOOL=ON\
-    \ to enable the\nBoost preprocessor macros for encoding.</li>\n<li>Mercury should\
-    \ be compiled with -DMERCURY_USE_SELF_FORWARD:BOOL=ON in order to enable\nfast\
-    \ execution path for cases in which a Mercury service is linked into the same\n\
-    executable as the client</li>\n</ul>\n<p>Example Mercury compilation:</p>\n<pre><code>mkdir\
-    \ build\ncd build\ncmake -DMERCURY_USE_SELF_FORWARD:BOOL=ON \\\n -DBUILD_TESTING:BOOL=ON\
-    \ -DMERCURY_USE_BOOST_PP:BOOL=ON \\\n -DCMAKE_INSTALL_PREFIX=/home/pcarns/working/install\
-    \ \\\n -DBUILD_SHARED_LIBS:BOOL=ON -DCMAKE_BUILD_TYPE:STRING=Debug ../\n</code></pre>\n\
-    <h2>\n<a id=\"user-content-building\" class=\"anchor\" href=\"#building\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Building</h2>\n\
-    <p>Example configuration:</p>\n<pre><code>../configure --prefix=/home/pcarns/working/install\
-    \ \\\n    PKG_CONFIG_PATH=/home/pcarns/working/install/lib/pkgconfig \\\n    CFLAGS=\"\
-    -g -Wall\"\n</code></pre>\n<h2>\n<a id=\"user-content-running-examples\" class=\"\
-    anchor\" href=\"#running-examples\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Running examples</h2>\n<p>The\
-    \ examples subdirectory contains:</p>\n<ul>\n<li>margo-example-client.c: an example\
-    \ client</li>\n<li>margo-example-server.c: an example server</li>\n<li>my-rpc.[ch]:\
-    \ an example RPC definition</li>\n</ul>\n<p>The following example shows how to\
-    \ execute them.  Note that when the server starts it will display the address\
-    \ that the client can use to connect to it.</p>\n<pre><code>$ examples/margo-example-server\
-    \ na+sm://\n# accepting RPCs on address \"na+sm://13367/0\"\nGot RPC request with\
-    \ input_val: 0\nGot RPC request with input_val: 1\nGot RPC request with input_val:\
-    \ 2\nGot RPC request with input_val: 3\nGot RPC request to shutdown\n\n$ examples/margo-example-client\
-    \ na+sm://13367/0\nULT [0] running.\nULT [1] running.\nULT [2] running.\nULT [3]\
-    \ running.\nGot response ret: 0\nULT [0] done.\nGot response ret: 0\nULT [1] done.\n\
-    Got response ret: 0\nULT [2] done.\nGot response ret: 0\nULT [3] done.\n</code></pre>\n\
-    <p>The client will issue 4 concurrent RPCs to the server and wait for them to\n\
-    complete.</p>\n<h2>\n<a id=\"user-content-running-tests\" class=\"anchor\" href=\"\
-    #running-tests\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a>Running tests</h2>\n<p><code>make check</code></p>\n\
-    <h2>\n<a id=\"user-content-using-margo-with-the-other-na-plugins\" class=\"anchor\"\
-    \ href=\"#using-margo-with-the-other-na-plugins\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Using Margo with the other NA\
-    \ plugins</h2>\n<p>See the <a href=\"http://mercury-hpc.github.io/documentation/\"\
-    \ rel=\"nofollow\">Mercury\ndocumentation</a> for details.\nMargo is compatible\
-    \ with any Mercury transport and uses the same address\nformat.</p>\n<h2>\n<a\
-    \ id=\"user-content-instrumentation\" class=\"anchor\" href=\"#instrumentation\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Instrumentation</h2>\n<p>See the <a href=\"doc/instrumentation.md\"\
-    >Instrumentation documentation</a> for\ninformation on how to extract diagnostic\
-    \ instrumentation from Margo.</p>\n<h2>\n<a id=\"user-content-debugging\" class=\"\
-    anchor\" href=\"#debugging\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>Debugging</h2>\n<p>See the <a href=\"doc/debugging.md\"\
-    >Debugging documentation</a> for Margo debugging\nfeatures and strategies.</p>\n\
-    <h2>\n<a id=\"user-content-design-details\" class=\"anchor\" href=\"#design-details\"\
-    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Design details</h2>\n<p><a href=\"doc/fig/margo-diagram.png\" target=\"\
-    _blank\" rel=\"noopener noreferrer\"><img src=\"doc/fig/margo-diagram.png\" alt=\"\
-    Margo architecture\" style=\"max-width:100%;\"></a></p>\n<p>Margo provides Argobots-aware\
-    \ wrappers to common Mercury library functions\nlike HG_Forward(), HG_Addr_lookup(),\
-    \ and HG_Bulk_transfer().  The wrappers\nhave the same arguments as their native\
-    \ Mercury counterparts except that no\ncallback function is specified.  Each function\
-    \ blocks until the operation\nis complete.  The above diagram illustrates a typical\
-    \ control flow.</p>\n<p>Margo launches a long-running user-level thread internally\
-    \ to drive\nprogress on Mercury and execute Mercury callback functions (labeled\n\
-    <code>__margo_progress()</code> above).  This thread can be assigned to a\ndedicated\
-    \ Argobots execution stream (i.e., an operating system thread)\nto drive network\
-    \ progress with a dedicated core.  Otherwise it will be\nautomatically scheduled\
-    \ when the caller's execution stream is blocked\nwaiting for network events as\
-    \ shown in the above diagram.</p>\n<p>Argobots eventual constructs are used to\
-    \ suspend and resume user-level\nthreads while Mercury operations are in flight.</p>\n\
-    <p>Margo allows several different threading/multicore configurations:</p>\n<ul>\n\
-    <li>The progress loop can run on a dedicated operating system thread or not</li>\n\
-    <li>Multiple Margo instances (and thus progress loops) can be\nexecuted on different\
-    \ operating system threads</li>\n<li>(for servers) a single Margo instance can\
-    \ launch RPC handlers\non different operating system threads</li>\n</ul>\n"
-  stargazers_count: 9
-  subscribers_count: 7
-  topics: []
-  updated_at: 1634149341.0
 mochi-hpc/mochi-mona:
   data_format: 2
   description: Mochi messaging over NA
   filenames:
-  - benchmark/cori/spack.yaml
   - spack.yaml
+  - benchmark/cori/spack.yaml
   full_name: mochi-hpc/mochi-mona
   latest_release: sc21
   readme: '<h1>
@@ -5197,148 +4499,6 @@ mochi-hpc/mochi-remi:
   subscribers_count: 4
   topics: []
   updated_at: 1633975455.0
-mochi-hpc/mochi-sdskv:
-  data_format: 2
-  description: simple margo-projected keyval service
-  filenames:
-  - spack.yaml
-  full_name: mochi-hpc/mochi-sdskv
-  latest_release: v0.1.14
-  readme: "<h1>\n<a id=\"user-content-sdskv-sds-keyval\" class=\"anchor\" href=\"\
-    #sdskv-sds-keyval\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a>SDSKV (SDS Key/Val)</h1>\n<h2>\n<a id=\"user-content-installation\"\
-    \ class=\"anchor\" href=\"#installation\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Installation</h2>\n<p>SDSKV can\
-    \ easily be installed using Spack:</p>\n<p><code>spack install sdskeyval</code></p>\n\
-    <p>This will install SDSKV (and any required dependencies).\nAvailable backends\
-    \ will be <em>Map</em> (in-memory C++ std::map, useful for testing)\nand BwTree\
-    \ (deprecated). To enable the BerkeleyDB and LevelDB backends,\nass <code>+bdb</code>\
-    \ and <code>+leveldb</code> respectively. For example:</p>\n<p><code>spack install\
-    \ sdskeyval+bdb+leveldb</code></p>\n<p>Note that if you are using a system boost\
-    \ path in spack (in your\npackages.yaml) rather than letting spack build boost,\
-    \ then you must\ninstall libboost-system-dev and libboost-filesystem-dev packages\
-    \ on\nyour system.</p>\n<h2>\n<a id=\"user-content-architecture\" class=\"anchor\"\
-    \ href=\"#architecture\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>Architecture</h2>\n<p>List most mochi services,\
-    \ SDSKV relies on a client/provider architecture.\nA provider, identified by its\
-    \ <em>address</em> and <em>multiplex id</em>, manages one or more\ndatabases,\
-    \ referenced externally by their database id.</p>\n<h2>\n<a id=\"user-content-starting-a-daemon\"\
-    \ class=\"anchor\" href=\"#starting-a-daemon\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Starting a daemon</h2>\n<p>SDSKV\
-    \ ships with a default daemon program that can setup providers and\ndatabases.\
-    \ This daemon can be started as follows:</p>\n<p><code>sdskv-server-daemon [OPTIONS]\
-    \ &lt;listen_addr&gt; &lt;db name 1&gt;[:map|:bwt|:bdb|:ldb] &lt;db name 2&gt;[:map|:bwt|:bdb|:ldb]\
-    \ ...</code></p>\n<p>For example:</p>\n<p><code>sdskv-server-daemon tcp://localhost:1234\
-    \ foo:bdb bar</code></p>\n<p>listen_addr is the address at which to listen; database\
-    \ names should be provided in the form\n<em>name:type</em> where <em>type</em>\
-    \ is <em>map</em> (std::map), <em>bwt</em> (BwTree), <em>bdb</em> (Berkeley DB),\
-    \ or <em>ldb</em> (LevelDB).</p>\n<p>For database that are persistent like BerkeleyDB\
-    \ or LevelDB, the name should be a path to the\nfile where the database will be\
-    \ put (this file should not exist).</p>\n<p>The following additional options are\
-    \ accepted:</p>\n<ul>\n<li>\n<code>-f</code> provides the name of the file in\
-    \ which to write the address of the daemon.</li>\n<li>\n<code>-m</code> provides\
-    \ the mode (providers or databases).</li>\n</ul>\n<p>The providers mode indicates\
-    \ that, if multiple SDSKV databases are used (as above),\nthese databases should\
-    \ be managed by multiple providers, accessible through\ndifferent multiplex ids\
-    \ 1, 2, ... N where N is the number of databases\nto manage. The targets mode\
-    \ indicates that a single provider should be used to\nmanage all the databases.\
-    \ This provider will be accessible at multiplex id 1.</p>\n<h2>\n<a id=\"user-content-client-api\"\
-    \ class=\"anchor\" href=\"#client-api\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Client API</h2>\n<p>The client\
-    \ API is available in <em>sdskv-client.h</em>.\nThe codes in the <em>test</em>\
-    \ folder illustrate how to use it.</p>\n<h2>\n<a id=\"user-content-provider-api\"\
-    \ class=\"anchor\" href=\"#provider-api\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Provider API</h2>\n<p>The server-side\
-    \ API is available in <em>sdskv-server.h</em>.\nThe code of the daemon (<em>src/sdskv-server-daemon.c</em>)\
-    \ can be used as an example.</p>\n<h3>\n<a id=\"user-content-custom-key-comparison-function\"\
-    \ class=\"anchor\" href=\"#custom-key-comparison-function\" aria-hidden=\"true\"\
-    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Custom key\
-    \ comparison function</h3>\n<p>It is possible to specify a custom function for\
-    \ comparing/sorting keys\nwhen creating a provider. A comparison function must\
-    \ have the following prototype:</p>\n<p><code>int (*)(const void* key1, size_t\
-    \ keysize1, const void* key2, size_t keysize2)</code></p>\n<p>Its return value\
-    \ must be &lt; 0 if key1 &lt; key2, 0 if key1 = key2, &gt; 0 if key1 &gt; key2.\n\
-    It must define a total order of the key space.</p>\n<h2>\n<a id=\"user-content-c-api\"\
-    \ class=\"anchor\" href=\"#c-api\" aria-hidden=\"true\"><span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a>C++ API</h2>\n<p>An object-oriented\
-    \ C++ API is available in <code>sdskv-client.hpp</code> and <code>sdskv-server.hpp</code>.\n\
-    On the client side this API provides the <code>client</code>, <code>provider_handle</code>,\
-    \ and <code>database</code> objects.\nExamples of usage of these objects can be\
-    \ found in the <code>test/sdskv-cxx-test.cc</code>.\nOn the server side, this\
-    \ API provides a <code>provider</code> object.</p>\n<h2>\n<a id=\"user-content-benchmark\"\
-    \ class=\"anchor\" href=\"#benchmark\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Benchmark</h2>\n<p>SDSKV can\
-    \ be compiled with <code>--enable-benchmark</code> (or <code>+benchmark</code>\
-    \ in Spack). In this case,\nSDSKV requires the JsonCPP and MPI dependencies (when\
-    \ compiling manually, use <code>CXX=mpicxx</code> in\nyour configure step, for\
-    \ example), and it will build and install the <code>sdskv-benchmark</code> program.</p>\n\
-    <p>This program is an MPI program that reads a JSON file describing a series of\
-    \ access patterns.\nRank 0 of this MPI program acts as an SDSKV server. Other\
-    \ ranks act as clients, all executing\nthis access pattern.</p>\n<p>The following\
-    \ is an example of a JSON file.</p>\n<div class=\"highlight highlight-source-json\"\
-    ><pre>{\n\t<span class=\"pl-ent\">\"protocol\" </span>: <span class=\"pl-s\"><span\
-    \ class=\"pl-pds\">\"</span>tcp<span class=\"pl-pds\">\"</span></span>,\n\t<span\
-    \ class=\"pl-ent\">\"seed\" </span>: <span class=\"pl-c1\">0</span>,\n\t<span\
-    \ class=\"pl-ent\">\"server\" </span>: {\n\t\t<span class=\"pl-ent\">\"use-progress-thread\"\
-    \ </span>: <span class=\"pl-c1\">false</span>,\n\t\t<span class=\"pl-ent\">\"\
-    rpc-thread-count\" </span>: <span class=\"pl-c1\">0</span>,\n\t\t<span class=\"\
-    pl-ent\">\"database\" </span>: {\n\t\t\t<span class=\"pl-ent\">\"type\" </span>:\
-    \ <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>map<span class=\"pl-pds\"\
-    >\"</span></span>,\n\t\t\t<span class=\"pl-ent\">\"name\" </span>: <span class=\"\
-    pl-s\"><span class=\"pl-pds\">\"</span>benchmark-db<span class=\"pl-pds\">\"</span></span>,\n\
-    \t\t\t<span class=\"pl-ent\">\"path\" </span>: <span class=\"pl-s\"><span class=\"\
-    pl-pds\">\"</span>/dev/shm<span class=\"pl-pds\">\"</span></span>\n\t\t}\n\t},\n\
-    \t<span class=\"pl-ent\">\"benchmarks\" </span>: [\n\t{\n\t\t<span class=\"pl-ent\"\
-    >\"type\" </span>: <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>put<span\
-    \ class=\"pl-pds\">\"</span></span>,\n\t\t<span class=\"pl-ent\">\"repetitions\"\
-    \ </span>: <span class=\"pl-c1\">10</span>,\n\t\t<span class=\"pl-ent\">\"num-entries\"\
-    \ </span>: <span class=\"pl-c1\">30</span>,\n\t\t<span class=\"pl-ent\">\"key-sizes\"\
-    \ </span>: [ <span class=\"pl-c1\">8</span>, <span class=\"pl-c1\">32</span> ],\n\
-    \t\t<span class=\"pl-ent\">\"val-sizes\" </span>: [ <span class=\"pl-c1\">24</span>,\
-    \ <span class=\"pl-c1\">48</span> ],\n\t\t<span class=\"pl-ent\">\"erase-on-teardown\"\
-    \ </span>: <span class=\"pl-c1\">true</span>\n\t},\n\t{\n\t\t<span class=\"pl-ent\"\
-    >\"type\" </span>: <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>get<span\
-    \ class=\"pl-pds\">\"</span></span>,\n\t\t<span class=\"pl-ent\">\"repetitions\"\
-    \ </span>: <span class=\"pl-c1\">10</span>,\n\t\t<span class=\"pl-ent\">\"num-entries\"\
-    \ </span>: <span class=\"pl-c1\">30</span>,\n\t\t<span class=\"pl-ent\">\"key-sizes\"\
-    \ </span>: <span class=\"pl-c1\">64</span>,\n\t\t<span class=\"pl-ent\">\"val-sizes\"\
-    \ </span>: <span class=\"pl-c1\">128</span>,\n\t\t<span class=\"pl-ent\">\"erase-on-teardown\"\
-    \ </span>: <span class=\"pl-c1\">true</span>\n\t}\n\t]\n}</pre></div>\n<p>The\
-    \ JSON file starts with the protocol to use, and a seed for the random-number\
-    \ generator (RNG).\nThe actual seed used on each rank will actually be a function\
-    \ of this global seed and the rank of\nthe client. The RNG will be reset with\
-    \ this seed after each benchmark.</p>\n<p>The <code>server</code> field sets up\
-    \ the provider and the database. Database types can be <code>map</code>, <code>ldb</code>,\
-    \ or <code>bdb</code>.\nThen follows the <code>benchmarks</code> entry, which\
-    \ is a list of benchmarks to execute. Each benchmark is composed\nof three steps.\
-    \ A <em>setup</em> phase, an <em>execution</em> phase, and a <em>teardown</em>\
-    \ phase. The setup phase may for\nexample store a bunch of keys in the database\
-    \ that the execution phase will read by (in the case of a\n<em>get</em> benchmark,\
-    \ for example). The teardown phase will usually remove all the keys that were\
-    \ written\nduring the benchmark, if \"erase-on-teardown\" is set to <code>true</code>.</p>\n\
-    <p>Each benchmark entry has a <code>type</code> (which may be <code>put</code>,\
-    \ <code>put-multi</code>, <code>get</code>, <code>get-multi</code>, <code>length</code>,\n\
-    <code>length-multi</code>, <code>erase</code>, and <code>erase-multi</code>),\
-    \ and a number of repetitions. The benchmark will be\nexecuted as many times as\
-    \ requested (without resetting the RNG in between repetitions). Taking the\nexample\
-    \ of the <code>put</code> benchmark above, each repetition will put 30 key/value\
-    \ pairs into the database.\nThe key size will be chosen randomly in a uniform\
-    \ manner in the interval <code>[8, 32 [</code> (32 excluded).\nThe value size\
-    \ will be chosen randomly in a uniform manner in <code>[24, 48 [</code> (48 excluded).\
-    \ Note that\nyou may also set a specific size instead of a range.</p>\n<p>An MPI\
-    \ barrier between clients is executed in between each benchmark and in between\
-    \ the setup,\nexecution, and teardown phases, so that the execution phase is always\
-    \ executed at the same time\non all the clients. Once all the repetitions are\
-    \ done for a given benchmark entry, the program\nwill report statistics on the\
-    \ timings: average time, variance, standard deviation, mininum, maximum,\nmedian,\
-    \ first and third quartiles. Note that these times are for a repetition, not for\
-    \ single operations\nwithin a repetition. To get the timing of each individual\
-    \ operation, it is then necessary to divide\nthe times by the number of key/value\
-    \ pairs involved in the benchmark.</p>\n"
-  stargazers_count: 0
-  subscribers_count: 6
-  topics: []
-  updated_at: 1633974655.0
 mochi-hpc/mochi-sonata:
   data_format: 2
   description: Sonata is a Mochi service for JSON document storage. It is based on
@@ -5858,10 +5018,10 @@ olcf/spack-environments:
   data_format: 2
   description: Spack Environments Templates for OLCF resources
   filenames:
-  - linux-rhel8-zen2/cirrus/spack.yaml
   - linux-rhel8-ppc64le/summit/spack.yaml
-  - linux-rhel7-ppc64le/summit/spack.yaml
+  - linux-rhel8-zen2/cirrus/spack.yaml
   - linux-sles15-zen2/spock/spack.yaml
+  - linux-rhel7-ppc64le/summit/spack.yaml
   full_name: olcf/spack-environments
   latest_release: null
   readme: '<p>OLCF Spack Environments Templates</p>
@@ -6414,7 +5574,7 @@ openPMD/openPMD-api:
   - meta-data
   - opendata
   - cpp14
-  updated_at: 1634760940.0
+  updated_at: 1635129811.0
 player1537-playground/metem:
   data_format: 2
   description: null
@@ -6516,54 +5676,14 @@ player1537-playground/metem:
   subscribers_count: 1
   topics: []
   updated_at: 1629779829.0
-player1537/dhmem:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: player1537/dhmem
-  latest_release: null
-  readme: "<h1>\n<a id=\"user-content-dhmem-simplified-cross-workflow-communication\"\
-    \ class=\"anchor\" href=\"#dhmem-simplified-cross-workflow-communication\" aria-hidden=\"\
-    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Dhmem:\
-    \ Simplified Cross-Workflow Communication</h1>\n<h2>\n<a id=\"user-content-buildinginstalling\"\
-    \ class=\"anchor\" href=\"#buildinginstalling\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Building/Installing</h2>\n<p>To\
-    \ build, either vendor the source code and include with CMake's <code>add_subdirectory</code>\
-    \ or add via <code>ExternalProject_Add</code>.</p>\n<h2>\n<a id=\"user-content-example\"\
-    \ class=\"anchor\" href=\"#example\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Example</h2>\n<div class=\"highlight\
-    \ highlight-source-c++\"><pre>#<span class=\"pl-k\">include</span> <span class=\"\
-    pl-s\"><span class=\"pl-pds\">&lt;</span>dhmem/dhmem.h<span class=\"pl-pds\">&gt;</span></span>\n\
-    #<span class=\"pl-k\">include</span> <span class=\"pl-s\"><span class=\"pl-pds\"\
-    >&lt;</span>cstdio<span class=\"pl-pds\">&gt;</span></span>\n\n<span class=\"\
-    pl-k\">int</span> <span class=\"pl-en\">main</span>(<span class=\"pl-k\">int</span>\
-    \ argc, <span class=\"pl-k\">char</span> **argv) {\n    dhmem::Dhmem <span class=\"\
-    pl-smi\">dhmem</span>(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>shared_memory_namespace<span\
-    \ class=\"pl-pds\">\"</span></span>);\n\n    <span class=\"pl-k\">auto</span>\
-    \ &amp;n = dhmem.<span class=\"pl-smi\">shared</span>&lt;<span class=\"pl-k\"\
-    >int</span>&gt;();\n    <span class=\"pl-k\">auto</span> &amp;mutex = dhmem.<span\
-    \ class=\"pl-smi\">shared</span>&lt;dhmem::mutex&gt;();\n    \n    {\n       \
-    \ dhmem::scoped_lock <span class=\"pl-smi\">lock</span>(mutex);\n        ++n;\n\
-    \        <span class=\"pl-c1\">std::printf</span>(<span class=\"pl-s\"><span class=\"\
-    pl-pds\">\"</span>n = %d<span class=\"pl-cce\">\\n</span><span class=\"pl-pds\"\
-    >\"</span></span>, n);\n    }\n\n    <span class=\"pl-c1\">std::printf</span>(<span\
-    \ class=\"pl-s\"><span class=\"pl-pds\">\"</span>Press Enter to quit...<span class=\"\
-    pl-cce\">\\n</span><span class=\"pl-pds\">\"</span></span>);\n    <span class=\"\
-    pl-c1\">std::getchar</span>();\n\n    <span class=\"pl-k\">return</span> <span\
-    \ class=\"pl-c1\">0</span>;\n}</pre></div>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1614191340.0
 range3/spack-playground:
   data_format: 2
   description: null
   filenames:
-  - spack/envs/cygnus/spack.yaml
-  - spack/envs/dev/spack.yaml
   - spack/envs/chris8x/spack.yaml
   - spack/envs/broken-verbs-chris8x/spack.yaml
+  - spack/envs/cygnus/spack.yaml
+  - spack/envs/dev/spack.yaml
   full_name: range3/spack-playground
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-spack-playground\" class=\"anchor\" href=\"\
@@ -6612,9 +5732,9 @@ rngoodner/fiesta-helpers:
   data_format: 2
   description: null
   filenames:
-  - spack-environments/mvapich2-lassen/spack.yaml
-  - spack-environments/openmpi-lassen/spack.yaml
   - spack-environments/openmpi/spack.yaml
+  - spack-environments/openmpi-lassen/spack.yaml
+  - spack-environments/mvapich2-lassen/spack.yaml
   full_name: rngoodner/fiesta-helpers
   latest_release: null
   readme: '<h1>
@@ -6851,27 +5971,6 @@ robertu94/libpressio_opt_experiments:
   subscribers_count: 2
   topics: []
   updated_at: 1622254446.0
-smutch/playbooks:
-  data_format: 2
-  description: A random and evolving collection of ansible playbooks.
-  filenames:
-  - roles/ronin_cluster/files/ronin_cluster-spack.yaml
-  full_name: smutch/playbooks
-  latest_release: null
-  readme: '<h2>
-
-    <a id="user-content-playbooks" class="anchor" href="#playbooks" aria-hidden="true"><span
-    aria-hidden="true" class="octicon octicon-link"></span></a>Playbooks</h2>
-
-    <p>This is a random collection of playbooks and roles as I begin my journey using
-
-    ansible to automate the tedious set up devel machines.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1634547652.0
 smutch/regrider:
   data_format: 2
   description: Downsample gbpTrees and VELOCIraptor cartesian grids using FFTW
@@ -6919,9 +6018,123 @@ smutch/regrider:
 
     '
   stargazers_count: 0
-  subscribers_count: 1
+  subscribers_count: 2
   topics: []
   updated_at: 1627973220.0
+spack/localized-docs:
+  data_format: 2
+  description: Localized documentation for Spack
+  filenames:
+  - spack.yaml
+  full_name: spack/localized-docs
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-localized-documentation-for-spack\" class=\"\
+    anchor\" href=\"#localized-documentation-for-spack\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Localized Documentation\
+    \ for Spack</h1>\n<p>This repository contains translations of <a href=\"/spack/spack\"\
+    >Spack</a>'s\ndocumentation.  It implements the workflow described in the\n<a\
+    \ href=\"https://www.sphinx-doc.org/en/master/usage/advanced/intl.html\" rel=\"\
+    nofollow\">Sphinx docs</a>.</p>\n<p>The instructions here describe how you can\
+    \ contribute by:</p>\n<ol>\n<li>Adding to an existing translation, and</li>\n\
+    <li>Creating a translation in a new language.</li>\n</ol>\n<h2>\n<a id=\"user-content-prerequisites\"\
+    \ class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Prerequisites</h2>\n<ol>\n<li>\n\
+    <p>First, init the <code>spack</code> submodule:</p>\n<div class=\"highlight highlight-text-shell-session\"\
+    ><pre>$ <span class=\"pl-s1\">git clone https://github.com/spack/localized-docs</span>\n\
+    $ <span class=\"pl-s1\"><span class=\"pl-c1\">cd</span> localized-docs</span>\n\
+    $ <span class=\"pl-s1\">git submodule init</span>\n$ <span class=\"pl-s1\">git\
+    \ submodule update</span></pre></div>\n</li>\n<li>\n<p>To use this repository\
+    \ you'll need Sphinx, some plugins for it, and\n<code>gettext</code>.  To install\
+    \ these dependencies, using <code>pip</code> and <code>brew</code>, you\ncan run:</p>\n\
+    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
+    >pip3 install -r requirements.txt</span>\n$ <span class=\"pl-s1\">brew install\
+    \ gettext</span></pre></div>\n<p>Using Spack, you can just take advantage of the\
+    \ <code>spack.yaml</code> file at\nthe root of this repo:</p>\n<div class=\"highlight\
+    \ highlight-text-shell-session\"><pre><span class=\"pl-c1\">spack install</span>\n\
+    <span class=\"pl-c1\">spack env activate .</span></pre></div>\n<p>This will install\
+    \ the tools you need and put them in your <code>PATH</code>.</p>\n</li>\n</ol>\n\
+    <h2>\n<a id=\"user-content-adding-to-an-existing-translation\" class=\"anchor\"\
+    \ href=\"#adding-to-an-existing-translation\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Adding to an existing translation</h2>\n\
+    <p>Translations in this repository are stored in <code>.po</code> files under\n\
+    <code>translations</code>.  There is one translation per languages, and each file\
+    \ is\nnamed according to its\n<a href=\"https://www.gnu.org/software/gettext/manual/html_node/Language-Codes.html#Language-Codes\"\
+    \ rel=\"nofollow\">ISO-639 language code</a>.\nSo, the Japanese translation data\
+    \ for Spack is stored in\n<code>translations/ja.po</code>.</p>\n<p>If you want\
+    \ to add to an existing translation, all you need to do is edit\nthe appropriate\
+    \ <code>.po</code> file and add translated strings to it.  <code>.po</code> files\n\
+    are comprised of <code>msgid</code>/<code>msgstr</code> pairs.  The <code>msgid</code>\
+    \ corresponds to an\nEnglish string in the original documentation, and the <code>msgstr</code>\
+    \ is its\ntranslation in the target language.  For example, for Japanese, the\n\
+    translation of \"Basic Usage\" is stored like this:</p>\n<pre><code>#: ../spack/lib/spack/docs/basic_usage.rst:10\n\
+    msgid \"Basic Usage\"\nmsgstr \"\u57FA\u672C\u7684\u306A\u4F7F\u3044\u65B9\"\n\
+    </code></pre>\n<p>To add a translation:</p>\n<ol>\n<li>Update <code>msgstr</code>\
+    \ elements in the appropriate <code>.po</code> files;</li>\n<li>Run <code>make</code>;</li>\n\
+    <li>Commit the results;</li>\n<li>Submit a pull request so that we can merge your\
+    \ changes.</li>\n</ol>\n<p>That's all!  Merged pull requests will automatically\
+    \ trigger a rebuild of\nthe translated docs, and you should see your changes at\n\
+    <a href=\"https://spack.readthedocs.io/\" rel=\"nofollow\">spack.readthedocs.io</a>.</p>\n\
+    <p>If you want to look at the documentation while you're editing it, running\n\
+    <code>make</code> also generates per-language builds of the docs in <code>html/&lt;lang&gt;</code>.\n\
+    So, to see the Japanese documentation, you can run <code>make</code> and open\n\
+    <code>html/ja/index.html</code> in a local web browser.</p>\n<h2>\n<a id=\"user-content-creating-a-new-translation\"\
+    \ class=\"anchor\" href=\"#creating-a-new-translation\" aria-hidden=\"true\"><span\
+    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Creating a new\
+    \ translation</h2>\n<p>To create a new translation, add the language to the <code>languages</code>\
+    \ list in\nthe <code>Makefile</code>.  For example, if the only language is Japanese\
+    \ (<code>ja</code>) and\nyou want to add German (<code>de</code>), just add <code>de</code>:</p>\n\
+    <div class=\"highlight highlight-source-makefile\"><pre><span class=\"pl-smi\"\
+    >languages</span> = ja de</pre></div>\n<p>Running <code>make</code>, will create\
+    \ files in <code>docs</code>, <code>locale</code>, and\n<code>translations</code>,\
+    \ and <code>html</code>:</p>\n<pre><code>    translations/de.po          # German\
+    \ translation file\n    translations/de.mo          # generated from de.po\n \
+    \   locale/de/LC_MESSAGES/*.mo  # symlinks to translations/de.mo\n    docs/de/\
+    \                    # a Sphinx build directory for German docs\n    html/de/\
+    \                    # HTML built by Sphinx from docs/de\n</code></pre>\n<p>Add\
+    \ everything <em>except</em> <code>html</code>, then commit. <code>html</code>\
+    \ is ignored by default\n(see <code>.gitignore</code>), so you can just run this:</p>\n\
+    <div class=\"highlight highlight-text-shell-session\"><pre>$ <span class=\"pl-s1\"\
+    >git add <span class=\"pl-c1\">.</span></span>\n$ <span class=\"pl-s1\">git commit</span></pre></div>\n\
+    <p>See instructions above for how to start translating.</p>\n<h2>\n<a id=\"user-content-workflow\"\
+    \ class=\"anchor\" href=\"#workflow\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Workflow</h2>\n<p>This repository\
+    \ implements the\n<a href=\"https://www.sphinx-doc.org/en/master/usage/advanced/intl.html\"\
+    \ rel=\"nofollow\">workflow described here</a>.\nMost users will only need to\
+    \ concern themselves with <code>translations/*.po</code>\nfiles, but we provide\
+    \ a short summary here so that you can understand how\neverything works.</p>\n\
+    <p>Translation is done as follows:</p>\n<ol>\n<li>\n<p>First, we use (or rather\
+    \ Sphinx uses) the <code>gettext</code> tool to extract\nstrings to be translated\
+    \ from each <code>.rst</code> document in the Spack\ndocumentation. This results\
+    \ in a set of <code>.pot</code> files in\n<code>templates/*.pot</code>.  These\
+    \ contain keys (<code>msgid</code>s) for unique strings,\nas well as their location\
+    \ (file and line number) in the documentation.</p>\n</li>\n<li>\n<p>We merge the\
+    \ <code>.pot</code> files into a single <code>merged.pot</code> file to eliminate\n\
+    duplicate strings in multiple files.</p>\n</li>\n<li>\n<p><code>merged.pot</code>\
+    \ is used to create an initial <code>translations/&lt;lang&gt;.po</code>\nfile.\
+    \  Translations are added to <code>msgstr</code> fields in the <code>.po</code>\
+    \ file.</p>\n</li>\n<li>\n<p>A single <code>translations/&lt;lang&gt;.mo</code>\
+    \ file is generated from the <code>.po</code>\nfile. The <code>.mo</code> file\
+    \ is in a special binary format.</p>\n</li>\n<li>\n<p>We generate symlinks in\
+    \ <code>locale/&lt;lang&gt;/LC_MESSAGES/*.mo</code> that all\npoint back to the\
+    \ single, unified <code>translations/&lt;lang&gt;.mo</code> file.  The\n<code>locale</code>\
+    \ directory can then be used with Sphinx to build translated\ndocumentation.</p>\n\
+    </li>\n</ol>\n<p>The top-level <code>Makefile</code> implements this workflow,\
+    \ so you don't have to\nthink too much about it.</p>\n<h2>\n<a id=\"user-content-license\"\
+    \ class=\"anchor\" href=\"#license\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>License</h2>\n<p>This repository\
+    \ is part of Spack, which distributed under the terms of\nboth the MIT license\
+    \ and the Apache License (Version 2.0). Users may\nchoose either license, at their\
+    \ option.</p>\n<p>All new contributions must be made under both the MIT and Apache-2.0\n\
+    licenses.</p>\n<p>See <a href=\"https://github.com/spack/localized-docs/blob/master/LICENSE-MIT\"\
+    >LICENSE-MIT</a>,\n<a href=\"https://github.com/spack/localized-docs//blob/master/LICENSE-APACHE\"\
+    >LICENSE-APACHE</a>,\n<a href=\"https://github.com/spack/localized-docs/blob/master/COPYRIGHT\"\
+    >COPYRIGHT</a>,\nand <a href=\"https://github.com/spack/localized-docs/blob/master/NOTICE\"\
+    >NOTICE</a>\nfor details.</p>\n<p>SPDX-License-Identifier: (Apache-2.0 OR MIT)</p>\n\
+    <p>LLNL-CODE-647188</p>\n"
+  stargazers_count: 3
+  subscribers_count: 7
+  topics: []
+  updated_at: 1621989548.0
 spack/spack-ci-containers:
   data_format: 2
   description: Container recipes used by Spack for test purposes
@@ -6976,28 +6189,41 @@ spack/spack-configs:
   description: Share Spack configuration files with other HPC sites
   filenames:
   - NREL/configs/rhodes/utilities/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - OLCF/spock/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
-  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
-  - OLCF/summit/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
   - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
+  - NREL/configs/rhodes/compilers/spack.yaml
+  - NERSC/cori/e4s-stacks/x86/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-ppc64le.yaml
+  - NERSC/cori/e4s-21.02/prod/spack.yaml
+  - OLCF/summit/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu21.04-x86_64.yaml
+  - NREL/configs/eagle/base/spack.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel7-x86_64.yaml
+  - OLCF/spock/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
   - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
+  - NERSC/cori/e4s-21.05/spack.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NREL/configs/eagle/compilers/spack.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-x86_64.yaml
+  - NERSC/cori/e4s-20.10/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
+  - UOREGON/E4S-Develop/spack-centos8-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-rhel8-ppc64le.yaml
+  - NERSC/cori/e4s-stacks/hsw/spack.yaml
+  - NREL/configs/rhodes/software/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu21.04-ppc64le.yaml
+  - OLCF/e4s-stacks/etc/spack.yaml
+  - NREL/configs/rhodes/base/spack.yaml
+  - NERSC/cori/e4s-stacks/knl/spack.yaml
+  - NERSC/cori/e4s-21.02/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1>
@@ -7045,6 +6271,181 @@ spack/spack-configs:
   subscribers_count: 24
   topics: []
   updated_at: 1632844010.0
+spack/spack-cscs2019:
+  data_format: 2
+  description: Slides for the "Software Management Course" at CSCS (May, 14th 2019)
+  filenames:
+  - docker/spack.yaml
+  full_name: spack/spack-cscs2019
+  latest_release: null
+  readme: '<p>"Software Development and Deployment with Spack"</p>
+
+    <p>Slides for the "Software Management Course" at CSCS (May 14th, 2019) in Lugano,
+    based on the awesome <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
+
+    <h2>
+
+    <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+    <p>MIT licensed</p>
+
+    <p>Copyright (C) 2019 Hakim El Hattab, Massimiliano Culpo</p>
+
+    '
+  stargazers_count: 1
+  subscribers_count: 2
+  topics: []
+  updated_at: 1621966087.0
+srini009/symbiomon:
+  data_format: 2
+  description: SYMBIOMON Monitoring Microservice
+  filenames:
+  - spack.yaml
+  full_name: srini009/symbiomon
+  latest_release: null
+  readme: "<h1>\n<a id=\"user-content-margo-microservice-template\" class=\"anchor\"\
+    \ href=\"#margo-microservice-template\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Margo Microservice Template</h1>\n\
+    <p>This project is a template to start developing a Mochi microservice based on\
+    \ Margo.\nIf you want to implement your own microservice, please read ahead. Though\
+    \ this project\nprovides many examples of how to use the Margo API, you may want\
+    \ to refer to the Margo\ndocumentation <a href=\"https://mochi.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">here</a> for more detail.</p>\n<h2>\n<a id=\"user-content-the-mochi-philosophy\"\
+    \ class=\"anchor\" href=\"#the-mochi-philosophy\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>The Mochi philosophy</h2>\n<p>The\
+    \ philosophy of the Mochi project consists of providing a set of building blocks\n\
+    for developing HPC data service. Each building block is meant to offer <strong>efficient</strong>,\n\
+    <strong>location-agnostic</strong> access to a <strong>simple set of functionalities</strong>\
+    \ through\n<strong>modular backends</strong>, while <strong>seamlessly sharing\
+    \ hardware</strong> (compute and network)\nwith other building blocks.</p>\n<p>A\
+    \ <strong>simple set of functionalities</strong> may be, for example, <em>\"storing\
+    \ and retrieving\nsmall key/value pairs\"</em>, a common feature found in many\
+    \ storage systems to manage\nmetadata. The <strong>location-agnostic</strong>\
+    \ aspect aims at making such a feature available\nto user programs in the same\
+    \ manner and through the same API regardless of whether\nthe service runs in the\
+    \ same process, on the same node but on different processes,\nor on a different\
+    \ node across a network. The <strong>modular backends</strong> aspect makes it\n\
+    possible to abstract the implementation of such a feature and, if not providing\n\
+    multiple implementations, at least providing the means for someone to easily swap\n\
+    the default implementation of the feature for their own. Because multiple building\n\
+    blocks may be running on the same node, such a building block should efficiently\n\
+    share the compute and network hardware with other building blocks. This is done\n\
+    by sharing a common networking and threading layer: Margo.</p>\n<h2>\n<a id=\"\
+    user-content-design-overview\" class=\"anchor\" href=\"#design-overview\" aria-hidden=\"\
+    true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Design\
+    \ overview</h2>\n<p>The typical design of a Mochi microservice revolves around\
+    \ three libraries:\n<strong>server</strong>, <strong>client</strong>, and <strong>admin</strong>.</p>\n\
+    <ul>\n<li>The server library contains a service <strong>provider</strong>, that\
+    \ is, an object that\ncan receive some predefined RPCs to offer a particular functionality.\
+    \ Within\nthe same process, multiple providers of the same service may be instantiated,\n\
+    using distinct <strong>provider ids</strong> (<code>uint16_t</code>). A provider\
+    \ is responsible for\nmanaging a set of <strong>resources</strong>. In the example\
+    \ of a storage for key/value\npairs, a resource may be a database. The functionalities\
+    \ of a provider may\nbe enabled by multiple <strong>backends</strong>. For example,\
+    \ a database may be implemented\nusing LevelDB, BerkeleyDB, or simply using an\
+    \ in-memory hash table.\nPrograms sending requests to a provider should <strong>not</strong>\
+    \ be unaware of the backend used\nto implement the requested functionality. This\
+    \ allows multiple backends to be\ntested, and for backends to evolve independently\
+    \ from user applications.</li>\n<li>The client library is the library through\
+    \ which user applications or higher-level\nservices interact with providers. It\
+    \ will typically provide a <strong>client</strong> structure\nthat is used to\
+    \ register the set of RPCs that can be invoked, and a <strong>resource handle</strong>\n\
+    structure that references a particular resource located on a particular provider.\n\
+    User applications will typically initialize a singe client object for a service,\
+    \ and\nfrom this client object instantiate as many resource handles as needed\
+    \ to interact with\navailable resources. Resources are identified by a <strong>resource\
+    \ id</strong>, which are generally\neither a name, an integer, or a\n<a href=\"\
+    https://en.wikipedia.org/wiki/Universally_unique_identifier\" rel=\"nofollow\"\
+    >uuid</a> (this template\nproject uses uuids).</li>\n<li>The admin library is\
+    \ the library through which a user application can send\nrequests that are meant\
+    \ for the provider itself rather than for a resource.\nA few most common such\
+    \ requests include the creation and destruction of\nresources, their migration,\
+    \ etc. It can be useful to think of the admin\nlibrary as the set of features\
+    \ you would want to provide to the person or\napplication that sets up the service,\
+    \ rather than the person or application\nthat uses its functionalities.</li>\n\
+    </ul>\n<h2>\n<a id=\"user-content-organization-of-this-template-project\" class=\"\
+    anchor\" href=\"#organization-of-this-template-project\" aria-hidden=\"true\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Organization\
+    \ of this template project</h2>\n<p>This template project illustrates how a Margo-based\
+    \ microservice could\nbe architected. It can be compiled as-is, and provides a\
+    \ couple of\nfunctionalities that make the provider print a \"Hello World\" message\n\
+    on its standard output, or compute the sum of two integers.</p>\n<p>This template\
+    \ project uses <strong>alpha</strong> as the name of your microservice.\nFunctions,\
+    \ types, files, and libraries therefore use the <strong>alpha</strong> prefix.\n\
+    The first step in setting up this project for your microservice will be\nto replace\
+    \ this prefix. The generic name <strong>resource</strong> should also be\nreplaced\
+    \ with a more specific name, such as <strong>database</strong>. This renaming\n\
+    step can be done by using the <em>setup.py</em> script at the root of this repository\n\
+    (see next section).</p>\n<p>The <em>include</em> directory of this template project\
+    \ provides public header files.</p>\n<ul>\n<li>\n<em>alpha/alpha-common.h</em>\
+    \ contains APIs that are common to the three\nlibraries, such as error codes or\
+    \ common types;</li>\n<li>\n<em>alpha/alpha-client.h</em> contains the client-side\
+    \ functions to create\nand destroy a client object;</li>\n<li>\n<em>alpha/alpha-resource.h</em>\
+    \ contains the client-side functions to create\nand destroy resource handles,\
+    \ and to interact with a resource through\na resource handle;</li>\n<li>\n<em>alpha/alpha-server.h</em>\
+    \ contains functions to register and destroy\na provider;</li>\n<li>\n<em>alpha/alpha-backend.h</em>\
+    \ contains the definition of a structure that\none would need to implement in\
+    \ order to provide a new backend for\nyour microservice;</li>\n<li>\n<em>alpha/alpha-admin.h</em>\
+    \ contains the functions to create and destroy\nan admin object, as well as admin\
+    \ functions to interact with a provider;</li>\n<li>\n<em>alpha/alpha-provider-handle.h</em>\
+    \ contains the definition of a provider handle.\nThis type of construct is often\
+    \ used in Mochi services to encapsulate\nan address and a provider id.</li>\n\
+    </ul>\n<p>The implementation of all these functions is located in the <em>src</em>\
+    \ directory.\nThe source also includes functionalities such as a small header-based\
+    \ logging library.\nThe <em>src/dummy</em> directory provides a default implementation\
+    \ of a backend. This\nbackend also exemplifies the use of the <a href=\"https://github.com/json-c/json-c\"\
+    >json-c</a> library\nfor JSON-based resource configuration. We recommend that\
+    \ you implement a dummy backend for your\nservice, as a way of testing application\
+    \ logic and RPCs without the burden of complex\nexternal dependencies. For instance,\
+    \ a dummy backend may be a backend that simply\nacknowledges requests but does\
+    \ not process them, or provides mock results.</p>\n<p>The <em>examples</em> directory\
+    \ contains an example using the microservice:\nthe server example will start a\
+    \ provider and print its address (if logging was enabled).\nThe admin example\
+    \ will connect to this provider and have it create a resource, then\nprint the\
+    \ resource id. The client example can be run next to interact with the resource.</p>\n\
+    <p>The <em>tests</em> directory contains a set of unit tests for your service.\n\
+    It relies on <a href=\"https://nemequ.github.io/munit\" rel=\"nofollow\">\xB5\
+    nit</a> (included in this repository),\na C unit-test library under an MIT license.\
+    \ Feel free to continue using it as you\nadd more functionalities to your microservice;\
+    \ unit-testing is just good software\ndevelopment practice in general.</p>\n<p>The\
+    \ template also contains a <em>spack.yaml</em> file at its root that can be used\
+    \ to\ninstall its dependencies. You may add additional dependencies into this\
+    \ file as\nyour microservice gets more complex.</p>\n<p>As you modify this project\
+    \ to implement your own microservice, feel free to remove\nany dependencies you\
+    \ don't like (such as json-c or \xB5nit) and adapt it to your needs!</p>\n<h2>\n\
+    <a id=\"user-content-setting-up-your-project\" class=\"anchor\" href=\"#setting-up-your-project\"\
+    \ aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
+    ></span></a>Setting up your project</h2>\n<p>Let's assume you want to create a\
+    \ microservice called \"yellow\", which manages\na phone directory (association\
+    \ between names and phone numbers). The following\nshows how to setup your project:</p>\n\
+    <pre><code>git clone https://xgitlab.cels.anl.gov/sds/templates/margo-microservice-template.git\n\
+    mv margo-microservice-template yellow\ncd yellow\nrm -rf .git\npython setup.py\n\
+    $ Enter the name of your service: yellow\n$ Enter the name of the resources (e.g.,\
+    \ database): phonebook\n</code></pre>\n<p>The python script will edit and rename\
+    \ all the files, replacing <em>alpha</em> with <em>yellow</em>\nand <em>resource</em>\
+    \ with <em>phonebook</em>.</p>\n<h2>\n<a id=\"user-content-building-the-project\"\
+    \ class=\"anchor\" href=\"#building-the-project\" aria-hidden=\"true\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Building the project</h2>\n<p>The\
+    \ project's dependencies may be build using <a href=\"https://spack.readthedocs.io/en/latest/\"\
+    \ rel=\"nofollow\">spack</a>.\nYou will need to have setup <a href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\"\
+    \ rel=\"nofollow\">sds-repo</a> as external\nnamespace for spack, which can be\
+    \ done as follows.</p>\n<pre><code># from outside of your project directory\n\
+    git clone git@xgitlab.cels.anl.gov:sds/sds-repo.git\nspack repo add sds-repo\n\
+    </code></pre>\n<p>The easiest way to setup the dependencies for this project is\
+    \ to create a spack environment\nusing the <em>spack.yaml</em> file located at\
+    \ the root of the project, as follows.</p>\n<pre><code># create an anonymous environment\n\
+    cd margo-microservice-template\nspack env activate .\nspack install\n</code></pre>\n\
+    <p>or as follows.</p>\n<pre><code># create an environment named myenv\ncd margo-microservice-template\n\
+    spack env create myenv spack.yaml\nspack env activate myenv\nspack install\n</code></pre>\n\
+    <p>Once the dependencies have been installed, you may build the project as follows.</p>\n\
+    <pre><code>mkdir build\ncd build\ncmake .. -DENABLE_LOG_INFO=ON -DENABLE_LOG_ERROR=ON\
+    \ -DENABLE_LOG_DEBUG=ON -DENABLE_TESTS=ON -DENABLE_EXAMPLES=ON\nmake\n</code></pre>\n\
+    <p>You can test the project using <code>make test</code> from the build directory.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 1
+  topics: []
+  updated_at: 1626236017.0
 supercontainers/isc-tutorial:
   data_format: 2
   description: ISC 2021 -- Getting Started with Containers on HPC
@@ -7381,14 +6782,183 @@ supercontainers/sc-tutorials:
   subscribers_count: 6
   topics: []
   updated_at: 1634170313.0
+supercontainers/sc20-tutorial:
+  data_format: 2
+  description: HPC Container Tutorial at SC20
+  filenames:
+  - exercises/spack_contenerize/spack.yaml
+  - files/spack_contenerize/spack.yaml
+  full_name: supercontainers/sc20-tutorial
+  latest_release: null
+  readme: '<h1>
+
+    <a id="user-content-using-containers-to-accelerate-hpc" class="anchor" href="#using-containers-to-accelerate-hpc"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using
+    Containers to Accelerate HPC</h1>
+
+    <p>View this on <a href="https://supercontainers.github.io/sc20-tutorial/" rel="nofollow">GitHub
+    Pages</a>.</p>
+
+    <h2>
+
+    <a id="user-content-ecp-supercontainers-tutorial-session" class="anchor" href="#ecp-supercontainers-tutorial-session"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ECP
+    Supercontainers Tutorial Session</h2>
+
+    <p><a href="fig/ecp.jpg" target="_blank" rel="noopener noreferrer"><img src="fig/ecp.jpg"
+    width="250" style="max-width:100%;"></a><a href="fig/pawsey.jpeg" target="_blank"
+    rel="noopener noreferrer"><img src="fig/pawsey.jpeg" width="250" style="max-width:100%;"></a></p>
+
+    <h2>
+
+    <a id="user-content-details" class="anchor" href="#details" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Details</h2>
+
+    <p>Half-day Tutorial Session</p>
+
+    <p>Venue: Supercomputing Conference 2020 (SC20'')</p>
+
+    <p>Date: Tuesday, 10 November 2020 2:30pm - 6:30pm (Eastern Standard Time)</p>
+
+    <p>Location: Virtual (Atlanta, GA, USA)</p>
+
+    <p>Link: <a href="https://sc20.supercomputing.org/presentation/?id=tut129&amp;sess=sess271"
+    rel="nofollow">Container Computing for HPC and Scientific Workflows @ SC20</a></p>
+
+    <p>Topic Area: Programming Models &amp; Systems Software</p>
+
+    <p>Keywords: Containerized HPC, System Software and Runtime Systems, Scientific
+    Software Development, DevOps</p>
+
+    <h2>
+
+    <a id="user-content-ec2-login" class="anchor" href="#ec2-login" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>EC2 Login</h2>
+
+    <p>These will be provided the day of the tutorial.</p>
+
+    <h2>
+
+    <a id="user-content-abstract" class="anchor" href="#abstract" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Abstract</h2>
+
+    <p>Container computing has revolutionized the way applications are developed and
+    delivered. It offers opportunities that never existed before for significantly
+    improving efficiency of scientific workflows and easily moving these workflows
+    from the laptop to the supercomputer. Tools like Docker, Shifter, Singularity
+    and Charliecloud enable a new paradigm for scientific and technical computing.
+    However, to fully unlock its potential, users and administrators need to understand
+    how to utilize these new approaches. This tutorial will introduce attendees to
+    the basics of creating container images, explain best practices, and cover more
+    advanced topics such as creating images to be run on HPC platforms using various
+    container runtimes. The tutorial will also explain how research scientists can
+    utilize container-based computing to accelerate their research and how these tools
+    can boost the impact of their research by enabling better reproducibility and
+    sharing of their scientific process without compromising security.</p>
+
+    <p>This is an updated version of the highly successful tutorial presented at SC16,
+    SC17, SC18 and SC19.</p>
+
+    <h2>
+
+    <a id="user-content-prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+    <p>This is a hands-on tutorial. Participants should bring a laptop and load or
+    pre-install a terminal and/or ssh client in advance to make best use of time during
+    the tutorial.  We will be providing training user accounts to both pre-configured
+    EC2 instances.</p>
+
+    <div><a href="fig/AWS_logo.png" target="_blank" rel="noopener noreferrer"><img
+    src="fig/AWS_logo.png" width="250" style="max-width:100%;"></a></div>
+
+    <p>This tutorial is supported by the Amazon AWS Machine Learning Research Awards.
+    EC2 images and temporary login credentials will be distributed onsite at the tutorial.</p>
+
+    <p>After the tutorial, you can boot our tutorial image yourself on Amazon EC2
+    to run through the tutorial again. We recommend you use your own EC2 key and change
+    the password.</p>
+
+    <p>US-West-Oregon: ami-0fe12765123c6a840</p>
+
+    <h3>
+
+    <a id="user-content-optional-prerequisites" class="anchor" href="#optional-prerequisites"
+    aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Optional
+    Prerequisites</h3>
+
+    <p>Users can also install Docker and Singularity prior to attending the tutorial
+    session. Here, it may be beneficial to create a docker and sylabs (singularity)
+    account in advance at <a href="https://cloud.docker.com/" rel="nofollow">https://cloud.docker.com/</a>
+    and <a href="https://cloud.sylabs.io/" rel="nofollow">https://cloud.sylabs.io/</a>
+    This accounts will be needed to create images on docker cloud/dockerhub and sylabs
+    cloud.</p>
+
+    <p><a href="https://sylabs.io/guides/3.3/user-guide/" rel="nofollow">Install Singularity
+    on Linux</a></p>
+
+    <p><a href="https://repo.sylabs.io/desktop/" rel="nofollow">Install Singualrity
+    on Mac</a> (Alpha)</p>
+
+    <p><a href="https://www.docker.com/products/docker-desktop" rel="nofollow">Install
+    Docker for Desktop</a></p>
+
+    <h2>
+
+    <a id="user-content-questions" class="anchor" href="#questions" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Questions</h2>
+
+    <p>You can ask questions verbally or with this <a href="https://docs.google.com/document/d/11gMZ-T7iA5XiRWPLYIqX7Gqv7RMb-NF9kzGYHrnOi04/edit?usp=sharing"
+    rel="nofollow">Google Doc</a>.
+
+    Please append your question below the others in the document.</p>
+
+    <p>We have also created a Slack Team for this.  The invitation link is <a href="https://join.slack.com/t/hpc-containers/shared_invite/enQtODI3NzY1NDU4OTk5LTUxOTgyOWJmYjIwOWI5YWU2MzBhZDI3Zjc1YmZmMjAxZjgzYzk4ZWEwNmFlNzlkOWI0MGNlZDNlMTBhYTBlOWY"
+    rel="nofollow">here</a>.</p>
+
+    <h2>
+
+    <a id="user-content-schedule" class="anchor" href="#schedule" aria-hidden="true"><span
+    aria-hidden="true" class="octicon octicon-link"></span></a>Schedule</h2>
+
+    <p>14:30 - 14:45 Introduction to containers in HPC (Shane)<br>
+
+    Including defining jargon (containers, images, registries/repos,..)</p>
+
+    <p>14:45 - 15:25 Build and run your first Docker container (Shane)<br>
+
+    Including also minimal pull and run examples, to define these concepts</p>
+
+    <p>15:25 - 15:40 BREAK</p>
+
+    <p>15:40 - 16:15 Deploy containers on a supercomputer (Marco)</p>
+
+    <p>16:15 - 16:40 High-performance containers (Marco)</p>
+
+    <p>16:40 - 16:55 BREAK</p>
+
+    <p>16:55 - 17:15 Best practices (Shane)</p>
+
+    <p>17:15 - 17:35 E4S containers initiative (Sameer)</p>
+
+    <p>17:35 - 17:55 Advanced container builds (Eduardo)</p>
+
+    <p>17:55 - 18:00 Wrap-up and final Q&amp;A</p>
+
+
+    '
+  stargazers_count: 4
+  subscribers_count: 6
+  topics: []
+  updated_at: 1629473437.0
 ukri-excalibur/excalibur-tests:
   data_format: 2
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
   - spack-environments/csd3/spack.yaml
-  - spack-environments/isambard-cascadelake/spack.yaml
   - spack-environments/cosma8/spack.yaml
   - spack-environments/myriad/spack.yaml
+  - spack-environments/isambard-cascadelake/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
   readme: "<h1>\n<a id=\"user-content-excalibur-tests\" class=\"anchor\" href=\"#excalibur-tests\"\
@@ -7478,130 +7048,6 @@ ukri-excalibur/excalibur-tests:
   subscribers_count: 4
   topics: []
   updated_at: 1634899847.0
-wangzhezhe/mona-vtk:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: wangzhezhe/mona-vtk
-  latest_release: null
-  readme: "<h1>\n<a id=\"user-content-mona-vtk-examples\" class=\"anchor\" href=\"\
-    #mona-vtk-examples\" aria-hidden=\"true\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>MoNA-VTK examples</h1>\n<p>This repo shows how\
-    \ to implement the MonaController and use it for Paraview Catalyst to do the in-situ\
-    \ data analytics. The <code>src</code> folder contains the implementation details\
-    \ of the MonaController based on the MonaCommunicator which is implemented based\
-    \ on <a href=\"https://github.com/mochi-hpc/mochi-mona\">mochi-mona</a>.</p>\n\
-    <p>There are several examples in the <code>example</code> folder:</p>\n<ul>\n\
-    <li>\n<p>basic: This example shows that how the MonaController can be used to\
-    \ execute the basic vtk parallel operations such as send and recv vtk object.</p>\n\
-    </li>\n<li>\n<p>icetExample: This exmaple shows that how the mochi-mona can be\
-    \ used to execute the iceT test cases based on the iceT wrapper for the mochi-mona.</p>\n\
-    </li>\n<li>\n<p>MandelbulbCatalystExample: This example shows how the MonaController\
-    \ can be used to execute the tightly coupled in-situ analytics in distributed\
-    \ way.</p>\n</li>\n<li>\n<p>MandelbulbColza: This example shows how the MonaController\
-    \ can be used to execute the loosely coupled in-situ analytics in distributed\
-    \ way, the <a href=\"https://github.com/mochi-hpc/mochi-colza\">mochi-colza</a>\
-    \ is used as the data staging service for this example.</p>\n</li>\n<li>\n<p>GrayScottColza:\
-    \ This example is similar with the MandelbulbColza case but the simulation data\
-    \ is generated by Gray-Scott simulation.</p>\n</li>\n</ul>\n<h2>\n<a id=\"user-content-installing\"\
-    \ class=\"anchor\" href=\"#installing\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Installing</h2>\n<p>We assume\
-    \ there is a new account on cori system, and we need following operations to install\
-    \ necessary depedencies</p>\n<p><strong>Spack configuration</strong></p>\n<p>There\
-    \ are two ways to use the Spack to install the software packages, the first one\
-    \ is to init the package.yaml file and the second one is to use the spack env.</p>\n\
-    <p>For example, we use <code>spack arch -p</code> to check the current architecture.\
-    \ If the architecture is the cray, the <code>package.yaml</code> file should locate\
-    \ at the <code>~/.spack/cray/</code>. And we update the <code>package.yaml</code>\
-    \ file as needed for installing the mochi-software stacks. One sample <code>package.yaml</code>\
-    \ for cori system is located in <code>./config/cori/packages.yaml</code>.</p>\n\
-    <p>The repo of the spack used by the mochi project: <a href=\"https://xgitlab.cels.anl.gov/sds/sds-repo.git\"\
-    \ rel=\"nofollow\">https://xgitlab.cels.anl.gov/sds/sds-repo.git</a>, we need\
-    \ to add this repo into the spack system by executing <code>spack repo add sds-repo</code>\
-    \ at the current direactly.</p>\n<p><strong>Building ParaView patch version</strong></p>\n\
-    <p>The source code of ParaView patch is located at this repo: <a href=\"https://gitlab.kitware.com/mdorier/paraview/-/tree/dev-icet-integration\"\
-    \ rel=\"nofollow\">https://gitlab.kitware.com/mdorier/paraview/-/tree/dev-icet-integration</a>.</p>\n\
-    <pre><code>git clone https://gitlab.kitware.com/mdorier/paraview.git\ncd paraview\n\
-    git checkout ecb0a075f459c9db78bdd57bf83d715a99f0fe55\ngit submodule update --init\
-    \ --recursive\n</code></pre>\n<p>The ParaView needs the osmesa to support the\
-    \ capability of in-situ rendering. We use the osmesa installed by the spack on\
-    \ the cori system:</p>\n<pre><code>module load spack\nspack load -r mesa/qozjngg\n\
-    PATH=\"/global/common/cori/software/altd/2.0/bin:$PATH\"\n</code></pre>\n<p>We\
-    \ also need to set the compiler on the cori before building the ParaView</p>\n\
-    <pre><code># for compiling vtk on cori\nexport CRAYPE_LINK_TYPE=dynamic\n\n# let\
-    \ cc and CC to be the gnu compier\nmodule swap PrgEnv-intel PrgEnv-gnu\n\nmodule\
-    \ swap gcc/8.3.0 gcc/9.3.0\n</code></pre>\n<p>At the build direactory of the ParaView,\
-    \ we use cmake commands as follows (if we assume the source direactory is <code>~/cworkspace/src/ParaView_patch/paraview</code>):</p>\n\
-    <pre><code>cmake ~/cworkspace/src/ParaView_patch/paraview -DPARAVIEW_USE_QT=OFF\
-    \ -DPARAVIEW_USE_PYTHON=ON -DPARAVIEW_USE_MPI=ON -DVTK_OPENGL_HAS_OSMESA:BOOL=TRUE\
-    \ -DVTK_USE_X:BOOL=FALSE -DCMAKE_CXX_COMPILER=CC -DCMAKE_C_COMPILER=cc -DVTK_PYTHON_OPTIONAL_LINK=OFF\
-    \ -DCMAKE_BUILD_TYPE=Release\n</code></pre>\n<p>with the gcc and openmpi</p>\n\
-    <pre><code>module unload cray-mpich/7.7.10\nmodule load cgpu cuda openmpi\n\n\
-    cmake ~/cworkspace/src/ParaView_matthieu/paraview/ -DPARAVIEW_USE_QT=OFF -DPARAVIEW_USE_PYTHON=ON\
-    \ -DPARAVIEW_USE_MPI=ON -DVTK_OPENGL_HAS_OSMESA:BOOL=TRUE -DVTK_USE_X:BOOL=FALSE\
-    \ -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DVTK_PYTHON_OPTIONAL_LINK=OFF\
-    \ -DCMAKE_BUILD_TYPE=Release\n</code></pre>\n<p><strong>Building and installing\
-    \ Colza</strong></p>\n<p>This command will install the mochi-colza and other related\
-    \ mochi softwares</p>\n<pre><code>spack install mochi-colza@main+drc+examples%gcc@9.3.0\n\
-    </code></pre>\n<p><strong>Building all examples</strong></p>\n<p>We can load these\
-    \ depedencies if all packages are installed successfully. The sample commands\
-    \ are located in <code>config/cori/monavtkEnv.sh</code>. We execute these commands\
-    \ before building the mona-vtk examples.</p>\n<p>Then we can build the mona-vtk\
-    \ the cmake command like this:</p>\n<pre><code>cmake ~/cworkspace/src/mona-vtk/\
-    \ -DCMAKE_CXX_COMPILER=CC -DCMAKE_C_COMPILER=cc -DVTK_DIR=$SCRATCH/build_paraview_matthieu_release/\
-    \ -DENABLE_EXAMPLE=ON -DParaView_DIR=$SCRATCH/build_paraview_matthieu_release/\
-    \ -DBUILD_SHARED_LIBS=ON \n</code></pre>\n<h2>\n<a id=\"user-content-running\"\
-    \ class=\"anchor\" href=\"#running\" aria-hidden=\"true\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Running</h2>\n<p>The scripts\
-    \ for scale evaluation are located at the <code>example/MandelbulbColza/testScripts</code>\
-    \ and <code>./example/GrayScottColza/testScripts</code> separately.</p>\n<p>For\
-    \ example, we can set the build and src dir properly at the beginning of the scripts,\
-    \ such as</p>\n<pre><code>BUILDDIR=/global/cscratch1/sd/zw241/build_monavtk\n\
-    SRCDIR=/global/homes/z/zw241/cworkspace/src/mona-vtk\n</code></pre>\n<p>and then\
-    \ use sbatch to submit jobs with specific node configurations as needed:</p>\n\
-    <pre><code>sbatch ~/cworkspace/src/mona-vtk/example/MandelbulbColza/testScripts/strongscale/cori_strongscale_mona_4.scripts\n\
-    </code></pre>\n<p>or</p>\n<pre><code>sbatch ~/cworkspace/src/mona-vtk/example/GrayScottColza/testScripts/strongscale/cori_gsstrongscale_mona_128_512.scripts\n\
-    </code></pre>\n<p>We can check the corresponding server and log file to get the\
-    \ particular data put and analysing time.</p>\n<p>For example, the <code>mbclient_mona_4_512.log</code>\
-    \ records the client information when there are 4 staging processes and 512 client\
-    \ pracesses.</p>\n<p>For the <code>MandelbulbColza</code> example, we can set\
-    \ the size of the data block by updating the <code>BLOCKLENW</code>, <code>BLOCKLENH</code>\
-    \ and <code>BLOCKLEND</code> in the associated script.</p>\n<p>For the <code>GrayScottColza</code>\
-    \ example, we can set the size of the data block by updating the <code>L</code>\
-    \ value at the client configuration file. For example, at the <code>client_settings_monaback_408.json</code>,\
-    \ we set the <code>L</code> as 408, which means there are <code>408*408*408</code>\
-    \ cells for each data block.</p>\n<h2>\n<a id=\"user-content-other-potential-issues\"\
-    \ class=\"anchor\" href=\"#other-potential-issues\" aria-hidden=\"true\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Other potential\
-    \ issues</h2>\n<p>We could also try to install osmesa by spack manaully:</p>\n\
-    <pre><code>spack install mesa+osmesa~llvm swr=none\n</code></pre>\n<p><a href=\"\
-    https://discourse.paraview.org/t/undefined-symbol-pyexc-valueerror/5494/5\" rel=\"\
-    nofollow\">https://discourse.paraview.org/t/undefined-symbol-pyexc-valueerror/5494/5</a></p>\n\
-    <pre><code>/usr/bin/ld: /global/common/sw/cray/sles15/x86_64/mesa/18.3.6/gcc/8.2.0/qozjngg/lib/libOSMesa.so:\
-    \ undefined reference to `del_curterm@NCURSES6_TINFO_5.0.19991023'\n</code></pre>\n\
-    <p>try this:</p>\n<p>SET(CMAKE_CXX_FLAGS \"${CMAKE_CXX_FLAGS} -ltinfo\")</p>\n\
-    <p>refer to</p>\n<p><a href=\"https://github.com/halide/Halide/issues/1112\">https://github.com/halide/Halide/issues/1112</a></p>\n\
-    <p>if the MPICH_GNI_NDREG_ENTRIES is not set properly\n<a href=\"https://github.com/mercury-hpc/mercury/issues/426\"\
-    >https://github.com/mercury-hpc/mercury/issues/426</a></p>\n<p>some osmesa warning\
-    \ from paraview if it is built in the Debug mode for building paraview (it is\
-    \ ok when we use the Release mode to build the paraview)</p>\n<p>(  44.958s) [pvbatch.3\
-    \       ]vtkOpenGLFramebufferObj:356    ERR| vtkOpenGLFramebufferObject (0x10005dc58e0):\
-    \ failed at glGenFramebuffers 1 OpenGL errors detected\n1:   0 : (1280) Invalid\
-    \ enum</p>\n<p>vtkOpenGLState.cxx:505   WARN| Error glBindFramebuffer1 OpenGL\
-    \ errors detected\n2:   0 : (1280) Invalid enum</p>\n<p>Try to build the paraview\
-    \ with the Release mode, otherwise, there are mosa related warnings</p>\n<p>For\
-    \ the python on cori, refer to this (<a href=\"https://docs.nersc.gov/development/languages/python/nersc-python/\"\
-    \ rel=\"nofollow\">https://docs.nersc.gov/development/languages/python/nersc-python/</a>)\n\
-    If you only use the module option, but the python is not the default one, there\
-    \ are some issues</p>\n<p>One issue is \"unnamed python module encoding\", or\
-    \ other issues that have different gcc version which may cause the byte code issue\n\
-    It is prefered to use the conda activate then the python virtual env if you not\
-    \ use the default python3 system on cori</p>\n"
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1623227410.0
 xsdk-project/installxSDK:
   data_format: 2
   description: Bash shell script for installing xSDK and other IDEAS packages
