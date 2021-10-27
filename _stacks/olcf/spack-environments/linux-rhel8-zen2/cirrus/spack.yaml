@@ -198,9 +198,9 @@ spack:
   upstreams:
     olcf:
       install_tree: /sw/cirrus/spack-envs/base/opt
-    modules:
-      lmod: /sw/cirrus/spack-envs/base/modules/spack
-      tcl: /sw/cirrus/spack-envs/base/modules/flat
+      modules:
+        lmod: /sw/cirrus/spack-envs/base/modules/spack
+        tcl: /sw/cirrus/spack-envs/base/modules/flat
   modules:
     enable:
     - lmod
