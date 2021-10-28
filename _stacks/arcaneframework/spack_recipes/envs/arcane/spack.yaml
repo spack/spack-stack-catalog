@@ -1,0 +1,6 @@
+spack:
+  specs:
+    - arcane~wrapper~hwloc~monoembed
+    - googletest  # Build dependency ?
+  concretization: together
+

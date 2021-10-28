@@ -23,7 +23,7 @@ spack:
   packages:
     all:
       providers:
-        mpi: [ mpich ]
+        mpi: [ cray-mpich ]
       compiler:
       - gcc@9.3.0
       target:
@@ -102,9 +102,9 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: cmake@3.14.5
+      - spec: cmake@3.18.0
         modules:
-        - cmake/3.14.5
+        - cmake/3.18.0
     coreutils:
       buildable: false
       version: []
@@ -201,25 +201,16 @@ spack:
       compiler: []
       buildable: true
       providers: {}
-    mpich:
+    cray-mpich:
       buildable: false
       version: []
       target: []
       compiler: []
       providers: {}
       externals:
-      - spec: mpich@7.7.14 arch=cray-cnl7-mic_knl
+      - spec: cray-mpich@7.7.14 arch=cray-cnl7-mic_knl
         modules:
         - cray-mpich/7.7.14
-    ncurses:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: ncurses@6.1
-        prefix: /usr
     openssl:
       buildable: false
       version: []
@@ -247,6 +238,16 @@ spack:
       externals:
       - spec: pkg-config@0.29.2
         prefix: /usr
+    python:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: python@3.6.8
+        modules:
+        - intelpython36/2019.3.075
     tar:
       buildable: false
       version: []
