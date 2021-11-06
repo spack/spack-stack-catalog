@@ -6,18 +6,27 @@ spack:
   - core_compiler:
     - '%gcc@8.3.1'
   - gcc_compilers:
+    - '%gcc@7.5.0'
     - '%gcc@8.3.1'
     - '%gcc@9.1.0'
     - '%gcc@9.3.0'
     - '%gcc@10.2.0'
+    - '%gcc@11.1.0'
   - xl_compilers:
-    - '%xl@16.1.1-8'
+    - '%xl@16.1.1-10'
+    - '%xl@16.1.1-beta103'
   - llvm_compilers:
+    - '%clang@12.0.0-0'
     - '%clang@10.0.1-0'
   - nv_compilers:
+    - '%nvhpc@21.9'
+    - '%nvhpc@21.7'
+    - '%nvhpc@21.5'
+    - '%nvhpc@21.3'
+    - '%nvhpc@21.2'
     - '%nvhpc@20.9'
-    - '%pgi@20.1'
     - '%pgi@20.4'
+    - '%pgi@20.1'
   - all_compilers:
     - $gcc_compilers
     - $xl_compilers
@@ -43,33 +52,50 @@ spack:
     - libevent@2.1.8 +openssl
     - valgrind ~ubsan~mpi~boost
     - ccache
-    - papi
-    - gdb
+    - papi~cuda
+    - gdb@10.2
     - libzmq
     - gnupg
+    - googletest
+    - imagemagick
+    - exuberant-ctags@5.8
     - gsl
     - nco~mpi-deps
-    - libfabric fabrics=verbs
-    # - git-lfs
+    - libfabric
+    - libfabric ^rdma-core@system
+    - git-lfs
     - patchelf
     - libzmq
     - makedepend
+    - r@4.0.5
+    - julia+cxx
+    - jq
+    - hpcviewer@2021.03
+    - cube@4.6+gui
+    # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
+    # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:
-    - darshan-runtime
-    - darshan-runtime hdf5=pre1.10
-    - darshan-runtime hdf5=post1.10
+    - darshan-runtime@3.2.1~hdf5
+    - darshan-runtime@3.2.1+hdf5
+    - darshan-runtime@3.3.0~hdf5
+    - darshan-runtime@3.3.0+hdf5
+    - darshan-runtime@3.3.1~hdf5
+    - darshan-runtime@3.3.1+hdf5
+    - scorep@7.0+mpi+papi+shmem ^papi+cuda ^cuda@11.0.3
+    - scorep@7.0+mpi~papi+shmem
     - valgrind ~ubsan+mpi+boost
     - adios2 +python ^python@3.7.7
+    - adios@1.13.1+blosc+bzip2+fortran+hdf5+infiniband+netcdf
     - gdrcopy
-    - gromacs +hwloc+cuda ^cuda@10.2.89
-    - gromacs +hwloc+cuda+mpi ^cuda@10.2.89
-    - gromacs +hwloc+cuda~mpi ^cuda@10.2.89
-  - gcc_only_compute_packages:
-    - raja +cuda cuda_arch=70
-    - nco
+    - gromacs        +hwloc+cuda+mpi ^cuda@10.2.89
+    - gromacs        +hwloc+cuda~mpi ^cuda@10.2.89
+    - gromacs@2020.4 +hwloc+cuda+mpi ^cuda@10.2.89
+    - gromacs@2020.4 +hwloc+cuda~mpi ^cuda@10.2.89
+    - gromacs@2020.2 +hwloc+cuda+mpi ^cuda@10.2.89
+    - gromacs@2020.2 +hwloc+cuda~mpi ^cuda@10.2.89
   - general_compute_packages:
     - netlib-lapack
-    - netlib-scalapack ^netlib-lapack
+    - netlib-scalapack
     - fftw +mpi+openmp
     - hdf5 ~mpi
     - hdf5 +mpi
@@ -77,61 +103,378 @@ spack:
     - boost +mpi
     - netcdf-c
     - netcdf-fortran
-    - netcdf-cxx
+    - netcdf-cxx4~doxygen
     - parallel-netcdf
     - parallel-io
+    - parallelio
     - hypre
     - mpip
     - adios2 ~python
-  - e4s_packages:
-    - zfp
-    - sz
-    - ninja
-    - qthreads
-    - openpmd-api
-    - sundials
-    - strumpack # +cuda cuda_arch=70
-    - superlu-dist
-    - superlu
-    - trilinos@12.14.1+dtk+intrepid2+shards
-    - tasmanian
-    - mercury
-    - veloc
-    - bolt
-    - upcxx
-    - umpire # +cuda cuda_arch=70
-    - libquo
-    - globalarrays
-    - pdt
-    - tau
-    - dyninst
-    - gotcha
-    - caliper
-    - papi
-    - rempi
-    - kokkos+openmp # +cuda cuda_arch=70
-    - kokkos-kernels # +cuda cuda_arch=70
-    ## Excluded E4S packages ------
-    ### Build Failures
-    # - hpctoolkit ## FIXME Looking for /usr/bin/env python; missing on RHEL8.
-    # - mfem ## Fails to build
-    ### Already in general compute packages list
-    # - openmpi
-    # - hypre
-    # - hdf5
-    # - parallel-netcdf
-    # - adios2
-    # - adios
-    # - darshan-runtime
-    # - darshan-util
-    # - raja
-    ### Incompatible packages
-    # - scr ## Slurm not available Summit/Peak
-    # - libnrm ## Explictly depends on mpich
-    ### Against policies
-    # - papyrus@develop ## No packages should be pinned @develop
-    # - py-jupyterhub ## Python extensions.
-    # - 'py-libensemble^python@3.7.3:' ## Python extensions.
+  - e4s_20.10_packages:
+    # - adios@1.13.1         ## rejected by site
+    - adios2@2.7.1~python    ## changed from v2.6.0 due to broken patch
+    - aml@0.1.0
+    # - arborx@0.9-beta      ## Missing kokkos CUDA_LAMBDA
+    # - axom@0.3.3           ## build system errors (bad fc id)
+    - bolt@1.0
+    - caliper@2.4.0~libdw~cuda ^papi~cuda
+    - caliper@2.4.0~libdw+cuda cuda_arch=70
+    # - darshan-runtime@3.2.1 ## installed globally
+    # - darshan-util@3.2.1    ## installed globally
+    - dyninst@10.2.1
+    - faodel@1.1906.1~tcmalloc
+    # - flecsi@1+cinch        ## build fail
+    - flit@2.1.0
+    - gasnet@2020.3.0
+    - ginkgo@1.3.0
+    - globalarrays@5.7
+    - gotcha@1.0.3
+    - hdf5@1.10.6+mpi+fortran
+    - hpctoolkit@2020.08.03
+    - hpx@1.5.1 max_cpu_count=176 ~cuda ^boost cxxstd=17
+    - hypre@2.20.0
+    - kokkos-kernels@3.2.00
+    - kokkos+openmp@3.2.00
+    - legion@20.03.0+cuda+hdf5 cuda_arch=70
+    # - libnrm@0.1.0         ## mpich unavailable
+    - libquo@1.3.1
+    - magma@2.5.4 ~rocm+cuda cuda_arch=70
+    - mercury@1.0.1
+    # - mfem@4.1.0           ## build fail
+    - mpifileutils@0.10.1
+    - ninja@1.10.1
+    # - omega-h@9.29.0       ## code bugs
+    # - openmpi@3.1.6        ## rejected by site
+    # - openpmd-api@0.12.0 ## FIXME: broke with changes to HDF5 package
+    - papi@6.0.0.1
+    - papyrus@1.0.0
+    - parallel-netcdf@1.12.1
+    - pdt@3.25.1
+    - petsc@3.14.0+cuda
+    # - phist@1.9.1          ## build system bugs (-march vs -mcpu)
+    - plasma@20.9.20
+    - pumi@2.2.2
+    # - py-jupyterhub@1.0.0  ## rejected by site
+    # - py-libensemble@0.7.1 ## rejected by site
+    # - py-petsc4py@3.13.0   ## rejected by site
+    - qthreads@1.14
+    - raja@0.12.1 ~rocm~cuda+openmp cuda_arch=none
+    - raja@0.12.1 ~rocm+cuda+openmp cuda_arch=70
+    - rempi@1.1.0
+    # - scr@2.0.0            ## slurm unavailable
+    - slepc@3.14.0
+    - stc@0.8.3            ## conflict: ppc64le
+    - strumpack@5.0.0~slate
+    - sundials@5.4.0 ~rocm~cuda
+    - sundials@5.4.0 ~rocm+cuda cuda_arch=70
+    - superlu-dist@6.3.1~cuda cuda_arch=none
+    - superlu@5.2.1
+    - swig@4.0.2
+    - sz@2.1.10
+    - tasmanian@7.3 ~rocm~cuda
+    - tasmanian@7.3 ~rocm+cuda cuda_arch=70
+    - tau@2.29.1~cuda+mpi~ompt~openmp ^papi~cuda
+    - tau@2.29.1~cuda+mpi+ompt+openmp ^papi~cuda
+    - tau@2.29.1+cuda+mpi~ompt~openmp
+    - tau@2.29.1+cuda+mpi+ompt+openmp
+    - trilinos@13.0.0
+    # - turbine@1.2.3
+    - umap@2.1.0
+    - umpire@4.0.1
+    - unifyfs@0.9.2 ^libfabric fabrics=rxm,sockets,tcp,udp,verbs
+    - upcxx@2020.3.0+cuda
+    # - veloc@1.4            ## Code issue; `include/axl.h: int AXL_Create called with wrong signature (too many args)`
+    - zfp@0.5.5
+  - e4s_21.02_packages:
+    # - adios@1.13.1         ## rejected by site
+    - adios2@2.7.1~python
+    - aml@0.1.0
+    - amrex@21.02 ~rocm~cuda
+    - amrex@21.02 ~rocm+cuda cuda_arch=70
+    # - arborx@0.9-beta      ## Missing kokkos CUDA_LAMBDA
+    # - axom@0.4.0           ## FIXME: conduit dependency's ConduitConfig.cmake in wrong place `lib/cmake/conduit/ConduitConfig.cmake`
+    - bolt@2.0
+    - caliper@2.5.0 ~cuda ^papi~cuda
+    - caliper@2.5.0 +cuda cuda_arch=70
+    # - darshan-runtime@3.2.1 ## installed globally
+    # - darshan-util@3.2.1    ## installed globally
+    - dyninst@10.2.1
+    - faodel@1.1906.1~tcmalloc
+    - flecsi@1.4
+    - flit@2.1.0
+    - gasnet@2020.3.0
+    - ginkgo@1.3.0
+    - globalarrays@5.8
+    - gotcha@1.0.3
+    - hdf5@1.10.7+mpi+fortran
+    - hpctoolkit@2020.08.03
+    - hpx@1.6.0 max_cpu_count=176 ~cuda ^boost cxxstd=17
+    - hypre@2.20.0
+    - kokkos-kernels@3.2.00
+    - kokkos+openmp@3.2.00
+    - legion@20.03.0+cuda+hdf5 cuda_arch=70
+    # - libnrm@0.1.0         ## mpich unavailable
+    - libquo@1.3.1
+    - magma@2.5.4 ~rocm+cuda cuda_arch=70
+    - mercury@2.0.0
+    # - mfem@4.2.0           ## build fail
+    - mpifileutils@0.10.1
+    - ninja@1.10.2
+    - omega-h@9.32.5
+    # - openmpi@3.1.6        ## rejected by site
+    # - openpmd-api@0.13.2 ## FIXME: broke with changes to HDF5 package
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.1
+    - pdt@3.25.1
+    - petsc@3.14.4+cuda
+    # - phist@1.9.3
+    - plasma@20.9.20
+    - precice@2.2.0
+    - pumi@2.2.5
+    # - py-jupyterhub@1.0.0  ## rejected by site
+    # - py-libensemble@0.7.1 ## rejected by site
+    # - py-petsc4py@3.13.0   ## rejected by site
+    - qthreads@1.14 scheduler=distrib
+    - raja@0.13.0 ~rocm~cuda+openmp cuda_arch=none
+    - raja@0.13.0 ~rocm+cuda+openmp cuda_arch=70
+    - rempi@1.1.0
+    # - scr@2.0.0            ## slurm unavailable
+    - slepc@3.14.0
+    - slate@2021.05.02 ~rocm~cuda cuda_arch=none
+    - slate@2021.05.02 ~rocm+cuda cuda_arch=70
+    - stc@0.8.3            ## conflict: ppc64le
+    - strumpack@5.1.1 ~slate ^openblas threads=openmp
+    - sundials@5.7.0 ~rocm~cuda
+    - sundials@5.7.0 ~rocm+cuda cuda_arch=70
+    - superlu-dist@6.4.0~cuda cuda_arch=none
+    - superlu-dist@6.4.0+cuda cuda_arch=70
+    - superlu@5.2.1
+    - swig@4.0.2-fortran
+    - sz@2.1.11.1
+    - tasmanian@7.3 ~rocm~cuda
+    - tasmanian@7.3 ~rocm+cuda cuda_arch=70
+    - tau@2.30.1~cuda+mpi~ompt~openmp ^papi~cuda
+    - tau@2.30.1~cuda+mpi+ompt+openmp ^papi~cuda
+    - tau@2.30.1+cuda+mpi~ompt~openmp
+    - tau@2.30.1+cuda+mpi+ompt+openmp
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    # - turbine@1.2.3
+    - umap@2.1.0
+    - umpire@4.1.2
+    - unifyfs@0.9.2 ^libfabric fabrics=rxm,sockets,tcp,udp,verbs
+    - upcxx@2020.10.0+cuda
+    # - veloc@1.4
+    - zfp@0.5.5
+  - e4s_21.05_packages:
+    # - adios@1.13.1 ## rejected by site
+    - adios2@2.7.1~python
+    - aml@0.1.0
+    - amrex@21.05 ~rocm~cuda
+    - amrex@21.05 ~rocm+cuda cuda_arch=70
+    - arborx@1.0+cuda ^kokkos~rocm+cuda+wrapper+cuda_lambda cuda_arch=70
+    # - archer@2.0.0
+    - argobots@1.1
+    - ascent@0.7.1 ~test+shared~cuda
+    # - ascent@0.7.1 ~test~shared+cuda cuda_arch=70 ## FIXME: too much data for compiler-generated constants
+    # - axom@0.5.0 ~cuda
+    # - axom@0.5.0 +cuda cuda_arch=70
+    - bolt@2.0
+    - cabana@0.3.0+cuda
+    - caliper@2.5.0 ~cuda ^papi~cuda
+    - caliper@2.5.0 +cuda cuda_arch=70
+    - chai@2.3.0~benchmarks~tests~rocm+cuda cuda_arch=70
+    - conduit@0.7.2
+    # - darshan-runtime@3.3.0 ## installed globally
+    # - darshan-util@3.3.0    ## installed globally
+    - dyninst@11.0.0
+    - faodel@1.1906.1~tcmalloc
+    - flecsi@1.4
+    - flit@2.1.0
+    - gasnet@2020.3.0
+    - ginkgo@1.3.0
+    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.10.7+mpi+fortran
+    - heffte@2.0.0+fftw
+    - hpctoolkit@2021.03.01
+    - hpx@1.6.0 max_cpu_count=176 +cuda cuda_arch=70 ^boost cxxstd=17
+    - hypre@2.20.0
+    - kokkos-kernels@3.2.00
+    - kokkos@3.4.00 +openmp
+    - legion@21.03.0+cuda+hdf5 cuda_arch=70
+    # - libnrm@0.1.0 ## hard mpich dependency
+    - libquo@1.3.1
+    - magma@2.6.1 ~rocm+cuda cuda_arch=70
+    - mercury@2.0.1
+    # - mfem@4.2.0 ## build fail
+    - mpifileutils@0.11
+    - ninja@1.10.2
+    - omega-h@9.32.5
+    # - openmpi@t4.0.5 ## rejected by site
+    # - openpmd-api@0.13.4 ## FIXME: broke with changes to HDF5 package
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - pdt@3.25.1
+    - petsc@3.15.0+cuda
+    # - phist@1.9.3
+    - plasma@20.9.20
+    - precice@2.2.1
+    - pumi@2.2.5
+    # - py-jupyterhub@1.0.0 ## rejected by site
+    # - py-libensemble@0.7.1 ## rejected by site
+    # - py-petsc4py@3.13.0 ## rejected by site
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.13.0 ~rocm~cuda+openmp cuda_arch=none
+    - raja@0.13.0 ~rocm+cuda+openmp cuda_arch=70
+    - rempi@1.1.0
+    # - scr@3.0rc1 ## slurm unavailable
+    - slate@2021.05.02 ~rocm~cuda cuda_arch=none
+    - slate@2021.05.02 ~rocm+cuda cuda_arch=70
+    - slepc@3.15.0
+    - stc@0.9.0
+    - strumpack@5.1.1 ~slate~rocm~cuda cuda_arch=none
+    - strumpack@5.1.1 ~slate~rocm+cuda cuda_arch=70
+    - sundials@5.7.0 ~rocm~cuda
+    - sundials@5.7.0 ~rocm+cuda cuda_arch=70
+    - superlu-dist@6.4.0~cuda cuda_arch=none
+    - superlu-dist@6.4.0+cuda cuda_arch=70
+    - superlu@5.2.1
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.11.1
+    - tasmanian@7.5 ~rocm~cuda
+    - tasmanian@7.5 ~rocm+cuda cuda_arch=70
+    - tau@2.30.1~rocm~cuda+mpi~ompt~openmp ^papi~cuda
+    - tau@2.30.1~rocm~cuda+mpi+ompt+openmp ^papi~cuda
+    - tau@2.30.1~rocm+cuda+mpi~ompt~openmp
+    - tau@2.30.1~rocm+cuda+mpi+ompt+openmp
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@4.1.2 +shared~rocm~cuda cuda_arch=none
+    - umpire@4.1.2 ~shared~rocm+cuda cuda_arch=70
+    - unifyfs@0.9.2 ^libfabric fabrics=rxm,sockets,tcp,udp,verbs
+    - upcxx@2021.3.0+cuda
+    - zfp@0.5.5
+  - e4s_21.08_packages:
+    - adios2@2.7.1 ~python
+    - aml@0.1.0
+    - amrex@21.09 ~rocm~cuda
+    - amrex@21.09 ~rocm+cuda cuda_arch=70
+    # - arborx@1.0~cuda
+    - arborx@1.0+cuda ^kokkos~rocm+cuda+wrapper+cuda_lambda cuda_arch=70
+    # - archer@2.0.0
+    - argobots@1.1
+    - ascent@0.7.1 ~test+shared~cuda
+    # - ascent@0.7.1 ~test~shared+cuda cuda_arch=70 ## FIXME: too much data for compiler-generated constants
+    # - axom@0.5.0 ~cuda
+    # - axom@0.5.0 +cuda cuda_arch=70
+    - bolt@2.0
+    - cabana@0.3.0+cuda
+    - caliper@2.6.0 ~cuda ^papi~cuda
+    - caliper@2.6.0 +cuda cuda_arch=70
+    - chai@2.4.0 ~benchmarks~tests~rocm~cuda
+    - chai@2.4.0 ~benchmarks~tests~rocm+cuda cuda_arch=70
+    - conduit@0.7.2
+    # - darshan-runtime@3.3.1 ## installed globally
+    # - darshan-util@3.3.1    ## installed globally
+    - datatransferkit@3.1-rc2
+    # - dealii@9.3.1 ~cuda ## FIXME: super messy spec; probably only needs one build
+    # - dealii@9.3.1 +cuda cuda_arch=70 ## FIXME: Messy spec, depends on trilinos@master
+    - dyninst@11.0.1
+    - faodel@1.1906.1~tcmalloc
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - flux-core@0.28.0
+    - fortrilinos@2.0.0 ^trilinos@13.0.1+nox+stratimikos
+    - gasnet@2021.3.0
+    # - geopm@1.1.0 ## FIXME: need only one (core) build of this package
+    - ginkgo@1.4.0~rocm~cuda
+    - ginkgo@1.4.0~rocm+cuda cuda_arch=70
+    - globalarrays@5.8
+    - gotcha@1.0.3
+    - hdf5@1.12.0
+    - heffte@2.1.0 +fftw
+    - hpctoolkit@2021.05.15
+    - hpx@1.7.1 max_cpu_count=176 ~cuda ^boost cxxstd=17 ^asio cxxstd=17
+    - hpx@1.7.1 max_cpu_count=176 +cuda cuda_arch=70 ^boost cxxstd=17 ^asio cxxstd=17
+    - hypre@2.22.0 ~cuda
+    - hypre@2.22.0 +cuda cuda_arch=70
+    - kokkos@3.4.01 +openmp
+    - kokkos@3.4.01 ~rocm+cuda+wrapper cuda_arch=70
+    - kokkos-kernels@3.2.00 +openmp
+    - kokkos-kernels@3.2.00 +cuda cuda_arch=70 ^kokkos@3.4.01~rocm+cuda+wrapper cuda_arch=70
+    - legion@21.03.0+cuda+hdf5 cuda_arch=70
+    # - libnrm@0.1.0 ## hard mpich dependency
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - magma@2.6.1 ~rocm+cuda cuda_arch=70
+    - mercury@2.0.1
+    - metall@0.15
+    - mfem@4.3.0 ~cuda
+    - mfem@4.3.0 +cuda cuda_arch=70
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    # - nrm@0.1.0 # rejected by site
+    - omega-h@9.32.5
+    # - openpmd-api@0.13.4 ^hdf5@1.12.0 +fortran +shared +hl api=default ## FIXME: problem locating hdf5 mpi support
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - parsec@3.0.2012 +cuda cuda_arch=70
+    - pdt@3.25.1
+    - petsc@3.15.3
+    # - phist@1.9.4 ## FIXME: build errors.
+    - plasma@20.9.20
+    - precice@2.2.1
+    - pumi@2.2.6
+    # - qt@5.15.2 ## FIXME: need only one (core) build of this
+    - qthreads@1.16 scheduler=distrib
+    # - qwt@6.1.6 # FIXME: need only one (core) build of this
+    - raja@0.14.0 ~rocm~cuda+openmp
+    - raja@0.14.0 ~rocm+cuda+openmp cuda_arch=70
+    - rempi@1.1.0
+    # - scr@3.0rc1 ## Slurm unavailable
+    - slate@2021.05.02 ~rocm~cuda cuda_arch=none
+    - slate@2021.05.02 ~rocm+cuda cuda_arch=70
+    - slepc@3.15.1
+    # - stat@4.1.0 ## FIXME: need only one (core) build of this
+    # - stc@0.9.0 ## FIXME: need only one (core) build of this
+    - strumpack@5.1.1 ~slate~rocm~cuda cuda_arch=none
+    - strumpack@5.1.1 ~slate~rocm+cuda cuda_arch=70
+    - sundials@5.7.0 ~rocm~cuda
+    - sundials@5.7.0 ~rocm+cuda cuda_arch=70
+    - superlu-dist@6.4.0 ~cuda cuda_arch=none
+    - superlu-dist@6.4.0 +cuda cuda_arch=70
+    - superlu@5.2.2
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.5 ~rocm~cuda
+    - tasmanian@7.5 ~rocm+cuda cuda_arch=70
+    - tau@2.30.1~cuda+mpi~ompt~openmp ^papi~cuda
+    - tau@2.30.1~cuda+mpi+ompt+openmp ^papi~cuda
+    - tau@2.30.1+cuda+mpi~ompt~openmp
+    - tau@2.30.1+cuda+mpi+ompt+openmp
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@4.1.2 +shared~rocm~cuda cuda_arch=none
+    - umpire@4.1.2 ~shared~rocm+cuda cuda_arch=70
+    - unifyfs@0.9.2 ^libfabric fabrics=rxm,sockets,tcp,udp,verbs
+    - upcxx@2021.3.0+cuda
+    # - variorum@0.4.1
+    # - veloc@1.4
+    - vtk-m@1.6.0
+    - zfp@0.5.5~cuda
+    - zfp@0.5.5+cuda cuda_arch=70
   - core_specs:
     - matrix:
       - - $core_packages
@@ -143,47 +486,116 @@ spack:
   - core_compute_specs:
     - matrix:
       - - $core_only_compute_packages
+        - spectral@20210514
       - - $core_compiler
   - gcc_specs:
     - matrix:
       - - openblas threads=openmp
         - openblas threads=none
         - netlib-scalapack ^openblas threads=openmp
-      - - '%gcc@9.1.0'
-    - matrix:
-      - - $gcc_only_compute_packages
-      - - $gcc_compilers
+      - - '%gcc@9.3.0'
     - matrix:
       - - $general_compute_packages
-        - petsc +mpi+mumps~int64~superlu-dist
-        - $e4s_packages
-      - - $gcc_compilers
+        - nco
+        - $e4s_21.08_packages
+        - $e4s_21.05_packages
+        - $e4s_21.02_packages
+        - $e4s_20.10_packages
+      - - '%gcc@8.3.1'
+        - '%gcc@9.1.0'
+        - '%gcc@9.3.0'
+      - - ^cuda@11.0.3
       exclude:
-      - globalarrays%gcc@10.2.0
-      - petsc%gcc@10.2.0+mumps # ^mumps, same error as globalarrays
-      - trilinos%gcc@10.2.0 # ^mumps
-      - adios2%gcc@10.2.0
-      - openpmd-api@0.12.0%gcc@10.2.0 # ^adios2
-      - rempi%gcc@10.2.0 # code error
-      - veloc%gcc@10.2.0 # ^kvtree tests
+      - 'boost@1.77.0 %gcc@8.3.1'
+      - 'flecsi%gcc@8.3.1 ^boost@1.77.0'
+      - hpx%gcc@8.3.1
+    # Core-only e4s 21.08 packages
+    - qt@5.15.2%gcc@8.3.1
+    - stat@4.1.0%gcc@8.3.1
+    - stc@0.9.0%gcc@8.3.1
+    # - geopm@1.1.0%gcc@8.3.1
+    - matrix:
+      - - $general_compute_packages
+      - - '%gcc@7.5.0'
+      - - ^cuda@11.0.3
+    - matrix:
+      - - $general_compute_packages
+        - $e4s_21.08_packages
+        - $e4s_21.05_packages
+        - $e4s_21.02_packages
+        - $e4s_20.10_packages
+      - - '%gcc@10.2.0'
+      - - ^cuda@11.1.1
+      exclude:
+      - ascent@0.7.1%gcc@10.2.0   # examples fail with argument mismatch
+      - globalarrays%gcc@10.2.0   # conflict in package
+      - rempi@1.1.0%gcc@10.2.0    # code error
+      - mercury@1.0.1%gcc@10.2.0  # code error
+      - slate@2020.10.00%gcc@10.2.0 # broken custom ICL BLASFinder.cmake macro >:(
+      - parsec@3.0.2012+cuda
+    - matrix:
+      - - $general_compute_packages
+        - $e4s_21.08_packages
+        - $e4s_21.05_packages
+      - - '%gcc@11.1.0'
+      - - ^cuda@11.4.2
+      exclude:
+      - ascent~cuda  # fails due conduit c++17 issues
+      # - axom~cuda # FIXME: depends on raja+cuda
+      # - caliper~cuda # FIXME: depends on papi+cuda
+      # - chai~cuda ## Chai~cuda doesn't pass ~cuda on to umpire/camp/etc
+      - conduit ## up to v0.7.2 incompatible with std=c++17
+      - faodel
+      - globalarrays
+      - loki ## FIXME: incompatible C++17 used by default
+      - mercury@1.0.1  # code error
+      - omega-h
+      - parsec+cuda ## missing dwarf .debug_ranges section during linking
+      # - precice # FIXME: could be made w/o ^superlu-dist+cuda
+      - rempi@1.1.0  # code error
+      - slate@2020.10.00 # broken custom ICL BLASFinder.cmake macro >:(
+      - tau~cuda+mpi+ompt+openmp ^papi~cuda
+      - tau~cuda+mpi~ompt~openmp ^papi~cuda
+      - unifyfs
+    - kokkos%gcc@8.3.1+wrapper+openmp std=14 +cuda cuda_arch=70 ^cuda@11.0.3
     - magma@2.5.3%gcc@8.3.1 ^cuda@10.2.89
     - amgx%gcc@8.3.1 +cuda cuda_arch=70 ^cuda@10.2.89
-    - hpx %gcc@8.3.1 cxxstd=14 ^boost@1.70.0:1.72.0
-    - hpx %gcc@8.3.1 cxxstd=17 ^boost@1.70.0:1.72.0
+    - hpx %gcc@8.3.1 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=14              ^boost@1.72.0 cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@8.3.1 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=14 ^cuda@11.0.3 ^boost@1.72.0 cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@8.3.1 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=17              ^boost@1.72.0 cxxstd=17 ^asio cxxstd=17
+    - hpx %gcc@8.3.1 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=17 ^cuda@11.0.3 ^boost@1.72.0 cxxstd=17 ^asio cxxstd=17
+    - hpx %gcc@9.1.0 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=14              ^boost        cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@9.1.0 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=14 ^cuda@11.0.3 ^boost        cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@9.1.0 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=17              ^boost        cxxstd=17 ^asio cxxstd=17
+    - hpx %gcc@9.1.0 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=17 ^cuda@11.0.3 ^boost        cxxstd=17 ^asio cxxstd=17
+    - hpx %gcc@9.3.0 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=14              ^boost        cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@9.3.0 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=14 ^cuda@11.0.3 ^boost        cxxstd=14 ^asio cxxstd=14
+    - hpx %gcc@9.3.0 max_cpu_count=176 ~cuda cuda_arch=none cxxstd=17              ^boost        cxxstd=17 ^asio cxxstd=17
+    - hpx %gcc@9.3.0 max_cpu_count=176 +cuda cuda_arch=70   cxxstd=17 ^cuda@11.0.3 ^boost        cxxstd=17 ^asio cxxstd=17
   - llvm_specs:
     - matrix:
       - - $general_compute_packages
-        - petsc +mpi+mumps~int64~superlu-dist
-        - $e4s_packages
-        - trilinos@12.14.1+dtk+intrepid2+shards~muelu
+        - $e4s_21.08_packages
+        - $e4s_21.05_packages
+        - $e4s_21.02_packages
+        - trilinos@13.0.0+intrepid2+shards~muelu
       - - $llvm_compilers
       exclude:
       - mpip   # ^elfutils !conflicts clang
       - dyninst   # ^elfutils !conflicts clang
       - hpctoolkit   # ^elfutils !conflicts clang
+      - caliper # ^elfutils !conflicts clang
       - strumpack
-      - trilinos@12.14.1+dtk+intrepid2+shards+muelu
+      - plasma
+      - ^elfutils
+      - tau
+      - trilinos+intrepid2+shards+muelu
   - xl_specs:
+    # FIXME: Pin netlib-lapack to v3.8.0 for XL.
+    - matrix:
+      - - netlib-lapack@3.8.0
+      - - $xl_compilers
+      - - ^cmake%gcc@8-os
     - matrix:
       - - $general_compute_packages
         - parallel-io@2.3.0
@@ -191,6 +603,7 @@ spack:
         - boost@1.62.0 +mpi
         - adios2~python+zpf
       - - $xl_compilers
+      - - ^netlib-lapack@3.8.0
       - - ^numactl%gcc@8-os
       - - ^libfabric%gcc@8-os
       - - ^libzmq%gcc@8-os
@@ -205,11 +618,20 @@ spack:
       - 'parallel-io@2.4.4:'
       - mpip
       - adios2+zpf
+      - netlib-lapack
+      - parallelio
+      # xl beta103 libm macro errors:
+      - netcdf-c@4.8.0%xl@16.1.1-beta103
+      - netcdf-fortran@4.4.5%xl@16.1.1-beta103
+      - netcdf-cxx4@4.3.1%xl@16.1.1-beta103
+      - parallel-io@2.3.0%xl@16.1.1-beta103
   - nv_specs:
     - matrix:
       - - $general_compute_packages
+        - globalarrays
       - - $nv_compilers
       - - ^cmake%gcc@8-os
+      - - ^pkgconf%gcc@8-os
       - - ^python%gcc@8-os
       - - ^numactl%gcc@8-os
       - - ^perl%gcc@8-os
@@ -220,18 +642,29 @@ spack:
       - adios2%nvhpc
       - mpip%nvhpc
       - boost%nvhpc
-      - netlib-scalapack%nvhpc@20.9
+      - hdf5%nvhpc+fortran
+      - netlib-scalapack%nvhpc
+      - fftw@3.3.9:%pgi
       - adios2%pgi
       - mpip%pgi
       - boost%pgi
       - netlib-scalapack%pgi@20.1
+      - parallel-io
+      - parallelio
+    - matrix:
+      - - scorep@7.0+mpi+papi~pdt+shmem~unwind ^cuda@11.0.3
+        - scorep@7.0+mpi~papi~pdt+shmem~unwind
+      - - $nv_compilers
+      - - ^pkgconf%gcc@8-os
+      - - ^papi%gcc@8-os
   - special_builds:
     ## Cannot build do to error in ompi configure finding liblsf/ls_info.
+    ## FIXME - ompi version needs to be checked
     - openmpi@4.0.3%gcc@8.3.1+cuda+legacylaunchers+pmi+thread_multiple fabrics=ucx,hcoll,knem
       schedulers=lsf ^ucx+cuda+gdrcopy cuda_arch=70
   specs:
-  - pgi@20.1%gcc@8-os +mpi+mpigpu+managed+nvidia+single~network
   - pgi@20.4%gcc@8-os +mpi+mpigpu+managed+nvidia+single~network
+  - pgi@20.1%gcc@8-os +mpi+mpigpu+managed+nvidia+single~network
   - $core_specs
   - $smpi_specs
   - $core_compute_specs
@@ -240,354 +673,708 @@ spack:
   - $xl_specs
   - $nv_specs
   ## - $special_builds ## See note in definition section.
+  # - py-pip%gcc@8.3.1 ^/ethjbxn
+  # - py-pip%gcc@8.3.1 ^/eltc6cg
   #############################################################################
   mirrors:
     facility_builds: /sw/summit/spack-envs/mirrors/builds
   repos:
   - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
   #############################################################################
+  view: false
   packages:
-    spectrum-mpi:
-      version: [10.4.0.0-20200604, 10.3.1.2-20200121]
-      target: []
-      compiler: []
-      buildable: true
-      providers: {}
-    cuda:
-      buildable: false
-      version:
-      - 11.0.3
-      - 11.1.1
-      - 11.0.2
-      - 10.2.89
-      - 10.1.243
-      - 10.1.168
-      externals:
-      - spec: cuda@11.1.1
-        modules:
-        - cuda/11.1.1
-      - spec: cuda@11.0.3
-        modules:
-        - cuda/11.0.3
-      - spec: cuda@11.0.2
-        modules:
-        - cuda/11.0.2
-      - spec: cuda@10.2.89
-        modules:
-        - cuda/10.2.89
-      - spec: cuda@10.1.243
-        modules:
-        - cuda/10.1.243
-      - spec: cuda@10.1.168
-        modules:
-        - cuda/10.1.168
-      target: []
-      providers: {}
-      compiler: []
-    amgx:
-      variants: +cuda cuda_arch=70
-      version: []
-      target: []
-      compiler: []
-      buildable: true
-      providers: {}
-    lsf:
-      version: [10.1.0.10]
-      buildable: false
-      externals:
-      - spec: lsf@10.1.0.10
-        prefix: /opt/ibm/spectrumcomputing/lsf/10.1.0.10
-      target: []
-      compiler: []
-      providers: {}
-    hcoll:
-      buildable: false
-      version: [4.4]
-      externals:
-      - spec: hcoll@4.4
-        prefix: /opt/mellanox/hcoll
-      target: []
-      compiler: []
-      providers: {}
-    knem:
-      buildable: false
-      version: [1.1.3]
-      externals:
-      - spec: knem@1.1.3
-        prefix: /opt/knem-1.1.3.90mlnx1
-      target: []
-      compiler: []
-      providers: {}
-    go-bootstrap:
-      buildable: false
-      version: [1.7.1-bootstrap]
-      externals:
-      - spec: go-bootstrap@1.7.1-bootstrap
-        prefix: /sw/summit/go/1.7.1-bootstrap
-      target: []
-      providers: {}
-      compiler: []
-    gtkplus:
-      version: [3.22.30, 2.24.32]
-      buildable: false
-      externals:
-      - spec: gtkplus@2.24.32
-        prefix: /usr
-      - spec: gtkplus@3.22.30
-        prefix: /usr
-      target: []
-      providers: {}
-      compiler: []
-    openssl:
-      buildable: false
-      version: [1.1.1]
-      externals:
-      - spec: openssl@1.1.1
-        prefix: /usr
-      target: []
-      providers: {}
-      compiler: []
-    libtool:
-      version: [2.4.6]
-      externals:
-      - spec: libtool@2.4.6
-        prefix: /usr
-      buildable: true
-      target: []
-      providers: {}
-      compiler: []
-    perl:
-      version: [5.30.1]
-      buildable: true
-      target: []
-      providers: {}
-      compiler: []
-    fftw:
-      variants: +openmp precision=float,double,long_double
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    hdf5:
-      variants: +hl+cxx+fortran
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    papi:
-      variants: cpu=POWER9
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    magma:
-      variants: +cuda cuda_arch=70
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    netlib-scalapack:
-      variants: +fpic
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    netcdf-c:
-      variants: ~hdf4+mpi+parallel-netcdf+shared
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    netcdf-fortran:
-      buildable: true
-      version: [4.4.5]
-      target: []
-      compiler: []
-      providers: {}
-    parallel-netcdf:
-      variants: +cxx+fortran+fpic
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    darshan-runtime:
-      variants: +lsf+grouplogs logpath=/gpfs/alpine/darshan/summit
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
     all:
+      buildable: true
       compiler: [gcc@8.3.1, gcc, clang, xl, nvhpc, pgi]
       providers:
-        mpi: [olcf.spectrum-mpi]
-        lapack: [netlib-lapack]
         blas: [netlib-lapack]
+        lapack: [netlib-lapack]
+        mpi: [olcf.spectrum-mpi]
         scalapack: [netlib-scalapack]
-      buildable: true
-      version: []
       target: [ppc64le]
-  view: false
+      version: []
+    amgx:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda cuda_arch=70
+      version: []
+    axom:
+      variants: ~examples~openmp+hdf5+umpire+raja+mpi
+    # camp:
+    #   variants: +cuda cuda_arch=70
+    #   buildable: true
+    #   version: []
+    #   target: []
+    #   providers: {}
+    #   compiler: []
+    cuda:
+      buildable: false
+      compiler: []
+      externals:
+        - modules:
+            - cuda/11.4.2
+          spec: cuda@11.4.2
+        - modules:
+            - cuda/11.1.1
+          spec: cuda@11.1.1
+        - modules:
+            - cuda/11.0.3
+          spec: cuda@11.0.3
+        - modules:
+            - cuda/11.0.2
+          spec: cuda@11.0.2
+        - modules:
+            - cuda/10.2.89
+          spec: cuda@10.2.89
+        - modules:
+            - cuda/10.1.243
+          spec: cuda@10.1.243
+        - modules:
+            - cuda/10.1.168
+          spec: cuda@10.1.168
+      providers: {}
+      target: []
+      variants: +allow-unsupported-compilers
+      version:
+        - 11.0.3
+        - 11.1.1
+        - 11.4.2
+        - 11.0.2
+        - 10.2.89
+        - 10.1.243
+        - 10.1.168
+    darshan-runtime:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +grouplogs scheduler=lsf logpath=/gpfs/alpine/darshan/summit
+      version: []
+    fftw:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +openmp precision=float,double,long_double
+      version: []
+    gdbm:
+      version: [1.19]
+    go-bootstrap:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /sw/summit/go/1.7.1-bootstrap
+          spec: go-bootstrap@1.7.1-bootstrap
+      providers: {}
+      target: []
+      version: [1.7.1-bootstrap]
+    gtkplus:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /usr
+          spec: gtkplus@2.24.32
+        - prefix: /usr
+          spec: gtkplus@3.22.30
+      providers: {}
+      target: []
+      version: [3.22.30, 2.24.32]
+    hcoll:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /opt/mellanox/hcoll
+          spec: hcoll@4.4
+      providers: {}
+      target: []
+      version: [4.4]
+    hdf5:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +hl+cxx
+      version: []
+    hpctoolkit:
+      variants: +cuda+mpi~papi
+    hpx:
+      variants: max_cpu_count=176 
+    icu4c:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version: [66.1]
+    knem:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /opt/knem-1.1.3.90mlnx1
+          spec: knem@1.1.3
+      providers: {}
+      target: []
+      version: [1.1.3]
+    kokkos:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +wrapper+cuda cuda_arch=70
+      version: []
+    kokkos-kernels:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda cuda_arch=70
+      version: []
+    libfabric:
+      variants: fabrics=verbs,rxm,sockets,tcp,udp
+    libtool:
+      buildable: true
+      compiler: []
+      externals:
+        - prefix: /usr
+          spec: libtool@2.4.6
+      providers: {}
+      target: []
+      version: [2.4.6]
+    lsf:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /opt/ibm/spectrumcomputing/lsf/10.1.0.10
+          spec: lsf@10.1.0.10
+      providers: {}
+      target: []
+      version: [10.1.0.10]
+    magma:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda cuda_arch=70
+      version: []
+    netcdf-c:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      version: []
+    netcdf-fortran:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version: [4.4.5]
+    netlib-scalapack:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +fpic
+      version: []
+    openssl:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /usr
+          spec: openssl@1.1.1
+      providers: {}
+      target: []
+      version: [1.1.1]
+    papi:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: cpu=POWER9 +cuda
+      version: []
+    parallel-netcdf:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cxx+fortran+fpic
+      version: []
+    perl:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version: [5.30.1]
+    rdma-core:
+      buildable: true
+      externals:
+        - prefix: /usr
+          spec: rdma-core@system
+      version: [system]
+    slate:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda cuda_arch=70
+      version: []
+    spectral:
+      variants: ~examples prologue_dir=/sw/summit/spectral/usr/local
+    spectrum-mpi:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version:
+        - 10.4.0.3-20210112
+        - 10.4.0.0-20200604
+        - 10.3.1.2-20200121
+    strumpack:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~butterflypack~slate~rocm+cuda cuda_arch=70
+      version: []
+    tasmanian:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda
+      version: []
+    umpire:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~examples
+      version: []
+    upcxx:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cuda
+      version: []
   modules:
-    enable:
-    - lmod
-    lmod:
-      core_compilers: [gcc@8.3.1]
-      all:
-        suffixes:
-          ^python@2.0:2.99: py2
-          ^python@3.0:3.99: py3
-        environment:
-          set:
-            OLCF_${PACKAGE}_ROOT: ${PREFIX}
-          unset: []
-        filter:
-          environment_blacklist: []
-        load: []
-        conflict: []
-      pgi:
-        filter:
-          environment_blacklist: [CPATH, LIBRARY_PATH]
-        load: []
-        environment:
-          unset: []
-        conflict: []
-      spectrum-mpi:
-        environment:
-          set:
-            PAMI_IBV_ENABLE_OOO_AR: '1'
-            PAMI_IBV_QP_SERVICE_LEVEL: '8'
-          unset: []
-        filter:
-          environment_blacklist: []
-        load: []
-        conflict: []
-      gromacs:
-        suffixes:
-          gromacs ~mpi: serial
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      kokkos:
-        suffixes:
-          kokkos +openmp: omp
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      libfabric:
-        suffixes:
-          libfabric fabrics=verbs: verbs
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      boost:
-        suffixes:
-          boost cxxstd=14: cxx14
-          boost cxxstd=17: cxx17
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      netlib-scalapack:
-        suffixes:
-          netlib-scalapack ^openblas: openblas
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      pcre:
-        suffixes:
-          pcre+jit: jit
-        filter:
-          environment_blacklist: []
-        load: []
-        environment:
-          unset: []
-        conflict: []
-      hpx:
-        suffixes:
-          hpx cxxstd=14: cxx14
-          hpx cxxstd=17: cxx17
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      spectral:
-        template: olcf/modules/spectral.lua
-        filter:
-          environment_blacklist: []
-        load: []
-        environment:
-          unset: []
-        conflict: []
-      openblas:
-        suffixes:
-          openblas threads=openmp: omp
-          openblas threads=pthreads: pthreads
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      darshan-runtime:
-        suffixes:
-          hdf5=pre1.10: hdf5pre110
-          hdf5=post1.10: hdf5post110
-        filter:
-          environment_blacklist: []
-        load: []
-        environment:
-          unset: []
-        conflict: []
-      blacklist_implicits: false
-      verbose: true
-      whitelist: []
-      blacklist:
-      - python
-      - py-
-      - py-setuptools
-      - hypre+internal-superlu
-      - readline%clang
-      - sqlite%clang
-      - gdbm%clang
-      - cuda
-      - libfabric@1.9.1%gcc@8.3.1 fabrics=sockets,tcp,udp
-      - go-bootstrap
-      - gtkplus
-      - openssl
-      - libtool@2.4.2
-      - '%gcc@8-os'
-      - adios2@2.6.0%gcc~zfp
-      - adios2@2.6.0%clang@10.0.1-0~zfp
-      hash_length: 0
-      hierarchy: []
-      projections: {}
-      core_specs:
-      - magma@2.5.3%gcc@8.3.1 ^cuda@10.2.89
-      - amgx%gcc@8.3.1 ^cuda@10.2.89
+    prefix_inspections:
+      bin:
+        - PATH
+      include:
+        - CPATH
+      man:
+        - MANPATH
+      share/man:
+        - MANPATH
+      share/aclocal:
+        - ACLOCAL_PATH
+      lib64:
+        - LD_LIBRARY_PATH
+        - LIBRARY_PATH
+      lib:
+        - LD_LIBRARY_PATH
+        - LIBRARY_PATH
+      lib/pkgconfig:
+        - PKG_CONFIG_PATH
+      lib64/pkgconfig:
+        - PKG_CONFIG_PATH
+      share/pkgconfig:
+        - PKG_CONFIG_PATH
+      '':
+        - CMAKE_PREFIX_PATH
+    default:
+      enable:
+        - lmod
+      lmod:
+        core_compilers: [gcc@8.3.1]
+        all:
+          conflict: []
+          environment:
+            set:
+              OLCF_${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+        adios2:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            adios2+python: py
+        amrex:
+          suffixes:
+            amrex~rocm~cuda: cpu
+        arborx:
+          suffixes:
+            arborx~rocm~cuda~openmp: serial
+        # ascent:
+        #   suffixes:
+        #     ascent~cuda: cpu
+        asio:
+          suffixes:
+            asio cxxstd=14: cxx14
+            asio cxxstd=17: cxx17
+        axom:
+          suffixes:
+            axom~cuda: cpu
+        blaspp:
+          suffixes:
+            blaspp~rocm~cuda: cpu
+        boost:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            boost cxxstd=14: cxx14
+            boost cxxstd=17: cxx17
+            boost visibility=global: global_symbols
+        caliper:
+          suffixes:
+            caliper~cuda: cpu
+        camp:
+          suffixes:
+            camp~cuda~rocm: cpu
+        cdo:
+          suffixes:
+            cdo+aec: aec
+            cdo^hdf5+mpi^netcdf+mpi^fftw+mpi: parallel
+        chai:
+          suffixes:
+            chai~rocm~cuda: cpu
+        darshan-runtime:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            darshan-runtime~hdf5: lite
+        dealii:
+          suffixes:
+            dealii~cuda: cpu
+        ginkgo:
+          suffixes:
+            ginkgo~rocm~cuda: cpu
+        gromacs:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            gromacs ~mpi: serial
+        hpx:
+          suffixes:
+            hpx ^boost@1.72.0: boost1.72.0
+            hpx cxxstd=14: cxx14
+            hpx cxxstd=17: cxx17
+            hpx ~cuda: cpu
+        hypre:
+          suffixes:
+            hypre~cuda: cpu
+        kokkos:
+          suffixes:
+            kokkos +cuda_lambda: cudalambda
+            kokkos +openmp: omp
+            kokkos ~rocm~cuda: cpu
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels +openmp: omp
+            kokkos-kernels ~cuda: cpu
+        lapackpp:
+          suffixes:
+            lapackpp ^blaspp~rocm~cuda: cpu
+        libfabric:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            'libfabric ^rdma-core@system': sysrdma
+        magma:
+          suffixes:
+            magma~rocm~cuda: cpu
+        mfem:
+          suffixes:
+            mfem~cuda: cpu
+        netcdf-c:
+          suffixes:
+            netcdf-c ^hdf5+fortran: h5f
+        netcdf-fortran:
+          suffixes:
+            netcdf-c ^hdf5+fortran: h5f
+        netcdf-fortran:
+          suffixes:
+            netcdf-c ^hdf5+fortran: h5f
+        netlib-scalapack:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            netlib-scalapack ^openblas: openblas
+        openblas:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        papi:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            papi~cuda: no_gpu
+        parsec:
+          suffixes:
+            parsec~cuda: cpu
+        pcre:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            pcre+jit: jit
+        petsc:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            petsc~cuda: no_cuda
+        pgi:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: [CPATH, LIBRARY_PATH]
+          load: []
+        qthreads:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            qthreads scheduler=distrib: distrib
+        raja:
+          suffixes:
+            raja~rocm~cuda: cpu
+        scorep:
+          conflict: [darshan-runtime, xalt]
+          suffixes:
+            scorep+papi: papi
+        slate:
+          suffixes:
+            slate~rocm~cuda: cpu
+        spectral:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          template: olcf/modules/spectral.lua
+        spectrum-mpi:
+          conflict: []
+          environment:
+            set:
+              PAMI_IBV_ENABLE_OOO_AR: '1'
+              PAMI_IBV_QP_SERVICE_LEVEL: '8'
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+        strumpack:
+          suffixes:
+            strumpack ^openblas threads=openmp: omp
+            strumpack~rocm~cuda: cpu
+        sundials:
+          suffixes:
+            sundials~rocm~cuda: cpu
+        superlu-dist:
+          suffixes:
+            superlu-dist~cuda: cpu
+        tasmanian:
+          suffixes:
+            tasmanian~rocm~cuda: cpu
+        tau:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            tau~cuda: no_cuda
+            tau~openmp: no_omp
+            # tau+cuda: cuda
+            # tau+openmp: omp
+        trilinos:
+          suffixes:
+            trilinos@13.0.1+piro: extra
+        umpire:
+          suffixes:
+            umpire~openmp: no_omp
+            umpire~rocm~cuda: cpu
+        zfp:
+          suffixes:
+            zfp+cuda: gpu
+        blacklist_implicits: false
+        verbose: true
+        whitelist:
+        - mercury~mpi ^libfabric@1.12.1~kdreg  fabrics=rxm,sockets,tcp,udp,verbs
+        - libfabric fabrics=rxm,sockets,tcp,udp,verbs
+        - python@3.8.10%gcc@8.3.1 /ethjbxn
+        - python@3.7.7%gcc@8.3.1 /eltc6cg
+        - python@2.7.15%gcc@8.3.1 /6u3drkn
+        - adios2%gcc@8.3.1
+        blacklist:
+        - '%gcc@8-os'
+        - adios2@2.6.0%clang@10.0.1-0~zfp
+        - adios2@2.6.0%gcc~zfp
+        - berkeley-db
+        - binutils~nls
+        - cairo@1.16.0~X%gcc@8.3.1
+        - conduit+hdf5 ^hdf5~fortran
+        - cuda
+        - dyninst ^elfutils~nls
+        - elfutils~bzip2
+        - gdbm%clang
+        - gettext ^xz~pic
+        - glib
+        - glproto
+        - go-bootstrap
+        - gobject-introspection
+        - gtkplus
+        - harfbuzz ^cairo~X
+        - hdf5@1.8.22+mpi~fortran
+        - hdf5~fortran
+        - help2man
+        - hypre+internal-superlu
+        - inputproto
+        - kbproto
+        - libassuan
+        - libdwarf
+        - libfabric fabrics=rxm,sockets,tcp # whitelist fabrics=rxm,sockets,tcp,udp,verbs
+        - libfontenc
+        - libgcrypt
+        - libgd
+        - libgpg-error
+        - libiconv
+        - libidn2
+        - libksba
+        - libmonitor~dlopen
+        - libpciaccess
+        - libpthread-stubs
+        - libsigsegv
+        - libsodium
+        - libtool@2.4.2
+        - libunistring
+        - libunwind~pic~xz
+        - libuuid
+        - libx11
+        - libxau
+        - libxcb
+        - libxdmcp
+        - libxext
+        - libxfont
+        - libxml2 ^xz~pic
+        - libxpm
+        - libxslt
+        - lua
+        - m4
+        - mercury~mpi ^libfabric@1.12.1~kdreg fabrics=rxm,sockets,tcp
+        - meson
+        - mkfontdir
+        - mkfontscale
+        - mpfr
+        - mpich
+        - msgpack-c
+        - nasm
+        - ncurses
+        - netlib-scalapack@2.1.0%gcc ^openblas@:0.3.16
+        - npth
+        - numactl
+        - openssh
+        - openssl
+        - pango ^cairo~pdf
+        - pango~X
+        - papi@6.0.0.1%gcc@8.3.1 ^cuda@11.1.1 # FIXME: find spec triggering this build, possibly HPX?
+        - pinentry
+        - pkgconf
+        - popt
+        - py-
+        - py-certifi
+        - py-docutils
+        - py-mako
+        - py-markupsafe
+        - py-msgpack
+        - py-pip
+        - py-pygments
+        - py-pyyaml
+        - py-setuptools
+        - py-virtualenv
+        - py-wheel
+        - python
+        - readline
+        - rdma-core@system
+        - slurm
+        - sqlite%clang
+        - tcsh
+        - trilinos@13.0.1%gcc~stratimikos
+        - util-linux-uuid
+        - util-macros
+        - xcb-proto
+        - xextproto
+        - xtrans
+        - xz~pic
+        - zsh
+        hash_length: 0
+        hierarchy: []
+        projections: {}
+        core_specs:
+        - adios2%gcc@8.3.1
+        - adios@1.13.1%gcc@8.3.1
+        - magma@2.5.3%gcc@8.3.1 ^cuda@11.0.3
+        - gromacs%gcc@8.3.1+mpi
+        - gromacs%gcc@8.3.1~mpi
+        - amgx%gcc@8.3.1 ^cuda@10.2.89
+        - scorep@7.0%gcc@8.3.1+mpi+papi~pdt+shmem~unwind
+        - scorep@7.0%gcc@8.3.1+mpi~papi~pdt+shmem~unwind
+        - darshan-runtime@3.2.1%gcc@8.3.1+hdf5
+        - darshan-runtime@3.2.1%gcc@8.3.1~hdf5
+        - darshan-runtime@3.3.0%gcc@8.3.1+hdf5
+        - darshan-runtime@3.3.0%gcc@8.3.1~hdf5
+        - darshan-runtime@3.3.1%gcc@8.3.1+hdf5
+        - darshan-runtime@3.3.1%gcc@8.3.1~hdf5
   config:
     install_tree:
       root: ${FACSPACK_ENV}/opt
@@ -605,7 +1392,7 @@ spack:
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
     extensions:
-    - /sw/sources/facspack/share/spack/extensions/spack-olcf
+    - /sw/sources/facility-spack/summit/share/spack/extensions/spack-olcf
     misc_cache: ${FACSPACK_ENV}/.mcache
     verify_ssl: true
     install_missing_compilers: false
@@ -615,7 +1402,7 @@ spack:
     build_jobs: 6
     ccache: false
     db_lock_timeout: 120
-    package_lock_timeout:
+    package_lock_timeout: null
     shared_linking: rpath
     allow_sgid: true
     concretizer: original
@@ -635,7 +1422,9 @@ spack:
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       extra_rpaths: []
-      environment: {unset: []}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
       spec: gcc@8-os
@@ -647,7 +1436,23 @@ spack:
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       extra_rpaths: []
-      environment: {unset: []}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
+  - compiler:
+      spec: gcc@7.5.0
+      operating_system: rhel8
+      modules: [gcc/7.5.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
       spec: gcc@9.1.0
@@ -659,7 +1464,9 @@ spack:
         f77: gfortran
         fc: gfortran
       extra_rpaths: []
-      environment: {}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
       spec: gcc@9.3.0
@@ -671,7 +1478,9 @@ spack:
         f77: gfortran
         fc: gfortran
       extra_rpaths: []
-      environment: {}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
       spec: gcc@10.2.0
@@ -683,33 +1492,27 @@ spack:
         f77: gfortran
         fc: gfortran
       extra_rpaths: []
-      environment: {}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
-      spec: pgi@18.10
+      spec: gcc@11.1.0
       operating_system: rhel8
-      modules: [pgi/18.10]
+      modules: [gcc/11.1.0]
       paths:
-        cc: pgcc
-        cxx: pgc++
-        f77: pgfortran
-        fc: pgfortran
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
       extra_rpaths: []
-      environment: {}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   - compiler:
-      spec: pgi@19.10
-      operating_system: rhel8
-      modules: [pgi/19.10]
-      paths:
-        cc: pgcc
-        cxx: pgc++
-        f77: pgfortran
-        fc: pgfortran
-      extra_rpaths: []
-      environment: {}
-      flags: {}
-  - compiler:
+      # siterc must ignore certain GNU arguments, eg
+      # `switch -Wno-implicit-function-declaration is hide;`
       spec: pgi@20.1
       operating_system: rhel8
       modules: [pgi/20.1]
@@ -722,6 +1525,8 @@ spack:
       environment: {}
       flags: {}
   - compiler:
+      # siterc must ignore certain GNU arguments, eg
+      # `switch -Wno-implicit-function-declaration is hide;`
       spec: pgi@20.4
       operating_system: rhel8
       modules: [pgi/20.4]
@@ -746,26 +1551,62 @@ spack:
       environment: {}
       flags: {}
   - compiler:
-      spec: clang@9.0.0-1
+      spec: nvhpc@21.2
       operating_system: rhel8
-      modules: [llvm/9.0.0-1]
+      modules: [nvhpc/21.2]
       paths:
-        cc: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang
-        cxx: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
       extra_rpaths: []
       environment: {}
       flags: {}
   - compiler:
-      spec: clang@9.0.0-2
+      spec: nvhpc@21.3
       operating_system: rhel8
-      modules: [llvm/9.0.0-2]
+      modules: [nvhpc/21.3]
       paths:
-        cc: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang
-        cxx: /sw/summit/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: nvhpc@21.5
+      operating_system: rhel8
+      modules: [nvhpc/21.5]
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: nvhpc@21.7
+      operating_system: rhel8
+      modules: [nvhpc/21.7]
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: nvhpc@21.9
+      operating_system: rhel8
+      modules: [nvhpc/21.9]
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
       extra_rpaths: []
       environment: {}
       flags: {}
@@ -778,6 +1619,18 @@ spack:
         cxx: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: clang@12.0.0-0
+      operating_system: rhel8
+      modules: [llvm/12.0.0]
+      paths:
+        cc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang
+        cxx: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang++
+        f77: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
+        fc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
       extra_rpaths: []
       environment: {}
       flags: {}
@@ -795,4 +1648,38 @@ spack:
       - /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/lib
       - /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/lib
       environment: {}
+      flags: {}
+  - compiler:
+      spec: xl@16.1.1-10
+      operating_system: rhel8
+      modules: [xl/16.1.1-10]
+      paths:
+        cc: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf_r
+        fc: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/summit/xl/16.1.1-10/lib
+      - /sw/summit/xl/16.1.1-10/xlf/16.1.1/lib
+      - /sw/summit/xl/16.1.1-10/xlC/16.1.1/lib
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
+  - compiler:
+      spec: xl@16.1.1-beta103
+      operating_system: rhel8
+      modules: [xl/16.1.1-beta103]
+      paths:
+        cc: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf_r
+        fc: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/summit/xl/16.1.1-beta103/lib
+      - /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/lib
+      - /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/lib
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}

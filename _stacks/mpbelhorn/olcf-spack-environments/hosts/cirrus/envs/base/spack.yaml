@@ -1,0 +1,695 @@
+# OLCF Cirrus Spack Environment
+
+spack:
+  #############################################################################
+  definitions:
+  - core_compiler:
+    - '%gcc@8.3.1'
+  - gcc_compilers:
+    - '%gcc@8.3.1'
+    - '%gcc@10.3.0'
+  - intel_compilers:
+    - '%intel@20.0.4'
+  - all_compilers:
+    - $gcc_compilers
+    - $intel_compilers
+  - core_packages:
+    - git
+    - htop
+    - tmux
+    - cmake
+    - wget
+    - go
+    - screen
+    - vim
+    - emacs ~X
+    - nano
+    - gnuplot +X
+    - subversion
+    - mercurial
+    - valgrind ~mpi~boost~ubsan
+    - ccache
+    - papi
+    - gdb
+    - libzmq
+    - gnupg
+    - gsl
+    - nco~mpi-deps
+    - libfabric fabrics=verbs
+    - imagemagick ^ncurses+termlib
+    - r
+    - r@4.0.0
+    # - ferret ^hdf5~mpi+cxx+fortran ^netcdf-c~mpi~parallel-netcdf ^netcdf-fortran
+    - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
+    - sbt
+    - spark+hadoop
+    - python@2.7.15
+    - python
+    - darshan-util
+    - grads #+netcdf+hdf5
+    - hpcviewer
+    - ghostscript
+    - jasper~opengl
+    - jasper+opengl
+    # - vtk~mpi~qt
+    # - vtk~mpi+qt
+    # - vtk+mpi~qt
+    # - vtk+mpi+qt
+  - general_compute_packages:
+    - openmpi
+    - openblas threads=none
+    - netlib-lapack
+    - netlib-scalapack ^netlib-lapack
+    - fftw ~mpi~openmp
+    - fftw ~mpi+openmp
+    - fftw +mpi~openmp
+    - fftw +mpi+openmp
+    - hdf5 ~mpi
+    - hdf5 +mpi
+    - boost ~mpi
+    - boost +mpi
+    - netcdf-c
+    - netcdf-fortran
+    - netcdf-cxx
+    - parallel-netcdf
+    - parallel-io
+    - hypre
+    - mpip
+    - adios2
+  - gcc_only_compute_packages:
+    - darshan-runtime
+    - openblas threads=openmp
+    - raja
+    - nco
+  - e4s_packages:
+    - zfp
+    - sz
+    - ninja
+    - qthreads
+    - openpmd-api
+    - sundials
+    - strumpack
+    - superlu-dist
+    - superlu
+    - trilinos@12.14.1+dtk+intrepid2+shards
+    - tasmanian
+    - mercury
+    - veloc
+    - scr
+    - bolt
+    - upcxx
+    - umpire
+    - libquo
+    - globalarrays
+    - pdt
+    - tau
+    - tau +openmp +mpi  ## requested via OLCF SW ticket: OLCFSW-132
+    - dyninst
+    - hpctoolkit
+    - gotcha
+    - caliper
+    - papi
+    - rempi
+    - kokkos+openmp
+    - kokkos-kernels
+    ## Excluded E4S packages ------
+    ### Build Failures
+    # - mfem
+    ### Already in general compute packages list
+    # - openmpi
+    # - hypre
+    # - hdf5
+    # - parallel-netcdf
+    # - adios2
+    # - adios
+    # - darshan-runtime
+    # - darshan-util
+    # - raja
+    ### Incompatible packages
+    # - libnrm # Explictly depends on mpich
+    ### Against policies
+    # - papyrus@develop # No packages should be pinned @develop
+    # - py-jupyterhub # Python extensions.
+    # - 'py-libensemble^python@3.7.3:' # Python extensions.
+  - core_specs:
+    - matrix:
+      - - $core_packages
+      - - $core_compiler
+  - gcc_specs:
+    - matrix:
+      - - $general_compute_packages
+      - - $gcc_compilers
+      exclude:
+      - 'adios2%gcc@10.0.0:'
+      - 'openpmd-api%gcc@10.0.0:'
+      - 'mpip%gcc@10.0.0:'
+      - 'netlib-scalapack@:2.1.0%gcc@10.0.0:'
+    - matrix:
+      - - $e4s_packages
+      - - '%gcc@8.3.1'
+        - '%gcc@10.3.0'
+      exclude:
+      - 'strumpack%gcc@9:'
+      - 'openpmd-api@:0.12.0%gcc@10.3.0' # FIXME
+      - 'trilinos@:12.14.1%gcc@10.3.0' # FIXME
+      - 'veloc@:1.4%gcc@10.3.0' # FIXME
+      - 'globalarrays@:5.7%gcc@10.3.0' # FIXME
+      - 'hpctoolkit@:2020.08.03%gcc@10.3.0' # FIXME
+      - 'rempi@:1.1.0%gcc@10.3.0' # FIXME
+    - matrix:
+      - - $gcc_only_compute_packages
+      - - $gcc_compilers
+      exclude:
+      - 'magma@2.5.1%gcc@9.0.0:'
+      - 'netlib-scalapack@:2.1.0%gcc@10.0.0:'
+    - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit ^hdf5+mpi ^libpng@:1.6.0
+    - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit+python3 ^hdf5+mpi ^libpng@:1.6.0
+    - octave%gcc@8.3.1 ^gnuplot+X ^fftw~mpi ^hdf5~mpi ^arpack-ng~mpi
+    - gromacs@2020.2+hwloc~cuda~mpi %gcc@8.3.1
+    - gromacs@2020.2+hwloc~cuda+mpi %gcc@8.3.1
+    #- gromacs@2020.2+hwloc+cuda+mpi %gcc@8.3.1 ^cuda@:10.99
+    #- openmpi@3.1.4%gcc@8.3.1+cuda
+    - openmpi@3.1.4%gcc@8.3.1
+    - ncl%gcc@8.3.1~mpi
+    - ncl%gcc@8.3.1+mpi
+    - ncview%gcc@8.3.1
+    - dftbplus%gcc@8.3.1+elsi+mpi+sockets+transport ^elsi+enable_pexsi
+    - r%gcc@8.3.1+X
+  - intel_specs:
+    - matrix:
+      - - $general_compute_packages
+        - $e4s_packages
+      - - $intel_compilers
+      - - ^cmake@3.16.2
+      exclude:
+      - boost
+      - fftw
+      - trilinos
+      - mercury
+      #- tau
+      - dyninst
+      - hpctoolkit
+      - veloc
+  specs:
+  - $core_specs
+  - $gcc_specs
+  - $intel_specs
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/cirrus/spack-envs/mirrors/builds
+  repos:
+  - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
+  #############################################################################
+  packages:
+    openmpi:
+      variants: +pmi +thread_multiple +legacylaunchers fabrics=ucx,hcoll,ofi schedulers=slurm
+      buildable: true
+      version: [4.0.4]
+      target: []
+      providers: {}
+      compiler: []
+    mpich:
+      variants: +slurm
+      buildable: true
+      version: [3.3.2]
+      target: []
+      providers: {}
+      compiler: []
+    qt:
+      variants: ~ssl
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    ncurses:
+      variants: +termlib
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    slurm:
+      buildable: false
+      version: [20-02-0-0]
+      target: []
+      providers: {}
+      externals:
+      - spec: slurm@20-02-0-0
+        prefix: /usr
+      compiler: []
+    m4:
+      buildable: true
+      version: [1.4.18]
+      target: []
+      providers: {}
+      externals:
+      - spec: m4%intel
+        prefix: /usr
+      compiler: []
+    ucx:
+      buildable: false
+      version: [1.10.0]
+      target: []
+      providers: {}
+      externals:
+      - spec: ucx@1.8.0+thread_multiple
+        prefix: /usr
+      compiler: []
+      variants: +thread_multiple
+    hcoll:
+      buildable: false
+      version: [4.7]
+      externals:
+      - spec: hcoll@4.7
+        prefix: /opt/mellanox/hcoll
+      target: []
+      compiler: []
+      providers: {}
+    rdma-core:
+      buildable: false
+      version: [28.0]
+      target: []
+      providers: {}
+      externals:
+      - spec: rdma-core@28.0
+        prefix: /usr
+      compiler: []
+    libfabric:
+      buildable: true
+      version: [1.8.0]
+      target: []
+      providers: {}
+      compiler: []
+    binutils:
+      buildable: true
+      target: []
+      providers: {}
+      compiler: []
+      variants: +libiberty
+      version: []
+    openssl:
+      buildable: false
+      version: [1.1.1]
+      target: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+      compiler: []
+    octave:
+      variants: +magick+arpack+curl+fftw+fontconfig+freetype+glpk+gnuplot+hdf5+opengl+qhull+qrupdate+qt+readline+suitesparse+zlib
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libtool:
+      buildable: true
+      version: [2.4.6]
+      target: []
+      providers: {}
+      compiler: []
+    r:
+      variants: ~X
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    fftw:
+      variants: precision=float,double,long_double
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    hdf5:
+      variants: +hl+cxx+fortran
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    papi:
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netlib-scalapack:
+      variants: +fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    netcdf-c:
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    parallel-netcdf:
+      variants: +cxx+fortran+fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    darshan-runtime:
+      variants: +slurm+grouplogs logpath=/gpfs/wolf/darshan/cirrus
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    strumpack:
+      variants: ~cuda
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    paraview:
+      variants: +mpi+hdf5+opengl2+osmesa+silo+visit
+      compiler: [gcc@8.3.1]
+      version: []
+      target: []
+      buildable: true
+      providers: {}
+    all:
+      buildable: true
+      version: []
+      target: [x86_64]
+      providers:
+        mpi: [builtin.openmpi]
+        lapack: [openblas, mkl]
+        blas: [openblas, mlk]
+        scalapack: [netlib-scalapack]
+      compiler: [gcc@8.3.1, gcc, intel]
+  view: false
+  modules:
+    enable:
+    - lmod
+    - tcl
+    lmod:
+      core_compilers: [gcc@8.3.1]
+      all:
+        suffixes:
+          ^python@2.0:2.99: py2
+          ^python@3.0:3.99: py3
+          ^cuda@10.2.89: cuda10
+          ^cuda@11.0.2: cuda11
+        environment:
+          set:
+            OLCF_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+      openblas:
+        suffixes:
+          openblas threads=openmp: omp
+          openblas threads=pthreads: pthreads
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      fftw:
+        suffixes:
+          fftw+openmp: omp
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      hdf5:
+        suffixes:
+          hdf5~mpi+szip: sz
+          hdf5~mpi+threadsafe: threadsafe
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      darshan-runtime:
+        suffixes:
+          hdf5=pre1.10: hdf5pre110
+          hdf5=post1.10: hdf5post110
+        filter:
+          environment_blacklist: []
+        load: []
+        environment:
+          unset: []
+          set:
+            SRUN_EXPORT_ENV: ALL,LD_PRELOAD=${PREFIX}/lib/libdarshan.so
+        conflict: []
+      ncl:
+        suffixes:
+          ncl+mpi: parallel
+          ncl~mpi: serial
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      cdo:
+        suffixes:
+          cdo^hdf5+mpi^netcdf+mpi^fftw+mpi: parallel
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      cairo:
+        suffixes:
+          cairo+X: X
+          cairo+pdf: pdf
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      gromacs:
+        suffixes:
+          gromacs~rdtscp: rdtscp_off
+          gromacs~mpi: analysis
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      vtk:
+        suffixes:
+          vtk+mpi: parallel
+          vtk~mpi: serial
+          vtk+qt: qt
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      ferret:
+        suffixes:
+          ferret^hdf5+mpi^netcdf-c+mpi: parallel
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      paraview:
+        suffixes:
+          paraview+python3: pyapi
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      pango:
+        suffixes:
+          pango+X: X
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      jasper:
+        suffixes:
+          jasper+opengl: opengl
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      r:
+        suffixes:
+          r+X: X
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      tau:
+        suffixes:
+          tau ~openmp ~mpi: no_omp
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
+      blacklist_implicits: false
+      verbose: true
+      blacklist:
+      - python
+      - py-
+      - slurm
+      - go-bootstrap
+      - openssl
+      - harfbuzz ^cairo~X
+      - pango ^cairo~pdf
+      - '%gcc@8-os'
+      - '%gcc@8-pgi'
+      - netcdf-c~mpi%gcc@8.3.1 ^hdf5~mpi+szip
+      - netcdf-c~mpi%gcc@8.3.1 ^hdf5~mpi+threadsafe
+      - gobject-introspection%gcc@8.3.1
+      - libfabric@1.8.0%gcc@8.3.1 fabrics=sockets,tcp,udp
+      - gnuplot%gcc@8.3.1 ^pango+X
+      - mesa%gcc@8.3.1 ^hwloc@2.2.0
+      - llvm%gcc@8.3.1 ^hwloc@2.2.0
+      hash_length: 0
+      hierarchy: []
+      projections: {}
+      core_specs:
+      - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit ^hdf5+mpi ^libpng@:1.6.0
+      - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit+python3 ^hdf5+mpi ^libpng@:1.6.0
+      - ncview%gcc@8.3.1
+      - ncl%gcc@8.3.1+mpi
+      - ncl%gcc@8.3.1~mpi
+      whitelist: []
+    tcl:
+      hash_length: 3
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      blacklist:
+      - slurm
+      - go-bootstrap
+      - openssl
+      all:
+        conflict:
+        - '{name}'
+        suffixes:
+          ^openmpi@4.0.4: openmpi-4.0.4
+          ^python@2.0:2.99: py2
+          ^python@3.0:3.99: py3
+        environment:
+          set:
+            OLCF_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+      openmpi:
+        environment:
+          set:
+            OMPI_MCA_btl: ^vader,openib,tcp
+          unset: []
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+      verbose: false
+      whitelist: []
+      blacklist_implicits: false
+      projections: {}
+  config:
+    install_tree:
+      root: ${FACSPACK_ENV}/opt
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    module_roots:
+      tcl: ${FACSPACK_ENV_MODULEROOT}/flat
+      lmod: ${FACSPACK_ENV_MODULEROOT}/spack
+    template_dirs:
+    - ${FACSPACK_CONF_HOST}/templates
+    - ${FACSPACK_CONF_COMMON}/spack/templates
+    - $spack/share/spack/templates
+    build_stage:
+    - /gpfs/wolf/world-shared/stf007/spack-stage/cirrus 
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
+    extensions:
+    - /sw/sources/facility-spack/cirrus/share/spack/extensions/spack-olcf
+    misc_cache: ${FACSPACK_ENV}/.mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 16
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: original
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.3.1
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        unset: []
+      flags: {}
+  - compiler:
+      spec: gcc@10.3.0
+      operating_system: rhel8
+      modules: [gcc/10.3.0]
+      paths:
+        cc: /sw/cirrus/gcc/10.3.0/bin/gcc
+        cxx: /sw/cirrus/gcc/10.3.0/bin/g++
+        f77: /sw/cirrus/gcc/10.3.0/bin/gfortran
+        fc: /sw/cirrus/gcc/10.3.0/bin/gfortran
+      extra_rpaths: [/sw/cirrus/gcc/10.3.0/lib64]
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: intel@20.0.4
+      operating_system: rhel8
+      modules: [intel/20.0.4]
+      paths:
+        cc: /sw/cirrus/intel/20.0.4/bin/icc
+        cxx: /sw/cirrus/intel/20.0.4/bin/icpc
+        f77: /sw/cirrus/intel/20.0.4/bin/ifort
+        fc: /sw/cirrus/intel/20.0.4/bin/ifort
+      extra_rpaths: [/sw/cirrus/intel/20.0.4/lib/intel64]
+      environment: {}
+      flags: {}

@@ -9,12 +9,15 @@ spack:
     - '%gcc@8.3.1'
     - '%gcc@9.3.0'
     - '%gcc@10.1.0'
+    - '%gcc@10.3.0'
   - intel_compilers:
     - '%intel@19.0.3'
   - llvm_compilers:
     - '%clang@9.0.1'
   - aocc_compilers:
     - '%aocc@2.2.0'
+    # - '%aocc@2.3.0'
+    - '%aocc@3.0.0'
   - pgi_compilers:
     - '%pgi@19.10'
   - all_compilers:
@@ -24,6 +27,7 @@ spack:
     - $aocc_compilers
   - core_packages:
     - git
+    - git-lfs
     - htop
     - tmux
     - cmake
@@ -41,6 +45,7 @@ spack:
     - papi
     - gdb
     - libzmq
+    - libiconv
     - gnupg
     - gsl
     - nco~mpi-deps
@@ -48,16 +53,31 @@ spack:
     - imagemagick ^ncurses+termlib
     - cuda@10.2.89
     - cuda@11.0.2
+    - ninja
     - r
     - r@4.0.0
     # - ferret ^hdf5~mpi+cxx+fortran ^netcdf-c~mpi~parallel-netcdf ^netcdf-fortran
-    - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
+    - cdo@1.9.10+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
+    - cdo@1.9.10~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     - vmd
     - sbt
     - spark+hadoop
     - python@2.7.15
     - python
+    - julia+cxx
     - darshan-util
+    - grads+netcdf+hdf5
+    - hpcviewer
+    - pandoc
+    - scorep+unwind
+    - scorep~unwind
+    - embree # /gxutcbk
+    - tbb # /lekk3vm
+    - ispc # /ongxvge
+    - python@2.7.18+tkinter
+    - py-setuptools@44.1.0 ^python@2.7.18+tkinter
+    - py-virtualenv%gcc ^py-setuptools@44.1.0 ^python@2.7.18+tkinter
+    - py-pip%gcc@8.3.1 ^py-setuptools@44.1.0 ^python@2.7.18+tkinter
     # - vtk~mpi~qt
     # - vtk~mpi+qt
     # - vtk+mpi~qt
@@ -89,6 +109,9 @@ spack:
     - raja
     - nco
     - magma ^cuda@:10.99
+    - votca-tools@2021
+    - votca-csg@2021.1
+    - votca-xtp@2021
   - e4s_packages:
     - zfp
     - sz
@@ -142,6 +165,9 @@ spack:
     - matrix:
       - - $core_packages
       - - $core_compiler
+    - cudnn@7.6.5.32-10.2-linux-x64%gcc@8.3.1
+    - cudnn@8.0.4.30-11.0-linux-x64%gcc@8.3.1
+    - nccl@2.7.8-1%gcc@8.3.1 cuda_arch=30,32,35,37 ^cuda@10.2.89
   - gcc_specs:
     - matrix:
       - - $general_compute_packages
@@ -191,14 +217,30 @@ spack:
       - - $general_compute_packages
         - fftw+mpi~openmp
         - adios2~zfp
-      - - $aocc_compilers
+      - - '%aocc@2.2.0'
       exclude:
-      - adios2+zfp
-      - openpmd-api
-      - fftw+openmp
-      - mpip
-      - dyninst
-      - hpctoolkit
+      - parallel-io%aocc@:2.2.0
+      - netcdf-c%aocc@:2.2.0
+      - netcdf-cxx%aocc@:2.2.0
+      - netcdf-fortran%aocc@:2.2.0
+      - hdf5%aocc@:2.2.0
+      - adios2+zfp%aocc@:2.2.0
+      - openpmd-api%aocc@:2.2.0
+      - fftw+openmp%aocc@:2.2.0
+      - mpip%aocc@:2.2.0
+      - dyninst%aocc@:2.2.0
+      - hpctoolkit%aocc@:2.2.0
+    ###
+    - openmpi%aocc@3.0.0
+    - hdf5@1.12.0 %aocc@3.0.0
+    - matrix:
+      - - $general_compute_packages
+        - fftw+mpi~openmp
+        - adios2~zfp
+      - - '%aocc@3.0.0'
+      - - ^hdf5@1.12.0
+      exclude:
+      - hdf5
   - intel_specs:
     - matrix:
       - - $general_compute_packages
@@ -247,6 +289,8 @@ spack:
   # - $aocc_specs
   - $intel_specs
   - $pgi_specs
+  - openmpi%gcc@6.5.0
+  - cuda@10.2.89%gcc@6.5.0
   #############################################################################
   mirrors:
     facility_builds: /sw/andes/spack-envs/mirrors/builds
@@ -445,8 +489,6 @@ spack:
         suffixes:
           ^python@2.0:2.99: py2
           ^python@3.0:3.99: py3
-          ^cuda@10.2.89: cuda10
-          ^cuda@11.0.2: cuda11
         environment:
           set:
             OLCF_${PACKAGE}_ROOT: ${PREFIX}
@@ -464,6 +506,16 @@ spack:
           set:
             OMPI_MCA_btl: ^vader,openib,tcp
             OMPI_MCA_coll_hcoll_enable: '0'
+          unset: []
+      nccl:
+        suffixes:
+          ^cuda@10.2.0:10.2.99: cuda10.2
+          ^cuda@11.0.0:11.0.99: cuda11.0
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
           unset: []
       openblas:
         suffixes:
@@ -519,6 +571,7 @@ spack:
       cdo:
         suffixes:
           cdo^hdf5+mpi^netcdf+mpi^fftw+mpi: parallel
+          cdo+aec: aec
         filter:
           environment_blacklist: []
         conflict: []
@@ -583,6 +636,15 @@ spack:
         load: []
         environment:
           unset: []
+      scorep:
+        suffixes:
+          scorep+unwind: libunwind
+        filter:
+          environment_blacklist: []
+        conflict: []
+        load: []
+        environment:
+          unset: []
       r:
         suffixes:
           r+X: X
@@ -594,10 +656,11 @@ spack:
           unset: []
       blacklist_implicits: true
       verbose: true
-      whitelist:
-      - parallel-netcdf
       blacklist:
       - python
+      - py-setuptools
+      - py-virtualenv
+      - py-pip
       - py-
       - slurm
       - go-bootstrap
@@ -622,6 +685,10 @@ spack:
       - ncview%gcc@8.3.1
       - ncl%gcc@8.3.1+mpi
       - ncl%gcc@8.3.1~mpi
+      - libiconv@1.16%gcc@8.3.1
+      - scorep%gcc@8.3.1+unwind
+      - scorep%gcc@8.3.1~unwind
+      whitelist: []
     tcl:
       hash_length: 3
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
@@ -669,6 +736,8 @@ spack:
     - ${FACSPACK_CONF_COMMON}/spack/templates
     - $spack/share/spack/templates
     build_stage:
+    ## Non-ramdisk staging dir for builds that exceed cgroup mem limits
+    # - /gpfs/alpine/world-shared/stf007/$user/spack-stage/andes
     - $tempdir/$user/spack-stage
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
@@ -737,6 +806,18 @@ spack:
         unset: []
       flags: {}
   - compiler:
+      spec: gcc@6.5.0
+      operating_system: rhel8
+      modules: [gcc/6.5.0]
+      paths:
+        cc: /sw/andes/gcc/6.5.0/bin/gcc
+        cxx: /sw/andes/gcc/6.5.0/bin/g++
+        f77: /sw/andes/gcc/6.5.0/bin/gfortran
+        fc: /sw/andes/gcc/6.5.0/bin/gfortran
+      extra_rpaths: [/sw/andes/gcc/6.5.0/lib64]
+      environment: {}
+      flags: {}
+  - compiler:
       spec: gcc@9.3.0
       operating_system: rhel8
       modules: [gcc/9.3.0]
@@ -758,6 +839,18 @@ spack:
         f77: /sw/andes/gcc/10.1.0/bin/gfortran
         fc: /sw/andes/gcc/10.1.0/bin/gfortran
       extra_rpaths: [/sw/andes/gcc/10.1.0/lib64]
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: gcc@10.3.0
+      operating_system: rhel8
+      modules: [gcc/10.3.0]
+      paths:
+        cc: /sw/andes/gcc/10.3.0/bin/gcc
+        cxx: /sw/andes/gcc/10.3.0/bin/g++
+        f77: /sw/andes/gcc/10.3.0/bin/gfortran
+        fc: /sw/andes/gcc/10.3.0/bin/gfortran
+      extra_rpaths: [/sw/andes/gcc/10.3.0/lib64]
       environment: {}
       flags: {}
   - compiler:
@@ -791,11 +884,11 @@ spack:
       paths:
         cc: /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/bin/clang
         cxx: /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/bin/clang++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
+        f77: /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/bin/flang
+        fc: /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/bin/flang
       extra_rpaths:
-      - /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/lib32
       - /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/lib
+      - /sw/andes/aocc/2.1.0/aocc-compiler-2.1.0/lib32
       environment: {}
       flags: {}
   - compiler:
@@ -803,16 +896,42 @@ spack:
       paths:
         cc: /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/bin/clang
         cxx: /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/bin/clang++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
+        f77: /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/bin/flang
+        fc: /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/bin/flang
       flags: {}
       operating_system: rhel8
       target: x86_64
       modules: [aocc/2.2.0]
       environment: {}
       extra_rpaths:
-      - /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/lib32
       - /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/lib
+      - /sw/andes/aocc/2.2.0/aocc-compiler-2.2.0/lib32
+  - compiler:
+      spec: aocc@2.3.0
+      paths:
+        cc: /sw/andes/aocc/2.3.0/aocc-compiler-2.3.0/bin/clang
+        cxx: /sw/andes/aocc/2.3.0/aocc-compiler-2.3.0/bin/clang++
+        f77: /sw/andes/aocc/2.3.0/aocc-compiler-2.3.0/bin/flang
+        fc: /sw/andes/aocc/2.3.0/aocc-compiler-2.3.0/bin/flang
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: [aocc/2.3.0]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.0.0
+      paths:
+        cc: /sw/andes/aocc/3.0.0/aocc-compiler-3.0.0/bin/clang
+        cxx: /sw/andes/aocc/3.0.0/aocc-compiler-3.0.0/bin/clang++
+        f77: /sw/andes/aocc/3.0.0/aocc-compiler-3.0.0/bin/flang
+        fc: /sw/andes/aocc/3.0.0/aocc-compiler-3.0.0/bin/flang
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: [aocc/3.0.0]
+      environment: {}
+      extra_rpaths: []
   - compiler:
       spec: clang@9.0.1
       operating_system: rhel8
