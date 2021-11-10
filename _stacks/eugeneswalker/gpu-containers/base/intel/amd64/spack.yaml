@@ -1,0 +1,37 @@
+spack:
+  view: /bootstrap/mpi/view
+  concretization: separately
+  mirrors:
+    E4S: https://cache.e4s.io/uo-containers
+  config:
+    concretizer: clingo
+    install_tree:
+      root: /bootstrap/mpi/install
+    module_roots:
+      lmod: /bootstrap/mpi/modules
+  modules:
+    enable::
+    - lmod
+    default:
+      lmod:
+        core_compilers:
+        - gcc@9.3.0
+        blacklist: [gcc@9.3.0]
+        blacklist_implicits: true
+        hash_length: 0
+        all:
+          conflict:
+            - '{name}'
+            - 'mpi'
+          environment:
+            set:
+              '{name}_ROOT': '{prefix}'
+        projections:
+          all: '{name}/{version}'
+  packages:
+    all:
+      compiler: [gcc@9.3.0]
+      target: [x86_64]
+  specs:
+  - mpich@3.4.2 ~wrapperrpath
+  - cmake@3.21.4 ~openssl
