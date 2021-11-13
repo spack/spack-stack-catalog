@@ -10,7 +10,6 @@ spack:
   - py-pip
   - py-cmake-format
   - py-pyyaml
-  - 'cmake@3.20:'
   - libfabric@1.12.1 fabrics=rxm,sockets,tcp
   - mercury ~boostsys+ofi
   - mochi-thallium
