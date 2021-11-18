@@ -1,7 +1,6 @@
 spack:
   specs:
-    # ~hwloc due to openmpi 3 conflicts with hwloc2
-    - arcane~wrapper~monoembed~hwloc
+    - arcane~wrapper~monoembed
     - googletest  # Build dependency ?
   concretization: together
 
