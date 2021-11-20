@@ -6,9 +6,11 @@ spack:
   - core_compiler:
     - '%gcc@7.5.0'
   - gcc_compilers:
+    - '%gcc@11.2.0'
     - '%gcc@10.3.0'
-    - '%gcc@10.2.0'
+    - '%gcc@9.3.0'
   - cray_compilers:
+    - '%cce@12.0.3'
     - '%cce@12.0.2'
     - '%cce@12.0.1'
     - '%cce@12.0.0'
@@ -42,6 +44,9 @@ spack:
     - libpng@1.2.57
     - wget
     - bazel ^openjdk@11.0:11.99
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
   - e4s_21.05_packages:
     - adios2@2.7.1~python
     - aml@0.1.0
@@ -179,6 +184,9 @@ spack:
     - ninja@1.10.2
     - omega-h@9.32.5
     - openpmd-api@0.13.4 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
     - papi@6.0.0.1
     - papyrus@1.0.1
     - parallel-netcdf@1.12.2
@@ -233,10 +241,10 @@ spack:
   - cpe21.07_specs:
     - matrix:
       - - $e4s_21.08_packages
-        - $e4s_21.05_packages
-      - - '%gcc@10.3.0'
-        - '%gcc@10.2.0'
-      - - ^cray-mpich@8.1.7
+      - - '%gcc@11.2.0'
+        - '%gcc@10.3.0'
+        - '%gcc@9.3.0'
+      - - ^cray-mpich@8.1.10
       - - ^hip@4.3.0
       - - ^hipblas@4.3.0
       - - ^hipsparse@4.3.0
@@ -250,13 +258,16 @@ spack:
       - archer%gcc # ^llvm@8.0.0 fails, reason unknown
       - strumpack%gcc # fails due to failure to find mpi.h
       - unifyfs%gcc@11.2.0
+      - loki%gcc@11.2.0 # FIXME: default `-std=c++17` error
+      - conduit%gcc@11.2.0 # C++17 libstdc++ header changes.
+      - ascent@0.7.1%gcc@11.2.0 # conduit@0.7.2 dependency
     - matrix:
       - - $e4s_21.08_packages
-        - $e4s_21.05_packages
         - slate@2021.05.02
-      - - '%cce@12.0.1'
-        - '%cce@12.0.0'
-      - - ^cray-mpich@8.1.7
+      - - '%cce@12.0.3'
+        - '%cce@12.0.2'
+        - '%cce@12.0.1'
+      - - ^cray-mpich@8.1.10
       - - ^hip@4.2.0
       - - ^hipblas@4.2.0
       - - ^hipsparse@4.2.0
@@ -277,6 +288,7 @@ spack:
       - slate%cce ^openblas
       - slepc@3.15.0:3.15.1%cce@12.0.0:12.0.3   # config.package.FortranLib syntax error
       - stat%cce
+      - openblas
       - strumpack%cce ^openblas
       - tau+elf
       - unifyfs%cce
@@ -301,8 +313,8 @@ spack:
       buildable: true
       compiler: [gcc@7.5.0, gcc]
       providers:
-        blas: [openblas, cray-libsci@21.06.1.1]
-        lapack: [openblas, cray-libsci@21.06.1.1]
+        blas: [openblas, cray-libsci@21.08.1.2]
+        lapack: [openblas, cray-libsci@21.08.1.2]
         mpi: [mpich]
         scalapack: [netlib-scalapack]
       target: [zen2]
@@ -340,8 +352,12 @@ spack:
       buildable: false
       externals:
         - modules:
+            - cray-libsci/21.08.1.2
+            - cray-mpich/8.1.10
+          spec: cray-libsci@21.08.1.2
+        - modules:
             - cray-libsci/21.06.1.1
-            - cray-mpich/8.1.7
+            - cray-mpich/8.1.10
           spec: cray-libsci@21.06.1.1
         - modules:
             - cray-libsci/21.04.1.1
@@ -351,6 +367,12 @@ spack:
       buildable: false
       compiler: []
       externals:
+        - modules:
+            - cray-mpich/8.1.10
+          spec: cray-mpich@8.1.10
+        - modules:
+            - cray-mpich/8.1.8
+          spec: cray-mpich@8.1.8
         - modules:
             - cray-mpich/8.1.7
           spec: cray-mpich@8.1.7
@@ -903,6 +925,9 @@ spack:
           filter:
             environment_blacklist: []
           load: []
+        amrex:
+          suffixes:
+            amrex~rocm: cpu
         blaspp:
           suffixes:
             blaspp~rocm: cpu
@@ -975,6 +1000,9 @@ spack:
           suffixes:
             hdf5~mpi+szip: sz
             hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
         ncl:
           conflict: []
           environment:
@@ -1070,6 +1098,7 @@ spack:
         - berkeley-db
         - boost%gcc visibility=global
         - cray-mpich
+        - cray-libsci
         - glib
         - glproto
         - go-bootstrap
@@ -1077,6 +1106,7 @@ spack:
         - inputproto
         - kbproto
         - libassuan
+        - libdwarf
         - libfabric
         - libfontenc
         - libgcrypt
@@ -1270,10 +1300,10 @@ spack:
   - compiler:
       spec: gcc@9.3.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.8/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
-        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1287,10 +1317,10 @@ spack:
   - compiler:
       spec: gcc@10.2.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.8/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
-        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1304,16 +1334,33 @@ spack:
   - compiler:
       spec: gcc@10.3.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.8/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
-        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
       modules:
-      - PrgEnv-gnu/8.1.0
+      - PrgEnv-gnu
       - gcc/10.3.0
+      - craype-x86-rome
+      - libfabric
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
       - craype-x86-rome
       - libfabric
       environment: {}
@@ -1365,10 +1412,10 @@ spack:
   - compiler:
       spec: cce@12.0.1
       paths:
-        cc: /opt/cray/pe/craype/2.7.8/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
-        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1388,16 +1435,39 @@ spack:
   - compiler:
       spec: cce@12.0.2
       paths:
-        cc: /opt/cray/pe/craype/2.7.8/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.8/bin/CC
-        f77: /opt/cray/pe/craype/2.7.8/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.8/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
       modules:
       - PrgEnv-cray
       - cce/12.0.2
+      - craype-x86-rome
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: cce@12.0.3
+      paths:
+        cc: /opt/cray/pe/craype/2.7.11/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
+        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/12.0.3
       - craype-x86-rome
       - libfabric
       environment:

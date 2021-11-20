@@ -12,9 +12,6 @@ spack:
     - '%gcc@10.2.0'
   - xl_compilers:
     - '%xl@16.1.1-10'
-    - '%xl@16.1.1-beta103'
-    - '%xl@16.1.1-beta102'
-    - '%xl@16.1.1-beta104'
   - llvm_compilers:
     - '%clang@10.0.1-0'
   - nv_compilers:
@@ -26,6 +23,10 @@ spack:
   - all_compilers:
     - $gcc_compilers
     - $xl_compilers
+    - '%xl@16.1.1-beta103'
+    - '%xl@16.1.1-beta102'
+    - '%xl@16.1.1-beta104'
+    - '%xl@16.1.1-beta105'
     - $llvm_compilers
     - $nv_compilers
   - core_packages:
@@ -68,6 +69,7 @@ spack:
     - jq
     - hpcviewer@2021.03
     - cube@4.6+gui
+    - bear
     # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:
@@ -510,10 +512,6 @@ spack:
     - stat@4.1.0%gcc@8.3.1
     - stc@0.9.0%gcc@8.3.1
     # - geopm@1.1.0%gcc@8.3.1
-    # - matrix:
-    #   - - $general_compute_packages
-    #   - - '%gcc@7.5.0'
-    #   - - ^cuda@11.0.3
     - matrix:
       - - $general_compute_packages
         - $e4s_21.08_packages
@@ -529,30 +527,6 @@ spack:
       - mercury@1.0.1%gcc@10.2.0  # code error
       - slate@2020.10.00%gcc@10.2.0 # broken custom ICL BLASFinder.cmake macro >:(
       - parsec@3.0.2012+cuda
-    # - matrix:
-    #   - - $general_compute_packages
-    #     - $e4s_21.08_packages
-    #     - $e4s_21.05_packages
-    #   - - '%gcc@11.1.0'
-    #   - - ^cuda@11.4.2
-    #   exclude:
-    #   - ascent~cuda  # fails due conduit c++17 issues
-    #   # - axom~cuda # FIXME: depends on raja+cuda
-    #   # - caliper~cuda # FIXME: depends on papi+cuda
-    #   # - chai~cuda ## Chai~cuda doesn't pass ~cuda on to umpire/camp/etc
-    #   - conduit ## up to v0.7.2 incompatible with std=c++17
-    #   - faodel
-    #   - globalarrays
-    #   - loki ## FIXME: incompatible C++17 used by default
-    #   - mercury@1.0.1  # code error
-    #   - omega-h
-    #   - parsec+cuda ## missing dwarf .debug_ranges section during linking
-    #   # - precice # FIXME: could be made w/o ^superlu-dist+cuda
-    #   - rempi@1.1.0  # code error
-    #   - slate@2020.10.00 # broken custom ICL BLASFinder.cmake macro >:(
-    #   - tau~cuda+mpi+ompt+openmp ^papi~cuda
-    #   - tau~cuda+mpi~ompt~openmp ^papi~cuda
-    #   - unifyfs
     - kokkos%gcc@8.3.1+wrapper+openmp std=14 +cuda cuda_arch=70 ^cuda@11.0.3
     - magma@2.5.3%gcc@8.3.1 ^cuda@10.2.89
     - amgx%gcc@8.3.1 +cuda cuda_arch=70 ^cuda@10.2.89
@@ -617,10 +591,18 @@ spack:
       - netlib-lapack
       - parallelio
       # xl beta103 libm macro errors:
-      - netcdf-c@4.8.0%xl@16.1.1-beta103
-      - netcdf-fortran@4.4.5%xl@16.1.1-beta103
-      - netcdf-cxx4@4.3.1%xl@16.1.1-beta103
-      - parallel-io@2.3.0%xl@16.1.1-beta103
+      - netcdf-c%xl@16.1.1-beta102
+      - netcdf-fortran%xl@16.1.1-beta102
+      - netcdf-cxx4%xl@16.1.1-beta102
+      - parallel-io%xl@16.1.1-beta102
+      - netcdf-c%xl@16.1.1-beta103
+      - netcdf-fortran%xl@16.1.1-beta103
+      - netcdf-cxx4%xl@16.1.1-beta103
+      - parallel-io%xl@16.1.1-beta103
+      - netcdf-c%xl@16.1.1-beta104
+      - netcdf-fortran%xl@16.1.1-beta104
+      - netcdf-cxx4%xl@16.1.1-beta104
+      - parallel-io%xl@16.1.1-beta104
   - nv_specs:
     - matrix:
       - - $general_compute_packages
@@ -1654,6 +1636,21 @@ spack:
       - /sw/peak/xl/16.1.1-beta104/lib
       - /sw/peak/xl/16.1.1-beta104/xlf/16.1.0/lib
       - /sw/peak/xl/16.1.1-beta104/xlC/16.1.0/lib
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: xl@16.1.1-beta105
+      operating_system: rhel8
+      modules: [xl/16.1.1-beta105]
+      paths:
+        cc: /sw/peak/xl/16.1.1-beta105/xlC/16.1.0/bin/xlc_r
+        cxx: /sw/peak/xl/16.1.1-beta105/xlC/16.1.0/bin/xlc++_r
+        f77: /sw/peak/xl/16.1.1-beta105/xlf/16.1.0/bin/xlf_r
+        fc: /sw/peak/xl/16.1.1-beta105/xlf/16.1.0/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta105/lib
+      - /sw/peak/xl/16.1.1-beta105/xlf/16.1.0/lib
+      - /sw/peak/xl/16.1.1-beta105/xlC/16.1.0/lib
       environment: {}
       flags: {}
   - compiler:

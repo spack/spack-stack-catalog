@@ -45,6 +45,9 @@ spack:
     - libpng@1.2.57
     - wget
     - bazel ^openjdk@11.0:11.99
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
   - e4s_21.05_packages:
     - adios2@2.7.1~python
     - aml@0.1.0
@@ -181,6 +184,9 @@ spack:
     - netlib-scalapack@2.1.0
     - ninja@1.10.2
     - omega-h@9.32.5
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
     - openpmd-api@0.13.4 ^hdf5@1.12.0 +fortran +shared +hl api=default
     - papi@6.0.0.1
     - papyrus@1.0.1
@@ -277,6 +283,7 @@ spack:
       - darshan-runtime # FIXME; need to build when gpfs is mounted
       - dyninst%cce ## os elfutils insufficient
       - hpctoolkit%cce ## depends on dyninst
+      - openblas
       - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
       - petsc@3.15.0%cce@12.0.0:12.0.1
       - petsc@3.15.3%cce@13.0.0.1 # -Wno-unsupported-target-opt breaks mpif90 config tests
@@ -308,6 +315,7 @@ spack:
       - darshan-runtime # FIXME; need to build when gpfs is mounted
       - dyninst%cce ## os elfutils insufficient
       - hpctoolkit%cce ## depends on dyninst
+      - openblas
       - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
       - petsc@3.15.0%cce@12.0.0:12.0.1
       - precice@2.2.1%cce@12.0.0:13.0.0.1
@@ -365,6 +373,7 @@ spack:
       - darshan-runtime # FIXME; need to build when gpfs is mounted
       - dyninst%cce ## os elfutils insufficient
       - hpctoolkit%cce ## depends on dyninst
+      - openblas
       - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
       - petsc@3.15.0%cce@12.0.0:12.0.1
       - precice@2.2.1%cce@12.0.0:13.0.0.1
@@ -395,6 +404,7 @@ spack:
       - darshan-runtime # FIXME; need to build when gpfs is mounted
       - dyninst%cce ## os elfutils insufficient
       - hpctoolkit%cce ## depends on dyninst
+      - openblas
       - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
       - petsc@3.15.3%cce@13.0.0.1 # -Wno-unsupported-target-opt breaks mpif90 config tests
       - precice@2.2.1%cce@12.0.0:13.0.0.1
@@ -427,6 +437,7 @@ spack:
       - fortrilinos@2.0.0%cce@13.0.0.5-beta # SCEV Bug; trilinos dependency
       - hpctoolkit%cce ## depends on dyninst
       - omega-h@9.32.5%cce@13.0.0.5-beta # SCEV Bug; trilinos dependency
+      - openblas
       - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
       - precice@2.2.1%cce@12.0.0:13.0.0.1
       - slate%cce ^openblas

@@ -72,6 +72,7 @@ spack:
     - jq
     - hpcviewer@2021.03
     - cube@4.6+gui
+    - bear
     # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:

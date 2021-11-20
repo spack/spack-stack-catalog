@@ -28,6 +28,7 @@ spack:
       extra_rpaths: []
   specs:
   - vim@8.2.2541
+  - cmake@3.21.4
   - ninja@1.10.1
   - python@3.8.6
   - py-pip@20.2
