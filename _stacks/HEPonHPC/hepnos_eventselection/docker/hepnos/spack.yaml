@@ -12,8 +12,12 @@ spack:
       providers:
         mpi:
         - mpich
+        # Ignore the libuuid at /lib64 and build util-linux-uuid instead. We will be using theta's lib64 so we lose access to the one at /lib64
+        # the spack-built libuuid provides the required symbols, however it missing versioning information (specifically the .gnu.version_d section)
+        # This might not cause a crash and since we are not opting for patching the elf object, let us opt for a spack built util-linux-uuid 
+        # instead which provides both the symbols and the versions.
         uuid:
-        - libuuid
+        - util-linux-uuid
     autoconf:
       externals:
       - spec: autoconf@2.63.0
@@ -84,11 +88,6 @@ spack:
     texinfo:
       externals:
       - spec: texinfo@4.13
-        prefix: /usr
-    libuuid:
-      buildable: false
-      externals:
-      - spec: libuuid@1.0.3
         prefix: /usr
     xz:
       externals:

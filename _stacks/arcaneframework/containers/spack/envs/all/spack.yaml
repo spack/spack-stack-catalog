@@ -1,0 +1,6 @@
+spack:
+  specs:
+  - alien+hypre+petsc~xml~hdf5+move+ref
+  - arcane~wrapper~monoembed
+  - googletest    # Build dependency
+  concretization: together

@@ -14,14 +14,16 @@ spack:
       +user-mofff +user-netcdf +user-omp +user-phonon +user-plumed +user-ptm +user-qtb
       +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
       +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
-    - namd@2.14 interface=python fftw=3
+      ^python@3.9.7+optimizations
+    - namd@2.14 interface=python fftw=cray ^python@3.9.7+optimizations ^charmpp@7.0.0
+      backend=mpi
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - kokkos@3.4.01 +hwloc +memkind +numactl +openmp +tuning
-    - plumed@2.7.2
+    - plumed@2.7.2 ^python@3.9.7+optimizations
     - python@3.9.7 +optimizations
     - py-pip@21.3 ^python@3.9.7+optimizations ^py-setuptools@58.2.0
     - py-setuptools@58.2.0 ^python@3.9.7+optimizations
- #   - snakemake@6.9.1 ^py-setuptools@58.2.0 ^python@3.6.12+optimizations  # we will advise conda install, as per tool docs
+#    - snakemake@6.9.1 ^py-setuptools@58.2.0 ^python@3.6.12+optimizations  # we will advise conda install, as per tool docs
 
   specs:
   - matrix:

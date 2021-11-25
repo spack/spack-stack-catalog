@@ -42,5 +42,5 @@ spack:
   - argtable3@3.2.1.52f24e5
   - libtomlc99@0.2020.12.23
   - tetgen@1.5.0
-  - gmsh@4.5.4 +tetgen~fltk~cgns
+  - gmsh@4.8.4 ~alglib~tetgen~fltk~cgns~compression~gmp~med~metis~mmg~netgen~voropp
   - doxygen@1.8.20
