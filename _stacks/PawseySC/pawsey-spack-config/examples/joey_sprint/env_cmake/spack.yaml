@@ -1,0 +1,13 @@
+spack:
+  definitions:
+  - packages:
+    - cmake@3.21.4
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']  # in other yamls there may be more, eg for fftw
+#    - [target=zen2]  # the target may be useful for similar yamls, eg for fftw
+  packages:
+    cmake::   # double colon, so that existing externals are ignored
+      buildable: true
+  view: false
