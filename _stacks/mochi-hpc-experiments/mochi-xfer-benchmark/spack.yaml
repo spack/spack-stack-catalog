@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - cmake
+  - mpi
+  - mochi-thallium
+  - tclap
+  - spdlog
+  concretization: together

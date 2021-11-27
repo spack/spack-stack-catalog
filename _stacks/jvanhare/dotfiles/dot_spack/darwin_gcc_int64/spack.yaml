@@ -52,3 +52,4 @@ spack:
   - tetgen@1.5.0
   - gmsh@4.5.4 +tetgen~fltk~cgns
   - doxygen@1.8.20
+  - caliper@2.7.0 +adiak~gotcha~libpfm+libunwind+mpi~papi
