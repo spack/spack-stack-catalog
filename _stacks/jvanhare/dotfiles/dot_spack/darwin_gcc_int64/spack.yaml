@@ -41,7 +41,7 @@ spack:
   - py-pip@20.2
   - llvm@13.0.0
   - lcov@1.15
-  - openmpi@3.1.6
+  - openmpi@3.1.6%gcc@11.2.0
   - hdf5@1.12.0
   - netlib-lapack@3.8.0
   - parmetis@4.0.3 +int64
@@ -49,7 +49,7 @@ spack:
   - libmeshb@7.60
   - argtable3@3.2.1.52f24e5
   - libtomlc99@0.2020.12.23
-  - tetgen@1.5.0
+  - tetgen@1.5.0%gcc@11.2.0
   - gmsh@4.5.4 +tetgen~fltk~cgns
   - doxygen@1.8.20
   - caliper@2.7.0 +adiak~gotcha~libpfm+libunwind+mpi~papi
