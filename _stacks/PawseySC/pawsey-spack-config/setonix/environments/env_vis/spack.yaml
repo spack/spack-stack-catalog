@@ -1,0 +1,17 @@
+spack:
+  definitions:
+  - packages:
+# igv and vmd on vis nodes only
+    - paraview@5.9.1 +adios2 +hdf5 +osmesa +python3 +qt
+    - visit@3.2 +adios2 +python
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+# TODO: ideally we would use one version per compiler for hpc apps
+#    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
+# TODO: check and enable cpu arch optimisations
+#    - ['target=zen2', 'target=zen3']
+    - [^python@3.9.7 +optimizations]
+  view: false
+# TODO: write module projections

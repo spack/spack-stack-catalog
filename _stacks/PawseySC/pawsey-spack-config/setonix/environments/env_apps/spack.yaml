@@ -1,0 +1,40 @@
+spack:
+  definitions:
+  - packages:
+# ansys cfx, ansys fluent, comsol: no recipe, manual install?
+# roms: no recipe, user installs? (seems the common practice anyway)
+    - amber@20 +openmp
+    - cpmd@4.3 +mpi +omp
+    - cp2k@8.1 +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
+    - gromacs@2021.2 +double +lapack +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
+    - lammps@20210929 +asphere +body +class2 +colloid +compress +coreshell +dipole
+      +ffmpeg +granular +jpeg +kim +kokkos +kspace +latte +manybody +mc +misc +mliap
+      +molecule +mpiio +opt +peri +png +poems +python +qeq +replica +rigid +shock
+      +snap +spin +srd +voronoi +user-adios +user-atc +user-awpmd +user-bocs +user-cgsdk
+      +user-colvars +user-diffraction +user-dpd +user-drude +user-eff +user-fep +user-h5md
+      +user-lb +user-manifold +user-meamc +user-mesodpd +user-mesont +user-mgpt +user-misc
+      +user-mofff +user-netcdf +user-omp +user-phonon +user-plumed +user-ptm +user-qtb
+      +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
+      +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
+      ^python@3.9.7+optimizations
+# TODO: charmpp+namd yet to be made to work with Shasta/Slingshot
+    - namd@2.14 interface=python fftw=cray ^python@3.9.7+optimizations ^charmpp@7.0.0
+      backend=mpi
+    - nektar@5.0.2
+    - nwchem@7.0.2
+    - openfoam@v2012 +paraview +vtk
+    - openfoam-org@8
+    - quantum-espresso@6.8 +epw +openmp hdf5=parallel
+    - vasp@5.4.4 +scalapack +vaspsol
+    - vasp@6.2.1 +scalapack +vaspsol
+    - wrf@4.2
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+# TODO: ideally we would use one version per compiler for hpc apps
+#    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
+# TODO: check and enable cpu arch optimisations
+#    - ['target=zen2', 'target=zen3']
+  view: false
+# TODO: write module projections
