@@ -12,14 +12,14 @@ spack:
   - packages:
 # py-pip and py-setuptools: installed in env_python
 # snakemake: docs recommend to install with conda
-    - autoconf@2.71
-    - automake@1.16.3
+    - autoconf@2.71  # this might come from rpm
+    - automake@1.16.3  # this might come from rpm
     - cmake@3.21.4
-    - emacs@27.2 +X toolkit=gtk
+    - emacs@27.2 +X toolkit=gtk  # this might come from rpm
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.1 +X
     - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
-    - nano@5.7
+    - nano@5.7  # this might come from rpm
     - nextflow@21.10.3 ^openjdk@17.0
     - parallel@20210922
     - reframe@3.6.1 ^python@3.9.7 +optimizations
