@@ -3,7 +3,8 @@ spack:
   - hepnos@0.5  cxxstd=14 target=x86_64
   - hepnos-dataloader@0.4 target=x86_64
   - hepnos-pep-benchmark@0.4 target=x86_64
-  - mpich
+  - mpich~wrapperrpath+argobots pmi=pmix device=ch4 netmod=ofi
+  - libfabric fabrics=tcp,rxm
   concretization: together
   repos:
   - /hepnos/mochi-spack-packages
@@ -58,10 +59,6 @@ spack:
       externals:
       - spec: hdf5@1.10.2
         prefix: /cvmfs/nova.opensciencegrid.org/externals/hdf5/v1_10_2a/Linux64bit+2.6-2.12-e15
-    libfabric:
-      externals:
-      - spec: libfabric@1.11.1
-      variants: fabrics=tcp,rxm
     m4:
       externals:
       - spec: m4@1.4.13
@@ -70,11 +67,6 @@ spack:
       variants: +udreg ~boostsys
     mochi-sdskv:
       variants: ~leveldb ~bdb
-    mpich:
-      buildable: false
-      externals:
-      - spec: mpich@3.2.1
-        prefix: /mpich
     pkg-config:
       buildable: false
       externals:

@@ -547,6 +547,11 @@ spack:
           suffixes:
             cairo+X: X
             cairo+pdf: pdf
+        cuda:
+          environment:
+            set:
+              CUDA_PATH: ${PREFIX}
+              CUDAPATH: ${PREFIX}
         cdo:
           suffixes:
             cdo+aec: aec
@@ -660,7 +665,9 @@ spack:
         - libiconv@1.16%gcc@8.3.1
         - scorep%gcc@8.3.1+unwind
         - scorep%gcc@8.3.1~unwind
-        whitelist: []
+        whitelist:
+        - cubew
+        - otf2
       tcl:
         hash_length: 3
         naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
@@ -871,7 +878,7 @@ spack:
       operating_system: rhel8
       modules: [nvhpc/21.9]
       paths:
-        cc: nvc # /sw/andes/nvhpc_sdk/rhel8/Linux_x86_64/21.9/compilers/bin/
+        cc: nvc
         cxx: nvc++
         f77: nvfortran
         fc: nvfortran

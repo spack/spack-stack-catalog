@@ -1,0 +1,89 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+
+  packages:
+    py-numpy:
+      version: [1.20.3]
+    py-pip:
+      version: [21.1.2]
+    py-scipy:
+      version: [1.7.1]
+    py-setuptools:
+      version: [57.4.0]
+
+  definitions:
+  
+  # casacore variants
+  # try running spack install --no-checksum 
+  - casacore-legacy:
+    - casacore@3.2.1 +python build_type=Release # no checksum for this release 
+
+  - casacore-set:
+    - casacore@3.3.0
+    - casacore@3.4.0
+
+  - astro-util-set:
+    - cfitsio
+    - wcslib
+
+  - askap-util-set:
+    - cppzmq 
+    - libzmq 
+    - apr 
+    - apr-util 
+    - gsl 
+    - cppunit
+    - log4cxx 
+    - mcpp 
+    - xerces-c
+    - subversion 
+
+  - mwa-util-set:
+    # - swarp #swarp download page does not seem to be available
+    # - wsclean # will need new recipe
+    # - wctools # will need new recipe
+    # - stilts # will need new recipe 
+    - pgplot
+
+  # TODO add versions 
+  - python-astro-set:
+    - py-funcsigs
+    - py-pyfits
+    - py-astropy
+    - py-boto3
+    - py-healpy
+    - py-emcee
+
+
+  # astropy, emcee, healpy, py-bdsf
+  # currently left blank as ideally 
+  # pip install with appropriate modules 
+  # might be a better way to install them 
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$casacore-set]
+    - ['%gcc@10.3.0 fflags=-fallow-argument-mistmach']
+    - [^bzip2@1.0.8]
+    - [+python build_type=Release ^python@3.9.7 +optimizations]
+    - [+openmp, ~openmp]
+    - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran
+        +szip api=v110]
+  - matrix:
+    - [$casacore-legacy]
+    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch ^python@3.9.7 +optimizations']
+
+  - matrix:
+    - [$astro-util-set, $askap-util-set, $mwa-util-set]
+    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch']
+    - [^python@3.9.7 +optimizations]
+  - matrix:
+    - [$python-astro-set]
+    - ['%gcc@10.3.0']
+    - [^python@3.9.7 +optimizations]
+
+  view: false
