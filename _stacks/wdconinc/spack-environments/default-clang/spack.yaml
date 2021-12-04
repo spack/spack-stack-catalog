@@ -1,0 +1,51 @@
+spack:
+  specs:
+  - acts +dd4hep +digitization +examples +fatras +geant4 +identification +json +tgeo
+    -sycl +ipo
+  - boost +python
+  - ccache
+  - cmake
+  - clhep cxxstd=17
+  - cppgsl@main
+  - dd4hep +geant4 -assimp +hepmc3 +lcio +ipo
+  - eigen
+  - fftw -mpi
+  - fluka
+  - gaudi +ipo
+  - geant4 -qt +opengl -python +threads +vecgeom cxxstd=17
+  - genfit +ipo
+  - hdf5 -mpi
+  - hepmc3 +interfaces +python +rootio
+  - kassiopeia +ipo +boost +root +vtk +log4cxx
+  - lcio +ipo
+  - mesa -llvm swr=none
+  - mesa-demos
+  - nano
+  - opencascade +ipo +tbb -vtk
+  - podio +ipo build_type=RelWithDebInfo
+  - pythia8 -fastjet
+  - root cxxstd=17 +fftw +fortran +gdml +mlp +opengl +pythia8 +root7 +ssl +tmva +vc
+    +x +xrootd
+  - singularity +suid
+  - vecmem
+  - autodiff
+  - xrootd cxxstd=17 +python
+  - igprof
+  - npdet +geocad
+  - eicd
+  - log4cxx
+  - afterburner +zlib +root
+  - east
+  - juggler
+  - athena-eic +reconstruction
+  - py-pandas
+  - py-matplotlib
+  concretization: together
+  packages:
+    all:
+      compiler: [clang]
+  config:
+    install_missing_compilers: false
+    install_tree:
+      root: /opt/software
+  view: /opt/local-clang

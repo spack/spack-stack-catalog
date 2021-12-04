@@ -1,0 +1,56 @@
+spack:
+  specs:
+  - acts +dd4hep +digitization +examples +fatras +geant4 +identification +json +tgeo
+    -sycl +ipo
+  - boost +python
+  - ccache
+  - cmake
+  - clhep cxxstd=17
+  - cppgsl@main
+  - dd4hep +geant4 -assimp +hepmc3 +lcio +ipo
+  - eigen
+  - fluka
+  - gaudi +ipo
+  - geant4 +ipo +qt +opengl -python +threads +vecgeom cxxstd=17
+  - genfit +ipo
+  - hepmc3 +interfaces +python +rootio build_type=RelWithDebInfo
+  - kassiopeia +ipo +root +vtk +log4cxx
+  - lcio +ipo
+  - mesa -llvm swr=none
+  - nano
+  - opencascade +ipo +tbb -vtk
+  - podio +ipo build_type=RelWithDebInfo
+  - pythia8 -fastjet
+  - root cxxstd=17 +fftw +fortran +gdml +mlp +pythia8 +root7 +tmva +vc +xrootd +ssl
+  - singularity +suid
+  - vecmem
+  - autodiff
+  - xrootd cxxstd=17 +python
+  - igprof
+  - npdet +geocad
+  - eicd
+  - log4cxx
+  - sherpa +rivet +root
+  - rivet hepmc=3
+  - professor
+  - afterburner +zlib +root
+  - east
+  - juggler
+  - athena-ip6
+  - athena-eic +reconstruction
+  - py-pandas
+  - py-matplotlib
+  - catch2
+  concretization: together
+  packages:
+    all:
+      compiler: [gcc@11.1.0]
+  config:
+    install_missing_compilers: false
+    install_tree:
+      root: /opt/software
+  view: /opt/local
+  develop:
+    juggler:
+      path: /home/wdconinc/EIC/juggler
+      spec: juggler@master
