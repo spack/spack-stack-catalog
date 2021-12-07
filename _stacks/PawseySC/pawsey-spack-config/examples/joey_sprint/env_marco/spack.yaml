@@ -19,6 +19,8 @@ spack:
       backend=mpi
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - kokkos@3.4.01 +hwloc +memkind +numactl +openmp +tuning
+    - kokkos@3.4.01 +hwloc +memkind +numactl +hpx +hpx_async_dispatch +tuning ^hpx@1.6.0
+      +async_mpi malloc=jemalloc max_cpu_count=128 networking=mpi
     - plumed@2.7.2 ^python@3.9.7+optimizations
     - python@3.9.7 +optimizations
     - py-pip@21.3 ^python@3.9.7+optimizations ^py-setuptools@58.2.0

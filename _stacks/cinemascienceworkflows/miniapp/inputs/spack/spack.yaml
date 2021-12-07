@@ -1,0 +1,20 @@
+spack:
+  view: false
+  concretization: together
+  specs:
+  - ascent
+  - openmpi
+  compilers:
+  - compiler:
+      spec: <system_gcc_spec>
+      paths:
+        cc:  <system_gcc> 
+        cxx: <system_gpp> 
+        f77: <system_gfortran> 
+        fc:  <system_gfortran> 
+      operating_system: <system_os>
+      modules:
+      - <system_gcc_module>
+      environment:
+        unset: []
+      extra_rpaths: []
