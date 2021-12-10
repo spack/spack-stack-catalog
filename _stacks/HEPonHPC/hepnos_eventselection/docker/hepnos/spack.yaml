@@ -3,7 +3,7 @@ spack:
   - hepnos@0.5  cxxstd=14 target=x86_64
   - hepnos-dataloader@0.4 target=x86_64
   - hepnos-pep-benchmark@0.4 target=x86_64
-  - mpich~wrapperrpath+argobots pmi=pmix device=ch4 netmod=ofi
+  - mpich~wrapperrpath+argobots pmi=pmi2 device=ch4 netmod=ofi
   - libfabric fabrics=tcp,rxm
   concretization: together
   repos:
