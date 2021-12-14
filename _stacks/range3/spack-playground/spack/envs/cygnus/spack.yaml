@@ -29,8 +29,8 @@ spack:
         prefix: /
       buildable: false
   repos:
-  - ../../spack-repos/dev
-  - ../../extern/mochi-spack-packages
+  - ../../repos/dev
+  - ../../../extern/mochi-spack-packages
   config:
     build_stage:
     - /work/NBB/$user/spack-stage
