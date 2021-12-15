@@ -44,9 +44,12 @@ spack:
     - [+hl +fortran +szip build_type=Release]
   - matrix:
     - [$adios-set]
+    - ['%gcc@10.3.0']
     - [+python, ~python]
     - [+hdf5]
-    - [^hdf5@1.12.1 +hl +fortran +szip api=v112, ^hdf5@1.12.1 +hl +fortran +szip api=v110, ^hdf5@1.12.1 +hl +fortran +szip api=v18]
-  #- matrix:
-  #  - [$netcdf-set]
+    - [^hdf5@1.12.1 +hl +fortran +szip api=v112, ^hdf5@1.12.1 +hl +fortran +szip api=v110,
+      ^hdf5@1.12.1 +hl +fortran +szip api=v18]
+  - matrix:
+    - [$netcdf-set]
+    - ['%gcc@10.3.0']
   view: false

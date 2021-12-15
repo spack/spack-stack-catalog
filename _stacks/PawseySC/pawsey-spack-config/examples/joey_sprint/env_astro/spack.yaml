@@ -3,7 +3,6 @@
 # It describes a set of packages to be installed, along with
 # configuration settings.
 spack:
-
   packages:
     py-numpy:
       version: [1.20.3]
@@ -13,7 +12,6 @@ spack:
       version: [1.7.1]
     py-setuptools:
       version: [57.4.0]
-
   definitions:
   
   # casacore variants
@@ -30,18 +28,19 @@ spack:
     - wcslib
 
   - askap-util-set:
-    - cppzmq 
-    - libzmq 
-    - apr 
-    - apr-util 
-    - gsl 
+    - cppzmq
+    - libzmq
+    - apr
+    - apr-util
+    - gsl
     - cppunit
-    - log4cxx 
-    - mcpp 
+    - log4cxx
+    - mcpp
     - xerces-c
-    - subversion 
+    - subversion
 
   - mwa-util-set:
+    
     # - swarp #swarp download page does not seem to be available
     # - wsclean # will need new recipe
     # - wctools # will need new recipe
@@ -67,7 +66,7 @@ spack:
   specs:
   - matrix:
     - [$casacore-set]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mistmach']
+    - ['%gcc@10.3.0']
     - [^bzip2@1.0.8]
     - [+python build_type=Release ^python@3.9.7 +optimizations]
     - [+openmp, ~openmp]
@@ -75,15 +74,13 @@ spack:
         +szip api=v110]
   - matrix:
     - [$casacore-legacy]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch ^python@3.9.7 +optimizations']
-
+    - ['%gcc@10.3.0']
+    - [^python@3.9.7 +optimizations]
   - matrix:
     - [$astro-util-set, $askap-util-set, $mwa-util-set]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch']
-    - [^python@3.9.7 +optimizations]
+    - ['%gcc@10.3.0 ']
   - matrix:
     - [$python-astro-set]
     - ['%gcc@10.3.0']
     - [^python@3.9.7 +optimizations]
-
   view: false
