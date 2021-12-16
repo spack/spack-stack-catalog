@@ -44,3 +44,4 @@ spack:
   - tetgen@1.5.0
   - gmsh@4.8.4 ~alglib~tetgen~fltk~cgns~compression~gmp~med~metis~mmg~netgen~voropp
   - doxygen@1.8.20
+  - caliper@2.7.0 +adiak~gotcha~libpfm+libunwind+mpi~papi

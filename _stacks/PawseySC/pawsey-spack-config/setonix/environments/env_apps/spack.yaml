@@ -6,7 +6,7 @@ spack:
     - amber@20 +openmp
     - cpmd@4.3 +mpi +omp
     - cp2k@8.1 +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
-    - gromacs@2021.2 +double +lapack +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
+    - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
     - lammps@20210929 +asphere +body +class2 +colloid +compress +coreshell +dipole
       +ffmpeg +granular +jpeg +kim +kokkos +kspace +latte +manybody +mc +misc +mliap
       +molecule +mpiio +opt +peri +png +poems +python +qeq +replica +rigid +shock
@@ -27,7 +27,6 @@ spack:
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - vasp@5.4.4 +scalapack +vaspsol
     - vasp@6.2.1 +scalapack +vaspsol
-    - wrf@4.2
   specs:
   - matrix:
     - [$packages]
