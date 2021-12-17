@@ -1,0 +1,12 @@
+# separate yaml file for roms
+# roms users will want to build their own version, so only install dependencies
+# use "--only dependecies" option with spack install
+spack:
+  definitions:
+  - packages:
+    - roms@3.8 # charris: built okay with --only dependencies in Nov sprint on Joey (manual build both 3.8 and 3.9)
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+  view: false

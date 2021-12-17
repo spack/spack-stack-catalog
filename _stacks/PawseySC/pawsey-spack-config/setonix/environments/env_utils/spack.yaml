@@ -12,8 +12,8 @@ spack:
   - packages:
 # py-pip and py-setuptools: installed in env_python
 # snakemake: docs recommend to install with conda
-    - autoconf@2.71  # this might come from rpm
-    - automake@1.16.3  # this might come from rpm
+    - autoconf@2.71  # this might come from rpm # charris: build ok on Joey 2021-12-15
+    - automake@1.16.3  # this might come from rpm # charris: build ok on Joey 2021-12-15
     - cmake@3.21.4
     - emacs@27.2 +X toolkit=gtk  # this might come from rpm
     - ffmpeg@4.4 +avresample
