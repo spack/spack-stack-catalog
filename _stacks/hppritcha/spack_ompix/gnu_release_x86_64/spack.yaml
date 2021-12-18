@@ -1,0 +1,16 @@
+# vim: set sw=2 ft=yaml:
+
+spack:
+  include:
+  - ./
+  definitions: []
+  specs:
+  - openmpi
+  view: false
+  concretization: together
+  upstreams: {}
+  mirrors: {}
+  modules:
+    enable: []
+  packages: {}
+  repos: []
