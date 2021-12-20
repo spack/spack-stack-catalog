@@ -2,7 +2,7 @@ spack:
   definitions:
   - packages:
 # igv and vmd on vis nodes only
-    - paraview@5.9.1 +adios2 +hdf5 +osmesa +python3 +qt
+# NotReadyYet:    - paraview@5.9.1 +adios2 +hdf5 +osmesa +python3 +qt #llvm@12.0.1 installation is failing
     - visit@3.2 +adios2 +python
   specs:
   - matrix:

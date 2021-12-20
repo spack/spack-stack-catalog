@@ -4,8 +4,9 @@ spack:
 # aocc, rocm, gcc, llvm: provided by system installations
 # python: installed in env_python
     - go@1.16.4
-    - julia@1.6.1
-    - openjdk@17.0.0_35
+    # NotReadyYet:    
+    # - julia@1.6.1 #Alexis is working on it.
+    - openjdk@17.0
     - r@4.1.0
     - perl@5.34.0
     - ruby@3.0.1
