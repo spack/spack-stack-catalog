@@ -6,7 +6,7 @@ spack:
     - go@1.16.4
     # NotReadyYet:    
     # - julia@1.6.1 #Alexis is working on it.
-    - openjdk@17.0
+    - openjdk@17.0.0_35
     - r@4.1.0
     - perl@5.34.0
     - ruby@3.0.1
