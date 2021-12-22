@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  repos:
+  - ../spack-repo/
+  config:
+    concretizer: clingo
+  packages:
+    all:
+      variants: cxxstd=17
+    root:
+      variants: cxxstd=17 ~pythia6 ~pythia8 ~x ~gdml ~examples ~davix ~tbb ~python
+        ~roofit ~gminimal +gsl ~minuit
+      version: [6.24.06]
+    boost:
+      version: [1.75.0]
+      variants: +container cxxstd=17
+    fmt:
+      version: [7.1.3]
+  specs:
+  - qqbar2mumu-2021@1.0.0
+  concretization: together
+  view: false

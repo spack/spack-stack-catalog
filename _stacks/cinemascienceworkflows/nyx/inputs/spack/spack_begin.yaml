@@ -1,0 +1,5 @@
+spack:
+  view: false
+  concretization: separately
+  specs:
+  - ascent
