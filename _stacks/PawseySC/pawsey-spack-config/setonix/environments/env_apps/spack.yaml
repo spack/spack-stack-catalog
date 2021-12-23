@@ -22,7 +22,8 @@ spack:
 # TODO: charmpp+namd yet to be made to work with Shasta/Slingshot
     - namd@2.14 interface=python fftw=3 ^python@3.9.7+optimizations ^charmpp@7.0.0
       backend=mpi
-    - nektar@5.0.2
+#TODO: - nektar@5.0.2 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 ) 
+# look into this file nektar/cmake/FindNativeBlasLapack.cmake
     - nwchem@7.0.2
 # Failing:    - openfoam@v2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:

@@ -9,10 +9,10 @@ spack:
     concretizer: clingo
   packages:
     all:
-      variants: cxxstd=17
+      variants: cxxstd=17 build_type=Release
     root:
       variants: cxxstd=17 ~pythia6 ~pythia8 ~x ~gdml ~examples ~davix ~tbb ~python
-        ~roofit ~gminimal +gsl ~minuit
+        ~roofit ~gminimal +gsl ~minuit build_type=Release
       version: [6.24.06]
     boost:
       version: [1.75.0]
@@ -23,3 +23,21 @@ spack:
   - qqbar2mumu-2021@1.0.0
   concretization: together
   view: false
+  mirrors:
+    qqbar2mumu-mirror:
+      fetch:
+        url: file:///home/ubuntu/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///home/ubuntu/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
