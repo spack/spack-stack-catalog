@@ -1,0 +1,52 @@
+spack:
+  #concretization: together
+  concretization: separately
+
+  config:
+    install_tree: /opt/software
+
+  packages:
+    all:
+      target: [x86_64]
+      providers:
+        blas: [openblas, netlib-xblas]
+        lapack: [openblas, netlib-lapack]
+        mpi: [openmpi]
+      variants: +mpi
+
+    armadillo:
+      version:
+      - 9.800.3
+    cmake:
+      version:
+      - 3.18.4
+    gcc:
+      version:
+      - 7.5.0
+    git:
+      version:
+      - 2.29.0
+    hwloc:
+      version:
+      - 1.11.11
+    openblas:
+      variants: threads=openmp
+    openmpi:
+      version:
+      - 3.1.6
+    superlu:
+      version:
+      - 5.2.1
+    vtk:
+      version:
+      - 9.0.0
+  specs:
+  - armadillo@9.800.3
+  - cmake@3.18.4
+  - gcc@7.5.0
+  - git@2.29.0
+  - openmpi@3.1.6
+  - superlu@5.2.1
+  - vtk@9.0.0
+
+  view: /opt/view
