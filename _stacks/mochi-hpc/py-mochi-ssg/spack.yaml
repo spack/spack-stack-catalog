@@ -3,6 +3,6 @@ spack:
   - py-pkgconfig
   - py-pybind11
   - py-mpi4py
-  - mochi-ssg@main
+  - mochi-ssg
   - py-mochi-margo
   concretization: together
