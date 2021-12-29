@@ -1,6 +1,5 @@
 spack:
   specs:
-  - mpi
   - autoconf
   - automake
   - libtool
