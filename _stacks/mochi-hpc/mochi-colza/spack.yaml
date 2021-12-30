@@ -8,7 +8,7 @@ spack:
   - spdlog
   - cppunit
   - tclap
-  - mochi-bedrock@main
-  - mochi-ssg@main
+  - mochi-bedrock
+  - mochi-ssg
   - mochi-mona
   concretization: together
