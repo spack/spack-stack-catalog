@@ -1,0 +1,27 @@
+# This is a Spack Environment file.
+# petsc2
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [curl, mpich, petsc, libgcrypt, libtool, autoconf]
+  view: true
+  include:
+  - $spack/../configs/packages_petsc.yaml
+  - $spack/../configs/compilers_O2.yaml
+  #
+  config:
+    install_missing_compilers: true
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: clingo
+    shared_linking: rpath
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+#
+#

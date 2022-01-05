@@ -75,7 +75,7 @@ spack:
       externals:
       - spec: rdma-credentials@1.2.25 arch=cray-cnl7-mic_knl
         modules:
-        - rdma-credentials/1.2.25-7.0.2.1_2.74__g1542270.ari
+        - rdma-credentials/1.2.25-7.0.2.1_4.3__g67c8aa4.ari
     boost:
       buildable: false
       version: []
