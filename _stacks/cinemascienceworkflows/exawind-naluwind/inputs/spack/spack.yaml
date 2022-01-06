@@ -1,0 +1,96 @@
+spack:
+  view: false
+  specs:
+  - nalu-wind
+  compilers:
+  - compiler:
+      spec: <system_gcc_spec>
+      paths:
+        cc:  <system_gcc> 
+        cxx: <system_gpp> 
+        f77: <system_gfortran> 
+        fc:  <system_gfortran> 
+      operating_system: <system_os>
+      modules:
+      - <system_gcc_module>
+      environment:
+        unset: []
+      extra_rpaths: []
+  modules:
+    tcl:
+      blacklist: [mpi]
+      nalu-wind:
+        load: [spectrum-mpi/10.4.0.3-20210112]
+  packages:
+    all:
+      compiler: [<system_gcc_spec>]
+      target: [<system_arch>]
+      providers:
+        mpi:
+        - spectrum-mpi
+        blas:
+        - netlib-lapack
+        lapack:
+        - netlib-lapack
+      variants: +mpi+pic build_type=Release
+    spectrum-mpi:
+      buildable: false
+      externals:
+      - spec: spectrum-mpi@104.0.3
+        modules: [spectrum-mpi/10.4.0.3-20210112]
+    cmake:
+      version: [3.17.3]
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.0.2
+        prefix: /usr
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@11.0.3
+        modules: [cuda/11.0.3]
+    binutils:
+      version: [2.34]
+    zlib:
+      version: [1.2.11]
+    libxml2:
+      version: [2.9.8]
+    bzip2:
+      version: [1.0.6]
+    m4:
+      version: [1.4.18]
+    boost:
+      version: [1.68.0]
+      variants: cxxstd=14
+    hdf5:
+      version: [1.10.4]
+      variants: +mpi+cxx+hl~fortran
+    netcdf-c:
+      version: [4.7.4]
+      variants: +parallel-netcdf maxdims=65536 maxvars=524288
+    parallel-netcdf:
+      version: [1.12.1]
+    superlu:
+      version: [4.3]
+    netlib-lapack:
+      version: [3.8.0]
+    yaml-cpp:
+      version: [0.6.2]
+    fftw:
+      variants: +mpi+fma
+    openfast:
+      version: [develop]
+      variants: +cxx
+    hypre:
+      version: [develop]
+      variants: +int64~superlu-dist
+    tioga:
+      version: [develop]
+    nalu-wind:
+      variants: +fftw+hypre~openfast~tioga+wind-utils+shared~cuda
+    trilinos:
+      version: [master]
+      variants: +gtest cxxstd=14
+    yaml-cpp:
+      version: [0.6.2]
