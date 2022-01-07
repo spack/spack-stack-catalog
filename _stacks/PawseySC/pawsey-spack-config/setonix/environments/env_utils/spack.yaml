@@ -17,7 +17,7 @@ spack:
     - cmake@3.21.4
 #    - emacs@27.2 +X toolkit=gtk  # this will come from rpm
     - ffmpeg@4.4 +avresample
-    - gnuplot@5.4.1 +X
+    - gnuplot@5.4.2 +X
     - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
 #    - nano@5.7  # this will come from rpm
     - nextflow@21.10.5 ^openjdk@17.0.0_35
