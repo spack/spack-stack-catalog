@@ -9,7 +9,7 @@ spack:
   view: true
   include:
   - $spack/../configs/packages_petsc.yaml
-  - $spack/../configs/compilers_O2.yaml
+  - $spack/../configs/compilers_sherlock_O2.yaml
   #
   config:
     install_missing_compilers: true

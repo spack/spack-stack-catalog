@@ -1,0 +1,24 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+# Here installing a selection of S3 clients
+spack:
+  definitions:
+  - s3-python-set:
+    - awscli@1.16.308
+    - py-boto3@1.18.12
+  - s3-go-set:
+    - rclone@1.56.2
+    - miniocli@2022-01-05T23-52-51Z
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$s3-python-set]
+    - [^python@3.9.7 +optimizations]
+    - ['%gcc@10.3.0']
+  - matrix:
+    - [$s3-go-set]
+    - ['%gcc@10.3.0']
+  view: false
