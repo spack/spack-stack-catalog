@@ -5,7 +5,7 @@ spack:
   - uuid
   - mochi-thallium
   - mochi-margo@develop-test
-  - ascent~openmp
+  - ascent@develop~openmp~test ^conduit@develop ^vtk-h@0.8.0~openmp ^vtk-m@1.7.0+shared+mpi~openmp
   - mochi-abt-io
   - nlohmann-json
   - spdlog
