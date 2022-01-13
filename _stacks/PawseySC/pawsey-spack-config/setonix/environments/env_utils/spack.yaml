@@ -1,35 +1,46 @@
 spack:
   packages:
-# double colon in the next line, so that existing externals are ignored
     autoconf:
-      version: [2.71]
+      version: [2.69]
+    autogen:
+      version: [5.18.12]
     automake:
-      version: [1.16.3]
-    cmake::
+      version: [1.15.1]
+    'cmake:':
       version: [3.21.4]
       buildable: true
   definitions:
   - packages:
+    
 # py-pip and py-setuptools: installed in env_python
 # snakemake: docs recommend to install with conda
-#    - autoconf@2.71  # this will come from rpm # charris: build ok on Joey 2021-12-15
-#    - automake@1.16.3  # this will come from rpm # charris: build ok on Joey 2021-12-15
     - cmake@3.21.4
-#    - emacs@27.2 +X toolkit=gtk  # this will come from rpm
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.2 +X
-    - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
-#    - nano@5.7  # this will come from rpm
     - nextflow@21.10.5 ^openjdk@17.0.0_35
     - parallel@20210922
     - reframe@3.6.1 ^python@3.9.7 +optimizations
-    - singularity@3.8.5
+    - singularity@3.8.5 ^python@3.9.7 +optimizations
+  - licensed:
+    - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
   specs:
   - matrix:
     - [$packages]
     - ['%gcc@10.3.0']
+# TODO: build licensed software
+  # - matrix:
+  #   - [$licensed]
+  #   - ['%gcc@10.3.0']
 # TODO: enable target
 #    - ['target=zen2']
+  - libgpg-error
+  - libseccomp
+  - autoconf
+  - automake
+  - shadow
+  - squashfs
+  - cryptsetup
+  - pkg-config
   view: false
 # TODO: list as external in packages.yaml
 # TODO: write module projections
