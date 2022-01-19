@@ -6,13 +6,15 @@ spack:
   compilers:
   - compiler:
       paths:
-        cc: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-6.5.0/gcc-10.2.0-z53hda3/bin/gcc
-        cxx: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-6.5.0/gcc-10.2.0-z53hda3/bin/g++
-        f77: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-6.5.0/gcc-10.2.0-z53hda3/bin/gfortran
-        fc: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-6.5.0/gcc-10.2.0-z53hda3/bin/gfortran
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
       operating_system: centos7
       target: x86_64
-      modules: []
+      modules:
+      - gcc/10.2.0-z53hda3
+      - intel-mpi/2019.8.254-hviu7j6
       environment: {}
       extra_rpaths: []
       flags: {}
@@ -142,7 +144,8 @@ spack:
       providers: {}
       externals:
       - spec: intel-mpi@2019.8.254 arch=linux-centos7-x86_64
-        prefix: /gpfs/fs1/software/centos7/spack-latest/opt/spack/linux-centos7-x86_64/gcc-10.2.0/intel-mpi-2019.8.254-hviu7j6
+        modules:
+        - intel-mpi/2019.8.254-hviu7j6
     libfabric:
       variants: fabrics=psm2,sockets
       version: []

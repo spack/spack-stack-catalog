@@ -12,6 +12,8 @@ spack:
       version: [1.7.1]
     py-setuptools:
       version: [57.4.0]
+    'fftw:':
+      buildable: true
   definitions:
   
   # casacore variants
@@ -66,19 +68,20 @@ spack:
   specs:
   - matrix:
     - [$casacore-set]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mistmach']
-    - [^bzip2@1.0.8]
+    - ['%gcc@10.3.0']
     - [+python build_type=Release ^python@3.9.7 +optimizations]
     - [+openmp, ~openmp]
     - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran
-        +szip api=v110]
+        +szip api=v112]
+#    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$casacore-legacy]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch ^python@3.9.7 +optimizations']
+    - ['%gcc@10.3.0']
+    - [^python@3.9.7 +optimizations]
+#    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$astro-util-set, $askap-util-set, $mwa-util-set]
-    - ['%gcc@10.3.0 fflags=-fallow-argument-mismatch']
-    - [^python@3.9.7 +optimizations]
+    - ['%gcc@10.3.0']
   - matrix:
     - [$python-astro-set]
     - ['%gcc@10.3.0']
