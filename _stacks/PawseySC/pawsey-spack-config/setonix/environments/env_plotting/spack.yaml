@@ -1,0 +1,23 @@
+spack:
+  packages:
+    autoconf:
+      version: [2.69]
+    autogen:
+      version: [5.18.12]
+    automake:
+      version: [1.15.1]
+    'cmake:':
+      version: [3.21.4]
+      buildable: true
+    'gettext:':
+      version: [0.21]
+      buildable: true
+  definitions:
+  - packages:
+    - libxpm ^gettext@0.21
+    - gnuplot@5.4.2 +X ^gettext@0.21
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@10.3.0']
+  view: false

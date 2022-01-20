@@ -1,25 +1,23 @@
 spack:
   specs:
-  - mochi-margo%gcc@9.1.0
-  - argobots@main%gcc@9.1.0 # avoid potential mutex performance problem arising from weak atomics. This can be removed once Argobots 1.1 is available
+  - mochi-margo
   concretization: together
   compilers:
-  - compiler:
-      paths:
-        cc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gcc
-        cxx: /sw/summit/gcc/9.1.0-alpha+20190716/bin/g++
-        f77: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
-        fc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
-      operating_system: rhel7
-      target: ppc64le
-      modules:
-      - gcc/9.1.0
-      environment: {unset: []}
-      extra_rpaths: []
-      flags: {}
-      spec: gcc@9.1.0
+   - compiler:
+       spec: gcc@9.1.0
+       paths:
+         cc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gcc
+         cxx: /sw/summit/gcc/9.1.0-alpha+20190716/bin/g++
+         f77: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+         fc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+       flags: {}
+       operating_system: rhel8
+       target: ppc64le
+       modules: []
+       environment: {}
+       extra_rpaths: []
   repos:
-  - /ccs/home/mdorier1/mochi-spack-packages
+  - /path/to/mochi-spack-packages
   packages:
     all:
       compiler: [gcc@9.1.0]
@@ -29,6 +27,10 @@ spack:
       buildable: true
       version: []
       target: []
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
     autoconf:
       externals:
       - spec: autoconf@2.69

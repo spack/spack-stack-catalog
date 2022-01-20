@@ -4,9 +4,9 @@ spack:
     all:
       variants: +mpi+pic build_type=Release
   definitions:
-    - compilers: [ '%gcc@10.2.0' ]
+    - compilers: [ '%gcc@9.3.0' ]
   specs:
-    - cuda@11.3.1
+    - cuda@11.0.3
     - matrix:
         - [ cmake, ninja-fortran, mpi, m4, zlib, bzip2, libxml2, boost, superlu,
             netlib-lapack, hdf5, netcdf-c, parmetis, yaml-cpp, openfast ]
@@ -14,15 +14,15 @@ spack:
     - matrix:
         - [ trilinos ]
         - [ '~cuda~wrapper',
-            '+cuda+cuda_rdc+wrapper~shared cuda_arch=70 ^cuda@11.3.1' ]
+            '+cuda+cuda_rdc+wrapper~shared cuda_arch=70 ^cuda@11.0.3' ]
         - [ $compilers ]
     - matrix:
         - [ hypre ]
-        - [ '~cuda+int64' , '+cuda~int64 cuda_arch=70 ^cuda@11.3.1' ]
+        - [ '~cuda+int64' , '+cuda~int64 cuda_arch=70 ^cuda@11.0.3' ]
         - [ $compilers ]
     - matrix:
         - [ tioga~nodegid, amr-wind, nalu-wind ]
-        - [ '~cuda', '+cuda~shared cuda_arch=70 ^cuda@11.3.1']
+        - [ '~cuda', '+cuda~shared cuda_arch=70 ^cuda@11.0.3']
         - [ $compilers ]
     - matrix:
         - [ nalu-wind-utils, tioga-utils ]

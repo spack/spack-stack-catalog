@@ -16,7 +16,12 @@ spack:
 # snakemake: docs recommend to install with conda
     - cmake@3.21.4
     - ffmpeg@4.4 +avresample
-    - gnuplot@5.4.2 +X
+
+
+
+
+    
+    #- gnuplot@5.4.2 +X ^gettext@0.21
     - nextflow@21.10.5 ^openjdk@17.0.0_35
     - parallel@20210922
     - reframe@3.6.1 ^python@3.9.7 +optimizations
@@ -41,6 +46,7 @@ spack:
   - squashfs
   - cryptsetup
   - pkg-config
+  #- libxpm ^gettext@0.21
   view: false
 # TODO: list as external in packages.yaml
 # TODO: write module projections
