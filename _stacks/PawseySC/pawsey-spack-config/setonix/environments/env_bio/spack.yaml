@@ -12,4 +12,3 @@ spack:
 # TODO: check and enable cpu arch optimisations
 #    - ['target=zen2', 'target=zen3']
   view: false
-# TODO: write module projections

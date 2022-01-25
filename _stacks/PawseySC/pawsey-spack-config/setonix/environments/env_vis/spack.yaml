@@ -15,4 +15,3 @@ spack:
 #    - ['target=zen2', 'target=zen3']
     - [^python@3.9.7 +optimizations]
   view: false
-# TODO: write module projections

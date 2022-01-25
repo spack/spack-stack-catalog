@@ -1,14 +1,6 @@
 spack:
 # fixing some versions to have only one version per package in this environment
-  packages:
-    py-numpy:
-      version: [1.20.3]
-    py-pip:
-      version: [21.1.2]
-    py-scipy:
-      version: [1.7.1]
-    py-setuptools:
-      version: [57.4.0]
+# note: these preferred versions are now set in packages.yaml
   definitions:
   - packages:
     - py-cython@0.29.24
@@ -48,5 +40,4 @@ spack:
   - python@3.9.7
   view: false
 # TODO: list python, py-pip and py-setuptools as external in packages.yaml
-# TODO: write module projections
 # TODO: python, py-pip and py-setuptools modules as core modules

@@ -1,14 +1,5 @@
 spack:
-  packages:
-    autoconf:
-      version: [2.69]
-    autogen:
-      version: [5.18.12]
-    automake:
-      version: [1.15.1]
-    'cmake:':
-      version: [3.21.4]
-      buildable: true
+# note: preferred versions are set in packages.yaml
   definitions:
   - packages:
     
@@ -16,12 +7,7 @@ spack:
 # snakemake: docs recommend to install with conda
     - cmake@3.21.4
     - ffmpeg@4.4 +avresample
-
-
-
-
-    
-    #- gnuplot@5.4.2 +X ^gettext@0.21
+    - gnuplot@5.4.2 +X  #^gettext@0.21
     - nextflow@21.10.5 ^openjdk@17.0.0_35
     - parallel@20210922
     - reframe@3.6.1 ^python@3.9.7 +optimizations
@@ -49,5 +35,4 @@ spack:
   #- libxpm ^gettext@0.21
   view: false
 # TODO: list as external in packages.yaml
-# TODO: write module projections
 # TODO: modules as core modules
