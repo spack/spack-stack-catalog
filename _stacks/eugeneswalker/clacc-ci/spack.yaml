@@ -1,0 +1,84 @@
+spack:
+  view: false
+  concretization: separately
+  packages:
+    all:
+      compiler:
+      - gcc@9.3.0
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+      target:
+      - x86_64
+      variants: +mpi
+    cuda:
+      version:
+      - 11.4.2
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls +plugins
+      version:
+      - 2.36.1
+    boost:
+      variants: visibility=global
+    doxygen:
+      version:
+      - 1.8.20
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    fftw:
+      variants: +openmp
+    hdf5:
+      variants: +fortran +hl +shared api=v18
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+  specs:
+  - llvm-doe@13.0.0 +clang +flang +compiler-rt +libcxx +lld +lldb +link_llvm_dylib
+    ~cuda ~all_targets
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
