@@ -1,12 +1,13 @@
 spack:
   definitions:
   - packages:
+    
 # ansys cfx, ansys fluent, comsol: no recipe, manual install?
 # charris: roms recipe in 0.17, user installs, see roms.yaml
 # charris: wrf recipe, user installs, see wrf.yaml
     - amber@20 +openmp
     - cpmd@4.3 +mpi +omp
-    - cp2k@8.1 +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
+    - cp2k@8.2 +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
     - gromacs@2020.2 +double +lapack +plumed ^plumed@2.6.1 ^python@3.9.7+optimizations
     - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
     - lammps@20210929 +asphere +body +class2 +colloid +compress +coreshell +dipole
@@ -19,15 +20,23 @@ spack:
       +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
       +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
       ^python@3.9.7+optimizations
+
+    
 # TODO: charmpp+namd yet to be made to work with Shasta/Slingshot
     - namd@2.14 interface=python fftw=3 ^python@3.9.7+optimizations ^charmpp@7.0.0
       backend=mpi
+
+    
 #TODO: - nektar@5.0.2 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 ) 
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
     - nwchem@7.0.2
+
+    
 # Failing:    - openfoam@v2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:
     - openfoam@v2012
+
+    
 # Failing:    - openfoam-org@8 #Alexis still working on it
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - vasp@5.4.4 +scalapack +vaspsol

@@ -51,6 +51,7 @@ spack:
     
     # some heavier numerical library builds 
     - opencv@4.5.2
+    - opencv@3.4.12
     - trilinos@13.0.1 +adios2 +openmp +python ~cuda ^python@3.9.7 +optimizations
     
     # TODO: currently unable to configure petsc with trilinos. 

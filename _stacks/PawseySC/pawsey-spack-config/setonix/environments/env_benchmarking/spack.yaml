@@ -1,0 +1,20 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # set perferred versions or any locally buildable packages here
+  #packages:
+  definitions:
+  
+  # sacore variants
+  # try running spack install --no-checksum 
+  - math-tests:
+    - hpl
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$math-tests]
+    - ['%gcc@10.3.0']
+  view: false

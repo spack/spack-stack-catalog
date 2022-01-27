@@ -44,7 +44,6 @@ spack:
     - py-funcsigs
     - py-pyfits
     - py-astropy
-    - py-boto3
     - py-healpy
     - py-emcee
 

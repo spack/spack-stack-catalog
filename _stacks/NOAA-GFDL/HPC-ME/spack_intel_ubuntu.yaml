@@ -30,6 +30,7 @@ spack:
    m4@1.4.19 %intel@2021.5.0,
    nasm@2.15.05 %intel@2021.5.0,
    ncurses@6.2 %intel@2021.5.0,
+   nccmp@1.9.0.1 ^intel-mpi@2019.10.317 %intel@2021.5.0,
    nemsio@2.5.2 ^intel-mpi@2019.10.317 %intel@2021.5.0,
    netcdf-c@4.8.0 ^hdf5+fortran+hl ^intel-mpi@2019.10.317 %intel@2021.5.0,
    netcdf-fortran@4.5.3 ^netcdf-c ^intel-mpi@2019.10.317 %intel@2021.5.0,
@@ -45,12 +46,12 @@ spack:
    udunits@2.2.28 %intel@2021.5.0,
    w3emc@2.9.0 %intel@2021.5.0,
    w3nco@2.4.1 %intel@2021.5.0,
-   wrf-io@1.2.0 %intel@2021.5.0,
+   wrf-io@1.2.0 ^intel-mpi@2019.10.317 %intel@2021.5.0,
    xerces-c@3.2.3 %intel@2021.5.0,
    xz@5.2.5 %intel@2021.5.0,
    zlib@1.2.11 %intel@2021.5.0,
    lmod@8.5.6 %intel@2021.5.0,
-   nco@4.7.9 %intel@2021.5.0]
+   nco@4.7.9 ^intel-mpi@2019.10.317 %intel@2021.5.0]
   view: /opt/view
   mirrors:
     e4s: https://cache.e4s.io
