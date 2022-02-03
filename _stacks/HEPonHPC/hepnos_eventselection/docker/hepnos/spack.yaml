@@ -1,8 +1,7 @@
 spack:
   specs:
-  - hepnos@0.5  cxxstd=14 target=x86_64
-  - hepnos-dataloader@0.4 target=x86_64
-  - hepnos-pep-benchmark@0.4 target=x86_64
+  - hepnos@0.6  cxxstd=14 target=x86_64
+  - hepnos-dataloader@0.5 target=x86_64
   - mpich~wrapperrpath+argobots pmi=pmi2 device=ch4 netmod=ofi
   - libfabric fabrics=tcp,rxm
   concretization: together
@@ -19,24 +18,11 @@ spack:
         # instead which provides both the symbols and the versions.
         uuid:
         - util-linux-uuid
-    autoconf:
-      externals:
-      - spec: autoconf@2.63.0
-        prefix: /usr
-    automake:
-      externals:
-      - spec: automake@1.11.1
-        prefix: /usr
     boost:
       buildable: false
       externals:
       - spec: boost@1.66.0
         prefix: /cvmfs/nova.opensciencegrid.org/externals/boost/v1_66_0a/Linux64bit+2.6-2.12-e15-prof
-    cmake:
-      buildable: false
-      externals:
-      - spec: cmake@3.14.3
-        prefix: /cvmfs/nova.opensciencegrid.org/externals/cmake/v3_14_3/Linux64bit+2.6-2.12
     coreutils:
       externals:
       - spec: coreutils@8.4
@@ -59,14 +45,8 @@ spack:
       externals:
       - spec: hdf5@1.10.2
         prefix: /cvmfs/nova.opensciencegrid.org/externals/hdf5/v1_10_2a/Linux64bit+2.6-2.12-e15
-    m4:
-      externals:
-      - spec: m4@1.4.13
-        prefix: /usr
     mercury:
       variants: +udreg ~boostsys
-    mochi-sdskv:
-      variants: ~leveldb ~bdb
     pkg-config:
       buildable: false
       externals:
