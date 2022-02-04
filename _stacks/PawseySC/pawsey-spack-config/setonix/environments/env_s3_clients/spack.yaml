@@ -10,7 +10,7 @@ spack:
     - py-boto3@1.18.12
   - s3-go-set:
     - rclone@1.56.2
-    - miniocli@2022-01-05T23-52-51Z
+    - miniocli@2022-02-02T02-03-24Z
 
   # add package specs to the `specs` list
   specs:
