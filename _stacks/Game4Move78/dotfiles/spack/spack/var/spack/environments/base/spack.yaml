@@ -1,0 +1,39 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [gcc, emacs@master+X+native+tls, git, gh, feh, htop]
+  view: true
+  concretization: together
+  packages:
+    all:
+      compiler: [gcc@9.3.0]
+  compilers:
+  - compiler:
+      spec: gcc@8.4.0
+      paths:
+        cc: /usr/bin/gcc-8
+        cxx: /usr/bin/g++-8
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /home/patrick/spack/var/spack/environments/base/.spack-env/view/bin/gcc
+        cxx: /home/patrick/spack/var/spack/environments/base/.spack-env/view/bin/g++
+        f77: /home/patrick/spack/var/spack/environments/base/.spack-env/view/bin/gfortran
+        fc: /home/patrick/spack/var/spack/environments/base/.spack-env/view/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
