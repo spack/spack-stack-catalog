@@ -303,7 +303,6 @@ spack:
       ncl:
         suffixes:
           builtin.ncl ^hdf5+mpi^netcdf+mpi: parallel
-          olcf.ncl: serial
         filter:
           environment_blacklist: []
         conflict: []

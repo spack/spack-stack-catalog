@@ -170,8 +170,10 @@ spack:
     #- gromacs@2020.2+hwloc+cuda+mpi %gcc@8.3.1 ^cuda@:10.99
     #- openmpi@3.1.4%gcc@8.3.1+cuda
     - openmpi@3.1.4%gcc@8.3.1
-    - ncl%gcc@8.3.1~mpi
-    - ncl%gcc@8.3.1+mpi
+    - ncl%gcc@10.3.0 ^esmf~mpi~pnetcdf ^netcdf-c~mpi~parallel-netcdf ^hdf5+szip~mpi
+    - ncl%gcc@10.3.0
+    - ncl@6.5.0%gcc@10.3.0 ^esmf~mpi~pnetcdf ^netcdf-c~mpi~parallel-netcdf ^hdf5+szip~mpi
+    - ncl@6.5.0%gcc@10.3.0
     - ncview%gcc@8.3.1
     - dftbplus%gcc@8.3.1+elsi+mpi+sockets+transport ^elsi+enable_pexsi
     - r%gcc@8.3.1+X
@@ -453,8 +455,8 @@ spack:
         conflict: []
       ncl:
         suffixes:
-          ncl+mpi: parallel
-          ncl~mpi: serial
+          ncl ^esmf+mpi: parallel
+          ncl ^esmf~mpi: serial
         filter:
           environment_blacklist: []
         conflict: []
@@ -581,8 +583,8 @@ spack:
       - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit ^hdf5+mpi ^libpng@:1.6.0
       - paraview%gcc@8.3.1+mpi+hdf5+opengl2+osmesa+silo+visit+python3 ^hdf5+mpi ^libpng@:1.6.0
       - ncview%gcc@8.3.1
-      - ncl%gcc@8.3.1+mpi
-      - ncl%gcc@8.3.1~mpi
+      - ncl%gcc@10.3.0 ^esmf+mpi
+      - ncl%gcc@10.3.0 ^esmf~mpi
       whitelist: []
     tcl:
       hash_length: 3

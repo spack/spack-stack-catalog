@@ -19,6 +19,7 @@ spack:
     - '%clang@12.0.0-0'
     - '%clang@10.0.1-0'
   - nv_compilers:
+    - '%nvhpc@21.11'
     - '%nvhpc@21.9'
     - '%nvhpc@21.7'
     - '%nvhpc@21.5'
@@ -73,6 +74,7 @@ spack:
     - hpcviewer@2021.03
     - cube@4.6+gui
     - bear
+    - ffmpeg+X+avresample+libaom+libmp3lame+libopenjpeg+libopus+libsnappy+libspeex+libvorbis+libvpx+libzmq+nonfree
     # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:
@@ -88,12 +90,20 @@ spack:
     - adios2 +python ^python@3.7.7
     - adios@1.13.1+blosc+bzip2+fortran+hdf5+infiniband+netcdf
     - gdrcopy
-    - gromacs        +hwloc+cuda+mpi ^cuda@10.2.89
-    - gromacs        +hwloc+cuda~mpi ^cuda@10.2.89
-    - gromacs@2020.4 +hwloc+cuda+mpi ^cuda@10.2.89
-    - gromacs@2020.4 +hwloc+cuda~mpi ^cuda@10.2.89
-    - gromacs@2020.2 +hwloc+cuda+mpi ^cuda@10.2.89
-    - gromacs@2020.2 +hwloc+cuda~mpi ^cuda@10.2.89
+    - gromacs        +hwloc+cuda+mpi        ^cuda@11.0.3
+    - gromacs        +hwloc+cuda~mpi        ^cuda@11.0.3
+    - gromacs        +hwloc+cuda+mpi+plumed ^cuda@11.0.3 ^plumed@2.7.3
+    - gromacs        +hwloc+cuda~mpi+plumed ^cuda@11.0.3 ^plumed@2.7.3
+    - gromacs@2020.4 +hwloc+cuda+mpi        ^cuda@11.0.3
+    - gromacs@2020.4 +hwloc+cuda~mpi        ^cuda@11.0.3
+    - gromacs@2020.4 +hwloc+cuda+mpi+plumed ^cuda@11.0.3
+    - gromacs@2020.4 +hwloc+cuda~mpi+plumed ^cuda@11.0.3
+    - gromacs@2020.2 +hwloc+cuda+mpi        ^cuda@11.0.3
+    - gromacs@2020.2 +hwloc+cuda~mpi        ^cuda@11.0.3
+    - gromacs@2020.2 +hwloc+cuda+mpi+plumed ^cuda@11.0.3
+    - gromacs@2020.2 +hwloc+cuda~mpi+plumed ^cuda@11.0.3
+    - openblas threads=pthreads
+    - openblas threads=none
   - general_compute_packages:
     - netlib-lapack
     - netlib-scalapack
@@ -492,6 +502,7 @@ spack:
   - gcc_specs:
     - matrix:
       - - openblas threads=openmp
+        - openblas threads=pthreads
         - openblas threads=none
         - netlib-scalapack ^openblas threads=openmp
       - - '%gcc@9.3.0'
@@ -1075,6 +1086,7 @@ spack:
           load: []
           suffixes:
             gromacs ~mpi: serial
+            gromacs +plumed: plumed
         hpx:
           suffixes:
             hpx ^boost@1.72.0: boost1.72.0
@@ -1176,6 +1188,9 @@ spack:
           filter:
             environment_blacklist: [CPATH, LIBRARY_PATH]
           load: []
+        plumed:
+          suffixes:
+            plumed~mpi: serial
         qthreads:
           conflict: []
           environment:
@@ -1603,6 +1618,18 @@ spack:
       spec: nvhpc@21.9
       operating_system: rhel8
       modules: [nvhpc/21.9]
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: nvfortran
+        fc: nvfortran
+      extra_rpaths: []
+      environment: {}
+      flags: {}
+  - compiler:
+      spec: nvhpc@21.11
+      operating_system: rhel8
+      modules: [nvhpc/21.11]
       paths:
         cc: nvc
         cxx: nvc++

@@ -8,17 +8,17 @@ spack:
   - gcc_compilers:
     - '%gcc@11.2.0'
     - '%gcc@10.3.0'
-    - '%gcc@10.2.0'
     - '%gcc@9.3.0'
   - cray_compilers:
+    - '%cce@13.0.1'
     - '%cce@13.0.0'
     - '%cce@12.0.3'
-    - '%cce@12.0.2'
-    - '%cce@12.0.1'
-    # - '%cce@12.0.0'
+  - amd_compilers:
+    - '%clang@13.0.0-rocm4.5.0'
   - all_compilers:
     - $gcc_compilers
     - $cray_compilers
+    - $amd_compilers
   - core_packages:
     - git
     - htop
@@ -41,9 +41,11 @@ spack:
     - libzmq
     - gnupg
     - googletest
+    - git-lfs
     - imagemagick
     - exuberant-ctags@5.8
     - libpng@1.2.57
+    - julia+cxx
     - wget
     - bazel ^openjdk@11.0:11.99
     - openblas@0.3.17 threads=none
@@ -240,68 +242,13 @@ spack:
       - - $core_packages
       - - $core_compiler
       - - arch=linux-sles15-x86_64
-  - cpe21.07_specs:
+  - cpe21.12_specs:
     - matrix:
       - - $e4s_21.08_packages
-        - $e4s_21.05_packages
       - - '%gcc@11.2.0'
         - '%gcc@10.3.0'
-        - '%gcc@10.2.0'
-      - - ^cray-mpich@8.1.7
-      - - ^hip@4.5.0
-      - - ^hipblas@4.5.0
-      - - ^hipsparse@4.5.0
-      - - ^rocblas@4.5.0
-      - - ^rocrand@4.5.0
-      - - ^rocsolver@4.5.0
-      - - ^rocsparse@4.5.0
-      - - ^rocthrust@4.5.0
-      - - arch=cray-sles15-zen2
-      exclude:
-      - archer%gcc # ^llvm@8.0.0 fails, reason unknown
-      - strumpack%gcc # fails due to failure to find mpi.h
-      - unifyfs%gcc@11.2.0
-      - conduit%gcc@11.2.0 # C++17 libstdc++ header changes.
-      - ascent@0.7.1%gcc@11.2.0 # conduit@0.7.2 dependency
-    - matrix:
-      - - $e4s_21.08_packages
-        - $e4s_21.05_packages
-        - slate@2021.05.02
-      - - '%cce@12.0.1'
-        # - '%cce@12.0.0'
-      - - ^cray-mpich@8.1.7
-      - - ^hip@4.2.0
-      - - ^hipblas@4.2.0
-      - - ^hipsparse@4.2.0
-      - - ^rocblas@4.2.0
-      - - ^rocrand@4.2.0
-      - - ^rocsolver@4.2.0
-      - - ^rocsparse@4.2.0
-      - - ^rocthrust@4.2.0
-      - - arch=cray-sles15-zen2
-      exclude:
-      - archer%cce
-      - caliper%cce
-      - dyninst%cce ## os elfutils insufficient
-      - hpctoolkit%cce ## depends on dyninst
-      - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
-      - petsc@3.15.0%cce@12.0.0:12.0.1
-      - precice@2.2.1%cce@12.0.0:13.0.0.1
-      - slate%cce ^openblas
-      - slepc@3.15.0:3.15.1%cce@12.0.0:12.0.3   # config.package.FortranLib syntax error
-      - stat%cce
-      - strumpack%cce ^openblas
-      - tau+elf
-      - unifyfs%cce
-  - cpe21.10_specs:
-    - matrix:
-      - - $e4s_21.08_packages
-        - $e4s_21.05_packages
-      - - '%gcc@11.2.0'
-        - '%gcc@10.3.0'
-        - '%gcc@10.2.0'
         - '%gcc@9.3.0'
-      - - ^cray-mpich@8.1.10
+      - - ^cray-mpich@8.1.12
       - - ^hip@4.5.0
       - - ^hipblas@4.5.0
       - - ^hipsparse@4.5.0
@@ -320,13 +267,40 @@ spack:
       - ascent@0.7.1%gcc@11.2.0 # conduit@0.7.2 dependency
     - matrix:
       - - $e4s_21.08_packages
-        - $e4s_21.05_packages
+        - slate@2021.05.02
+      - - '%cce@13.0.1'
+        - '%cce@13.0.0'
+      - - ^cray-mpich@8.1.12
+      - - ^hip@4.5.0
+      - - ^hipblas@4.5.0
+      - - ^hipsparse@4.5.0
+      - - ^rocblas@4.5.0
+      - - ^rocrand@4.5.0
+      - - ^rocsolver@4.5.0
+      - - ^rocsparse@4.5.0
+      - - ^rocthrust@4.5.0
+      - - arch=cray-sles15-zen2
+      exclude:
+      - archer%cce
+      - caliper%cce
+      - dyninst%cce ## os elfutils insufficient
+      - hpctoolkit%cce ## depends on dyninst
+      - omega-h@9.32.5%cce # uses implicit copy assignment operator; -Werror,-Wdeprecated-copy
+      - openblas
+      - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
+      - petsc@3.15.0%cce@12.0.0:12.0.1
+      - precice@2.2.1%cce@12.0.0:13.0.0.1
+      - slate%cce ^openblas
+      - slepc@3.15.0:3.15.1%cce   # config.package.FortranLib syntax error
+      - stat%cce
+      - strumpack%cce ^openblas
+      - tau+elf
+      - unifyfs%cce
+    - matrix:
+      - - $e4s_21.08_packages
         - slate@2021.05.02
       - - '%cce@12.0.3'
-        - '%cce@12.0.2'
-        - '%cce@12.0.1'
-        # - '%cce@12.0.0'
-      - - ^cray-mpich@8.1.10
+      - - ^cray-mpich@8.1.12
       - - ^hip@4.2.0
       - - ^hipblas@4.2.0
       - - ^hipsparse@4.2.0
@@ -346,16 +320,15 @@ spack:
       - petsc@3.15.0%cce@12.0.0:12.0.1
       - precice@2.2.1%cce@12.0.0:13.0.0.1
       - slate%cce ^openblas
-      - slepc@3.15.0:3.15.1%cce@12.0.0:12.0.3   # config.package.FortranLib syntax error
+      - slepc@3.15.0:3.15.1%cce   # config.package.FortranLib syntax error
       - stat%cce
       - strumpack%cce ^openblas
       - tau+elf
       - unifyfs%cce
     - matrix:
       - - $e4s_21.08_packages
-        - slate@2021.05.02
-      - - '%cce@13.0.0'
-      - - ^cray-mpich@8.1.10
+      - - '%clang@13.0.0-rocm4.5.0'
+      - - ^cray-mpich@8.1.12
       - - ^hip@4.5.0
       - - ^hipblas@4.5.0
       - - ^hipsparse@4.5.0
@@ -366,25 +339,24 @@ spack:
       - - ^rocthrust@4.5.0
       - - arch=cray-sles15-zen2
       exclude:
-      - archer%cce
-      - caliper%cce
-      - dyninst%cce ## os elfutils insufficient
-      - hpctoolkit%cce ## depends on dyninst
-      - omega-h@9.32.5%cce@13.0.0 # uses implicit copy assignment operator; -Werror,-Wdeprecated-copy
-      - openblas
-      - parsec@:3.0.2012   # -Wmisleading-indentation -Werror
-      - petsc@3.15.0%cce@12.0.0:12.0.1
-      - precice@2.2.1%cce@12.0.0:13.0.0.1
-      - slate%cce ^openblas
-      - slepc@3.15.0:3.15.1%cce@12.0.0:13.0.0.1   # config.package.FortranLib syntax error
-      - stat%cce
-      - strumpack%cce ^openblas
-      - tau+elf
-      - unifyfs%cce
+      - archer%clang
+      - ascent%clang
+      - caliper%clang
+      - conduit%clang
+      - dyninst%clang ## os elfutils insufficient
+      - hpctoolkit%clang ## depends on dyninst
+      - tau%clang+elf
+      - flecsi%clang
+      - strumpack%clang ^openblas
+      - slate%clang ^openblas
+      - magma@2.6.1%clang
+      - slepc@3.15.0:3.15.1%clang
+      - unifyfs%clang
+      - parsec%clang
+      - omega-h%clang
   specs:
   - $core_specs
-  # - $cpe21.07_specs
-  - $cpe21.10_specs
+  - $cpe21.12_specs
   #############################################################################
   mirrors:
     facility_builds: /sw/bones/spack-env/mirrors/builds
@@ -445,7 +417,7 @@ spack:
       externals:
         - modules:
             - cray-libsci/21.08.1.2
-            - cray-mpich/8.1.10
+            - cray-mpich/8.1.12
           spec: cray-libsci@21.08.1.2
         - modules:
             - cray-libsci/21.06.1.1
@@ -456,6 +428,9 @@ spack:
       buildable: false
       compiler: []
       externals:
+        - modules:
+            - cray-mpich/8.1.12
+          spec: cray-mpich@8.1.12
         - modules:
             - cray-mpich/8.1.10
           spec: cray-mpich@8.1.10
@@ -473,7 +448,7 @@ spack:
           spec: cray-mpich@8.1.6
       providers: {}
       target: []
-      version: [8.1.10, 8.1.9, 8.1.7, 8.1.6]
+      version: [8.1.12, 8.1.10, 8.1.9, 8.1.7, 8.1.6]
     darshan-runtime:
       buildable: true
       compiler: []
@@ -586,13 +561,13 @@ spack:
     hipify-clang:
       buildable: false
       externals:
-        - prefix: /opt/rocm-4.5.0 #FIXME
+        - prefix: /opt/rocm-4.5.0
           spec: hipify-clang@4.5.0
-        - prefix: /opt/rocm-4.3.0 #FIXME
+        - prefix: /opt/rocm-4.3.0
           spec: hipify-clang@4.3.0
-        - prefix: /opt/rocm-4.2.0 #FIXME
+        - prefix: /opt/rocm-4.2.0
           spec: hipify-clang@4.2.0
-        - prefix: /opt/rocm-4.1.0 #FIXME
+        - prefix: /opt/rocm-4.1.0
           spec: hipify-clang@4.1.0
       version: [4.5.0, 4.3.0, 4.2.0, 4.1.0]
     hipsparse:
@@ -1170,7 +1145,6 @@ spack:
           load: []
           suffixes:
             builtin.ncl ^hdf5+mpi^netcdf+mpi: parallel
-            olcf.ncl: serial
         openblas:
           conflict: []
           environment:
@@ -1254,6 +1228,7 @@ spack:
         - berkeley-db
         - boost%gcc visibility=global
         - cray-mpich
+        - cray-libsci
         - glib
         - glproto
         - go-bootstrap
@@ -1284,6 +1259,7 @@ spack:
         - libxfont
         - libxpm
         - libxslt
+        - llvm
         - lua
         - m4
         - meson
@@ -1455,10 +1431,10 @@ spack:
   - compiler:
       spec: gcc@9.3.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1472,10 +1448,10 @@ spack:
   - compiler:
       spec: gcc@10.2.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1489,10 +1465,10 @@ spack:
   - compiler:
       spec: gcc@10.3.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1506,10 +1482,10 @@ spack:
   - compiler:
       spec: gcc@11.2.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1523,10 +1499,10 @@ spack:
   - compiler:
       spec: cce@12.0.1
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1546,10 +1522,10 @@ spack:
   - compiler:
       spec: cce@12.0.2
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1569,16 +1545,16 @@ spack:
   - compiler:
       spec: cce@12.0.3
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
       modules:
       - PrgEnv-cray
-      - cce/12.0.2
+      - cce/12.0.3
       - craype-x86-rome
       - libfabric
       environment:
@@ -1592,10 +1568,10 @@ spack:
   - compiler:
       spec: cce@13.0.0
       paths:
-        cc: /opt/cray/pe/craype/2.7.11/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.11/bin/CC
-        f77: /opt/cray/pe/craype/2.7.11/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.11/bin/ftn
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
       flags: {}
       operating_system: sles15
       target: any
@@ -1610,5 +1586,54 @@ spack:
         append_path:
           LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
       extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: cce@13.0.1
+      paths:
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.1
+      - craype-x86-rome
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: clang@13.0.0-rocm4.5.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd
+      - amd/4.5.0
+      - craype-x86-rome
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+          LIBRARY_PATH: /opt/rocm-4.5.0/lib:/opt/rocm-4.5.0/lib64
+      extra_rpaths:
+      - /opt/rocm-4.5.0/lib
+      - /opt/rocm-4.5.0/lib64
       - /opt/cray/pe/gcc-libs
       - /opt/cray/gcc-libs
