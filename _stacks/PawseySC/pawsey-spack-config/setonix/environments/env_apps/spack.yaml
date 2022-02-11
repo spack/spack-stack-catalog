@@ -7,9 +7,9 @@ spack:
 # charris: wrf recipe, user installs, see wrf.yaml
     - amber@20 +openmp
     - cpmd@4.3 +mpi +omp
-    - cp2k@8.2 +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
-    - gromacs@2020.2 +double +lapack +plumed ^plumed@2.6.1 ^python@3.9.7+optimizations
-    - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2 ^python@3.9.7+optimizations
+    - cp2k@8.2 +plumed ^plumed@2.7.2
+    - gromacs@2020.2 +double +lapack +plumed ^plumed@2.6.1
+    - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2
     - lammps@20210929 +asphere +body +class2 +colloid +compress +coreshell +dipole
       +ffmpeg +granular +jpeg +kim +kokkos +kspace +latte +manybody +mc +misc +mliap
       +molecule +mpiio +opt +peri +png +poems +python +qeq +replica +rigid +shock
@@ -19,11 +19,10 @@ spack:
       +user-mofff +user-netcdf +user-omp +user-phonon +user-plumed +user-ptm +user-qtb
       +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
       +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
-      ^python@3.9.7+optimizations
 
     
 # TODO: charmpp+namd yet to be made to work with Shasta/Slingshot
-    - namd@2.14 interface=python fftw=3 ^python@3.9.7+optimizations ^charmpp@7.0.0
+    - namd@2.14 interface=python fftw=3 ^charmpp@7.0.0
       backend=mpi
 
     

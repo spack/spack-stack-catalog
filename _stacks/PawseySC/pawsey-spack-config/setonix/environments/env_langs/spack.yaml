@@ -19,5 +19,4 @@ spack:
 # TODO: enable targets
 #    - ['target=zen2']
   view: false
-# TODO: list as external in packages.yaml
 # TODO: modules as core modules

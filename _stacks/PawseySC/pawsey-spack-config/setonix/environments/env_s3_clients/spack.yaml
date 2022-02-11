@@ -16,7 +16,6 @@ spack:
   specs:
   - matrix:
     - [$s3-python-set]
-    - [^python@3.9.7 +optimizations]
     - ['%gcc@10.3.0']
   - matrix:
     - [$s3-go-set]
