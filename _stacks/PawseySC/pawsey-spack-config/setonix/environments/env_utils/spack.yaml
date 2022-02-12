@@ -11,7 +11,7 @@ spack:
     - nextflow@21.10.5
     - parallel@20210922
     - reframe@3.6.1
-    - singularity@3.8.5
+    - singularity@3.8.6
   - licensed:
     - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
   specs:

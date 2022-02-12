@@ -3,7 +3,7 @@ spack:
   - packages:
 # aocc, rocm, gcc, llvm: provided by system installations
 # python: installed in env_python
-    - go@1.16.4
+    - go@1.16.12
     # NotReadyYet:    
     # - julia@1.6.1 #Default recipe is very weak. Faulty. Lots of needed dependencies are missing.
     - openjdk@17.0.0_35
