@@ -1,0 +1,74 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  compilers:
+  - compiler:
+      spec: clang@13.0.1
+      paths:
+        cc: /usr/bin/clang-13
+        cxx: /usr/bin/clang++-13
+        f77: /usr/bin/gfortran-10
+        fc: /usr/bin/gfortran-10
+      flags:
+        cxxflags: -stdlib=libc++
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths:
+      - /lib/gcc/x86_64-linux-gnu/10/libgfortran.so
+  packages:
+    all:
+      target:
+      - 'haswell'
+      compiler:
+      - 'clang'
+      providers:
+        # Cannot use intel-oneapi-mpi with clang
+        # for some reason, so use mpich for now.
+        mpi:
+        - mpich
+        blas:
+        - openblas
+        lapack:
+        - openblas
+  specs:
+  - mpich@develop~fortran device=ch4 netmod=ofi  
+  - hdf5@1.12.1+hl+mpi
+  - fftw+mpi+openmp
+  - gsl
+  - kokkos+openmp~cuda std=17
+  - python
+  - py-numpy
+  - py-mpi4py
+  - py-h5py+mpi
+  - py-pytest
+  - ninja  
+  concretization: together
+  view: true
+  container:
+    format: docker
+    images:
+      os: ubuntu:20.04
+      spack: develop
+    os_packages:
+      build:
+      - build-essential
+      - bash
+      - perl
+      - cmake
+      - wget  
+      - gcc-10
+      - g++-10  
+      - gfortran-10  
+      final:
+      - build-essential
+      - bash
+      - cmake
+      - git  
+      - wget 
+      - gcc-10  
+      - g++-10  
+      - gfortran-10  

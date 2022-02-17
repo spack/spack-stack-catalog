@@ -1,0 +1,48 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      target:
+      - 'haswell'
+      providers:
+        mpi:
+        - intel-oneapi-mpi
+        blas:
+        - openblas
+        lapack:
+        - openblas
+  specs:
+  - hdf5@1.12.1+hl+mpi
+  - fftw+mpi+openmp
+  - gsl
+  - kokkos+openmp~cuda std=17
+  - python
+  - py-numpy
+  - py-mpi4py
+  - py-h5py+mpi
+  - py-pytest
+  - ninja
+  concretization: together
+  view: true
+  container:
+    format: docker
+    images:
+      os: ubuntu:20.04
+      spack: develop
+    os_packages:
+      build:
+      - build-essential
+      - bash
+      - perl
+      - cmake
+      - gfortran
+      final:
+      - build-essential
+      - bash
+      - cmake
+      - git
+      - wget
+      - gfortran
