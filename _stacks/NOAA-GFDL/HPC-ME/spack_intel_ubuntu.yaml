@@ -29,6 +29,7 @@ spack:
    libyaml@0.2.5 %intel@2021.5.0,
    m4@1.4.19 %intel@2021.5.0,
    nasm@2.15.05 %intel@2021.5.0,
+   ncl@6.6.2 ^intel-mpi@2019.10.317 %intel@2021.5.0,
    ncurses@6.2 %intel@2021.5.0,
    nccmp@1.9.0.1 ^intel-mpi@2019.10.317 %intel@2021.5.0,
    nemsio@2.5.2 ^intel-mpi@2019.10.317 %intel@2021.5.0,
