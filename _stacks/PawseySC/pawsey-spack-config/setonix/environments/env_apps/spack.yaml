@@ -20,12 +20,18 @@ spack:
       +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
       +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
+
+    
 #TODO: - nektar@5.0.2 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 ) 
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
     - nwchem@7.0.2
+
+    
 # Failing:    - openfoam@v2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:
     - openfoam@v2012
+
+    
 # Failing:    - openfoam-org@8 #Alexis still working on it
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - vasp@5.4.4 +scalapack +vaspsol
@@ -38,4 +44,5 @@ spack:
 #    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
 # TODO: check and enable cpu arch optimisations
 #    - ['target=zen2', 'target=zen3']
+  - openfoam@2012%gcc@10.3.0~float32~int64~kahip~knl~metis~mgridgen~paraview+scotch+source~spdp~vtk~zoltan
   view: false
