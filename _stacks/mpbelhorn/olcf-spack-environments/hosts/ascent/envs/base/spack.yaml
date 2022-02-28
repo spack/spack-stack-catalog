@@ -1,4 +1,4 @@
-# OLCF Summit Spack Environment
+# OLCF Ascent Spack Environment
 
 spack:
   #############################################################################
@@ -14,7 +14,7 @@ spack:
     - '%gcc@11.1.0'
   - xl_compilers:
     - '%xl@16.1.1-10'
-    - '%xl@16.1.1-beta103'
+    # - '%xl@16.1.1-beta103'
   - llvm_compilers:
     - '%clang@12.0.0-0'
     - '%clang@10.0.1-0'
@@ -53,6 +53,7 @@ spack:
     - libevent@2.1.8 +openssl
     - valgrind ~ubsan~mpi~boost
     - ccache
+    - texinfo
     - papi~cuda
     - gdb@10.2
     - libzmq
@@ -631,11 +632,11 @@ spack:
       - adios2+zpf
       - netlib-lapack
       - parallelio
-      # xl beta103 libm macro errors:
-      - netcdf-c@4.8.0%xl@16.1.1-beta103
-      - netcdf-fortran@4.4.5%xl@16.1.1-beta103
-      - netcdf-cxx4@4.3.1%xl@16.1.1-beta103
-      - parallel-io@2.3.0%xl@16.1.1-beta103
+      # # xl beta103 libm macro errors:
+      # - netcdf-c@4.8.0%xl@16.1.1-beta103
+      # - netcdf-fortran@4.4.5%xl@16.1.1-beta103
+      # - netcdf-cxx4@4.3.1%xl@16.1.1-beta103
+      # - parallel-io@2.3.0%xl@16.1.1-beta103
   - nv_specs:
     - matrix:
       - - $general_compute_packages
@@ -690,7 +691,7 @@ spack:
   # - py-pip%gcc@8.3.1 ^/eltc6cg
   #############################################################################
   mirrors:
-    facility_builds: /sw/summit/spack-envs/mirrors/builds
+    facility_builds: /sw/ascent/spack-envs/mirrors/builds
   repos:
   - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
   #############################################################################
@@ -763,7 +764,7 @@ spack:
       compiler: []
       providers: {}
       target: []
-      variants: +grouplogs scheduler=lsf logpath=/gpfs/alpine/darshan/summit
+      variants: +grouplogs scheduler=lsf logpath=/gpfs/wolf/darshan/ascent
       version: []
     fftw:
       buildable: true
@@ -778,7 +779,7 @@ spack:
       buildable: false
       compiler: []
       externals:
-        - prefix: /sw/summit/go/1.7.1-bootstrap
+        - prefix: /sw/ascent/go/1.7.1-bootstrap
           spec: go-bootstrap@1.7.1-bootstrap
       providers: {}
       target: []
@@ -858,11 +859,11 @@ spack:
       buildable: false
       compiler: []
       externals:
-        - prefix: /opt/ibm/spectrumcomputing/lsf/10.1.0.10
-          spec: lsf@10.1.0.10
+        - prefix: /opt/ibm/spectrumcomputing/lsf/10.1.0.11
+          spec: lsf@10.1.0.11
       providers: {}
       target: []
-      version: [10.1.0.10]
+      version: [10.1.0.11]
     magma:
       buildable: true
       compiler: []
@@ -933,7 +934,7 @@ spack:
       variants: +cuda cuda_arch=70
       version: []
     spectral:
-      variants: ~examples prologue_dir=/sw/summit/spectral/usr/local
+      variants: ~examples prologue_dir=/sw/ascent/spectral/usr/local
     spectrum-mpi:
       buildable: true
       compiler: []
@@ -1273,13 +1274,13 @@ spack:
         whitelist:
         - mercury~mpi ^libfabric@1.12.1~kdreg  fabrics=rxm,sockets,tcp,udp,verbs
         - libfabric fabrics=rxm,sockets,tcp,udp,verbs
-        - python@3.8.10%gcc@8.3.1 /ethjbxn
-        - python@3.7.7%gcc@8.3.1 /eltc6cg
-        - python@2.7.15%gcc@8.3.1 /6u3drkn
+        # - python@3.8.10%gcc@8.3.1 /ethjbxn
+        # - python@3.7.7%gcc@8.3.1 /eltc6cg
+        # - python@2.7.15%gcc@8.3.1 /6u3drkn
         - adios2%gcc@8.3.1
         blacklist:
         - '%gcc@8-os'
-        - adios2@2.6.0%clang@10.0.1-0~zfp
+        # - adios2@2.6.0%clang@10.0.1-0~zfp
         - adios2@2.6.0%gcc~zfp
         - berkeley-db
         - binutils~nls
@@ -1410,11 +1411,13 @@ spack:
     - ${FACSPACK_CONF_COMMON}/spack/templates
     - $spack/share/spack/templates
     build_stage:
+    ## Placeholder to be used when necessary (see commit message).
+    # - /gpfs/wolf/stf007/proj-shared/$USER/ascent/spack-stage
     - $tempdir/$user/spack-stage
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
     extensions:
-    - /sw/sources/facility-spack/summit/share/spack/extensions/spack-olcf
+    - /sw/sources/facility-spack/ascent/share/spack/extensions/spack-olcf
     misc_cache: ${FACSPACK_ENV}/.mcache
     verify_ssl: true
     install_missing_compilers: false
@@ -1649,8 +1652,8 @@ spack:
       operating_system: rhel8
       modules: [llvm/10.0.1]
       paths:
-        cc: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang
-        cxx: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang++
+        cc: /sw/ascent/llvm/10.0.1/10.0.1-0/bin/clang
+        cxx: /sw/ascent/llvm/10.0.1/10.0.1-0/bin/clang++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       extra_rpaths: []
@@ -1661,59 +1664,59 @@ spack:
       operating_system: rhel8
       modules: [llvm/12.0.0]
       paths:
-        cc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang
-        cxx: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang++
-        f77: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
-        fc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
+        cc: /sw/ascent/llvm/12.0.0/12.0.0-0/bin/clang
+        cxx: /sw/ascent/llvm/12.0.0/12.0.0-0/bin/clang++
+        f77: /sw/ascent/llvm/12.0.0/12.0.0-0/bin/flang
+        fc: /sw/ascent/llvm/12.0.0/12.0.0-0/bin/flang
       extra_rpaths: []
       environment: {}
       flags: {}
-  - compiler:
-      spec: xl@16.1.1-8
-      operating_system: rhel8
-      modules: [xl/16.1.1-8]
-      paths:
-        cc: /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf2008_r
-      extra_rpaths:
-      - /sw/summit/xl/16.1.1-8-1/lib
-      - /sw/summit/xl/16.1.1-8-1/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-8-1/xlC/16.1.1/lib
-      environment: {}
-      flags: {}
+  # - compiler:
+  #     spec: xl@16.1.1-8
+  #     operating_system: rhel8
+  #     modules: [xl/16.1.1-8]
+  #     paths:
+  #       cc: /sw/ascent/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc_r
+  #       cxx: /sw/ascent/xl/16.1.1-8-1/xlC/16.1.1/bin/xlc++_r
+  #       f77: /sw/ascent/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf_r
+  #       fc: /sw/ascent/xl/16.1.1-8-1/xlf/16.1.1/bin/xlf2008_r
+  #     extra_rpaths:
+  #     - /sw/ascent/xl/16.1.1-8-1/lib
+  #     - /sw/ascent/xl/16.1.1-8-1/xlf/16.1.1/lib
+  #     - /sw/ascent/xl/16.1.1-8-1/xlC/16.1.1/lib
+  #     environment: {}
+  #     flags: {}
   - compiler:
       spec: xl@16.1.1-10
       operating_system: rhel8
       modules: [xl/16.1.1-10]
       paths:
-        cc: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf2008_r
+        cc: /sw/ascent/xl/16.1.1-10/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/ascent/xl/16.1.1-10/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/ascent/xl/16.1.1-10/xlf/16.1.1/bin/xlf_r
+        fc: /sw/ascent/xl/16.1.1-10/xlf/16.1.1/bin/xlf2008_r
       extra_rpaths:
-      - /sw/summit/xl/16.1.1-10/lib
-      - /sw/summit/xl/16.1.1-10/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-10/xlC/16.1.1/lib
+      - /sw/ascent/xl/16.1.1-10/lib
+      - /sw/ascent/xl/16.1.1-10/xlf/16.1.1/lib
+      - /sw/ascent/xl/16.1.1-10/xlC/16.1.1/lib
       environment:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
-  - compiler:
-      spec: xl@16.1.1-beta103
-      operating_system: rhel8
-      modules: [xl/16.1.1-beta103]
-      paths:
-        cc: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf2008_r
-      extra_rpaths:
-      - /sw/summit/xl/16.1.1-beta103/lib
-      - /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/lib
-      environment:
-        append_path:
-          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
-      flags: {}
+  # - compiler:
+  #     spec: xl@16.1.1-beta103
+  #     operating_system: rhel8
+  #     modules: [xl/16.1.1-beta103]
+  #     paths:
+  #       cc: /sw/ascent/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc_r
+  #       cxx: /sw/ascent/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc++_r
+  #       f77: /sw/ascent/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf_r
+  #       fc: /sw/ascent/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf2008_r
+  #     extra_rpaths:
+  #     - /sw/ascent/xl/16.1.1-beta103/lib
+  #     - /sw/ascent/xl/16.1.1-beta103/xlf/16.1.1/lib
+  #     - /sw/ascent/xl/16.1.1-beta103/xlC/16.1.1/lib
+  #     environment:
+  #       append_path:
+  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+  #     flags: {}
