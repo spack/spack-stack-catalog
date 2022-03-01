@@ -53,7 +53,6 @@ spack:
     - libevent@2.1.8 +openssl
     - valgrind ~ubsan~mpi~boost
     - ccache
-    - texinfo
     - papi~cuda
     - gdb@10.2
     - libzmq
@@ -70,6 +69,7 @@ spack:
     - libzmq
     - makedepend
     - r@4.0.5
+    - rust
     - julia+cxx
     - jq
     - hpcviewer@2021.03

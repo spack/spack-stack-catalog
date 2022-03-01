@@ -6,6 +6,7 @@ spack:
   - core_compiler:
     - '%gcc@8.3.1'
   - gcc_compilers:
+    - '%gcc@6.5.0'
     - '%gcc@7.5.0'
     - '%gcc@8.3.1'
     - '%gcc@9.1.0'
@@ -69,6 +70,7 @@ spack:
     - libzmq
     - makedepend
     - r@4.0.5
+    - rust
     - julia+cxx
     - jq
     - hpcviewer@2021.03
@@ -528,6 +530,13 @@ spack:
     - stat@4.1.0%gcc@8.3.1
     - stc@0.9.0%gcc@8.3.1
     # - geopm@1.1.0%gcc@8.3.1
+    - matrix:
+      - - $general_compute_packages
+        - openblas threads=openmp
+        - openblas threads=pthreads
+        - openblas threads=none
+      - - '%gcc@6.5.0'
+      - - ^cuda@10.1.243
     - matrix:
       - - $general_compute_packages
         - openblas threads=openmp
@@ -1457,6 +1466,20 @@ spack:
         cxx: /usr/bin/g++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
+  - compiler:
+      spec: gcc@6.5.0
+      operating_system: rhel8
+      modules: [gcc/6.5.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
       extra_rpaths: []
       environment:
         append_path:
