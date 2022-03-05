@@ -37,12 +37,11 @@ spack:
       - build-essential
       - bash
       - perl
-      - cmake
       - gfortran
+      - wget  
       final:
       - build-essential
       - bash
-      - cmake
       - git
       - wget
       - gfortran

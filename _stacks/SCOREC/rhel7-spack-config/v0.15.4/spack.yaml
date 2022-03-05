@@ -143,6 +143,7 @@ spack:
   - gcc@7.4.0 %gcc@6.5.0
   - mpich %gcc@7.4.0
   - hypre %gcc@10.1.0
+  - fftw %gcc@10.1.0
   - netcdf-cxx4 ~doxygen %gcc@7.4.0
   - $pumiSim16.0-210606_gcc74
   - $pumiSim17.0-210727dev
