@@ -1,0 +1,36 @@
+spack:
+  specs:
+  - cmake
+  - dealii@master+hdf5+mpi+petsc+p4est+python+trilinos~gmsh~sundials~oce
+  - eigen
+  - python
+  - mfem@develop+mpi+petsc+suite-sparse+superlu-dist
+  - mumps+mpi+metis+parmetis
+  - petsc+hypre+hdf5+mumps+superlu-dist
+  - tetgen
+  - valgrind
+
+  packages:
+    all:
+      target:
+      - x86_64
+
+  container:
+    format: docker
+
+    strip: true
+
+    os_packages:
+      final:
+      - build-essential
+      - clang-format
+      - gfortran
+      - git
+
+    extra_instructions:
+      final: |
+        RUN /opt/view/bin/python3.9 -m pip install numpy scipy matplotlib -i https://pypi.org/simple && rm -rf /root/.cache
+        ENV OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+        RUN echo "source /etc/profile" >> /root/.bashrc
+        USER root
+        WORKDIR /root
