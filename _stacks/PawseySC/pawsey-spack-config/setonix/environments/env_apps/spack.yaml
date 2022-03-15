@@ -44,5 +44,4 @@ spack:
 #    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
 # TODO: check and enable cpu arch optimisations
 #    - ['target=zen2', 'target=zen3']
-  - openfoam@2012%gcc@10.3.0~float32~int64~kahip~knl~metis~mgridgen~paraview+scotch+source~spdp~vtk~zoltan
   view: false
