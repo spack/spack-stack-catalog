@@ -1,0 +1,11 @@
+spack:
+  include:
+  - include.yaml
+
+  concretization: together
+  view: false
+  specs:
+  - cmb@master
+  develop:
+    cmb:
+      spec: cmb@master
