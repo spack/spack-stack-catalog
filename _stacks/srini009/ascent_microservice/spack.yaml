@@ -4,8 +4,9 @@ spack:
   - pkg-config %gcc@9.3.0
   - uuid %gcc@9.3.0
   - mochi-thallium@0.9.1 %gcc@9.3.0
-  - mochi-margo@0.9.5 %gcc@9.3.0
+  - mochi-margo@0.9.5 ^mercury@2.1.0+udreg %gcc@9.3.0
   - ascent@develop~openmp~test~fortran ^conduit@develop ^vtk-h@0.8.0~openmp ^vtk-m@1.7.0+shared+mpi~openmp %gcc@9.3.0
+  - mochi-symbiomon@develop ^libfabric fabrics=gni %gcc@9.3.0
   - mercury@2.1.0+udreg
   - mochi-abt-io %gcc@9.3.0
   - libfabric fabrics=gni

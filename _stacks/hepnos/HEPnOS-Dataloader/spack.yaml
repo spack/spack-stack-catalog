@@ -5,5 +5,5 @@ spack:
   - tclap
   - spdlog
   - hdf5
-  - hepnos@0.5.0
+  - hepnos
   concretization: together
