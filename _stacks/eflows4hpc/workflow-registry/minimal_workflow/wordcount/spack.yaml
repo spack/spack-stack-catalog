@@ -1,0 +1,7 @@
+spack:
+        specs:
+                - compss
+        concretization: together
+        config:
+                 install_tree: /opt/software
+        view: /opt/view

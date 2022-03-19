@@ -1,7 +1,6 @@
 spack:
   specs:
-  - hepnos ^mochi-sdskv ~bdb ~leveldb
-  - hepnos-dataloader
+  - hepnos
   - tclap
   - spdlog
   - mpi
