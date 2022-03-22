@@ -5,5 +5,5 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - raylib
+  - raylib ^font-util fonts=encodings
   view: true
