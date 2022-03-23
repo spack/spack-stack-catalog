@@ -1,0 +1,5 @@
+spack:
+  specs:
+  - scopes
+  view: true
+  concretization: together
