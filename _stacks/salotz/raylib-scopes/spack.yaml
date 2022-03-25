@@ -5,5 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - scopes-raylib ^font-util fonts=encodings
+  - raylib ^font-util fonts=encodings
+  - scopes
   view: true
+  concretization: together

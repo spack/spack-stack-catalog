@@ -1,7 +1,7 @@
 spack:
   specs:
-  - hepnos@0.6.3 cxxstd=14 target=x86_64
-  - hepnos-dataloader@0.5 target=x86_64
+  - hepnos@0.6.4 cxxstd=14 target=x86_64
+  - hepnos-dataloader@0.5.1 target=x86_64
   - mpich~wrapperrpath+argobots pmi=pmi2 device=ch4 netmod=ofi
   - libfabric fabrics=tcp,rxm
   concretization: together

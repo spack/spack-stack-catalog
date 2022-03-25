@@ -7,4 +7,5 @@ spack:
     - py-karabo-bridge
     # - py-pyfai
     - py-pyopengl
+    - vagabond
   view: False
