@@ -30,11 +30,16 @@ spack:
 # TODO: check and enable cpu arch optimisations
   - matrix:
     - [python@3.9.7 +optimizations]
-    - ['%gcc@10.3.0']
-# TODO: check and enable cpu arch optimisations
-#    - ['target=zen2', 'target=zen3']
+# TODO: check on Setonix that CCE and AOCC are actually able to build this
+    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
+    - ['target=zen3']
   - matrix:
-    - [$packages, $utilities]
+    - [$utilities]
+# TODO: check on Setonix that CCE and AOCC are actually able to build this
+    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
+    - ['target=zen3']
+  - matrix:
+    - [$packages]
     - ['%gcc@10.3.0']
+    - ['target=zen3']
   view: false
-# TODO: python, py-pip and py-setuptools modules as core modules

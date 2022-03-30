@@ -16,7 +16,5 @@ spack:
   - matrix:
     - [$packages]
     - ['%gcc@10.3.0']
-# TODO: enable targets
-#    - ['target=zen2']
+    - ['target=zen3']
   view: false
-# TODO: modules as core modules

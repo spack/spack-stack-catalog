@@ -2,10 +2,8 @@ spack:
 # note: preferred versions are set in packages.yaml
   definitions:
   - packages:
-    
 # py-pip and py-setuptools: installed in env_python
 # snakemake: docs recommend to install with conda
-    - cmake@3.21.4
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.2 +X  #^gettext@0.21
     - nextflow@21.10.5
@@ -16,14 +14,17 @@ spack:
     - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
   specs:
   - matrix:
+    - [cmake@3.21.4]
+# TODO: check on Setonix that CCE and AOCC are actually able to build this
+    - ['%gcc@10.3.0', '%cce@12.0.1', '%aocc@3.0.0']
+    - ['target=zen3']
+  - matrix:
     - [$packages]
     - ['%gcc@10.3.0']
+    - ['target=zen3']
 # TODO: build licensed software
   # - matrix:
   #   - [$licensed]
   #   - ['%gcc@10.3.0']
-# TODO: enable target
-#    - ['target=zen2']
+  #  - ['target=zen3']
   view: false
-# TODO: list as external in packages.yaml
-# TODO: modules as core modules

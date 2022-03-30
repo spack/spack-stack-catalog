@@ -17,7 +17,9 @@ spack:
   - matrix:
     - [$s3-python-set]
     - ['%gcc@10.3.0']
+    - ['target=zen2', 'target=zen3']
   - matrix:
     - [$s3-go-set]
     - ['%gcc@10.3.0']
+    - ['target=zen2', 'target=zen3']
   view: false
