@@ -10,15 +10,16 @@ spack:
     - cp2k@8.2 +plumed ^plumed@2.7.2
     - gromacs@2020.2 +double +lapack +plumed ^plumed@2.6.1
     - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2
-    - lammps@20210929 +asphere +body +class2 +colloid +compress +coreshell +dipole
-      +ffmpeg +granular +jpeg +kim +kokkos +kspace +latte +manybody +mc +misc +mliap
-      +molecule +mpiio +opt +peri +png +poems +python +qeq +replica +rigid +shock
-      +snap +spin +srd +voronoi +user-adios +user-atc +user-awpmd +user-bocs +user-cgsdk
-      +user-colvars +user-diffraction +user-dpd +user-drude +user-eff +user-fep +user-h5md
-      +user-lb +user-manifold +user-meamc +user-mesodpd +user-mesont +user-mgpt +user-misc
-      +user-mofff +user-netcdf +user-omp +user-phonon +user-plumed +user-ptm +user-qtb
-      +user-reaction +user-reaxc +user-sdpd +user-smd +user-smtbq +user-sph +user-tally
-      +user-uef +user-yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning ^plumed@2.7.2
+    - lammps@20210929.3 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk
+      +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole
+      +dpd-basic +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump
+      +extra-fix +extra-molecule +extra-pair +fep +ffmpeg +granular +h5md +interlayer
+      +jpeg +kim +kokkos +kspace +latboltz +latte +machdyn +manifold +manybody +mc
+      +meam +mesont +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio
+      +netcdf +openmp-package +opt +orient +peri +phonon +plugin +plumed +png +poems
+      +ptm +python +qeq +qtb +reaction +reaxff +replica +rigid +shock +smtbq +sph
+      +spin +srd +tally +uef +voronoi +yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning
+      ^plumed@2.7.2
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
 
     
