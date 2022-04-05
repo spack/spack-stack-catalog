@@ -1,0 +1,12 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler: ['gcc']
+      providers:
+        mpi: [openmpi]
+  specs: [openmpi, glib, lz4, zstd, zlib, meson, hdf5, py-onnx-runtime, libpng]
+  view: true
