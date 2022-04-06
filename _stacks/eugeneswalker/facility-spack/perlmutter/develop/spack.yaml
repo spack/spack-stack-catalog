@@ -1,0 +1,193 @@
+spack:
+  view: false
+  concretization: separately
+  config:
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      extra_rpaths: []
+  definitions:
+  - gcc_compilers: ['%gcc@11.2.0']
+  - gcc_specs:
+    - adios2@2.7.1
+    - amrex@21.11 +fortran +hypre +openmp +petsc +shared
+    - conduit@0.7.2
+    - dyninst@11.0.1
+    - gasnet@2021.9.0
+    - globalarrays@5.8
+    - hdf5@1.12.1
+    - hypre@2.23.0 +openmp +superlu-dist
+    - kokkos-kernels@3.4.01 +openmp
+    - kokkos@3.4.01 +openmp
+    - mercury@2.0.1
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - openpmd-api@0.14.3
+    - papi@6.0.0.1
+    - papyrus@1.0.2
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - petsc@3.16.1 +openmp +strumpack
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - slepc@3.16.0
+    - strumpack@6.1.0 ~slate
+    - sundials@5.8.0 +openmp +hypre
+    - superlu-dist@7.1.1 +openmp
+    - superlu@5.3.0
+    - swig@4.0.2
+    - sz@2.1.12
+    - tau +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - umap@2.1.0
+    - upcxx@2021.9.0 +gasnet +mpi
+    #- warpx dims=2
+    #- warpx dims=3
+
+  - cuda_specs:
+    - amrex +cuda cuda_arch=80
+    - arborx +cuda ^kokkos +wrapper +cuda cuda_arch=80 # Not CudaPackage
+    - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80 # Not CudaPackage
+    - caliper +cuda cuda_arch=80
+    - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
+    - flecsi +cuda cuda_arch=80
+    - ginkgo +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hpctoolkit +cuda # not CudaPackage
+    - hpx +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +openmp +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +openmp +cuda cuda_arch=80 ^kokkos@3.5.00 +openmp +wrapper +cuda
+      cuda_arch=80
+    - magma +cuda cuda_arch=80
+    - mfem +cuda cuda_arch=80
+    - papi +cuda # not CudaPackage
+    - parsec +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - raja +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80
+    - tasmanian +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - umpire ~shared +cuda cuda_arch=80
+    - vtk-m +cuda cuda_arch=80
+    - zfp +cuda cuda_arch=80
+    # REQUIRES CUDA DRIVER
+    #- legion +cuda cuda_arch=80 # Needs CUDA Driver
+    #- upcxx +cuda # Not CudaPackage; Needs CUDA Driver
+    # BROKEN
+    #- ascent ~shared +cuda cuda_arch=80 # https://github.com/spack/spack/issues/27954
+    #- axom +cuda cuda_arch=80 ^umpire ~shared # https://github.com/spack/spack/issues/29520
+    #- dealii +cuda cuda_arch=80 # https://github.com/spack/spack/issues/29523
+    #- paraview +cuda cuda_arch=80
+    # NOT NEEDED
+    #- flux-core +cuda # not CudaPackage
+    #- openmpi +cuda # not CudaPackage
+
+  specs:
+  - matrix:
+    - [$cuda_specs]
+    - [$gcc_compilers]
+  packages:
+    all:
+      compiler:
+      - gcc@11.2.0
+      providers:
+        blas:
+        - cray-libsci
+        - openblas
+        mpi: [cray-mpich]
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@21.08.1.2
+        modules:
+        - cray-libsci/21.08.1.2
+
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.13 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.13/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.13
+        - libfabric
+      - spec: cray-mpich@8.1.13 %nvhpc@21.11
+        prefix: /opt/cray/pe/mpich/8.1.13/ofi/nvidia/20.7
+        modules:
+        - cray-mpich/8.1.13
+        - cudatoolkit/11.5
+
+    cuda:
+      version: [11.5.1]
+    gcc:
+      buildable: false
+      externals:
+      - spec: gcc@11.2.0 %gcc@7.5.0
+        modules:
+        - PrgEnv-gnu
+        - gcc/11.2.0
+        - craype-x86-milan
+        - libfabric
+
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    slurm:
+      buildable: false
+      version: [20-11-8-1]
+      externals:
+      - spec: slurm@20-11-8-1
+        prefix: /usr
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
