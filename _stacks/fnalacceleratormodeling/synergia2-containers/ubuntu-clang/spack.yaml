@@ -39,7 +39,6 @@ spack:
   - hdf5@1.12.1+hl+mpi
   - fftw+mpi+openmp
   - gsl
-  - kokkos+openmp~cuda std=17
   - python
   - py-numpy
   - py-mpi4py
