@@ -118,6 +118,12 @@ spack:
   - pumiSim17.0-220124dev:
     - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@17.0-220124dev
+  - pumiSim17.0-220403dev:
+    - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@17.0-220403dev
+  - pumiSim16.0-220312:
+    - pumi@master %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@16.0-220312
 
   specs:
   - llvm %gcc@6.5.0
@@ -149,6 +155,8 @@ spack:
   - $pumiSim17.0-210727dev
   - $pumiSim17.0-210808dev
   - $pumiSim17.0-220124dev
+  - $pumiSim16.0-220312
+  - $pumiSim17.0-220403dev
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
