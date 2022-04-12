@@ -3,6 +3,26 @@
 # It describes a set of packages to be installed, along with
 # configuration settings.
 spack:
+  compilers:
+  - compiler:
+      spec: gcc@11.2.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags:
+        fflags: -fallow-argument-mismatch
+      target: x86_64
+      operating_system: fedora35
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      target: [x86_64]
+      providers:
+        mpi: [mpich]
   # add package specs to the `specs` list
   specs: [libpressio-tools+opt ^ libpressio+fpzip+hdf5+mgard+sz+sz3+zfp+json+bzip2+blosc+lua
       ^ libstdcompat+boost ^mgard@robertu94+cuda, git]
