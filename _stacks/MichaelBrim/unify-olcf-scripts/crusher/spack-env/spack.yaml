@@ -1,0 +1,10 @@
+spack:
+  include:
+  - crusher-packages.yaml
+  - crusher-deps-gcc-11.2.0.yaml
+  specs:
+  - mochi-margo@0.9.6 %gcc@11.2.0 ^argobots@main ^mercury@2.0.1~boostsys
+  concretization: together
+  config:
+    install_tree:
+      root: /gpfs/alpine/proj-shared/csc300/crusher/spack/sw/gcc-11.2.0

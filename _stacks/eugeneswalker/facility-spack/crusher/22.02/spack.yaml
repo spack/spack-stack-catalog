@@ -1,5 +1,8 @@
 # spack commit = e4s-22.02
 # commit date = Feb 15, 2022
+# 2022-04-12 0900
+#  cpu_specs: 94/110
+#  rocm_specs: 15/22
 
 spack:
   view: false
@@ -262,19 +265,16 @@ spack:
     - cpu_specs:
       - adios@1.13.1
       - adios2@2.7.1
-      - alquimia@1.0.9
       - aml@0.1.0
       - amrex@22.02
       - arborx@1.1
       - archer@2.0.0
       - argobots@1.1
-      - ascent@0.7.1
       - axom@0.6.1
       - bolt@2.0
       - butterflypack@2.1.0
       - cabana@0.4.0
       - caliper@2.7.0
-      - catalyst@5.6.0
       - chai@2.4.0 ~benchmarks ~tests
       - charliecloud@0.26
       - conduit@0.8.2
@@ -289,7 +289,6 @@ spack:
       - flux-core@0.35.0
       - fortrilinos@2.0.0
       - gasnet@2021.9.0
-      - geopm@1.1.0
       - ginkgo@1.4.0
       - globalarrays@5.8
       - gmp@6.2.1
@@ -304,11 +303,8 @@ spack:
       - kokkos@3.5.00 +openmp
       - lammps@20220107
       - legion@21.03.0
-      - libnrm@0.1.0
       - libquo@1.3.1
       - libunwind@1.5.0
-      - loki@0.1.7
-      - mercury@2.1.0
       - metall@0.17
       - mfem@4.3.0
       - mpark-variant@1.4.0
@@ -331,7 +327,6 @@ spack:
       - petsc@3.16.4
       - phist@1.9.5
       - plasma@21.8.29
-      - plumed@2.6.3
       - precice@2.3.0
       - pumi@2.2.6
       - py-cinemasci@1.3
@@ -343,8 +338,6 @@ spack:
       - py-warpx@22.02 ^warpx dims=rz
       - qthreads@1.16 scheduler=distrib
       - raja@0.14.0
-      - rempi@1.1.0
-      - scr@3.0rc2
       - slate@2021.05.02 ~cuda
       - slepc@3.16.2
       - stc@0.9.0
@@ -361,15 +354,25 @@ spack:
       - turbine@1.3.0
       - umap@2.1.0
       - umpire@6.0.0
-      - unifyfs@0.9.1
       - upcxx@2021.9.0
-      - variorum@0.4.1
       - veloc@1.5
-      - vtk-m@1.7.1
-      - wannier90@3.1.0
       - zfp@0.5.5
-     #- dealii@9.3.2
-     #- stat@4.1.0
+    # - alquimia@1.0.9
+    # - ascent@0.7.1
+    # - catalyst@5.6.0 # Core/vtkMath.h: 1514:15: error: 'clamp' is not a member of 'std'
+    # - dealii@9.3.2
+    # - geopm@1.1.0 # geopmagent_main.c:118:13: error: 'strncpy' specified bound 512 equals destination size [-Werror=stringop-truncation]
+    # - libnrm@0.1.0 # explicit depends_on("mpich")
+    # - loki@0.1.7 # ISO C++17 does not allow dynamic exception specifications
+    # - mercury@2.1.0 # na/na_plugin.h:119: multiple definition of `na_ofi_class_ops_g'
+    # - plumed@2.6.3 # lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
+    # - rempi@1.1.0
+    # - scr@3.0rc2 # /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1/lib/libmpi_gnu_91.so: undefined reference to `PMI_Barrier'
+    # - stat@4.1.0
+    # - unifyfs@0.9.1
+    # - variorum@0.4.1 # Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform'
+    # - vtk-m@1.7.1
+    # - wannier90@3.1.0 # Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4))
 
     - rocm_specs:
       - amrex@22.02 +rocm amdgpu_target=gfx90a
@@ -387,13 +390,13 @@ spack:
       - strumpack@6.3.0 ~slate +rocm amdgpu_target=gfx90a
       - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
       - umpire@6.0.0 +rocm amdgpu_target=gfx90a
-     #- arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
-     #- cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
-     #- hpctoolkit@2022.01.15 +rocm # Not ROCmPackage
-     #- papi@6.0.0.1 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27898
-     #- sundials@6.1.1 +rocm amdgpu_target=gfx90a
-     #- tasmanian@7.7 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27896
-     #- vtk-m@1.7.1 +rocm amdgpu_target=gfx90a
+    # - arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
+    # - cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
+    # - hpctoolkit@2022.01.15 +rocm # Not ROCmPackage
+    # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27898
+    # - sundials@6.1.1 +rocm amdgpu_target=gfx90a
+    # - tasmanian@7.7 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27896
+    # - vtk-m@1.7.1 +rocm amdgpu_target=gfx90a
 
   specs:
   - $cpu_specs
