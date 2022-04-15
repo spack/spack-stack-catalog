@@ -10,7 +10,5 @@ spack:
   concretization: together
   upstreams: {}
   mirrors: {}
-  modules:
-    enable: []
   packages: {}
   repos: []
