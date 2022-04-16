@@ -1,8 +1,17 @@
 # spack commit = e4s-22.02
-# commit date = Feb 15, 2022
-# 2022-04-12 0900
-#  cpu_specs: 94/110
-#  rocm_specs: 15/22
+#
+# builds OK, as of 2022-04-14 0800:
+#  cpu_specs: 91/104
+#  rocm_specs: 14/15 w/ rocm 5.1.0 (15/15 w rocm 4.5.2)
+#
+# inherent conflicts:
+#  (1) libnrm (cray-mpich)
+#
+# skipped for Crusher:
+#  (3) flux-core, nvhpc, openmpi
+#
+# common failures:
+#  (7) language/compile opts: catalyst, geopm, loki, mercury, plumed, variorum, wannier90
 
 spack:
   view: false
@@ -90,161 +99,161 @@ spack:
     comgr:
       buildable: false
       externals:
-      - spec: comgr@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: comgr@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hip-rocclr:
       buildable: false
       externals:
-      - spec: hip-rocclr@4.5.2
-        prefix: /opt/rocm-4.5.2/hip
+      - spec: hip-rocclr@5.1.0
+        prefix: /opt/rocm-5.1.0/hip
     hipblas:
       buildable: false
       externals:
-      - spec: hipblas@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hipblas@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hipcub:
       buildable: false
       externals:
-      - spec: hipcub@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hipcub@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hipfft:
       buildable: false
       externals:
-      - spec: hipfft@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hipfft@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hipsparse:
       buildable: false
       externals:
-      - spec: hipsparse@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hipsparse@5.1.0
+        prefix: /opt/rocm-5.1.0/
     miopen-hip:
       buildable: false
       externals:
-      - spec: hip-rocclr@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hip-rocclr@5.1.0
+        prefix: /opt/rocm-5.1.0/
     miopengemm:
       buildable: false
       externals:
-      - spec: miopengemm@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: miopengemm@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rccl:
       buildable: false
       externals:
-      - spec: rccl@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rccl@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocblas:
       buildable: false
       externals:
-      - spec: rocblas@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocblas@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocfft:
       buildable: false
       externals:
-      - spec: rocfft@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocfft@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-clang-ocl:
       buildable: false
       externals:
-      - spec: rocm-clang-ocl@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-clang-ocl@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-cmake:
       buildable: false
       externals:
-      - spec: rocm-cmake@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-cmake@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-dbgapi:
       buildable: false
       externals:
-      - spec: rocm-dbgapi@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-dbgapi@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-debug-agent:
       buildable: false
       externals:
-      - spec: rocm-debug-agent@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-debug-agent@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-device-libs:
       buildable: false
       externals:
-      - spec: rocm-device-libs@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-device-libs@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-gdb:
       buildable: false
       externals:
-      - spec: rocm-gdb@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-gdb@5.1.0
+        prefix: /opt/rocm-5.1.0/
     rocm-opencl:
       buildable: false
       externals:
-      - spec: rocm-opencl@4.5.2
-        prefix: /opt/rocm-4.5.2/opencl
+      - spec: rocm-opencl@5.1.0
+        prefix: /opt/rocm-5.1.0/opencl
     rocm-smi-lib:
       buildable: false
       externals:
-      - spec: rocm-smi-lib@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: rocm-smi-lib@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hip:
       buildable: false
       externals:
-      - spec: hip@4.5.2
-        prefix: /opt/rocm-4.5.2/hip
+      - spec: hip@5.1.0
+        prefix: /opt/rocm-5.1.0/hip
         extra_attributes:
           compilers:
-            c: /opt/rocm-4.5.2/llvm/bin/clang++
-            c++: /opt/rocm-4.5.2/llvm/bin/clang++
-            hip: /opt/rocm-4.5.2/hip/bin/hipcc
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            c++: /opt/rocm-5.1.0/llvm/bin/clang++
+            hip: /opt/rocm-5.1.0/hip/bin/hipcc
     llvm-amdgpu:
       buildable: false
       externals:
-      - spec: llvm-amdgpu@4.5.2
-        prefix: /opt/rocm-4.5.2/llvm
+      - spec: llvm-amdgpu@5.1.0
+        prefix: /opt/rocm-5.1.0/llvm
         extra_attributes:
           compilers:
-            c: /opt/rocm-4.5.2/llvm/bin/clang++
-            cxx: /opt/rocm-4.5.2/llvm/bin/clang++
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.0/llvm/bin/clang++
     hsakmt-roct:
       buildable: false
       externals:
-      - spec: hsakmt-roct@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hsakmt-roct@5.1.0
+        prefix: /opt/rocm-5.1.0/
     hsa-rocr-dev:
       buildable: false
       externals:
-      - spec: hsa-rocr-dev@4.5.2
-        prefix: /opt/rocm-4.5.2/
+      - spec: hsa-rocr-dev@5.1.0
+        prefix: /opt/rocm-5.1.0/
         extra_atributes:
           compilers:
-            c: /opt/rocm-4.5.2/llvm/bin/clang++
-            cxx: /opt/rocm-4.5.2/llvm/bin/clang++
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.0/llvm/bin/clang++
     roctracer-dev-api:
       buildable: false
       externals:
-      - spec: roctracer-dev-api@4.5.2
-        prefix: /opt/rocm-4.5.2/roctracer
+      - spec: roctracer-dev-api@5.1.0
+        prefix: /opt/rocm-5.1.0/roctracer
     rocprim:
       buildable: false
       externals:
-      - spec: rocprim@4.5.2
-        prefix: /opt/rocm-4.5.2
+      - spec: rocprim@5.1.0
+        prefix: /opt/rocm-5.1.0
     rocrand:
       buildable: false
       externals:
-      - spec: rocrand@4.5.2
-        prefix: /opt/rocm-4.5.2/rocrand
+      - spec: rocrand@5.1.0
+        prefix: /opt/rocm-5.1.0
     rocsolver:
       buildable: false
       externals:
-      - spec: rocsolver@4.5.2
-        prefix: /opt/rocm-4.5.2
+      - spec: rocsolver@5.1.0
+        prefix: /opt/rocm-5.1.0
     rocsparse:
       buildable: false
       externals:
-      - spec: rocsparse@4.5.2
-        prefix: /opt/rocm-4.5.2
+      - spec: rocsparse@5.1.0
+        prefix: /opt/rocm-5.1.0
     rocthrust:
       buildable: false
       externals:
-      - spec: rocthrust@4.5.2
-        prefix: /opt/rocm-4.5.2
+      - spec: rocthrust@5.1.0
+        prefix: /opt/rocm-5.1.0
 
   definitions:
     - cpu_specs:
@@ -339,34 +348,39 @@ spack:
       - upcxx@2021.9.0
       - veloc@1.5
       - zfp@0.5.5
-    # NOT RELEVANT
+    #
+    # CONFLICTS
+    # - libnrm@0.1.0 # explicit depends_on("mpich")
+    #
+    # NOT RELEVANT ON CRUSHER
     # - flux-core@0.35.0
     # - nvhpc@22.1
     # - openmpi@4.1.2
-    # BUILD FAILURES
+    #
+    # CRUSHER-SPECIFIC FAILURES
     # - alquimia@1.0.9
     # - ascent@0.7.1
     # - catalyst@5.6.0 # Core/vtkMath.h: 1514:15: error: 'clamp' is not a member of 'std'
-    # - dealii@9.3.2
     # - geopm@1.1.0 # geopmagent_main.c:118:13: error: 'strncpy' specified bound 512 equals destination size [-Werror=stringop-truncation]
-    # - libnrm@0.1.0 # explicit depends_on("mpich")
     # - loki@0.1.7 # ISO C++17 does not allow dynamic exception specifications
     # - mercury@2.1.0 # na/na_plugin.h:119: multiple definition of `na_ofi_class_ops_g'
     # - plumed@2.6.3 # lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
     # - rempi@1.1.0
     # - scr@3.0rc2 # /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1/lib/libmpi_gnu_91.so: undefined reference to `PMI_Barrier'
-    # - stat@4.1.0
     # - unifyfs@0.9.1
     # - variorum@0.4.1 # Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform'
     # - vtk-m@1.7.1
     # - wannier90@3.1.0 # Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4))
+    #
+    # FAILURES NOT SPECIFIC TO CRUSHER ENVIRONMENT
+    # - dealii@9.3.2
+    # - stat@4.1.0
 
     - rocm_specs:
       - amrex@22.02 +rocm amdgpu_target=gfx90a
       - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx90a
       - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
       - heffte@2.2.0 +rocm amdgpu_target=gfx90a
-      - hpx@1.7.1 +rocm amdgpu_target=gfx90a
       - kokkos@3.5.00 +rocm amdgpu_target=gfx90a
       - magma@2.6.1 ~cuda +rocm amdgpu_target=gfx90a
       - mfem@4.3.0 +rocm amdgpu_target=gfx90a
@@ -377,6 +391,11 @@ spack:
       - strumpack@6.3.0 ~slate +rocm amdgpu_target=gfx90a
       - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
       - umpire@6.0.0 +rocm amdgpu_target=gfx90a
+    #
+    # CRUSHER FAILURES
+    # - hpx@1.7.1 +rocm amdgpu_target=gfx90a # rocm@5.1.0 issue (no problems w 4.5.2); asio/require.hpp:412:3: error: dynamic initialization is not supported for __device__
+    #
+    # FAILURES NOT SPECIFIC TO CRUSHER ENVIRONMENT
     # - arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
     # - cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
     # - hpctoolkit@2022.01.15 +rocm # Not ROCmPackage

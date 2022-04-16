@@ -1,0 +1,380 @@
+# spack commit = 57f5c92a39a6d3e71be86de7ee98e1e65e2173a8
+# commit date = Wed Apr 6 17:20:49 2022 +0200
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [openblas]
+        mpi: [cray-mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.12 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.12
+        - libfabric
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.1.0
+        prefix: /opt/rocm-5.1.0/hip
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@5.1.0
+        prefix: /opt/rocm-5.1.0/opencl
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.1.0
+        prefix: /opt/rocm-5.1.0/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            c++: /opt/rocm-5.1.0/llvm/bin/clang++
+            hip: /opt/rocm-5.1.0/hip/bin/hipcc
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@5.1.0
+        prefix: /opt/rocm-5.1.0/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.0/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@5.1.0
+        prefix: /opt/rocm-5.1.0/
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.1.0
+        prefix: /opt/rocm-5.1.0/
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-5.1.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.0/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@5.1.0
+        prefix: /opt/rocm-5.1.0/roctracer
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@5.1.0
+        prefix: /opt/rocm-5.1.0
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@5.1.0
+        prefix: /opt/rocm-5.1.0/rocrand
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@5.1.0
+        prefix: /opt/rocm-5.1.0
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@5.1.0
+        prefix: /opt/rocm-5.1.0
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@5.1.0
+        prefix: /opt/rocm-5.1.0
+  definitions:
+  - cpu_specs:
+    - adios
+    - adios2
+    - alquimia
+    - aml
+    - amrex
+    - arborx
+    - archer
+    - argobots
+    - ascent
+    - axom
+    - bolt
+    - butterflypack
+    - cabana
+    - caliper
+    - catalyst
+    - chai ~benchmarks ~tests
+    - charliecloud
+    - conduit
+    - darshan-runtime
+    - darshan-util
+    - datatransferkit
+    - dyninst
+    - exaworks
+    - faodel
+    - flecsi
+    - flit
+    - fortrilinos
+    - gasnet
+    - geopm
+    - ginkgo
+    - globalarrays
+    - gmp
+    - gotcha
+    - gptune
+    - hdf5 +fortran +hl +shared
+    - heffte +fftw
+    - hpctoolkit
+    - hpx networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - lammps
+    - legion
+    - libnrm
+    - libquo
+    - libunwind
+    - loki
+    - mercury
+    - metall
+    - mfem
+    - mpark-variant
+    - mpifileutils ~xattr
+    - nccmp
+    - nco
+    - netlib-scalapack
+    - ninja
+    - nrm
+    - nvhpc
+    - omega-h
+    - openpmd-api
+    - papi
+    - papyrus
+    - parallel-netcdf
+    - paraview
+    - parsec ~cuda
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - plumed
+    - precice
+    - pumi
+    - py-cinemasci
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - py-warpx ^warpx dims=2
+    - py-warpx ^warpx dims=3
+    - py-warpx ^warpx dims=rz
+    - qthreads scheduler=distrib
+    - raja
+    - rempi
+    - scr
+    - slate ~cuda
+    - slepc
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig
+    - swig@4.0.2-fortran
+    - sz
+    - tasmanian
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack
+      +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox
+      +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine
+    - umap
+    - umpire
+    - unifyfs
+    - upcxx
+    - variorum
+    - veloc
+    - vtk-m
+    - wannier90
+    - zfp
+    - h5bench
+    # BROKEN
+    # - dealii
+    # - stat
+    # NOT NEEDED
+    # - flux-core
+    # - openmpi
+
+  - rocm_specs:
+    - amrex +rocm amdgpu_target=gfx90a
+    - arborx +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage
+    - chai ~benchmarks +rocm amdgpu_target=gfx90a
+    - heffte +rocm amdgpu_target=gfx90a
+    - kokkos +rocm amdgpu_target=gfx90a
+    - magma ~cuda +rocm amdgpu_target=gfx90a
+    - mfem +rocm amdgpu_target=gfx90a
+    - raja ~openmp +rocm amdgpu_target=gfx90a
+    - superlu-dist +rocm amdgpu_target=gfx90a
+    - umpire +rocm amdgpu_target=gfx90a
+    # CONFLICTS
+    # - hpctoolkit +rocm # Not ROCmPackage
+    # - papi +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27898
+    # BROKEN
+    # - cabana +rocm # https://github.com/spack/spack/issues/27967
+    # - ginkgo +rocm amdgpu_target=gfx90a
+    # - hpx +rocm amdgpu_target=gfx90a
+    # - petsc +rocm amdgpu_target=gfx90a
+    # - slate +rocm amdgpu_target=gfx90a
+    # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
+    # - strumpack ~slate +rocm amdgpu_target=gfx90a
+    # - sundials +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/29526
+    # - tasmanian +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27896
+    # - vtk-m +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/29527
+
+  specs:
+  - $rocm_specs

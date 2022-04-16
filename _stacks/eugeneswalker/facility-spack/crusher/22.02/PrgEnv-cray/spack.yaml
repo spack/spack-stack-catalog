@@ -1,5 +1,22 @@
 # spack commit = e4s-22.02
-# commit date = Feb 15, 2022
+#
+# builds OK, as of 2022-04-14 1300:
+#  cpu_specs: 74/105
+#  rocm_specs: 9/15
+#
+# common failures:
+#  (4) openblas - clang frontend command failed with exit code 139
+#        -> slepc, py-warpx (x3)
+#  (3) curl - issue with external openssl, mbedtls API incompatibility ?
+#        -> axom, exaworks, hpx
+#  (3) binutils - recompile object files with -fPIC or pass '-Wl,-z,notext' to allow text relocations
+#        -> archer, paraview, tau
+#
+# inherent conflicts:
+#  (3) libnrm (cray-mpich), dyninst (%clang), hpctoolkit (dyninst), plasma (%clang)
+#
+# skipped for Crusher:
+#  (3) flux-core, nvhpc, openmpi
 
 spack:
   view: false
@@ -92,6 +109,16 @@ spack:
       variants: +pic
 
     # CRUSHER SPECIFIC PACKAGE PREFERENCES BELOW
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1
+        prefix: /usr
+    openssh:
+      buildable: false
+      externals:
+      - spec: openssh@8.4
+        prefix: /usr
     ncurses:
       externals:
       - spec: ncurses@6.2 ~symlinks +termlib %cce@13.0.0 
@@ -301,7 +328,7 @@ spack:
       buildable: false
       externals:
       - spec: rocrand@5.1.0
-        prefix: /opt/rocm-5.1.0/rocrand
+        prefix: /opt/rocm-5.1.0
     rocsolver:
       buildable: false
       externals:
@@ -325,12 +352,9 @@ spack:
     - aml@0.1.0
     - amrex@22.02
     - arborx@1.1
-    - archer@2.0.0
     - argobots@1.1
-    - axom@0.6.1
     - bolt@2.0
     - butterflypack@2.1.0
-    - cabana@0.4.0
     - caliper@2.7.0
     - chai@2.4.0 ~benchmarks ~tests
     - charliecloud@0.26
@@ -338,7 +362,6 @@ spack:
     - darshan-runtime@3.3.1
     - darshan-util@3.3.1
     - datatransferkit@3.1-rc3
-    - exaworks@0.1.0
     - faodel@1.2108.1
     - flecsi@1.4.2
     - flit@2.1.0
@@ -348,14 +371,11 @@ spack:
     - globalarrays@5.8
     - gmp@6.2.1
     - gotcha@1.0.3
-    - gptune@2.1.0
     - hdf5@1.10.7 +fortran +hl +shared
     - heffte@2.2.0 +fftw
-    - hpx@1.7.1 networking=mpi
     - hypre@2.24.0
     - kokkos-kernels@3.5.00 +openmp
     - kokkos@3.5.00 +openmp
-    - lammps@20220107
     - legion@21.03.0
     - libquo@1.3.1
     - libunwind@1.5.0
@@ -367,30 +387,21 @@ spack:
     - nco@5.0.1
     - netlib-scalapack@2.1.0
     - ninja@1.10.2
-    - nrm@0.1.0
-    - omega-h@9.34.1
     - openpmd-api@0.14.4
     - papi@6.0.0.1
     - papyrus@1.0.1
     - parallel-netcdf@1.12.2
-    - paraview@5.10.0
-    - parsec@3.0.2012 ~cuda
     - pdt@3.25.1
     - petsc@3.16.4
-    - phist@1.9.5
     - precice@2.3.0
     - pumi@2.2.6
     - py-cinemasci@1.3
     - py-jupyterhub@1.4.1
     - py-libensemble@0.8.0
     - py-petsc4py@3.16.4
-    - py-warpx@22.02 ^warpx dims=2
-    - py-warpx@22.02 ^warpx dims=3
-    - py-warpx@22.02 ^warpx dims=rz
     - qthreads@1.16 scheduler=distrib
     - raja@0.14.0
     - slate@2021.05.02 ~cuda
-    - slepc@3.16.2
     - stc@0.9.0
     - strumpack@6.3.0 ~slate
     - sundials@6.1.1
@@ -400,7 +411,6 @@ spack:
     - swig@4.0.2-fortran
     - sz@2.1.12
     - tasmanian@7.7
-    - tau@2.31 +mpi +python
     - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
       +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
       +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -411,31 +421,53 @@ spack:
     - upcxx@2021.9.0
     - veloc@1.5
     - zfp@0.5.5
-    # CONFLICTS
-    # - dyninst@12.0.1 # %cce conflict
-    # - hpctoolkit@2022.01.15 # %cce conflict due to dyninst
-    # - plasma@21.8.29
-    # NOT RELEVANT
-    # - flux-core@0.35.0
-    # - nvhpc@22.1
-    # - openmpi@4.1.2
-    # BUILD FAILURES
-    # - alquimia@1.0.9
-    # - ascent@0.7.1
-    # - catalyst@5.6.0 # Core/vtkMath.h: 1514:15: error: 'clamp' is not a member of 'std'
-    # - dealii@9.3.2
-    # - geopm@1.1.0 # geopmagent_main.c:118:13: error: 'strncpy' specified bound 512 equals destination size [-Werror=stringop-truncation]
-    # - libnrm@0.1.0 # explicit depends_on("mpich")
-    # - loki@0.1.7 # ISO C++17 does not allow dynamic exception specifications
-    # - mercury@2.1.0 # na/na_plugin.h:119: multiple definition of `na_ofi_class_ops_g'
-    # - plumed@2.6.3 # lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
-    # - rempi@1.1.0
-    # - scr@3.0rc2 # /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1/lib/libmpi_gnu_91.so: undefined reference to `PMI_Barrier'
-    # - stat@4.1.0
-    # - unifyfs@0.9.1
-    # - variorum@0.4.1 # Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform'
-    # - vtk-m@1.7.1
-    # - wannier90@3.1.0 # Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4))
+  # 
+  # CONFLICTS
+  # - dyninst@12.0.1 # %cce conflict
+  # - hpctoolkit@2022.01.15 # %cce conflict due to dyninst
+  # - libnrm@0.1.0 # explicit depends_on("mpich")
+  # - plasma@21.8.29 # %cce conflict
+  #
+  # NOT RELEVANT ON CRUSHER
+  # - flux-core@0.35.0
+  # - nvhpc@22.1
+  # - openmpi@4.1.2
+  #
+  # CRUSHER-SPECIFIC FAILURES
+  # - alquimia@1.0.9
+  # - archer@2.0.0 # dependency binutils - recompile object files with -fPIC or pass '-Wl,-z,notext' to allow text relocations
+  # - ascent@0.7.1
+  # - axom@0.6.1 # dependency curl - external openssl/mbedtls api incompatibility?
+  # - cabana@0.4.0 # download for 'googletest-populate': status_string: "Unsupported protocol" - openssl issue?
+  # - catalyst@5.6.0 # Core/vtkMath.h: 1514:15: error: 'clamp' is not a member of 'std'
+  # - exaworks@0.1.0 # dependency curl - external openssl/mbedtls api incompatibility?
+  # - geopm@1.1.0 # geopmagent_main.c:118:13: error: 'strncpy' specified bound 512 equals destination size [-Werror=stringop-truncation]
+  # - gptune@2.1.0 # clang-13: error: unknown argument: '-flifetime-dse=1'
+  # - hpx@1.7.1 networking=mpi # dependency curl - external openssl/mbedtls api incompatibility?
+  # - lammps@20220107 # dependency ffmpeg - error in backend: cannot select: t7: f64 = facos nsz t6, libavfilter/af_afade.c:116:37
+  # - loki@0.1.7 # ISO C++17 does not allow dynamic exception specifications
+  # - mercury@2.1.0 # na/na_plugin.h:119: multiple definition of `na_ofi_class_ops_g'
+  # - nrm@0.1.0 # dependency py-scipy - setup.py: unrecognized setuptools command: lapack libraries not found
+  # - omega-h@9.34.1 # Omega_h_int128.hpp:18:10: implicit copy assignment operator for 'Int128' is deprecated because it has a user-declared copy constructor [-Werror,-Wdeprecated-copy]
+  # - paraview@5.10.0 # dependency binutils - recompile object files with -fPIC or pass '-Wl,-z,notext' to allow text relocations
+  # - parsec@3.0.2012 ~cuda # ftn-2105: "-g" is an invalid command-line option.
+  # - phist@1.9.5 # ftn-78 ftn: -f option has an invalid argument, "finite-math-only". (and other similar errors)
+  # - plumed@2.6.3 # lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
+  # - py-warpx@22.02 ^warpx dims=2 # dependency openblas - clang-13: frontend command failed with exit code 139
+  # - py-warpx@22.02 ^warpx dims=3 # dependency openblas - clang-13: frontend command failed with exit code 139
+  # - py-warpx@22.02 ^warpx dims=rz # dependency openblas - clang-13: frontend command failed with exit code 139
+  # - rempi@1.1.0
+  # - scr@3.0rc2 # /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1/lib/libmpi_gnu_91.so: undefined reference to `PMI_Barrier'
+  # - slepc@3.16.2 # dependency openblas - clang-13: frontend command failed with exit code 139
+  # - tau@2.31 +mpi +python # dependency binutils - recompile object files with -fPIC or pass '-Wl,-z,notext' to allow text relocations
+  # - unifyfs@0.9.1
+  # - variorum@0.4.1 # Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform'
+  # - vtk-m@1.7.1
+  # - wannier90@3.1.0 # Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4))
+  #
+  # FAILURES NOT SPECIFIC TO CRUSHER ENVIRONMENT
+  # - dealii@9.3.2
+  # - stat@4.1.0
 
   - rocm_specs:
     - amrex@22.02 +rocm amdgpu_target=gfx90a
@@ -447,20 +479,23 @@ spack:
     - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx90a
     - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
     - umpire@6.0.0 +rocm amdgpu_target=gfx90a
-    # - hpx@1.7.1 +rocm amdgpu_target=gfx90a
-    # - magma@2.6.1 ~cuda +rocm amdgpu_target=gfx90a
-    # - petsc@3.16.4 +rocm amdgpu_target=gfx90a
-    # - slate@2021.05.02 +rocm amdgpu_target=gfx90a
-    # - slepc@3.16.2 +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
-    # - strumpack@6.3.0 ~slate +rocm amdgpu_target=gfx90a
-    #
-    # - arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
-    # - cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
-    # - hpctoolkit@2022.01.15 +rocm # Not ROCmPackage
-    # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27898
-    # - sundials@6.1.1 +rocm amdgpu_target=gfx90a
-    # - tasmanian@7.7 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27896
-    # - vtk-m@1.7.1 +rocm amdgpu_target=gfx90a
+  #
+  # CRUSHER-SPECIFIC FAILURES
+  # - hpx@1.7.1 +rocm amdgpu_target=gfx90a
+  # - magma@2.6.1 ~cuda +rocm amdgpu_target=gfx90a
+  # - petsc@3.16.4 +rocm amdgpu_target=gfx90a
+  # - slate@2021.05.02 +rocm amdgpu_target=gfx90a
+  # - slepc@3.16.2 +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
+  # - strumpack@6.3.0 ~slate +rocm amdgpu_target=gfx90a
+  #
+  # FAILURES NOT SPECIFIC TO CRUSHER ENVIRONMENT
+  # - arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
+  # - cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
+  # - hpctoolkit@2022.01.15 +rocm # Not ROCmPackage
+  # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27898
+  # - sundials@6.1.1 +rocm amdgpu_target=gfx90a
+  # - tasmanian@7.7 +rocm amdgpu_target=gfx90a # https://github.com/spack/spack/issues/27896
+  # - vtk-m@1.7.1 +rocm amdgpu_target=gfx90a
 
   specs:
   - $cpu_specs
