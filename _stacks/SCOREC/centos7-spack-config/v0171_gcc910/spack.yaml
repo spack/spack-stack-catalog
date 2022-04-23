@@ -1,0 +1,81 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  config:
+    install_tree: /gpfs/u/software/erp-spack-install/v0171_gcc910/
+    module_roots:
+      lmod: /gpfs/u/software/erp-spack-install/v0171_gcc910/lmod
+    concretization: together
+  include:
+  - modules.yaml
+  view: false
+  specs:
+  - mfem
+  packages:
+    all:
+      compiler: [gcc@9.1.0]
+      providers:
+        mpi: [openmpi@4.0.1]
+      version: []
+      target: []
+      buildable: true
+    openmpi:
+      version: [4.0.1]
+      variants: +pmi fabrics=verbs schedulers=slurm
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    mfem:
+      version: []
+      variants: +metis +pumi +examples +superlu-dist
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    pumi:
+      version: [master]
+      variants: simmodsuite=full +zoltan ~simmodsuite_version_check
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    zoltan:
+      version: []
+      variants: +parmetis ~fortran
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cmake:
+      version: []
+      variants: ~doc ~ncurses
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    slurm:
+      externals:
+      - spec: slurm@system
+        prefix: /usr
+      version: []
+      target: []
+      compiler: []
+      buildable: false
+      providers: {}
+  compilers:
+  - compiler:
+      spec: gcc@9.1.0
+      paths:
+        cc: /gpfs/u/software/erp-rhel7/gcc/9.1.0/1/bin/gcc
+        cxx: /gpfs/u/software/erp-rhel7/gcc/9.1.0/1/bin/g++
+        f77: /gpfs/u/software/erp-rhel7/gcc/9.1.0/1/bin/gfortran
+        fc: /gpfs/u/software/erp-rhel7/gcc/9.1.0/1/bin/gfortran
+      flags: {}
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
