@@ -1,0 +1,251 @@
+# spack/develop b00983439fc3f11365664853d80cb7f497fd88a6
+# Thu Apr 21 21:34:26 2022 -0600
+
+spack:
+  view: false
+  concretization: separately
+
+  config:
+    concretizer: clingo
+
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: any
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    cuda:
+      version: [11.4.2]
+
+  definitions:
+  - cpu_specs:
+    - adios
+    - adios2
+    - alquimia
+    - aml
+    - amrex
+    - arborx
+    - archer
+    - argobots
+    - ascent
+    - axom
+    - bolt
+    - butterflypack
+    - cabana
+    - caliper
+    - catalyst
+    - chai ~benchmarks ~tests
+    - charliecloud
+    - conduit
+    - darshan-runtime
+    - darshan-util
+    - datatransferkit
+    - dealii
+    - dyninst
+    - exaworks
+    - faodel
+    - flecsi
+    - flit
+    - flux-core
+    - fortrilinos
+    - gasnet
+    - geopm
+    - ginkgo
+    - globalarrays
+    - gmp
+    - gotcha
+    - gptune
+    - h5bench
+    - hdf5 +fortran +hl +shared
+    - heffte +fftw
+    - hpctoolkit
+    - hpx networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - lammps
+    - legion
+    - libnrm
+    - libquo
+    - libunwind
+    - loki
+    - mercury
+    - metall
+    - mfem
+    - mpark-variant
+    - mpifileutils ~xattr
+    - nccmp
+    - nco
+    - netlib-scalapack
+    - ninja
+    - nrm
+    - nvhpc
+    - omega-h
+    - openmpi
+    - openpmd-api
+    - papi
+    - papyrus
+    - parallel-netcdf
+    - paraview
+    - parsec ~cuda
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - plumed
+    - precice
+    - pumi
+    - py-cinemasci
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - py-warpx ^warpx dims=2
+    - py-warpx ^warpx dims=3
+    - py-warpx ^warpx dims=rz
+    - qthreads scheduler=distrib
+    - raja
+    - rempi
+    - scr
+    - slate ~cuda
+    - slepc
+    - stat
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig
+    - swig@4.0.2-fortran
+    - sz
+    - tasmanian
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine
+    - umap
+    - umpire
+    - unifyfs
+    - upcxx
+    - variorum
+    - veloc
+    - vtk-m
+    - wannier90
+    - zfp
+    # CONFLICTS
+    # SPECIFIC FAILURES
+    # SKIPPED
+    # NON-SPECIFIC FAILURES
+
+  - cuda_specs:
+    - amrex +cuda cuda_arch=80
+    - arborx +cuda ^kokkos +wrapper +cuda cuda_arch=80 # Not CudaPackage
+    - ascent ~shared +cuda cuda_arch=80 # https://github.com/spack/spack/issues/27954
+    - axom +cuda cuda_arch=80 ^umpire ~shared # https://github.com/spack/spack/issues/29520
+    - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80 # Not CudaPackage
+    - caliper +cuda cuda_arch=80
+    - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
+    - dealii +cuda cuda_arch=80 # https://github.com/spack/spack/issues/29523
+    - flecsi +cuda cuda_arch=80
+    - flux-core +cuda # not CudaPackage
+    - ginkgo +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hpctoolkit +cuda # not CudaPackage
+    - hpx +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +cuda cuda_arch=80 ^kokkos@3.5.00 +wrapper +cuda cuda_arch=80
+    - magma +cuda cuda_arch=80
+    - mfem +cuda cuda_arch=80
+    - openmpi +cuda # not CudaPackage
+    - papi +cuda # not CudaPackage
+    - paraview +cuda cuda_arch=80
+    - parsec +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - raja +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80
+    - tasmanian +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - umpire ~shared +cuda cuda_arch=80
+    - vtk-m +cuda cuda_arch=80
+    - zfp +cuda cuda_arch=80
+    # SPECIFIC FAILURES
+    # SKIPPED
+    # NON-SPECIFIC FAILURES
+    # REQUIRES CUDA DRIVER
+    # - legion +cuda cuda_arch=80 # Needs CUDA Driver
+    # - upcxx +cuda # Not CudaPackage # Needs CUDA Driver
+
+  - rocm_specs:
+    - amrex +rocm amdgpu_target=gfx908
+    - arborx +rocm ^kokkos +rocm amdgpu_target=gfx908 # Not ROCmPackage
+    - cabana +rocm # https://github.com/spack/spack/issues/27967
+    - chai ~benchmarks +rocm amdgpu_target=gfx908
+    - ginkgo +rocm amdgpu_target=gfx908
+    - heffte +rocm amdgpu_target=gfx908
+    - hpctoolkit +rocm # Not ROCmPackage
+    - hpx +rocm amdgpu_target=gfx908
+    - kokkos +rocm amdgpu_target=gfx908
+    - magma ~cuda +rocm amdgpu_target=gfx908
+    - mfem +rocm amdgpu_target=gfx908
+    - papi +rocm amdgpu_target=gfx908 # https://github.com/spack/spack/issues/27898
+    - petsc +rocm amdgpu_target=gfx908
+    - raja ~openmp +rocm amdgpu_target=gfx908
+    - slate +rocm amdgpu_target=gfx908
+    - slepc +rocm amdgpu_target=gfx908 ^petsc +rocm amdgpu_target=gfx908
+    - strumpack ~slate +rocm amdgpu_target=gfx908
+    - sundials +rocm amdgpu_target=gfx908
+    - superlu-dist +rocm amdgpu_target=gfx908
+    - tasmanian +rocm amdgpu_target=gfx908 # https://github.com/spack/spack/issues/27896
+    - umpire +rocm amdgpu_target=gfx908
+    - vtk-m +rocm amdgpu_target=gfx908
+  # SPECIFIC FAILURES
+  # NON-SPECIFIC FAILURES
+
+  specs:
+  - $cpu_specs
+  - $cuda_specs
+  - $rocm_specs

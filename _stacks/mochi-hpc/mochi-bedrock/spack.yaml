@@ -8,6 +8,7 @@ spack:
   - mochi-ssg
   - nlohmann-json
   - spdlog
+  - fmt
   - cppunit
   - tclap
   concretization: together

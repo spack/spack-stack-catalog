@@ -11,6 +11,7 @@ spack:
   concretization: separately
   view: false
   #[--general]
+
   #[config-override--]
   config:
     install_tree:
@@ -25,20 +26,23 @@ spack:
   bootstrap:
     root: /usr/workspace/radiuss/store/radiuss
   #[--config-override]
+
   mirrors:
     mirror: file:///usr/workspace/radiuss/mirrors/radiuss
+
   #[definitions--]
   definitions:
   - compilers:
-      - '%gcc@8.1.0'
-      - '%gcc@8.3.1'
-      - '%clang@10.0.0'
+    - '%gcc@8.1.0'
+    - '%gcc@8.3.1'
+    - '%clang@10.0.0'
     when: env.get("SYS_TYPE", "") == "toss_3_x86_64_ib"
   - compilers:
-      - '%xl@16.1.1.7'
+    - '%xl@16.1.1.7'
       #- '%xl@16.1.1.7 cxxflags=--gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1 cflags=--gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1'
     when: env.get("SYS_TYPE", "") == "blueos_3_ppc64le_ib_p9"
   #[definitions--]
+
   - radiuss-projects:
     - mfem@4.2.0
     - hypre@2.20.0
@@ -110,6 +114,7 @@ spack:
           #[--child-variables]
           - cd ${SPACK_CONCRETE_ENV_DIR} && spack env activate --without-view .
           - spack -d ci rebuild
+
     service-job-attributes:
       tags: [quartz, shell]
       before_script:
