@@ -23,10 +23,10 @@ spack:
   - compiler:
       spec: gcc@11.2.0
       paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfotran
       flags: {}
       operating_system: sles15
       target: any

@@ -65,7 +65,7 @@ spack:
    zlib@1.2.11]
   view: /opt/view
   mirrors:
-    e4s: https://cache.e4s.io
+    E4S: https://cache.e4s.io/noaa
   concretization: together
   config:
     install_tree: /opt/software

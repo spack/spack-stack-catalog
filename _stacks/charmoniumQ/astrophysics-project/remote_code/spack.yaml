@@ -4,5 +4,5 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [enzo]
+  specs: [enzo, music, music@2021-12-01, python@3.10]
   view: true

@@ -1,0 +1,221 @@
+# spack/develop 4817e4c80ced0c1115a018bb185ce93f50b20242
+# Thu Apr 21 13:22:41 2022 -0700
+
+spack:
+  view: false
+  concretization: separately
+
+  config:
+    concretizer: clingo
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@11.1.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # ROCm 4.5.2 EXTERNALS
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@4.5.2
+        prefix: /opt/rocm-4.5.2/hip
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@4.5.2
+        prefix: /opt/rocm-4.5.2/opencl
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@4.5.2
+        prefix: /opt/rocm-4.5.2/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.5.2/llvm/bin/clang++
+            c++: /opt/rocm-4.5.2/llvm/bin/clang++
+            hip: /opt/rocm-4.5.2/hip/bin/hipcc
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@4.5.2
+        prefix: /opt/rocm-4.5.2/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.5.2/llvm/bin/clang++
+            cxx: /opt/rocm-4.5.2/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@4.5.2
+        prefix: /opt/rocm-4.5.2/
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@4.5.2
+        prefix: /opt/rocm-4.5.2/
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-4.5.2/llvm/bin/clang++
+            cxx: /opt/rocm-4.5.2/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@4.5.2
+        prefix: /opt/rocm-4.5.2/roctracer
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@4.5.2
+        prefix: /opt/rocm-4.5.2
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@4.5.2
+        prefix: /opt/rocm-4.5.2/rocrand
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@4.5.2
+        prefix: /opt/rocm-4.5.2
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@4.5.2
+        prefix: /opt/rocm-4.5.2
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@4.5.2
+        prefix: /opt/rocm-4.5.2
+
+  specs:
+  - exago +rocm amdgpu_target=gfx90a +hiop ^hiop +rocm amdgpu_target=gfx90a
