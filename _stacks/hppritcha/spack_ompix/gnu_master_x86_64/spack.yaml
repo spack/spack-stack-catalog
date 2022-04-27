@@ -5,7 +5,7 @@ spack:
   - ./
   definitions: []
   specs:
-  - openmpi
+  - openmpi@main
   view: false
   concretization: together
   upstreams: {}
