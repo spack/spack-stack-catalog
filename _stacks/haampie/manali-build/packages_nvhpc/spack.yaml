@@ -3,45 +3,11 @@ spack:
   specs:
   - netcdf-fortran
   - osu-micro-benchmarks +cuda cuda_arch=80
-  - openmpi@4.0:4%nvhpc +cuda +cxx schedulers=slurm fabrics=ucx
+  - openmpi@4.0:4%nvhpc +cuda +cxx +pmi +pmix schedulers=slurm fabrics=ucx
   - ucx%gcc +rdmacm +cma +verbs +xpmem +ib_hw_tm +mlx5_dv +dc +ud +rc +dm +optimizations
     +gdrcopy ~assertions ~debug
   view: false
   packages:
     all:
       compiler: [nvhpc, gcc]
-    openssl:
-      variants: [certs=mozilla]
-    libtool:
-      externals:
-      - spec: libtool@2.4.6
-        prefix: /usr
-    m4:
-      externals:
-      - spec: m4@1.4.18
-        prefix: /usr
-    autoconf:
-      externals:
-      - spec: autoconf@2.69
-        prefix: /usr
-    automake:
-      externals:
-      - spec: automake@1.15.1
-        prefix: /usr
-    perl:
-      externals:
-      - spec: perl@5.26.1~cpanm+shared+threads
-        prefix: /usr
-    slurm:
-      externals:
-      - spec: slurm@20-11-8-1
-        prefix: /usr
-    rdma-core:
-      externals:
-      - spec: rdma-core@39.1
-        prefix: /usr
-    xpmem:
-      externals:
-      - spec: xpmem@0.29.2
-        prefix: /opt/cray/xpmem/2.2.40-2.1_2.56__g3cf3325.shasta
   'compilers:': []

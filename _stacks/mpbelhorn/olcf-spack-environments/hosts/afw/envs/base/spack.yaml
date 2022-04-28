@@ -1,0 +1,499 @@
+# OLCF AFW Spack Environment
+
+spack:
+  #############################################################################
+  definitions:
+  - core_compiler:
+    - '%gcc@7.5.0'
+  - gcc_compilers:
+    - '%gcc@10.2.0'
+    - '%gcc@9.3.0'
+    - '%gcc@8.1.0'
+  - cray_compilers:
+    - '%cce@11.0.2'
+  - all_compilers:
+    - $gcc_compilers
+    - $cray_compilers
+  - core_packages:
+    - git
+    - htop
+    - tmux
+    - cmake
+    - autoconf
+    - automake
+    - libtool
+    - patchelf
+    - globus-toolkit
+    - libszip
+    - libaec
+    - libgeotiff
+  - core_specs:
+    - matrix:
+      - - $core_packages
+      - - $core_compiler
+      - - arch=linux-sles15-x86_64
+  specs:
+  - $core_specs
+  # - matrix:
+  #   - - 'petsc%gcc@10.2.0'
+  #     - 'petsc%gcc@9.3.0'
+  #     - 'petsc%cce@11.0.2~superlu-dist'
+  #   - - ^cray-mpich
+  #   - - ^cray-libsci
+  #   - - arch=cray-sles15-zen2
+  #############################################################################
+  mirrors:
+    facility_builds: /sw/afw/spack-env/mirrors/builds
+    source_mirror: /sw/sources/facility-spack/source_mirror
+  repos:
+  - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
+  #############################################################################
+  view: false
+  packages:
+    all:
+      buildable: true
+      compiler: [gcc@7.5.0, gcc]
+      providers:
+        blas: [openblas, cray-libsci]
+        lapack: [openblas, cray-libsci]
+        mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
+      target: [zen2]
+      version: []
+    binutils:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +libiberty
+      version: []
+    cray-libsci:
+      buildable: false
+      externals:
+        - modules:
+            - cray-libsci/21.08.1.2
+            - cray-mpich/8.1.11
+          spec: cray-libsci@21.08.1.2
+      version: [21.08.1.2]
+    cray-mpich:
+      buildable: false
+      compiler: []
+      externals:
+        - modules:
+            - cray-mpich/8.1.11
+          spec: cray-mpich@8.1.11
+      providers: {}
+      target: []
+      version: [8.1.11]
+    fftw:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: precision=float,double,long_double
+      version: []
+    hdf5:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +hl+cxx+fortran
+      version: []
+    libfabric:
+      buildable: true
+      externals:
+        - prefix: /opt/cray/libfabric/1.11.0.0.233
+          spec: libfabric@1.11.0.0.233
+      version: [1.11.0.0.233]
+      variants: fabrics=rxm,sockets,tcp,udp
+    libtool:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version: [2.4.6]
+    m4:
+      buildable: true
+      compiler: []
+      externals: []
+      providers: {}
+      target: []
+      version: [1.4.18]
+    mpich:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +verbs+slurm device=ch4 netmod=ofi pmi=pmi
+      version: [3.4.1]
+    ncurses:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +termlib
+      version: []
+    netcdf-c:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      version: []
+    netlib-scalapack:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +fpic
+      version: []
+    octave:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +magick+arpack+curl+fftw+fontconfig+freetype+glpk+gnuplot+hdf5+opengl+qhull+qrupdate+qt+readline+suitesparse+zlib
+      version: []
+    openmpi:
+      buildable: false
+      compiler: []
+      providers: {}
+      target: []
+      version: []
+    openssh:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /usr
+          spec: openssh@8.1
+      providers: {}
+      target: []
+      version: [8.1]
+    openssl:
+      buildable: false
+      compiler: []
+      externals:
+        - spec: openssl@1.1.1-os
+          prefix: /usr
+      providers: {}
+      target: []
+      version: [1.1.1-os]
+    parallel-netcdf:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cxx+fortran+fpic
+      version: []
+    petsc:
+      variants: +batch
+    qt:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~ssl
+      version: []
+    r:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~X
+      version: []
+    raja:
+      variants: ~exercises~examples~tests~openmp~rocm
+    slurm:
+      buildable: false
+      compiler: []
+      externals:
+        - prefix: /usr
+          spec: slurm@20.11.3
+      providers: {}
+      target: []
+      version: [20.11.3]
+    tcsh:
+      buildable: false
+      externals:
+        - prefix: /usr
+          spec: tcsh@6.20.00
+      version: [6.20.00]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  modules:
+    prefix_inspections:
+      bin:
+      - PATH
+      man:
+      - MANPATH
+      share/man:
+      - MANPATH
+      share/aclocal:
+      - ACLOCAL_PATH
+      lib:
+      - LD_LIBRARY_PATH
+      lib64:
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      lib64/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      ? ''
+      : - CMAKE_PREFIX_PATH
+    default:
+      enable:
+      - tcl
+      tcl:
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        blacklist:
+        - slurm
+        - go-bootstrap
+        - openssl
+        all:
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              OLCF_${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+        verbose: true
+        whitelist:
+          - '%gcc@9-bare'
+        blacklist_implicits: false
+        projections:
+          all: '{compiler.name}-{compiler.version}/{name}/{version}'
+  config:
+    install_tree:
+      root: ${FACSPACK_ENV}/opt
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    module_roots:
+      tcl: ${FACSPACK_ENV_MODULEROOT}/flat
+      lmod: ${FACSPACK_ENV_MODULEROOT}/spack
+    template_dirs:
+    - ${FACSPACK_CONF_HOST}/templates
+    - ${FACSPACK_CONF_COMMON}/spack/templates
+    - $spack/share/spack/templates
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: ${FACSPACK_SOURCE_CACHE}
+    extensions:
+    # FIXME: The AFW environment needs to exist in a shared location
+    - /ccs/home/belhorn/olcf-spack-environments/share/spack/extensions/spack-olcf
+    misc_cache: ${FACSPACK_ENV}/.mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 16
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout: null
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: clingo
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        set:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7-os
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+        unset: []
+      extra_rpaths: []
+  # - compiler:
+  #     spec: gcc@10.2.0-bare
+  #     paths:
+  #       cc: /opt/gcc/10.2.0/snos/bin/gcc
+  #       cxx: /opt/gcc/10.2.0/snos/bin/g++
+  #       f77: /opt/gcc/10.2.0/snos/bin/gfortran
+  #       fc: /opt/gcc/10.2.0/snos/bin/gfortran
+  #     flags: {}
+  #     operating_system: sles15
+  #     target: x86_64
+  #     modules: []
+  #     environment:
+  #       append_path:
+  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+  #     extra_rpaths:
+  #     - /opt/gcc/10.2.0/snos/lib64
+  - compiler:
+      spec: gcc@9-bare
+      paths:
+        cc: /opt/gcc/9.3.0/snos/bin/gcc
+        cxx: /opt/gcc/9.3.0/snos/bin/g++
+        f77: /opt/gcc/9.3.0/snos/bin/gfortran
+        fc: /opt/gcc/9.3.0/snos/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      extra_rpaths:
+      - /opt/gcc/9.3.0/snos/lib64
+  # - compiler:
+  #     spec: gcc@8.1.0-bare
+  #     paths:
+  #       cc: /opt/gcc/8.1.0/snos/bin/gcc
+  #       cxx: /opt/gcc/8.1.0/snos/bin/g++
+  #       f77: /opt/gcc/8.1.0/snos/bin/gfortran
+  #       fc: /opt/gcc/8.1.0/snos/bin/gfortran
+  #     flags: {}
+  #     operating_system: sles15
+  #     target: any
+  #     modules: []
+  #     environment:
+  #       append_path:
+  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+  #     extra_rpaths:
+  #     - /opt/gcc/8.1.0/snos/lib64
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/8.1.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.2.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@12.0.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/12.0.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@13.0.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.12/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.12/bin/CC
+        f77: /opt/cray/pe/craype/2.7.12/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.12/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.0
+      - craype-x86-rome
+      environment: {}
+      extra_rpaths: []

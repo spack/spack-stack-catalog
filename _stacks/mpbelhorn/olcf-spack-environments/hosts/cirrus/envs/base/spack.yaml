@@ -292,11 +292,11 @@ spack:
       version: []
     openssl:
       buildable: false
-      version: [1.1.1]
+      version: [1.1.1-os]
       target: []
       providers: {}
       externals:
-      - spec: openssl@1.1.1
+      - spec: openssl@1.1.1-os
         prefix: /usr
       compiler: []
     octave:
@@ -633,7 +633,6 @@ spack:
     - ${FACSPACK_CONF_COMMON}/spack/templates
     - $spack/share/spack/templates
     build_stage:
-    - /gpfs/wolf/world-shared/stf007/spack-stage/cirrus 
     - $tempdir/$user/spack-stage
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
