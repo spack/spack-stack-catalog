@@ -5,6 +5,6 @@
 spack:
   specs: [libpressio+libdistributed+hdf5+mgard+python+sz+zfp+mpi+bitgrooming+digitrounding+fpzip+magick+blosc
       ^mgard@robertu94+cuda, py-h5py, libpressio-tthresh, libpressio-tools+opt+tthresh+mpi,
-    py-matplotlib, opencv+python3]
+    py-matplotlib, opencv+python3, git]
   view: true
   concretization: together
