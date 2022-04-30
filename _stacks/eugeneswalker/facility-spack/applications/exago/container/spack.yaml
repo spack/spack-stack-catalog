@@ -1,5 +1,6 @@
-# spack/develop 4817e4c80ced0c1115a018bb185ce93f50b20242
-# Thu Apr 21 13:22:41 2022 -0700
+# spack/develop b41de6d86bdf7bf1907bd0f8999d2ccda3003f8d
+# Mon Apr 25 12:48:35 2022 -0700
+# ecpe4s/ubuntu20.04-rocm:4.5.2
 
 spack:
   view: false
@@ -218,4 +219,10 @@ spack:
         prefix: /opt/rocm-4.5.2
 
   specs:
-  - exago +rocm amdgpu_target=gfx90a +hiop ^hiop +rocm amdgpu_target=gfx90a
+  - exago +hiop +rocm amdgpu_target=gfx90a
+  - hiop@develop +mpi +raja +sparse +kron +rocm amdgpu_target=gfx90a
+
+  develop:
+    hiop:
+      path: /hiop-develop
+      spec: hiop@develop +mpi +raja +sparse +kron +rocm amdgpu_target=gfx90a

@@ -79,6 +79,8 @@ spack:
     - cube@4.6+gui
     - bear
     - ffmpeg+X+avresample+libaom+libmp3lame+libopenjpeg+libopus+libsnappy+libspeex+libvorbis+libvpx+libzmq+nonfree
+    - proj
+    - eccodes+fortran+png+pthreads+netcdf+aec ^netcdf-c~mpi~parallel-netcdf ^hdf5~mpi
     # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:

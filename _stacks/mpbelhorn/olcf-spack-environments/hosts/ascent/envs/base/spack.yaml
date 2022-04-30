@@ -13,7 +13,7 @@ spack:
     - '%gcc@9.3.0'
     - '%gcc@10.2.0'
     - '%gcc@11.1.0'
-    # - '%gcc@11.2.0'
+    - '%gcc@11.2.0'
   - xl_compilers:
     - '%xl@16.1.1-10'
     # - '%xl@16.1.1-beta103'
@@ -79,6 +79,8 @@ spack:
     - cube@4.6+gui
     - bear
     - ffmpeg+X+avresample+libaom+libmp3lame+libopenjpeg+libopus+libsnappy+libspeex+libvorbis+libvpx+libzmq+nonfree
+    - proj
+    - eccodes+fortran+png+pthreads+netcdf+aec ^netcdf-c~mpi~parallel-netcdf ^hdf5~mpi
     # - cdo+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
     # - cdo~szip+aec+hdf5+netcdf ^hdf5~mpi+cxx+fortran ^fftw~mpi+openmp ^netcdf-c~mpi~parallel-netcdf
   - core_only_compute_packages:
@@ -311,8 +313,8 @@ spack:
       - - $general_compute_packages
         - $e4s_21.11_cpu_packages
         - $e4s_21.11_gpu_packages_cuda11.4.2
-      # - - '%gcc@11.2.0'
-      - - '%gcc@11.1.0'
+      - - '%gcc@11.2.0'
+        - '%gcc@11.1.0'
         - '%gcc@10.2.0'
       # - - ^cuda@11.4.2
       exclude:
@@ -336,7 +338,7 @@ spack:
       - tau~cuda+mpi+ompt+openmp ^papi~cuda
       - tau~cuda+mpi~ompt~openmp ^papi~cuda
       - unifyfs
-      - vtk-m@1.6.0%gcc@11.1.0
+      - vtk-m@1.6.0%gcc@11
     - kokkos%gcc@8.3.1+wrapper+openmp std=14 +cuda cuda_arch=70 ^cuda@11.0.3
     - magma@2.5.3%gcc@8.3.1 ^cuda@10.2.89
     - amgx%gcc@8.3.1 +cuda cuda_arch=70 ^cuda@10.2.89
@@ -417,9 +419,17 @@ spack:
   - $llvm_specs
   - $xl_specs
   # - $nv_specs
+  - adios2%nvhpc@21.11~python ^bzip2%gcc@8-os ^c-blosc%gcc@8-os
+    ^libfabric%gcc@8-os ^libffi%gcc@8-os ^libpng%gcc@8-os ^sz%gcc@8-os
+    ^zfp%gcc@8-os ^cmake%gcc@8-os ^gnuconfig%gcc@8-os ^pkgconf%gcc@8-os
+  - adios2%nvhpc@21.9~python ^bzip2%gcc@8-os ^c-blosc%gcc@8-os
+    ^libfabric%gcc@8-os ^libffi%gcc@8-os ^libpng%gcc@8-os ^sz%gcc@8-os
+    ^zfp%gcc@8-os ^cmake%gcc@8-os ^gnuconfig%gcc@8-os ^pkgconf%gcc@8-os
   - gdrcopy@2.3%gcc@8.3.1
   - gdrcopy@2.3%gcc@11.1.0
-  # - gdrcopy@2.3%gcc@11.2.0
+  - gdrcopy@2.3%gcc@11.2.0
+  - boost@1.77.0%gcc@9.1.0~mpi+container
+  - boost@1.77.0%gcc@9.1.0+mpi+container
   #############################################################################
   mirrors:
     facility_builds: /sw/ascent/spack-envs/mirrors/builds
@@ -1373,20 +1383,20 @@ spack:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
-  # - compiler:
-  #     spec: gcc@11.2.0
-  #     operating_system: rhel8
-  #     modules: [gcc/11.2.0]
-  #     paths:
-  #       cc: gcc
-  #       cxx: g++
-  #       f77: gfortran
-  #       fc: gfortran
-  #     extra_rpaths: []
-  #     environment:
-  #       append_path:
-  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
-  #     flags: {}
+  - compiler:
+      spec: gcc@11.2.0
+      operating_system: rhel8
+      modules: [gcc/11.2.0]
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
   - compiler:
       # siterc must ignore certain GNU arguments, eg
       # `switch -Wno-implicit-function-declaration is hide;`
