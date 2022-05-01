@@ -5,17 +5,17 @@
 
 spack:
   # add package specs to the `specs` list
-  specs:
-  - matrix:
-    - [bzip2, blat]
-    - ['%gcc@10.3.0']
-  - gcc@10.3.0
-  view: false
   config:
     install_missing_compilers: true
+  view: false
+  specs:
+  - gcc@10.3.0
+  - matrix:
+    - ['%gcc@10.3.0']
+    - [bzip2, blat]
   compilers:
   - compiler:
-      spec: gcc@8.5.0
+      spec: gcc@8.4.1
       paths:
         cc: /usr/bin/gcc
         cxx: /usr/bin/g++
