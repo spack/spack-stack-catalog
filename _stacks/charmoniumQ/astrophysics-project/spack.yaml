@@ -1,0 +1,9 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [enzo, music@2021-12-01, py-yt@4.0.3%gcc@7.2.0, py-ipython]
+  view: true
+  concretization: together
