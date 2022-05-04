@@ -2,11 +2,10 @@ spack:
   specs:
   - cmake
   - pkg-config
+  - mpi
   - uuid
   - nlohmann-json
-  - mochi-margo
   - tclap
-  - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - leveldb@1.22
   - rocksdb
   - berkeley-db+cxx+stl
@@ -15,8 +14,8 @@ spack:
   - lmdb
   - unqlite@master
   - lua-sol2
-  - py-pybind11@2.7.0 # any version above 2.6.0 should work
+  - py-pybind11
+  - mochi-margo
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
-#  - pmemkv
-#  - upscaledb
   concretization: together
