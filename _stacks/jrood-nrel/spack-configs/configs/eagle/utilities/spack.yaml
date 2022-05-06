@@ -8,6 +8,7 @@ spack:
   - curl
   - flex
   - flex@2.5.39
+  - ffmpeg
   - emacs
   - git
   - gdb

@@ -16,6 +16,7 @@ spack:
     - '%gcc@11.2.0'
   - xl_compilers:
     - '%xl@16.1.1-10'
+    - '%xl@16.1.1-12.1'
     - '%xl@16.1.1-beta103'
   - llvm_compilers:
     - '%clang@12.0.0-0'
@@ -257,6 +258,57 @@ spack:
     - matrix:
       - - $e4s_21.11_gpu_packages 
       - - ^cuda@11.4.2
+  - e4s_22.02_cpu_packages:
+    # Minimal delta from v21.11
+    - amrex@22.02 ~rocm~cuda
+    ### - axom@0.6.1 ~cuda
+    - butterflypack@2.1.0
+    - conduit@0.8.2
+    - dyninst@12.0.1
+    - flux-core@0.35.0
+    # - gptune@2.1.0 # massive python dependencies
+    - hpctoolkit@2022.01.15 ~cuda
+    - hypre@2.24.0 ~cuda
+    - kokkos@3.5.00 +openmp
+    - kokkos-kernels@3.5.00 +openmp
+    - lammps@20220107
+    - mercury@2.1.0
+    - mpifileutils@0.11.1 ~xattr
+    - nccmp@1.9.0.1
+    - nco@5.0.1
+    - openpmd-api@0.14.4 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - petsc@3.16.4 ~cuda
+    - plumed@2.6.3
+    - slepc@3.16.2 ~cuda
+    - strumpack@6.3.0 ~slate~rocm~cuda
+    - sundials@6.1.1 ~rocm~cuda
+    - superlu-dist@7.2.0 ~cuda
+    - vtk-m@1.7.1 ~cuda
+    # - wannier90@3.1.0
+  - e4s_22.02_gpu_packages:
+    # Minimal diff from v21.11
+    - amrex@22.02 +cuda cuda_arch=70
+    ### - axom@0.6.1 +cuda cuda_arch=70
+    - flux-core@0.35.0 +cuda # not CudaPackage
+    - hpctoolkit@2022.01.15 +cuda # not CudaPackage
+    - hypre@2.24.0 +cuda cuda_arch=70
+    - kokkos@3.5.00 ~rocm+cuda+wrapper cuda_arch=70
+    - kokkos-kernels@3.5.00 +cuda cuda_arch=70 ^kokkos@3.5.00~rocm+cuda+wrapper cuda_arch=70
+    - papi@6.0.0.1 +cuda # not CudaPackage
+    - petsc@3.16.4 +cuda cuda_arch=70
+    - slepc@3.16.2 +cuda cuda_arch=70
+    - strumpack@6.3.0 ~slate~rocm+cuda cuda_arch=70
+    - sundials@6.1.1 ~rocm+cuda cuda_arch=70
+    - superlu-dist@7.2.0 +cuda cuda_arch=70
+    - vtk-m@1.7.1 +cuda cuda_arch=70
+  - e4s_22.02_gpu_packages_cuda11.0.3:
+    - matrix:
+      - - $e4s_22.02_gpu_packages 
+      - - ^cuda@11.0.3
+  - e4s_22.02_gpu_packages_cuda11.4.2:
+    - matrix:
+      - - $e4s_22.02_gpu_packages 
+      - - ^cuda@11.4.2
   - core_specs:
     - matrix:
       - - $core_packages
@@ -282,6 +334,8 @@ spack:
         - nco
         - $e4s_21.11_cpu_packages
         - $e4s_21.11_gpu_packages_cuda11.0.3
+        - $e4s_22.02_cpu_packages
+        - $e4s_22.02_gpu_packages_cuda11.0.3
       - - '%gcc@8.3.1'
         - '%gcc@9.1.0'
         - '%gcc@9.3.0'
@@ -313,6 +367,8 @@ spack:
       - - $general_compute_packages
         - $e4s_21.11_cpu_packages
         - $e4s_21.11_gpu_packages_cuda11.4.2
+        - $e4s_22.02_cpu_packages
+        - $e4s_22.02_gpu_packages_cuda11.4.2
       - - '%gcc@11.2.0'
         - '%gcc@11.1.0'
         - '%gcc@10.2.0'
@@ -338,7 +394,7 @@ spack:
       - tau~cuda+mpi+ompt+openmp ^papi~cuda
       - tau~cuda+mpi~ompt~openmp ^papi~cuda
       - unifyfs
-      - vtk-m@1.6.0%gcc@11
+      - vtk-m@1.6.0:1.7.1%gcc@11
     - kokkos%gcc@8.3.1+wrapper+openmp std=14 +cuda cuda_arch=70 ^cuda@11.0.3
     - magma@2.5.3%gcc@8.3.1 ^cuda@10.2.89
     - amgx%gcc@8.3.1 +cuda cuda_arch=70 ^cuda@10.2.89
@@ -347,6 +403,8 @@ spack:
       - - $general_compute_packages
         - $e4s_21.11_cpu_packages
         - $e4s_21.11_gpu_packages_cuda11.0.3
+        - $e4s_22.02_cpu_packages
+        - $e4s_22.02_gpu_packages_cuda11.0.3
         - trilinos@13.0.0+intrepid2+shards~muelu
         - trilinos@13.2.0 +cuda~wrapper cuda_arch=70
       - - $llvm_compilers
@@ -378,6 +436,7 @@ spack:
       - 'parallel-io@2.4.4:'
       - plasma
       # xl beta103 libm macro errors:
+      - '%xl@16.1.1-12.1'
       - netcdf-c%xl@16.1.1-beta103
       - netcdf-fortran%xl@16.1.1-beta103
       - netcdf-cxx4%xl@16.1.1-beta103
@@ -1548,6 +1607,24 @@ spack:
       - /sw/summit/xl/16.1.1-10/lib
       - /sw/summit/xl/16.1.1-10/xlf/16.1.1/lib
       - /sw/summit/xl/16.1.1-10/xlC/16.1.1/lib
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
+  # XL 16.1.1-12.1
+  - compiler:
+      spec: xl@16.1.1-12.1
+      operating_system: rhel8
+      modules: [xl/16.1.1-12.1]
+      paths:
+        cc: /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf_r
+        fc: /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/summit/xl/16.1.1-12.1/lib
+      - /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/lib
+      - /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/lib
       environment:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig

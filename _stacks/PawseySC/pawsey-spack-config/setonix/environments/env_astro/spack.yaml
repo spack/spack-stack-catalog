@@ -32,11 +32,10 @@ spack:
     - subversion
 
   - mwa-util-set:
-    
-    # - swarp #swarp download page does not seem to be available
-    # - wsclean # will need new recipe
-    # - wctools # will need new recipe
-    # - stilts # will need new recipe 
+    - wcstools
+    - wsclean@3.0 +mpi +idg +everybeam
+    - wsclean@3.0 ~mpi +idg +everybeam
+    - wsclean@2.10 
     - pgplot
 
   # TODO add versions 

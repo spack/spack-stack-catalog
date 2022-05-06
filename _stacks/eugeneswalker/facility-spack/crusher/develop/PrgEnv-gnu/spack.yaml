@@ -1,18 +1,5 @@
-# spack/develop b00983439fc3f11365664853d80cb7f497fd88a6
-# Thu Apr 21 21:34:26 2022 -0600
-#
-# builds OK, as of 
-#  cpu_specs: 
-#  rocm_specs: 
-#
-# inherent conflicts:
-#  (1) libnrm (cray-mpich)
-#
-# skipped for Crusher:
-#  (3) flux-core, nvhpc, openmpi
-#
-# common failures:
-#
+# spack/develop 011a491b16a71747d811803a3f2ca1de6b367c0f
+# Thu May 5 09:04:16 2022 -0700
 
 spack:
   view: false
@@ -20,6 +7,115 @@ spack:
 
   config:
     concretizer: clingo
+
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@7.5.0]
+        blacklist_implicits: true
+        all:
+          conflict: []
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            +rocm: rocm
+        amrex:
+          suffixes:
+            amrex~rocm: cpu
+        blaspp:
+          suffixes:
+            blaspp~rocm: cpu
+        boost:
+          suffixes:
+            boost cxxstd=17: cxx17
+        camp:
+          suffixes:
+            camp~rocm: cpu
+        chai:
+          suffixes:
+            chai~rocm: cpu
+        fftw:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            fftw+openmp: omp
+        ginkgo:
+          suffixes:
+            ginkgo~rocm: cpu
+        hdf5:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            hdf5+fortran: fortran
+            hdf5~mpi+szip: sz
+            hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
+        openblas:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        raja:
+          suffixes:
+            raja~rocm: cpu
+        slate:
+          suffixes:
+            slate~rocm: cpu
+        strumpack:
+          suffixes:
+            strumpack~rocm: cpu
+        sundials:
+          suffixes:
+            sundials~rocm: cpu
+        tasmanian:
+          suffixes:
+            tasmanian~rocm: cpu
+        tau:
+          suffixes:
+            tau+openmp: omp
+        umpire:
+          suffixes:
+            umpire~rocm: cpu
+            umpire+openmp: omp
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
+        verbose: true
+        whitelist: []
+        blacklist: []
+        hash_length: 0
+        hierarchy: []
+        projections: {}
+        core_specs: []
+
 
   compilers:
   - compiler:
@@ -43,7 +139,9 @@ spack:
       compiler: [gcc@11.2.0]
       providers:
         blas: [openblas]
+        lapack: [openblas]
         mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
       target: [zen3]
       variants: +mpi
     binutils:
@@ -70,7 +168,21 @@ spack:
     xz:
       variants: +pic
 
-    # CRUSHER EXTERNALS
+    # FACILITY REQUESTED PREFERENCES
+    petsc:
+      variants: +batch
+    parallel-netcdf:
+      variants: +cxx +fortran +fpic
+    netlib-scalapack:
+      variants: +fpic
+    netcdf-c:
+      variants: ~hdf4 +mpi +parallel-netcdf +shared
+    fftw:
+      variants: precision=float,double,long_double
+    darshan-runtime:
+      variants: scheduler=slurm
+
+    # FACILITY EXTERNALS
     cray-mpich:
       buildable: false
       externals:
@@ -283,7 +395,6 @@ spack:
     - globalarrays
     - gmp
     - gotcha
-    - gptune
     - hdf5 +fortran +hl +shared
     - heffte +fftw
     - hpctoolkit
@@ -347,8 +458,6 @@ spack:
     - upcxx
     - veloc
     - zfp
-    # CONFLICTS
-  # - libnrm                # explicit depends_on('mpich')
     # SPECIFIC FAILURES
   # - alquimia              # pflotran: field.F90:191:43: call VecDestroy(field%porosity0,ierr);CHKERRQ(ierr): Error: Unclassifiable statement at (1)
   # - ascent                # vtk-m: vtkmdiy/mpi/point-to-point.hpp:51:26: error: 'size_t' does not name a type
@@ -365,6 +474,8 @@ spack:
   # - wannier90             # comms.F90:247:19: Type mismatch between actual argument at (1) and actual argument at (2) (REAL(8)/COMPLEX(8))
     # SKIPPED
   # - flux-core
+  # - gptune                # explicit depends_on("openmpi")
+  # - libnrm                # explicit depends_on('mpich')
   # - openmpi
     # NON-SPECIFIC FAILURES
   # - dealii
@@ -381,7 +492,6 @@ spack:
     - mfem +rocm amdgpu_target=gfx90a
     - petsc +rocm amdgpu_target=gfx90a
     - raja ~openmp +rocm amdgpu_target=gfx90a
-    - slate +rocm amdgpu_target=gfx90a
     - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
     - strumpack ~slate +rocm amdgpu_target=gfx90a
     - sundials +rocm amdgpu_target=gfx90a
@@ -392,7 +502,8 @@ spack:
   # - cabana +rocm                                # g++: error: unrecognized command-line option '-fno-gpu-rdc' (https://github.com/spack/spack/issues/27967)
   # - hpx +rocm amdgpu_target=gfx90a              # rocm@5.1.0 issue (no problems w 4.5.2); asio/require.hpp:412:3: error: dynamic initialization is not supported for __device__
   # - vtk-m +rocm amdgpu_target=gfx90a            # vtkmdiy/mpi/point-to-point.hpp:51:26: error: 'size_t' does not name a type
-  # NON-SPECIFIC FAILURES
+  # FAILURES KNOWN AT RELEASE TIME
+  # - slate +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/30489
   # CONCRETIZATION
   # - hpctoolkit +rocm                            # INFO: Not ROCmPackage
   # - papi +rocm amdgpu_target=gfx90a             # https://github.com/spack/spack/issues/27898

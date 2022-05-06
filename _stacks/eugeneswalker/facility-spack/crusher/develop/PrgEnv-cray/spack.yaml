@@ -73,7 +73,7 @@ spack:
     xz:
       variants: +pic
 
-    # CRUSHER EXTERNALS
+    # FACILITY EXTERNALS
     cray-mpich:
       buildable: false
       externals:
@@ -110,10 +110,6 @@ spack:
       variants: +batch
     parallel-netcdf:
       variants: +cxx +fortran +fpic
-    openmpi:
-      buildable: false
-    mpich:
-      buildable: false
     netlib-scalapack:
       variants: +fpic
     netcdf-c:

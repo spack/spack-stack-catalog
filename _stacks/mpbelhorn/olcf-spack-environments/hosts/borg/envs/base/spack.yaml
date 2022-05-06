@@ -164,6 +164,38 @@ spack:
     - trilinos@13.0.1 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx90a
     - trilinos@13.2.0 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx90a
     - umpire@6.0.0 +shared+rocm~cuda amdgpu_target=gfx90a
+  - e4s_22.02_cpu_specs:
+    # Minimal diff from v21.11
+    - amrex@22.02 ~rocm~cuda
+    - axom@0.6.1 ~cuda # Might fail
+    - butterflypack@2.1.0
+    - conduit@0.8.2
+    - dyninst@12.0.1
+    - flux-core@0.35.0
+    # - gptune@2.1.0 # massive python dependencies
+    - hpctoolkit@2022.01.15 ~cuda
+    - hypre@2.24.0 ~cuda
+    - kokkos@3.5.00 ~rocm~cuda~wrapper+openmp
+    - kokkos-kernels@3.5.00 +openmp
+    - lammps@20220107
+    - mercury@2.1.0
+    - mpifileutils@0.11.1 ~xattr
+    - nccmp@1.9.0.1
+    - nco@5.0.1
+    - openpmd-api@0.14.4 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - plumed@2.6.3
+    - slepc@3.16.2 ~cuda
+    - strumpack@6.3.0 ~slate~rocm~cuda
+    - sundials@6.1.1 ~rocm~cuda
+    - superlu-dist@7.2.0 ~cuda
+    - vtk-m@1.7.1 ~cuda
+    # - wannier90@3.1.0
+  - e4s_22.02_gpu_specs:
+    # Minimal diff from v21.11
+    - amrex@22.02 +rocm~cuda amdgpu_target=gfx90a
+    - kokkos@3.5.00 +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - strumpack@6.3.0 ~slate+rocm~cuda amdgpu_target=gfx90a
+    - sundials@6.1.1 +rocm~cuda amdgpu_target=gfx90a
   - core_specs:
     - matrix:
       - - $core_packages
@@ -175,6 +207,8 @@ spack:
     - matrix:
       - - $e4s_21.11_cpu_specs
         - $e4s_21.11_gpu_specs
+        - $e4s_22.02_cpu_specs
+        - $e4s_22.02_gpu_specs
       - - '%gcc@11.2.0'
         - '%gcc@10.3.0'
       - - arch=cray-sles15-zen3
@@ -186,6 +220,7 @@ spack:
       - loki%gcc@11 ## FIXME: incompatible C++17 used by default
       - magma amdgpu_target=gfx90a ^hip@:4.5.0
       - plasma
+      - plumed@2.6.3%gcc@11.2.0
       - rempi%gcc@10.3.0:11.2.0
       - slepc@3.15.1:3.16.0
       - strumpack%gcc # fails due to failure to find mpi.h
@@ -194,19 +229,22 @@ spack:
     - matrix:
       - - $e4s_21.11_cpu_specs
         - $e4s_21.11_gpu_specs
+        - $e4s_22.02_cpu_specs
+        - $e4s_22.02_gpu_specs
         - slate@2021.05.02
       - - '%cce@13.0.0'
         - '%cce@12.0.3'
       - - arch=cray-sles15-zen3
       exclude:
       - archer%cce
-      - butterflypack@2.0.0%cce
+      - butterflypack@2.0.0:2.1.0%cce
       - cabana@0.4.0%cce@13.0.0:13.0.2 # -Werror,-Wdeprecated-copy
       - caliper%cce
       - dyninst%cce ## os elfutils insufficient
       - globalarrays%cce ^openblas
       - hpctoolkit%cce ## depends on dyninst
       - hypre%cce^openblas
+      - lammps
       - magma amdgpu_target=gfx90a ^hip@:4.5.0
       - omega-h@9.32:9.34%cce@:13.0.2 # -Werror,-Wdeprecated-copy
       - openblas
@@ -215,7 +253,7 @@ spack:
       - plasma%cce
       - precice@2.2.1%cce@12.0.0:13.0.0.1
       - slate%cce ^openblas
-      - slepc@3.15.0:3.16.0%cce   # config.package.FortranLib syntax error
+      - slepc@3.15.0:3.16.2%cce   # config.package.FortranLib syntax error
       - stat%cce
       - strumpack%cce ^openblas
       - tau+elf
@@ -224,12 +262,15 @@ spack:
     - matrix:
       - - $e4s_21.11_cpu_specs
         - $e4s_21.11_gpu_specs
+        - $e4s_22.02_cpu_specs
+        - $e4s_22.02_gpu_specs
       - - '%clang@13.0.0-rocm4.5.0'
       - - arch=cray-sles15-zen3
       exclude:
       - archer%clang
       - ascent%clang
-      - butterflypack@2.0.0%clang
+      - axom@0.6.1
+      - butterflypack@2.0.0:2.1.0%clang
       - caliper%clang
       - conduit%clang
       - dyninst%clang ## os elfutils insufficient
@@ -240,7 +281,7 @@ spack:
       - parsec%clang
       - plasma%clang
       - slate%clang ^openblas
-      - slepc@3.15.0:3.16.0%clang
+      - slepc@3.15.0:3.16.2%clang
       - strumpack%clang ^openblas
       - tau%clang+elf
       - unifyfs%clang

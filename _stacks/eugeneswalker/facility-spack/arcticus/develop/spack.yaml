@@ -1,0 +1,270 @@
+# spack/develop 6b6147d5a064fdc149d8e1335b5ed62bdb63af25
+# Wed May 4 09:18:47 2022 -0600
+
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+
+  modules:
+    prefix_inspections:
+      bin: [PATH]
+      man: [MANPATH]
+      share/man: [MANPATH]
+      share/aclocal: [ACLOCAL_PATH]
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+      lib/pkgconfig: [PKG_CONFIG_PATH]
+      lib64/pkgconfig: [PKG_CONFIG_PATH]
+      share/pkgconfig: [PKG_CONFIG_PATH]
+      ? ''
+      : - CMAKE_PREFIX_PATH
+    default:
+      roots:
+        tcl: $spack/modules/tcl
+      enable:: [tcl]
+      tcl:
+        hash_length: 3
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        blacklist: []
+        all:
+          autoload: direct
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            ^mpich: mpi
+        verbose: false
+        whitelist: []
+        blacklist_implicits: true
+        projections: {}
+        boost:
+          suffixes:
+            boost cxxstd=17: cxx17
+        fftw:
+          suffixes:
+            fftw+openmp: omp
+        hdf5:
+          suffixes:
+            hdf5+fortran: fortran
+            hdf5~mpi+szip: sz
+            hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        umpire:
+          suffixes:
+            umpire+openmp: omp
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
+        blacklist_implicits: true
+        verbose: true
+        whitelist: []
+        blacklist: []
+        hash_length: 0
+        hierarchy: []
+        projections: {}
+        core_specs: []
+
+  compilers:
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icpx
+        f77: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/eng-compiler/2022.01.30.005
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: dpcpp@2022.1.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/dpcpp
+        f77: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/eng-compiler/2022.01.30.005
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [oneapi]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [icelake]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # FACILITY EXTERNALS
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@4.0a2~hydra device=ch4
+        prefix: /soft/restricted/CNDA/mpich/drop45.3/mpich-ofi-all-icc-default-ats-drop45
+        modules:
+        - mpi/aurora_mpich/icc-all/45.3
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.14.0
+        modules:
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+
+  definitions:
+  - cpu_specs:
+    - adios
+    - adios2
+    - aml
+    - amrex
+    - arborx
+    - archer
+    - argobots
+    - axom
+    - bolt
+    - butterflypack
+    - cabana
+    - caliper
+    - chai ~benchmarks ~tests
+    - charliecloud
+    - conduit
+    - darshan-runtime
+    - darshan-util
+    - datatransferkit
+    - dyninst
+    - exaworks
+    - faodel
+    - flecsi
+    - flit
+    - fortrilinos
+    - gasnet
+    - ginkgo
+    - globalarrays
+    - gmp
+    - gotcha
+    - hdf5 +fortran +hl +shared
+    - heffte +fftw
+    - hpctoolkit
+    - hpx networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - lammps
+    - legion
+    - libquo
+    - libunwind
+    - mercury
+    - metall
+    - mfem
+    - mpark-variant
+    - mpifileutils ~xattr
+    - nccmp
+    - nco
+    - netlib-scalapack
+    - ninja
+    - nrm
+    - nvhpc
+    - omega-h
+    - openpmd-api
+    - papi
+    - papyrus
+    - parallel-netcdf
+    - parsec ~cuda
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - precice
+    - pumi
+    - py-cinemasci
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - py-warpx ^warpx dims=2
+    - py-warpx ^warpx dims=3
+    - py-warpx ^warpx dims=rz
+    - qthreads scheduler=distrib
+    - raja
+    - slate ~cuda
+    - slepc
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig
+    - swig@4.0.2-fortran
+    - sz
+    - tasmanian
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine
+    - umap
+    - umpire
+    - unifyfs
+    - upcxx
+    - veloc
+    - zfp
+    # CONFLICTS
+  # - gptune # depends on openmpi
+    # FAILURES
+    # NOT RELEVANT ON FACILITY
+  # - flux-core
+  # - openmpi
+    # FAILURES KNOWN AT RELEASE TIME
+  # - dealii
+  # - stat
+
+  specs:
+  - $cpu_specs
