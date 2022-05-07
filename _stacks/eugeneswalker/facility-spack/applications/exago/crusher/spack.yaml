@@ -1,5 +1,5 @@
-# spack/develop b41de6d86bdf7bf1907bd0f8999d2ccda3003f8d
-# Mon Apr 25 12:48:35 2022 -0700
+# spack/develop 8ed8922af5a36a53876f4385096fc3ef2b7876ec
+# Mon May 2 14:17:48 2022 -0700
 
 spack:
   view: false
@@ -236,17 +236,16 @@ spack:
         prefix: /opt/rocm-5.1.0
 
   specs:
-  - hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
-      ^magma +rocm amdgpu_target=gfx90a
-      ^raja +rocm amdgpu_target=gfx90a
-      ^camp +rocm amdgpu_target=gfx90a
-      ^umpire +rocm amdgpu_target=gfx90a
+  - exago@1.4.1 +mpi +python ~ipopt +hiop ~raja +rocm amdgpu_target=gfx90a
+  - exago@1.4.1 +mpi +python ~ipopt +hiop +raja +rocm amdgpu_target=gfx90a
+  - hiop@0.6.1 +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
 
-  develop:
-    hiop:
-      path: /gpfs/alpine/csc439/world-shared/E4S/ParaTools/ExaSGD/hiop-develop
-      spec: hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
-              ^magma +rocm amdgpu_target=gfx90a
-              ^raja +rocm amdgpu_target=gfx90a
-              ^camp +rocm amdgpu_target=gfx90a
-              ^umpire +rocm amdgpu_target=gfx90a
+  # This build fails because +ipopt
+  # - exago@1.4.1 +mpi +python +ipopt +hiop +raja +rocm amdgpu_target=gfx90a ^hiop@0.6.1
+
+  # - hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
+
+  # develop:
+  #   hiop:
+  #     path: /gpfs/alpine/csc439/world-shared/E4S/ParaTools/ExaSGD/hiop-develop
+  #     spec: hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a

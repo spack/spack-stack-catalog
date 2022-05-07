@@ -1,5 +1,13 @@
 spack:
-  specs: ['gcc@:11', 'gcc@:10', zstd +programs compression=none]
+  specs:
+  - gcc@:12
+  - gcc@:11
+  - gcc@:10
+  - gcc@:9
+  - gcc@:8
+  - squashfuse +zstd
+  - squashfs default_compression=zstd
+  - zstd +programs compression=none
   view: false
   packages:
     gcc:

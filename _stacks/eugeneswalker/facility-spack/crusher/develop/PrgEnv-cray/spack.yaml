@@ -1,5 +1,5 @@
-# spack/develop 2515cafb9c60851d5b218d1262212034f5606869
-# Wed Apr 27 16:08:33 2022 -0700
+# spack/develop 27462bc982b10766e75a25539d4b203c16c23d87
+# Fri May 6 07:23:12 2022 -0700
 
 spack:
   view: false
@@ -16,7 +16,11 @@ spack:
         cxx: crayCC
         f77: crayftn
         fc: crayftn
-      flags: {}
+      flags:
+        cflags: -Xclang -enable-noundef-analysis -isystem /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/lib/clang/13.0.0/include
+        cxxflags: -Xclang -enable-noundef-analysis -isystem /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/lib/clang/13.0.0/include
+        ldlibs: -ldl
+        ldflags: -L/opt/amdgpu/lib64/
       operating_system: sles15
       target: any
       modules:
@@ -100,12 +104,12 @@ spack:
       externals:
       - spec: slurm@21.08.6
         prefix: /usr
+
+    # FACILITY PACKAGE PREFERENCES
     ncurses:
       externals:
       - spec: ncurses@6.2 ~symlinks +termlib %cce@13.0.0 
         prefix: /gpfs/alpine/csc439/world-shared/E4S/ParaTools/develop/PrgEnv-cray/spack/opt/spack/cray-sles15-x86_64/gcc-7.5.0/ncurses-6.2-yabalh6o7h3rfrk7wi5mbttohb2abnn5
-
-    # FROM J FINNEY
     petsc:
       variants: +batch
     parallel-netcdf:

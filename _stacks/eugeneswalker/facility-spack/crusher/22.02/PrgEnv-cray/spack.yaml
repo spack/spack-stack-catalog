@@ -24,6 +24,11 @@ spack:
 
   config:
     concretizer: clingo
+    module_roots:
+      lmod: ${SPACK_ROOT}/modules/lmod
+
+  include:
+  - modules.yaml
 
   compilers:
   - compiler:
@@ -54,21 +59,13 @@ spack:
 
   packages:
     all:
-      compiler:
-      - cce@13.0.0
+      compiler: [cce@13.0.0]
       providers:
-        blas:
-        - openblas
-        - cray-libsci
-        lapack:
-        - openblas
-        - cray-libsci
-        mpi:
-        - cray-mpich
-        scalapack:
-        - netlib-scalapack
-      target:
-      - zen3
+        blas: [openblas, cray-libsci]
+        lapack: [openblas, cray-libsci]
+        mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
+      target: [zen3]
       variants: +mpi
     binutils:
       variants: +ld +gold +headers +libiberty ~nls

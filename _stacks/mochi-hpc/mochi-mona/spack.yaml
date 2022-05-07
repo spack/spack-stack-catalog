@@ -3,6 +3,6 @@ spack:
   - cmake
   - mpi
   - argobots
-  - mercury~boostsys ^libfabric fabrics=tcp,rxm
-  - libfabric@1.11.2
+  - libfabric
+  - mercury
   concretization: together

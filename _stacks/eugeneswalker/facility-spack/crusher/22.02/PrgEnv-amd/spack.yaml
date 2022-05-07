@@ -23,6 +23,11 @@ spack:
 
   config:
     concretizer: clingo
+    module_roots:
+      lmod: ${SPACK_ROOT}/modules/lmod
+
+  include:
+  - modules.yaml
 
   compilers:
   - compiler:
