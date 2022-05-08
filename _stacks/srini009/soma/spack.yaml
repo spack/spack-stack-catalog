@@ -1,18 +1,17 @@
 spack:
   specs:
-  - cmake %gcc@9.3.0
-  - pkg-config %gcc@9.3.0
-  - uuid %gcc@9.3.0
-  - mochi-thallium@0.9.1 %gcc@9.3.0
-  - mochi-margo@0.9.5 ^mercury@2.1.0+udreg %gcc@9.3.0
-  - ascent@develop~openmp~test~fortran ^conduit@develop ^vtk-h@0.8.0~openmp ^vtk-m@1.7.0+shared+mpi~openmp %gcc@9.3.0
-  - mochi-symbiomon@develop ^libfabric fabrics=gni %gcc@9.3.0
+  - cmake %gcc@11.2.0
+  - pkg-config %gcc@11.2.0
+  - uuid %gcc@11.2.0
+  - mochi-thallium@0.9.1 %gcc@11.2.0
+  - mochi-margo@0.9.5 ^mercury@2.1.0+udreg %gcc@11.2.0
+  - mochi-symbiomon@develop ^libfabric fabrics=rxm,verbs %gcc@11.2.0
   - mercury@2.1.0+udreg
-  - mochi-abt-io %gcc@9.3.0
-  - libfabric fabrics=gni
-  - nlohmann-json %gcc@9.3.0
-  - spdlog %gcc@9.3.0
-  - cppunit %gcc@9.3.0
-  - tclap %gcc@9.3.0
-  - mochi-bedrock %gcc@9.3.0
+  - mochi-abt-io %gcc@11.2.0
+  - libfabric fabrics=rxm,verbs
+  - nlohmann-json %gcc@11.2.0
+  - spdlog %gcc@11.2.0
+  - cppunit %gcc@11.2.0
+  - tclap %gcc@11.2.0
+  - mochi-bedrock %gcc@11.2.0
   concretization: together

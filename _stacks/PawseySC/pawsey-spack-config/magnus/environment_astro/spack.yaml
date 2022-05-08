@@ -1,0 +1,39 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    # casacore variants
+    # try running spack install --no-checksum 
+    - casacore@3.2.1 +python build_type=Release # no checksum for this release 
+    - casacore@3.3.0 +openmp +hdf5 +python build_type=Release
+    - casacore@3.3.0 ~openmp ~hdf5 +python build_type=Release
+    # will need to update the recipe to allow for adios variant as  well 
+    - casacore@3.4.0 +openmp +hdf5 +python build_type=Release
+
+    # will need to create a recipe for casarest and lofar 
+    
+    # other libraries 
+    - cfitsio@3.49
+    - wcslib@7.3 +cfitsio + x
+
+    # healpix
+    - healpix-cxx
+
+    # wcsclean and wcstools will need recipes
+    
+
+    # python io libraries
+    # astropy, emcee, healpy, py-bdsf
+    # currently left blank as ideally 
+    # pip install with appropriate modules 
+    # might be a better way to install them 
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@7.2.0', '%intel@19.0.5.281', '%cce@9.1.2']
+  view: false

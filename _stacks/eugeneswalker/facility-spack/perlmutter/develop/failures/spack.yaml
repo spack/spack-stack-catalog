@@ -1,0 +1,214 @@
+# spack/develop 011a491b16a71747d811803a3f2ca1de6b367c0f
+# Thu May 5 09:04:16 2022 -0700
+
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+  modules:
+    default:
+      'enable:': [lmod]
+      lmod:
+        core_compilers: [gcc@7.5.0]
+        blacklist_implicits: true
+        hash_length: 0
+        all:
+          conflict: []
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            +cuda: cuda
+        amrex:
+          suffixes:
+            amrex~cuda: cpu
+        blaspp:
+          suffixes:
+            blaspp~cuda: cpu
+        boost:
+          suffixes:
+            boost cxxstd=17: cxx17
+        camp:
+          suffixes:
+            camp~cuda: cpu
+        chai:
+          suffixes:
+            chai~cuda: cpu
+        fftw:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            fftw+openmp: omp
+        ginkgo:
+          suffixes:
+            ginkgo~cuda: cpu
+        hdf5:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            hdf5+fortran: fortran
+            hdf5~mpi+szip: sz
+            hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
+        openblas:
+          conflict: []
+          environment:
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        raja:
+          suffixes:
+            raja~cuda: cpu
+        slate:
+          suffixes:
+            slate~cuda: cpu
+        strumpack:
+          suffixes:
+            strumpack~cuda: cpu
+        sundials:
+          suffixes:
+            sundials~cuda: cpu
+        tasmanian:
+          suffixes:
+            tasmanian~cuda: cpu
+        tau:
+          suffixes:
+            tau+openmp: omp
+        umpire:
+          suffixes:
+            umpire~cuda: cpu
+            umpire+openmp: omp
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
+        verbose: true
+        whitelist: []
+        blacklist: []
+        hierarchy: []
+        projections: {}
+        core_specs: []
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      extra_rpaths: []
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [openblas]
+        mpi: [cray-mpich]
+      target: [zen3]
+    cuda:
+      version: [11.5.1]
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.11.0
+        modules:
+        - libfabric/1.11.0.4.114
+    slurm:
+      buildable: false
+      version: [21.08.6]
+      externals:
+      - spec: slurm@21.08.6
+        prefix: /usr
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.13 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.13/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.13
+        - libfabric
+
+  definitions:
+  - cpu_specs:
+    
+    # FACILITY FAILURES
+    - alquimia
+    - ascent
+    - catalyst # dependency llvm@14 fails
+    - geopm
+    - h5bench # libh5bench_util.a(h5bench_util.c.o): commons/h5bench_util.h:196: multiple definition of `has_vol_async'
+    - loki # SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+    - paraview
+    - plumed
+    - py-jupyterhub
+    - rempi # rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+    - variorum # /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
+    - wannier90 # comms.F90:247:19: Type mismatch between actual argument at (1) and actual argument at (2) (REAL(8)/COMPLEX(8))
+
+  - cuda_specs:
+    
+    # SPECIFIC FAILURES
+    - hpctoolkit +cuda # not CudaPackage
+    - parsec +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - vtk-m +cuda cuda_arch=80
+    # REQUIRES CUDA DRIVER
+    # - legion +cuda cuda_arch=80 # Needs CUDA Driver
+    # - upcxx +cuda # Not CudaPackage; Needs CUDA Driver 
+
+  specs:
+  - $cpu_specs
+  - $cuda_specs
