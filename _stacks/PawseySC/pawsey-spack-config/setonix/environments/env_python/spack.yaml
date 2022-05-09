@@ -26,8 +26,6 @@ spack:
     - py-setuptools@57.4.0
 
   specs:
-  
-# TODO: check and enable cpu arch optimisations
   - matrix:
     - [python@3.9.7 +optimizations]
 # TODO: check on Setonix that CCE and AOCC are actually able to build this
