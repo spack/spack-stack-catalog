@@ -279,13 +279,12 @@ spack:
     - umap
     - umpire
     - unifyfs
-    - upcxx
     - veloc
     - vtk-m
     - zfp
     # CONFLICTS
     # - libnrm
-    # FACILITY FAILURES
+    # FAILURES
     # - alquimia
     # - ascent
     # - catalyst # dependency llvm@14 fails
@@ -296,6 +295,7 @@ spack:
     # - plumed
     # - py-jupyterhub
     # - rempi # rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+    # - upcxx # configure error: Requested PMI version cray could not be found
     # - variorum # /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
     # - wannier90 # comms.F90:247:19: Type mismatch between actual argument at (1) and actual argument at (2) (REAL(8)/COMPLEX(8))
     # SKIPPED FOR FACILITY
@@ -332,7 +332,7 @@ spack:
     - tasmanian +cuda cuda_arch=80
     - umpire ~shared +cuda cuda_arch=80
     - zfp +cuda cuda_arch=80
-    # SPECIFIC FAILURES
+    # FAILURES
     # - hpctoolkit +cuda # not CudaPackage
     # - parsec +cuda cuda_arch=80
     # - trilinos@13.2.0 +cuda cuda_arch=80

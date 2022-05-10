@@ -23,8 +23,11 @@ spack:
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
 
     
-#TODO: - nektar@5.0.2 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 ) 
+#lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 )
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
+# Custom Pawsey recipe, that builds all dependencies internally - OK
+    - nektar@5.0.2
+
     - nwchem@7.0.2
 
     

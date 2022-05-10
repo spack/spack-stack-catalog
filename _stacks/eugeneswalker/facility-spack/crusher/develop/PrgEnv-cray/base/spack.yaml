@@ -30,3 +30,4 @@ spack:
 
   specs:
   - ncurses ~symlinks +termlib
+  - openssl@1.1.1n ~docs ~shared certs=system

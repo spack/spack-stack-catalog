@@ -1,0 +1,90 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - mercury~boostsys
+  - chfs
+  view: true
+  concretization: together
+  compilers:
+  - compiler:
+      spec: gcc@8.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: debian10
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    cmake:
+      externals:
+      - spec: cmake@3.13.4
+        prefix: /usr
+    rdma-core:
+      externals:
+      - spec: rdma-core@system-installed
+        prefix: /usr
+      buildable: false
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.9-1deb10u1
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.20.1~tcltk
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29
+        prefix: /usr
+    binutils:
+      externals:
+      - spec: binutils@2.31.1
+        prefix: /usr
+    subversion:
+      externals:
+      - spec: subversion@1.10.4
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.6.0.225-235f
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.1
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@7.9p1
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.7
+        prefix: /usr
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+  repos:
+  - ../../repos/mochi-spack-packages
+  - ../../repos/chfs-spack-packages

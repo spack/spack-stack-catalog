@@ -43,9 +43,9 @@ spack:
     # Moving to openblas as default address this issue 
     - plasma@20.9.20 ^openblas
     
-    # TODO: for slate@ unable to patch source commits
+    # slate: unable to patch source commits
     # however, patch only required for cray-libsci builds
-    # may be addressed with openblas 
+    # builds OK with openblas
     - slate@2021.05.02 ^openblas
     - plumed@2.7.2
     

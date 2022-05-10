@@ -106,6 +106,12 @@ spack:
         prefix: /usr
 
     # FACILITY PACKAGE PREFERENCES
+    mvapich2:
+      buildable: false
+    openmpi:
+      buildable: false
+    mpich:
+      buildable: false
     ncurses:
       externals:
       - spec: ncurses@6.2 ~symlinks +termlib %cce@13.0.0 
@@ -314,8 +320,6 @@ spack:
     - ascent                  # vtk-m: vtkmdiy/mpi/point-to-point.hpp:51:26: error: 'size_t' does not name a type
     - axom
     - bolt
-    - butterflypack%cce ^openblas%gcc
-    - caliper%cce ^openblas%gcc
     - chai ~benchmarks ~tests
     - charliecloud
     - conduit
@@ -345,28 +349,21 @@ spack:
     - mpifileutils ~xattr
     - nccmp
     - nco
-    - netlib-scalapack %cce ^openblas%gcc # cmake%cce: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:145:10: error: invalid conversion between vector type '__m128' (vector of 4 'float' values) and integer type 'int' of different size
     - ninja
     - openpmd-api
     - papi
     - papyrus
     - parallel-netcdf
     - pdt
-    - petsc
-    - precice
     - pumi
     - py-jupyterhub
     - py-libensemble
-    - py-petsc4py
     - qthreads scheduler=distrib
     - raja
     - rempi                   # rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
-    - slate ~cuda %cce ^openblas%gcc
     - stc
-    - strumpack ~slate %cce ^openblas%gcc
     - sundials
     - superlu
-    - superlu-dist
     - swig
     - swig@4.0.2-fortran
     - sz
@@ -383,13 +380,15 @@ spack:
     - wannier90               # comms.F90:247:19: Type mismatch between actual argument at (1) and actual argument at (2) (REAL(8)/COMPLEX(8))
     - zfp
     # CONFLICTS
+  # - caliper%cce ^openblas%gcc # issue with mpich concretization
   # - dyninst
   # - hpctoolkit
   # - libnrm                  # explicit depends_on('mpich')
   # - plasma
-    # SPECIFIC FAILURES
+    # FAILURES
   # - alquimia                # pflotran: ftn-855 ftn: ERROR FIELD_MODULE, File = ../../lpeyrala/spack-stage/spack-stage-pflotran-3.0.2-jbvewmt6ej47lhx7ho6lkf4tft3qhaku/spack-src/src/pflotran/field.F90, Line 
   # - archer                  # llvm@8: spack-src/compiler-rt/lib/sanitizer_common/sanitizer_internal_defs.h:343:72: error:size of array 'assertion_failed__1121' is negative
+  # - butterflypack%cce ^openblas%gcc # arpack-ng, netlib-scalapack
   # - cabana                  # googletest-src/googlemock/include/gmock/gmock-actions.h:455:3: error: definition of implicit copy constructor for 'PolymorphicAction<testing::internal::ReturnNullAction>' is deprecated because it has a user-declared copy assignment operator [-Werror,-Wdeprecated-copy]
   # - catalyst                # mesa: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:10: error: invalid conversion between vector type '__m128' (vector of 4 'float' values) and integer type 'int' of different size
   # - datatransferkit         # trilinos: # /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:19: error: use of undeclared identifier '__builtin_ia32_addss'
@@ -400,51 +399,58 @@ spack:
   # - h5bench                 # libh5bench_util.a(h5bench_util.c.o): commons/h5bench_util.h:196: multiple definition of `has_vol_async'
   # - hpx networking=mpi      # asio: boost: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:19: error: use of undeclared identifier '__builtin_ia32_addss'
   # - lammps                  # kim-api: ftn-78 ftn: -s option has an invalid argument, "td=gnu"; ffmpeg: fatal error: error in backend: Cannot select: t7: f64 = facos nsz t6, libavfilter/af_afade.c:116:37
+  # - netlib-scalapack %cce ^openblas%gcc # cmake%cce: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:145:10: error: invalid conversion between vector type '__m128' (vector of 4 'float' values) and integer type 'int' of different size
   # - nrm                     # py-scipy: Lapack (http://www.netlib.org/lapack/) sources not found
   # - omega-h                 # trilinos: # /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:19: error: use of undeclared identifier '__builtin_ia32_addss'
   # - paraview                # mesa: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:10: error: invalid conversion between vector type '__m128' (vector of 4 'float' values) and integer type 'int' of different size
   # - parsec ~cuda            # 
+  # - petsc # superlu-dist
   # - phist                   # ftn-78 ftn: -f option has an invalid argument, "finite-math-only".
   # - plumed                  # configure: error: C++ compiler cannot create executables
+  # - precice # superlu-dist
   # - py-cinemasci            # ffmpeg: fatal error: error in backend: Cannot select: t7: f64 = facos nsz t6, libavfilter/af_afade.c:116:37
+  # - py-petsc4py # superlu-dist
   # - py-warpx ^warpx dims=2  # py-scipy: Lapack (http://www.netlib.org/lapack/) sources not found
   # - py-warpx ^warpx dims=3  # py-scipy: Lapack (http://www.netlib.org/lapack/) sources not found
   # - py-warpx ^warpx dims=rz # py-scipy: Lapack (http://www.netlib.org/lapack/) sources not found
   # - scr                     # libyogrt: configure: error: slurm is not in specified location
+  # - slate ~cuda %cce ^openblas%gcc # netlib-scalapack
   # - slepc
+  # - strumpack ~slate %cce ^openblas%gcc # netlib-scalapack
+  # - superlu-dist #
   # - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long # /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:19: error: use of undeclared identifier '__builtin_ia32_addss'
-    # SKIPPED
+    # SKIPPED FOR FACILITY
   # - flux-core
   # - nvhpc
   # - openmpi
-    # NON-SPECIFIC FAILURES
+    # RELEASE-TIME FAILURES
   # - dealii
   # - stat
 
   - rocm_specs:
     - amrex +rocm amdgpu_target=gfx90a
-    - arborx +rocm ^kokkos +rocm amdgpu_target=gfx90a # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
     - chai ~benchmarks +rocm amdgpu_target=gfx90a
     - ginkgo +rocm amdgpu_target=gfx90a
     - heffte +rocm amdgpu_target=gfx90a
     - kokkos +rocm amdgpu_target=gfx90a
     - magma ~cuda +rocm amdgpu_target=gfx90a
-    - papi +rocm amdgpu_target=gfx90a                 # https://github.com/spack/spack/issues/27898
+    - papi +rocm amdgpu_target=gfx90a
     - raja ~openmp +rocm amdgpu_target=gfx90a
-    - slate +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
-    - strumpack ~slate +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
     - sundials +rocm amdgpu_target=gfx90a
-    - superlu-dist +rocm amdgpu_target=gfx90a
-    - tasmanian +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/27896
+    - tasmanian +rocm amdgpu_target=gfx90a
     - umpire +rocm amdgpu_target=gfx90a
-    - vtk-m +rocm amdgpu_target=gfx90a                # vtkmdiy/mpi/point-to-point.hpp:51:26: error: 'size_t' does not name a type
-  # SPECIFIC FAILURES
+    - vtk-m +rocm amdgpu_target=gfx90a
+  # FAILURES
+  # - arborx +rocm ^kokkos +rocm amdgpu_target=gfx90a # kokkos: cmake: Multiple GPU architectures given
   # - cabana +rocm                                    # g++: error: unrecognized command-line option '-fno-gpu-rdc' (https://github.com/spack/spack/issues/27967)
   # - hpx +rocm amdgpu_target=gfx90a                  # asio: boost: /opt/cray/pe/cce/13.0.0/cce/x86_64/include/craylibs/xmmintrin.h:127:19: error: use of undeclared identifier '__builtin_ia32_addss'
   # - mfem +rocm amdgpu_target=gfx90a                 # /opt/cray/pe/cce/13.0.0/cce-clang/x86_64/lib/clang/13.0.0/include/__clang_hip_math.h:64:1: error: unknown type name 'uint64_t', /usr/lib64/gcc/x86_64-suse-linux/7/../../../../include/c++/7/cstdint:54:11: error: no member named 'int_fast16_t' in the global namespace; did you mean '__int_least16_t'?
   # - petsc +rocm amdgpu_target=gfx90a                # petscsys.h:69:12: fatal error: 'mpi.h' file not found
+  # - slate +rocm amdgpu_target=gfx90a %cce ^openblas%gcc # netlib-scalapack
   # - slepc +rocm amdgpu_target=gfx90a                # petsc: petscsys.h:69:12: fatal error: 'mpi.h' file not found
-  # NON-SPECIFIC FAILURES
+  # - strumpack ~slate +rocm amdgpu_target=gfx90a %cce ^openblas%gcc # netlib-scalapack
+  # - superlu-dist +rocm amdgpu_target=gfx90a # 
+  # RELEASE-TIME FAILURES
   # CONCRETIZATION
   # - hpctoolkit +rocm                                # INFO: Not ROCmPackage
 
