@@ -1,0 +1,204 @@
+# spack/develop 6b6147d5a064fdc149d8e1335b5ed62bdb63af25
+# Wed May 4 09:18:47 2022 -0600
+
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+
+  modules:
+    prefix_inspections:
+      bin: [PATH]
+      man: [MANPATH]
+      share/man: [MANPATH]
+      share/aclocal: [ACLOCAL_PATH]
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+      lib/pkgconfig: [PKG_CONFIG_PATH]
+      lib64/pkgconfig: [PKG_CONFIG_PATH]
+      share/pkgconfig: [PKG_CONFIG_PATH]
+      ? ''
+      : - CMAKE_PREFIX_PATH
+    default:
+      roots:
+        tcl: $spack/modules/tcl
+      enable:: [tcl]
+      tcl:
+        hash_length: 3
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        blacklist: []
+        all:
+          autoload: direct
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            ^mpich: mpi
+        verbose: false
+        whitelist: []
+        blacklist_implicits: true
+        projections: {}
+        boost:
+          suffixes:
+            boost cxxstd=17: cxx17
+        fftw:
+          suffixes:
+            fftw+openmp: omp
+        hdf5:
+          suffixes:
+            hdf5+fortran: fortran
+            hdf5~mpi+szip: sz
+            hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        umpire:
+          suffixes:
+            umpire+openmp: omp
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
+        blacklist_implicits: true
+        verbose: true
+        whitelist: []
+        blacklist: []
+        hash_length: 0
+        hierarchy: []
+        projections: {}
+        core_specs: []
+
+  compilers:
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icpx
+        f77: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/eng-compiler/2022.01.30.005
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: dpcpp@2022.1.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/dpcpp
+        f77: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.01.30.001/oneapi/compiler/pseudo-20220223/compiler/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/eng-compiler/2022.01.30.005
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [oneapi]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [icelake]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # FACILITY EXTERNALS
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@4.0a2~hydra device=ch4
+        prefix: /soft/restricted/CNDA/mpich/drop45.3/mpich-ofi-all-icc-default-ats-drop45
+        modules:
+        - mpi/aurora_mpich/icc-all/45.3
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.14.0
+        modules:
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+
+  definitions:
+  - cpu_specs:
+    - adios2 # /usr/bin/ld: ../../lib64/libadios2_fortran.so.2.8.0: version node not found for symbol adios2_adios_init_mod@adios2_adios_init_serial_smod._
+    - archer # binutils
+    - axom # /usr/bin/ld: /usr/lib/../lib64/crt1.o: in function `_start':
+    - butterflypack # SRC_SINGLE/sMAGMA_utilities.f90(8): warning #5117: Bad # preprocessor line #include "ButterflyPACK_config.fi"
+    - datatransferkit # superlu-dist
+    - dyninst # intel-tbb: clang++: error: unknown argument: '-flifetime-dse=1'
+    - exaworks # flux-sched: yaml-cpp/emitter.h:164:9: error: comparison with NaN always evaluates to false in fast floating point modes [-Werror,-Wtautological-constant-compare]; rust: libimf.a(libm_feature_flag.o):libm_feature_flag.c:(.text+0x118): more undefined references to `__intel_cpu_features_init_x' follow
+    - flecsi # pfunit: unsupported compiler
+    - fortrilinos # superlu-dist
+    - hpctoolkit # binutils; intel-tbb: clang++: error: unknown argument: '-flifetime-dse=1'
+    - hpx networking=mpi # boost: clang++: error: unsupported argument 'h-create' to option '-pc'
+    - mercury # Could NOT find MPI (missing: MPI_C_FOUND)
+    - mfem # libopenblas.so: undefined reference to `for_cpystr'
+    - nrm # py-scipy: libopenblas.so: undefined reference to `for_cpstr'
+    - omega-h # superlu-dist
+    - openpmd-api # adios2
+    - petsc # superlu-dist
+    - phist # libopenblas.so: undefined reference to `for_cpstr'
+    - plasma # libopenblas.so: undefined reference to `for_cpstr'
+    - precice # superlu-dist
+    - py-cinemasci # py-scipy: libopenblas.so: undefined reference to `for_cpstr'
+    - py-petsc4py # superlu-dist
+    - py-warpx ^warpx dims=2 # py-cinemasci; adios2; blaspp: cmake: BLAS++ requires a BLAS library and none was found
+    - py-warpx ^warpx dims=3 # py-cinemasci; adios2; blaspp: cmake: BLAS++ requires a BLAS library and none was found
+    - py-warpx ^warpx dims=rz # py-cinemasci; adios2; blaspp: cmake: BLAS++ requires a BLAS library and none was found
+    - slate ~cuda # blaspp: cmake: BLAS++ requires a BLAS library and none was found
+    - slepc # superlu-dist
+    - strumpack ~slate # butterflypack: SRC_SINGLE/sMAGMA_utilities.f90(8): warning #5117: Bad # preprocessor line #include "ButterflyPACK_config.fi"
+    - superlu-dist # libopenblas.so: undefined reference to `for_cpstr'
+    - tau +mpi +python # binutils # gold/powerpc.cc:3590: undefined reference to `gold::Sized_symbol<64>::Value_type gold::Symbol_table::compute_final_value<64>(gold::Sized_symbol<64> const*, gold::Symbol_table::Compute_final_value_status*) const'
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long # superlu-dist
+    - unifyfs # mercury: Could NOT find MPI (missing: MPI_C_FOUND)
+    # FAILURES KNOWN AT RELEASE TIME
+  # - dealii
+  # - stat
+
+  specs:
+  - $cpu_specs

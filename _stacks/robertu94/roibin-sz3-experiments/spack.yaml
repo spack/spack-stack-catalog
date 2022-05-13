@@ -24,7 +24,7 @@ spack:
       providers:
         mpi: [mpich]
   # add package specs to the `specs` list
-  specs: [libpressio-tools+opt ^ libpressio+fpzip+hdf5+mgard+sz+sz3+zfp+json+bzip2+blosc+lua
+  specs: [libpressio-tools+opt ^ libpressio+fpzip+hdf5+mgard+sz+sz3+zfp+json+bzip2+blosc+lua+qoz
       ^ libstdcompat+boost ^mgard@robertu94+cuda, git]
   view: true
   repos:
