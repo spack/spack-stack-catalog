@@ -1,0 +1,4 @@
+spack:
+  specs: [nvhpc~blas~lapack~mpi]
+  view: false
+  'compilers:': []

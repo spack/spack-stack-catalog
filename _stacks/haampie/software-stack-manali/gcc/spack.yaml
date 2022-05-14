@@ -1,0 +1,23 @@
+spack:
+  specs:
+  - gcc@:12
+  - gcc@:11
+  - gcc@:10
+  - gcc@:9
+  - squashfuse +zstd
+  - squashfs default_compression=zstd
+  - zstd +programs compression=none
+  view: false
+  packages:
+    gcc:
+      variants: [+bootstrap +strip]
+    mpc:
+      variants: [libs=static]
+    gmp:
+      variants: [libs=static]
+    mpfr:
+      variants: [libs=static]
+    zstd:
+      variants: [libs=static]
+    zlib:
+      variants: [~shared]

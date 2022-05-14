@@ -1,0 +1,14 @@
+spack:
+  concretization: together
+  specs:
+  - eccodes +tools +fortran +aec +openmp jp2k=jasper
+  - netcdf-fortran
+  - osu-micro-benchmarks +cuda cuda_arch=80
+  - openmpi@4.0:4 +cuda +cxx +pmi +pmix schedulers=slurm fabrics=ucx
+  - ucx +rdmacm +cma +verbs +xpmem +ib_hw_tm +mlx5_dv +dc +ud +rc +dm +optimizations
+    +gdrcopy ~assertions ~debug
+  view: false
+  packages:
+    all:
+      compiler: [gcc]
+  'compilers:': []
