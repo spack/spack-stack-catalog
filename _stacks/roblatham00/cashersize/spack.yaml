@@ -1,0 +1,13 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - uuid
+  - mochi-thallium
+  - mochi-abt-io
+  - nlohmann-json
+  - spdlog
+  - cppunit
+  - tclap
+  - mochi-bedrock
+  concretization: together

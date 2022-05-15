@@ -1,0 +1,65 @@
+spack:
+  specs:
+  - hpctoolkit@2022.04.15 ~rocm~viewer % gcc@10.3.0
+  packages:
+    all:
+      compiler: [gcc@10.3.0]
+    cce:
+      buildable: false
+    gcc:
+      buildable: false
+    aocc:
+      buildable: false
+    intel:
+      buildable: false
+    pgi:
+      buildable: false
+    cmake:
+      externals:
+      - spec: cmake@3.21.4
+        prefix: /pawsey/mulan/raw-builds/cmake-3.21.4
+      buildable: false
+    rocm-cmake:
+      version: [4.5.0]
+    cray-mpich:
+      externals:
+      - spec: cray-mpich@8.1.9%gcc
+        modules:
+        
+  # bug: cannot be found when GCC prgenv is used
+  #      - cray-mpich/8.1.9
+        - craype-network-ofi
+        prefix: /opt/cray/pe/mpich/8.1.9/ofi/gnu/9.1
+  # rocm packages under /opt/rocm-4.5.0
+  # from https://github.com/spack/spack/blob/develop/lib/spack/spack/build_systems/rocm.py
+  # thanks to Joe from FluidNumerics
+  # 
+  # more rocm/hip components could be added from that directory 
+    hip:
+      externals:
+      - spec: hip@4.5.0
+        prefix: /opt/rocm-4.5.0/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.5.0/llvm/bin/clang++
+            c++: /opt/rocm-4.5.0/llvm/bin/clang++
+            hip: /opt/rocm-4.5.0/hip/bin/hipcc
+      buildable: false
+    hsa-rocr-dev:
+      externals:
+      - spec: hsa-rocr-dev@4.5.0
+        prefix: /opt/rocm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.5.0/llvm/bin/clang++
+            cxx: /opt/rocm-4.5.0/llvm/bin/clang++
+      buildable: false
+    llvm-amdgpu:
+      externals:
+      - spec: llvm-amdgpu@4.5.0
+        prefix: /opt/rocm-4.5.0/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-4.5.0/llvm/bin/clang++
+            cxx: /opt/rocm-4.5.0/llvm/bin/clang++
+      buildable: false
