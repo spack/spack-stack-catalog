@@ -25,11 +25,15 @@ spack:
       externals:
       - spec: cray-mpich@8.1.9%gcc
         modules:
-        
   # bug: cannot be found when GCC prgenv is used
   #      - cray-mpich/8.1.9
         - craype-network-ofi
         prefix: /opt/cray/pe/mpich/8.1.9/ofi/gnu/9.1
+    mpich:
+      externals:
+      - spec: mpich@3.4.1 %aocc@3.2.0
+        prefix: /pawsey/mulan/raw-builds/CLANG/AOCC-3.2
+
   # rocm packages under /opt/rocm-4.5.0
   # from https://github.com/spack/spack/blob/develop/lib/spack/spack/build_systems/rocm.py
   # thanks to Joe from FluidNumerics

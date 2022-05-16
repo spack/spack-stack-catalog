@@ -1,0 +1,69 @@
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    cuda:
+      version: [11.4.2]
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+  specs:
+  - amrex +rocm amdgpu_target=gfx908
+  - arborx +rocm amdgpu_target=gfx908
+  - chai ~benchmarks +rocm amdgpu_target=gfx908
+  - gasnet +rocm amdgpu_target=gfx908
+  - heffte +rocm amdgpu_target=gfx908
+  - hpctoolkit +rocm                            # not ROCmPackage
+  - hpx +rocm amdgpu_target=gfx908
+  - kokkos +rocm amdgpu_target=gfx908
+  - magma ~cuda +rocm amdgpu_target=gfx908
+  - papi +rocm amdgpu_target=gfx908             # external rocm issue: https://github.com/spack/spack/issues/27898
+  - petsc +rocm amdgpu_target=gfx908
+  - raja ~openmp +rocm amdgpu_target=gfx908
+  - slepc +rocm amdgpu_target=gfx908 ^petsc +rocm amdgpu_target=gfx908
+  - strumpack ~slate +rocm amdgpu_target=gfx908
+  - superlu-dist +rocm amdgpu_target=gfx908
+  - umpire +rocm amdgpu_target=gfx908
+  - upcxx +rocm amdgpu_target=gfx908
+  # BROKEN
+  #- cabana +rocm                               # https://github.com/spack/spack/issues/27967
+  #- mfem +rocm amdgpu_target=gfx908            # https://github.com/spack/spack/issues/30483
+  #- slate +rocm amdgpu_target=gfx908           # https://github.com/spack/spack/issues/30596
+  #- sundials +rocm amdgpu_target=gfx908        # https://github.com/spack/spack/issues/29526
+  #- tasmanian +rocm amdgpu_target=gfx908       # https://github.com/spack/spack/issues/27896
+  #- vtk-m +rocm amdgpu_target=gfx908           # https://github.com/spack/spack/issues/29527
+  #- ginkgo +rocm amdgpu_target=gfx908
+  #- trilinos@13.2.0 +rocm amdgpu_target=gfx908
