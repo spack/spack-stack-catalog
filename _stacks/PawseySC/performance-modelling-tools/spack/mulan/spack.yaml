@@ -1,6 +1,7 @@
 spack:
   specs:
-  - hpctoolkit@2022.04.15 ~rocm~viewer % gcc@10.3.0
+  - hpctoolkit@2022.04.15 ~rocm~viewer+mpi % gcc@10.3.0
+  - anaconda3@2021.05
   packages:
     all:
       compiler: [gcc@10.3.0]
@@ -19,12 +20,18 @@ spack:
       - spec: cmake@3.21.4
         prefix: /pawsey/mulan/raw-builds/cmake-3.21.4
       buildable: false
+    java:
+      externals:
+      - spec: openjdk@11.0.15_10
+        prefix: /pawsey/mulan/raw-builds/openjdk-11.0.15_10/jdk-11.0.15+10
+      buildable: true
     rocm-cmake:
       version: [4.5.0]
     cray-mpich:
       externals:
       - spec: cray-mpich@8.1.9%gcc
         modules:
+        
   # bug: cannot be found when GCC prgenv is used
   #      - cray-mpich/8.1.9
         - craype-network-ofi
@@ -33,7 +40,6 @@ spack:
       externals:
       - spec: mpich@3.4.1 %aocc@3.2.0
         prefix: /pawsey/mulan/raw-builds/CLANG/AOCC-3.2
-
   # rocm packages under /opt/rocm-4.5.0
   # from https://github.com/spack/spack/blob/develop/lib/spack/spack/build_systems/rocm.py
   # thanks to Joe from FluidNumerics
