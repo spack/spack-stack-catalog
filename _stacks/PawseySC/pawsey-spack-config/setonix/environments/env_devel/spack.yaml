@@ -8,6 +8,7 @@ spack:
   - packages:
     - caliper@2.7.0 +fortran
     - hpctoolkit@2022.04.15 +mpi
+    - py-hatchet@1.3.0
 
   specs:
   - matrix:
