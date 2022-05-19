@@ -1,0 +1,9 @@
+spack:
+  specs:
+    - ninja
+    - gdb
+    - ccache
+    - cmake
+    - googletest  # Build dependency for alien
+  concretization: together
+  view: False

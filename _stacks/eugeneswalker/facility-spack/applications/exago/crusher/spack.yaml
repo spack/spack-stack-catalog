@@ -4,10 +4,8 @@
 spack:
   view: false
   concretization: separately
-
   config:
     concretizer: clingo
-
   compilers:
   - compiler:
       spec: gcc@11.2.0
@@ -24,7 +22,6 @@ spack:
       - gcc/11.2.0
       environment: {}
       extra_rpaths: []
-
   packages:
     all:
       compiler: [gcc@11.2.0]
@@ -40,7 +37,11 @@ spack:
     hdf5:
       variants: +fortran +hl +shared
     libfabric:
-      variants: fabrics=sockets,tcp,udp,rxm
+      buildable: false
+      externals:
+      - spec: libfabric@1.15
+        modules:
+        - libfabric/1.15.0.0
     libunwind:
       variants: +pic +xz
     mpich:
@@ -58,14 +59,6 @@ spack:
         +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     xz:
       variants: +pic
-
-    # CRUSHER EXTERNALS
-    libfabric:
-      buildable: false
-      externals:
-      - spec: libfabric@1.15
-        modules:
-        - libfabric/1.15.0.0
     cray-mpich:
       buildable: false
       externals:
@@ -235,17 +228,15 @@ spack:
       - spec: rocthrust@5.1.0
         prefix: /opt/rocm-5.1.0
 
+  definitions:
+  - exago:
+    - exago@5-18-2022-snapshot +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a
+  - hiop:
+    - ^hiop@develop +mpi +raja +sparse +rocm amdgpu_target=gfx90a
+    - ^hiop@0.6.2 +mpi +raja +sparse +rocm amdgpu_target=gfx90a
+    - ^hiop@0.5.3 +mpi +raja +sparse +rocm amdgpu_target=gfx90a
+
   specs:
-  - exago@1.4.1 +mpi +python ~ipopt +hiop ~raja +rocm amdgpu_target=gfx90a
-  - exago@1.4.1 +mpi +python ~ipopt +hiop +raja +rocm amdgpu_target=gfx90a
-  - hiop@0.6.1 +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
-
-  # This build fails because +ipopt
-  # - exago@1.4.1 +mpi +python +ipopt +hiop +raja +rocm amdgpu_target=gfx90a ^hiop@0.6.1
-
-  # - hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
-
-  # develop:
-  #   hiop:
-  #     path: /gpfs/alpine/csc439/world-shared/E4S/ParaTools/ExaSGD/hiop-develop
-  #     spec: hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
+  - matrix:
+    - - $exago
+    - - $hiop

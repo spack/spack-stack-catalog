@@ -1,0 +1,16 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - packages:
+    - cp2k@7.1 +plumed+cuda+cuda_blas+cuda_fft cuda_arch=60 ^plumed@2.6.1
+    - gromacs@2020.2 +lapack+plumed+cuda ^plumed@2.6.1
+    - lammps@20200721 +class2+kspace+manybody+misc+molecule+user-h5md+user-misc+cuda cuda_arch=60   # would like to have +kokkos here (Spack error)
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@8.3.0']
+  view: false

@@ -4,3 +4,4 @@ spack:
   - arcane~wrapper~monoembed
   - googletest    # Build dependency
   concretization: together
+  view: False
