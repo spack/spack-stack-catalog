@@ -1,0 +1,10 @@
+spack:
+  specs:
+  - gromacs+mpi
+  - mpich
+  container:
+    format: docker
+    images:
+      os: "ubuntu:20.04"
+      spack: develop
+
