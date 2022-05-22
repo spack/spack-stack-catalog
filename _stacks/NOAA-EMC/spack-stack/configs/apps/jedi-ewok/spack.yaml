@@ -1,0 +1,8 @@
+spack:
+  concretization: separately
+  view: false
+
+  include: []
+
+  specs:
+    - jedi-ewok-env

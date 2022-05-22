@@ -2,12 +2,10 @@
 spack:
   concretization: separately
   view: false
-  include:
-  - site.yaml
-  - config.yaml
-  - packages.yaml
-  - modules.yaml
-  - ${SPACK_STACK_DIR}/configs/repos/repos.yaml
+  
+  # Custom includes which can be a directory containg
+  # Spack config files or a file itself.
+  include: [] 
 
 # File in specs
   specs:  
