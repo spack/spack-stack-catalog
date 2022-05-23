@@ -56,24 +56,24 @@ spack:
   specs:
   - matrix:
     - [$casacore-set]
-    - ['%gcc@10.3.0']
+    - ['%gcc@11.2.0']
     - ['target=zen3']
     - [+python build_type=Release]
     - [+openmp, ~openmp]
-    - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran
+    - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran build_type=Release
         +szip api=v112]
 #    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$casacore-legacy]
-    - ['%gcc@10.3.0']
+    - ['%gcc@11.2.0']
     - ['target=zen3']
 #    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$astro-util-set, $askap-util-set, $mwa-util-set]
-    - ['%gcc@10.3.0']
+    - ['%gcc@11.2.0']
     - ['target=zen3']
   - matrix:
     - [$python-astro-set]
-    - ['%gcc@10.3.0']
+    - ['%gcc@11.2.0']
     - ['target=zen3']
   view: false

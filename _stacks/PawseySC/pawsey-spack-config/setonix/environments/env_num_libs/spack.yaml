@@ -2,12 +2,6 @@ spack:
 # They are currently buildable,
 # because cray-libsci and cray-fftw are not in use (see packages.yaml)
   packages:
-#    'blas:':
-#      buildable: true
-#    'lapack:':
-#      buildable: true
-#    'scalapack:':
-#      buildable: true
     'fftw-api:':
       buildable: true
   definitions:
@@ -15,12 +9,10 @@ spack:
     - boost@1.76.0 +mpi +numpy +python cxxstd=14 # might need several boosts with different stadards
     - hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128 networking=mpi cxxstd=14
       ^boost
-    
     # rather stupidly kokkos has std=98,11, etc setting cxxstd. BUT all other packages 
     # use the flag cxxstd ... Update in recipes might fix this but for the moment, we fix 
     # this in our repo
     - kokkos@3.4.01 +hwloc +memkind +numactl +openmp +tuning cxxstd=14
-    
     # for hpx must explicitly set openmp off 
     - kokkos@3.4.01 +hwloc +memkind +numactl +hpx +hpx_async_dispatch +tuning ~openmp
       cxxstd=14 ^hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128 networking=mpi
@@ -34,7 +26,6 @@ spack:
     - fftw@3.3.9 +openmp precision=float,double,long_double
     - gsl@2.6
     - blaspp ~cuda ^openblas
-    
     # updates to lapack/blas for new hardware like GPUs  
     # TODO: no need for magma in phase 1 as it is GPU only 
     #- magma@2.5.4 
@@ -42,18 +33,15 @@ spack:
     # issue with building with blas and lapack using cray-libsci. 
     # Moving to openblas as default address this issue 
     - plasma@20.9.20 ^openblas
-    
     # slate: unable to patch source commits
     # however, patch only required for cray-libsci builds
     # builds OK with openblas
     - slate@2021.05.02 ^openblas
     - plumed@2.7.2
-    
     # some heavier numerical library builds 
     - opencv@4.5.2
     - opencv@3.4.12
-    - trilinos@13.0.1 +adios2 +openmp +python ~cuda
-    
+    - trilinos@13.0.1 +adios2 +openmp +python ~cuda ^adios@2.7.1 build_type=Release ^hdf5@1.12.1 built_type=Release
     # TODO: currently unable to configure petsc with trilinos. 
     # not clear if issue is with petsc or the version of trilinos
     # for the moment trilinos disabled 
@@ -63,10 +51,10 @@ spack:
   specs:
   - matrix:
     - [$parallel]
-    - ['%gcc@10.3.0']
-    - ['target=zen3']
+    - ['%gcc@11.2.0']
+    - [target=zen3]
   - matrix:
     - [$numerical]
-    - ['%gcc@10.3.0']
-    - ['target=zen3']
+    - ['%gcc@11.2.0']
+    - [target=zen3]
   view: false
