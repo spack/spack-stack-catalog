@@ -3,7 +3,21 @@
 # It describes a set of packages to be installed, along with
 # configuration settings.
 spack:
-# note: preferred versions are set in packages.yaml
+  packages:
+    'blas:':
+      buildable: true
+    'lapack:':
+      buildable: true
+    'fftw-api:':
+      buildable: true
+    everybeam:
+      variants: build_type=Release
+    wsclean:
+      variants: build_type=Release
+    idg:
+      variants: build_type=Release
+    cghcentre:
+      variants: build_type=Release
   definitions:
   
   # casacore variants
@@ -33,9 +47,13 @@ spack:
 
   - mwa-util-set:
     - wcstools
-    - wsclean@3.0 +mpi +idg +everybeam
-    - wsclean@3.0 ~mpi +idg +everybeam
-    - wsclean@2.10 
+    - chgcentre build_type=Release ^casacore ~python build_type=Release
+    - wsclean@3.0 +mpi +idg +everybeam build_type=Release ^chgcentre build_type=Release
+      ^casacore ~python build_type=Release
+    - wsclean@3.0 ~mpi +idg +everybeam build_type=Release ^chgcentre build_type=Release
+      ^casacore ~python build_type=Release
+    - wsclean@2.10 build_type=Release ^chgcentre build_type=Release ^casacore ~python
+      build_type=Release
     - pgplot
 
   # TODO add versions 
@@ -46,34 +64,28 @@ spack:
     - py-healpy
     - py-emcee
 
-
-  # astropy, emcee, healpy, py-bdsf
-  # currently left blank as ideally 
-  # pip install with appropriate modules 
-  # might be a better way to install them 
-
   # add package specs to the `specs` list
   specs:
   - matrix:
     - [$casacore-set]
     - ['%gcc@11.2.0']
-    - ['target=zen3']
+    - [target=zen3]
     - [+python build_type=Release]
     - [+openmp, ~openmp]
-    - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran build_type=Release
-        +szip api=v112]
+    - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran
+        build_type=Release +szip api=v112]
 #    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$casacore-legacy]
     - ['%gcc@11.2.0']
-    - ['target=zen3']
+    - [target=zen3]
 #    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$astro-util-set, $askap-util-set, $mwa-util-set]
     - ['%gcc@11.2.0']
-    - ['target=zen3']
+    - [target=zen3]
   - matrix:
     - [$python-astro-set]
     - ['%gcc@11.2.0']
-    - ['target=zen3']
+    - [target=zen3]
   view: false

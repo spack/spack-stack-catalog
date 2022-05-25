@@ -1,8 +1,8 @@
 spack:
   definitions:
   - packages:
-# aocc, rocm, gcc, llvm: provided by system installations
-# python: installed in env_python
+    # aocc, rocm, gcc, llvm: provided by system installations
+    # python: installed in env_python
     - go@1.16.12
     # NotReadyYet:    
     # - julia@1.6.1 #Default recipe is very weak. Faulty. Lots of needed dependencies are missing.
@@ -15,6 +15,6 @@ spack:
   specs:
   - matrix:
     - [$packages]
-    - ['%gcc@10.3.0']
-    - ['target=zen3']
+    - ['%gcc@11.2.0']
+    - [target=zen3]
   view: false

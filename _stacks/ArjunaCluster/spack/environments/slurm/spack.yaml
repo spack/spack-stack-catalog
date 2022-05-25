@@ -1,0 +1,10 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+    - slurm@21-08-8-2+hwloc+pam+pmix nvml=/usr/local/cuda sysconfdir=/etc/slurm
+    - ^pmix@3.2.3
+  concretization: together
+  view: false

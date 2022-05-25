@@ -12,11 +12,11 @@ spack:
 # ansys cfx, ansys fluent, comsol: no recipe, manual install?
 # charris: roms recipe in 0.17, user installs, see roms.yaml
 # charris: wrf recipe, user installs, see wrf.yaml
-    - amber@20 +openmp
+    - amber@20 +openmp ^hdf@4.2.15 +external-xdr
     - cpmd@4.3 +mpi +omp
     - cp2k@8.2 +plumed ^plumed@2.7.2
-    - gromacs@2020.2 +double +lapack +plumed ^plumed@2.6.1
-    - gromacs@2021.4 +double +lapack +plumed ^plumed@2.7.2
+    - gromacs@2020.2 +double +lapack +plumed build_type=Release ^plumed@2.6.1
+    - gromacs@2021.4 +double +lapack +plumed build_type=Release ^plumed@2.7.2
     - lammps@20210929.3 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk
       +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole
       +dpd-basic +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump
@@ -25,20 +25,17 @@ spack:
       +meam +mesont +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio
       +netcdf +openmp-package +opt +orient +peri +phonon +plugin +plumed +png +poems
       +ptm +python +qeq +qtb +reaction +reaxff +replica +rigid +shock +smtbq +sph
-      +spin +srd +tally +uef +voronoi +yaff ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning
-      ^plumed@2.7.2
+      +spin +srd +tally +uef +voronoi +yaff build_type=Release ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning
+      cxxstd=14 build_type=Release ^plumed@2.7.2
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
-    
 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 )
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
 # Custom Pawsey recipe, that builds all dependencies internally - OK
-    - nektar@5.0.2
+    - nektar@5.0.2 build_type=Release
     - nwchem@7.0.2
-    
-# Failing:    - openfoam@v2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
+# Failing:    - openfoam@2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:
-    - openfoam@v2012
-    
+    - openfoam@2012
 # Failing:    - openfoam-org@8 #Alexis still working on it
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - vasp@5.4.4 +scalapack +vaspsol

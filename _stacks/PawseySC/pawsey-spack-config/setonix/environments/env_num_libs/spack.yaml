@@ -6,42 +6,50 @@ spack:
       buildable: true
   definitions:
   - parallel:
-    - boost@1.76.0 +mpi +numpy +python cxxstd=14 # might need several boosts with different stadards
+    
+    # boost: might need several boosts with different stadards
+    - boost@1.76.0 +mpi +numpy +python cxxstd=14
+    - boost@1.76.0 +mpi +numpy +python cxxstd=98
     - hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128 networking=mpi cxxstd=14
-      ^boost
-    # rather stupidly kokkos has std=98,11, etc setting cxxstd. BUT all other packages 
+      build_type=Release ^boost
+    # rather silly kokkos has std=98,11, etc setting cxxstd. BUT all other packages 
     # use the flag cxxstd ... Update in recipes might fix this but for the moment, we fix 
     # this in our repo
-    - kokkos@3.4.01 +hwloc +memkind +numactl +openmp +tuning cxxstd=14
+    - kokkos@3.4.01 +hwloc +memkind +numactl +openmp +tuning cxxstd=14 build_type=Release
+
+    
     # for hpx must explicitly set openmp off 
     - kokkos@3.4.01 +hwloc +memkind +numactl +hpx +hpx_async_dispatch +tuning ~openmp
-      cxxstd=14 ^hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128 networking=mpi
-
+      cxxstd=14 build_type=Release ^hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128
+      networking=mpi build_type=Release
   - numerical:
     - openblas@0.3.15 threads=openmp
-    - netlib-lapack@3.9.1
+    - netlib-lapack@3.9.1 build_type=Release
     - netlib-scalapack@2.1.0
-    - eigen@3.4.0 # charris: build ok on Joey 2021-12-16
+    - blaspp@2021.04.01 ~cuda build_type=Release ^openblas
+    - eigen@3.4.0 build_type=Release # charris: build ok on Joey 2021-12-16
     - fftw@2.1.5 +openmp precision=float,double # fftw 2 does not support long doubles
     - fftw@3.3.9 +openmp precision=float,double,long_double
     - gsl@2.6
-    - blaspp ~cuda ^openblas
     # updates to lapack/blas for new hardware like GPUs  
     # TODO: no need for magma in phase 1 as it is GPU only 
     #- magma@2.5.4 
     # for plasma@ setting blas and lapack buildable to true in spack.yaml file
     # issue with building with blas and lapack using cray-libsci. 
     # Moving to openblas as default address this issue 
-    - plasma@20.9.20 ^openblas
+    - plasma@20.9.20 build_type=Release ^openblas
     # slate: unable to patch source commits
     # however, patch only required for cray-libsci builds
     # builds OK with openblas
-    - slate@2021.05.02 ^openblas
+    - slate@2021.05.02 build_type=Release ^openblas
     - plumed@2.7.2
+
+    
     # some heavier numerical library builds 
-    - opencv@4.5.2
-    - opencv@3.4.12
-    - trilinos@13.0.1 +adios2 +openmp +python ~cuda ^adios@2.7.1 build_type=Release ^hdf5@1.12.1 built_type=Release
+    - opencv@4.5.2 build_type=Release
+    - opencv@3.4.12 build_type=Release
+    - trilinos@13.0.1 +adios2 +openmp +python ~cuda ^adios2@2.7.1 build_type=Release
+      ^hdf5@1.12.1 build_type=Release
     # TODO: currently unable to configure petsc with trilinos. 
     # not clear if issue is with petsc or the version of trilinos
     # for the moment trilinos disabled 

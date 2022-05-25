@@ -17,7 +17,7 @@ spack:
   specs:
   - matrix:
     - [cmake@3.21.4]
-    - ['%gcc@11.2.0', '%cce@13.0.2'] #, '%aocc@3.2.0']
+    - ['%gcc@11.2.0', '%cce@13.0.2', '%aocc@3.2.0']
     - [target=zen3]
   - matrix:
     - [$packages]
@@ -27,5 +27,5 @@ spack:
   # - matrix:
   #   - [$licensed]
   #   - ['%gcc@11.2.0']
-  #  - ['target=zen3']
+  #   - [target=zen3]
   view: false
