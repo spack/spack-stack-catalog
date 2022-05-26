@@ -64,6 +64,9 @@ spack:
 
 
 
+
+
+
   
 # - lammps +cuda cuda_arch=80                   # https://github.com/spack/spack/issues/30590
   - magma +cuda cuda_arch=80

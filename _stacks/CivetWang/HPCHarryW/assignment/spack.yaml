@@ -1,0 +1,11 @@
+spack:
+  specs:
+  - python@3.8.12
+  - py-pandas
+  - py-matplotlib
+  container:
+    format: docker
+    images:
+      os: "ubuntu:20.04"
+      spack: develop
+
