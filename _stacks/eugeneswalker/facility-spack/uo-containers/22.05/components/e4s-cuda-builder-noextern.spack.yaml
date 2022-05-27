@@ -1,0 +1,135 @@
+spack:
+
+  view: false
+  concretization: separately
+
+  config:
+    concretizer: clingo
+
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    cuda:
+      version: [11.4.2]
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+  specs:
+  # GPU
+  - adios2 +cuda cuda_arch=80
+  - amrex +cuda cuda_arch=80
+  - arborx +cuda cuda_arch=80 ^kokkos +wrapper
+  - bricks@r0.1 +cuda
+  - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80
+  - caliper +cuda cuda_arch=80
+  - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
+  - flecsi +cuda cuda_arch=80
+  - flux-core +cuda
+  - ginkgo +cuda cuda_arch=80
+  - heffte +cuda cuda_arch=80
+  - hpctoolkit +cuda
+  - hpx +cuda cuda_arch=80
+  - hypre +cuda cuda_arch=80
+  - kokkos +wrapper +cuda cuda_arch=80
+  - kokkos-kernels +cuda cuda_arch=80 ^kokkos@3.5.00 +wrapper +cuda cuda_arch=80
+  - magma +cuda cuda_arch=80
+  - mfem +cuda cuda_arch=80
+  - papi +cuda
+  - parsec +cuda cuda_arch=80
+  - petsc +cuda cuda_arch=80
+  - raja +cuda cuda_arch=80
+  - slate +cuda cuda_arch=80
+  - slepc +cuda cuda_arch=80
+  - strumpack ~slate +cuda cuda_arch=80
+  - sundials +cuda cuda_arch=80
+  - superlu-dist +cuda cuda_arch=80
+  - tasmanian +cuda cuda_arch=80
+  - trilinos@13.2.0 +cuda cuda_arch=80
+  - umpire ~shared +cuda cuda_arch=80
+  - vtk-m +cuda cuda_arch=80
+  - zfp +cuda cuda_arch=80
+
+  - adios2 +cuda cuda_arch=70
+  - amrex +cuda cuda_arch=70
+  - arborx +cuda cuda_arch=70 ^kokkos +wrapper
+  - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=70
+  - caliper +cuda cuda_arch=70
+  - chai ~benchmarks ~tests +cuda cuda_arch=70 ^umpire@6.0.0 ~shared
+  - flecsi +cuda cuda_arch=70
+  - ginkgo +cuda cuda_arch=70
+  - heffte +cuda cuda_arch=70
+  - hpx +cuda cuda_arch=70
+  - hypre +cuda cuda_arch=70
+  - kokkos +wrapper +cuda cuda_arch=70
+  - kokkos-kernels +cuda cuda_arch=70 ^kokkos@3.5.00 +wrapper +cuda cuda_arch=70
+  - magma +cuda cuda_arch=70
+  - mfem +cuda cuda_arch=70
+  - parsec +cuda cuda_arch=70
+  - petsc +cuda cuda_arch=70
+  - raja +cuda cuda_arch=70
+  - slate +cuda cuda_arch=70
+  - slepc +cuda cuda_arch=70
+  - strumpack ~slate +cuda cuda_arch=70
+  - sundials +cuda cuda_arch=70
+  - superlu-dist +cuda cuda_arch=70
+  - tasmanian +cuda cuda_arch=70
+  - trilinos@13.2.0 +cuda cuda_arch=70
+  - umpire ~shared +cuda cuda_arch=70
+  - vtk-m +cuda cuda_arch=70
+  - zfp +cuda cuda_arch=70
+
+  # SKIPPED
+  #- gasnet +cuda cuda_arch=80 conduits=mpi     # requires driver
+  #- legion +cuda cuda_arch=80                  # requires driver
+  #- upcxx +cuda                                # requires driver
+
+  # BUILD FAILED
+  #- ascent ~shared +cuda cuda_arch=80          # https://github.com/spack/spack/issues/27954
+  #- axom +cuda cuda_arch=80 ^umpire ~shared    # https://github.com/spack/spack/issues/29520
+  #- dealii +cuda cuda_arch=80                  # https://github.com/spack/spack/issues/29523
+  #- lammps +cuda cuda_arch=80                  # https://github.com/spack/spack/issues/30590

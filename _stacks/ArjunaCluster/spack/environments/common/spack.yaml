@@ -80,6 +80,8 @@ spack:
         hierarchy:
         - compiler
         - mpi
+        whitelist:
+        - gcc@11.2.0
         blacklist:
         - '%gcc@4.8.5'
         - lmod
