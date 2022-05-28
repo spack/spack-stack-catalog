@@ -6,20 +6,34 @@ spack:
   config:
     concretizer: clingo
 
-  compilers:
-  - compiler:
-      spec: gcc@9.4.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@9.4.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +rocm: rocm
+            +openmp: openmp
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
 
   packages:
     all:
@@ -221,48 +235,50 @@ spack:
 
   specs:
   # GPU
-  - amrex +rocm amdgpu_target=gfx90a
-  - arborx +rocm amdgpu_target=gfx90a
-  - chai ~benchmarks +rocm amdgpu_target=gfx90a
-  - gasnet +rocm amdgpu_target=gfx90a
-  - ginkgo +rocm amdgpu_target=gfx90a
-  - heffte +rocm amdgpu_target=gfx90a
+  - amrex@22.05 +rocm amdgpu_target=gfx90a
+  - arborx@1.2 +rocm amdgpu_target=gfx90a
+  - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx90a
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
+  - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
+  - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpctoolkit@2022.04.15 +rocm
-  - hpx +rocm amdgpu_target=gfx90a
-  - kokkos +rocm amdgpu_target=gfx90a
-  - magma ~cuda +rocm amdgpu_target=gfx90a
-  - petsc +rocm amdgpu_target=gfx90a
-  - raja ~openmp +rocm amdgpu_target=gfx90a
-  - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
-  - strumpack ~slate +rocm amdgpu_target=gfx90a
-  - superlu-dist +rocm amdgpu_target=gfx90a
-  - umpire +rocm amdgpu_target=gfx90a
-  - upcxx +rocm amdgpu_target=gfx90a
+  - hpx@1.7.1 +rocm amdgpu_target=gfx90a
+  - kokkos@3.6.00 +rocm amdgpu_target=gfx90a
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
+  - petsc@3.17.1 +rocm amdgpu_target=gfx90a
+  - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx90a
+  - slepc@3.17.1 +rocm amdgpu_target=gfx90a ^petsc@3.17.1 +rocm amdgpu_target=gfx90a
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
+  - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
+  - umpire@6.0.0 +rocm amdgpu_target=gfx90a
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
 
-  - amrex +rocm amdgpu_target=gfx908
-  - arborx +rocm amdgpu_target=gfx908
-  - chai ~benchmarks +rocm amdgpu_target=gfx908
-  - gasnet +rocm amdgpu_target=gfx908
-  - ginkgo +rocm amdgpu_target=gfx908
-  - heffte +rocm amdgpu_target=gfx908
-  - hpx +rocm amdgpu_target=gfx908
-  - kokkos +rocm amdgpu_target=gfx908
-  - magma ~cuda +rocm amdgpu_target=gfx908
-  - petsc +rocm amdgpu_target=gfx908
-  - raja ~openmp +rocm amdgpu_target=gfx908
-  - slepc +rocm amdgpu_target=gfx908 ^petsc +rocm amdgpu_target=gfx908
-  - strumpack ~slate +rocm amdgpu_target=gfx908
-  - superlu-dist +rocm amdgpu_target=gfx908
-  - umpire +rocm amdgpu_target=gfx908
-  - upcxx +rocm amdgpu_target=gfx908
+  - amrex@22.05 +rocm amdgpu_target=gfx908
+  - arborx@1.2 +rocm amdgpu_target=gfx908
+  - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx908
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx908
+  - ginkgo@1.4.0 +rocm amdgpu_target=gfx908
+  - heffte@2.2.0 +rocm amdgpu_target=gfx908
+  - hpctoolkit@2022.04.15 +rocm
+  - hpx@1.7.1 +rocm amdgpu_target=gfx908
+  - kokkos@3.6.00 +rocm amdgpu_target=gfx908
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx908
+  - petsc@3.17.1 +rocm amdgpu_target=gfx908
+  - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx908
+  - slepc@3.17.1 +rocm amdgpu_target=gfx908 ^petsc@3.17.1 +rocm amdgpu_target=gfx908
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx908
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
+  - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
+  - umpire@6.0.0 +rocm amdgpu_target=gfx908
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx908
 
   # BUILD FAILED
-  #- cabana +rocm                               # https://github.com/spack/spack/issues/27967
-  #- mfem +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/30483
-  #- papi +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/27898
-  #- slate +rocm amdgpu_target=gfx90a           # https://github.com/spack/spack/issues/30596
-  #- sundials +rocm amdgpu_target=gfx90a        # https://github.com/spack/spack/issues/29526
-  #- tasmanian +rocm amdgpu_target=gfx90a       # https://github.com/spack/spack/issues/27896
-  #- tau@2.31.1 +mpi +python +rocm +roctracer
+  #- cabana@0.4.0 +rocm                               # https://github.com/spack/spack/issues/27967
+  #- mfem@4.4.0 +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/30483
+  #- papi@6.0.0.1 +rocm amdgpu_target=gfx90a          # https://github.com/spack/spack/issues/27898
+  #- slate@2021.05.02 +rocm amdgpu_target=gfx90a      # https://github.com/spack/spack/issues/30596
+  #- sundials@6.2.0 +rocm amdgpu_target=gfx90a        # https://github.com/spack/spack/issues/29526
+  #- tasmanian@7.7 +rocm amdgpu_target=gfx90a         # https://github.com/spack/spack/issues/27896
   #- trilinos@13.2.0 +rocm amdgpu_target=gfx90a
-  #- vtk-m +rocm amdgpu_target=gfx90a           # https://github.com/spack/spack/issues/29527
+  #- vtk-m@1.7.1 +rocm amdgpu_target=gfx90a           # https://github.com/spack/spack/issues/29527

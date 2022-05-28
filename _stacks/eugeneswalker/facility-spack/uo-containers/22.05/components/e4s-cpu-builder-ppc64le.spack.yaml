@@ -6,20 +6,38 @@ spack:
   config:
     concretizer: clingo
 
-  compilers:
-  - compiler:
-      spec: gcc@7.5.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: ubuntu18.04
-      target: ppc64le
-      modules: []
-      environment: {}
-      extra_rpaths: []
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@7.5.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
 
   packages:
     all:
@@ -171,7 +189,7 @@ spack:
 
   # BUILD FAILED
   #- bricks@r0.1
-  #- catalyst@5.6.0                             # https://github.com/spack/spack/issues/30478
+  #- catalyst@5.6.0                                       # https://github.com/spack/spack/issues/30478
   #- dealii@9.3.3
   #- geopm@1.1.0
   #- paraview@5.10.1 +qt

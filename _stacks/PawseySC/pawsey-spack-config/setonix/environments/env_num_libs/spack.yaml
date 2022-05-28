@@ -43,6 +43,15 @@ spack:
     # builds OK with openblas
     - slate@2021.05.02 build_type=Release ^openblas
     - plumed@2.7.2
+    # AMD AOCL
+    - amdblis@3.0 threads=openmp
+    # variant below useful for at least one PaCER
+    - amdblis@3.0 threads=openmp ~suphandling
+    - amdlibflame@3.0 threads=openmp
+    - amdscalapack@3.0 build_type=Release
+    - aocl-sparse@3.0 build_type=Release
+    - amdfftw@3.0 precision=float,double,long_double
+    - amdlibm@3.0
 
     
     # some heavier numerical library builds 

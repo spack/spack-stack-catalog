@@ -6,6 +6,31 @@ spack:
   config:
     concretizer: clingo
 
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@11.2.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [cray-mpich]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +rocm: rocm
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
   compilers:
   - compiler:
       spec: gcc@11.2.0

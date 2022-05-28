@@ -6,20 +6,34 @@ spack:
   config:
     concretizer: clingo
 
-  compilers:
-  - compiler:
-      spec: gcc@9.4.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@9.4.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda: cuda
+            +openmp: openmp
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
 
   packages:
     all:
@@ -173,3 +187,8 @@ spack:
   - vtk-m@1.7.1
   - wannier90@3.1.0
   - zfp@0.5.5
+
+  # BUILD FAILED
+  #- catalyst@5.6.0                                        # https://github.com/spack/spack/issues/30478
+  #- dealii@9.3.3
+  #- stat@4.1.0
