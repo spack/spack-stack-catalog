@@ -14,7 +14,7 @@ spack:
         blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [mpich]
+        whitelist: [mpich, cmake]
         hierarchy: [mpi]
         projections: {}
         core_specs: []

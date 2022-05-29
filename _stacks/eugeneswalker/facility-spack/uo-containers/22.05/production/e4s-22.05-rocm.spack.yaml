@@ -14,7 +14,7 @@ spack:
         blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [mpich]
+        whitelist: [mpich, cmake]
         hierarchy: [mpi]
         projections: {}
         core_specs: []
@@ -24,8 +24,15 @@ spack:
             set:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
-            +rocm: rocm
+            amdgpu_target=gfx908: rocm-gfx908
+            amdgpu_target=gfx90a: rocm-gfx90a
             +openmp: openmp
+        tau:
+          suffixes:
+            +rocm: rocm
+        hpctoolkit:
+          suffixes:
+            +rocm: rocm
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
@@ -347,7 +354,7 @@ spack:
   - wannier90@3.1.0
   - zfp@0.5.5
 
-  # GPU
+  # GPU - GFX90a
   - amrex@22.05 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
   - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx90a
@@ -366,6 +373,26 @@ spack:
   - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
   - umpire@6.0.0 +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+
+  # GPU - GFX908
+  - amrex@22.05 +rocm amdgpu_target=gfx908
+  - arborx@1.2 +rocm amdgpu_target=gfx908
+  - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx908
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx908
+  - ginkgo@1.4.0 +rocm amdgpu_target=gfx908
+  - heffte@2.2.0 +rocm amdgpu_target=gfx908
+  - hpctoolkit@2022.04.15 +rocm
+  - hpx@1.7.1 +rocm amdgpu_target=gfx908
+  - kokkos@3.6.00 +rocm amdgpu_target=gfx908
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx908
+  - petsc@3.17.1 +rocm amdgpu_target=gfx908
+  - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx908
+  - slepc@3.17.1 +rocm amdgpu_target=gfx908 ^petsc@3.17.1 +rocm amdgpu_target=gfx908
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx908
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
+  - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
+  - umpire@6.0.0 +rocm amdgpu_target=gfx908
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx908
 
   # SKIPPED
   #- nvhpc@22.3

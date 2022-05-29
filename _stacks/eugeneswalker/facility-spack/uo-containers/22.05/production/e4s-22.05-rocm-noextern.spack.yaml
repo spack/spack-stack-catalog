@@ -14,7 +14,7 @@ spack:
         blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [mpich]
+        whitelist: [mpich, cmake]
         hierarchy: [mpi]
         projections: {}
         core_specs: []
@@ -24,8 +24,15 @@ spack:
             set:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
-            +rocm: rocm
+            amdgpu_target=gfx908: rocm-gfx908
+            amdgpu_target=gfx90a: rocm-gfx90a
             +openmp: openmp
+        tau:
+          suffixes:
+            +rocm: rocm
+        hpctoolkit:
+          suffixes:
+            +rocm: rocm
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
