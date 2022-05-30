@@ -24,8 +24,25 @@ spack:
             set:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
-            +cuda: cuda
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
             +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda   
+        bricks:
+          suffixes:
+            +cuda: cuda     
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
@@ -224,6 +241,38 @@ spack:
   - umpire@6.0.0 ~shared +cuda cuda_arch=80
   - vtk-m@1.7.1 +cuda cuda_arch=80
   - zfp@0.5.5 +cuda cuda_arch=80
+
+  - adios2@2.8.0 +cuda cuda_arch=70
+  - arborx@1.2 +cuda cuda_arch=70 ^kokkos@3.6.00 +wrapper
+  - bricks@r0.1 +cuda
+  - cabana@0.4.0 +cuda ^kokkos@3.6.00 +wrapper +cuda_lambda +cuda cuda_arch=70
+  - caliper@2.7.0 +cuda cuda_arch=70
+  - chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=70 ^umpire@6.0.0 ~shared
+  - flux-core@0.38.0 +cuda
+  - ginkgo@1.4.0 +cuda cuda_arch=70
+  - heffte@2.2.0 +cuda cuda_arch=70
+  - hpctoolkit@2022.04.15 +cuda
+  - hpx@1.7.1 +cuda cuda_arch=70
+  - hypre@2.24.0 +cuda cuda_arch=70
+  - kokkos@3.6.00 +wrapper +cuda cuda_arch=70
+  - kokkos-kernels@3.6.00 +cuda cuda_arch=70 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=70
+  - magma@2.6.2 +cuda cuda_arch=70
+  - mfem@4.4.0 +cuda cuda_arch=70
+  - papi@6.0.0.1 +cuda
+  - parsec@3.0.2012 +cuda cuda_arch=70
+  - petsc@3.17.1+cuda cuda_arch=70
+  - raja@0.14.0 +cuda cuda_arch=70
+  - slate@2021.05.02 +cuda cuda_arch=70
+  - slepc@3.17.1 +cuda cuda_arch=70
+  - strumpack@6.3.1 ~slate +cuda cuda_arch=70
+  - sundials@6.2.0 +cuda cuda_arch=70
+  - superlu-dist@7.2.0 +cuda cuda_arch=70
+  - tasmanian@7.7 +cuda cuda_arch=70
+  - tau@2.31.1 +mpi +cuda ^mpich@4.0.2
+  - trilinos@13.2.0 +cuda cuda_arch=70
+  - umpire@6.0.0 ~shared +cuda cuda_arch=70
+  - vtk-m@1.7.1 +cuda cuda_arch=70
+  - zfp@0.5.5 +cuda cuda_arch=70
 
   # CONCRETIZATION ISSUE
   #- amrex@2.8.0 +cuda cuda_arch=80
