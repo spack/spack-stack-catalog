@@ -15,7 +15,7 @@ spack:
     
     # py-numba: adding dependency explicitly to avoid spec error
     # currently py-numba tries to build llvm but this is an issue building with gcc
-    - py-numba@0.54.0 ^binutils+ld+gold
+    - py-numba@0.54.0 ^llvm ~omp_as_runtime ~clang ~compiler-rt ~polly ~gold
 
     
     # py-numpy: using specific version, which is the latest support by scipy right now

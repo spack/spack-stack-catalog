@@ -5,4 +5,5 @@ spack:
   - argobots
   - libfabric
   - mercury
-  concretization: together
+  concretizer:
+    unify: true

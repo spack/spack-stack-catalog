@@ -91,8 +91,8 @@ spack:
   - hpctoolkit@2022.04.15 +cuda
   - hpx@1.7.1 +cuda cuda_arch=70
   - hypre@2.24.0 +cuda cuda_arch=70
-  - kokkos@3.6.00 +wrapper +cuda cuda_arch=70
   - kokkos-kernels@3.6.00 +cuda cuda_arch=70 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=70
+  - kokkos@3.6.00 +wrapper +cuda cuda_arch=70
   - magma@2.6.2 +cuda cuda_arch=70
   - mfem@4.4.0 +cuda cuda_arch=70
   - papi@6.0.0.1 +cuda
@@ -105,6 +105,7 @@ spack:
   - sundials@6.2.0 +cuda cuda_arch=70
   - superlu-dist@7.2.0 +cuda cuda_arch=70
   - tasmanian@7.7 +cuda cuda_arch=70
+  - tau@2.31.1 +cuda +mpi ^mpich@4.0.2
   - trilinos@13.2.0 +cuda cuda_arch=70
   - umpire@6.0.0 ~shared +cuda cuda_arch=70
   - vtk-m@1.7.1 +cuda cuda_arch=70

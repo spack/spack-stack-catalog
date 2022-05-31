@@ -7,6 +7,7 @@ spack:
 # snakemake: docs recommend to install with conda
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.2 +X  #^gettext@0.21
+    - llvm@14.0.0 ~omp_as_runtime ~clang ~compiler-rt ~polly ~gold
     - nextflow@22.04.3
     - parallel@20210922
     - reframe@3.6.1

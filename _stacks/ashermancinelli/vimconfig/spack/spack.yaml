@@ -1,0 +1,11 @@
+spack:
+  specs: [asher.config+extras+editors+buildtools]
+  view: /Users/manc568/base
+  concretizer:
+    unify: when_possible
+    targets:
+      granularity: generic
+  packages:
+    all:
+      providers:
+        lua: [lua-luajit]

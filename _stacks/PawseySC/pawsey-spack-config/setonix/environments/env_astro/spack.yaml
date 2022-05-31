@@ -10,14 +10,6 @@ spack:
       buildable: true
     'fftw-api:':
       buildable: true
-    everybeam:
-      variants: build_type=Release
-    wsclean:
-      variants: build_type=Release
-    idg:
-      variants: build_type=Release
-    cghcentre:
-      variants: build_type=Release
   definitions:
   
   # casacore variants
@@ -52,16 +44,16 @@ spack:
       ^casacore ~python build_type=Release
     - wsclean@3.0 ~mpi +idg +everybeam build_type=Release ^chgcentre build_type=Release
       ^casacore ~python build_type=Release
-    - wsclean@2.10 build_type=Release ^chgcentre build_type=Release ^casacore ~python
+    - wsclean@2.10.1 build_type=Release ^chgcentre build_type=Release ^casacore ~python
       build_type=Release
     - pgplot
 
   # TODO add versions 
   - python-astro-set:
     - py-funcsigs
-    - py-pyfits
-    - py-astropy
-    - py-healpy
+    - py-astropy@4.2.1+extras
+    - py-astropy@5.1+extras
+    - py-healpy ^py-astropy@4.2.1+extras
     - py-emcee
 
   # add package specs to the `specs` list
