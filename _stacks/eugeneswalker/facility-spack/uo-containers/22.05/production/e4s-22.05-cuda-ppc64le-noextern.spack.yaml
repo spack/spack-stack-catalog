@@ -238,20 +238,22 @@ spack:
   # REQUIRES CUDA DRIVER
   #- gasnet@2022.3.0 +cuda cuda_arch=70 conduits=mpi      # requires driver
   #- legion@21.03.0 +cuda cuda_arch=70                    # requires driver
-  #- upcxx@2022.3.0 +cuda                                 # requires driver; not CudaPackage
+  #- upcxx@2022.3.0 +cuda                                 # requires driver
 
-  # BUILD FAILED
-  #- ascent@0.8.0 ~shared +cuda cuda_arch=70              # https://github.com/spack/spack/issues/27954
-  #- axom@0.6.1 +cuda cuda_arch=70 ^umpire@6.0.0 ~shared  # https://github.com/spack/spack/issues/29520
+  # BUILD FAILED - CPU
   #- bricks@r0.1
-  #- bricks@r0.1 +cuda
   #- catalyst@5.6.0                                       # https://github.com/spack/spack/issues/30478
   #- dealii@9.3.3
-  #- dealii@9.3.3 +cuda cuda_arch=70                      # https://github.com/spack/spack/issues/29523
   #- geopm@1.1.0
-  #- lammps@20220107 +cuda cuda_arch=70                   # https://github.com/spack/spack/issues/30590
-  #- paraview@5.10.1 +cuda cuda_arch=70
   #- paraview@5.10.1 +qt
   #- phist@1.9.5
   #- stat@4.1.0
   #- variorum@0.4.1
+
+  # BUILD FAILED - GPU
+  #- ascent@0.8.0 ~shared +cuda cuda_arch=70              # https://github.com/spack/spack/issues/27954
+  #- axom@0.6.1 +cuda cuda_arch=70 ^umpire@6.0.0 ~shared  # https://github.com/spack/spack/issues/29520
+  #- bricks@r0.1 +cuda
+  #- dealii@9.3.3 +cuda cuda_arch=70                      # https://github.com/spack/spack/issues/29523
+  #- lammps@20220107 +cuda cuda_arch=70                   # https://github.com/spack/spack/issues/30590
+  #- paraview@5.10.1 +cuda cuda_arch=70

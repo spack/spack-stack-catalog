@@ -216,15 +216,17 @@ spack:
   # SKIPPED
   #- nvhpc@22.3
 
-  # BUILD FAILED
-  #- cabana@0.4.0 +rocm                               # https://github.com/spack/spack/issues/27967
+  # BUILD FAILED - CPU
   #- catalyst@5.6.0                                   # https://github.com/spack/spack/issues/30478
   #- dealii@9.3.3
+  #- stat@4.1.0
+
+  # BUILD FAILED - GPU
+  #- cabana@0.4.0 +rocm                               # https://github.com/spack/spack/issues/27967
   #- ginkgo@1.4.0 +rocm amdgpu_target=gfx90a          # test_install: error while loading shared libraries: librocrand.so.1: cannot open shared object file: No such file or directory
   #- mfem@4.4.0 +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/30483
   #- papi@6.0.0.1 +rocm amdgpu_target=gfx90a          # https://github.com/spack/spack/issues/27898
   #- slate@2021.05.02 +rocm amdgpu_target=gfx90a      # https://github.com/spack/spack/issues/30596
-  #- stat@4.1.0
   #- sundials@6.2.0 +rocm amdgpu_target=gfx90a        # https://github.com/spack/spack/issues/29526
   #- tasmanian@7.7 +rocm amdgpu_target=gfx90a         # https://github.com/spack/spack/issues/27896
   #- tau@2.31.1 +mpi +python +rocm +roctracer

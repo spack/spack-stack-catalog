@@ -1,5 +1,5 @@
 spack:
-  specs: [asher.config+extras+editors+buildtools]
+  specs: [asher.config+extras+editors+buildtools, guile]
   view: /Users/manc568/base
   concretizer:
     unify: when_possible

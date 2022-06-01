@@ -9,7 +9,7 @@ spack:
       - 'broadwell'
       providers:
         mpi:
-        - intel-oneapi-mpi
+        - mpich
         blas:
         - openblas
         lapack:

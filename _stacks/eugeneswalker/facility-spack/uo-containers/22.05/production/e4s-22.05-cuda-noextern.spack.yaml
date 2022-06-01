@@ -230,11 +230,13 @@ spack:
   #- legion@21.03.0 +cuda cuda_arch=80                     # requires driver
   #- upcxx@2022.3.0 +cuda                                  # requires driver
 
-  # BUILD FAILED
+  # BUILD FAILED - CPU
+  #- catalyst@5.6.0                                        # https://github.com/spack/spack/issues/30478
+  #- dealii@9.3.3
+  #- stat@4.1.0
+
+  # BUILD FAILED - GPU
   #- ascent@0.8.0 ~shared +cuda cuda_arch=80               # https://github.com/spack/spack/issues/27954
   #- axom@0.6.1 +cuda cuda_arch=80 ^umpire@6.0.0 ~shared   # https://github.com/spack/spack/issues/29520
-  #- catalyst@5.6.0                                        # https://github.com/spack/spack/issues/30478
   #- dealii@9.3.3 +cuda cuda_arch=80                       # https://github.com/spack/spack/issues/29523
-  #- dealii@9.3.3
   #- lammps@20220107 +cuda cuda_arch=80                    # https://github.com/spack/spack/issues/30590
-  #- stat@4.1.0

@@ -19,8 +19,9 @@ spack:
     - '%xl@16.1.1-12.1'
     - '%xl@16.1.1-beta103'
   - llvm_compilers:
+    - '%clang@14.0.0-0'
     - '%clang@12.0.0-0'
-    - '%clang@10.0.1-0'
+    # - '%clang@10.0.1-0'
   - nv_compilers:
     - '%nvhpc@21.11'
     - '%nvhpc@21.9'
@@ -165,8 +166,8 @@ spack:
     - hpctoolkit@2021.10.15
     - hpx@1.7.1 max_cpu_count=176 ~cuda ^boost cxxstd=17 ^asio cxxstd=17
     - hypre@2.23.0 ~cuda
-    - kokkos@3.4.01 +openmp
-    - kokkos-kernels@3.4.01 +openmp
+    - kokkos@3.4.01 +openmp~cuda~wrapper
+    - kokkos-kernels@3.4.01 +openmp~cuda
     ### - libnrm@0.1.0 ## hard mpich dependency
     - libquo@1.3.1
     - libunwind@1.5.0
@@ -184,7 +185,7 @@ spack:
     - omega-h@9.34.1
     # - openmpi@4.1.1
     - openpmd-api@0.14.3 ^hdf5@1.12.0 +fortran +shared +hl api=default
-    - papi@6.0.0.1
+    - papi@6.0.0.1~cuda
     - papyrus@1.0.1
     - parallel-netcdf@1.12.2
     # - paraview@5.9.1
@@ -269,8 +270,8 @@ spack:
     # - gptune@2.1.0 # massive python dependencies
     - hpctoolkit@2022.01.15 ~cuda
     - hypre@2.24.0 ~cuda
-    - kokkos@3.5.00 +openmp
-    - kokkos-kernels@3.5.00 +openmp
+    - kokkos@3.5.00 +openmp~cuda~wrapper
+    - kokkos-kernels@3.5.00 +openmp~cuda
     - lammps@20220107
     - mercury@2.1.0
     - mpifileutils@0.11.1 ~xattr
@@ -402,23 +403,44 @@ spack:
     - matrix:
       - - $general_compute_packages
         - $e4s_21.11_cpu_packages
-        - $e4s_21.11_gpu_packages_cuda11.0.3
+        # - $e4s_21.11_gpu_packages_cuda11.4.2 # cuda RT fails to find math.h
         - $e4s_22.02_cpu_packages
-        - $e4s_22.02_gpu_packages_cuda11.0.3
-        - trilinos@13.0.0+intrepid2+shards~muelu
-        - trilinos@13.2.0 +cuda~wrapper cuda_arch=70
-      - - $llvm_compilers
+        # - $e4s_22.02_gpu_packages_cuda11.4.2 # cuda RT fails to find math.h
+      - - '%clang@12.0.0-0'
       exclude:
-      - ^elfutils
       - caliper # ^elfutils !conflicts clang
       - dyninst   # ^elfutils !conflicts clang
       - hpctoolkit   # ^elfutils !conflicts clang
       - mpip   # ^elfutils !conflicts clang
+      - hpx%clang # gperftools+llvm libunwind clash
+      - omega-h%clang@12.0.0-0
       - plasma
       - strumpack
       - tau
       - trilinos+cuda+wrapper
       - trilinos+intrepid2+shards+muelu
+      - unifyfs@0.9.2%clang@12.0.0-0
+    - matrix:
+      - - $general_compute_packages
+        - $e4s_21.11_cpu_packages
+        # - $e4s_21.11_gpu_packages_cuda11.0.3 # Needs cuda newer than 11.6.2
+        - $e4s_22.02_cpu_packages
+        # - $e4s_22.02_gpu_packages_cuda11.0.3 # Needs cuda newer than 11.6.2
+      - - '%clang@14.0.0-0'
+      exclude:
+      - caliper # ^elfutils !conflicts clang
+      - dyninst   # ^elfutils !conflicts clang
+      - hpctoolkit   # ^elfutils !conflicts clang
+      - mpip   # ^elfutils !conflicts clang
+      - hpx%clang@14.0.0-0 # gperftools+llvm libunwind clash
+      - omega-h%clang@14.0.0-0
+      - kokkos-kernels
+      - plasma
+      - strumpack
+      - tau
+      - trilinos+cuda+wrapper
+      - trilinos+intrepid2+shards+muelu
+      - unifyfs@0.9.2%clang@14.0.0-0
   - xl_specs:
     - matrix:
       - - $general_compute_packages
@@ -670,20 +692,6 @@ spack:
       providers: {}
       target: []
       version: [1.1.3]
-    kokkos:
-      buildable: true
-      compiler: []
-      providers: {}
-      target: []
-      variants: +wrapper+cuda cuda_arch=70
-      version: []
-    kokkos-kernels:
-      buildable: true
-      compiler: []
-      providers: {}
-      target: []
-      variants: +cuda cuda_arch=70
-      version: []
     libfabric:
       variants: fabrics=rxm,sockets,tcp,udp,verbs
     libtool:
@@ -1164,6 +1172,9 @@ spack:
         upcxx:
           suffixes:
             upcxx~cuda: cpu
+        vtk-m:
+          suffixes:
+            vtk-m~cuda: cpu
         zfp:
           suffixes:
             zfp+cuda: gpu
@@ -1588,10 +1599,27 @@ spack:
       paths:
         cc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang
         cxx: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang++
-        f77: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
-        fc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
       extra_rpaths: []
-      environment: {}
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
+  # LLVM/Clang 14.0.0
+  - compiler:
+      spec: clang@14.0.0-0
+      operating_system: rhel8
+      modules: [llvm/14.0.0]
+      paths:
+        cc: /sw/summit/llvm/14.0.0/14.0.0-0/bin/clang
+        cxx: /sw/summit/llvm/14.0.0/14.0.0-0/bin/clang++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   # XL 16.1.1-10
   - compiler:

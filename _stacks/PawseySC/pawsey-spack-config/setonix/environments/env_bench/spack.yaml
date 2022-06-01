@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # set perferred versions or any locally buildable packages here
+  #packages:
+  definitions:
+  
+  # sacore variants
+  # try running spack install --no-checksum 
+  - math-tests:
+    - hpl@2.3
+  - mpi-tests:
+    - osu-micro-benchmarks@5.7.1
+  - io-tests:
+    - ior@3.3.0 +hdf5 +lustre
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$math-tests, $mpi-tests, $io-tests]
+    - ['%gcc@11.2.0']
+    - [target=zen3]
+  view: false

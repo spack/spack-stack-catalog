@@ -12,7 +12,7 @@ spack:
 # ansys cfx, ansys fluent, comsol: no recipe, manual install?
 # charris: roms recipe in 0.17, user installs, see roms.yaml
 # charris: wrf recipe, user installs, see wrf.yaml
-    - amber@20 +openmp ^hdf@4.2.15 +external-xdr
+    - amber@20 +openmp ^hdf@4.2.15 ~external-xdr
     - cpmd@4.3 +mpi +omp
     - cp2k@8.2 +plumed ^plumed@2.7.2
     - gromacs@2020.2 +double +lapack +plumed build_type=Release ^plumed@2.6.1
