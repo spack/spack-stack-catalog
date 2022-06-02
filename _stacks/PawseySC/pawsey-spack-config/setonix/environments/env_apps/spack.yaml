@@ -28,20 +28,14 @@ spack:
       +spin +srd +tally +uef +voronoi +yaff build_type=Release ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning
       cxxstd=14 build_type=Release ^plumed@2.7.2
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
-
-    
 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 )
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
 # Custom Pawsey recipe, that builds all dependencies internally - OK
-    - nektar@5.0.2 build_type=Release 
+    - nektar@5.0.2 build_type=Release
     - nwchem@7.0.2
-
-    
 # Failing:    - openfoam@2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:
     - openfoam@2012
-
-    
 # Failing:    - openfoam-org@8 #Alexis still working on it
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
     - vasp@5.4.4 +scalapack +vaspsol

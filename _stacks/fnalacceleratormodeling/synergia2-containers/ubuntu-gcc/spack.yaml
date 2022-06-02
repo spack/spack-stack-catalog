@@ -6,7 +6,7 @@ spack:
   packages:
     all:
       target:
-      - 'broadwell'
+      - 'x86_64_v2'
       providers:
         mpi:
         - mpich
@@ -18,7 +18,7 @@ spack:
   - hdf5@1.12.1+hl+mpi
   - fftw+mpi+openmp
   - gsl
-  - python
+  - python+pythoncmd
   - py-numpy
   - py-mpi4py
   - py-h5py+mpi

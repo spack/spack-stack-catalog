@@ -1,10 +1,65 @@
 spack:
-  specs: [asher.config+extras+editors+buildtools, guile]
+  definitions:
+
+  - editors:
+      - vim
+      - tmux
+        # - neovim%gcc^lua-luajit # deps are still too flaky
+      - ed%gcc
+
+  - huge:
+      - gcc
+      - llvm
+
+  - langs:
+      - python
+      - go
+      - rust
+      - perl
+
+  - buildtools:
+      - cmake
+      - texinfo
+      - autoconf
+      - automake
+      - m4
+      - git
+      - gmake
+
+  - extras:
+      - rlwrap%gcc
+      - htop
+      - bat
+      - fzf
+      - guile
+
+  specs:
+
+  # Essentials
+  - ps1
+  - curl
+  - wget
+  - bash
+  - ack
+  - findutils
+  - sed
+  - gawk
+  - tar zip=gzip
+  - bzip2
+  - ninja
+
+  - $editors
+  - $extras
+  - $langs
+    # - $huge
+
   view: /Users/manc568/base
+
   concretizer:
     unify: when_possible
     targets:
       granularity: generic
+
   packages:
     all:
       providers:

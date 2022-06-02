@@ -3,6 +3,10 @@
 # It describes a set of packages to be installed, along with
 # configuration settings.
 spack:
+# Commenting as already in packages.yaml ; leaving for reference
+#  packages:
+#    hdf:
+#      variants: ~external-xdr
   definitions:
   - hdf5-set:
     - hdf5@1.12.1
