@@ -1,0 +1,20 @@
+spack:
+  specs:
+  - python@3.8.12 target=broadwell
+  - py-numpy+blas+lapack
+  - openblas threads=openmp
+  concretization: together
+  container:
+    format: docker
+    images:
+      os: ubuntu:20.04
+      spack:
+        ref: v0.17.2
+    os_packages:
+      final:
+      - libgfortran5
+      - libgomp1
+    extra_instructions:
+      final: |
+        RUN cd /opt/view/bin; find . -xtype l -exec sh -c 'ln -f -s $(basename $(readlink $0)) $(basename $0)' {} \;
+

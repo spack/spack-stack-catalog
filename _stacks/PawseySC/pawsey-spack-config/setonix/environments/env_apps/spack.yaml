@@ -15,7 +15,7 @@ spack:
     - amber@20 +openmp ^hdf@4.2.15 ~external-xdr
     - cpmd@4.3 +mpi +omp
     - cp2k@8.2 +plumed ^plumed@2.7.2
-    - gromacs@2020.2 +double +lapack +plumed build_type=Release ^plumed@2.6.1
+    - gromacs@2020.4 +double +lapack +plumed build_type=Release ^plumed@2.6.6
     - gromacs@2021.4 +double +lapack +plumed build_type=Release ^plumed@2.7.2
     - lammps@20210929.3 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk
       +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole
