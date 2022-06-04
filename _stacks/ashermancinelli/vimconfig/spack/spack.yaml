@@ -4,7 +4,7 @@ spack:
   - editors:
       - vim
       - tmux
-        # - neovim%gcc^lua-luajit # deps are still too flaky
+      - neovim%gcc^lua-luajit-openresty
       - ed%gcc
 
   - huge:
@@ -49,11 +49,12 @@ spack:
   - ninja
 
   - $editors
+  - $buildtools
   - $extras
   - $langs
     # - $huge
 
-  view: /Users/manc568/base
+  view: ~/base
 
   concretizer:
     unify: when_possible
@@ -63,4 +64,4 @@ spack:
   packages:
     all:
       providers:
-        lua: [lua-luajit]
+        lua: [lua-luajit-openresty]

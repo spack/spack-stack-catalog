@@ -144,15 +144,6 @@ spack:
       version: [1.12.1]
     hypre:
       variants: +openmp +superlu-dist
-    gcc:
-      buildable: false
-      externals:
-      - spec: gcc@11.2.0 %gcc@7.5.0
-        modules:
-        - PrgEnv-gnu
-        - gcc/11.2.0
-        - craype-x86-milan
-        - libfabric
     git:
       version: [2.26.2]
       buildable: false
@@ -187,15 +178,6 @@ spack:
       externals:
       - spec: ncurses@6.1
         prefix: /usr
-    nvhpc:
-      buildable: false
-      externals:
-      - spec: nvhpc@22.02 %gcc@7.5.0
-        modules:
-        - PrgEnv-nvidia
-        - nvidia/22.02
-        - craype-x86-milan
-        - libfabric
     openssl:
       version: [1.1.0i]
       buildable: false
@@ -273,7 +255,6 @@ spack:
   - gcc_compilers: ['%gcc@11.2.0']
   - nvhpc_compilers: ['%nvhpc@22.02']  
   - cce_compilers: ['%cce@13.0.2']  
-  - compilers: [gcc@11.2.0 %gcc@7.5.0, nvhpc@22.02 %gcc@7.5.0, cce@13.0.2 %gcc@7.5.0]
 
   - gcc_specs:  
     - adios2@2.8.0
@@ -381,7 +362,6 @@ spack:
     - zfp@0.5.5
   
   - cuda_specs:
-    # GPU
     - adios2@2.8.0 +cuda cuda_arch=80
     - arborx@1.2 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper
     - cabana@0.4.0 +cuda ^kokkos@3.6.00 +wrapper +cuda_lambda +cuda cuda_arch=80
@@ -411,6 +391,17 @@ spack:
     - umpire@6.0.0 ~shared +cuda cuda_arch=80
     - vtk-m@1.7.1 +cuda cuda_arch=80
     - zfp@0.5.5 +cuda cuda_arch=80
+  
+  - nersc_specs:
+    - chapel@1.24.1
+    - berkeleygw
+    - gromacs@2021.5
+    - metis@5.1.0
+    - parmetis@4.0.3   
+    # - tensorflow
+    # - cp2k +cuda cuda_arch=70 +elpa +cosma
+    # - nano
+    
   specs:
   - matrix:
     - [$gcc_specs]
@@ -424,4 +415,3 @@ spack:
   - matrix:
     - [$cce_specs]
     - [$cce_compilers]
-  - $compilers
