@@ -1,0 +1,19 @@
+spack:
+  config:
+    install_missing_compilers: true
+    view: true
+    definitions:
+    - compilers: [gcc@10.3.0, gcc@11.2.0]
+    - packages: [openblas threads=openmp, python@3.8.12, py-numpy+blas+lapack]
+    - targets: [target=broadwell, target=zen2, target=x86_64_v3]
+    specs:
+    - matrix:
+      - [$%compilers]
+      - [$packages]
+      - [$targets]
+  specs: []
+  view: true
+  bootstrap:
+    trusted:
+      github-actions-v0.2: false
+      github-actions-v0.1: false

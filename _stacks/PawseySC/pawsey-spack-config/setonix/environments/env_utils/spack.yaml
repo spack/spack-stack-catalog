@@ -3,7 +3,7 @@ spack:
   definitions:
   - packages:
     
-# py-pip and py-setuptools: installed in env_python
+# py-pip and py-setuptools: installed in env_langs
 # snakemake: docs recommend to install with conda
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.2 +X  #^gettext@0.21

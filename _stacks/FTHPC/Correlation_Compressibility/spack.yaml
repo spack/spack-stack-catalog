@@ -9,6 +9,6 @@ spack:
   specs: [qcat@master, libpressio+libdistributed+hdf5+mgard+python+sz+sz3+zfp+mpi+bitgrooming+digitrounding+fpzip
       ^sz@master+stats ^mgard@robertu94+cuda ^libstdcompat+boost, py-h5py, libpressio-tthresh,
     libpressio-tools+opt+tthresh+mpi, r+X, py-matplotlib, py-rpy2, py-scipy, py-pandas,
-    opencv+python3, libpressio-adios2]
+    opencv+python3]
   view: true
   concretization: together

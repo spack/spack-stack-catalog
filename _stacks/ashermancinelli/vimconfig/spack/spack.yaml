@@ -1,40 +1,42 @@
 spack:
   definitions:
-
   - editors:
-      - vim
-      - tmux
-      - neovim%gcc^lua-luajit-openresty
-      - ed%gcc
+    - vim
+    - tmux
+    - neovim@stable%gcc
+    - ed%gcc
 
   - huge:
-      - gcc
-      - llvm
+    - gcc
+    - llvm
 
   - langs:
-      - python
-      - go
-      - rust
-      - perl
+    - python
+    - go
+    - rust
+    - perl
 
   - buildtools:
-      - cmake
-      - texinfo
-      - autoconf
-      - automake
-      - m4
-      - git
-      - gmake
+    - cmake
+    - texinfo
+    - autoconf
+    - automake
+    - m4
+    - git
+    - gmake
 
   - extras:
-      - rlwrap%gcc
-      - htop
-      - bat
-      - fzf
-      - guile
+    - rlwrap%gcc
+    - htop
+    - bat
+    - fzf
+    - ripgrep
+      # - fd
+    - guile
+    - coreutils%gcc
 
   specs:
-
+  
   # Essentials
   - ps1
   - curl
@@ -54,7 +56,7 @@ spack:
   - $langs
     # - $huge
 
-  view: ~/base
+  view: /Users/manc568/base
 
   concretizer:
     unify: when_possible

@@ -2,7 +2,6 @@ spack:
   definitions:
   - packages:
     # aocc, rocm, gcc, llvm: provided by system installations
-    # python: installed in env_python
     - go@1.16.12
     # NotReadyYet:    
     # - julia@1.6.1 #Default recipe is very weak. Faulty. Lots of needed dependencies are missing.
@@ -12,7 +11,19 @@ spack:
     - ruby@3.0.1
     # latest version of rust available may have issues but spack listed latest release is fine. 
     - rust@1.51.0
+  - py-utilities:
+    - py-pip@21.1.2
+    - py-setuptools@57.4.0
   specs:
+  - matrix:
+    - [python@3.9.7 +optimizations, python@3.10.4 +optimizations]
+    - ['%gcc@11.2.0', '%cce@13.0.2', '%aocc@3.2.0']
+    - [target=zen3]
+  - matrix:
+    - [$py-utilities]
+    - [^python@3.9.7 +optimizations, ^python@3.10.4 +optimizations]
+    - ['%gcc@11.2.0', '%cce@13.0.2', '%aocc@3.2.0']
+    - [target=zen3]
   - matrix:
     - [$packages]
     - ['%gcc@11.2.0']
