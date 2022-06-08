@@ -1,0 +1,167 @@
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      extra_rpaths: []
+  modules:
+    default:
+      'enable:': [lmod]
+      lmod:
+        core_compilers: [gcc@11.2.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [cray-mpich, cmake]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        bricks:
+          suffixes:
+            +cuda: cuda
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [openblas, cray-libsci]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    cuda:
+      version: [11.4.2]
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.11.0
+        modules:
+        - libfabric/1.11.0.4.114
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+    slurm:
+      buildable: false
+      version: [21.08.6]
+      externals:
+      - spec: slurm@21.08.6
+        prefix: /usr
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.15 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.15/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.15
+        - libfabric
+
+  specs:
+  # FACILITY BUILD FAILED - CPU
+  - alquimia@1.0.9                           # pflotran
+  - ascent@0.8.0                             # vtk-m
+  - bricks@r0.1                              # bricks
+  - geopm@1.1.0                              # geopm
+  - h5bench@1.2                              # h5bench
+  - loki@0.1.7                               # loki
+  - paraview@5.10.1 +qt                      # font-util
+  - plumed@2.6.3                             # plumed
+  - pruners-ninja@1.0.1                      # pruners-ninja
+  - rempi@1.1.0                              # rempi
+  - upcxx@2022.3.0                           # upcxx
+  - variorum@0.4.1                           # variorum
+  - vtk-m@1.7.1                              # vtk-m
+  - wannier90@3.1.0                          # wannier90
+  # -----
+  # bricks: fetch error
+  # font-util: fonts/X11/cyrillic: failed to write cache
+  # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
+  # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async';
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+  # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
+  # plumed: lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # upcxx: configure error: Requested PMI version cray could not be found
+  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
+  # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
+  # wannier90: ../comms.F90:1214:22: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
+
+  # FACILITY BUILD FAILED - GPU
+  - bricks@r0.1 +cuda                        # bricks
+  - parsec@3.0.2012 +cuda cuda_arch=80       # parsec
+  - trilinos@13.2.0 +cuda cuda_arch=80       # trilinos
+  - vtk-m@1.7.1 +cuda cuda_arch=80           # vtk-m
+  # -----
+  # bricks: fetch error
+  # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
+  # trilinos: /opt/cray/pe/mpich/8.1.15/ofi/gnu/9.1/bin/mpicxx unable to compile test program
+  # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
+
+  # SKIPPED
+  #- gasnet@2022.3.0 +cuda cuda_arch=80 conduits=mpi       # requires driver
+  #- legion@21.03.0 +cuda cuda_arch=80                     # requires driver
+  #- upcxx@2022.3.0 +cuda                                  # requires driver
