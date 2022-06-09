@@ -5,10 +5,10 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - mercury~boostsys
-  - chfs
+  - chfs ^mercury~boostsys
   view: true
-  concretization: together
+  concretizer:
+    unify: true
   compilers:
   - compiler:
       spec: gcc@8.3.0

@@ -1,0 +1,630 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+# NOTICE: intel-tbb should not be replaced with intel-oneapi-tbb, the latter one is pre-built and not configurable
+#   - py-typing@3.7.4.3 NB: not needed for py 3.7+
+#   - py-tensorflow-estimator@2.6.0 -> part of tf
+#   - py-rep@0.6.6
+spack:
+  concretization: together
+  packages:
+    all:
+      buildable: true
+      compiler: [gcc@9.3.0]
+      target:
+      - prescott
+      version: []
+      variants: [cxxstd=17, build_type=Release, +cms, 'cuda_arch=60,70,75']
+      providers:
+        iconv: [libc]
+    mesa-glu:
+      externals: [{spec: mesa-glu@9.0.0, prefix: /usr}]
+      buildable: false
+    binutils:
+      externals: [{spec: binutils@2.32, prefix: /cvmfs/cms.cern.ch/slc7_amd64_gcc900/external/gcc/9.3.0}]
+      buildable: false
+    openssl:
+      externals: [{spec: openssl@1.0.2k-fips, prefix: /usr}]
+      buildable: false
+    groff:
+      externals: [{spec: groff@1.22.2, prefix: /usr}]
+      buildable: false
+    sed:
+      externals: [{spec: sed@4.2.2, prefix: /usr}]
+      buildable: false
+    libx11:
+      externals: [{spec: libx11@1.7.0, prefix: /usr}]
+      buildable: false
+    libxext:
+      externals: [{spec: libxext@1.3.3, prefix: /usr}]
+      buildable: false
+    libxft:
+      externals: [{spec: libxft@2.3.2, prefix: /usr}]
+      buildable: false
+    libice:
+      externals: [{spec: libice@1.0.9, prefix: /usr}]
+      buildable: false
+    libsm:
+      externals: [{spec: libsm@1.2.3, prefix: /usr}]
+      buildable: false
+    libxpm:
+      externals: [{spec: libxpm@4.11.0, prefix: /usr}]
+      buildable: false
+    xextproto:
+      externals: [{spec: xextproto@7.3.0, prefix: /usr}]
+      buildable: false
+    krb5:
+      externals: [{spec: krb5@1.15.1, prefix: /usr}]
+      buildable: false
+    perl:
+      externals: [{spec: perl@5.16.3~cpanm+shared+threads, prefix: /usr}]
+      buildable: false
+    readline:
+      externals: [{spec: readline@6.2, prefix: /usr}]
+      buildable: false
+    openssh:
+      externals: [{spec: openssh@7.4p1, prefix: /usr}]
+      buildable: false
+    libedit:
+      externals: [{spec: libedit@3.0, prefix: /usr}]
+      buildable: false
+    tar:
+      externals: [{spec: tar@1.26, prefix: /usr}]
+      buildable: false
+    libaio:
+      externals: [{spec: libaio@0.3.109, prefix: /usr}]
+      buildable: false
+    fontconfig:
+      externals: [{spec: fontconfig@2.13.0, prefix: /usr}]
+      buildable: false
+    ncurses:
+      externals: [{spec: ncurses@5.9.20130511+termlib abi=5, prefix: /usr}]
+      buildable: false
+    libevent:
+      externals: [{spec: libevent@2.0.21, prefix: /usr}]
+      buildable: false
+    texinfo:
+      externals: [{spec: texinfo@5.1, prefix: /usr}]
+      buildable: false
+    openjdk:
+      externals: [{spec: openjdk@1.8.0_322-b06, prefix: /usr}]
+      buildable: false
+    zip:
+      externals: [{spec: zip@3.0, prefix: /usr}]
+      buildable: false
+    rsync:
+      externals: [{spec: rsync@3.1.2, prefix: /usr}]
+      buildable: false
+    findutils:
+      externals: [{spec: findutils@4.5.11, prefix: /usr}]
+      buildable: false
+    diffutils:
+      externals: [{spec: diffutils@3.3, prefix: /usr}]
+      buildable: false
+    libc:
+      externals: [{spec: libc@1.0+iconv, prefix: /usr}]
+      buildable: false
+    coreutils:
+      externals: [{spec: coreutils@0.83, prefix: /usr}]
+      buildable: false
+    libiconv:
+      buildable: false
+    mesa:
+      variants: [~llvm]
+    llvm:
+      variants: [~gold]
+    gdk-pixbuf:
+      variants: [~x11]
+    libarchive:
+      variants: [crypto=openssl]
+  view: false
+  specs:
+  - cms-config # TODO: do we need it? we have cmssw and cmssw-tool-conf
+  - cmssw@CMSSW_12.4.0.pre3
+  - alpgen@2.1.4 recipe=cms
+  - alpaka@0.7.0
+  - autoconf@2.69
+  - automake@1.16.1
+  - bazel@3.7.2
+  - berkeley-db@6.2.32
+  - benchmark@develop
+  - bison@3.5
+  - blackhat@0.9.9
+  - boost@1.78.0.cms~icu~atomic~container~context~coroutine~exception~graph~locale~log~math~random~wave+shared+multithreaded~debug+mpi+python+iostreams
+  - bzip2@1.0.6
+  - cascade@2.2.04
+  - catch2@2.13.7
+  - charybdis@1.003
+  - classlib@3.1.3
+  - clhep@2.4.5.1.cms
+  - cmake@3.21.4~ownlibs~ncurses
+  - cms-git-tools@211007.0
+  - cmslhetoeosmanager  # NB: version detected automatically
+  - cmsmon-tools@0.5.35
+  - cmssw-osenv@211125.0
+  - cmssw-tool-conf@1.0 # FIXME!
+  - cmssw-wm-tools@211210
+  - cmsswdata@40.0
+  - coral@2.3.21py3
+  - coral-tool-conf@10.0
+  - cppunit@1.15.x
+  - crab@1.0
+  - crab-dev@v3.220204.00
+  - crab-pre@v3.211130.00
+  - crab-prod@v3.220104.00
+  - csctrackfinderemulation@1.2
+  - cuda@11.5.2
+  - cudnn@8.3.2.44-11.5 # NB: version includes CUDA version
+  - cuda-compatible-runtime@1.0
+  - cupla@0.3.0
+  - curl@7.79.0~libssh2+gssapi~libidn2
+  - dablooms@0.9.1
+  - das-client@v03.01.00
+  - dasgoclient@v02.04.46
+  - davix@0.7.6
+  - dd4hep@1.19x+xercesc+geant4units~edm4hep
+  - dip@8693f00cc422b4a15858fcd84249acaeb07b6316
+  - dmtcp@3.0.0-dev                          # CMS: +geant4 is set internally to build static version of ddg4
+  - dwz@0.14-patches
+  - eigen@3.4.90
+  - elfutils@0.186~nls
+  - evtgen@02.00.00+pythia8+tauola+photos
+  - expat@2.1.0~libbsd
+  - fasthadd@2.3
+  - fastjet@3.4.0~atlas+python thread-safety=limited plugins=allcxx
+  - fftjet@1.5.0
+  - fftw@3.3.8~mpi~openmp precision=double
+  - fjcontrib@1.044.cms
+  - flatbuffers@1.12.0
+  - flex@2.6.4
+  - fmt@8.0.1+shared
+  - form@4.2.1~gmp
+  - freetype@2.10.0
+  - frontier-client@2.9.1.cms
+  - g4abla@3.1
+  - g4emlow@7.13
+  - g4ensdfstate@2.3
+  - g4incl@1.0
+  - g4ndl@4.6
+  - g4particlexs@3.1.1
+  - g4photonevaporation@5.7
+  - g4radioactivedecay@5.6
+  - g4realsurface@2.2
+  - g4saiddata@2.0
+  - gbl@V02-04-01~root
+  - gdb@10.2+python+xz~doc
+  - gdbm@1.10
+  - geant4@10.7.2+threads+vecgeom~opengl~x11~qt~python~motif
+  - geant4data@10.0
+  - geant4-parfullcms@2014.01.27
+  - gengetopt@2.22.6
+  - gettext@0.20.1~bzip2~xz~curses~libxml2~libunistring
+  - giflib@5.2.0
+  - git@2.23.0~man~nls
+  - glimpse@4.18.7-6
+  - gmake@4.3~nls
+  - gmp@6.2.0+static
+  - gnuplot@5.2.8~cairo~X~wx~gd~pbm~libcerf
+  - go@1.16
+  - py-gosam@2.1.1
+  - gosam-contrib@2.0 libs=shared,static
+  - gperftools@2.9.1+libunwind+sized_delete+dynamic_sized_delete_support~debugalloc
+  - grpc@1.35.0+shared
+  - gsl@2.6+external-cblas
+  - hdf5@1.10.6+mpi+shared
+  - hector@1.3.4.patch1
+  - hepmc@2.06.10.cms
+  - heppdt@3.04.01.cms
+  - herwig3@7.2.2
+  - herwig6@6.521
+  - highfive@2.3.1
+  - hls@2019.08
+  - hydjet@1.9.1
+  - hydjet2@2.4.3
+  - hwloc@2.4.0+cuda+nvml+libxml2~cairo~netloc+pci
+  - igprof@5.9.16
+  - intel-tbb@2021.3.0
+  - intel-vtune@2018.0.2.525261
+  - isl@0.21
+  - ittnotify@16.06.18
+  - jemalloc@5.2.1.cms~documentation+stats~debug libs=shared
+  - jemalloc-debug@5.2.1.cms~documentation+stats+debug libs=shared
+  - jimmy@4.2
+  - ktjet@1.06
+  - lcov@1.15
+  - lhapdf@6.3.0
+  - libffi@3.4.2
+  - libgit2@1.1.1
+  - libjpeg-turbo@2.0.2
+  - libpciaccess@0.16
+  - libpng@1.6.37
+  - libsodium@1.0.18
+  - libssh2@1.8.0
+  - libtiff@4.0.10
+  - libtool@2.4.6
+  - libungif@4.1.4
+  - libunwind@1.5.0 +zlib~block_signals~docs
+  - libxml2@2.9.10~python
+  - libxslt@1.1.33~crypto~python
+  - libzmq@4.3.3~docs~libbsd
+  - log4cplus@2.0.7
+  - llvm@12.0.1.cms~cuda
+  - lwtnn@2.13
+  - lz4@1.9.3  # NB: doesn't compile with our eigen: https://github.com/lwtnn/lwtnn/issues/161
+  - m4@1.4.18~sigsegv
+  - madgraph5amc@2.7.3.py3 +cms~ninja~collier+golem~syscalc nb_core=4
+  - mcfm@6.3
+  - mctester@1.25.1
+  - md5@1.0.0
+  - meschach@1.2.pCMS1
+  - millepede@04-11-01
+  - mpc@1.1.0
+  - mpfr@4.0.2+static
+  - mxnet-predict@1.6.0
+  - nasm@2.14.02
+  - ninja@1.10.0
+  - nlohmann-json@3.10.2
+  - numactl@2.0.14
+  - openblas@0.3.15
+  - opencv@4.5.1+eigen+python3
+  - openldap@2.4.49+client_only~sasl
+  - openloops@2.1.2                   # 2.6.0 requires OpenSSL 1.1.1
+  - openloops-process@2.1.2
+  - openmpi@4.1.3+cuda+cxx+cxx_exceptions~internal-hwloc~java~static fabrics=ucx
+  - oracle-instant-client@19.11.0.0.0
+  - oracleocci-abi-hack-cms
+  - pacparser@1.3.8
+  - pcre@8.43~jit~multibyte+utf
+  - pcre2@10.36
+  - photos@3.64+hepmc~hepmc3
+  - photos-f@215.5
+  - pkg-config@0.29.2+internal_glib
+  - professor@2.3.3~interactive
+  - protobuf@3.15.1
+  - py-absl-py@0.11.0
+  - py-aiohttp@3.8.1
+  - py-aiosignal@1.2.0
+  - py-aiosqlite@0.17.0
+  - py-anyio@3.3.4
+  - py-appdirs@1.4.4
+  - py-argon2-cffi@21.1.0
+  - py-argparse@1.4.0
+  - py-arrow@0.16.0
+  - py-asn1crypto@1.4.0
+  - py-astor@0.8.1
+  - py-astroid@2.5.6
+  - py-astunparse@1.6.3
+  - py-async-lru@1.0.2
+  - py-async-timeout@4.0.2
+  - py-atomicwrites@1.4.0
+  - py-attrs@21.2.0
+  - py-autopep8@1.6.0
+  - py-avro@1.11.0
+  - py-awkward@1.8.0
+  - py-backcall@0.2.0
+  - py-backports-entry-points-selectable@1.1.0
+  - py-beautifulsoup4@4.10.0
+  - py-beniget@0.4.1
+  - py-bleach@4.1.0
+  - py-bokeh@2.3.3
+  - py-boost-histogram@1.2.1
+  - py-bottle@0.12.19
+  - py-bottleneck@1.3.2
+  - py-cachecontrol@0.12.10
+  - py-cachetools@4.2.4
+  - py-cachy@0.3.0
+  - py-certifi@2021.10.8
+  - py-cffi@1.15.0
+  - py-chardet@4.0.0
+  - py-charset-normalizer@2.0.7
+  - py-click@8.0.1
+  - py-clikit@0.6.2
+  - py-climate@0.1.0
+  - py-cleo@0.8.1
+  - py-cloudpickle@1.6.0
+  - py-cmake@3.21.4
+  - py-cmsml@0.1.2
+  - py-colorama@0.4.4
+  - py-commonmark@0.9.1
+  - py-contextlib2@21.6.0
+  - py-contextvars@2.4
+  - py-correctionlib@2.1.0
+  - py-coverage@5.5
+  - py-cppy@1.1.0
+  - py-crashtest@0.3.1
+  - py-cryptography@3.2.1
+  - py-cx-oracle@8.3.0     # NB: newver versions need newer openssl
+  - py-cycler@0.11.0
+  - py-cython@0.29.24
+  - py-debugpy@1.4.1
+  - py-decorator@5.1.0
+  - py-defusedxml@0.7.1
+  - py-deprecated@1.2.13
+  - py-deprecation@2.1.0
+  - py-distlib@0.3.3
+  - py-distro@1.6.0
+  - py-docopt@0.6.2
+  - py-docutils@0.18
+  - py-downhill@0.4.0
+  - py-entrypoints@0.3
+  - py-fasteners@0.16.3
+  - py-filelock@3.5.0
+  - py-fire@0.4.0      # test
+  - py-flake8@4.0.1
+  - py-flatbuffers@2.0
+  - py-flawfinder@2.0.19
+  - py-fonttools@4.31.2
+  - py-frozenlist@1.3.0
+  - py-flit@3.3.0
+  - py-flit-core@3.3.0
+  - py-fs@0.5.4
+  - py-funcsigs@1.0.2
+  - py-future@0.18.2
+  - py-gast@0.5.2
+  - py-gevent@1.5.0
+  - py-gitdb@4.0.7
+  - py-gitpython@3.1.18
+  - py-google-auth@1.6.3
+  - py-google-auth-oauthlib@0.4.1 # NB: py-tensorboard
+  - py-google-pasta@0.2.0          # NB: py-google-auth < 2.0 for py-tensorboard
+  - py-greenlet@1.1.0
+  - py-grpcio@1.39.0
+  - py-grpcio-tools@1.39.0
+  - py-h5py@3.1.0
+  - py-hepdata-lib@0.9.0
+  - py-hep-ml@0.7.0
+  - py-hist@2.5.2
+  - py-histbook@1.2.5
+  - py-histogrammar@1.0.25
+  - py-histoprint@2.2.0
+  - py-html5lib@1.1
+  - py-idna@3.2
+  - py-immutables@0.16
+  - py-importlib-metadata@4.8.1
+  - py-importlib-resources@5.3.0
+  - py-iniconfig@1.1.1
+  - py-ipaddress@1.0.23
+  - py-ipykernel@6.4.1
+  - py-ipython@7.28.0
+  - py-ipython-genutils@0.2.0  # NB: Not in cms, needed for almost all ipy/jupy packages
+  - py-ipywidgets@7.7.0
+  - py-isort@5.9.3
+  - py-jedi@0.18.0
+  - py-jinja2@3.0.1
+  - py-jinja2-time@0.2.0
+  - py-jeepney@0.6.0
+  - py-joblib@1.0.1
+  - py-jsonpickle@2.0.0
+  - py-jsonschema@3.2.0
+  - py-jupyter-client@7.0.6
+  - py-jupyter-console@6.4.3
+  - py-jupyter-core@4.7.1
+  - py-jupyter-packaging11 # py-jupyter-packaging@0.10.6
+  - py-jupyter-packaging7  # hack (here and above)
+  - py-jupyter-server@1.11.2
+  - py-jupyter-server-mathjax@0.2.3
+  - py-jupyterlab-pygments@0.1.2
+  - py-jupyterlab-widgets@1.1.0
+  - py-pyjwt@2.1.0
+  - py-keras2onnx@1.7.0
+  - py-keras-applications@1.0.8
+  - py-keras-preprocessing@1.1.2
+  - py-keyring@23.1.0
+  - py-kiwisolver@1.3.2
+  - py-law@0.1.6
+  - py-lazy-object-proxy@1.4.3 # py-astroid
+  - py-lizard@1.17.9
+  - py-llvmlite@0.37.0
+  - py-lockfile@0.12.2
+  - py-luigi@3.0.3
+  - py-lxml@4.6.3
+  - py-lz4@3.1.3
+  - py-make@0.1.6.post2
+  - py-mako@1.1.5
+  - py-markdown@3.3.4
+  - py-markupsafe@2.0.1
+  - py-matplotlib@3.4.3
+  - py-matplotlib-inline@0.1.2
+  - py-mccabe@0.6.1
+  - py-mistune@0.8.4
+  - py-mock@4.0.3
+  - py-more-itertools@8.12.0
+  - py-mpld3@0.5.5
+  - py-mplhep@0.3.15
+  - py-mplhep-data@0.0.3
+  - py-mpmath@1.2.1
+  - py-msgpack@1.0.2
+  - py-multidict@5.2.0
+  - py-pynacl@1.4.0
+  - py-nbclient@0.5.5
+  - py-nbconvert@6.2.0
+  - py-nbformat@5.1.3
+  - py-nest-asyncio@1.5.1
+  - py-networkx@2.7.1
+  - py-neurolab@0.3.5
+  - py-notebook@6.4.5
+  - py-numba@0.54.0
+  - py-numexpr@2.7.3
+  - py-numpy@1.19.5
+  - py-oauthlib@3.1.1~extras
+  - py-onnx@1.8.1
+  - py-onnxmltools@1.10.0
+  - py-onnx-runtime@1.10.0+cuda
+  - py-onnxconverter-common@1.9.0
+  - py-opt-einsum@3.3.0
+  - py-packaging@20.9  # NB: py-poetry
+  - py-pandas@1.3.4
+  - py-pandocfilters@1.5.0
+  - py-parsimonious@0.8.1
+  - py-parso@0.8.2
+  - py-pastel@0.2.1
+  - py-pathlib2@2.3.6
+  - py-pbr@5.7.0
+  - py-pexpect@4.8.0
+  - py-pickleshare@0.7.5
+  - py-pkgconfig@1.5.5
+  - py-pkginfo@1.7.1
+  - py-plac@1.3.5
+  - py-ply@3.11
+  - py-pillow@8.0.0
+  - py-pip@21.3.1
+  - py-platformdirs@2.4.0
+  - py-pluggy@1.0.0
+  - py-poetry@1.1.13
+  - py-poetry-core@1.0.8
+  - py-prettytable@3.2.0
+  - py-prompt-toolkit@3.0.29
+  - py-prometheus-client@0.12.0
+  - py-protobuf@3.15.1
+  - py-psutil@5.8.0
+  - py-ptyprocess@0.7.0
+  - py-prwlock@0.4.1
+  - py-py@1.11.0
+  - py-pyasn1-modules@0.2.8
+  - py-pyasn1@0.4.8
+  - py-pybind11@2.7.1
+  - py-pybrain@0.3.3.post
+  - py-pycodestyle@2.8.0
+  - py-pycparser@2.20
+  - py-pycuda@2021.1
+  - py-pycurl@7.44.1
+  - py-pydantic@1.8.2
+  - py-pydot@1.4.2
+  - py-pyflakes@2.4.0
+  - py-pygithub@1.55
+  - py-pygments@2.10.0
+  - py-pylev@1.4.0
+  - py-pylint@2.8.2 # NB: newer version requires typing-extensions incomp. with tensorflow
+  - py-pymongo@3.12.1
+  - py-pyparsing@2.4.7
+  - py-pyrsistent@0.18.0
+  - py-pysqlite3@0.4.6
+  - py-pytest-runner@5.3.1
+  - py-pytest@6.2.5
+  - py-pytest-cov@2.8.1
+  - py-python-dateutil@2.8.2
+  - py-python-daemon@2.3.0
+  - py-python-ldap@3.3.1
+  - py-python-rapidjson@1.5
+  - py-pythran@0.9.12 # NB: py-scipy
+  - py-pytoml@0.1.21
+  - py-pytools@2021.2.9
+  - py-pytz@2021.1
+  - py-pyyaml@6.0~libyaml
+  - py-pyzmq@22.3.0
+  - py-repoze-lru@0.7
+  - py-requests-oauthlib@1.3.0
+  - py-requests-toolbelt@0.9.1
+  - py-requests-unixsocket@0.2.0
+  - py-requests@2.26.0
+  - py-rich@10.14.0
+  - py-rsa@4.7.2
+  - py-scandir@1.10.0
+  - py-schema@0.7.5
+  - py-scikit-build@0.12.0
+  - py-scikit-learn@0.24.2
+  - py-scinum@1.2.0
+  - py-scipy@1.7.2
+  - py-semantic-version@2.8.2
+  - py-send2trash@1.8.0
+  - py-seaborn@0.11.2
+  - py-secretstorage@3.3.1
+  - py-setuptools@57.4.0
+  - py-setuptools-rust@0.12.1 # NB: py-scipy
+  - py-setuptools-scm@5.0.2
+  - py-shellingham@1.4.0    # NB: py-lazy-object-proxy
+  - py-simplegeneric@0.8.1
+  - py-six@1.15.0
+  - py-skl2onnx@1.10.3 # NB: py-tensorflow
+  - py-smmap@3.0.4
+  - py-sniffio@1.2.0
+  - py-soupsieve@2.2.1
+  - py-sqlalchemy@1.4.20
+  - py-stevedore@3.5.0
+  - py-subprocess32@3.5.4
+  - py-sympy@1.8
+  - py-tables@3.6.1
+  - py-tenacity@6.3.1
+  - py-typing-extensions@3.7.4.3 # NB: py-tensorflow
+  - py-tensorboard-plugin-wit@1.8.0 # NB: py-tensorflow; NB: keep this here
+  - py-tensorboard@2.6.0            # wheel
+  - py-tensorboard-dataserver@0.6.1 # wheel
+  - py-tensorflow@2.6.0.cms~cuda~nccl~only_python+mpi # check spelling: py-tensorboard-data-server@0.6.1
+  - py-termcolor@1.1.0
+  - py-terminado@0.12.1
+  - py-testpath@0.6.0
+  - py-theano@1.0.5~cuda
+  - py-threadpoolctl@3.0.0
+  - py-toml@0.10.2
+  - py-tomli@1.2.1
+  - py-tomlkit@0.7.2
+  - py-tornado@6.1
+  - py-tqdm@4.62.3
+  - py-traitlets@5.1.1
+  - py-twine@2.0.0
+  - py-typed-ast@1.4.3
+  - py-uhi@0.3.0
+  - py-uncertainties@3.1.6
+  - py-uproot@4.1.8
+  - py-urllib3@1.26.6
+  - py-vector@0.8.4
+  - py-virtualenv-clone@0.5.7
+  - py-virtualenv@20.10.0
+  - py-virtualenvwrapper@4.8.4
+  - py-wcwidth@0.2.5
+  - py-webencodings@0.5.1
+  - py-websocket-client@1.2.1
+  - py-werkzeug@2.0.2
+  - py-wheel@0.37.0
+  - py-widgetsnbextension@3.6.0
+  - py-wrapt@1.12.1
+  - py-xgboost@1.3.3
+  - py-xrootdpyfs@0.2.2
+  - py-yarl@1.7.2
+  - py-zipp@3.6.0
+  - pyquen@1.5.4
+  - pythia6@6.4.26
+  - pythia8@8.306+hepmc+hepmc3+lhapdf
+  - python@3.9.6~libxml2~debug
+  - qd@2.3.13
+  - qgraf@3.4.2
+  - rdma-core@39.1
+  - re2c@0.13.5
+  - rivet@3.1.4 hepmc=2
+  - root@6.24.00.patches_cms_3c21b04+davix+fftw~fits~graphviz+gsl+math+minuit+mlp~mysql+opengl~postgres~pythia6~pythia8+python~qt4+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd+spectrum
+  - rust@1.57.0~rustfmt~analysis~clippy~src
+  - scitokens-cpp@0.7.0
+  - scons@4.3.0
+  - scram@3.0.36
+  - sherpa@2.2.12+analysis+fastjet+hepmc2+rivet+lhapdf+blackhat+python+ufo+openloops+mpi+cms~hepmc3
+  - sigcpp@3.2.0~doc
+  - sloccount@2.26
+  - sqlite@3.36.0~fts
+  - starlight@r193
+  - swig@4.0.2
+  - tauola@1.1.8 +hepmc+lhapdf+pythia8
+  - tauola-f@27.121.5
+  - thepeg@2.2.2 hepmc=2
+  - tkonlinesw@4.2.0-1_gcc7
+  - toprex@4.23
+  - triton-inference-client@2.11.0+cuda
+  - ucx@1.12.0~static+shared+openmp+ucg+cma+thread_multiple+pic~java+cuda~rocm+gdrcopy+rc+ud+dc+mlx5-dv+ib-hw-tm+dm+rdmacm~knem~xpmem~examples
+    opt=3
+  - util-linux-uuid@2.34
+  - utm@utm_0.10.0
+  - valgrind@3.17.0~mpi libs=shared
+  - vdt@0.4.3+preload
+  - veccore@0.8.0
+  - vecgeom@1.1.18 ~root~geant4~cuda vector=sse3 # NB explicit ~cuda
+  - xerces-c@3.1.3 netaccessor=none transcoder=none
+  - xgboost@1.3.3~cuda # NB explicit ~cuda
+  - xrootd@5.4.2.cms+http~readline+python+scitokens-cpp
+  - xtensor@0.24.1~xsimd~tbb
+  - xtl@0.7.4
+  - xz@5.2.4 libs=shared
+  - yaml-cpp@0.7.0+shared
+  - yoda@1.9.0+root
+  - zlib@1.2.11.cms+optimize
+  - zstd@1.4.5+shared~static~programs~legacy
+  - cmsdist@12.4.0.pre3

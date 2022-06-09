@@ -1,10 +1,12 @@
-# spack/develop 2c211d95ee7257d9ca258fac4f6ccb0f56d63e39
-# Thu May 19 03:47:20 2022 +0300
+# spack/develop d6fabd1533e436cebc94a74fd6d6716f152419fb
+# Wed Jun 8 19:03:18 2022 +0200
 
 spack:
 
   view: false
-  concretization: separately
+
+  concretizer:
+    unify: false
 
   config:
     concretizer: clingo
@@ -235,8 +237,16 @@ spack:
         prefix: /opt/rocm-5.1.0
 
   definitions:
-  - exago:
+  - exago-no-ipopt:
+    - exago@develop +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a ~ipopt
     - exago@5-18-2022-snapshot +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a ~ipopt
+
+  - exago-ipopt:
+    - exago@develop +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a +ipopt
+    - exago@5-18-2022-snapshot +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a +ipopt
+
+  - ipopt:
+    - ^ipopt +metis +coinhsl ~mumps
 
   - hiop-sparse:
     - ^hiop@develop +sparse +mpi +raja +rocm amdgpu_target=gfx90a
@@ -254,12 +264,30 @@ spack:
     - ^coinhsl@2015.06.23
     - ^coinhsl@2019.05.21
 
+  - raja:
+    - ^raja@0.14.0
+
   specs:
   - matrix:
-    - - $exago
+    - - $exago-ipopt
+    - - $ipopt
     - - $hiop-sparse
     - - $coinhsl
+    - - $raja
 
   - matrix:
-    - - $exago
+    - - $exago-ipopt
+    - - $ipopt
     - - $hiop-no-sparse
+    - - $raja
+
+  - matrix:
+    - - $exago-no-ipopt
+    - - $hiop-sparse
+    - - $coinhsl
+    - - $raja
+
+  - matrix:
+    - - $exago-no-ipopt
+    - - $hiop-no-sparse
+    - - $raja

@@ -25,6 +25,8 @@ spack:
     default:
       'enable:': [lmod]
       lmod:
+        defaults:
+        - cray-mpich@8.1.15
         core_compilers: [gcc@11.2.0]
         blacklist_implicits: true
         verbose: true
@@ -42,30 +44,39 @@ spack:
             +cuda cuda_arch=70: cuda70
             +cuda cuda_arch=80: cuda80
             +openmp: openmp
+        bricks:
+          suffixes:
+            +cuda: cuda
         cabana:
           suffixes:
             ^kokkos +cuda cuda_arch=70: cuda70
             ^kokkos +cuda cuda_arch=80: cuda80
-        hpctoolkit:
-          suffixes:
-            +cuda: cuda
-        bricks:
-          suffixes:
-            +cuda: cuda
         flux-core:
           suffixes:
             +cuda: cuda
-        papi:
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        legion:
           suffixes:
             +cuda: cuda
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
+        papi:
+          suffixes:
+            +cuda: cuda
         py-warpx:
           suffixes:
             ^warpx dims=2: dims2
             ^warpx dims=3: dims3
             ^warpx dims=rz: dimsRZ
+        tau:
+          suffixes:
+            +cuda: cuda
+        upcxx:
+          suffixes:
+            +cuda: cuda
 
   packages:
     all:
@@ -237,8 +248,9 @@ spack:
   - hpctoolkit@2022.04.15 +cuda
   - hpx@1.7.1 +cuda cuda_arch=80
   - hypre@2.24.0 +cuda cuda_arch=80
-  - kokkos@3.6.00 +wrapper +cuda cuda_arch=80
   - kokkos-kernels@3.6.00 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=80
+  - kokkos@3.6.00 +wrapper +cuda cuda_arch=80
+  - legion@21.03.0 +cuda cuda_arch=80
   - magma@2.6.2 +cuda cuda_arch=80
   - mfem@4.4.0 +cuda cuda_arch=80
   - papi@6.0.0.1 +cuda
@@ -288,11 +300,13 @@ spack:
   #- bricks@r0.1 +cuda                        # bricks
   #- parsec@3.0.2012 +cuda cuda_arch=80       # parsec
   #- trilinos@13.2.0 +cuda cuda_arch=80       # trilinos
+  #- upcxx@2022.3.0 +cuda                     # upcxx
   #- vtk-m@1.7.1 +cuda cuda_arch=80           # vtk-m
   # -----
   # bricks: fetch error
   # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
   # trilinos: /opt/cray/pe/mpich/8.1.15/ofi/gnu/9.1/bin/mpicxx unable to compile test program
+  # upcxx: configure error: Requested PMI version cray could not be found
   # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
 
   # CONCRETIZATION ISSUE
@@ -301,7 +315,6 @@ spack:
 
   # SKIPPED
   #- gasnet@2022.3.0 +cuda cuda_arch=80 conduits=mpi       # requires driver
-  #- legion@21.03.0 +cuda cuda_arch=80                     # requires driver
   #- libnrm@0.1.0                                          # explicit depends_on mpich
   #- upcxx@2022.3.0 +cuda                                  # requires driver
 

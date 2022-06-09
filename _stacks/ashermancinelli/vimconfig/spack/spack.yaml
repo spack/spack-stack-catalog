@@ -12,7 +12,7 @@ spack:
 
   - langs:
     - python
-    - go
+    - go@1.17.8
     - rust
     - perl
 
@@ -31,12 +31,12 @@ spack:
     - bat
     - fzf
     - ripgrep
-      # - fd
+    - fd
     - guile
     - coreutils%gcc
 
   specs:
-  
+
   # Essentials
   - ps1
   - curl
@@ -56,13 +56,11 @@ spack:
   - $langs
     # - $huge
 
-  view: /Users/manc568/base
-
+  view: /ccs/home/manc568/base
   concretizer:
     unify: when_possible
     targets:
       granularity: generic
-
   packages:
     all:
       providers:

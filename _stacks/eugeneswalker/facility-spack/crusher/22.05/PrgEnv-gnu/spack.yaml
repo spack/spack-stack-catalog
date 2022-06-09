@@ -417,19 +417,17 @@ spack:
   - hpx@1.7.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.00 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
-  - mfem@4.4.0 +rocm amdgpu_target=gfx90a               # https://github.com/spack/spack/issues/30483
+  - mfem@4.4.0 +rocm amdgpu_target=gfx90a
   - petsc@3.17.1 +rocm amdgpu_target=gfx90a
   - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx90a
   - slepc@3.17.1 +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
   - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
-  - sundials@6.2.0 +rocm amdgpu_target=gfx90a           # https://github.com/spack/spack/issues/29526
+  - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
-  - tasmanian@7.7 +rocm amdgpu_target=gfx90a            # https://github.com/spack/spack/issues/27896
+  - tasmanian@7.7 +rocm amdgpu_target=gfx90a
+  - tau@2.31.1 +mpi +rocm
   - umpire@6.0.0 +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
-
-  # SKIPPED
-  #- nvhpc@22.3
 
   # FAILED BUILDS
   #- alquimia@1.0.9                              # pflotran
@@ -477,3 +475,6 @@ spack:
   # vtk-m +rocm: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
   # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
   # wannier90: ../comms.F90:1214:22: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
+
+  # SKIPPED
+  #- nvhpc@22.3
