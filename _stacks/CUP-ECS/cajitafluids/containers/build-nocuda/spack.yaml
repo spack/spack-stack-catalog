@@ -1,0 +1,36 @@
+# Spack environment specification for creating a container for building and
+# testing the poisson benchmark without CUDA. In general we want to let 
+# spack figure out the right version and options for hypre and MPI so we don't 
+# specify them here. We do, however, specify to use gcc since we're going to 
+# be installing that into the container in which the tests will run.
+spack:
+  specs:
+  - git       # Need a newer version of git to be able to get submodules
+  - cmake     # Make sure we get a new enough version of cmake
+  - hdf5+mpi  # Silo should have an mpi-aware version of hdf5
+  - silo@4.11 # Specify a non-bsd versions since some of those don't build
+  - hypre-cmake +mpi # Make sure we get an mpi version of hypre
+  - kokkos std=17 
+  - cabana +hypre +mpi %gcc
+  concretization: together
+  view: true
+
+  container:
+    # Select the format of the recipe e.g. docker,
+    format: docker
+
+    # Additional system packages that are needed at runtime to be able to 
+    # build the 
+    os_packages:
+      final:
+      - build-essential
+      - make
+      - cmake
+      - git
+      - gcc
+      - g++
+      - gfortran
+      - python3
+      - python3-dev
+      - python3-setuptools
+      - clang-format-10

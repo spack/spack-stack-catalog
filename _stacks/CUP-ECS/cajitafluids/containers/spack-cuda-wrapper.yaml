@@ -1,0 +1,12 @@
+# Spack environment specification for code needed to run ExaCLAMR on CUDA 
+# systems without clang where we need the nvcc wrapper. Need to modify the 
+# cuda_arch flag to support the right system
+spack:
+  specs:
+  - hdf5+mpi
+  - silo@4.11
+  - hypre-cmake +cuda cuda_arch=70
+  - kokkos +cuda +cuda_lambda +wrapper cuda_arch=70 std=17
+  - cabana +hypre +mpi
+  concretization: together
+  view: true
