@@ -13,6 +13,8 @@ spack:
     - reframe@3.6.1
     - reframe@3.4
     - singularity@3.8.6
+# add nano here for now
+    - nano@6.3
   - licensed:
     - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
   specs:
