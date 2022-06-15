@@ -1,0 +1,14 @@
+# Spack environment specification for code needed to run CajitaFluids on the 
+# LLNL Lassen systems. We force the use gcc 8 and the kokkos wrapper instead of 
+# clang because of funky interactions between spack and kokkos when using the 
+# system's clang compiler even though clang is preferable otherwise. We also 
+# explicitly specify hypre-cmake to be able to specify the cuda architecture.
+spack:
+  specs:
+  - hdf5 +mpi %gcc@8.3.1
+  - silo@4.11
+  - hypre-cmake +cuda cuda_arch=70
+  - kokkos+cuda+hwloc~numactl+cuda_lambda+wrapper cuda_arch=70 std=17 %gcc@8.3.1
+  - cabana @master +hypre +mpi
+  concretization: together
+  view: true

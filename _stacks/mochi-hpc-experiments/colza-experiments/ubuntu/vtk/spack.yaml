@@ -1,0 +1,56 @@
+spack:
+  specs:
+  - cmake
+  - mpi
+  - python@3.7.0
+  - py-numpy
+  - py-mpi4py
+  - py-matplotlib
+  - osmesa
+  - bzip2
+  - double-conversion
+  - expat
+  - eigen
+  - freetype
+  - jpeg
+  - jsoncpp
+  - libogg
+  - libpng
+  - libtiff
+  - netcdf-c
+  - pegtl
+  - protobuf
+  - libxml2
+  - lz4
+  - lzma
+  - zlib
+  - damaris
+#  - mochi-colza+examples~bedrock@0.1 # added by install.sh
+#  - paraview@develop-mochi # added by install.sh
+  concretization: together
+  packages:
+    all:
+      providers:
+        mpi: [ mpich ]
+    libfabric:
+      variants: fabrics=tcp,rxm
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    mercury:
+      variants: +udreg ~boostsys
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    mesa:
+      buildable: true
+      variants: ~llvm +osmesa swr=none
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+  view: true

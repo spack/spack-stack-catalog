@@ -1,0 +1,15 @@
+# Spack environment specification for creating a container for building and
+# testing the poisson benchmark without CUDA. In general we want to let 
+# spack figure out the right version and options for hypre and MPI so we don't 
+# specify them here. 
+
+spack:
+  specs:
+  - hdf5+mpi  # Silo should have an mpi-aware version of hdf5
+  - silo@4.11 # Specify a non-bsd versions since some of those don't build
+  - hypre-cmake +mpi +cuda cuda_arch=30
+  - kokkos std=14 +cuda +cuda_lambda std-15 cuda_arch=30 
+  - cabana +hypre +mpi %gcc
+  concretizer:
+    unify: true
+  view: true

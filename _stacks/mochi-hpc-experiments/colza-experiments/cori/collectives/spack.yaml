@@ -1,0 +1,266 @@
+spack:
+  specs:
+  - mochi-mona@0.1.1 +benchmark %gcc@9.3.0
+  - mpi
+  concretization: together
+  compilers:
+  - compiler:
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@9.3.0
+  packages:
+    all:
+      providers:
+        mpi: [ cray-mpich ]
+      compiler:
+      - gcc@9.3.0
+      target:
+      - any
+      version: []
+      buildable: true
+    autoconf:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+    binutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: binutils@2.32.0
+        prefix: /usr
+    bison:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    boost:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: boost@1.70.0 arch=cray-cnl7-any
+        modules:
+        - boost/1.70.0
+    bzip2:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    cmake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cmake@3.18.2
+        modules:
+        - cmake/3.18.2
+    coreutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: coreutils@8.29
+        prefix: /usr
+    findutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: findutils@4.6.0
+        prefix: /usr
+    flex:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: flex@2.6.4
+        prefix: /usr
+    gettext:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: gettext@0.19.8.1
+        prefix: /usr
+    git:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: git@2.16.4
+        prefix: /usr
+    hdf5:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: hdf5@1.10.5.2 arch=cray-cnl7-any
+        modules:
+        - cray-hdf5/1.10.5.2
+    libfabric:
+      variants: fabrics=gni,tcp,rxm
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    libtool:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    m4:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    mercury:
+      variants: +udreg ~boostsys
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    cray-mpich:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cray-mpich@7.7.6 arch=cray-cnl7-any
+        modules:
+        - cray-mpich/7.7.6
+    ncurses:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: ncurses@6.1
+        prefix: /usr
+    openssl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.0i
+        prefix: /usr
+    perl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: perl@5.26.1
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+    tar:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    texinfo:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: texinfo@6.5
+        prefix: /usr
+    xz:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: xz@5.2.3
+        prefix: /usr
+    zlib:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: zlib@1.2.11
+        prefix: /usr
+  view: true

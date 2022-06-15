@@ -1,7 +1,12 @@
 spack:
   specs:
-  - mochi-colza +examples +drc @main %gcc@9.3.0
-  - paraview @develop-mochi %gcc@9.3.00
+  - libbsd @0.10.0 %gcc@9.3.0 # for some reasons versions > 0.10.0 fail to build
+  - mochi-colza +examples ~bedrock +drc @main %gcc@9.3.0
+  - paraview @5.8.0 +mochi ~qt +mpi +python3 +osmesa %gcc@9.3.0
+  - damaris %gcc@9.3.0
+  - py-mochi-margo @main %gcc@9.3.0
+  - py-mochi-ssg @main +drc %gcc@9.3.0
+  - py-mochi-colza @main %gcc@9.3.0
   concretization: together
   compilers:
   - compiler:
@@ -146,7 +151,7 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: hdf5@1.10.5.2 arch=cray-cnl7-any
+      - spec: hdf5+hl@1.10.5.2 arch=cray-cnl7-any
         modules:
         - cray-hdf5/1.10.5.2
     libfabric:
@@ -189,7 +194,7 @@ spack:
       providers: {}
       externals:
       - spec: mesa@18.3.6 +glx+llvm+opengl~opengles+osmesa swr=none
-        prefix: /global/common/sw/cray-sles15-x86_64/gcc-8.2.0/mesa-18.3.6-qozjngg
+        prefix: /usr
     cray-mpich:
       buildable: false
       version: []
@@ -236,6 +241,25 @@ spack:
       externals:
       - spec: pkg-config@0.29.2
         prefix: /usr
+    python:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: python@3.8.5
+        modules:
+        - cray-python/3.8.5.0
+    rdma-credentials:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: rdma-credentials@1.2.25
+        prefix: /opt/cray/rdma-credentials/1.2.25-7.0.1.1_6.11__g94afdc9.ari/
     tar:
       buildable: false
       version: []

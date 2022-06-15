@@ -1,0 +1,24 @@
+spack:
+  specs:
+  - mochi-margo@0.9.3
+  - mochi-colza@0.1 ~bedrock +examples
+  concretization: together
+  packages:
+    all:
+      providers:
+        mpi: [ mpich ]
+    libfabric:
+      variants: fabrics=tcp,rxm
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    mercury:
+      variants: +udreg ~boostsys
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+  view: true
