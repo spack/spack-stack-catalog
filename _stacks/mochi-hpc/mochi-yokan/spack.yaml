@@ -18,4 +18,5 @@ spack:
   - mochi-margo
   - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
-  concretization: together
+  concretizer:
+    unify: true

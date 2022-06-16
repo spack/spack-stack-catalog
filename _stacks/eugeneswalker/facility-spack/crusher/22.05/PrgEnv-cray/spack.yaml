@@ -58,6 +58,25 @@ spack:
       extra_rpaths:
       - /opt/cray/pe/gcc-libs
       - /opt/cray/gcc-libs
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths: []
 
   packages:
     all:
@@ -328,7 +347,7 @@ spack:
   - argobots@1.1
   - axom@0.6.1
   - bolt@2.0
-  - butterflypack@2.1.1
+  - butterflypack@2.1.1 %cce ^openblas%gcc
   - cabana@0.4.0
   - caliper@2.7.0
   - chai@2.4.0 ~benchmarks ~tests
@@ -336,23 +355,23 @@ spack:
   - conduit@0.8.3
   - darshan-runtime@3.3.1
   - darshan-util@3.3.1
-  - datatransferkit@3.1-rc3
+  - datatransferkit@3.1-rc3 %cce ^openblas%gcc
   - exaworks@0.1.0
   - faodel@1.2108.1
   - flecsi@1.4.2
   - flit@2.1.0
   - flux-core@0.38.0
-  - fortrilinos@2.0.0
+  - fortrilinos@2.0.0 %cce ^openblas%gcc
   - gasnet@2022.3.0
   - ginkgo@1.4.0
-  - globalarrays@5.8
+  - globalarrays@5.8 %cce ^openblas%gcc
   - gmp@6.2.1
   - gotcha@1.0.3
-  - gptune@3.0.0
+  - gptune@3.0.0 %cce ^openblas%gcc
   - hdf5@1.10.7 +fortran +hl +shared
   - heffte@2.2.0 +fftw
   - hpx@1.7.1 networking=mpi
-  - hypre@2.24.0
+  - hypre@2.24.0 %cce ^openblas%gcc
   - kokkos-kernels@3.6.00 +openmp
   - kokkos@3.6.00 +openmp
   - lammps@20220107
@@ -361,14 +380,14 @@ spack:
   - libunwind@1.6.2
   - mercury@2.1.0
   - metall@0.20
-  - mfem@4.4.0
+  - mfem@4.4.0 %cce ^openblas%gcc
   - mpark-variant@1.4.0
   - mpifileutils@0.11.1 ~xattr
   - nccmp@1.9.0.1
   - nco@5.0.1
-  - netlib-scalapack@2.2.0
-  - nrm@0.1.0
-  - omega-h@9.34.1
+  - netlib-scalapack@2.2.0 %cce ^openblas%gcc
+  - nrm@0.1.0 %cce ^openblas%gcc
+  - omega-h@9.34.1 %cce ^openblas%gcc
   - openmpi@4.1.3
   - openpmd-api@0.14.4
   - papi@6.0.0.1
@@ -377,26 +396,26 @@ spack:
   - paraview@5.10.1 +qt ^llvm@12.0.1
   - parsec@3.0.2012 ~cuda
   - pdt@3.25.1
-  - petsc@3.17.1
-  - phist@1.9.5
-  - precice@2.4.0
+  - petsc@3.17.1 %cce ^openblas%gcc
+  - phist@1.9.5 %cce ^openblas%gcc
+  - precice@2.4.0 %cce ^openblas%gcc
   - pumi@2.2.7
-  - py-cinemasci@1.7.0
+  - py-cinemasci@1.7.0 %cce ^openblas%gcc
   - py-jupyterhub@1.4.1
-  - py-libensemble@0.9.1
-  - py-petsc4py@3.17.1
-  - py-warpx@22.05 ^warpx dims=2
-  - py-warpx@22.05 ^warpx dims=3
-  - py-warpx@22.05 ^warpx dims=rz
+  - py-libensemble@0.9.1 %cce ^openblas%gcc
+  - py-petsc4py@3.17.1 %cce ^openblas%gcc
+  - py-warpx@22.05 ^warpx dims=2 %cce ^openblas%gcc
+  - py-warpx@22.05 ^warpx dims=3 %cce ^openblas%gcc
+  - py-warpx@22.05 ^warpx dims=rz %cce ^openblas%gcc
   - qthreads@1.16 scheduler=distrib
   - raja@0.14.0
-  - slate@2021.05.02 ~cuda
-  - slepc@3.17.1
+  - slate@2021.05.02 ~cuda %cce ^openblas%gcc
+  - slepc@3.17.1 %cce ^openblas%gcc
   - stc@0.9.0
-  - strumpack@6.3.1 ~slate
+  - strumpack@6.3.1 ~slate %cce ^openblas%gcc
   - sundials@6.2.0
-  - superlu-dist@7.2.0
-  - superlu@5.3.0
+  - superlu-dist@7.2.0 %cce ^openblas%gcc
+  - superlu@5.3.0 %cce ^openblas%gcc
   - swig@4.0.2
   - swig@4.0.2-fortran
   - sz@2.1.12
@@ -405,7 +424,7 @@ spack:
   - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack
     +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro
     +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko
-    +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long %cce ^openblas%gcc
   - turbine@1.3.0
   - umap@2.1.0
   - umpire@6.0.0
@@ -423,14 +442,14 @@ spack:
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpx@1.7.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.00 +rocm amdgpu_target=gfx90a
-  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
-  - mfem@4.4.0 +rocm amdgpu_target=gfx90a
-  - petsc@3.17.1 +rocm amdgpu_target=gfx90a
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
+  - mfem@4.4.0 +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
+  - petsc@3.17.1 +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
   - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx90a
-  - slepc@3.17.1 +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
-  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
+  - slepc@3.17.1 +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
-  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a %cce ^openblas%gcc
   - tasmanian@7.7 +rocm amdgpu_target=gfx90a
   - tau@2.31.1 +mpi +rocm
   - umpire@6.0.0 +rocm amdgpu_target=gfx90a
@@ -447,28 +466,29 @@ spack:
   #- stat@4.1.0                                  # mesa
 
   # FAILED BUILDS (failed using PrgEnv-gnu)
-  - alquimia@1.0.9                              # pflotran
+  - alquimia@1.0.9 %cce ^openblas%gcc                              # pflotran
   - ascent@0.8.0                                # vtk-m
   - bricks@r0.1                                 # bricks
   - cabana@0.4.0 +rocm                          # cabana: https://github.com/spack/spack/issues/27967
   - catalyst@5.6.0                              # mesa; https://github.com/spack/spack/issues/30478
-  - dealii@9.3.3                                # mesa
-  - geopm@1.1.0                                 # geopm
+  - dealii@9.3.3 %cce ^openblas%gcc                                # mesa
+  - geopm@1.1.0 %cce ^openblas%gcc                                 # geopm
   - h5bench@1.2                                 # h5bench
   - loki@0.1.7                                  # loki
   - papi@6.0.0.1 +rocm amdgpu_target=gfx90a     # rocprofiler-dev; https://github.com/spack/spack/issues/27898
-  - plumed@2.6.3                                # plumed
+  - plumed@2.6.3 %cce ^openblas%gcc                                # plumed
   - pruners-ninja@1.0.1                         # pruners-ninja
   - rempi@1.1.0                                 # rempi
   - scr@3.0rc2                                  # scr
-  - slate@2021.05.02 +rocm amdgpu_target=gfx90a # slate; https://github.com/spack/spack/issues/30596
-  - trilinos@13.2.0 +rocm amdgpu_target=gfx90a  # trilinos
+  - slate@2021.05.02 +rocm amdgpu_target=gfx90a %cce ^openblas%gcc # slate; https://github.com/spack/spack/issues/30596
+  - trilinos@13.2.0 +rocm amdgpu_target=gfx90a %cce ^openblas%gcc  # trilinos
   - variorum@0.4.1                              # variorum
   - vtk-m@1.7.1                                 # vtk-m
   - vtk-m@1.7.1 +rocm amdgpu_target=gfx90a      # vtk-m, https://github.com/spack/spack/issues/29527
-  - wannier90@3.1.0                             # wannier90
+  - wannier90@3.1.0 %cce ^openblas%gcc          # wannier90
 
   # ERROR ANNOTATIONS (from PrgEnv-gnu failures)
+  # openblas%cce: ftn-2307 ftn: ERROR in command line: The "-m" option must be followed by 0, 1, 2, 3 or 4.
   # bricks: VSBrick-mpi9pt.py-Scalar-4x4x4x4-1:84:3: error: 'vfloat256' was not declared in this scope
   # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
