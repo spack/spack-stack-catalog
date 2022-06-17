@@ -1,0 +1,51 @@
+spack:
+  specs:
+  - gcc@11 languages=c,c++
+  - squashfuse +zstd
+  - squashfs default_compression=zstd
+  - zstd +programs compression=none
+  view: false
+  packages:
+    perl:
+      externals:
+      - spec: perl@5.30.0~cpanm+shared+threads
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.1
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /home/harmen/.nix-profile
+    gawk:
+      externals:
+      - spec: gawk@5.0.1
+        prefix: /usr
+    libfuse:
+      externals:
+      - spec: libfuse@3.9.0
+        prefix: /usr
+    gcc:
+      variants: [build_type=Release ~bootstrap +strip]
+    mpc:
+      variants: [libs=static]
+    gmp:
+      variants: [libs=static]
+    mpfr:
+      variants: [libs=static]
+    zstd:
+      variants: [libs=static]
+    zlib:
+      variants: [~shared]
+  config:
+    install_tree:
+      root: /home/harmen/Documents/projects/manali/store

@@ -10,7 +10,9 @@ spack:
     default:
       enable:: [lmod]
       lmod:
-        core_compilers: [cce@14.0.0]
+        defaults:
+        - cray-mpich@8.1.16
+        core_compilers: [clang@14.0.0-rocm5.1.0]
         blacklist_implicits: true
         verbose: true
         hash_length: 0

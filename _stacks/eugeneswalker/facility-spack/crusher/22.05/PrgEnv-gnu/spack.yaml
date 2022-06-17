@@ -10,6 +10,8 @@ spack:
     default:
       enable:: [lmod]
       lmod:
+        defaults:
+        - cray-mpich@8.1.16
         core_compilers: [gcc@11.2.0]
         blacklist_implicits: true
         verbose: true

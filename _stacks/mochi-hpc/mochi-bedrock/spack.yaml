@@ -6,6 +6,7 @@ spack:
   - mochi-thallium
   - mochi-abt-io
   - mochi-ssg
+  - mochi-mona
   - nlohmann-json
   - spdlog
   - fmt
