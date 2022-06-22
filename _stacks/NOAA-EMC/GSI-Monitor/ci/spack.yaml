@@ -1,0 +1,13 @@
+# Spack environment file to build library dependencies such as NetCDF and GSI-ncdiag
+spack:
+  packages:
+    all:
+      compiler: [intel, gcc]
+  specs:
+  - netcdf-c@4.7.4
+  - netcdf-fortran@4.5.3
+  - w3emc@2.9.2
+  - gsi-ncdiag@1.0.0
+  view: true
+  concretizer:
+    unify: true
