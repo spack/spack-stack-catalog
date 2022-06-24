@@ -1,13 +1,11 @@
 spack:
   specs:
-  - ascent@0.8.0~openmp~test~fortran
-  - conduit@0.8.3
-  - vtk-h@0.8.0~openmp
-  - vtk-m@1.7.0+shared+mpi~openmp
+  - ascent@0.8.0+vtkh~openmp~test~fortran
+  - vtk-m+mpi
   - mpich
-  - mochi-colza@0.1.3+bedrock
-  - mochi-mona@0.2+mpi
-  - mochi-bedrock+mpi
+  - mochi-colza@0.2.0+bedrock
+  - mochi-mona@0.2.2+mpi
+  - mochi-bedrock@0.5.1+ssg++mpi+mona
   - jq
   concretizer:
     unify: true

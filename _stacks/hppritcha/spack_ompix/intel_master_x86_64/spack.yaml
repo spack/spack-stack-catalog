@@ -7,8 +7,11 @@ spack:
   specs:
   - openmpi
   view: false
-  concretization: together
+  concretizer:
+    unify: true
   upstreams: {}
   mirrors: {}
+  modules:
+    enable: []
   packages: {}
   repos: []
