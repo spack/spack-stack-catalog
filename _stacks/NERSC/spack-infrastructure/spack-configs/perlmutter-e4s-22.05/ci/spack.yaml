@@ -37,21 +37,6 @@ spack:
       - craype-x86-milan
       - libfabric
   - compiler:
-      spec: gcc@10.3.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/10.3.0
-      - craype-x86-milan
-      - libfabric
-  - compiler:
       spec: gcc@11.2.0
       paths:
         cc: cc
@@ -86,7 +71,7 @@ spack:
       extra_rpaths: []
   packages:
     all:
-      compiler: [gcc@11.2.0, gcc@10.3.0, nvhpc@21.11, cce@13.0.2]
+      compiler: [gcc@11.2.0, nvhpc@21.11, cce@13.0.2]
       providers:
         blas: [cray-libsci]
         mpi: [cray-mpich, mvapich2]
@@ -197,12 +182,12 @@ spack:
       variants: ~wrapperrpath
     mvapich2:
       externals:
-      - spec: mvapich2@2.3.6-1%gcc@10.3.0
-        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/gdr/2.3.6/no-mpittool/no-openacc/cuda11.5/mofed5.0/slurm/gnu10.3.0/
+      - spec: mvapich2@2.3.7 %gcc@11.2.0
+        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/gdr/2.3.7/no-mpittool/no-openacc/cuda11.5/crayofed5.1/slurm/gnu11.2.0/
         environment:
           prepend_path:
             MODULEPATH: /global/cfs/cdirs/m3896/shared/modulefiles
-        modules: [mvapich2/2.3.6-1]
+        modules: [mvapich2/2.3.7]
       buildable: false
     ncurses:
       variants: +termlib
@@ -437,15 +422,16 @@ spack:
     # vtk-m: spack-src/vtkm/internal/brigand.hpp:1061:131: error: expected class-name before '{' token struct find<true, false, L1, L2, Ls...> : find<true , F<Ts..., L2>::value, L2, Ls...>
 
   - nersc_specs:
-    - chapel@1.24.1
     - berkeleygw@3.0.1
+    - chapel@1.24.1
+    - cp2k +cuda cuda_arch=70 +elpa +cosma ^openblas    
+    - gnuplot@5.4.3 +X
     - gromacs@2021.5
     - gsl@2.7
     - metis@5.1.0
     - parmetis@4.0.3
     - parallel
     - parallel-netcdf@1.12.2
-    - cp2k +cuda cuda_arch=70 +elpa +cosma ^openblas
     - nano
     # concretization issue with py-tensorflow
     #- py-tensorflow +cuda cuda_arch=80 +gdr +tensorrt
@@ -490,8 +476,5 @@ spack:
     - [$gcc_compilers]
   - matrix:
     - [$mvapich2_specs]
-    - ['%gcc@10.3.0']
-    - [^mvapich2@2.3.6-1]
-  #- matrix:
-    #- [$nvhpc_specs]
-    #- [$nvhpc_compilers]
+    - [$gcc_compilers]
+    - [^mvapich2@2.3.7]
