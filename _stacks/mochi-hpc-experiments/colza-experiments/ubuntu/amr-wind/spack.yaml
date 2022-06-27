@@ -1,11 +1,20 @@
 spack:
   specs:
+  - cmake
   - ascent@0.8.0+vtkh~openmp~test~fortran
   - vtk-m+mpi
   - mpich
-  - mochi-colza@0.2.0+bedrock
-  - mochi-mona@0.2.2+mpi
-  - mochi-bedrock@0.5.1+ssg++mpi+mona
+  - mochi-colza@0.2.1+bedrock
+  - mochi-mona@0.2.3+mpi
+  - mochi-bedrock@0.5.2+ssg+mpi+mona
   - jq
   concretizer:
     unify: true
+  packages:
+    all:
+      providers:
+        mpi: [mpich]
+    mercury:
+      variants: ~boostsys+debug~checksum
+    libfabric:
+      variants: fabrics=tcp,rxm,sockets

@@ -1,0 +1,240 @@
+spack:
+  specs:
+  - cmake
+  - ascent@0.8.0+vtkh~openmp~test~fortran
+  - vtk-m+mpi
+  - mochi-colza@0.2.1+bedrock
+  - mochi-mona@0.2.3+mpi
+  - mochi-bedrock@0.5.2+ssg+mpi+mona
+  - jq
+  concretizer:
+    unify: true
+  compilers:
+  - compiler:
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@9.3.0
+  packages:
+    all:
+      providers:
+        mpi: [cray-mpich]
+      compiler:
+      - gcc@9.3.0
+      target:
+      - mic_knl
+    mercury:
+      variants: +udreg~boostsys+debug~checksum
+    libfabric:
+      variants: fabrics=gni
+    autoconf:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+    binutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: binutils@2.31.1
+        prefix: /usr
+    bison:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    rdma-credentials:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: rdma-credentials@1.2.25
+        modules:
+        - rdma-credentials/1.2.25-7.0.2.1_4.3__g67c8aa4.ari
+    bzip2:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    cmake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cmake@3.20.4
+        modules:
+        - cmake/3.20.4
+    coreutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: coreutils@8.25
+        prefix: /usr
+    findutils:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: findutils@4.5.12
+        prefix: /usr
+    flex:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: flex@2.5.37
+        prefix: /usr
+    gettext:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: gettext@0.19.2
+        prefix: /usr
+    git:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: git@2.12.3
+        prefix: /usr
+    libtool:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    m4:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    cray-mpich:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cray-mpich@7.7.14
+        modules:
+        - cray-mpich/7.7.14
+    openssl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.0i
+        prefix: /usr
+    perl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: perl@5.26.1
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+    tar:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: tar@1.27.1
+        prefix: /usr
+    texinfo:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: texinfo@4.13
+        prefix: /usr
+    xz:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: xz@5.0.5
+        prefix: /usr
+    zlib:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: zlib@1.2.11
+        prefix: /usr
