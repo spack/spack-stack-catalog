@@ -23,13 +23,19 @@ spack:
     - py-plotly@5.2.2
     - py-scikit-learn@1.0.1
     - py-scipy@1.7.1
+
+  # need these here, too, for the python collection
+  - utilities:
+    - py-pip@21.1.2
+    - py-setuptools@57.4.0
+
   specs:
   - matrix:
     - [python@3.9.7 +optimizations]
     - ['%gcc@11.2.0']
     - [target=zen3]
   - matrix:
-    - [$packages]
+    - [$packages, $utilities]
     - [^python@3.9.7 +optimizations]
     - ['%gcc@11.2.0']
     - [target=zen3]
