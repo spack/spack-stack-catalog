@@ -1,8 +1,6 @@
 spack:
   specs:
   - mochi-margo%gcc@10.2.0
-  - mercury%gcc@10.2.0
-  concretization: together
   compilers:
   - compiler:
       paths:
@@ -147,7 +145,7 @@ spack:
         modules:
         - intel-mpi/2019.8.254-hviu7j6
     libfabric:
-      variants: fabrics=psm2,sockets
+      variants: fabrics=psm2,tcp,rxm
       version: []
       target: []
       compiler: []
@@ -173,8 +171,8 @@ spack:
       - spec: m4@1.4.16 arch=linux-centos7-x86_64
         prefix: /usr
     mercury:
-      variants: ~boostsys ~checksum
-      version: []
+      variants: ~boostsys ~checksum +psm2
+      version: [ master ]
       target: []
       compiler: []
       buildable: true
