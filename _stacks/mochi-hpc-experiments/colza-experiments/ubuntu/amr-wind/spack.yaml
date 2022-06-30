@@ -4,9 +4,10 @@ spack:
   - ascent@0.8.0+vtkh~openmp~test~fortran
   - vtk-m+mpi
   - mpich
-  - mochi-colza@0.2.1+bedrock
-  - mochi-mona@0.2.3+mpi
+  - mochi-colza@main+bedrock
+  - mochi-mona@main+mpi
   - mochi-bedrock@0.5.2+ssg+mpi+mona
+  - mochi-ssg@main+mpi
   - jq
   concretizer:
     unify: true
@@ -18,3 +19,5 @@ spack:
       variants: ~boostsys+debug~checksum
     libfabric:
       variants: fabrics=tcp,rxm,sockets
+    mpich:
+      version: [3.4.3]

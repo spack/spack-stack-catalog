@@ -9,6 +9,7 @@ spack:
   - automake@1.16.5
   - pkg-config@0.29.2
   - boost@1.69.0
+  - libbacktrace@2020-02-19
   concretizer:
     unify: true
   view: true

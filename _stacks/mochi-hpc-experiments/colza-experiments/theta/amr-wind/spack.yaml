@@ -3,8 +3,8 @@ spack:
   - cmake
   - ascent@0.8.0+vtkh~openmp~test~fortran
   - vtk-m+mpi
-  - mochi-colza@0.2.1+bedrock
-  - mochi-mona@0.2.3+mpi
+  - mochi-colza@main+bedrock
+  - mochi-mona@main+mpi
   - mochi-bedrock@0.5.2+ssg+mpi+mona
   - jq
   concretizer:

@@ -1,0 +1,28 @@
+spack:
+  concretizer:
+    unify: true
+  specs:
+  - ccache
+  - cmake
+  - gmake
+  - meson
+  - ninja
+  - perl
+  - python+optimizations
+  - vim +python +lua +perl +cscope features=huge
+  - emacs
+  - libtree
+  - git
+  - tmux
+  - tree
+  - tar
+  - squashfs +gzip +lz4 +lzo +xz +zstd
+  #- fd
+  #- ripgrep
+  #- hyperfine
+  #- bat
+  view: false
+  packages:
+    all:
+      compiler: [gcc]
+  'compilers:': []
