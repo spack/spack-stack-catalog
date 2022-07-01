@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - lammps@20210310 target=zen2 cppflags=-Ofast
+  container:
+    format: docker
+    images:
+      os: ubuntu:20.04
+      spack:
+        ref: v0.17.2
+    os_packages:
+      final:
+      - libgomp1
+      - libgfortran5
+

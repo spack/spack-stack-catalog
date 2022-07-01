@@ -1,0 +1,22 @@
+spack:
+  specs:
+  - python@3.8.12+optimizations target=zen2
+  - py-numpy+blas+lapack
+  - amdblis threads=openmp
+  - openmm+cuda+ipo cuda_arch=60
+  - fftw~mpi+openmp
+  concretization: together
+  container:
+    format: docker
+    images:
+      os: ubuntu:20.04
+      spack:
+        ref: v0.17.2
+    os_packages:
+      final:
+      - libgfortran5
+      - libgomp1
+    extra_instructions:
+      final: |
+        RUN cd /opt/view/bin; find . -xtype l -exec sh -c 'ln -f -s $(basename $(readlink $0)) $(basename $0)' {} \;
+
