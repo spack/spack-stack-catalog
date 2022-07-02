@@ -12,4 +12,5 @@ spack:
   - mochi-bedrock@main+mpi
   - mochi-yokan@main+bedrock
   - py-hepnos-wizard
-  concretization: together
+  concretizer:
+    unify: true
