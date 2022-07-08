@@ -5,6 +5,8 @@ spack:
   - squashfs default_compression=zstd
   - zstd +programs compression=none
   view: false
+  concretizer:
+    unify: true
   packages:
     gcc:
       variants: [build_type=Release ~bootstrap +strip]
@@ -18,6 +20,3 @@ spack:
       variants: [libs=static]
     zlib:
       variants: [~shared]
-  config:
-    install_tree:
-      root: /home/harmen/Documents/projects/manali/store

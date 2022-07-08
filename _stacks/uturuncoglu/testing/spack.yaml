@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - cmake
+  - git
+  - vim 
+  - fms
+  - esmf@8.2.0
+  - parallelio@2.5.7
