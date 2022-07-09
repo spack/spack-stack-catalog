@@ -1,0 +1,10 @@
+spack:
+  specs:
+  - lammps
+  container:
+    format: docker
+    images:
+      build: "nvcr.io/nvidia/nvhpc:22.3-devel-cuda11.6-ubuntu20.04"
+      final: "nvcr.io/nvidia/nvhpc:22.3-runtime-cuda11.6-ubuntu20.04"
+      spack: develop
+

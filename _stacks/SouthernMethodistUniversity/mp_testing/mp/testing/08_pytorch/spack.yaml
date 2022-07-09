@@ -1,0 +1,13 @@
+spack:
+  config:
+    install_missing_compilers: true
+  view: true
+  concretizer:
+    unify: true
+  specs:
+  - python@3.9.12%gcc@10.3.0 target=zen2
+  - openblas threads=openmp
+  - cuda@11.4.0
+  - cudnn@8.2.4.15-11.4
+  - py-numpy+blas+lapack
+

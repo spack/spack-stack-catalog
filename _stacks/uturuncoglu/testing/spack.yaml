@@ -1,4 +1,6 @@
 spack:
+  concretizer:
+    unify: true
   specs:
   - cmake
   - git
@@ -6,3 +8,10 @@ spack:
   - fms
   - esmf@8.2.0
   - parallelio@2.5.7
+  view: ~/.spack-ci/view
+  config:
+    source_cache: ~/.spack-ci/source_cache
+    misc_cache: ~/.spack-ci/misc_cache
+    test_cache: ~/.spack-ci/test_cache
+    install_tree:
+      root: ~/.spack-ci/opt
