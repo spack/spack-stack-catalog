@@ -1,0 +1,103 @@
+spack:
+  config:
+    install_tree: ${SPACK_ENV}/install_tree
+    projections:
+      all: '{name}/{version}-{compiler.name}'
+  modules:
+    default:
+      enable:
+      - tcl
+      roots:
+        tcl: /usr/share/modulefiles/sw
+      arch_folder: false
+      tcl:
+        verbose: true
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        projections:
+          all: '{name}/{version}-{compiler.name}-{compiler.version}'
+          cmake: '{name}/{version}'
+          git: '{name}/{version}'
+          ^mpi: '{name}/{version}-{compiler.name}-{compiler.version}-mpi'
+        ^python:
+          autoload: direct
+        all:
+          autoload: all
+          conflict:
+          - '{name}'
+          filter:
+            environment_blacklist:
+            - C_INCLUDE_PATH
+            - CPLUS_INCLUDE_PATH
+            - LIBRARY_PATH
+          environment:
+            set:
+              '{name}_ROOT': '{prefix}'
+        blacklist: [environment-modules]
+        blacklist_implicits: true
+  specs:
+  - environment-modules
+  - ninja                %gcc@11.1.0
+  - vite +otf2           %gcc@11.1.0
+
+  view:
+    sw:
+      root: /sw/.spack-env/sw
+      projections:
+        all: '{name}/{version}-{compiler.name}'
+      link_type: symlink
+  compilers:
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: /usr/bin/gcc-10
+        cxx: /usr/bin/g++-10
+        f77: /usr/bin/gfortran-10
+        fc: /usr/bin/gfortran-10
+      flags: {}
+      operating_system: neon20
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: neon20
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc-9
+        cxx: /usr/bin/g++-9
+        f77: /usr/bin/gfortran-9
+        fc: /usr/bin/gfortran-9
+      flags: {}
+      operating_system: neon20
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@12.0.0
+      paths:
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: neon20
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  concretizer:
+    unify: true
