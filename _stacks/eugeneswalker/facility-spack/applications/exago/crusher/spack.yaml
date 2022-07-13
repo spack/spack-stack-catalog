@@ -240,30 +240,22 @@ spack:
   definitions:
   - exago-no-ipopt:
     - exago@develop +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a ~ipopt
-    # - exago@5-18-2022-snapshot +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a ~ipopt
 
   - exago-ipopt:
     - exago@develop +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a +ipopt
-    # - exago@5-18-2022-snapshot +mpi +python +raja +hiop +rocm amdgpu_target=gfx90a +ipopt
 
   - ipopt:
     - ^ipopt +metis +coinhsl ~mumps
 
   - hiop-sparse:
-    - ^hiop@develop +sparse +mpi +raja +rocm amdgpu_target=gfx90a
-    - ^hiop@develop +sparse +mpi +raja +rocm amdgpu_target=gfx90a +kron
+    #- ^hiop@develop +sparse +mpi +raja +rocm amdgpu_target=gfx90a # CMake Error at CMakeLists.txt:171: Flang is required to link with ROCm bitcode library
+    #- ^hiop@develop +sparse +mpi +raja +rocm amdgpu_target=gfx90a +kron # CMake Error at CMakeLists.txt:171: Flang is required to link with ROCm bitcode library
     - ^hiop@0.6.2 +sparse +mpi +raja +rocm amdgpu_target=gfx90a
     - ^hiop@0.6.2 +sparse +mpi +raja +rocm amdgpu_target=gfx90a +kron
 
-  # - hiop-no-sparse:
-  #   - ^hiop@develop ~sparse +mpi +raja +rocm amdgpu_target=gfx90a
-  #   - ^hiop@develop ~sparse +mpi +raja +rocm amdgpu_target=gfx90a +kron
-  #   - ^hiop@0.6.2 ~sparse +mpi +raja +rocm amdgpu_target=gfx90a
-  #   - ^hiop@0.6.2 ~sparse +mpi +raja +rocm amdgpu_target=gfx90a +kron
-
   - coinhsl:
     - ^coinhsl@2015.06.23
-    - ^coinhsl@2019.05.21
+    #- ^coinhsl@2019.05.21 # configure: Provided package HSL is not working or does not contain MA27
 
   - raja:
     - ^raja@0.14.0
@@ -283,14 +275,3 @@ spack:
     - - $hiop-sparse
     - - $coinhsl
     - - $raja
-
-  # - matrix:
-  #   - - $exago-ipopt
-  #   - - $ipopt
-  #   - - $hiop-no-sparse
-  #   - - $raja
-
-  # - matrix:
-  #   - - $exago-no-ipopt
-  #   - - $hiop-no-sparse
-  #   - - $raja
