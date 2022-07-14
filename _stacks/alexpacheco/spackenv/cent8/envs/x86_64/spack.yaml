@@ -3,93 +3,73 @@
 # It describes a set of packages to be installed, along with
 # configuration settings.
 spack:
-  specs:
-  - cmake@3.18.4
-  - perl@5.32.0
-  - swig@4.0.2
-  - tmux@3.1b
-  - screen@4.8.0
-  - anaconda3@2019.10
-  - anaconda3@2020.07
-  - julia@1.5.2
-  - tcl@8.6.10
-  - tk@8.6.10
-  - parallel@20200822
-  - scons@3.1.2
-  - motif@2.3.8
-  - libxp@1.0.3
-  - rclone@1.53.3
-  - vmd@1.9.3
-  - pwgui@6.1
-  - nano@5.6.1
-  - ncdu@1.13
-#  - tcl@8.6.8
-#  - tk@8.6.8
-#  - xcrysden@1.6.2
-#  - vesta@3.4.6
-#  - guile@2.2.6
-#  - mpich@3.3.2~slurm
-#  - mpich@3.2~slurm
-#  - python@3.8.6
-#  - r@4.0.3
-  config:
-    module_roots:
-      lmod: $spack/share/spack/lmod/default
   packages:
     all:
       target: [x86_64]
-      compiler: [gcc@8.3.1]
       version: []
+      compiler: [gcc@8.3.1]
       buildable: true
-      providers: {}
+      providers:
+        blas: [openblas, intel-mkl]
+        mpi: [mpich, mvapich2, openmpi]
+        tbb: [intel-tbb]
+  config:
+    module_roots:
+      lmod: $spack/share/spack/lmod/default
   modules:
     enable:
     - lmod
-    lmod:
-      core_compilers: [gcc@8.3.1]
-      hash_length: 0
-      verbose: false
-      blacklist_implicits: true
-      hierarchy:
-      - mpi
-      core_specs:
-      - gcc@8.3.1
-      mpich:
-        suffixes:
-          ~slurm: noslurm
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      anaconda3:
-        environment:
-          set:
-            '{name}_ROOT': '{prefix}'
-          unset: []
-        template: anaconda.lua
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-      all:
-        template: scratch.lua
-        autoload: direct
-        filter:
-          environment_blacklist: [CPATH, LIBRARY_PATH]
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      ^python:
-        autoload: direct
-        filter:
-          environment_blacklist: []
-        conflict: []
-        load: []
-        environment:
-          unset: []
-      whitelist: []
-      blacklist: []
+  definitions:
+  - core_compiler:
+    - gcc@8.3.1
+  - default:
+    - cmake@3.18.4
+    - perl@5.32.0
+    - swig@4.0.2
+    - tmux@3.1b
+    - screen@4.8.0
+    - anaconda3@2019.10
+    - anaconda3@2020.07
+    - julia@1.5.2
+    - tcl@8.6.10
+    - tk@8.6.10
+    - parallel@20200822
+    - scons@3.1.2
+    - motif@2.3.8
+    - libxp@1.0.3
+    - rclone@1.53.3
+    - vmd@1.9.3
+    - pwgui@6.1
+    - nano@5.6.1
+    - ncdu@1.13
+    - aria2@1.35.0
+    - axel@2.16.1
+    - valgrind@3.15.0  ~mpi ~ubsan
+    - ddd@3.3.12
+    - graphviz@2.44.1
+    - qcachegrind@20.08.0
+    - krb5@1.18.2
+    - povray@3.7.0.10 ^intel-mkl
+    - openjdk@11.0.2
+    - openjdk@1.8.0_222-b10
+    - hadoop@3.3.1 ^openjdk@11.0.2
+    - spark@3.2.0 +hadoop ^hadoop@3.3.1 ^openjdk@11.0.2
+    - hive@3.1.2 ^hadoop@3.3.1 ^openjdk@11.0.2
+    - hadoop@2.10.1 ^openjdk@1.8.0_222-b10
+    - openssl@1.1.1h
+    - xcrysden@1.6.2
+    - dmtcp@2.6.0
+#    - tcl@8.6.8
+#    - tk@8.6.8
+#    - vesta@3.4.6
+#    - guile@2.2.6
+#    - mpich@3.3.2~slurm
+#    - mpich@3.2~slurm
+#    - python@3.8.6
+#    - r@4.0.3
+  specs:
+  - matrix:
+    - [$default]
+    - [$%core_compiler]
+    - [target=x86_64]
   view: false

@@ -86,16 +86,21 @@ spack:
     - intel@20.0.3
   - nvidia_compilers:
     - nvhpc@20.9
+    - nvhpc@21.9
   - gpu_compilers:
     - cuda@10.2.89
     - cuda@11.0.2
     - cuda@11.1.0
+    - cuda@11.5.1
+    - cuda@11.6.0
   - old_compilers:
     - intel@18.0.1
   - intel-oneapi_compilers:
     - intel-oneapi-compilers@2021.3.0
-  - oneapi_compilers:
+  - oneapi_compilers_classic:
     - intel@2021.3.0
+  - oneapi_compilers:
+    - oneapi@2021.3.0
   - oneapi_tbb_libs:
     - intel-oneapi-tbb@2021.3.0
   - oneapi_mkl_libs:
@@ -151,6 +156,7 @@ spack:
     - gromacs@2020.4 +plumed ^intel-mkl ^plumed@2.6.2
     - lammps@20200303 ^intel-mkl
     - lammps@20201029 ^intel-mkl
+    - lammps@20210310 +python +user-phonon +user-qtb ^intel-mkl
     - py-pyparsing@2.4.2 # needed for openmolcas
     - globalarrays@5.7
     - quantum-espresso@6.5 ^intel-mkl
@@ -159,6 +165,24 @@ spack:
     - shengbte@1.1.1-8a63749 ^intel-mkl
     - almabte@1.3.2
     - relion@3.1.1 ~cuda
+    - genesis@1.7.1 ~cuda +hmdisk ~single ^intel-mkl
+  - apps_oneapi:
+    - plumed@2.7.3 ^intel-oneapi-mkl
+    - gromacs@2021.4 ^intel-oneapi-mkl
+    - gromacs@2021.4 +plumed ^intel-oneapi-mkl ^plumed@2.7.3
+    - lammps@20210310 +python +user-phonon +user-qtb ^intel-oneapi-mkl
+    - py-pyparsing@2.4.2 # needed for openmolcas
+    - globalarrays@5.7
+    - quantum-espresso@6.6 ^intel-oneapi-mkl
+    - py-espresso@4.0.2 ^openblas@0.3.12
+    - shengbte@1.1.1-8a63749 ^intel-oneapi-mkl
+    - almabte@1.3.2
+    - genesis@1.7.1 ~cuda +hmdisk ~single ^intel-oneapi-mkl
+    - nwchem@7.0.2
+    - relion@3.1.3 ~cuda
+    - netlib-scalapack@2.1.0 ^openblas@0.3.12
+    - berkeleygw@3.0.1 ~elpa ~openmp ^fftw
+#    - openmolcas@21.02
   - cfdapps:
     - adios2@2.6.0
     - scotch@6.0.10
@@ -174,14 +198,23 @@ spack:
   - gpuapps:
     - lammps@20200303 +cuda ^intel-mkl
     - lammps@20201029 +cuda ^intel-mkl
+    - lammps@20210310 +cuda +python +user-phonon +user-qtb ^intel-mkl
     - gromacs@2020.4 +cuda ^intel-mkl
     - gromacs@2020.4 +cuda +plumed ^intel-mkl ^plumed@2.6.2
     - relion@3.1.1 +cuda
     - py-espresso@4.0.2 +cuda ^openblas@0.3.10
+    - genesis@1.7.1 +cuda +single ^intel-mkl
 #    - relion +cuda cuda_arch=61
 #    - py-tensorflow@2.3.1 +cuda cuda_arch=61
 #    - openmm@7.4.1 +cuda cuda_arch=61
 #    - py-torch +caffe2 +cuda cuda_arch=61
+  - gpuapps_oneapi:
+    - lammps@20210310 +cuda +python +user-phonon +user-qtb ^fftw
+    - gromacs@2021.4 +cuda ^intel-oneapi-mkl
+    - gromacs@2021.4 +cuda +plumed ^intel-oneapi-mkl ^plumed@2.7.3
+    - py-espresso@4.0.2 +cuda ^openblas@0.3.12
+    - genesis@1.7.1 +cuda +single ^intel-oneapi-mkl
+#    - relion@3.1.1 +cuda
   - vizapps:
     - gnuplot@5.2.8
     - octave@5.2.0 ^arpack-ng~mpi ^fftw~mpi ^hdf5~mpi
@@ -280,13 +313,13 @@ spack:
   - matrix:
     - [$blaslibs, $mpis, $ompis, $gpu_compilers]
     - [$%core_compiler, $%gnu_compilers, $%intel_compilers, $%intelgpu_compilers,
-      $%oneapi_compilers]
+      $%oneapi_compilers_classic]
     - [$targets]
     exclude:
     - intel-mkl@2020.3.279 %intel@2021.3.0
   - matrix:
     - [$oneapi_tbb_libs, $oneapi_mkl_libs, $oneapi_mpis]
-    - [$%oneapi_compilers]
+    - [$%oneapi_compilers_classic]
     - [$targets]
   - matrix:
     - [mpich@3.3.2%nvhpc@20.9 ^findutils%gcc ^libpciaccess%gcc ^libxml2%gcc, mvapich2@2.3.4%nvhpc@20.9
@@ -298,12 +331,6 @@ spack:
     - [$%core_compiler, $%gnu_compilers, $%intel_compilers, $%intelgpu_compilers]
     - [$^mkl_libs]
     - [$^mpis, $^ompis]
-    - [$targets]
-  - matrix:
-    - [$libs, $libsmpis, $cfdapps]
-    - [$%oneapi_compilers]
-    - [$^oneapi_mkl_libs]
-    - [$^mpis, $^ompis, $^oneapi_mpis]
     - [$targets]
   - matrix:
     - [$apps, $cfdapps]
@@ -341,7 +368,7 @@ spack:
     - [$^mpis, $^ompis]
     - [$targets]
   - matrix:
-    - [openfoam@2006 +kahip]
+    - [openfoam@2006 +kahip, openfoam-org@4.1, openfoam-org@9]
     - [$%gnu_compilers]
     - [$^blas_libs]
     - [$^mpis, $^ompis]
@@ -351,16 +378,45 @@ spack:
     - [$%core_compiler]
     - [$^blas_libs]
     - [$targets]
-#  - nwchem@7.0.2 %intel@20.0.3 ^mpich ^openblas
-#  - openmolcas@19.11 %intel@20.0.3 ^mpich ^openblas
+  - matrix:
+    - [$libs, $libsmpis]
+    - [$%oneapi_compilers_classic]
+    - [$^oneapi_mkl_libs]
+    - [$^mpis, $^ompis, $^oneapi_mpis]
+    - [$targets]
+    exclude:
+    - petsc@3.14.1%intel@2021.3.0 ^intel-oneapi-mkl@2021.3.0 ^intel-oneapi-mpi@2021.3.0
+    - mumps@5.3.3%intel@2021.3.0 ^intel-oneapi-mkl@2021.3.0
+    - mumps@5.3.3%intel@2021.3.0 ^intel-oneapi-mkl@2021.3.0
+    - mumps@5.3.3%intel@2021.3.0 ^intel-oneapi-mkl@2021.3.0
+    - mumps@5.3.3%intel@2021.3.0 ^intel-oneapi-mkl@2021.3.0
+  - matrix:
+    - [$apps_oneapi, $cfdapps]
+    - [$%oneapi_compilers_classic]
+    - [$^mpis]
+    - [$targets]
+  - matrix:
+    - [$gpuapps_oneapi]
+    - [cuda_arch=61]
+    - [^cuda@11.6.0]
+    - [$%oneapi_compilers_classic]
+    - [$^mpis]
+    - [$targets]
+  - matrix:
+    - [relion@3.1.3 +cuda cuda_arch=61]
+    - [^cuda@11.5.1]
+    - [$%oneapi_compilers_classic]
+    - [$^mpis]
+    - [$targets]
   - py-keras@2.2.4 %gcc@8.3.1 target=ivybridge ^py-theano@1.0.4 +cuda ^openblas@0.3.10
     ^cuda@11.1.0
   - py-horovod+cuda controllers=gloo cuda_arch=61 frameworks=keras,pytorch,spark %gcc@8.3.1
     target=ivybridge ^openblas@0.3.10  ^py-torch~distributed ^py-h5py~mpi ^hdf5~mpi
+    ^cuda@11.1.0
   - py-horovod+cuda controllers=mpi cuda_arch=61 frameworks=keras,pytorch,spark %gcc@8.3.1
-    target=ivybridge ^mpich@3.3.2 ^openblas@0.3.10
+    target=ivybridge ^mpich@3.3.2 ^openblas@0.3.10 ^cuda@11.1.0
   - py-horovod+cuda controllers=mpi cuda_arch=61 frameworks=keras,pytorch,spark %gcc@8.3.1
-    target=ivybridge ^mvapich2@2.3.4 ^openblas@0.3.10
+    target=ivybridge ^mvapich2@2.3.4 ^openblas@0.3.10 ^cuda@11.1.0
   - py-horovod+cuda controllers=mpi cuda_arch=61 frameworks=keras,pytorch,spark %gcc@8.3.1
-    target=ivybridge ^openmpi@4.0.5 ^openblas@0.3.10
+    target=ivybridge ^openmpi@4.0.5 ^openblas@0.3.10 ^cuda@11.1.0
   view: false
