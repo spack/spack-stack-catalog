@@ -41,9 +41,9 @@ spack:
     - openfoam@2012
 # Failing:    - openfoam-org@8 #Alexis still working on it
     - quantum-espresso@6.8 +epw +openmp hdf5=parallel
-    - vasp@5.4.4 +scalapack +vaspsol
-    - vasp@6.2.1 +scalapack +vaspsol
-    - vasp@6.3.0 +scalapack +vaspsol
+    - vasp@5.4.4 +scalapack
+    - vasp@6.2.1 +scalapack
+    - vasp@6.3.0 +scalapack
   specs:
   - matrix:
     - [$packages]
