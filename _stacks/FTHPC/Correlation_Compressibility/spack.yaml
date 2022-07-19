@@ -1,66 +1,21 @@
-#This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
   packages:
-    openssh:
-      externals:
-      - spec: openssh@8.2p1
-        prefix: /usr
-    openssl:
-      externals:
-      - spec: openssl@1.1.1f
-        prefix: /usr
-    pkg-config:
-      externals:
-      - spec: pkg-config@0.29.1
-        prefix: /usr
-    texinfo:
-      externals:
-      - spec: texinfo@6.7
-        prefix: /usr
-    git:
-      externals:
-      - spec: git@2.25.1~tcltk
-        prefix: /usr
-    groff:
-      externals:
-      - spec: groff@1.22.4
-        prefix: /usr
-    diffutils:
-      externals:
-      - spec: diffutils@3.7
-        prefix: /usr
-    gmake:
-      externals:
-      - spec: gmake@4.2.1
-        prefix: /usr
-    tar:
-      externals:
-      - spec: tar@1.30
-        prefix: /usr
-    findutils:
-      externals:
-      - spec: findutils@4.7.0
-        prefix: /usr
-    gawk:
-      externals:
-      - spec: gawk@5.0.1
-        prefix: /usr
-    m4:
-      externals:
-      - spec: m4@1.4.18
-        prefix: /usr
-    binutils:
-      externals:
-      - spec: binutils@2.34
-        prefix: /usr
     all:
-      target: [x86_64]
-  specs: [qcat@master, libpressio+libdistributed+hdf5+mgard+python+sz+sz3+zfp+mpi+bitgrooming+digitrounding+fpzip
-      ^sz@master+stats ^mgard@robertu94+cuda ^libstdcompat+boost, py-h5py, libpressio-tthresh,
-    libpressio-tools+opt+tthresh+mpi, r+X, py-matplotlib, py-rpy2, py-scipy, py-pandas,
-    opencv+python3]
+      target:
+      - x86_64
+  specs:
+  - qcat@master
+  - libpressio+libdistributed+hdf5+mgard+python+sz+sz3+zfp+mpi+bitgrooming+digitrounding+fpzip
+    ^sz@master+stats ^mgard@robertu94+cuda ^libstdcompat+boost
+  - py-h5py
+  - libpressio-tthresh
+  - libpressio-tools+opt+tthresh+mpi
+  - r+X
+  - py-matplotlib
+  - py-rpy2
+  - py-scipy
+  - py-pandas
+  - opencv+python3
   view: true
-  concretization: together
+  concretizer:
+    unify: true
