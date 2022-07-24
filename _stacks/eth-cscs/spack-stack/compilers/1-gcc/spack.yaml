@@ -1,0 +1,22 @@
+spack:
+  specs:
+  - gcc@11 languages=c,c++
+  - squashfuse +zstd
+  - squashfs default_compression=zstd
+  - zstd +programs compression=none
+  view: false
+  concretizer:
+    unify: true
+  packages:
+    gcc:
+      variants: [build_type=Release ~bootstrap +strip]
+    mpc:
+      variants: [libs=static]
+    gmp:
+      variants: [libs=static]
+    mpfr:
+      variants: [libs=static]
+    zstd:
+      variants: [libs=static]
+    zlib:
+      variants: [~shared]
