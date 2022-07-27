@@ -1,0 +1,11 @@
+spack:
+  specs:
+  - autoconf
+  - m4
+  - automake
+  - libtool
+  - pkg-config
+  - mochi-margo
+  - mpich
+  concretizer:
+    unify: true

@@ -1,4 +1,8 @@
 spack:
+  include:
+  - packages.yaml
+  - config.yaml
+  - compilers.yaml
   specs:
   - gcc@12
   - gcc@11
@@ -16,4 +20,3 @@ spack:
       variants: [libs=static]
     zlib:
       variants: [~shared]
-  'compilers:': []

@@ -1,4 +1,7 @@
 spack:
+  include:
+  - compilers.yaml
+  - config.yaml
   concretizer:
     unify: true
   specs:
@@ -12,4 +15,3 @@ spack:
   packages:
     all:
       compiler: [nvhpc, gcc]
-  'compilers:': []

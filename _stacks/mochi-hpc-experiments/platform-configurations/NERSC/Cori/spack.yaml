@@ -1,7 +1,6 @@
 spack:
   specs:
-  - mochi-margo%gcc@9.3.0
-  concretization: together
+  - mochi-margo%gcc@11.2.0
   compilers:
   - compiler:
       paths:
@@ -13,11 +12,10 @@ spack:
       target: any
       modules:
       - PrgEnv-gnu
-      - gcc/9.3.0
       environment: {}
       extra_rpaths: []
       flags: {}
-      spec: gcc@9.3.0
+      spec: gcc@11.2.0
   repos:
   - /path/to/mochi-spack-packages
   packages:
@@ -25,9 +23,7 @@ spack:
       providers:
         mpi: [ mpich ]
       compiler:
-      - gcc@9.3.0
-      target:
-      - mic_knl
+      - gcc@11.2.0
       version: []
       buildable: true
     autoconf:
@@ -189,9 +185,9 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: mpich@7.7.6 arch=cray-cnl7-mic_knl
+      - spec: mpich@7.7.19
         modules:
-        - cray-mpich/7.7.6
+        - cray-mpich/7.7.19
     ncurses:
       buildable: false
       version: []

@@ -1,9 +1,10 @@
 spack:
+  include:
+  - packages.yaml
+  - config.yaml
   specs:
   - gcc@11 languages=c,c++
-  - squashfuse +zstd
   - squashfs default_compression=zstd
-  - zstd +programs compression=none
   view: false
   concretizer:
     unify: true

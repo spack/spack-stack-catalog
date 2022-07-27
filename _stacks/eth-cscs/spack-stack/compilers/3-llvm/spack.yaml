@@ -1,7 +1,9 @@
 spack:
+  include:
+  - compilers.yaml
+  - config.yaml
   specs:
   - nvhpc~blas~lapack~mpi
   - llvm@14+clang targets=x86,nvptx ~gold ^ninja@kitware
   - llvm@13+clang targets=x86,nvptx ~gold ^ninja@kitware
   view: false
-  'compilers:': []

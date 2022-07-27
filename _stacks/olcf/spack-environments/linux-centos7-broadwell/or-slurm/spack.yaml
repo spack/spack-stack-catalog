@@ -1,0 +1,160 @@
+# CADES Spack Environment
+
+spack:
+  #############################################################################
+  specs: []  #FIXME - add desired spec list here
+  #############################################################################
+  config:
+    install_tree:
+      root: $spack/opt/root
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: $spack/mirrors/sources
+    extensions:
+    - /software/sources/facility-spack/or-slurm/share/spack/extensions/spack-olcf
+    misc_cache: $spack/var/spack/.mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 8
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout: null
+    shared_linking: rpath
+    allow_sgid: true
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: /home/2ff/.spack/test
+  #############################################################################
+  # OPTIONAL - add link to custom repo here
+  #repos:
+  #- /software/sources/facility-spack/or-slurm/share/spack/repos
+  #############################################################################
+  # OPTIONAL - add link(s) to user managed buildcache
+  mirrors:
+    facility_buildcache: /software/cades-open/buildcache/build_cache/
+  #############################################################################
+  upstreams:
+    olcf:
+      install_tree: /software/cades-open/spack-envs/base/root
+      modules:
+        lmod: /software/cades-open/spack-envs/base/modules
+  #############################################################################
+  packages:
+    all:
+      buildable: true
+      compiler: [gcc, intel]
+      providers:
+        blas: [openblas]
+        lapack: [openblas]
+        mpi: [openmpi@4.0.4]
+        scalapack: [netlib-scalapack]
+      target: [x86_64]
+    gtkplus:
+      buildable: false
+      externals:
+      - prefix: /usr
+        spec: gtkplus@3.22.30
+      version: [3.22.30]
+    hcoll:
+      buildable: false
+      version: [4.4]
+      externals:
+      - spec: hcoll@4.4
+        prefix: /opt/mellanox/hcoll
+    knem:
+      buildable: false
+      externals:
+      - prefix: /opt/knem-1.1.3.90mlnx1
+        spec: knem@1.1.3
+      version: [1.1.3]
+    libtool:
+      externals:
+      - prefix: /usr
+        spec: libtool@2.4.2-os
+      version: [2.4.2-os]
+      compiler: [intel]
+    openmpi:
+      variants: fabrics=ucx,hcoll,knem schedulers=slurm +pmi+thread_multiple+legacylaunchers
+      buildable: false
+      version: [4.0.4]
+    openssh:
+      externals:
+      - spec: openssh@7.4p1
+        prefix: /usr
+      buildable: false
+    openssl:
+      externals:
+      - spec: openssl@1.1.1-os
+        prefix: /software/tools/openssl-1.1.1k/usr
+      buildable: false
+      version: [1.1.1-os]
+    slurm:
+      buildable: false
+      externals:
+      - prefix: /usr
+        spec: slurm@21-08-7-1
+      version: [21-08-7-1]
+    ucx:
+      buildable: false
+      externals:
+      - spec: ucx@1.8.0+thread_multiple
+        prefix: /usr
+      variants: +thread_multiple
+      version: [1.8.0]
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      operating_system: rhel8
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+  - compiler:
+      spec: gcc@11.2.0
+      operating_system: centos7
+      paths:
+        cc: /software/cades-open/gcc/11.2.0/bin/gcc
+        cxx: /software/cades-open/gcc/11.2.0/bin/g++
+        f77: /software/cades-open/gcc/11.2.0/bin/gfortran
+        fc: /software/cades-open/gcc/11.2.0/bin/gfortran
+      modules:
+      - gcc/11.2.0
+      extra_rpaths:
+      - /software/cades-open/gcc/11.2.0/lib64
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /software/tools/openssl-1.1.1k/usr/lib64/pkgconfig;/usr/lib64/pkgconfig
+  - compiler:
+      spec: gcc@6.3.0
+      operating_system: centos7
+      paths:
+        cc: /software/dev_tools/swtree/cs400_centos7.2_pe2016-08/gcc/6.3.0/centos7.5_gnu4.8.5/bin/gcc
+        cxx: /software/dev_tools/swtree/cs400_centos7.2_pe2016-08/gcc/6.3.0/centos7.5_gnu4.8.5/bin/g++
+        f77: /software/dev_tools/swtree/cs400_centos7.2_pe2016-08/gcc/6.3.0/centos7.5_gnu4.8.5/bin/gfortran
+        fc: /software/dev_tools/swtree/cs400_centos7.2_pe2016-08/gcc/6.3.0/centos7.5_gnu4.8.5/bin/gfortran
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /software/tools/openssl-1.1.1k/usr/lib64/pkgconfig;/usr/lib64/pkgconfig
+  - compiler:
+      spec: intel@18.0.0
+      operating_system: centos7
+      modules: [intel/18.0.0]
+      paths:
+        cc: /software/tools/compilers/intel_2018/compilers_and_libraries_2018.1.163/linux/bin/intel64/icc
+        cxx: /software/tools/compilers/intel_2018/compilers_and_libraries_2018.1.163/linux/bin/intel64/icpc
+        f77: /software/tools/compilers/intel_2018/compilers_and_libraries_2018.1.163/linux/bin/intel64/ifort
+        fc: /software/tools/compilers/intel_2018/compilers_and_libraries_2018.1.163/linux/bin/intel64/ifort
+      extra_rpaths:
+      - /software/tools/compilers/intel_2018/compilers_and_libraries_2018/linux/lib/intel64_lin
+      - /software/tools/compilers/intel_2018/compilers_and_libraries_2018/linux/lib
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /software/tools/openssl-1.1.1k/usr/lib64/pkgconfig;/usr/lib64/pkgconfig
