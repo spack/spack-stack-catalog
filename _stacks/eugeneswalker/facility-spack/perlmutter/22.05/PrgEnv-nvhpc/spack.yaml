@@ -1,9 +1,9 @@
 spack:
   view: false
-  concretization: separately
 
-  config:
-    concretizer: clingo
+  concretizer:
+    reuse: false
+    unify: false
 
   compilers:
   - compiler:
@@ -27,7 +27,7 @@ spack:
       'enable:': [lmod]
       lmod:
         defaults:
-        - cray-mpich@8.1.15
+        - cray-mpich@8.1.17
         core_compilers: [nvhpc@21.11]
         blacklist_implicits: true
         verbose: true
@@ -137,14 +137,21 @@ spack:
         - cray-mpich/8.1.17
         - libfabric
 
+  # DEALING W NVHPC CONFLICTS
+    python:
+      buildable: false
+      externals:
+      - spec: python@3.8.13
+        prefix: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.05/PrgEnv-nvhpc/spack/opt/spack/cray-sles15-zen3/gcc-11.2.0/python-3.8.13-fkuesdnl4nfpn4dbaop7ks2urs5a4jd4
+
   specs:
   # CPU
-  - adios@1.13.1 %nvhpc ^python%gcc
+  - adios@1.13.1 # %nvhpc ^python%gcc
   - adios2@2.8.0
   - aml@0.1.0
   - amrex@22.05
   - arborx@1.2
-  - archer@2.0.0 %nvhpc ^python%gcc
+  - archer@2.0.0 # %nvhpc ^python%gcc
   - argobots@1.1
   - axom@0.6.1
   - bolt@2.0
@@ -152,28 +159,28 @@ spack:
   - cabana@0.4.0
   - caliper@2.7.0
   - chai@2.4.0 ~benchmarks ~tests
-  - charliecloud@0.26 %nvhpc ^python%gcc
+  - charliecloud@0.26 # %nvhpc ^python%gcc
   - conduit@0.8.3
   - darshan-runtime@3.3.1
   - darshan-util@3.3.1
   - datatransferkit@3.1-rc3
   - dyninst@12.1.0
-  - exaworks@0.1.0 %nvhpc ^python%gcc
+  - exaworks@0.1.0 # %nvhpc ^python%gcc
   - faodel@1.2108.1
-  - flecsi@1.4.2 %nvhpc ^python%gcc
-  - flit@2.1.0 %nvhpc ^python%gcc
-  - flux-core@0.38.0 %nvhpc ^python%gcc
+  - flecsi@1.4.2 # %nvhpc ^python%gcc
+  - flit@2.1.0 # %nvhpc ^python%gcc
+  - flux-core@0.38.0 # %nvhpc ^python%gcc
   - fortrilinos@2.0.0
   - gasnet@2022.3.0
   - ginkgo@1.4.0
   - globalarrays@5.8
   - gmp@6.2.1
   - gotcha@1.0.3
-  - gptune@3.0.0 %nvhpc ^python%gcc
+  - gptune@3.0.0 # %nvhpc ^python%gcc
   - hdf5@1.10.7 +fortran +hl +shared
   - heffte@2.2.0 +fftw
-  - hpctoolkit@2022.04.15 %nvhpc ^python%gcc
-  - hpx@1.7.1 networking=mpi %nvhpc ^python%gcc
+  - hpctoolkit@2022.04.15 # %nvhpc ^python%gcc
+  - hpx@1.7.1 networking=mpi # %nvhpc ^python%gcc
   - hypre@2.24.0
   - kokkos@3.6.00 +openmp
   - kokkos-kernels@3.6.00 +openmp
@@ -189,33 +196,32 @@ spack:
   - nccmp@1.9.0.1
   - nco@5.0.1
   - netlib-scalapack@2.2.0
-  - nrm@0.1.0 %nvhpc ^python%gcc
-  - nvhpc@22.3
+  - nrm@0.1.0 # %nvhpc ^python%gcc
   - omega-h@9.34.1
   - openmpi@4.1.3
   - openpmd-api@0.14.4
   - papi@6.0.0.1
   - papyrus@1.0.2
   - parallel-netcdf@1.12.2
-  - parsec@3.0.2012 ~cuda %nvhpc ^python%gcc
+  - parsec@3.0.2012 ~cuda # %nvhpc ^python%gcc
   - pdt@3.25.1
-  - petsc@3.17.1 %nvhpc ^python%gcc
+  - petsc@3.17.1 # %nvhpc ^python%gcc
   - phist@1.9.5
   - plasma@21.8.29
   - precice@2.4.0
   - pumi@2.2.7
-  - py-cinemasci@1.7.0 %nvhpc ^python%gcc
-  - py-jupyterhub@1.4.1 %nvhpc ^python%gcc
-  - py-libensemble@0.9.1 %nvhpc ^python%gcc
-  - py-petsc4py@3.17.1 %nvhpc ^python%gcc
-  - py-warpx@22.05 ^warpx dims=2 %nvhpc ^python%gcc
-  - py-warpx@22.05 ^warpx dims=3 %nvhpc ^python%gcc
-  - py-warpx@22.05 ^warpx dims=rz %nvhpc ^python%gcc
+  - py-cinemasci@1.7.0 # %nvhpc ^python%gcc
+  - py-jupyterhub@1.4.1 # %nvhpc ^python%gcc
+  - py-libensemble@0.9.1 # %nvhpc ^python%gcc
+  - py-petsc4py@3.17.1 # %nvhpc ^python%gcc
+  - py-warpx@22.05 ^warpx dims=2 # %nvhpc ^python%gcc
+  - py-warpx@22.05 ^warpx dims=3 # %nvhpc ^python%gcc
+  - py-warpx@22.05 ^warpx dims=rz # %nvhpc ^python%gcc
   - qthreads@1.16 scheduler=distrib
   - raja@0.14.0
   - scr@3.0rc2
   - slate@2021.05.02 ~cuda
-  - slepc@3.17.1 %nvhpc ^python%gcc
+  - slepc@3.17.1 # %nvhpc ^python%gcc
   - stc@0.9.0
   - strumpack@6.3.1 ~slate
   - sundials@6.2.0
@@ -223,7 +229,7 @@ spack:
   - superlu-dist@7.2.0
   - sz@2.1.12
   - tasmanian@7.7
-  - tau@2.31 +mpi +python %nvhpc ^python%gcc
+  - tau@2.31 +mpi +python # %nvhpc ^python%gcc
   - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -239,13 +245,13 @@ spack:
   - adios2@2.8.0 +cuda cuda_arch=80
   - arborx@1.2 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper
   - cabana@0.4.0 +cuda ^kokkos@3.6.00 +wrapper +cuda_lambda +cuda cuda_arch=80
-  - caliper@2.7.0 +cuda cuda_arch=80 %nvhpc ^python%gcc
+  - caliper@2.7.0 +cuda cuda_arch=80 # %nvhpc ^python%gcc
   - chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
-  - flux-core@0.38.0 +cuda %nvhpc ^python%gcc
+  - flux-core@0.38.0 +cuda # %nvhpc ^python%gcc
   - ginkgo@1.4.0 +cuda cuda_arch=80
   - heffte@2.2.0 +cuda cuda_arch=80
-  - hpctoolkit@2022.04.15 +cuda %nvhpc ^python%gcc
-  - hpx@1.7.1 +cuda cuda_arch=80 %nvhpc ^python%gcc
+  - hpctoolkit@2022.04.15 +cuda # %nvhpc ^python%gcc
+  - hpx@1.7.1 +cuda cuda_arch=80 # %nvhpc ^python%gcc
   - hypre@2.24.0 +cuda cuda_arch=80
   - kokkos-kernels@3.6.00 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=80
   - kokkos@3.6.00 +wrapper +cuda cuda_arch=80
@@ -253,10 +259,10 @@ spack:
   - magma@2.6.2 +cuda cuda_arch=80
   - mfem@4.4.0 +cuda cuda_arch=80
   - papi@6.0.0.1 +cuda
-  - petsc@3.17.1+cuda cuda_arch=80 %nvhpc ^python%gcc
+  - petsc@3.17.1+cuda cuda_arch=80 # %nvhpc ^python%gcc
   - raja@0.14.0 +cuda cuda_arch=80
   - slate@2021.05.02 +cuda cuda_arch=80
-  - slepc@3.17.1 +cuda cuda_arch=80 %nvhpc ^python%gcc
+  - slepc@3.17.1 +cuda cuda_arch=80 # %nvhpc ^python%gcc
   - strumpack@6.3.1 ~slate +cuda cuda_arch=80
   - sundials@6.2.0 +cuda cuda_arch=80
   - superlu-dist@7.2.0 +cuda cuda_arch=80
@@ -268,6 +274,7 @@ spack:
   # NVHPC CONFLICTS
   # - swig@4.0.2
   # - swig@4.0.2-fortran
+  # - nvhpc@22.3 # don't install nvhpc w/ %nvhpc...
 
   # FACILITY BUILD FAILED - CPU
   #- alquimia@1.0.9                           # pflotran

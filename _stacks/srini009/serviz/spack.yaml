@@ -11,8 +11,8 @@ spack:
   - mochi-abt-io %gcc@9.3.0
   - libfabric fabrics=gni
   - nlohmann-json %gcc@9.3.0
-  - spdlog %gcc@9.3.0
   - cppunit %gcc@9.3.0
   - tclap %gcc@9.3.0
   - mochi-bedrock %gcc@9.3.0
-  concretization: together
+  concretizer:
+    unify: true
