@@ -1,12 +1,12 @@
 spack:
   specs:
   - cmake
-  - dealii@master+mpi+petsc+p4est+python+trilinos+hdf5~gmsh~sundials~oce~cgal~assimp~symengine
+  - dealii+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine
   - eigen
   - python
   - mfem@develop+mpi+petsc+suite-sparse+superlu-dist
   - mumps+mpi+metis+parmetis
-  - petsc+hypre+hdf5+mumps+superlu-dist
+  - petsc+hypre+mumps+superlu-dist
   - tetgen
   - valgrind
   - nanoflann
@@ -15,8 +15,6 @@ spack:
     all:
       target:
       - x86_64
-    boost:
-      version: [1.76.0]
 
   container:
     images:
