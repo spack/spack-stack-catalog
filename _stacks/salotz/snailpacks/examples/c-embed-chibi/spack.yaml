@@ -1,0 +1,9 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - chibi@0.10
+  view: true
+  concretization: together
