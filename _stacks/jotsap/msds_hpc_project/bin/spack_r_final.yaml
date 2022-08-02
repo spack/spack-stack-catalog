@@ -1,0 +1,62 @@
+spack:
+  definitions:
+  - compilers: [gcc@12.1.0]
+  - packages:
+    - r@4.1.3 +X +external-lapack
+    - openblas@0.3.20 threads=openmp
+  - targets: [target=broadwell]
+  specs:
+  - matrix:
+    - [$%compilers]
+    - [$packages]
+    - [$targets]
+  - r-cluster
+  - r-magrittr
+  - r-dplyr
+  - r-fpc
+  - r-dendextend
+  - r-ggplot2
+  concretization: together
+  config:
+    install_missing_compilers: true
+  view: true
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.2.0
+      paths:
+        cc: /hpc/spack/opt/spack/linux-centos7-x86_64/gcc-7.3.0/gcc-9.2.0-6zgrndxveon2m5mjhltrqccdcewrdktx/bin/gcc
+        cxx: /hpc/spack/opt/spack/linux-centos7-x86_64/gcc-7.3.0/gcc-9.2.0-6zgrndxveon2m5mjhltrqccdcewrdktx/bin/g++
+        f77: /hpc/spack/opt/spack/linux-centos7-x86_64/gcc-7.3.0/gcc-9.2.0-6zgrndxveon2m5mjhltrqccdcewrdktx/bin/gfortran
+        fc: /hpc/spack/opt/spack/linux-centos7-x86_64/gcc-7.3.0/gcc-9.2.0-6zgrndxveon2m5mjhltrqccdcewrdktx/bin/gfortran
+      flags: {}
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      paths:
+        cc: /work/users/jotsap/spack/opt/spack/linux-centos7-broadwell/gcc-9.2.0/gcc-12.1.0-atxmu3e5twtqlnnj5cj5adjtl53ztjsh/bin/gcc
+        cxx: /work/users/jotsap/spack/opt/spack/linux-centos7-broadwell/gcc-9.2.0/gcc-12.1.0-atxmu3e5twtqlnnj5cj5adjtl53ztjsh/bin/g++
+        f77: /work/users/jotsap/spack/opt/spack/linux-centos7-broadwell/gcc-9.2.0/gcc-12.1.0-atxmu3e5twtqlnnj5cj5adjtl53ztjsh/bin/gfortran
+        fc: /work/users/jotsap/spack/opt/spack/linux-centos7-broadwell/gcc-9.2.0/gcc-12.1.0-atxmu3e5twtqlnnj5cj5adjtl53ztjsh/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@12.1.0
