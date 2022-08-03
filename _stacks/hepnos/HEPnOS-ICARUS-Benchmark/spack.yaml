@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - mpi
+  - hepnos
+  - tclap
+  - spdlog
+  concretizer:
+    unify: true
