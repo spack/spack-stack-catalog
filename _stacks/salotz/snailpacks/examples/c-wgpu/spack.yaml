@@ -1,0 +1,10 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - wgpu-native@0.12.0.1
+  - glfw@3.3.6
+  view: true
+  concretization: together

@@ -129,7 +129,6 @@ spack:
   - globalarrays@5.8
   - gmp@6.2.1
   - gotcha@1.0.3
-  - gptune@3.0.0
   - h5bench@1.2
   - hdf5@1.10.7 +fortran +hl +shared
   - heffte@2.2.0 +fftw
@@ -216,8 +215,8 @@ spack:
   - hpctoolkit@2022.04.15 +cuda
   - hpx@1.7.1 +cuda cuda_arch=75
   - hypre@2.24.0 +cuda cuda_arch=75
-  - kokkos@3.6.00 +wrapper +cuda cuda_arch=75
   - kokkos-kernels@3.6.00 +cuda cuda_arch=75 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=75
+  - kokkos@3.6.00 +wrapper +cuda cuda_arch=75
   - magma@2.6.2 +cuda cuda_arch=75
   - mfem@4.4.0 +cuda cuda_arch=75
   - papi@6.0.0.1 +cuda
@@ -240,6 +239,7 @@ spack:
   #- dealii@9.3.3
   #- exaworks@0.1.0           # turbine
   #- fortrilinos@2.0.0        # fortrilinos
+  #- gptune@3.0.0             # openturns
   #- paraview@5.10.1 +qt      # harfbuzz
   #- stat@4.1.0
   #- stc@0.9.0                # turbine
@@ -250,6 +250,7 @@ spack:
   # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:710:13: error: 'buf0' was not declared in this scope
   # fortrilinos: trilinos-13.0.1-tax66wjyurlj5tvoonwkxzk532tkvtaq/lib/libtpetra.so.13.0: undefined reference to `MPI_Type_free'
   # hafbuzz: ../src/meson.build:670:4: ERROR: Dependency "gobject-introspection-1.0" not found, tried pkgconfig and cmake
+  # openturns: /opt/apps/gcc/9.1.0/bin/ld: libOT.so.0.19.0: undefined reference to `H5::CommonFG::openDataSet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const'
   # tau: Error: Cannot access MPI lib directory /opt/apps/gcc9_1/mvapich2-x/2.3/lib
   # turbine: configure: error: Could not find MPI library in any alternative locations
 
@@ -264,7 +265,7 @@ spack:
 
   # GPU FAILURE NOTES:
   # bricks: VSBrick-cond.py-Scalar-8x8x8-1:181:13: error: 'buf0' was not declared in this scope
-  # petsc: You have a version of GNU make older than 4.0.
+  # petsc: You have a version of GNU make older than 4.0. (?? not sure this is the salient message)
 
   # CONCRETIZATION ISSUES
   #- amrex@2.8.0 +cuda cuda_arch=75

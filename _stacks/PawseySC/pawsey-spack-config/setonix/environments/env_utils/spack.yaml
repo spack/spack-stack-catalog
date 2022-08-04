@@ -13,6 +13,7 @@ spack:
     - reframe@3.6.1
     - reframe@3.4
     - singularity@3.8.6
+    - mpifileutils@0.11+lustre
 # utilities for Nextflow Tower
     - tower-agent@0.4.3
     - tower-cli@0.6.2
