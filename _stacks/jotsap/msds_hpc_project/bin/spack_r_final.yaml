@@ -13,9 +13,14 @@ spack:
   - r-cluster
   - r-magrittr
   - r-dplyr
-  - r-fpc
-  - r-dendextend
-  - r-ggplot2
+  - r-rpart
+  - r-rocr
+  - r-mass
+  - r-randomforest
+  - r-ranger
+  - r-caret
+  - r-parallel
+  - r-e1071
   concretization: together
   config:
     install_missing_compilers: true

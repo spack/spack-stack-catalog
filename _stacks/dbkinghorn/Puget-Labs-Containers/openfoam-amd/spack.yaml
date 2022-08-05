@@ -1,0 +1,10 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [openfoam@2206%aocc@3.2.0 arch=linux-None-zen3 ^amdfftw@3.2 ^openmpi]
+  view: true
+  concretizer:
+    unify: false
