@@ -7,5 +7,6 @@ spack:
   packages:
     all:
       compiler: [gcc@11.2.0]
-  specs:
-  - key4hep-stack
+  concretization: together
+  repos:
+  - ../..

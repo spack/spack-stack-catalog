@@ -1,9 +1,9 @@
 spack:
   upstreams:
     spack-instance-1:
-      install_tree: /cvmfs/sw-nightlies.hsf.org/spackages5
+      install_tree: /cvmfs/sw-nightlies.hsf.org/spackages6
     spack-instance-1:
-      install_tree: /cvmfs/sw.hsf.org/spackages5
+      install_tree: /cvmfs/sw.hsf.org/spackages6
   view: false
   include:
   - key4hep-config-nightlies.yaml
@@ -26,3 +26,5 @@ spack:
         all: ${PACKAGE}/${VERSION}/${target}-${os}-${COMPILERNAME}${COMPILERVER}-opt/${HASH:5}
         build_type=Debug: ${PACKAGE}/${VERSION}/${target}-${os}-${COMPILERNAME}${COMPILERVER}-dbg/${HASH:5}
   concretization: together
+  repos:
+    - ../..
