@@ -1,0 +1,11 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [wrf@4.3.3%aocc@3.2.0 build_type=dm+sm arch=linux-None-zen3 ^hdf5+fortran
+      ^jemalloc ^netcdf-c ^netcdf-fortran ^openmpi+cxx]
+  view: true
+  concretizer:
+    unify: false
