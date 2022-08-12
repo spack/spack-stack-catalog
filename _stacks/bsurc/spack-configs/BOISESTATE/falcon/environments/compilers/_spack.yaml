@@ -1,0 +1,58 @@
+spack:
+  view: false
+  concretizer:
+    unify: true
+  config::
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+# Building here because of Lustre limitations, then caching, and installing --cache-only to above
+#      root: /home/frank/software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  # Override all other settings so this is the only compiler visible to spack
+  compilers::
+  - compiler:
+      paths:
+        cc: /bin/gcc
+        cxx: /bin/g++
+        f77: /bin/gfortran
+        fc: /bin/gfortran
+      operating_system: rocky8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@8.5.0
+
+  specs:
+  - gcc@12.1.0%gcc target=x86_64
+  - intel-oneapi-compilers%gcc target=x86_64
+
+  modules::
+    default:
+      roots:
+        lmod: /lfs/software/modules
+      enable:
+      - lmod
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+        blacklist:
+        - gcc@8.5.0
+        blacklist_implicits: true
+        core_compilers:
+        - gcc@8.5.0
+        # Core specs appear in the TLD and are built with the core compiler
+        # The intel compiler is implicit to the intel-oneapi-compilers package and module must be cut by hand
+        core_specs:
+        - gcc@12.1.0
+        - intel-oneapi-compilers@2021.4.0
+        hierarchy:
+        - mpi
+
+

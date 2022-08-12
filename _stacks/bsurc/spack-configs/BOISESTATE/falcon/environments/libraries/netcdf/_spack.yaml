@@ -1,0 +1,72 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+  - ../../../includes/hdf5.yaml
+
+  view: false
+  'config:':
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  definitions:
+
+  - libraries:
+    - netcdf-c
+    - netcdf-fortran
+    - parallel-netcdf
+
+  - compilers:
+    - '%gcc@12.1.0'
+    - '%intel@2021.4.0'
+
+  - mpis:
+    - '^mpich@3.4.3'
+    - '^openmpi@4.1.3'
+
+  - targets:
+    - target=x86_64
+
+  specs:
+  - matrix:
+    - [ $libraries ]
+    - [ $compilers ]
+    - [ $mpis ]
+    - [ $targets ]
+
+  concretizer:
+    unify: false
+
+  modules::
+    default:
+      roots:
+        lmod: /tmp/lmod
+        tcl: /tmp/modules
+      arch_folder: false
+      enable:
+      - lmod
+      - tcl
+      # Generate the tcl mods because they have useful information
+      # used to build the LMOD modules by hand
+      tcl:
+        hash_length: 0
+        all:
+          suffixes:
+            ^mpich: 'mpich'
+            ^openmpi: 'openmpi'
+        blacklist_implicits: true
+      lmod:
+        hash_length: 0
+        blacklist_implicits: true
+        hierarchy:
+        - mpi
+
+  mirrors:
+    falcon: file:///lfs/software/falcon-mirror

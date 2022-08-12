@@ -1,0 +1,78 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+  - ../../../includes/hdf5.yaml
+  - ../../../includes/netcdf.yaml
+  - ../../../includes/wrf.yaml
+
+  view: false
+  'config:':
+#    concretizer: original
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  packages:
+
+    jasper:
+      version: 
+      - 3.0.3
+      variants:
+      - ~opengl
+      externals: 
+      - spec: jasper@3.0.3%gcc
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/jasper-3.0.3-mipkqn2slsdycigzljx62qcmipup626u
+      - spec: jasper@3.0.3%intel
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/intel-2021.4.0/jasper-3.0.3-kb2robyk4wcp5m5bsc5bi5iqbrlwstbh
+      buildable: False
+
+  specs:
+  - matrix:
+    - - wps@4.3.1
+    - - ^mpich
+      - ^openmpi
+    - - '%gcc'
+      - '%intel'
+    - - target=broadwell
+  concretizer:
+    unify: false
+
+  modules::
+    default:
+      roots:
+# Do NOT enable this, it will stomp all over all the modifications
+#        lmod: /lfs/software/modules
+        lmod: /tmp/lmod
+        tcl: /tmp/modules
+      arch_folder: false
+      enable:
+      - lmod
+      - tcl
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+        blacklist_implicits: true
+        hierarchy:
+        - mpi
+      # Generate the tcl mods because they have useful information
+      # used to build the LMOD modules by hand
+      tcl:
+        hash_length: 0
+        all:
+          suffixes:
+            ^mpich: 'mpich'
+            ^openmpi: 'openmpi'
+        blacklist_implicits: true
+
+  mirrors:
+    falcon: file:///lfs/software/falcon-mirror
+

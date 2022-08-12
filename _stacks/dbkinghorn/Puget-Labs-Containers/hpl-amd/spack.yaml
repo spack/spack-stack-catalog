@@ -4,7 +4,7 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [hpl@2.3%aocc@3.2.0+openmp ^amdblis@3.2 threads=openmp arch=linux-None-zen3]
+  specs: [hpl@2.3%aocc@3.2.0+openmp ^amdblis@3.2 threads=openmp target=zen3]
   view: true
   concretizer:
     unify: false
