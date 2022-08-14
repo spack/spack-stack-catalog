@@ -8,6 +8,7 @@ spack:
     misc_cache: $spack/v0154_2/misc_cache
     build_stage:
     - /space/cwsmith/spack/v0154_2/build_stage
+    allow_sgid: false
   packages:
     all:
       compiler: [gcc@10.1.0]
