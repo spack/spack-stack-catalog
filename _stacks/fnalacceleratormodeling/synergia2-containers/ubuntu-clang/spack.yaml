@@ -36,6 +36,7 @@ spack:
         - openblas
   specs:
   - mpich@develop~fortran device=ch4 netmod=ofi  
+  - petsc@main~fortran
   - hdf5@1.12.1+hl+mpi
   - fftw+mpi+openmp
   - gsl
@@ -45,7 +46,8 @@ spack:
   - py-h5py+mpi
   - py-pytest
   - ninja  
-  concretization: together
+  concretizer:
+    unify: true
   view: true
   container:
     format: docker

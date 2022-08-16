@@ -16,6 +16,7 @@ spack:
         - openblas
   specs:
   - hdf5@1.12.1+hl+mpi
+  - petsc@main~fortran  
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd
@@ -24,7 +25,8 @@ spack:
   - py-h5py+mpi
   - py-pytest
   - ninja
-  concretization: together
+  concretizer:
+    unify: true
   view: true
   container:
     format: docker
