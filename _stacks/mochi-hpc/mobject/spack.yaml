@@ -10,4 +10,5 @@ spack:
   - mochi-bake+bedrock
   - mochi-ch-placement
   - mochi-bedrock
-  concretization: together
+  concretizer:
+    unify: true
