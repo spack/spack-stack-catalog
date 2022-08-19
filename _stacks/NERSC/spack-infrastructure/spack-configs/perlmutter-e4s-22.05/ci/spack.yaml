@@ -74,8 +74,6 @@ spack:
       providers:
         blas: [cray-libsci]
         mpi: [cray-mpich]
-    amrex:
-      variants: +fortran +hypre +openmp +petsc +shared
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     bzip2:
@@ -254,29 +252,12 @@ spack:
   - cce_compilers: ['%cce@13.0.2']
   - gcc_specs:
     - adios2@2.8.0
-    - aml@0.1.0
     - amrex@22.05
-    - arborx@1.2
-    - argobots@1.1
-    - axom@0.6.1
-    - bolt@2.0
     - butterflypack@2.1.1
-    - cabana@0.4.0
-    - caliper@2.7.0 ~libunwind
-    - chai@2.4.0 ~benchmarks ~tests
     - conduit@0.8.3
-    - darshan-runtime@3.3.1
-    - darshan-util@3.3.1
-    - datatransferkit@3.1-rc3
     - dyninst@12.1.0
-    - faodel@1.2108.1
-    - flecsi@1.4.2
-    - flit@2.1.0
     - fortrilinos@2.0.0
     - gasnet@2022.3.0
-    - ginkgo@1.4.0
-    - globalarrays@5.8
-    - gotcha@1.0.3
     - hdf5@1.10.7 +fortran +hl +shared
     - heffte@2.2.0 +fftw
     - hpctoolkit@2022.04.15
@@ -285,53 +266,33 @@ spack:
     - kokkos@3.6.00 +openmp
     - kokkos-kernels@3.6.00 +openmp
     - lammps@20220107
-    - legion@21.03.0
     - libquo@1.3.1
-    - mercury@2.1.0
-    - metall@0.20
     - mfem@4.4.0
-    - mpark-variant@1.4.0
     - nccmp@1.9.0.1
     - nco@5.0.1
-    - omega-h@9.34.1
     - openblas@0.3.20 threads=openmp
     - openpmd-api@0.14.4
     - papi@6.0.0.1
-    - papyrus@1.0.2
     - parallel-netcdf@1.12.2
-    - paraview@5.10.1 +qt
-    - parsec@3.0.2012 ~cuda
     - pdt@3.25.1
     - petsc@3.17.1
-    - phist@1.9.5
     - plasma@21.8.29 ^openblas
-    - pumi@2.2.7
     - py-warpx@22.05 ^warpx dims=2 ^openblas
     - py-warpx@22.05 ^warpx dims=3 ^openblas
     - py-warpx@22.05 ^warpx dims=rz ^openblas
     - qthreads@1.16 scheduler=distrib
     - raja@0.14.0
-    - scr@3.0rc2
     - slate@2021.05.02 ~cuda
     - slepc@3.17.1
-    - stc@0.9.0
     - strumpack@6.3.1 ~slate
     - sundials@6.2.0
     - superlu@5.3.0
     - superlu-dist@7.2.0
-    - swig@4.0.2
-    - swig@4.0.2-fortran
-    - sz@2.1.12
     - tasmanian@7.7
     - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
       +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
       +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
       +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
-    - turbine@1.3.0
-    - umap@2.1.0
-    - umpire@6.0.0
-    - unifyfs@0.9.2
-    - veloc@1.5
     - vtk-m@1.7.1
     - zfp@0.5.5
     #- ascent@0.8.0     # ascent (DIFFERENT ERROR in ParaTools deployment %gcc@11.2.0)
@@ -347,23 +308,23 @@ spack:
     # variorum (2/2): /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
     # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
-  - nvhpc_specs:
-    - amrex@22.05
-    - hypre@2.24.0
-    - petsc@3.17.1+cuda cuda_arch=80
-    - kokkos@3.6.00 +openmp
-    - kokkos-kernels@3.6.00 +openmp
-    - raja@0.14.0 +cuda cuda_arch=80    
-    - slate@2021.05.02 +cuda cuda_arch=80
-    - slepc@3.17.1 +cuda cuda_arch=80
-    - strumpack@6.3.1 ~slate
-    - strumpack@6.3.1 ~slate +cuda cuda_arch=80
-
-    # hypre failed to find -lcusparse library
+  #- nvhpc_specs:
+  #  - kokkos@3.6.00 +openmp
+  #  - kokkos-kernels@3.6.00 +openmp
+    # ==> Warning: Skipping build of superlu-dist-7.2.0-kmvqtie752awoenzob5pgemabeuzyaiv since parmetis-4.0.3-ew3itm7cvpheb7h4e6lmyteghbq7toeo failed
+    # ==> Warning: Skipping build of hypre-2.24.0-s2nqxywgft5dfjeps4jgiim6dxvedz3y since superlu-dist-7.2.0-kmvqtie752awoenzob5pgemabeuzyaiv failed
     #- hypre@2.24.0 +cuda cuda_arch=80
-
+    # failed to build HDF5 dependency with nvhpc
+    #- raja@0.14.0 +cuda cuda_arch=80
+    # ==> Warning: Skipping build of strumpack-6.3.1-f2yyc5ou2u2flq2kk6xebysznuhnpy4z since netlib-scalapack-2.2.0-z6bh6v62awx3xw3wokz7svvtci7ss6qs failed
+    # ==> Warning: Skipping build of strumpack-6.3.1-deg7kqb75k6l22jdmtaqgfbrxg7wynbf since netlib-scalapack-2.2.0-z6bh6v62awx3xw3wokz7svvtci7ss6qs failed
+    # ==> Warning: Skipping build of slate-2021.05.02-oxar4bt5qll3gejq4wwdbsaskgwbi7de since netlib-scalapack-2.2.0-z6bh6v62awx3xw3wokz7svvtci7ss6qs failed
+    #- strumpack@6.3.1 ~slate
+    #- strumpack@6.3.1 ~slate +cuda cuda_arch=80
+    #- slate@2021.05.02 +cuda cuda_arch=80
     #  cmake-3.23.1-vdusj6eiqf6zaokep45jai4qtl7fcyzl failed
     #- zfp@0.5.5
+
   - cce_specs:
     - adios2@2.8.0
     - hdf5@1.10.7 +fortran +hl +shared
@@ -371,7 +332,6 @@ spack:
     - kokkos-kernels@3.6.00 +openmp
     - kokkos@3.6.00 +openmp
     - petsc@3.17.1 ~strumpack
-    - raja@0.14.0
     - slepc@3.17.1 ^petsc@3.17.1 ~strumpack
     - sundials@6.2.0
     - superlu-dist@7.2.0
@@ -382,16 +342,9 @@ spack:
 
   - cuda_specs:
     - adios2@2.8.0 +cuda cuda_arch=80
-    - arborx@1.2 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper
-    - cabana@0.4.0 +cuda ^kokkos@3.6.00 +wrapper +cuda_lambda +cuda cuda_arch=80
-    - caliper@2.7.0 +cuda cuda_arch=80
-    - chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
-    - ginkgo@1.4.0 +cuda cuda_arch=80
-    - hpctoolkit@2022.04.15 +cuda
     - hypre@2.24.0 +cuda cuda_arch=80
     - kokkos@3.6.00 +wrapper +cuda cuda_arch=80
     - kokkos-kernels@3.6.00 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=80
-    - mfem@4.4.0 +cuda cuda_arch=80
     - papi@6.0.0.1 +cuda
     - petsc@3.17.1+cuda cuda_arch=80
     - raja@0.14.0 +cuda cuda_arch=80
@@ -399,8 +352,6 @@ spack:
     - slepc@3.17.1 +cuda cuda_arch=80
     - strumpack@6.3.1 ~slate +cuda cuda_arch=80
     - tau@2.31.1 +mpi +cuda
-    - umpire@6.0.0 ~shared +cuda cuda_arch=80
-    - zfp@0.5.5 +cuda cuda_arch=80
 
     #- heffte@2.2.0 +cuda cuda_arch=80        # heffte (WORKED in ParaTools deployment %gcc@11.2.0)
     #- hpx@1.7.1 +cuda cuda_arch=80           # hpx (WORKED in ParaTools deployment %gcc@11.2.0)
@@ -428,12 +379,10 @@ spack:
     - gromacs@2021.5
     - gsl@2.7
     - metis@5.1.0
-    - nano
     - ncl
     - ncview@2.1.8
     - parmetis@4.0.3
     - parallel
-    - parallel-netcdf@1.12.2
 
     # ==> Warning: Skipping build of ghostscript-9.54.0-rwza23rfwzl2wmqcxfppcumiktvmtyut since gtkplus-3.24.29-j7t6cyb5utswckkbw4igyxxvuxwhqkrt failed
     # ==> Warning: Skipping build of imagemagick-7.0.8-7-uplsylzyug36bhtuxwihndsucb3xiz6f since ghostscript-9.54.0-rwza23rfwzl2wmqcxfppcumiktvmtyut failed
@@ -451,6 +400,6 @@ spack:
   - matrix:
     - [$nersc_specs]
     - [$gcc_compilers]
-  - matrix:
-    - [$nvhpc_specs]
-    - [$nvhpc_compilers]
+  #- matrix:
+  #  - [$nvhpc_specs]
+  #  - [$nvhpc_compilers]
