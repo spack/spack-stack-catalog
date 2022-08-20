@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - cmake
+  - openjdk
+  - ycsb@0.17.0
+  concretizer:
+    unify: true
+    reuse: false
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
