@@ -15,8 +15,14 @@ spack:
   - unqlite@master
   - lua-sol2
   - py-pybind11
+  - ycsb-cpp-interface
   - mochi-margo
-  - mercury~boostsys ^libfabric fabrics=tcp,rxm
+  - mercury@2.1.0 ~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
   concretizer:
     unify: true
+    reuse: false
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
