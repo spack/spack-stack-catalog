@@ -15,10 +15,11 @@ spack:
   - unqlite@master
   - lua-sol2
   - py-pybind11
-  - ycsb-cpp-interface
   - mochi-margo
   - mercury@2.1.0 ~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
+  - mochi-bedrock
+  - ycsb-cpp-interface
   concretizer:
     unify: true
     reuse: false
