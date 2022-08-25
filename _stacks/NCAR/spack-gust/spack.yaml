@@ -1,0 +1,945 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  config:
+    install_tree:
+      projections:
+        gcc: '{name}/{version}/{hash:7}'
+        all: '{name}/{version}/{compiler.name}/{compiler.version}/{hash:7}'
+        ^mpi: '{name}/{version}/{compiler.name}/{compiler.version}/{^mpi.name}/{^mpi.version}/{hash:7}'
+    build_jobs: 8
+    test_stage: /glade/gust/scratch/csgteam/temp/spack/tests
+    source_cache: /glade/gust/scratch/csgteam/temp/spack/cache
+    build_stage:
+    - /glade/gust/scratch/csgteam/temp/spack/builds
+    template_dirs:
+    - /glade/work/csgteam/spack/ncar-spack/templates/modules
+  packages:
+    squashfs:
+      externals:
+      - spec: squashfs@4.5.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/squashfs/4.5.1/gcc/7.5.0
+      buildable: false
+    libgpg-error:
+      externals:
+      - spec: libgpg-error@1.45
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libgpg-error/1.45/gcc/7.5.0
+      buildable: false
+    libseccomp:
+      externals:
+      - spec: libseccomp@2.5.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libseccomp/2.5.3/gcc/7.5.0
+      buildable: false
+    git:
+      externals:
+      - spec: git@2.37.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/git/2.37.0/gcc/7.5.0
+      buildable: false
+    cryptsetup:
+      externals:
+      - spec: cryptsetup@2.3.5
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/cryptsetup/2.3.5/gcc/7.5.0
+      buildable: false
+    libtirpc:
+      externals:
+      - spec: libtirpc@1.2.6
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libtirpc/1.2.6/gcc/7.5.0
+      buildable: false
+    flex:
+      externals:
+      - spec: flex@2.6.3+lex
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/flex/2.6.3/gcc/7.5.0
+      buildable: false
+    openssl:
+      externals:
+      - spec: openssl@1.1.1q
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/openssl/1.1.1q/gcc/7.5.0
+      - spec: openssl@1.1.1d
+        prefix: /usr
+      buildable: false
+    cuda:
+      externals:
+      - spec: cuda@11.4.4
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/cuda/11.4.4/gcc/7.5.0
+      buildable: false
+    cudnn:
+      externals:
+      - spec: cudnn@8.2.4.15-11.4
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/cudnn/8.2.4.15-11.4/gcc/7.5.0
+      buildable: false
+    zlib:
+      externals:
+      - spec: zlib@1.2.12
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/zlib/1.2.12/gcc/7.5.0
+      buildable: false
+    xz:
+      externals:
+      - spec: xz@5.2.5
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/xz/5.2.5/gcc/7.5.0
+      buildable: false
+    unzip:
+      externals:
+      - spec: unzip@6.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/unzip/6.0/gcc/7.5.0
+      buildable: false
+    tcl:
+      externals:
+      - spec: tcl@8.6.12
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/tcl/8.6.12/gcc/7.5.0
+      buildable: false
+    sqlite:
+      externals:
+      - spec: sqlite@3.38.5+fts~functions+rtree
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/sqlite/3.38.5/gcc/7.5.0
+      buildable: false
+    ruby:
+      externals:
+      - spec: ruby@3.1.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/ruby/3.1.0/gcc/7.5.0
+      buildable: false
+    rhash:
+      externals:
+      - spec: rhash@1.4.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/rhash/1.4.2/gcc/7.5.0
+      buildable: false
+    readline:
+      externals:
+      - spec: readline@8.1.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/readline/8.1.2/gcc/7.5.0
+      buildable: false
+    perl:
+      externals:
+      - spec: perl@5.34.1+cpanm+shared+threads
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/perl/5.34.1/gcc/7.5.0
+      buildable: false
+    nvhpc:
+      externals:
+      - spec: nvhpc@21.3%gcc@7.5.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0
+      - spec: nvhpc@22.7%gcc@7.5.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0
+      buildable: false
+    nettle:
+      externals:
+      - spec: nettle@3.4.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/nettle/3.4.1/gcc/7.5.0
+      buildable: false
+    ncurses:
+      externals:
+      - spec: ncurses@6.2.20200212+termlib abi=6
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/ncurses/6.2/gcc/7.5.0
+      buildable: false
+    nasm:
+      externals:
+      - spec: nasm@2.15.05
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/nasm/2.15.05/gcc/7.5.0
+      buildable: false
+    mbedtls:
+      externals:
+      - spec: mbedtls@3.1.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/mbedtls/3.1.0/gcc/7.5.0
+      buildable: false
+    lzo:
+      externals:
+      - spec: lzo@2.10
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/lzo/2.10/gcc/7.5.0
+      buildable: false
+    lz4:
+      externals:
+      - spec: lz4@1.9.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/lz4/1.9.3/gcc/7.5.0
+      buildable: false
+    libxml2:
+      externals:
+      - spec: libxml2@2.9.13
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libxml2/2.9.13/gcc/7.5.0
+      buildable: false
+    libuv:
+      externals:
+      - spec: libuv@1.44.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libuv/1.44.1/gcc/7.5.0
+      buildable: false
+    libunistring:
+      externals:
+      - spec: libunistring@0.9.10
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libunistring/0.9.10/gcc/7.5.0
+      buildable: false
+    libpng:
+      externals:
+      - spec: libpng@1.6.37
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libpng/1.6.37/gcc/7.5.0
+      buildable: false
+    libmd:
+      externals:
+      - spec: libmd@1.0.4
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libmd/1.0.4/gcc/7.5.0
+      buildable: false
+    libjpeg-turbo:
+      externals:
+      - spec: libjpeg-turbo@2.1.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libjpeg-turbo/2.1.3/gcc/7.5.0
+      buildable: false
+    libidn2:
+      externals:
+      - spec: libidn2@2.3.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libidn2/2.3.0/gcc/7.5.0
+      buildable: false
+    libiconv:
+      externals:
+      - spec: libiconv@1.16
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libiconv/1.16/gcc/7.5.0
+      buildable: false
+    libffi:
+      externals:
+      - spec: libffi@3.4.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libffi/3.4.2/gcc/7.5.0
+      buildable: false
+    libbsd:
+      externals:
+      - spec: libbsd@0.11.5
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libbsd/0.11.5/gcc/7.5.0
+      buildable: false
+    libarchive:
+      externals:
+      - spec: libarchive@3.5.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libarchive/3.5.2/gcc/7.5.0
+      buildable: false
+    jasper:
+      externals:
+      - spec: jasper@3.0.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/jasper/3.0.3/gcc/7.5.0
+      buildable: false
+    intel-oneapi-compilers:
+      externals:
+      - spec: intel-oneapi-compilers@2022.1.0%gcc@7.5.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0
+      buildable: false
+    googletest:
+      externals:
+      - spec: googletest@1.10.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/googletest/1.10.0/gcc/7.5.0
+      buildable: false
+    gnutls:
+      externals:
+      - spec: gnutls@3.6.15
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/gnutls/3.6.15/gcc/7.5.0
+      buildable: false
+    gmp:
+      externals:
+      - spec: gmp@6.2.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/gmp/6.2.1/gcc/7.5.0
+      buildable: false
+    gettext:
+      externals:
+      - spec: gettext@0.21
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/gettext/0.21/gcc/7.5.0
+      buildable: false
+    gdbm:
+      externals:
+      - spec: gdbm@1.19
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/gdbm/1.19/gcc/7.5.0
+      buildable: false
+    expat:
+      externals:
+      - spec: expat@2.4.8
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/expat/2.4.8/gcc/7.5.0
+      buildable: false
+    curl:
+      externals:
+      - spec: curl@7.84.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/curl/7.84.0/gcc/7.5.0
+      buildable: false
+      variants: [tls=gnutls]
+    cmake:
+      externals:
+      - spec: cmake@3.23.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/cmake/3.23.2/gcc/7.5.0
+      buildable: false
+    bzip2:
+      externals:
+      - spec: bzip2@1.0.8
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/bzip2/1.0.8/gcc/7.5.0
+      buildable: false
+    byacc:
+      externals:
+      - spec: byacc@20210808
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/byacc/20210808/gcc/7.5.0
+      buildable: false
+    bison:
+      externals:
+      - spec: bison@3.8.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/bison/3.8.2/gcc/7.5.0
+      buildable: false
+    berkeley-db:
+      externals:
+      - spec: berkeley-db@18.1.40
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/berkeley-db/18.1.40/gcc/7.5.0
+      buildable: false
+    gawk:
+      externals:
+      - spec: gawk@4.2.1
+        prefix: /usr
+    gcc:
+      externals:
+      - spec: gcc@7.5.0 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran-7
+      compiler: [gcc@7.5.0]
+      variants: [+piclibs, 'languages=c,c++,fortran,go']
+    groff:
+      externals:
+      - spec: groff@1.22.3
+        prefix: /usr
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.7
+        prefix: /usr
+      - spec: libfuse@3.6.1
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+    rsync:
+      externals:
+      - spec: rsync@3.1.3
+        prefix: /usr
+    bash:
+      externals:
+      - spec: bash@4.4.23
+        prefix: /usr
+      buildable: false
+    cpio:
+      externals:
+      - spec: cpio@2.12
+        prefix: /usr
+      buildable: false
+    diffutils:
+      externals:
+      - spec: diffutils@3.6
+        prefix: /usr
+      buildable: false
+    findutils:
+      externals:
+      - spec: findutils@4.8.0
+        prefix: /usr
+      buildable: false
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+      buildable: false
+    lustre:
+      externals:
+      - spec: lustre@2.12.6.2_cray_6_g44c857f
+        prefix: /usr
+      buildable: false
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+      buildable: false
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+      buildable: false
+    tar:
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+      buildable: false
+    texinfo:
+      externals:
+      - spec: texinfo@6.5
+        prefix: /usr
+      buildable: false
+    ghostscript:
+      externals:
+      - spec: ghostscript@9.52
+        prefix: /usr
+      buildable: false
+    all:
+      'compiler:': [gcc@7.5.0, gcc, cce, nvhpc, oneapi]
+      providers:
+        'mpi:': [cray-mpich, openmpi]
+        'szip:': [libszip]
+        'pkgconfig:': [pkg-config]
+      permissions:
+        read: world
+        write: user
+    pbspro:
+      externals:
+      - spec: pbspro@2021.1.1
+        prefix: /opt/pbs
+      buildable: false
+    cray-mpich:
+      externals:
+      - spec: cray-mpich@8.1.18 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.18/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.18
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.18 %cce
+        prefix: /opt/cray/pe/mpich/8.1.18/ofi/cray/10.0
+        modules:
+        - cray-mpich/8.1.18
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.18 %nvhpc
+        prefix: /opt/cray/pe/mpich/8.1.18/ofi/nvidia/20.7
+        modules:
+        - cray-mpich/8.1.18
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.18 %oneapi
+        prefix: /opt/cray/pe/mpich/8.1.18/ofi/intel/19.0
+        modules:
+        - cray-mpich/8.1.18
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      buildable: false
+    cray-libsci:
+      externals:
+      - spec: cray-libsci@22.08.1.1
+        modules:
+        - cray-libsci/22.08.1.1
+      buildable: false
+    apptainer:
+      variants: [~suid]
+    singularityce:
+      variants: [~suid]
+    openmpi:
+      variants: [+cuda, fabrics=auto, schedulers=tm, +gpfs, +lustre, +thread_multiple]
+    netcdf:
+      variants: [+dap, -mpi]
+    netcdf-c:
+      variants: [+dap, -mpi]
+    hdf:
+      variants: [+fortran, +szip]
+    hdf5:
+      variants: [+hl, +szip, +fortran, +cxx, -mpi]
+    netcdf-cxx4:
+      variants: [-doxygen]
+    fftw:
+      variants: [-mpi]
+    eccodes:
+      variants: [+tools, +fortran, +netcdf, +png, jp2k=jasper]
+    cdo:
+      variants: [+curl]
+  view:
+    baseenv:
+      root: /glade/u/apps/gust/22.08/opt
+      select: [tmux, ghostscript, emacs]
+      link_type: symlink
+      link: roots
+  compilers:
+  - compiler:
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@7.5.0
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/icx
+        cxx: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/icpx
+        f77: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/ifx
+        fc: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/ifx
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@21.3
+      paths:
+        cc: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/bin/nvc
+        cxx: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/bin/nvc++
+        f77: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/bin/nvfortran
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment:
+        set:
+          NVLOCALRC: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/localrc/gust
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/lib
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.7
+      paths:
+        cc: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/bin/nvc
+        cxx: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/bin/nvc++
+        f77: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/bin/nvfortran
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment:
+        set:
+          NVLOCALRC: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/localrc/gust
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/lib
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@8.3.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-aocc
+      - aocc/8.3.2
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@8.3.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-aocc
+      - aocc/8.3.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-aocc
+      - aocc/3.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@13.0.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.2
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.1
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/14.0.1
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/14.0.2
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@8.3.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/8.3.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@8.3.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/8.3.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: rocmcc@8.3.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd
+      - rocmcc/8.3.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/8.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.1.0
+      paths:
+        cc: clang
+        cxx: clang++
+        f77: null
+        fc: flang
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  modules:
+    'default:':
+      roots:
+        lmod: /glade/u/apps/gust/modules/22.08
+      arch_folder: false
+      'enable:':
+      - lmod
+      prefix_inspections:
+        bin:
+        - PATH
+        lib:
+        - NCAR_LDFLAGS_{name}
+        lib64:
+        - NCAR_LDFLAGS_{name}64
+        include:
+        - NCAR_INC_{name}
+        man:
+        - MANPATH
+        share/man:
+        - MANPATH
+        lib/pkgconfig:
+        - PKG_CONFIG_PATH
+        lib64/pkgconfig:
+        - PKG_CONFIG_PATH
+      lmod:
+        hierarchy:
+        - mpi
+        hash_length: 0
+        blacklist_implicits: true
+        blacklist:
+        - lmod
+        - netcdf-c
+        - netcdf-fortran
+        - netcdf-cxx4
+        - cray-mpich
+        - cray-libsci
+        - cray-fftw
+        whitelist:
+        - git
+        all:
+          environment:
+            set:
+              NCAR_ROOT_{name}: '{prefix}'
+          template: ncar_default.lua
+        mpi:
+          template: ncar_wrapper_mpi.lua
+        intel-oneapi-compilers:
+          environment:
+            set:
+              PE_ENV: INTEL
+              INTEL_VERSION: '{version}'
+              INTEL_PATH: '{prefix}'
+            prepend_path:
+              LD_LIBRARY_PATH: '{prefix}/compiler/latest/linux/compiler/lib/intel64'
+        cuda:
+          environment:
+            prepend_path:
+              LD_LIBRARY_PATH: '{prefix}/extras/CUPTI/lib64'
+        nvhpc:
+          environment:
+            set:
+              PE_ENV: NVIDIA
+              NVIDIA_VERSION: '{version}'
+              NVIDIA_PATH: '{prefix}'
+              NVLOCALRC: '{prefix}/localrc/gust'
+              CRAY_NVIDIA_VERSION: '{version}'
+            prepend_path:
+              LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
+        ncarcompilers:
+          environment:
+            set:
+              NCAR_EXCLUDE_ASNEEDED: '1'
+              NCAR_WRAPPER_MPI: '{prefix}/bin/mpi'
+            prepend_path:
+              PATH: '{prefix}/bin/mpi'
+        netcdf:
+          environment:
+            set:
+              NETCDF: '{prefix}'
+          autoload: all
+        parallel-netcdf:
+          environment:
+            set:
+              PNETCDF: '{prefix}'
+        ncarenv:
+          template: ncar_env.lua
+        projections:
+          all: '{name}/{version}'
+          r: R/{version}
+          parallel-netcdf: pnetcdf/{version}
+          fftw+mpi: fftw-mpi/{version}
+          netcdf+mpi: netcdf-mpi/{version}
+          hdf5+mpi: hdf5-mpi/{version}
+          netcdf: netcdf/{version}
+          intel-oneapi-compilers: intel/{version}
+        core_compilers:
+        - gcc@7.5.0
+        core_specs:
+        - cuda
+        - cudnn
+        - r
+        - cmake
+        - git
+        - nco
+        - cdo
+        - wgrib2
+  mirrors:
+    glade_gust:
+      fetch:
+        url: file:///glade/u/apps/gust/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///glade/u/apps/gust/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+  'repos:':
+  - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/repos/ncar.hpcd
+  - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/repos/builtin
+  specs:
+  - nvhpc@22.7
+  - intel-oneapi-compilers@2022.1.0
+  - cray-mpich@8.1.18%gcc@11.2.0
+  - cray-mpich@8.1.18%gcc@10.3.0
+  - cray-mpich@8.1.18%nvhpc@22.7
+  - cray-mpich@8.1.18%oneapi@2022.1.0
+  - cray-mpich@8.1.18%cce@14.0.2
+  - lmod
+  - cmake
+  - tmux
+  - ncarcompilers@0.5.2%gcc@11.2.0
+  - ncarcompilers@0.5.2%gcc@10.3.0
+  - ncarcompilers@0.5.2%nvhpc@22.7
+  - ncarcompilers@0.5.2%oneapi@2022.1.0
+  - ncarcompilers@0.5.2%cce@14.0.2
+  - fftw@3.3.10%gcc@11.2.0
+  - fftw@3.3.10%gcc@10.3.0
+  - fftw@3.3.10%nvhpc@22.7
+  - fftw@3.3.10%oneapi@2022.1.0
+  - fftw@3.3.10%cce@14.0.2
+  - udunits@2.2.28%gcc@11.2.0
+  - udunits@2.2.28%gcc@10.3.0
+  - udunits@2.2.28%nvhpc@22.7
+  - udunits@2.2.28%oneapi@2022.1.0
+  - udunits@2.2.28%cce@14.0.2
+  - hdf5@1.12.2%gcc@11.2.0
+  - hdf5@1.12.2%gcc@10.3.0
+  - hdf5@1.12.2%nvhpc@22.7
+  - hdf5@1.12.2%oneapi@2022.1.0
+  - hdf5@1.12.2%cce@14.0.2
+  - netcdf@4.8.1%gcc@11.2.0
+  - netcdf@4.8.1%gcc@10.3.0
+  - netcdf@4.8.1%nvhpc@22.7
+  - netcdf@4.8.1%oneapi@2022.1.0
+  - netcdf@4.8.1%cce@14.0.2
+  - eccodes@2.25.0%gcc@11.2.0
+  - eccodes@2.25.0%gcc@10.3.0
+  - eccodes@2.25.0%nvhpc@22.7
+  - eccodes@2.25.0%oneapi@2022.1.0
+  - eccodes@2.25.0%cce@14.0.2
+  - proj@8.2.1%gcc@11.2.0
+  - proj@8.2.1%gcc@10.3.0
+  - proj@8.2.1%nvhpc@22.7
+  - proj@8.2.1%oneapi@2022.1.0
+  - proj@8.2.1%cce@14.0.2
+  - parallel-netcdf@1.12.2%gcc@11.2.0 ^cray-mpich@8.1.18%gcc@11.2.0
+  - parallel-netcdf@1.12.2%gcc@10.3.0 ^cray-mpich@8.1.18%gcc@10.3.0
+  - parallel-netcdf@1.12.2%nvhpc@22.7 ^cray-mpich@8.1.18%nvhpc@22.7
+  - parallel-netcdf@1.12.2%oneapi@2022.1.0 ^cray-mpich@8.1.18%oneapi@2022.1.0
+  - parallel-netcdf@1.12.2%cce@14.0.2 ^cray-mpich@8.1.18%cce@14.0.2
+  - hdf5@1.12.2%gcc@11.2.0+mpi ^cray-mpich@8.1.18%gcc@11.2.0
+  - hdf5@1.12.2%gcc@10.3.0+mpi ^cray-mpich@8.1.18%gcc@10.3.0
+  - hdf5@1.12.2%nvhpc@22.7+mpi ^cray-mpich@8.1.18%nvhpc@22.7
+  - hdf5@1.12.2%oneapi@2022.1.0+mpi ^cray-mpich@8.1.18%oneapi@2022.1.0
+  - hdf5@1.12.2%cce@14.0.2+mpi ^cray-mpich@8.1.18%cce@14.0.2
+  - netcdf@4.8.1%gcc@11.2.0+mpi ^cray-mpich@8.1.18%gcc@11.2.0
+  - netcdf@4.8.1%gcc@10.3.0+mpi ^cray-mpich@8.1.18%gcc@10.3.0
+  - netcdf@4.8.1%nvhpc@22.7+mpi ^cray-mpich@8.1.18%nvhpc@22.7
+  - netcdf@4.8.1%oneapi@2022.1.0+mpi ^cray-mpich@8.1.18%oneapi@2022.1.0
+  - netcdf@4.8.1%cce@14.0.2+mpi ^cray-mpich@8.1.18%cce@14.0.2
+  - nco@5.0.1%gcc@11.2.0
+  - cdo@2.0.5%gcc@11.2.0
+  - emacs
+  - cuda@11.4.4
+  - cudnn@8.2.4.15-11.4
+  - ncarcompilers@0.6.1%gcc@11.2.0
+  - ncarcompilers@0.6.1%gcc@10.3.0
+  - ncarcompilers@0.6.1%nvhpc@22.7
+  - ncarcompilers@0.6.1%oneapi@2022.1.0
+  - ncarcompilers@0.6.1%cce@14.0.2
+  - ncarcompilers@0.6.2%gcc@11.2.0
+  - ncarcompilers@0.6.2%gcc@10.3.0
+  - ncarcompilers@0.6.2%nvhpc@22.7
+  - ncarcompilers@0.6.2%oneapi@2022.1.0
+  - ncarcompilers@0.6.2%cce@14.0.2
+  - hdf@4.2.15%gcc@11.2.0
+  - hdf@4.2.15%gcc@10.3.0
+  - hdf@4.2.15%nvhpc@22.7
+  - hdf@4.2.15%oneapi@2022.1.0
+  - nvhpc@21.3
+  - cray-mpich@8.1.18%nvhpc@21.3
+  - ncarcompilers@0.6.2%nvhpc@21.3
+  - fftw@3.3.10%nvhpc@21.3
+  - udunits@2.2.28%nvhpc@21.3
+  - hdf5@1.12.2%nvhpc@21.3
+  - netcdf@4.8.1%nvhpc@21.3
+  - eccodes@2.25.0%nvhpc@21.3
+  - proj@8.2.1%nvhpc@21.3
+  - hdf@4.2.15%nvhpc@21.3
+  - parallel-netcdf@1.12.2%nvhpc@21.3 ^cray-mpich@8.1.18%nvhpc@21.3
+  - hdf5@1.12.2%nvhpc@21.3+mpi ^cray-mpich@8.1.18%nvhpc@21.3
+  - netcdf@4.8.1%nvhpc@21.3+mpi ^cray-mpich@8.1.18%nvhpc@21.3
+  - go
+  - apptainer

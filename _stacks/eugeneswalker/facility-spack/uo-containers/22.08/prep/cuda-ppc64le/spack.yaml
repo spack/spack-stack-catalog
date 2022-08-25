@@ -20,39 +20,6 @@ spack:
       environment: {}
       extra_rpaths: []
 
-  modules:
-    default:
-      'enable:': [lmod]
-      lmod:
-        core_compilers: [gcc@7.5.0]
-        blacklist_implicits: true
-        verbose: true
-        hash_length: 0
-        whitelist: [mpich]
-        hierarchy: [mpi]
-        projections: {}
-        core_specs: []
-        all:
-          autoload: direct
-          environment:
-            set:
-              ${PACKAGE}_ROOT: ${PREFIX}
-          suffixes:
-            +cuda: cuda
-        mpich:
-          suffixes:
-            ^hwloc+cuda: hwloc-cuda
-        py-warpx:
-          suffixes:
-            ^warpx dims=2: dims2
-            ^warpx dims=3: dims3
-            ^warpx dims=rz: dimsRZ
-        warpx:
-          suffixes:
-            dims=2: dims2
-            dims=3: dims3
-            dims=rz: dimsRZ
-
   packages:
     all:
       compiler: [gcc@7.5.0]
@@ -94,11 +61,62 @@ spack:
     mesa:
       version: [21.3.8]
 
+  modules:
+    prefix_inspections:
+      ./lib:
+      - LD_LIBRARY_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@7.5.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich, cmake]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda   
+        bricks:
+          suffixes:
+            +cuda: cuda     
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
   specs:
   # CUDA
 
   # no cuda_arch
-  - tau +mpi +cuda
+  - tau +mpi +cuda ^mpich@4.0.2
   - papi +cuda
   - flux-core +cuda
   - hpctoolkit +cuda

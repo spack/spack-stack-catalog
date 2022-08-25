@@ -1,9 +1,68 @@
 spack:
+  view: false
+
+  concretizer:
+    unify: false
+    reuse: false
+
+  modules:
+    default:
+      enable:: [tcl]
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        all:
+          autoload: direct
+          conflict: ['{name}']
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          load: []
+          suffixes:
+            ^mvapich2: mpi
+        verbose: false
+
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: oracle7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /home/opc/spack/opt/spack/linux-oracle7-x86_64/gcc-4.8.5/gcc-11.2.0-nfc7vqbgkiwxruspjesiwmabeyoqbebv/bin/gcc
+        cxx: /home/opc/spack/opt/spack/linux-oracle7-x86_64/gcc-4.8.5/gcc-11.2.0-nfc7vqbgkiwxruspjesiwmabeyoqbebv/bin/g++
+        f77: /home/opc/spack/opt/spack/linux-oracle7-x86_64/gcc-4.8.5/gcc-11.2.0-nfc7vqbgkiwxruspjesiwmabeyoqbebv/bin/gfortran
+        fc: /home/opc/spack/opt/spack/linux-oracle7-x86_64/gcc-4.8.5/gcc-11.2.0-nfc7vqbgkiwxruspjesiwmabeyoqbebv/bin/gfortran
+      flags: {}
+      operating_system: oracle7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
   packages:
+    all:
+      compiler: [gcc@11.2.0]
+      target: [x86_64]
+      providers:
+        mpi: [mvapich2]
     rdma-core:
       buildable: False
       externals:
       - spec: rdma-core@22.4
         prefix: /usr
+
   specs:
   - mvapich2 ~wrapperrpath

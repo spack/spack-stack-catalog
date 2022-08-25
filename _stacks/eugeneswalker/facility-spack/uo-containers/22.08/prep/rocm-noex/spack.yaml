@@ -56,10 +56,51 @@ spack:
     mesa:
       version: [21.3.8]
 
+  modules:
+    prefix_inspections:
+      ./lib:
+      - LD_LIBRARY_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@9.4.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich, cmake]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            amdgpu_target=gfx908: rocm-gfx908
+            amdgpu_target=gfx90a: rocm-gfx90a
+            +openmp: openmp
+        tau:
+          suffixes:
+            +rocm: rocm
+        hpctoolkit:
+          suffixes:
+            +rocm: rocm
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
   specs:
   # no amdgpu_target
   - hpctoolkit +rocm
-  - tau +mpi +rocm
+  - tau +mpi +rocm ^mpich@4.0.2
 
   # amdgpu_target=gfx90a
   - amrex +rocm amdgpu_target=gfx90a

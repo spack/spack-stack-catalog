@@ -7,4 +7,25 @@ spack:
   specs: [namd@2.14%aocc@3.2.0 fftw=amdfftw arch=linux-None-zen3 ^amdfftw@3.2]
   view: true
   concretizer:
-    unify: false
+    unify: true
+  config:
+    install_tree:
+      padded_length: 128
+  mirrors:
+    namd-mirror:
+      fetch:
+        url: file:///home/kinghorn/docker-build/namd-amd/spack-mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///home/kinghorn/docker-build/namd-amd/spack-mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

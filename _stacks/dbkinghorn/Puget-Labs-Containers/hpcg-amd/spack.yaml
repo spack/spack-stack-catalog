@@ -4,7 +4,10 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [hpcg@3.1%aocc@3.2.0+openmp target=zen3 ^openmpi@4.1.1]
+  specs: [hpcg@3.1%aocc@3.2.0+openmp arch=linux-None-zen3 ^openmpi@4.1.1]
   view: true
   concretizer:
     unify: false
+  config:
+    install_tree:
+      padded_length: 128
