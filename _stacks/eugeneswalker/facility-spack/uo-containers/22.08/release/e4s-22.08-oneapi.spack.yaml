@@ -101,7 +101,7 @@ spack:
         blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [mpich, cmake]
+        whitelist: [mpich, cmake^ncurses@6.3]
         hierarchy: [mpi]
         projections: {}
         core_specs: []
@@ -113,6 +113,7 @@ spack:
           suffixes:
             '%oneapi': oneapi
             +sycl: sycl
+            +ze: level-zero
             +level_zero: level-zero
         kokkos-kernels:
           suffixes:
@@ -120,6 +121,8 @@ spack:
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
+            ^ncurses@6.3: ncurses6.3
+            ^ncurses@6.2: ncurses6.2
         py-warpx:
           suffixes:
             ^warpx dims=2: dims2
@@ -127,13 +130,13 @@ spack:
             ^warpx dims=rz: dimsRZ
 
   specs:
-  - aml +ze
-  - amrex +sycl
-  - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples
-  - cabana +sycl ^kokkos+ sycl +openmp std=17 +tests +examples
-  - kokkos +sycl +openmp std=17 +tests +examples
-  - kokkos-kernels build_type=Release ^kokkos +sycl +openmp std=17 +tests +examples
-  - tau +mpi +opencl +level_zero ~pdt %oneapi ^binutils%gcc ^papi%gcc
+  - aml@0.2.0 +ze
+  - amrex@22.08 +sycl
+  - arborx@1.2 +sycl ^kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - cabana@0.5.0 +sycl ^kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - kokkos-kernels@3.6.00 build_type=Release ^kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - tau@2.31.1 +mpi +opencl +level_zero ~pdt %oneapi ^binutils@2.38%gcc ^papi@6.0.0.1%gcc
 
   # FAILURES
   # - ginkgo +oneapi

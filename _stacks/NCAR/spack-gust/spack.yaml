@@ -15,8 +15,13 @@ spack:
     build_stage:
     - /glade/gust/scratch/csgteam/temp/spack/builds
     template_dirs:
-    - /glade/work/csgteam/spack/ncar-spack/templates/modules
+    - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/templates/modules
   packages:
+    xerces-c:
+      externals:
+      - spec: xerces-c@3.2.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/xerces-c/3.2.3/gcc/7.5.0
+      buildable: false
     squashfs:
       externals:
       - spec: squashfs@4.5.1
@@ -434,6 +439,12 @@ spack:
       variants: [+tools, +fortran, +netcdf, +png, jp2k=jasper]
     cdo:
       variants: [+curl]
+    intel-oneapi-mpi:
+      variants: [+external-libfabric, +ilp64]
+    intel-oneapi-mkl:
+      variants: [+ilp64]
+    parallelio:
+      variants: [+pnetcdf]
   view:
     baseenv:
       root: /glade/u/apps/gust/22.08/opt
@@ -773,8 +784,12 @@ spack:
               PE_ENV: INTEL
               INTEL_VERSION: '{version}'
               INTEL_PATH: '{prefix}'
+              CC: '{prefix}/compiler/{version}/linux/bin/icx'
+              CXX: '{prefix}/compiler/{version}/linux/bin/icpx'
+              FC: '{prefix}/compiler/{version}/linux/bin/ifx'
+              F77: '{prefix}/compiler/{version}/linux/bin/ifx'
             prepend_path:
-              LD_LIBRARY_PATH: '{prefix}/compiler/latest/linux/compiler/lib/intel64'
+              LD_LIBRARY_PATH: '{prefix}/compiler/{version}/linux/compiler/lib/intel64'
         cuda:
           environment:
             prepend_path:
@@ -794,6 +809,10 @@ spack:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
               NCAR_WRAPPER_MPI: '{prefix}/bin/mpi'
+              CC: cc
+              CXX: CC
+              FC: ftn
+              F77: ftn
             prepend_path:
               PATH: '{prefix}/bin/mpi'
         netcdf:
@@ -801,6 +820,18 @@ spack:
             set:
               NETCDF: '{prefix}'
           autoload: all
+        netcdf~mpi:
+          template: conflict-serial.lua
+        netcdf+mpi:
+          template: conflict-mpi.lua
+        hdf5~mpi:
+          template: conflict-serial.lua
+        hdf5+mpi:
+          template: conflict-mpi.lua
+        fftw~mpi:
+          template: conflict-serial.lua
+        fftw+mpi:
+          template: conflict-mpi.lua
         parallel-netcdf:
           environment:
             set:
@@ -816,6 +847,9 @@ spack:
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
           intel-oneapi-compilers: intel/{version}
+          intel-oneapi-mpi: impi/{version}
+          intel-oneapi-mkl: mkl/{version}
+          parallelio: pio/{version}
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -845,9 +879,9 @@ spack:
         access_token: null
         profile: null
         endpoint_url: null
-  'repos:':
+  repos:
   - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/repos/ncar.hpcd
-  - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/repos/builtin
+  - /glade/work/csgteam/spack-deployments/gust/22.08/envs/build/repos/future
   specs:
   - nvhpc@22.7
   - intel-oneapi-compilers@2022.1.0
@@ -943,3 +977,9 @@ spack:
   - netcdf@4.8.1%nvhpc@21.3+mpi ^cray-mpich@8.1.18%nvhpc@21.3
   - go
   - apptainer
+  - intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0
+  - intel-oneapi-mkl@2022.1.0%oneapi@2022.1.0
+  - parallelio@2_5_8%nvhpc@21.3 ^cray-mpich@8.1.18%nvhpc@21.3
+  - parallelio@2_5_8%nvhpc@22.7 ^cray-mpich@8.1.18%nvhpc@22.7
+  - parallelio@2_5_8%oneapi@2022.1.0 ^cray-mpich@8.1.18%oneapi@2022.1.0
+  - parallelio@2_5_8%cce@14.0.2 ^cray-mpich@8.1.18%cce@14.0.2
