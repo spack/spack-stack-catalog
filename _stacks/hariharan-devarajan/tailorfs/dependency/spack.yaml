@@ -10,6 +10,13 @@ spack:
   - pkg-config@0.29.2
   - boost@1.69.0
   - nlohmann-json@3.10.5
+  - unifyfs@0.9.2
   concretizer:
     unify: true
   view: true
+  packages:
+    unifyfs:
+      externals:
+      - spec: unifyfs@0.9.2
+        prefix: ../external/UnifyFS/install
+      buildable: false
