@@ -19,3 +19,4 @@ spack:
   concretization: together
   repos:
   - ../..
+  specs:

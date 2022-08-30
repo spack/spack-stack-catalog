@@ -294,10 +294,10 @@ spack:
   - zfp@0.5.5 +cuda cuda_arch=70
 
   # GPU FAILURES
-  #- ascent@0.8.0 +cuda cuda_arch=80    # vtk-m@1.7.1
-  #- bricks@r0.1 +cuda                  # bricks
-  #- dealii@9.4.0 +cuda                 # dealii
-  #- vtk-m@1.8.0 +cuda cuda_arch=80     # vtk-m@1.8.0
+  # - ascent@0.8.0 +cuda cuda_arch=80    # vtk-m@1.7.1
+  # - bricks@r0.1 +cuda                  # bricks
+  # - dealii@9.4.0 +cuda                 # dealii
+  # - vtk-m@1.8.0 +cuda cuda_arch=80     # vtk-m@1.8.0
   # ----
   # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
   # fltk: pngrutil.c:(.text.png_read_filter_row+0x88): undefined reference to `png_init_filter_functions_vsx'
@@ -316,4 +316,4 @@ spack:
   # variorum: src/variorum/Intel/variorum_cpuid.c:11:5: error: impossible constraint in 'asm'
 
   # SKIPPED
-  #- charliecloud
+  # - charliecloud

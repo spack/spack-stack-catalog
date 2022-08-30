@@ -302,8 +302,9 @@ spack:
   - zfp@0.5.5 +cuda cuda_arch=70
 
   # FAILURES
-  # - dealii +cuda cuda_arch=70
-  # - dealii +cuda cuda_arch=80
+  # - dealii@9.4.0 +cuda    # dealii
+  # -----
+  # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
 
   # SKIPPED
-  #- charliecloud
+  # - charliecloud
