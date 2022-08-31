@@ -319,7 +319,6 @@ spack:
   - nco@5.0.1
   - netlib-scalapack@2.2.0
   - nrm@0.1.0
-  - nvhpc@22.7
   - omega-h@9.34.1
   - openmpi@4.1.4
   - openpmd-api@0.14.5
@@ -382,7 +381,6 @@ spack:
   - amrex@22.08 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
-  - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpx@1.8.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
@@ -393,12 +391,12 @@ spack:
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a
 
   # amdgpu_target=gfx908
   - amrex@22.08 +rocm amdgpu_target=gfx908
   - arborx@1.2 +rocm amdgpu_target=gfx908
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx908
-  - ginkgo@1.4.0 +rocm amdgpu_target=gfx908
   - heffte@2.2.0 +rocm amdgpu_target=gfx908
   - hpx@1.8.1 +rocm amdgpu_target=gfx908
   - kokkos@3.6.01 +rocm amdgpu_target=gfx908
@@ -409,22 +407,18 @@ spack:
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx908
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx908
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx908
 
   # FAILURES
-  # - caliper +rocm amdgpu_target=gfx908
-  # - caliper +rocm amdgpu_target=gfx90a
-  # - chai ~benchmarks +rocm amdgpu_target=gfx908
-  # - chai ~benchmarks +rocm amdgpu_target=gfx90a
-  # - papi +rocm amdgpu_target=gfx908
-  # - papi +rocm amdgpu_target=gfx90a
-  # - petsc +rocm amdgpu_target=gfx908
-  # - petsc +rocm amdgpu_target=gfx90a
-  # - raja ~openmp +rocm amdgpu_target=gfx908
-  # - raja ~openmp +rocm amdgpu_target=gfx90a
-  # - slepc +rocm amdgpu_target=gfx908 ^petsc +rocm amdgpu_target=gfx908
-  # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
-  # - umpire +rocm amdgpu_target=gfx908
-  # - umpire +rocm amdgpu_target=gfx90a  
-
+  # - caliper +rocm
+  # - chai ~benchmarks +rocm
+  # - papi +rocm
+  # - petsc +rocm
+  # - raja ~openmp +rocm
+  # - slepc +rocm
+  # - umpire +rocm
+  # ----
+  #
+  
   # SKIPPED
-  #- charliecloud
+  # - charliecloud

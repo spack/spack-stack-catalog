@@ -36,7 +36,7 @@ spack:
         - openblas
   specs:
   - mpich@develop~fortran device=ch4 netmod=ofi  
-  - petsc@main~fortran
+  - petsc@main~fortran+debug
   - hdf5@1.12.1+hl+mpi
   - fftw+mpi+openmp
   - gsl

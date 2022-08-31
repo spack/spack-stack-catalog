@@ -1,0 +1,311 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+    # ROCm 5.2.0
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/hip
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@5.2.0
+        prefix: /opt/rocm-5.2.0/opencl
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.2.0
+        prefix: /opt/rocm-5.2.0/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            c++: /opt/rocm-5.2.0/llvm/bin/clang++
+            hip: /opt/rocm-5.2.0/hip/bin/hipcc
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@5.2.0
+        prefix: /opt/rocm-5.2.0/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@5.2.0
+        prefix: /opt/rocm-5.2.0/
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@5.2.0
+        prefix: /opt/rocm-5.2.0/roctracer
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@5.2.0
+        prefix: /opt/rocm-5.2.0
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@5.2.0
+        prefix: /opt/rocm-5.2.0
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@5.2.0
+        prefix: /opt/rocm-5.2.0
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@5.2.0
+        prefix: /opt/rocm-5.2.0
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@5.2.0
+        prefix: /opt/rocm-5.2.0
+
+  modules:
+    prefix_inspections:
+      ./lib:
+      - LD_LIBRARY_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+    default:
+      enable:: [lmod]
+      lmod:
+        core_compilers: [gcc@9.4.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich, cmake^ncurses@6.3]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            amdgpu_target=gfx908: rocm-gfx908
+            amdgpu_target=gfx90a: rocm-gfx90a
+            +openmp: openmp
+        tau:
+          suffixes:
+            +rocm: rocm
+        hpctoolkit:
+          suffixes:
+            +rocm: rocm
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+            ^ncurses@6.3: ncurses6.3
+            ^ncurses@6.2: ncurses6.2
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  specs:
+  # no amdgpu_target
+  - hpctoolkit@2022.05.15 +rocm
+  - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
+
+  # amdgpu_target=gfx90a
+  - amrex@22.08 +rocm amdgpu_target=gfx90a
+  - arborx@1.2 +rocm amdgpu_target=gfx90a
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
+  - heffte@2.2.0 +rocm amdgpu_target=gfx90a
+  - hpx@1.8.1 +rocm amdgpu_target=gfx90a
+  - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
+  - slate@2022.06.00 +rocm amdgpu_target=gfx90a
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
+  - sundials@6.2.0 +rocm amdgpu_target=gfx90a
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
+  - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a
+
+  # amdgpu_target=gfx908
+  - amrex@22.08 +rocm amdgpu_target=gfx908
+  - arborx@1.2 +rocm amdgpu_target=gfx908
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx908
+  - heffte@2.2.0 +rocm amdgpu_target=gfx908
+  - hpx@1.8.1 +rocm amdgpu_target=gfx908
+  - kokkos@3.6.01 +rocm amdgpu_target=gfx908
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx908
+  - slate@2022.06.00 +rocm amdgpu_target=gfx908
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx908
+  - sundials@6.2.0 +rocm amdgpu_target=gfx908
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
+  - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx908
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx908
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx908
+
+  # FAILURES
+  # - caliper +rocm
+  # - chai ~benchmarks +rocm
+  # - papi +rocm
+  # - petsc +rocm
+  # - raja ~openmp +rocm
+  # - slepc +rocm
+  # - umpire +rocm
+  # ----
+  #
+  
+  # SKIPPED
+  # - charliecloud

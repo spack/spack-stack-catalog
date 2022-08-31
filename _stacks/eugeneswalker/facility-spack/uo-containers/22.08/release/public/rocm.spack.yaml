@@ -235,6 +235,7 @@ spack:
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+  - vtk-m@1.8.0 ~openmp +rocm amdgpu_target=gfx90a
 
   # amdgpu_target=gfx908
   - amrex@22.08 +rocm amdgpu_target=gfx908
@@ -254,6 +255,7 @@ spack:
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx908
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx908
+  - vtk-m@1.8.0 ~openmp +rocm amdgpu_target=gfx908
 
   # FAILURES
   # - chai@2022.03.0 ~benchmarks    # umpire
@@ -266,7 +268,6 @@ spack:
   # raja: https://github.com/spack/spack/issues/32127
   # umpire: CMake Error in CMakeLists.txt: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: "/tmp/root/spack-stage/spack-stage-umpire-2022.03.1-fvtxwq2n6zhmfhcrr6a4obg7w3uzljwa/spack-src/HIP_CLANG_INCLUDE_PATH-NOTFOUND/.." which is prefixed in the source directory.
   # umpire: https://github.com/spack/spack/issues/32133
-
 
   # SKIPPED
   # - charliecloud

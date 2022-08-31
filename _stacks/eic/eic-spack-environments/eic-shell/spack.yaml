@@ -1,0 +1,46 @@
+spack:
+  specs:
+    - acts +dd4hep +identification +json +tgeo +ipo +examples +fatras +geant4 +python
+    - cairo +fc +ft +X +pdf +gobject
+    - clhep cxxstd=17
+    - cmake
+    - cnpy
+    #- dawn
+    #- dawncut
+    - dd4hep +ddg4 -ddcad +hepmc3 +ipo +lcio
+    - edm4hep cxxstd=17 -ipo
+    - eigen
+    - emacs toolkit=athena
+    - fastjet
+    - fmt +shared cxxstd=17
+    - gaudi +optional
+    - geant4 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
+    - genfit
+    - hepmc3 +python +rootio 
+    - heppdt
+    - igprof
+    - imagemagick
+    - jana2 +root +zmq
+    - madx
+    - mesa +glx -llvm +opengl +opengles +osmesa
+    - nlohmann-json
+    - opencascade
+    - pkg-config
+    - podio build_type=RelWithDebInfo
+    - pythia8 +fastjet
+    - python
+    - py-numpy
+    - py-pip
+    - qt +opengl
+    - root cxxstd=17 
+          +fftw +fortran +gdml +http +mlp +pythia8 
+          +root7 +tmva +vc +xrootd +ssl 
+    - spdlog
+    - stow
+    #- tensorflow-lite -xnnpack
+    - xrootd cxxstd=17 +python
+  concretizer: 
+    unify: true
+  packages:
+    all:
+      compiler: [gcc]

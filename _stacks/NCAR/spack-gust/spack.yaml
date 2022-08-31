@@ -371,11 +371,6 @@ spack:
       - spec: intel-oneapi-compilers@2022.1.0
         prefix: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0
       buildable: false
-    intel-oneapi-compilers-classic:
-      externals:
-      - spec: intel-oneapi-compilers-classic@2022.1.0
-        prefix: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers-classic/2022.1.0/gcc/7.5.0
-      buildable: false
     inputproto:
       externals:
       - spec: inputproto@2.3.2
@@ -590,6 +585,8 @@ spack:
         'mpi:': [cray-mpich, openmpi]
         'szip:': [libszip]
         'pkgconfig:': [pkg-config]
+        'lapack:': [cray-libsci, openblas]
+        'blas:': [cray-libsci, openblas]
       permissions:
         read: world
         write: user
@@ -597,6 +594,11 @@ spack:
       externals:
       - spec: pbspro@2021.1.3
         prefix: /opt/pbs
+      buildable: false
+    miniconda3:
+      externals:
+      - spec: miniconda3@4.12.0
+        prefix: /glade/u/apps/opt/conda
       buildable: false
     cray-mpich:
       externals:
@@ -619,6 +621,12 @@ spack:
         - craype-network-ofi
         - libfabric/1.15.0.0
       - spec: cray-mpich@8.1.18 %oneapi
+        prefix: /opt/cray/pe/mpich/8.1.18/ofi/intel/19.0
+        modules:
+        - cray-mpich/8.1.18
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.18 %intel
         prefix: /opt/cray/pe/mpich/8.1.18/ofi/intel/19.0
         modules:
         - cray-mpich/8.1.18
@@ -655,6 +663,12 @@ spack:
       variants: [~suid]
     parallelio:
       variants: [+pnetcdf]
+    esmf:
+      variants: [+external-lapack]
+    intel-oneapi-mpi:
+      variants: [+external-libfabric, +ilp64]
+    intel-oneapi-mkl:
+      variants: [+ilp64]
   view:
     baseenv:
       root: /glade/u/apps/gust/22.08b/opt
@@ -675,6 +689,21 @@ spack:
       extra_rpaths: []
       flags: {}
       spec: gcc@7.5.0
+  - compiler:
+      spec: intel@2022.1.0
+      paths:
+        cc: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/intel64/icc
+        cxx: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/intel64/icpc
+        f77: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/intel64/ifort
+        fc: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/bin/intel64/ifort
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
+      extra_rpaths: []
   - compiler:
       spec: oneapi@2022.1.0
       paths:
@@ -970,6 +999,21 @@ spack:
               F77: '{prefix}/compiler/{version}/linux/bin/ifx'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/compiler/{version}/linux/compiler/lib/intel64'
+        intel-oneapi-compilers-classic:
+          autoload: none
+          filter:
+            exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_COMPILERS_CLASSIC, CMAKE_PREFIX_PATH]
+          environment:
+            set:
+              PE_ENV: INTEL
+              INTEL_VERSION: '{version}'
+              INTEL_PATH: '{^intel-oneapi-compilers.prefix}'
+              NCAR_ROOT_INTEL: '{^intel-oneapi-compilers.prefix}'
+            prepend_path:
+              LD_LIBRARY_PATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/linux/compiler/lib/intel64'
+              PATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/linux/bin/intel64'
+              NLSPATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/linux/compiler/lib/intel64_lin/locale/%l_%t/%N'
+              MANPATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/documentation/en/man/common'
         nvhpc:
           environment:
             set:
@@ -999,6 +1043,24 @@ spack:
           environment:
             set:
               PNETCDF: '{prefix}'
+        cuda:
+          environment:
+            set:
+              CRAY_ACCEL_TARGET: nvidia80
+              CRAY_TCMALLOC_MEMFS_FORCE: '1'
+              CRAYPE_LINK_TYPE: dynamic
+              CRAY_ACCEL_VENDOR: nvidia
+        miniconda3:
+          filter:
+            exclude_env_vars: [PATH, LD_LIBRARY_PATH, NCAR_LDFLAGS_MINICONDA3, NCAR_INC_MINICONDA3,
+              NCAR_ROOT_MINICONDA3, ACLOCAL_PATH, PKG_CONFIG_PATH, CMAKE_PREFIX_PATH,
+              CONDA_SHLVL, _CE_CONDA, _CE_M, MANPATH]
+          environment:
+            set:
+              NCAR_ROOT_CONDA: '{prefix}'
+              CONDA_ROOT: '{prefix}'
+              CONDA_EXE: '{prefix}/bin/conda'
+          template: conda.lua
         ncarenv:
           template: ncar_env.lua
         netcdf~mpi:
@@ -1013,6 +1075,10 @@ spack:
           template: conflict-serial.lua
         fftw+mpi:
           template: conflict-mpi.lua
+        esmf~mpi:
+          template: conflict-serial.lua
+        esmf+mpi:
+          template: conflict-mpi.lua
         projections:
           all: '{name}/{version}'
           r: R/{version}
@@ -1023,6 +1089,10 @@ spack:
           netcdf: netcdf/{version}
           intel-oneapi-compilers: oneapi/{version}
           intel-oneapi-compilers-classic: intel/{version}
+          intel-oneapi-mpi: impi/{version}
+          intel-oneapi-mkl: mkl/{version}
+          miniconda3: conda/latest
+          esmf+mpi: esmf-mpi/{version}
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -1033,6 +1103,7 @@ spack:
         - nco
         - cdo
         - wgrib2
+        - ncview
   mirrors:
     glade_gust:
       fetch:
@@ -1152,3 +1223,30 @@ spack:
   - parallel-netcdf@1.12.2%nvhpc@22.2 ^cray-mpich@8.1.18%nvhpc@22.2
   - hdf5@1.12.2%nvhpc@22.2+mpi ^cray-mpich@8.1.18%nvhpc@22.2
   - netcdf@4.8.1%nvhpc@22.2+mpi ^cray-mpich@8.1.18%nvhpc@22.2
+  - miniconda3
+  - parallelio@2_5_8%gcc@11.2.0 ^cray-mpich@8.1.18%gcc@11.2.0
+  - parallelio@2_5_8%gcc@10.3.0 ^cray-mpich@8.1.18%gcc@10.3.0
+  - parallelio@2_5_8%nvhpc@21.3 ^cray-mpich@8.1.18%nvhpc@21.3
+  - parallelio@2_5_8%nvhpc@22.2 ^cray-mpich@8.1.18%nvhpc@22.2
+  - parallelio@2_5_8%nvhpc@22.7 ^cray-mpich@8.1.18%nvhpc@22.7
+  - parallelio@2_5_8%oneapi@2022.1.0 ^cray-mpich@8.1.18%oneapi@2022.1.0
+  - parallelio@2_5_8%cce@14.0.2 ^cray-mpich@8.1.18%cce@14.0.2
+  - esmf@8.3.0%gcc@11.2.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@11.2.0
+  - esmf@8.3.0%gcc@10.3.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@10.3.0
+  - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2
+  - intel-oneapi-mkl@2022.1.0%oneapi@2022.1.0
+  - intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0
+  - cray-mpich@8.1.18%intel@2022.1.0
+  - ncarcompilers@0.6.2%intel@2022.1.0
+  - fftw@3.3.10%intel@2022.1.0
+  - udunits@2.2.28%intel@2022.1.0
+  - hdf5@1.12.2%intel@2022.1.0
+  - netcdf@4.8.1%intel@2022.1.0
+  - eccodes@2.25.0%intel@2022.1.0
+  - proj@8.2.1%intel@2022.1.0
+  - hdf@4.2.15%intel@2022.1.0
+  - parallel-netcdf@1.12.2%intel@2022.1.0 ^cray-mpich@8.1.18%intel@2022.1.0
+  - hdf5@1.12.2%intel@2022.1.0+mpi ^cray-mpich@8.1.18%intel@2022.1.0
+  - netcdf@4.8.1%intel@2022.1.0+mpi ^cray-mpich@8.1.18%intel@2022.1.0
+  - parallelio@2_5_8%intel@2022.1.0 ^cray-mpich@8.1.18%intel@2022.1.0
+  - intel-oneapi-compilers-classic@2022.1.0

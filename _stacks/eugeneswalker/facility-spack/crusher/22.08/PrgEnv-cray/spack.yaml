@@ -1,0 +1,586 @@
+spack:
+
+  view: false
+
+  concretizer:
+    reuse: False
+    unify: False
+
+  modules:
+    default:
+      enable:: [lmod]
+      lmod:
+        defaults:
+        - cray-mpich@8.1.17
+        core_compilers: [cce@14.0.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [cray-mpich]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +rocm: rocm
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  compilers:
+  - compiler:
+      spec: cce@14.0.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.0
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.2
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+
+  packages:
+    all:
+      compiler: [cce@14.0.0]
+      providers:
+        blas: [openblas]
+        lapack: [openblas]
+        mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
+      target: [zen3]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+    # FACILITY REQUESTED PREFERENCES
+    petsc:
+      variants: +batch
+    parallel-netcdf:
+      variants: +cxx +fortran +fpic
+    netlib-scalapack:
+      variants: +fpic
+    netcdf-c:
+      variants: ~hdf4 +mpi +parallel-netcdf +shared
+    fftw:
+      variants: precision=float,double,long_double
+    darshan-runtime:
+      variants: scheduler=slurm
+
+    # EXTERNALS
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.16 %cce@14.0.0
+        prefix: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0
+        modules:
+        - cray-mpich/8.1.16
+        - libfabric/1.15.0.0
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.15
+        modules:
+        - libfabric/1.15.0.0
+
+    # ROCm 5.2.0
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/hip
+        modules: [rocm/5.2.0]
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@5.2.0
+        prefix: /opt/rocm-5.2.0/opencl
+        modules: [rocm/5.2.0]
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.2.0
+        prefix: /opt/rocm-5.2.0/hip
+        modules: [rocm/5.2.0]
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            c++: /opt/rocm-5.2.0/llvm/bin/clang++
+            hip: /opt/rocm-5.2.0/hip/bin/hipcc
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@5.2.0
+        prefix: /opt/rocm-5.2.0/llvm
+        modules: [rocm/5.2.0]
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@5.2.0
+        prefix: /opt/rocm-5.2.0/roctracer
+        modules: [rocm/5.2.0]
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+
+  specs:
+  # CPU
+  - adios@1.13.1
+  - adios2@2.8.3
+  - alquimia@1.0.9
+  - aml@0.2.0
+  - amrex@22.08
+  - arborx@1.2
+  - archer@2.0.0
+  - argobots@1.1
+  - ascent@0.8.0
+  - axom@0.6.1
+  - bolt@2.0
+  - bricks@r0.1
+  - butterflypack@2.1.1
+  - cabana@0.5.0
+  - caliper@2.8.0
+  - chai@2022.03.0 ~benchmarks ~tests
+  - conduit@0.8.3
+  - darshan-runtime@3.4.0
+  - darshan-util@3.4.0
+  - datatransferkit@3.1-rc3
+  - dyninst@12.2.0
+  - exaworks@0.1.0
+  - faodel@1.2108.1
+  - flecsi@1.4.2
+  - flit@2.1.0
+  - flux-core@0.40.0
+  - fortrilinos@2.0.0
+  - gasnet@2022.3.0
+  - geopm@1.1.0
+  - ginkgo@1.4.0
+  - globalarrays@5.8
+  - gmp@6.2.1
+  - gotcha@1.0.3
+  - h5bench@1.2
+  - hdf5@1.12.2 +fortran +hl +shared
+  - hdf5-vol-async@1.2
+  - heffte@2.2.0 +fftw
+  - hpctoolkit@2022.05.15
+  - hpx@1.8.1 networking=mpi
+  - hypre@2.25.0
+  - kokkos@3.6.01 +openmp
+  - kokkos-kernels@3.6.00 +openmp
+  - lammps@20220623
+  - legion@21.03.0
+  - libquo@1.3.1
+  - libunwind@1.6.2
+  - loki@0.1.7
+  - mercury@2.1.0
+  - metall@0.21
+  - mfem@4.4.0
+  - mpark-variant@1.4.0
+  - mpifileutils@0.11.1 ~xattr
+  - nccmp@1.9.0.1
+  - nco@5.0.1
+  - netlib-scalapack@2.2.0
+  - nrm@0.1.0
+  - omega-h@9.34.1
+  - openmpi@4.1.4
+  - openpmd-api@0.14.5
+  - papi@6.0.0.1
+  - papyrus@1.0.2
+  - parallel-netcdf@1.12.2
+  - paraview@5.10.1 +qt ^mesa@21.3.8
+  - parsec@3.0.2012 ~cuda
+  - pdt@3.25.1
+  - petsc@3.17.4
+  - phist@1.9.5
+  - plasma@21.8.29
+  - plumed@2.8.0
+  - precice@2.5.0
+  - pruners-ninja@1.0.1
+  - pumi@2.2.7
+  - py-cinemasci@1.7.0
+  - py-jupyterhub@1.4.1
+  - py-libensemble@0.9.2
+  - py-petsc4py@3.17.4
+  - py-warpx@22.08 ^warpx dims=2
+  - py-warpx@22.08 ^warpx dims=3
+  - py-warpx@22.08 ^warpx dims=rz
+  - qthreads@1.16 scheduler=distrib
+  - raja@2022.03.0
+  - rempi@1.1.0
+  - scr@3.0
+  - slate@2022.06.00 ~cuda
+  - slepc@3.17.2
+  - stat@4.1.0
+  - stc@0.9.0
+  - strumpack@6.3.1 ~slate
+  - sundials@6.2.0
+  - superlu@5.3.0
+  - superlu-dist@7.2.0
+  - swig@4.0.2
+  - swig@4.0.2-fortran
+  - sz@2.1.12.2
+  - tasmanian@7.7
+  - tau@2.31.1 +mpi +python
+  - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+    +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+    +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+    +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  - turbine@1.3.0
+  - umap@2.1.0
+  - umpire@2022.03.1
+  - unifyfs@0.9.2
+  - upcxx@2022.3.0
+  - variorum@0.4.1
+  - veloc@1.5
+  - vtk-m@1.8.0
+  - wannier90@3.1.0
+  - zfp@0.5.5
+
+  # no amdgpu_target
+  - hpctoolkit@2022.05.15 +rocm
+  - tau@2.31.1 +mpi +rocm ^mpich@4.0.2
+
+  # amdgpu_target=gfx90a
+  - amrex@22.08 +rocm amdgpu_target=gfx90a
+  - arborx@1.2 +rocm amdgpu_target=gfx90a
+  - caliper@2.8.0 +rocm amdgpu_target=gfx90a
+  - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a
+  - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
+  - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
+  - heffte@2.2.0 +rocm amdgpu_target=gfx90a
+  - hpx@1.8.1 +rocm amdgpu_target=gfx90a
+  - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
+  - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
+  - papi@6.0.0.1 +rocm amdgpu_target=gfx90a
+  - petsc@3.17.4 +rocm amdgpu_target=gfx90a  
+  - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a
+  - slate@2022.06.00 +rocm amdgpu_target=gfx90a
+  - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a
+  - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
+  - sundials@6.2.0 +rocm amdgpu_target=gfx90a
+  - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
+  - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
+  - umpire@2022.03.1 +rocm amdgpu_target=gfx90a
+  - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a
+
+  # FAILURES
+  # 
+  # ----
+  # ginkgo: padded length=256, problem with install phase: test_install: error while loading shared libraries: librocrand.so.1: cannot open shared object file: No such file or directory
+  # raja: CMake Error at cmake/SetupPackages.cmake:93: Could NOT find ROCPRIM (missing: ROCPRIM_INCLUDE_DIRS)
+  # raja: https://github.com/spack/spack/issues/32127
+  # umpire: CMake Error in CMakeLists.txt: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: "/tmp/root/spack-stage/spack-stage-umpire-2022.03.1-fvtxwq2n6zhmfhcrr6a4obg7w3uzljwa/spack-src/HIP_CLANG_INCLUDE_PATH-NOTFOUND/.." which is prefixed in the source directory.
+  # umpire: https://github.com/spack/spack/issues/32133
+
+  # CPU FAILURES
+  #- alquimia                        # pflotran
+  #- bricks                          # bricks
+  #- butterflypack                   # arpack-ng
+  #- dealii                          # intel-tbb
+  #- exaworks                        # rust
+  #- geopm                           # py-numpy@1.23.1
+  #- gptune                          # netlib-scalapack
+  #- h5bench                         # h5bench
+  #- lammps                          # kim-api
+  #- netlib-scalapack                # netlib-scalapack
+  #- nrm                             # py-numpy@1.23.1
+  #- omega-h                         # omega-h
+  #- paraview +qt ^llvm@12.0.1       # llvm@12
+  #- parsec ~cuda                    # parsec
+  #- phist                           # phist
+  #- pruners-ninja                   # pruners-ninja
+  #- py-cinemasci                    # py-numpy@1.23.1
+  #- py-warpx ^warpx dims=2          # py-numpy@1.23.1
+  #- py-warpx ^warpx dims=3          # py-numpy@1.23.1
+  #- py-warpx ^warpx dims=rz         # py-numpy@1.23.1
+  #- rempi                           # rempi
+  #- scr                             # scr
+  #- slate ~cuda                     # netlib-scalapack
+  #- slepc                           # arpack-ng
+  #- strumpack ~slate                # arpack-ng
+  #- wannier90                       # wannier90
+  # --------
+  # arpack-ng: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: lib/libarpack.so.2.1.0: undefined reference to `_ismin_'
+  # bricks: cc1plus: error: bad value ('OFF') for '-mtune=' switch; stencils/3axis_sycl.cpp:8:10: fatal error: 'CL/sycl.hpp' file not found
+  # cabana: googletest-src/googlemock/include/gmock/gmock-actions.h:455:3: error: definition of implicit copy constructor for 'PolymorphicAction<testing::internal::ReturnNullAction>' is deprecated because it has a user-declared copy assignment operator [-Werror,-Wdeprecated-copy]
+  # geopm: ftn-2307 ftn: ERROR in command line: The "-m" option must be followed by 0, 1, 2, 3 or 4.
+  # h5bench: https://github.com/spack/spack/issues/32113
+  # h5bench: ld.lld: error: duplicate symbol: has_vol_async
+  # intel-tbb: clang-14: error: unknown argument: '-flifetime-dse=1'
+  # intel-tbb: clang-14: error: unknown argument: '-flifetime-dse=1'
+  # kim-api: ftn-78 ftn: ERROR in command line: The -s option has an invalid argument, "td=gnu".
+  # llvm@12: ld: .../lib/libLLVMSupport.a(Process.cpp.o): in function `llvm::sys::Process::SafelyCloseFileDescriptor(int)': Process.cpp:(.text._ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi+0x2f): undefined reference to `pthread_sigmask'
+  # mesa: gallium/drivers/swr/rasterizer/jitter/builder_mem.h:87:36: error: cannot convert 'llvm::Value*' to 'llvm::Type*'
+  # netlib-scalapack: ld: .../lib/libscalapack.so: undefined reference to `_idmin_'
+  # netlib-scalapack: ld: .../lib/libscalapack.so: undefined reference to `_idmin_'
+  # netlib-scalapack: ld: .../lib/libscalapack.so: undefined reference to `_idmin_'
+  # omega-h: src/Omega_h_int128.hpp:18:10: error: definition of implicit copy assignment operator for 'Int128' is deprecated because it has a user-declared copy constructor [-Werror,-Wdeprecated-copy]
+  # pango: gi-docgen/meson.build:10:0: Exception: python3 is missing modules: jinja2, markdown, markupsafe, pygments, toml, typogri
+  # parsec: ftn-78 ftn: ERROR in command line: The -O option has an invalid argument, "g".
+  # petsc: include/petscsys.h:69:12: fatal error: 'mpi.h' file not found
+  # pflotran: ftn-855 ftn: ERROR GRID_UNSTRUCTURED_MODULE,
+  # phist: ftn-78 ftn: ERROR in command line: The -f option has an invalid argument, "finite-math-only".
+  # plumed: lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
+  # pruners-ninja: https://github.com/spack/spack/issues/32112
+  # pruners-ninja: ld.lld: error: duplicate symbol: a
+  # py-numpy@1.23.1: clang-14: error: unknown argument: '-mavx5124fmaps'
+  # py-scipy: clang-14: error: unknown argument: '-mavx5124fmaps'
+  # rempi: https://github.com/spack/spack/issues/32123
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
+  # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
+  # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
+  # scr: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
+  # scr: ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
+  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
+  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
+  # variorum: https://github.com/spack/spack/issues/32110
+  # wannier90: src/hamiltonian.F90:167: undefined reference to `_zgemm_'
+
+  # GPU FAILURES
+  #- chai ~benchmarks +rocm amdgpu_target=gfx90a         # umpire
+  #- papi +rocm amdgpu_target=gfx90a                     # rocprofiler-dev; https://github.com/spack/spack/issues/27898
+  #- raja ~openmp +rocm amdgpu_target=gfx90a             # raja
+  #- slate +rocm amdgpu_target=gfx90a                    # netlib-scalapack
+  #- slepc +rocm amdgpu_target=gfx90a                    # arpack-ng
+  #- strumpack ~slate +rocm amdgpu_target=gfx90a         # netlib-scalapack
+  #- trilinos +rocm amdgpu_target=gfx90a                 # trilinos
+  #- umpire +rocm amdgpu_target=gfx90a                   # umpire+rocm
+  #- vtk-m +rocm amdgpu_target=gfx90a                    # vtk-m
+  # --------
+  # cabana +rocm: g++: error: unrecognized command-line option '-fno-gpu-rdc'
+  # cabana +rocm: https://github.com/spack/spack/issues/27967
+  # raja +rocm: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
+  # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
+  # trilinos +rocm: CMake Error at packages/kokkos/cmake/kokkos_arch.cmake:448 (MESSAGE): HIP enabled but no AMD GPU architecture currently enabled.  Please enable one AMD GPU architecture via -DKokkos_ARCH_{..}=ON'.
+  # trilinos +rocm: HIP/Kokkos_HIP_Kernel Launch.hpp:79:3: error: __constant__, __device__, and __managed__ are not allowed on non-static local variables
+  # umpire +rocm: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
+  # vtk-m +rocm: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
+  # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
+
+  # SKIPPED
+  # - dyninst@12.1.0        # %clang conflict
+  # - gptune@3.0.0          # hard openmpi dependency
+  # - libnrm@0.1.0          # hard dependency on mpich specifically
+  # - nvhpc@22.7            # not relevant on AMD GPU system
+  # - plasma@21.8.29        # %clang conflict
+  # - stat@4.1.0            # mesa

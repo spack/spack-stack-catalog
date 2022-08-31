@@ -16,7 +16,7 @@ spack:
         - openblas
   specs:
   - hdf5@1.12.1+hl+mpi
-  - petsc@main~fortran  
+  - petsc@main~fortran+debug
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd

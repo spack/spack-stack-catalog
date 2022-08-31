@@ -1,0 +1,193 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@11.4.4
+        prefix: /usr/local/cuda
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+  modules:
+    prefix_inspections:
+      ./lib:
+      - LD_LIBRARY_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+    default:
+      'enable:': [lmod]
+      lmod:
+        core_compilers: [gcc@9.4.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mpich, cmake^ncurses@6.3]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        tau:
+          suffixes:
+            +cuda: cuda
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        bricks:
+          suffixes:
+            +cuda: cuda
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+            ^ncurses@6.3: ncurses6.3
+            ^ncurses@6.2: ncurses6.2
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  specs:
+  # no cuda_arch
+  - tau@2.31.1 +mpi +cuda ^mpich@4.0.2
+  - papi@6.0.0.1 +cuda
+  - bricks@r0.1 +cuda
+  - flux-core@0.40.0 +cuda
+  - hpctoolkit@2022.05.15 +cuda
+
+  # cuda_arch=80
+  - adios2@2.8.3 +cuda cuda_arch=80
+  - amrex@22.08 +cuda cuda_arch=80
+  - arborx@1.2 +cuda cuda_arch=80 ^kokkos@3.6.01 +wrapper
+  - ascent@0.8.0 +cuda cuda_arch=80
+  - cabana@0.5.0 +cuda ^kokkos@3.6.01 +wrapper +cuda_lambda +cuda cuda_arch=80
+  - caliper@2.8.0 +cuda cuda_arch=80
+  - chai@2022.03.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+  - flecsi@2.1.0 +cuda cuda_arch=80
+  - ginkgo@1.4.0 +cuda cuda_arch=80
+  - heffte@2.2.0 +cuda cuda_arch=80
+  - hpx@1.8.1 +cuda cuda_arch=80
+  - hypre@2.25.0 +cuda cuda_arch=80
+  - kokkos@3.6.01 +wrapper +cuda cuda_arch=80
+  - kokkos-kernels@3.6.00 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=80
+  - magma@2.6.2 +cuda cuda_arch=80
+  - mfem@4.4.0 +cuda cuda_arch=80
+  - parsec@3.0.2012 +cuda cuda_arch=80 
+  - petsc@3.17.4 +cuda cuda_arch=80
+  - raja@2022.03.0 +cuda cuda_arch=80
+  - slate@2022.06.00 +cuda cuda_arch=80
+  - slepc@3.17.2 +cuda cuda_arch=80
+  - strumpack@6.3.1 ~slate +cuda cuda_arch=80
+  - sundials@6.2.0 +cuda cuda_arch=80
+  - superlu-dist@7.2.0 +cuda cuda_arch=80
+  - tasmanian@7.7 +cuda cuda_arch=80
+  - trilinos@13.4.0 +cuda cuda_arch=80
+  - umpire@2022.03.1 ~shared +cuda cuda_arch=80
+  - vtk-m@1.8.0 +cuda cuda_arch=80
+  - zfp@0.5.5 +cuda cuda_arch=80
+
+  # cuda_arch=70
+  - adios2@2.8.3 +cuda cuda_arch=70
+  - amrex@22.08 +cuda cuda_arch=70
+  - arborx@1.2 +cuda cuda_arch=70 ^kokkos@3.6.01 +wrapper
+  - ascent@0.8.0 +cuda cuda_arch=70
+  - cabana@0.5.0 +cuda ^kokkos@3.6.01 +wrapper +cuda_lambda +cuda cuda_arch=70
+  - caliper@2.8.0 +cuda cuda_arch=70
+  - chai@2022.03.0 ~benchmarks ~tests +cuda cuda_arch=70 ^umpire ~shared
+  - flecsi@2.1.0 +cuda cuda_arch=70
+  - ginkgo@1.4.0 +cuda cuda_arch=70
+  - heffte@2.2.0 +cuda cuda_arch=70
+  - hpx@1.8.1 +cuda cuda_arch=70
+  - hypre@2.25.0 +cuda cuda_arch=70
+  - kokkos@3.6.01 +wrapper +cuda cuda_arch=70
+  - kokkos-kernels@3.6.00 +cuda cuda_arch=70 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=70
+  - magma@2.6.2 +cuda cuda_arch=70
+  - mfem@4.4.0 +cuda cuda_arch=70
+  - parsec@3.0.2012 +cuda cuda_arch=70 
+  - petsc@3.17.4 +cuda cuda_arch=70
+  - raja@2022.03.0 +cuda cuda_arch=70
+  - slate@2022.06.00 +cuda cuda_arch=70
+  - slepc@3.17.2 +cuda cuda_arch=70
+  - strumpack@6.3.1 ~slate +cuda cuda_arch=70
+  - sundials@6.2.0 +cuda cuda_arch=70
+  - superlu-dist@7.2.0 +cuda cuda_arch=70
+  - tasmanian@7.7 +cuda cuda_arch=70
+  - trilinos@13.4.0 +cuda cuda_arch=70
+  - umpire@2022.03.1 ~shared +cuda cuda_arch=70
+  - vtk-m@1.8.0 +cuda cuda_arch=70
+  - zfp@0.5.5 +cuda cuda_arch=70
+
+  # FAILURES
+  # - dealii@9.4.0 +cuda    # dealii
+  # -----
+  # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200

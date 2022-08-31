@@ -29,10 +29,7 @@ spack:
       target: [x86_64]
       variants: +mpi
     cuda:
-      buildable: false
-      externals:
-      - spec: cuda@11.4.4
-        prefix: /usr/local/cuda
+      version: [11.4.4]
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     elfutils:

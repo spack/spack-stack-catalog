@@ -251,6 +251,36 @@ spack:
   - vtk-m@1.8.0 +cuda cuda_arch=75
   - zfp@0.5.5 +cuda cuda_arch=75
 
+  # cuda_arch=80
+  - adios2@2.8.3 +cuda cuda_arch=80
+  - amrex@22.08 +cuda cuda_arch=80
+  - arborx@1.2 +cuda cuda_arch=80 ^kokkos@3.6.01 +wrapper
+  - ascent@0.8.0 +cuda cuda_arch=80
+  - cabana@0.5.0 +cuda ^kokkos@3.6.01 +wrapper +cuda_lambda +cuda cuda_arch=80
+  - caliper@2.8.0 +cuda cuda_arch=80
+  - chai@2022.03.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+  - flecsi@2.1.0 +cuda cuda_arch=80
+  - ginkgo@1.4.0 +cuda cuda_arch=80
+  - heffte@2.2.0 +cuda cuda_arch=80
+  - hypre@2.25.0 +cuda cuda_arch=80
+  - kokkos@3.6.01 +wrapper +cuda cuda_arch=80
+  - kokkos-kernels@3.6.00 +cuda cuda_arch=80 ^kokkos@3.6.00 +wrapper +cuda cuda_arch=80
+  - magma@2.6.2 +cuda cuda_arch=80
+  - mfem@4.4.0 +cuda cuda_arch=80
+  - parsec@3.0.2012 +cuda cuda_arch=80 
+  - petsc@3.17.4 +cuda cuda_arch=80
+  - raja@2022.03.0 +cuda cuda_arch=80
+  - slate@2022.06.00 +cuda cuda_arch=80
+  - slepc@3.17.2 +cuda cuda_arch=80
+  - strumpack@6.3.1 ~slate +cuda cuda_arch=80
+  - sundials@6.2.0 +cuda cuda_arch=80
+  - superlu-dist@7.2.0 +cuda cuda_arch=80
+  - tasmanian@7.7 +cuda cuda_arch=80
+  - trilinos@13.4.0 +cuda cuda_arch=80 ^cuda@11.7.0
+  - umpire@2022.03.1 ~shared +cuda cuda_arch=80
+  - vtk-m@1.8.0 +cuda cuda_arch=80
+  - zfp@0.5.5 +cuda cuda_arch=80
+
   # CPU FAILURES
   # - bricks@r0.1               # bricks
   # - geopm@1.1.0               # geopm
