@@ -81,10 +81,12 @@ spack:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
             +cuda cuda_arch=75: cuda75
+            +cuda cuda_arch=80: cuda80
             +openmp: openmp
         cabana:
           suffixes:
             ^kokkos +cuda cuda_arch=75: cuda75
+            ^kokkos +cuda cuda_arch=80: cuda80
         tau:
           suffixes:
             +cuda: cuda

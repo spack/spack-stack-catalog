@@ -635,7 +635,24 @@ spack:
       buildable: false
     cray-libsci:
       externals:
-      - spec: cray-libsci@22.08.1.1
+      - spec: cray-libsci@22.08.1.1 %gcc
+        prefix: /opt/cray/pe/libsci/22.08.1.1/gnu/9.1/x86_64
+        modules:
+        - cray-libsci/22.08.1.1
+      - spec: cray-libsci@22.08.1.1 %cce
+        prefix: /opt/cray/pe/libsci/22.08.1.1/cray/9.0/x86_64
+        modules:
+        - cray-libsci/22.08.1.1
+      - spec: cray-libsci@22.08.1.1 %nvhpc
+        prefix: /opt/cray/pe/libsci/22.08.1.1/nvidia/20.7/x86_64
+        modules:
+        - cray-libsci/22.08.1.1
+      - spec: cray-libsci@22.08.1.1 %oneapi
+        prefix: /opt/cray/pe/libsci/22.08.1.1/intel/19.0/x86_64
+        modules:
+        - cray-libsci/22.08.1.1
+      - spec: cray-libsci@22.08.1.1 %intel
+        prefix: /opt/cray/pe/libsci/22.08.1.1/intel/19.0/x86_64
         modules:
         - cray-libsci/22.08.1.1
       buildable: false
@@ -1021,19 +1038,15 @@ spack:
               NVIDIA_VERSION: '{version}'
               NVIDIA_PATH: '{prefix}'
               NVLOCALRC: '{prefix}/localrc/gust'
+              CRAY_NVIDIA_VERSION: '{version}'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
         ncarcompilers:
           environment:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
-              NCAR_WRAPPER_MPI: '{prefix.bin}/mpi'
-              CC: cc
-              CXX: CC
-              FC: ftn
-              F77: ftn
-            prepend_path:
-              PATH: '{prefix.bin}/mpi'
+              NCAR_WRAPPER_MPI_PATH: '{prefix}/bin/mpi'
+          template: ncar_wrapper.lua
         netcdf:
           environment:
             set:
@@ -1143,12 +1156,6 @@ spack:
   - emacs
   - go
   - apptainer
-  - ncarcompilers@0.6.2%gcc@11.2.0
-  - ncarcompilers@0.6.2%gcc@10.3.0
-  - ncarcompilers@0.6.2%nvhpc@21.3
-  - ncarcompilers@0.6.2%nvhpc@22.7
-  - ncarcompilers@0.6.2%oneapi@2022.1.0
-  - ncarcompilers@0.6.2%cce@14.0.2
   - fftw@3.3.10%gcc@11.2.0
   - fftw@3.3.10%gcc@10.3.0
   - fftw@3.3.10%nvhpc@21.3
@@ -1212,7 +1219,6 @@ spack:
   - cdo@2.0.5%gcc@11.2.0
   - nvhpc@22.2
   - cray-mpich@8.1.18%nvhpc@22.2
-  - ncarcompilers@0.6.2%nvhpc@22.2
   - fftw@3.3.10%nvhpc@22.2
   - udunits@2.2.28%nvhpc@22.2
   - hdf5@1.12.2%nvhpc@22.2
@@ -1231,13 +1237,9 @@ spack:
   - parallelio@2_5_8%nvhpc@22.7 ^cray-mpich@8.1.18%nvhpc@22.7
   - parallelio@2_5_8%oneapi@2022.1.0 ^cray-mpich@8.1.18%oneapi@2022.1.0
   - parallelio@2_5_8%cce@14.0.2 ^cray-mpich@8.1.18%cce@14.0.2
-  - esmf@8.3.0%gcc@11.2.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@11.2.0
-  - esmf@8.3.0%gcc@10.3.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@10.3.0
-  - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2
   - intel-oneapi-mkl@2022.1.0%oneapi@2022.1.0
   - intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0
   - cray-mpich@8.1.18%intel@2022.1.0
-  - ncarcompilers@0.6.2%intel@2022.1.0
   - fftw@3.3.10%intel@2022.1.0
   - udunits@2.2.28%intel@2022.1.0
   - hdf5@1.12.2%intel@2022.1.0
@@ -1250,3 +1252,13 @@ spack:
   - netcdf@4.8.1%intel@2022.1.0+mpi ^cray-mpich@8.1.18%intel@2022.1.0
   - parallelio@2_5_8%intel@2022.1.0 ^cray-mpich@8.1.18%intel@2022.1.0
   - intel-oneapi-compilers-classic@2022.1.0
+  - intel-oneapi-mkl@2022.1.0%intel@2022.1.0
+  - intel-oneapi-mpi@2021.6.0%intel@2022.1.0
+  - ncarcompilers@0.6.2%gcc@11.2.0
+  - ncarcompilers@0.6.2%gcc@10.3.0
+  - ncarcompilers@0.6.2%nvhpc@21.3
+  - ncarcompilers@0.6.2%nvhpc@22.2
+  - ncarcompilers@0.6.2%nvhpc@22.7
+  - ncarcompilers@0.6.2%oneapi@2022.1.0
+  - ncarcompilers@0.6.2%intel@2022.1.0
+  - ncarcompilers@0.6.2%cce@14.0.2
