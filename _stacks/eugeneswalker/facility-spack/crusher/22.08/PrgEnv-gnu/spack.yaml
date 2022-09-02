@@ -414,18 +414,21 @@ spack:
   # amdgpu_target=gfx90a
   - amrex@22.08 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
+  - cabana@0.5.0 +rocm
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
   - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpx@1.8.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
+  - mfem@4.4.0 +rocm amdgpu_target=gfx90a
   - slate@2022.06.00 +rocm amdgpu_target=gfx90a
   - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
+  - vtk-m@1.8.0 ~openmp ~rendering +rocm amdgpu_target=gfx90a
 
   # CPU FAILURES
   # - alquimia@1.0.9                          # pflotran
@@ -464,7 +467,6 @@ spack:
   # scr: CMake Error at cmake/SCR_DEPENDENCIES.cmake:10 (MESSAGE): Could not find MPI! Either add an MPI compiler to your path or force CMake
   # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
   # variorum: https://github.com/spack/spack/issues/32110
-  # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
   # wannier90: ../comms.F90:1214:22: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU FAILURES
@@ -477,10 +479,7 @@ spack:
   # - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a # petsc
   # - trilinos@13.4.0 +rocm amdgpu_target=gfx90a                # trilinos
   # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a               # umpire
-  # - vtk-m@1.8.0 ~openmp ~rendering +rocm amdgpu_target=gfx90a # vtk-m
   # ------
-  # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
-  # cabana: https://github.com/spack/spack/issues/27967
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # petsc: configure fail: WARNING: Using default optimization C flags -g -O
   # raja: g++: error: unrecognized command-line option '--rocm-path=/opt/rocm-5.2.0'
@@ -488,7 +487,6 @@ spack:
   # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # trilinos: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
   # umpire: src/umpire/util/io.cpp:188:34: error: 'fspath_path' was not declared in this scope
-  # vtk-m: vtkmdiy/mpi/datatypes.hpp:42:12: error: 'size_t' has not been declared
 
   # SKIPPED
   # - nvhpc@22.7                 # not relevant on AMD GPU system

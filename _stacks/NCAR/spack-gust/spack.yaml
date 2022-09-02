@@ -1262,3 +1262,7 @@ spack:
   - ncarcompilers@0.6.2%oneapi@2022.1.0
   - ncarcompilers@0.6.2%intel@2022.1.0
   - ncarcompilers@0.6.2%cce@14.0.2
+  - esmf@8.3.0%gcc@11.2.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@11.2.0
+  - esmf@8.3.0%gcc@10.3.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@10.3.0
+  - esmf@8.3.0%intel@2022.1.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%intel@2022.1.0
+  - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2

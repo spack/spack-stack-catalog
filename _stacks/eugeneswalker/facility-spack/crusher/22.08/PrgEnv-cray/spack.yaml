@@ -433,12 +433,14 @@ spack:
   # amdgpu_target=gfx90a
   - amrex@22.08 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
+  - cabana@0.5.0 +rocm
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
   - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpx@1.8.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
+  - mfem@4.4.0 +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
@@ -523,19 +525,18 @@ spack:
   # - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a     # netlib-scalapack
   # - trilinos +rocm amdgpu_target=gfx90a                   # trilinos
   # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a           # umpire
-  # - vtk-m@1.8.0 +rocm amdgpu_target=gfx90aa               # vtk-m
+  # - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a                 # vtk-m
   # --------
-  # petsc: WARNING Using default Cxx optimization flags -g -O3
+  # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
+  # cabana: https://github.com/spack/spack/issues/27967
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
-  # cabana +rocm: g++: error: unrecognized command-line option '-fno-gpu-rdc'
-  # cabana +rocm: https://github.com/spack/spack/issues/27967
-  # raja +rocm: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
+  # petsc: WARNING Using default Cxx optimization flags -g -O3
+  # raja: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
   # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
-  # trilinos +rocm: CMake Error at packages/kokkos/cmake/kokkos_arch.cmake:448 (MESSAGE): HIP enabled but no AMD GPU architecture currently enabled.  Please enable one AMD GPU architecture via -DKokkos_ARCH_{..}=ON'.
-  # trilinos +rocm: HIP/Kokkos_HIP_Kernel Launch.hpp:79:3: error: __constant__, __device__, and __managed__ are not allowed on non-static local variables
-  # umpire +rocm: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
-  # vtk-m +rocm: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
-  # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
+  # trilinos: CMake Error at packages/kokkos/cmake/kokkos_arch.cmake:448 (MESSAGE): HIP enabled but no AMD GPU architecture currently enabled.  Please enable one AMD GPU architecture via -DKokkos_ARCH_{..}=ON'.
+  # trilinos: HIP/Kokkos_HIP_Kernel Launch.hpp:79:3: error: __constant__, __device__, and __managed__ are not allowed on non-static local variables
+  # umpire: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
+  # vtk-m: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
   # - dyninst@12.1.0        # %clang conflict
