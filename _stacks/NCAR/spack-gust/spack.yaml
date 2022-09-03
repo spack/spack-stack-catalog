@@ -702,8 +702,13 @@ spack:
       operating_system: sles15
       target: x86_64
       modules: []
-      environment: {}
-      extra_rpaths: []
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
       flags: {}
       spec: gcc@7.5.0
   - compiler:
@@ -718,9 +723,15 @@ spack:
       target: x86_64
       modules: []
       environment:
+        set:
+          PE_ENV: INTEL
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
-      extra_rpaths: []
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: oneapi@2022.1.0
       paths:
@@ -735,7 +746,11 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
-      extra_rpaths: []
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: nvhpc@21.3
       paths:
@@ -752,7 +767,11 @@ spack:
           NVLOCALRC: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/localrc/gust
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/lib
-      extra_rpaths: []
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: nvhpc@22.2
       paths:
@@ -769,7 +788,11 @@ spack:
           NVLOCALRC: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.2/gcc/7.5.0/localrc/gust
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.2/gcc/7.5.0/Linux_x86_64/22.2/compilers/lib
-      extra_rpaths: []
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: nvhpc@22.7
       paths:
@@ -786,73 +809,11 @@ spack:
           NVLOCALRC: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/localrc/gust
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/lib
-      extra_rpaths: []
-  - compiler:
-      spec: aocc@8.3.2
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags:
-        cflags: null
-        cxxflags: null
-        fflags: null
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-aocc
-      - aocc/8.3.2
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: aocc@8.3.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags:
-        cflags: null
-        cxxflags: null
-        fflags: null
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-aocc
-      - aocc/8.3.3
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: cce@13.0.2
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-cray
-      - cce/13.0.2
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: cce@14.0.1
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-cray
-      - cce/14.0.1
-      environment: {}
-      extra_rpaths: []
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: cce@14.0.2
       paths:
@@ -866,23 +827,13 @@ spack:
       modules:
       - PrgEnv-cray
       - cce/14.0.2
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: gcc@8.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/8.1.0
-      environment: {}
-      extra_rpaths: []
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: gcc@10.3.0
       paths:
@@ -896,8 +847,13 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/10.3.0
-      environment: {}
-      extra_rpaths: []
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   - compiler:
       spec: gcc@11.2.0
       paths:
@@ -911,53 +867,13 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/11.2.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: intel@8.3.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-intel
-      - intel/8.3.3
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@8.3.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/8.3.3
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: rocmcc@8.3.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-amd
-      - rocmcc/8.3.3
-      environment: {}
-      extra_rpaths: []
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
   modules:
     'default:':
       roots:
@@ -1059,6 +975,7 @@ spack:
         cuda:
           environment:
             set:
+              NVHPC_CUDA_HOME: '{prefix}'
               CRAY_ACCEL_TARGET: nvidia80
               CRAY_TCMALLOC_MEMFS_FORCE: '1'
               CRAYPE_LINK_TYPE: dynamic
@@ -1266,3 +1183,4 @@ spack:
   - esmf@8.3.0%gcc@10.3.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@10.3.0
   - esmf@8.3.0%intel@2022.1.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%intel@2022.1.0
   - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2
+  - ncview@2.1.8%gcc@11.2.0
