@@ -1,3 +1,24 @@
+Alpine-DAV/spack_configs:
+  data_format: 2
+  description: spack envs
+  filenames:
+  - _experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml
+  - _experimental/envs/olcf/summit/spack.yaml
+  - _experimental/envs/llnl/pascal-cuda/spack.yaml
+  - _experimental/envs/llnl/quartz/spack.yaml
+  - _experimental/envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
+  full_name: Alpine-DAV/spack_configs
+  latest_release: null
+  readme: '<h1><a id="user-content-spack_configs" class="anchor" aria-hidden="true"
+    href="#spack_configs"><span aria-hidden="true" class="octicon octicon-link"></span></a>spack_configs</h1>
+
+    <p>shared spack configs repo</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 5
+  topics: []
+  updated_at: 1639176281.0
 ArjunaCluster/spack:
   data_format: 2
   description: Spack Repos and Configuration Files
@@ -17,9 +38,9 @@ CUP-ECS/cajitafluids:
   filenames:
   - configs/tutorial-uao-cuda/spack.yaml
   - configs/generic/spack-cuda-clang.yaml
+  - configs/github/spack.yaml
   - configs/generic/spack-cuda-wrapper.yaml
   - configs/llnl-lassen/spack.yaml
-  - configs/github/spack.yaml
   full_name: CUP-ECS/cajitafluids
   latest_release: null
   readme: '<h1><a id="user-content-poisson-mpi-benchmark" class="anchor" aria-hidden="true"
@@ -101,15 +122,10 @@ E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
-  - environments/22.05/cuda-ppc64le.spack.yaml
-  - environments/22.05/oneapi.spack.yaml
-  - environments/22.05/cuda-x86_64.spack.yaml
-  - environments/22.08/cuda-ppc64le.spack.yaml
   - environments/22.05/rocm.spack.yaml
-  - environments/22.08/cuda-x86_64.spack.yaml
-  - environments/22.08/cuda-aarch64.spack.yaml
-  - environments/22.08/oneapi.spack.yaml
-  - environments/22.08/rocm.spack.yaml
+  - environments/22.05/cuda-ppc64le.spack.yaml
+  - environments/22.05/cuda-x86_64.spack.yaml
+  - environments/22.05/oneapi.spack.yaml
   full_name: E4S-Project/e4s
   latest_release: null
   readme: "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -183,13 +199,13 @@ ECP-WarpX/WarpX:
   data_format: 2
   description: WarpX is an advanced electromagnetic Particle-In-Cell code.
   filenames:
-  - Tools/machines/desktop/spack-ubuntu-rocm.yaml
+  - Tools/machines/desktop/spack-debian-openmp.yaml
   - Tools/machines/desktop/spack-debian-cuda.yaml
   - Tools/machines/desktop/spack-ubuntu-cuda.yaml
-  - Tools/machines/desktop/spack-debian-openmp.yaml
+  - Tools/machines/desktop/spack-macos-openmp.yaml
   - Tools/machines/desktop/spack-ubuntu-openmp.yaml
   - Tools/machines/desktop/spack-debian-rocm.yaml
-  - Tools/machines/desktop/spack-macos-openmp.yaml
+  - Tools/machines/desktop/spack-ubuntu-rocm.yaml
   full_name: ECP-WarpX/WarpX
   latest_release: '22.09'
   readme: '<h1><a id="user-content-warpx" class="anchor" aria-hidden="true" href="#warpx"><span
@@ -897,10 +913,10 @@ LLNL/UnifyFS:
   data_format: 2
   description: 'UnifyFS: A file system for burst buffers'
   filenames:
+  - .spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml
   - .spack-env/unifyfs-lsf-gcc8_3_1/spack.yaml
   - .spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml
   - .spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml
-  - .spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml
   full_name: LLNL/UnifyFS
   latest_release: v1.0
   readme: '<h1><a id="user-content-unifyfs-a-distributed-burst-buffer-file-system"
@@ -1187,7 +1203,7 @@ LLNL/hiop:
     \ redistribute it under the terms of the BSD 3-clause license. See <a href=\"\
     /COPYRIGHT\">COPYRIGHT</a> and <a href=\"/LICENSE\">LICENSE</a> for complete copyright\
     \ and license information.</p>\n"
-  stargazers_count: 156
+  stargazers_count: 157
   subscribers_count: 14
   topics:
   - hpc
@@ -1208,21 +1224,21 @@ LLNL/hiop:
   - cuda
   - math-physics
   - radiuss
-  updated_at: 1661298953.0
+  updated_at: 1662192123.0
 LLNL/sundials:
   data_format: 2
   description: Official development repository for SUNDIALS - a SUite of Nonlinear
     and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug
     fixes and minor changes.
   filenames:
-  - docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml
-  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
   - docker/sundials-ci/spack-nightly/int64-double/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int32-extended/spack.yaml
   - docker/sundials-ci/e4s-quarterly/int64-extended/spack.yaml
   - docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int32-extended/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml
+  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
   full_name: LLNL/sundials
   latest_release: v6.3.0
   readme: '<h1><a id="user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers"
@@ -1588,14 +1604,14 @@ NERSC/spack-infrastructure:
   data_format: 2
   description: null
   filenames:
+  - spack-configs/perlmutter-spack-develop/spack.yaml
+  - spack-configs/perlmutter-e4s-21.11/ci/spack.yaml
+  - spack-configs/cori-spack-develop/spack.yaml
   - spack-configs/perlmutter-e4s-21.11/spack.yaml
   - spack-configs/perlmutter-e4s-22.05/spack.yaml
-  - spack-configs/perlmutter-e4s-21.11/ci/spack.yaml
-  - spack-configs/perlmutter-spack-develop/spack.yaml
   - spack-configs/perlmutter-e4s-22.05/ci/spack.yaml
-  - spack-configs/cori-spack-develop/spack.yaml
-  - docs/spack.yaml
   - spack-configs/perlmutter-e4s-22.05-mvapich2/ci/spack.yaml
+  - docs/spack.yaml
   full_name: NERSC/spack-infrastructure
   latest_release: null
   readme: "<h1><a id=\"user-content-spack-infrastructure\" class=\"anchor\" aria-hidden=\"\
@@ -2120,14 +2136,14 @@ NOAA-EMC/spack-stack:
   data_format: 2
   description: null
   filenames:
-  - configs/templates/ufs-srw-public-v2/spack.yaml
   - configs/templates/hpc-dev-v1/spack.yaml
-  - configs/templates/skylab-dev/spack.yaml
-  - configs/templates/jedi-ufs-all/spack.yaml
-  - configs/templates/ufs-weather-model/spack.yaml
-  - configs/templates/hpc-stack-dev/spack.yaml
   - configs/templates/empty/spack.yaml
+  - configs/templates/ufs-weather-model/spack.yaml
+  - configs/templates/skylab-dev/spack.yaml
   - configs/templates/gfs-v16.2/spack.yaml
+  - configs/templates/jedi-ufs-all/spack.yaml
+  - configs/templates/ufs-srw-public-v2/spack.yaml
+  - configs/templates/hpc-stack-dev/spack.yaml
   - configs/templates/ufs-srw-dev/spack.yaml
   full_name: NOAA-EMC/spack-stack
   latest_release: spack-stack-1.0.2
@@ -2331,20 +2347,20 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - setonix/environments/env_langs/spack.yaml
-  - setonix/environments/env_python/spack.yaml
-  - setonix/environments/env_bio/spack.yaml
-  - setonix/environments/env_apps/spack.yaml
-  - setonix/environments/env_utils/spack.yaml
-  - setonix/environments/env_num_libs/spack.yaml
-  - setonix/environments/env_s3_clients/spack.yaml
-  - setonix/environments/env_bench/spack.yaml
-  - setonix/environments/env_wrf/spack.yaml
-  - setonix/environments/env_devel/spack.yaml
-  - setonix/environments/env_astro/spack.yaml
   - setonix/environments/env_vis/spack.yaml
+  - setonix/environments/env_astro/spack.yaml
+  - setonix/environments/env_s3_clients/spack.yaml
+  - setonix/environments/env_devel/spack.yaml
+  - setonix/environments/env_utils/spack.yaml
+  - setonix/environments/env_apps/spack.yaml
+  - setonix/environments/env_bio/spack.yaml
+  - setonix/environments/env_wrf/spack.yaml
   - setonix/environments/env_roms/spack.yaml
+  - setonix/environments/env_python/spack.yaml
+  - setonix/environments/env_num_libs/spack.yaml
   - setonix/environments/env_io_libs/spack.yaml
+  - setonix/environments/env_langs/spack.yaml
+  - setonix/environments/env_bench/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1><a id="user-content-pawsey-spack-config" class="anchor" aria-hidden="true"
@@ -2486,9 +2502,9 @@ SouthernMethodistUniversity/mp_testing:
   description: null
   filenames:
   - mp/testing/01_spack/spack_lammps.yaml
-  - mp/testing/08_pytorch/spack.yaml
   - mp/testing/05_openmm/spack.yaml
   - mp/testing/01_spack/spack_nvhpc.yaml
+  - mp/testing/08_pytorch/spack.yaml
   full_name: SouthernMethodistUniversity/mp_testing
   latest_release: null
   readme: '<h1><a id="user-content-notes" class="anchor" aria-hidden="true" href="#notes"><span
@@ -2684,9 +2700,9 @@ SouthernMethodistUniversity/msds_hpc:
   data_format: 2
   description: null
   filenames:
-  - classes/04_2/spack_containers/spack.yaml
-  - classes/06_2/spack_20.04_openblas.yaml
   - classes/06_2/spack_20.04_mkl.yaml
+  - classes/06_2/spack_20.04_openblas.yaml
+  - classes/04_2/spack_containers/spack.yaml
   full_name: SouthernMethodistUniversity/msds_hpc
   latest_release: null
   readme: '<h1><a id="user-content-ds-7347-high-performance-computing-hpc-and-data-science"
@@ -2992,27 +3008,27 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/runner/rhel8-x86_64/spack.yaml
-  - docker-recipes/minimal/rhel8-aarch64/spack.yaml
-  - docker-recipes/minimal/rhel8-x86_64/spack.yaml
-  - docker-recipes/minimal/ubuntu22.04-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml
   - docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml
-  - docker-recipes/minimal/ubuntu22.04-x86_64/spack.yaml
   - docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml
-  - docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml
-  - docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml
-  - docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml
+  - docker-recipes/minimal/ubuntu22.04-ppc64le/spack.yaml
+  - docker-recipes/minimal/rhel8-x86_64/spack.yaml
   - docker-recipes/runner/ubuntu22.04-x86_64/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml
-  - docker-recipes/minimal/rhel8-ppc64le/spack.yaml
-  - docker-recipes/runner/rhel8-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu18.04-x86_64/spack.yaml
+  - docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml
+  - docker-recipes/runner/rhel8-x86_64/spack.yaml
   - docker-recipes/runner/rhel8-aarch64/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml
+  - docker-recipes/minimal/ubuntu22.04-x86_64/spack.yaml
   - docker-recipes/runner/ubuntu18.04-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml
+  - docker-recipes/runner/rhel8-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml
+  - docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml
+  - docker-recipes/minimal/rhel8-aarch64/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml
   - docker-recipes/minimal/ubuntu22.04-aarch64/spack.yaml
+  - docker-recipes/minimal/rhel8-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu18.04-x86_64/spack.yaml
+  - docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -3051,10 +3067,10 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
+  - cent8/envs/avx2/lusoft/spack.yaml
   - cent8/envs/avx/lusoft/spack.yaml
   - cent8/envs/solhawk/spack.yaml
   - cent8/envs/avx512/lusoft/spack.yaml
-  - cent8/envs/avx2/lusoft/spack.yaml
   - cent8/envs/x86_64/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
@@ -3225,8 +3241,8 @@ arcaneframework/containers:
   data_format: 2
   description: Containers with Arcane and Alien
   filenames:
-  - spack/envs/all/spack.yaml
   - spack/envs/alien/spack.yaml
+  - spack/envs/all/spack.yaml
   full_name: arcaneframework/containers
   latest_release: null
   readme: '<h1><a id="user-content-containers" class="anchor" aria-hidden="true" href="#containers"><span
@@ -3297,51 +3313,59 @@ bsurc/spack-configs:
   description: spack configuration settings used at BSU research computing
   filenames:
   - NREL/configs/rhodes/software/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - NERSC/cori/e4s-22.02/spack.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - BOISESTATE/falcon/environments/applications/lammps/_spack.yaml
-  - BOISESTATE/borah/applications/gromacs/_spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.08/prod/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - BOISESTATE/falcon/environments/compilers/_spack.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml
-  - OLCF/summit/spack.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - NREL/configs/rhodes/base/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.11/spack.yaml
   - ANL/JLSE/Arcticus/E4S-21.05/prod/spack.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - BOISESTATE/falcon/environments/applications/wrf/_spack.yaml
-  - BOISESTATE/falcon/environments/applications/openfoam/_spack.yaml
-  - BOISESTATE/borah/environments/base/_spack.yaml
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - OLCF/spock/spack.yaml
-  - BOISESTATE/borah/environments/compilers/_spack.yaml
+  - NERSC/cori/e4s-stacks/knl/spack.yaml
+  - BOISESTATE/falcon/environments/libraries/hdf5/_spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
   - NERSC/cori/e4s-20.10/spack.yaml
-  - BOISESTATE/falcon/environments/Core/_spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - OLCF/crusher/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
-  - BOISESTATE/falcon/environments/libraries/netcdf/_spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - BOISESTATE/borah/environments/b4s/_spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
   - NERSC/perlmutter/e4s-21.11/spack.yaml
+  - BOISESTATE/falcon/environments/base/_spack.yaml
   - ANL/JLSE/Arcticus/E4S-21.08/spack.yaml
-  - BOISESTATE/falcon/environments/applications/gromacs/_spack.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
+  - BOISESTATE/borah/environments/b4s/_spack.yaml
+  - NREL/configs/eagle/base/spack.yaml
+  - BOISESTATE/falcon/environments/compilers/_spack.yaml
+  - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
   - BOISESTATE/falcon/environments/applications/namd/_spack.yaml
+  - OLCF/e4s-stacks/etc/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
+  - NREL/configs/eagle/compilers/spack.yaml
+  - NREL/configs/rhodes/utilities/spack.yaml
+  - NERSC/cori/e4s-22.02/spack.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - BOISESTATE/borah/environments/compilers/_spack.yaml
+  - BOISESTATE/borah/environments/base/_spack.yaml
+  - OLCF/summit/spack.yaml
   - NREL/configs/rhodes/compilers/spack.yaml
+  - BOISESTATE/falcon/environments/applications/wrf/_spack.yaml
+  - BOISESTATE/falcon/environments/applications/vacuumms/_spack.yaml
+  - NERSC/cori/e4s-stacks/x86/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml
+  - NERSC/cori/e4s-21.05/spack.yaml
+  - OLCF/spock/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
+  - BOISESTATE/falcon/environments/Core/_spack.yaml
+  - BOISESTATE/falcon/environments/applications/gromacs/_spack.yaml
+  - OLCF/crusher/spack.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
+  - NERSC/cori/e4s-21.02/prod/spack.yaml
+  - BOISESTATE/falcon/environments/applications/lammps/_spack.yaml
+  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
+  - BOISESTATE/falcon/environments/applications/openfoam/_spack.yaml
+  - NERSC/cori/e4s-21.02/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.08/prod/spack.yaml
+  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
+  - BOISESTATE/borah/applications/gromacs/_spack.yaml
+  - BOISESTATE/falcon/environments/libraries/netcdf/_spack.yaml
+  - BOISESTATE/falcon/environments/applications/wps/_spack.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NREL/configs/rhodes/base/spack.yaml
+  - BOISESTATE/falcon/environments/applications/vasp/_spack.yaml
   - NERSC/cori/e4s-stacks/hsw/spack.yaml
   full_name: bsurc/spack-configs
   latest_release: null
@@ -3949,15 +3973,15 @@ dbkinghorn/Puget-Labs-Containers:
   data_format: 2
   description: Puget Labs container build files
   filenames:
-  - hpcg-amd/spack.yaml
   - quantum-espresso-amd/spack.yaml
-  - lammps-amd/spack.yaml
   - openfoam-amd/spack.yaml
   - hmmer-amd/spack.yaml
-  - wrf-amd/spack.yaml
   - namd-amd/spack.yaml
-  - gromacs-amd/spack.yaml
+  - wrf-amd/spack.yaml
   - hpl-amd/spack.yaml
+  - gromacs-amd/spack.yaml
+  - lammps-amd/spack.yaml
+  - hpcg-amd/spack.yaml
   full_name: dbkinghorn/Puget-Labs-Containers
   latest_release: null
   readme: '<h1><a id="user-content-puget-labs-containers" class="anchor" aria-hidden="true"
@@ -3994,6 +4018,39 @@ dbkinghorn/Puget-Labs-Containers:
   subscribers_count: 1
   topics: []
   updated_at: 1660670570.0
+eflows4hpc/workflow-registry:
+  data_format: 2
+  description: Registry to store workflow descriptions
+  filenames:
+  - rom_pillar_I/reduce_order_model/spack.yaml
+  - minimal_workflow/wordcount/spack.yaml
+  full_name: eflows4hpc/workflow-registry
+  latest_release: null
+  readme: "<p>#Workflow Registry</p>\n<p>This is a repository to store the Workflow\
+    \ descriptions using the eFlows4HPC methodology. This description consist of at\
+    \ least the TOSCA description of the worklfow, the code of the their different\
+    \ steps and their required software per step.</p>\n<h2><a id=\"user-content-repository-structure\"\
+    \ class=\"anchor\" aria-hidden=\"true\" href=\"#repository-structure\"><span aria-hidden=\"\
+    true\" class=\"octicon octicon-link\"></span></a>Repository structure</h2>\n<p>Workflow\
+    \ descriptions have to be included inside this repository according to the following\
+    \ structure.</p>\n<pre><code>workflow-registry\n  |- workflow_1\n  |    |- tosca\n\
+    \  |    |    |- types.yml               TOSCA description of the different components\
+    \ involved in the workflow\n  |    |       ... \n  |    |- step_1\n  |    |  \
+    \  |- spack.yml               Sofware requirements for this workflow step as a\
+    \ Spack environment specification \n  |    |    |- src                     PyCOMPSs\
+    \ code of the workflow step\n  |    |       ...\n  |    |- step_2\n  |       \
+    \  ....\n  |- workflow_2                                \n  |\t...\n\n</code></pre>\n\
+    <h2><a id=\"user-content-including-new-workflows\" class=\"anchor\" aria-hidden=\"\
+    true\" href=\"#including-new-workflows\"><span aria-hidden=\"true\" class=\"octicon\
+    \ octicon-link\"></span></a>Including new Workflows</h2>\n<p>To include new workflows\
+    \ in the repository, first create a new fork of the repository and  include a\
+    \ new folder for the workflow with a subfolder for the TOSCA description and the\
+    \ different workflow steps. Finally, create a pull request with the new workflow\
+    \ description. This pull request will be reviewed and included in the repository.</p>\n"
+  stargazers_count: 0
+  subscribers_count: 7
+  topics: []
+  updated_at: 1647595412.0
 eic/eic-spack-environments:
   data_format: 2
   description: Spack environments for the Electron Ion Collider
@@ -4017,13 +4074,13 @@ eth-cscs/spack-stack:
   data_format: 2
   description: fast spack builds on slow filesystem
   filenames:
-  - packages/clang/spack.yaml
-  - compilers/2-gcc/spack.yaml
-  - compilers/1-gcc/spack.yaml
-  - packages/tools/spack.yaml
   - packages/nvhpc/spack.yaml
+  - packages/tools/spack.yaml
   - compilers/3-llvm/spack.yaml
+  - compilers/1-gcc/spack.yaml
+  - packages/clang/spack.yaml
   - packages/gcc/spack.yaml
+  - compilers/2-gcc/spack.yaml
   full_name: eth-cscs/spack-stack
   latest_release: null
   readme: '<p>Bootstrap GCC, LLVM and NVHPC, and build an HPC software stack based
@@ -4157,101 +4214,114 @@ eugeneswalker/facility-spack:
   data_format: 2
   description: null
   filenames:
-  - arcticus/experimental/failures/spack.yaml
-  - aws/paratools/parallelcluster-3.1.4/spack.yaml
-  - perlmutter/22.05/PrgEnv-nvhpc/spack.yaml
-  - aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml
-  - crusher/22.08/PrgEnv-gnu/spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml
-  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le.spack.yaml
-  - arcticus/22.08/failures/spack.yaml
-  - uo-containers/22.05/production/save/e4s-22.05-oneapi.spack.yaml
-  - perlmutter/22.08/PrgEnv-gnu/spack.yaml
-  - uo-containers/22.08/components/cpu/spack.yaml
   - uo-containers/22.05/production/base/ppc64le-cuda.spack.yaml
-  - bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml
-  - uo-containers/ubuntu20-minimal/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le.spack.yaml
-  - uo-containers/22.08/release/public/cuda-aarch64.spack.yaml
-  - perlmutter/22.05/mvapich2-3.0a/spack.yaml
-  - crusher/22.05/mvapich2/spack.yaml
-  - uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml
-  - crusher/22.05/PrgEnv-cray/failures/spack.yaml
-  - uo-containers/22.08/components/gpu-cuda-noex/spack.yaml
-  - uo-containers/22.05/archives/spack-cuda.spack.yaml
-  - uo-containers/22.05/production/base/aarch64-cuda.spack.yaml
-  - uo-containers/22.05/production/base/amd64-cuda.spack.yaml
-  - uo-containers/22.08/_archive/prep/oneapi/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda-noextern.spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda.spack.yaml
-  - aws/paratools/e4s-mvapich/spack.yaml
-  - uo-containers/22.05/archives/spack-rocm.spack.yaml
-  - crusher/22.05/PrgEnv-amd/failures/spack.yaml
-  - uo-containers/22.08/components/gpu-cuda/spack.yaml
-  - perlmutter/22.05/PrgEnv-gnu/spack.yaml
-  - uo-containers/22.08/_archive/prep/cpu/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml
-  - uo-containers/22.05/archives/spack-cuda-external-ppc64le.spack.yaml
-  - uo-containers/22.05/components/e4s-cpu-builder-ppc64le.spack.yaml
-  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le-noextern.spack.yaml
-  - uo-containers/22.05/components/e4s-rocm-builder-noextern.spack.yaml
-  - uo-containers/22.05/components/e4s-oneapi-builder.spack.yaml
-  - uo-containers/22.05/archives/spack-full-clang.spack.yaml
-  - arcticus/22.05/spack.yaml
-  - uo-containers/22.05/components/save/e4s-oneapi-builder.spack.yaml
-  - uo-containers/22.05/production/base/amd64-oneapi.spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-rocm.spack.yaml
-  - uo-containers/22.05/components/e4s-cuda-builder-noextern.spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda/spack.yaml
-  - uo-containers/22.05/archives/spack-cuda-ppc64le.spack.yaml
-  - uo-containers/22.08/release/public/cuda.spack.yaml
   - perlmutter/22.05/mvapich2-2.3.7/spack.yaml
-  - applications/exago/crusher/spack.yaml
-  - uo-containers/22.08/components/gpu-rocm/spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml
-  - uo-containers/22.05/archives/spack-cpu-ppc64le.spack.yaml
-  - cori/21.05/PrgEnv-intel/spack.yaml
-  - crusher/22.05/PrgEnv-gnu/spack.yaml
-  - perlmutter/22.05/mvapich2/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le-noextern.spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml
-  - arcticus/experimental/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-rocm-noextern.spack.yaml
-  - crusher/22.08/PrgEnv-amd/failures/spack.yaml
-  - uo-containers/22.05/components/e4s-cuda-builder.spack.yaml
-  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml
-  - uo-containers/22.05/archives/spack-cpu.spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml
-  - perlmutter/22.05/PrgEnv-gnu/failures/spack.yaml
-  - uo-containers/22.05/archives/spack-rocm-external.spack.yaml
-  - uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml
-  - oci/mvapich2/spack.yaml
-  - arcticus/22.05/failures/spack.yaml
-  - uo-containers/22.05/components/e4s-cpu-builder.spack.yaml
-  - crusher/22.05/PrgEnv-amd/spack.yaml
-  - uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml
-  - crusher/22.08/PrgEnv-cray/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml
-  - uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml
-  - uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml
-  - oci/adaptive-test-env/spack.yaml
-  - uo-containers/22.05/production/base/amd64-rocm.spack.yaml
-  - arcticus/22.08/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-oneapi.spack.yaml
-  - uo-containers/22.05/archives/spack-cuda-external.spack.yaml
-  - arcticus/develop/spack.yaml
-  - uo-containers/22.05/failed-oneapi/spack.yaml
-  - crusher/22.05/PrgEnv-cray/spack.yaml
-  - frontera/22.05/spack.yaml
   - crusher/22.08/PrgEnv-cray/failures/spack.yaml
-  - crusher/22.08/PrgEnv-gnu/failures/spack.yaml
-  - uo-containers/22.08/_archive/prep/rocm/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml
-  - crusher/22.05/PrgEnv-gnu/failures/spack.yaml
+  - perlmutter/22.05/PrgEnv-nvhpc/spack.yaml
+  - crusher/22.08/PrgEnv-gnu/spack.yaml
+  - uo-containers/22.05/components/e4s-cpu-builder-ppc64le.spack.yaml
+  - crusher/22.08/PrgEnv-cray/spack.yaml
+  - perlmutter/22.05/PrgEnv-gnu/failures/spack.yaml
+  - uo-containers/22.08/components/gpu-cuda-noex/spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le.spack.yaml
+  - uo-containers/22.05/failed-oneapi/spack.yaml
+  - aws/paratools/parallelcluster-3.1.4/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le-noextern.spack.yaml
+  - uo-containers/22.08/_archive/prep/cuda/spack.yaml
   - uo-containers/22.05/components/e4s-rocm-builder.spack.yaml
-  - crusher/22.08/PrgEnv-amd/spack.yaml
+  - uo-containers/22.08/_archive/prep/cpu/spack.yaml
+  - uo-containers/22.05/archives/spack-cuda-ppc64le.spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml
+  - uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml
+  - perlmutter/22.05/PrgEnv-gnu/spack.yaml
+  - uo-containers/22.08/release/public/cuda.spack.yaml
+  - applications/exago/crusher/spack.yaml
+  - perlmutter/22.05/mvapich2/spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml
+  - uo-containers/22.05/archives/spack-cpu-ppc64le.spack.yaml
+  - uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml
+  - uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml
+  - crusher/22.05/PrgEnv-gnu/failures/spack.yaml
+  - arcticus/22.05/failures/spack.yaml
+  - crusher/22.08/PrgEnv-amd/failures/spack.yaml
+  - uo-containers/22.05/components/e4s-rocm-builder-noextern.spack.yaml
+  - uo-containers/22.05/production/save/e4s-22.05-oneapi.spack.yaml
+  - uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml
+  - cori/21.05/PrgEnv-intel/spack.yaml
+  - uo-containers/22.05/production/base/amd64-rocm.spack.yaml
+  - uo-containers/22.08/release/public/cpu.spack.yaml
+  - uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml
+  - uo-containers/22.05/components/e4s-cuda-builder.spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml
+  - uo-containers/22.05/archives/spack-cuda-external-ppc64le.spack.yaml
+  - uo-containers/22.05/production/base/amd64-cuda.spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda-noextern.spack.yaml
+  - uo-containers/22.05/archives/spack-cuda.spack.yaml
+  - uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml
+  - uo-containers/22.05/archives/spack-full-clang.spack.yaml
   - uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml
+  - arcticus/develop/spack.yaml
+  - crusher/22.05/PrgEnv-cray/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-rocm-noextern.spack.yaml
+  - uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml
+  - arcticus/experimental/spack.yaml
+  - frontera/22.05/spack.yaml
+  - oci/adaptive-test-env/spack.yaml
+  - crusher/22.08/PrgEnv-amd/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml
+  - uo-containers/22.05/archives/spack-rocm-external.spack.yaml
+  - uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml
+  - uo-containers/22.08/components/gpu-rocm-noex/spack.yaml
+  - uo-containers/ubuntu20-minimal/spack.yaml
+  - oci/mvapich2/spack.yaml
+  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le-noextern.spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-oneapi.spack.yaml
+  - uo-containers/22.05/components/e4s-cuda-builder-noextern.spack.yaml
+  - arcticus/22.08/failures/spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml
+  - uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml
+  - uo-containers/22.08/components/cpu/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml
+  - uo-containers/22.08/release/public/cuda-aarch64.spack.yaml
+  - crusher/22.08/PrgEnv-gnu/failures/spack.yaml
+  - crusher/22.05/PrgEnv-amd/spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-rocm.spack.yaml
+  - uo-containers/22.05/archives/spack-cpu.spack.yaml
+  - uo-containers/22.05/archives/spack-rocm.spack.yaml
+  - uo-containers/22.05/components/save/e4s-oneapi-builder.spack.yaml
+  - bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml
+  - uo-containers/22.08/release/public/oneapi.spack.yaml
+  - uo-containers/22.08/_archive/prep/rocm/spack.yaml
+  - perlmutter/22.05/mvapich2-3.0a/spack.yaml
+  - uo-containers/22.08/release/public/rocm.spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda.spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml
+  - crusher/22.05/PrgEnv-gnu/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml
+  - uo-containers/22.05/production/base/amd64-oneapi.spack.yaml
+  - aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml
+  - uo-containers/22.08/components/gpu-rocm/spack.yaml
+  - arcticus/22.05/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml
+  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le.spack.yaml
+  - arcticus/experimental/failures/spack.yaml
+  - arcticus/22.08/spack.yaml
+  - perlmutter/22.08/PrgEnv-gnu/spack.yaml
+  - uo-containers/22.05/production/base/aarch64-cuda.spack.yaml
+  - uo-containers/22.05/archives/spack-cuda-external.spack.yaml
+  - aws/paratools/e4s-mvapich/spack.yaml
+  - uo-containers/22.08/_archive/prep/oneapi/spack.yaml
+  - crusher/22.05/mvapich2/spack.yaml
+  - uo-containers/22.05/components/e4s-oneapi-builder.spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml
+  - crusher/22.05/PrgEnv-cray/failures/spack.yaml
+  - uo-containers/22.08/components/gpu-cuda/spack.yaml
+  - uo-containers/22.05/components/e4s-cpu-builder.spack.yaml
+  - crusher/22.05/PrgEnv-amd/failures/spack.yaml
   full_name: eugeneswalker/facility-spack
   latest_release: null
   stargazers_count: 0
@@ -4262,8 +4332,8 @@ fnalacceleratormodeling/synergia2-containers:
   data_format: 2
   description: null
   filenames:
-  - ubuntu-gcc/spack.yaml
   - ubuntu-clang/spack.yaml
+  - ubuntu-gcc/spack.yaml
   full_name: fnalacceleratormodeling/synergia2-containers
   latest_release: null
   readme: '<h1><a id="user-content-synergia2-containers" class="anchor" aria-hidden="true"
@@ -5318,13 +5388,13 @@ key4hep/key4hep-spack:
   filenames:
   - environments/key4hep-release/spack.yaml
   - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-desy-release/spack.yaml
-  - environments/key4hep-nightlies-rootmod/spack.yaml
-  - environments/key4hep-release-user/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
-  - environments/contrib-compilers/spack.yaml
+  - environments/key4hep-desy-release/spack.yaml
   - environments/key4hep-ci/spack.yaml
   - environments/key4hep-nightlies-clang/spack.yaml
+  - environments/contrib-compilers/spack.yaml
+  - environments/key4hep-release-user/spack.yaml
+  - environments/key4hep-nightlies-rootmod/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-10-29'
   readme: '<h1><a id="user-content-spack-package-repo-for-key4hep-software-packaging"
@@ -5369,12 +5439,12 @@ laristra/ristra_spackages:
   data_format: 2
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
+  - env/broadwell/flecsi/spack.yaml
+  - .gitlab-ci/env/dry-run/spack.yaml
+  - env/power9le/flecsi/spack.yaml
   - env/x86_64/flecsi/spack.yaml
   - .gitlab-ci/env/root-build/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
   - .gitlab-ci/env/local-build/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
-  - env/power9le/flecsi/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1><a id="user-content-ristra-spackages" class="anchor" aria-hidden="true"
@@ -5617,14 +5687,14 @@ mochi-hpc-experiments/colza-experiments:
   data_format: 2
   description: Experiments using Colza for In Situ Analysis
   filenames:
-  - ubuntu/vtk/spack.yaml
   - cori/vtk/spack.yaml
+  - theta/amr-wind/spack.yaml
+  - cori/collectives/spack.yaml
+  - ubuntu/amr-wind/spack.yaml
+  - ubuntu/vtk/spack.yaml
+  - ubuntu/resizing/spack.yaml
   - ubuntu/overhead/spack.yaml
   - ubuntu/collectives/spack.yaml
-  - ubuntu/resizing/spack.yaml
-  - theta/amr-wind/spack.yaml
-  - ubuntu/amr-wind/spack.yaml
-  - cori/collectives/spack.yaml
   full_name: mochi-hpc-experiments/colza-experiments
   latest_release: ipdps2022
   readme: '<h1><a id="user-content-colza-experiments" class="anchor" aria-hidden="true"
@@ -5659,10 +5729,8 @@ mochi-hpc-experiments/platform-configurations:
   description: This repository provides a set of configuration files and example scripts
     for running Mochi experiments on various platforms.
   filenames:
-  - ANL/Polaris/spack.yaml
-  - ANL/Bebop/spack.yaml
-  - NERSC/Perlmutter/ss11/spack.yaml
   - NERSC/Cori/spack.yaml
+  - NERSC/Perlmutter/ss11/spack.yaml
   - NERSC/Perlmutter/ss10/spack.yaml
   full_name: mochi-hpc-experiments/platform-configurations
   latest_release: null
@@ -6387,11 +6455,11 @@ mpbelhorn/olcf-spack-environments:
   data_format: 2
   description: Spack environments for OLCF resources.
   filenames:
-  - hosts/crusher/envs/base/spack.yaml
-  - hosts/borg/envs/base/spack.yaml
   - hosts/peak/envs/base/spack.yaml
-  - hosts/ascent/envs/base/spack.yaml
+  - hosts/borg/envs/base/spack.yaml
+  - hosts/crusher/envs/base/spack.yaml
   - hosts/summit/envs/base/spack.yaml
+  - hosts/ascent/envs/base/spack.yaml
   full_name: mpbelhorn/olcf-spack-environments
   latest_release: null
   readme: '<h1><a id="user-content-olcf-spack-environments" class="anchor" aria-hidden="true"
@@ -6695,24 +6763,1195 @@ range3/chfs-containers:
   subscribers_count: 1
   topics: []
   updated_at: 1652094301.0
+ravisiv/PhishingEmailDetection:
+  data_format: 2
+  description: null
+  filenames:
+  - src/spack/capstone/spack.yaml
+  - src_simple/spack/capstone/spack.yaml
+  full_name: ravisiv/PhishingEmailDetection
+  latest_release: null
+  readme: "<p>Phishing Detection Using Natural Language Processing and Machine\nLearning</p>\n\
+    <p>Tai Chowdhury^1^, Ravi Sivaraman^1^, Apurv Mittal^1^, Daniel Engels^2^,\nHarsha\
+    \ Kommanapalli^3^</p>\n<p>1 Master of Science in Data Science</p>\n<p>Southern\
+    \ Methodist University<br>\nDallas, TX 75275 USA</p>\n<p>^2^ AT&amp;T Virtualization\
+    \ Center, SMU, Dallas, TX</p>\n<p>^3^ Meta, Menlo Park, CA</p>\n<p>^1^{tchowdhury,\
+    \ apurvm, rsivaraman}@smu.edu</p>\n<p>^2^ <a href=\"mailto:daniel.w.engels@gmail.com\"\
+    >daniel.w.engels@gmail.com</a></p>\n<p>^3^ <a href=\"mailto:harshanaidu@yahoo.com\"\
+    >harshanaidu@yahoo.com</a></p>\n<p><strong>Abstract.</strong> Phishing emails\
+    \ are a primary mode of entry for attackers\ninto an organization. A successful\
+    \ phishing attempt leads to\nunauthorized access to sensitive information and\
+    \ systems. However,\nautomatically identifying phishing emails is often difficult\
+    \ since many\nphishing emails have composite features such as body text and metadata\n\
+    that are nearly indistinguishable from valid emails. This paper presents\na novel\
+    \ machine learning-based framework, the DARTH framework, that\ncharacterizes and\
+    \ combines multiple models, with one model for each\nindividual composite feature,\
+    \ that enables the accurate identification\nof phishing emails. The framework\
+    \ analyses each composite feature\nindependently utilizing a multi-faceted approach\
+    \ using Natural Language\nProcessing (NLP) and neural network-based techniques\
+    \ and combines the\nresults of these analysis to classify the emails as malicious\
+    \ or\nlegitimate. Utilizing the framework on more than 150,000 emails and\ntraining\
+    \ data from multiple sources including the authors' personal\nemails and phishtank.com\
+    \ resulted in the precision (correct\nidentification of malicious observations\
+    \ to the total prediction of\nmalicious observations) of 99.97% with an f-score\
+    \ of 99.98% and\naccurately identifying phishing emails 99.98% of the time. Utilizing\n\
+    multiple machine learning techniques combined in an ensemble approach\nacross\
+    \ a range of composite features yields highly accurate\nidentification of phishing\
+    \ emails.</p>\n<ol>\n<li>Introduction</li>\n</ol>\n<p>Phishing is a method of\
+    \ stealing private and sensitive information using\ndeceptive emails, websites,\
+    \ and text messages. The attackers utilize\nsocial engineering approaches to entice\
+    \ people to perform actions, such\nas clicking on a hyperlink, that leads to the\
+    \ installation of malware or\nthe stealing of personal information. To this end,\
+    \ attackers often\npretend to be someone from a reputable organization and use\
+    \ fraudulent\ntechniques to steal online users' data, such as passwords or credit\
+    \ card\ninformation. The improvements in cybersecurity protections, to the\npoint,\
+    \ that humans are the weakest link in the cybersecurity chain have\nbeen attributed\
+    \ to the advancement of social engineering attacks such as\nphishing. According\
+    \ to research from IRONSCALES (2021), 81% of the\norganization that participated\
+    \ in the survey have dealt with phishing\nattacks [14]. According to Verizon's\
+    \ 2021 Data Breach Investigations\nReport (DBIR), around 25% of all data breaches\
+    \ involve phishing, and 85%\ninvolve a human element [27]. The rise of social\
+    \ media has complicated\nthe issue even further as the attackers use sophisticated\
+    \ tools to carry\nout these attacks. Hackers use LinkedIn to create faux messages,\
+    \ making\nup 47% of social media phishing attempts [14]. The cost of the data\n\
+    breach on LinkedIn alone was $4.42 Billion in 2021 [14]. This affects\nindividuals\
+    \ to organizations; it has both privacy and financial\nimplications.</p>\n<p>Anti-Phishing\
+    \ Working Group (APWG) is an organization that collects,\nanalyzes, and exchanges\
+    \ a list of credential URLs. It publishes a\nquarterly report on phishing activities\
+    \ across the globe. The number of\nphishing attacks has doubled from 2020 to 2021.\
+    \ More than 260,000\nreported phishing attacks in July 2021 [41]. Webmail continues\
+    \ to be\namong the top methods of phishing attempts. There has been an increase\n\
+    in phishing attacks on named brands, from 400 per July to 700 in\nSeptember 2021.\
+    \ There are state laws for penalizing criminals for\nphishing attacks. Anti-phishing\
+    \ Act of 2005 imposes fines and\nimprisonment for up to five years or both for\
+    \ a person involved with\nphishing attacks [26]. California leads the way in having\
+    \ a strong\nstate law on phishing attacks.</p>\n<p>Currently, most phishing attack\
+    \ detection methods are purely one-method\napproaches. This type of method may\
+    \ not be effective in detecting\nsophisticated phishing attacks. Most experts\
+    \ use two types of phishing\ndetection systems, list-based detection systems and\
+    \ Machine\nLearning-Based Detection Systems [6]. A blocklist of URLs is created\n\
+    in a list-based system to identify malicious links using URL metadata\ngathered\
+    \ from spam detection systems, user notifications, third-party\norganizations,\
+    \ and other cybersecurity platforms. Blacklist-based\nmethods have a low false-positive\
+    \ rate compared to machine\nlearning-based approaches. The success rate is about\
+    \ 20% [6]. This\nmethod requires constant URL updates to the blocklist database,\n\
+    worsening the problem.</p>\n<p>Recent research on phishing detection focuses on\
+    \ machine learning\ntechniques like Artificial Neural Networks (ANN) [9], Bayesian\n\
+    Additive Regression Trees (BART) [6], Graph Convolutional Networks\n(GCN), and\
+    \ Natural Language Processing (NLP) [8] for feature detection\nlike various attributes\
+    \ in the observed dataset. These research papers\nprimarily focused on URL metadata,\
+    \ with few analyzing the email texts\n[9]. Several previous research papers focused\
+    \ mainly either on URL\nmetadata or email texts. This creates an opportunity to\
+    \ research and\ncreate a holistic model which inherits multiple techniques on\
+    \ various\naspects of malicious emails like URLs, attachments, images, senders,\n\
+    body text, etc., to identify phishing attempts effectively.</p>\n<p>This research\
+    \ employs various modeling techniques to detect\nsophisticated phishing attacks,\
+    \ including bagging and boosting modeling\ntechniques. One of the significant\
+    \ challenges of phishing detection is\nthe preprocessing of text in the URLs and\
+    \ email body. Boosting\ntechniques like Extreme Gradient Boosting (XGBoost) handles\
+    \ large\ndataset for text preprocessing, extract essential features, and handle\n\
+    noise properly for spam classification. In another industry research,\nSupport\
+    \ Vector Machine (SVM) has been used for spam classifications as\nit can combine\
+    \ statistical framework and other combinations such as user\nbehavior features\
+    \ to create a model that can yield accuracy scores of\n&gt;97% [22].</p>\n<p>This\
+    \ research uses Natural Language Processing (NLP) techniques,\nclustering, and\
+    \ neural network-based machine learning models to identify\nphishing attempts\
+    \ by analyzing the email content before users access it.\nThis research recommends\
+    \ a set of processes rather than relying on a\nsingle process to address sophisticated\
+    \ attacks. It targets phishing\nattempts more holistically by using a multi-faceted\
+    \ approach that\nanalyzes the embedded URLs, email body, sender's information,\
+    \ email\nattachments, and other email metadata to classify malicious emails. This\n\
+    research brings incremental improvements to the existing models.\nInstitutions\
+    \ and researchers interested in the security of email\ncommunication can use the\
+    \ output from this multi-faceted approach.</p>\n<p>This study further analyzes\
+    \ English language body text and assigns\nscores based on the text characteristics\
+    \ persuading users to access the\nmalicious content. The phishing email text is\
+    \ primarily classified into\ntwo major categories, \"Masquerade-ness\" and \"\
+    Urgent-ness.\"\n\"Masquerade-ness\" is a phishing email characteristic that urges\
+    \ the\nreceiver to click the URLs with less analytical thought. To aid such\n\
+    behavior, such emails masquerade themselves as a famous brand by phony\nadvertising\
+    \ that is attractive to the receiver. This masquerading\nbehavior is measured\
+    \ from NLP analytics using Sentence Vectors.</p>\n<p>Similarly, \"Urgent-ness\"\
+    \ is a phishing email characteristic that urges\nreceivers to access the malicious\
+    \ content by creating a false sense of\nurgency (like the receiver needs to click\
+    \ now to get the deal, etc.).\nThis \"Urgent-ness\" from the email text is measured\
+    \ using Sentence\nVectors. These sentence vectors are fed to neural networks as\
+    \ features\nto detect phishing emails.</p>\n<p>In addition to NLP, this research\
+    \ emphasizes using Neural Network\nmodeling techniques to detect accuracy improvements.\
+    \ This technique\nperforms better for sophisticated attacks in which blacklisting,\n\
+    heuristic detection, and visual similarity methods do not perform well\nin terms\
+    \ of detection [18]. Current techniques require more manual\nprocesses and human\
+    \ intervention, which becomes inefficient for faster\ndetection of sophisticated\
+    \ attacks. Zhu et al*.* (2020) mention that\nthese methods allow attackers to\
+    \ cut through the constricted filters and\nrules. Neural Network models can address\
+    \ these problems by using robust\nhistorical datasets to create a model that reduces\
+    \ manual inputs for\nphishing detection. There are several types of modeling techniques.</p>\n\
+    <p>Feed Forward Neural Network (FFNN), Artificial Neural Network (ANN),\nConvolutional\
+    \ Neural Network (CNN), Recurrent Neuron Network (RNN), and\nEnsemble Neural Network\
+    \ (ENN) are some of the crucial neural networks\nfor models that have been used\
+    \ for phishing websites and email detection\n[17]. ANN is a neural network model\
+    \ which is a self-structured neural\nnetwork. It mimics the human brain's neural\
+    \ network, where several\nneurons or hidden layers are connected for passing information\
+    \ from the\ninput layer to the output layer. This model has been highly used for\n\
+    URL-based phishing detection models as it provides high accuracy scores\n[9].\
+    \ FFNN is another popular neural network model. Soon et al. have\nmentioned the\
+    \ increased usage of FFNN since it has a history of\nproducing accuracy scores\
+    \ of 95% or up [17]. It helps create an\neffective modeling relationship between\
+    \ input layers and output layers\nthrough feedforward neural networks [18]. ENN\
+    \ is another powerful\nmodeling technique that gathers multiple neural network\
+    \ models to detect\nthe attack using covariance matrices. The matrices are calculated\
+    \ by\ncollecting average, maximum, and minimum values of the output and\nproviding\
+    \ the final score using majority votes [18]. CNN modeling\ntechniques can deal\
+    \ with some of the complex issues with new and\nsophisticated phishing detection.\
+    \ It is a fully connected artificial\nneural network that can read images and\
+    \ handwritten data for image\ndetection. It consists of several coevolutionary\
+    \ layers, max-pooling, or\nfully connected layers [20]. Coevolutionary layers\
+    \ can detect\n\"chrematistic features\" in images [20]. These layers can be helpful\
+    \ to\nsee phishing attacks by analyzing URLs.</p>\n<p>The model improves detection\
+    \ by adding more embedded layers. The model\nalso performs well with NLP, where\
+    \ it can classify the attacks with a\nhigher accuracy score by adjusting the representation\
+    \ of words in URLs\n[20]. And lastly, there is the Recurrent Neural Network (RNN)\
+    \ which\nuses sequential data to predict words or speech in language translation\n\
+    and speech detection. RNN takes characters from URLs as input and\nsequentially\
+    \ analyze them for each URL to study pattern for attack\ndetection. The classification\
+    \ model is built using Least Square Time\nSeries.</p>\n<p>The data for this study\
+    \ has been acquired from PhishTank.com, Mendeley\nData [15], and NapierOne [16].\
+    \ Phishtank has datasets that break\ndown URLs into different features that detect\
+    \ malicious emails. The data\nis confirmed phishing attempts, gathered collaboratively\
+    \ by the\nregistered users, which are further reviewed by PhishTank operated by\n\
+    <em>Cisco Talos Intelligence Group</em>. Mendeley Data is the dataset prepared\n\
+    by Hannousse et al*.* (2021) with confirmed malicious and legitimate\nURLs with\
+    \ their domain and sub-domain classifications [15]. NapierOne\nprovides a dataset\
+    \ of documents often sent as attachments with malicious\ncontents. NapierOne is\
+    \ managed by the School of Computing at Edinburgh\nNapier University [16].</p>\n\
+    <p>This paper presents the DARTH framework, a novel multi-faceted solution\nto\
+    \ the email phishing detection problem. DARTH deconstructs an email in\naccordance\
+    \ with the email composite features such as body text and\nmetadata that are nearly\
+    \ indistinguishable from valid emails. Each\ncomposite feature is analyzed by\
+    \ its respective neural network model,\nand an Ensemble Neural Network (ENN) utilizes\
+    \ the output of these models\nto determine phishing classification. The exemplary\
+    \ multi-faceted DARTH\nmethod presented in this paper utilizes the following composite\n\
+    features: email body text, the entropy of attached files, metadata of\nemail,\
+    \ and embedded URLs contained anywhere within the email.</p>\n<ol start=\"2\"\
+    >\n<li>Literature Review</li>\n</ol>\n<p>Traditionally, phishing detection research\
+    \ has focused on methods for\nautomated phishing detection. This section presents\
+    \ related work\ncovering different aspects of phishing detection. This section\
+    \ begins\nwith a brief history of phishing, followed by an overview of the most\n\
+    common phishing detection methods. Researchers have tackled this problem\ndifferently\
+    \ over time. Some researchers have focused on machine learning\nmodels, while\
+    \ others have focused on manual add-ins and natural language\nprocessing elements\
+    \ on email text.</p>\n<p><strong>2.1 Origin and Types of Phishing</strong></p>\n\
+    <p>Phishing, as defined in Merriam-Webster, is \"the practice of tricking\nInternet\
+    \ users into revealing personal or confidential information which\ncan then be\
+    \ used illicitly\" [33].</p>\n<hr>\n<p>Phishing Type        Description</p>\n\
+    <hr>\n<p><em>Standard Phishing</em>  Stealing sensitive information by pretending\
+    \ to be an\nauthorized person or an organization. It is not a<br>\ntargeted attack\
+    \ and can be conducted for a large<br>\ngroup or for a mass attack.</p>\n<p><em>Malware\
+    \ Phishing</em>   It introduces bugs/viruses into the victim's machine<br>\nand\
+    \ network by convincing a user to click a link or<br>\ndownload an attachment\
+    \ in order to install the<br>\nmalware. It is currently one of the most widely\
+    \ used<br>\nform of a phishing attack.</p>\n<p><em>Spear Phishing</em>     In\
+    \ contrast to the standard phishing where a large<br>\nnumber of users are attacked\
+    \ at once, spear-phishing<br>\nis a targeted attack towards a big target like\
+    \ CEOs,<br>\nCelebrities, etc. This requires intense research of<br>\nthe potential\
+    \ victim to convince them into engaging<br>\nwith the scam.</p>\n<p><em>Smishing</em>\
+    \           SMS + Phishing = SMISHING. In this type of attacks<br>\nthe SMS or\
+    \ text messages are used to deliver the<br>\nmalicious links to the unsuspecting\
+    \ user. The links<br>\nare often short of the actual URLs.</p>\n<p><em>Search\
+    \ Engine       In this technique, the fraudulent sites are injected<br>\nPhishing</em>\
+    \            into the search results often in the form of paid<br>\nads.</p>\n\
+    <p><em>Vishing</em>            Vishing is a method where a hacker contacts the\
+    \ user<br>\nover a phone call pretending to be from a known<br>\norganization\
+    \ and tries to extract the sensitive<br>\nfinancial information from the user\
+    \ like banking and<br>\ncredit card details.</p>\n<p><em>Pharming</em>       \
+    \    It is a technically sophisticated form of phishing<br>\ninvolving the internet's\
+    \ domain name system (DNS).<br>\nPharming reroutes legitimate web traffic to a\
+    \ spoofed\npage without the user's knowledge, often to steal<br>\nvaluable information.</p>\n\
+    <p><em>Clone Phishing</em>     In clone phishing attackers make changes to an<br>\n\
+    existing email, resulting in a nearly identical<br>\n(cloned) email but with malicious\
+    \ URLs and<br>\nattachments. This requires a compromise of an email<br>\naccount.</p>\n\
+    <p><em>Man-In-The-Middle   Man-In-The-Middle (MITM) attack is when a hacker<br>\n\
+    (MITM)</em>              eavesdrop into conversation among the two or more<br>\n\
+    individuals. Hackers create a public Wi-Fi network<br>\nwhich unsuspecting users\
+    \ join allowing the attackers<br>\nto capture information and transmit incorrect<br>\n\
+    information including malware to the involved<br>\nparties.</p>\n<p><em>Business\
+    \ Email      Business Email Compromise (BEC) involves a phony<br>\nCompromise</em>\
+    \          email usually claiming to be an urgent request for<br>\npayment or\
+    \ purchase from someone within or associated\nwith a target's company.</p>\n<h2><a\
+    \ id=\"user-content-malvertising-------in-case-of-malvertising-the-attackers-post-amalicious-advertisement-on-the-legitimate-websitesthe-animation-or-video-or-links-within-theadvertisement-has-links-to-the-malicious-software-tosteal-information-from-the-users\"\
+    \ class=\"anchor\" aria-hidden=\"true\" href=\"#malvertising-------in-case-of-malvertising-the-attackers-post-amalicious-advertisement-on-the-legitimate-websitesthe-animation-or-video-or-links-within-theadvertisement-has-links-to-the-malicious-software-tosteal-information-from-the-users\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\n<em>Malvertising</em>\
+    \       In case of Malvertising the attackers post a<br>\nmalicious advertisement\
+    \ on the legitimate websites.<br>\nThe animation or video or links within the<br>\n\
+    advertisement has links to the malicious software to<br>\nsteal information from\
+    \ the users.</h2>\n<p>: Table 1: Types of Phishing and their brief description</p>\n\
+    <p>The term \"phishing\" was coined by a then-teenager named Koceilah\nRekouche\
+    \ [32]. Rekouche developed the first phishing attack. With a\nsmall group of teenagers,\
+    \ Rekouche developed the AOHell software\ndesigned to steal the passwords of America\
+    \ Online (AOL) users [32]. It\nwas arguably the first phishing software, and it\
+    \ was used for stealing\npasswords and credit card information beginning in January\
+    \ 1995.\nAOHell's phishing system was made publicly available, its release\nleading\
+    \ to many other automated phishing systems over the years [32].</p>\n<p>Started\
+    \ by teenagers and adopted by several other amateurs, phishing\nactivity spread\
+    \ from AOL to other networks. Slowly, professional\ncriminals took notice of this\
+    \ phishing activity and got involved in\nphishing schemes. Although phishing started\
+    \ small, it grew to become one\nof the major cyber security threats worldwide\
+    \ leading to large financial\nlosses to individuals, corporations, and even governments\
+    \ [32].</p>\n<p>Phishing which started as very basic technology soon grew into\
+    \ a\nsophisticated methodical attacks. As organizations started building\nalgorithms\
+    \ to identify phishing attempts, hackers continued to invent\nnew ways to evade\
+    \ the detection. Phishing attackers have constantly\ndeveloped new techniques\
+    \ to hide their phishing attacks like Smishing,\nSpear phishing, Malvare phishing\
+    \ and Malvertising.</p>\n<p>Humans are the weakest link in the phishing scheme\
+    \ as they can be easily\nmanipulated for information or duped into clicking on\
+    \ malicious links\nvia social engineering techniques.\_</p>\n<p><strong>2.2 URL-Based\
+    \ Phishing Detection</strong></p>\n<p>Past studies have used methods of detecting\
+    \ phishing attacks using URLs.\nDutta et al*.* (2021) mention that phishing techniques\
+    \ are mainly\nclassified as technical subterfuge and Social Engineering. Technical\n\
+    subterfuge such as Keylogging DNS poisoning uses a tool to attack, while\nsocial\
+    \ engineering such as Spear phishing whaling tricks victims into\naccessing a\
+    \ compromised URL [2]. Dutta et al*.* (2021) evaluate the\ndetection of social\
+    \ engineering phishing attempts delivered via email.\_\nHaynes et al*.* (2021)\
+    \ propose a lightweight phishing detection system\nto identify phishing URLs.\
+    \ They have used NLP transformers and applied\nANN (Artificial Neural Networks)\
+    \ [9]. Authors suggest that the models\nmay predict if the website is phishing\
+    \ or not, just using the texts in\nthe URL by applying transformers on the texts.\
+    \ Authors propose this idea\nto improve the speed of creating and validating models\
+    \ as an edge\ncompared to other phishing techniques [9].\_While Haynes et al*.*\n\
+    (2021) have provided groundbreaking works for the Neural Network\nModeling technique.\
+    \ There is an opportunity to use the Neural Network\nmodeling technique for email\
+    \ body text-based Natural Language\nProcessing.\_</p>\n<p>Existing phishing techniques\
+    \ are based on source code that scrapes web\npages' content. Machine learning\
+    \ techniques require essential manual\nfeature engineering and do not detect new\
+    \ phishing offenses\neffectively.\u202FAljofey et al*.* (2020), in their research\
+    \ on *Effective\nPhishing Detection Model Based on Character Level Convolutional\
+    \ Neural\nNetwork from URL,\u202F*introduced a deep learning model that uses a\n\
+    convolutional neural network (CNN) to evaluate the URLs of the websites\nto identify\
+    \ malicious sites and potential for phishing. It captures the\nsequential pattern\
+    \ of URL strings without prior knowledge about phishing\nand uses the sequential\
+    \ features for faster classification. For\nperformance metrics, the model accuracy\
+    \ is compared with traditional\nmodels using hand-crafted character embedding,\
+    \ character level TF-IDF,\nand character level count vector features [13]. Using\
+    \ the\nconvolutional neural network model and character level TF-IDF analysis\n\
+    is crucial for this study as both techniques are important supplementary\nmethods\
+    \ to build the entire process. Each of the previous studies has\ninvestigated\
+    \ both ways individually. This study includes both approaches\nto create a set\
+    \ of sophisticated phishing attack detection techniques.\_</p>\n<p>In traditional\
+    \ machine learning techniques, website URLs are first\nanalyzed with different\
+    \ hand-crafted features to improve detection\naccuracy. URLs are analyzed to perform\
+    \ feature adaptation from phishing\nwebsites. Using these features, the engineers\
+    \ constructed the training\nset using labeled features. On the other hand, the\
+    \ convolutional neural\nnetwork (CNN) model requires less human effect. It identifies\
+    \ individual\ncharacters from URLs based on prescribed character vocabulary and\
+    \ then\nrepresents each character as a fixed-length vector using one-hot\nencoding\
+    \ [13]. The model identifies similar characters that can be\nunnoticeable in website\
+    \ URLs. One of the significant advantages of this\nmodel is that it does not have\
+    \ to rely on third-party services for\ndetection. The study provides a unique\
+    \ modeling technique that can aid\nthe build the new proposed set of models. However,\
+    \ the study has not\ninvestigated multiple modeling techniques or included any\
+    \ Natural\nLanguage Processing techniques.\_\_</p>\n<p>A Recurrent Neural Network\
+    \ (RNN) is a neural network that uses\nsequential or time-series data, widely\
+    \ used for language translation,\nnatural language processing, speech detection,\
+    \ and image detection. All\nparameters are the same across each hidden layer,\
+    \ meaning weights are\nthe same on each node. These features have been helpful\
+    \ for the precise\ndetection of phishing attacks. Neeharika et al*.* have conducted\
+    \ a study\nthat found that this neural network model has a high accuracy rate.\n\
+    Also, they did not have to create extra features for model building\n[21]. The\
+    \ model takes characters from sequentially listed URLs and\npredicts whether the\
+    \ URL is part of a phishing attack or not using Least\nSquares Time Series units\
+    \ [21]. This research can be convenient for\nthe proposed study because of its\
+    \ performance and feature of eliminating\nmanual inputs for feature creation.\
+    \ The proposed research also plans to\nexplore the email body text, and RNN has\
+    \ the potential for detecting a\nparticular set of sequence data that may be linked\
+    \ to phishing attacks.</p>\n<p>\_ Ensemble Neural Network (ENN) is a method where\
+    \ many neural networks\nare used to solve a problem. Multiple neural networks,\
+    \ regression, and\nclassification neural networks are analyzed. Findings reveal\
+    \ that\nnumerous neural network ensemble are a better fit. The optimization\n\
+    process uses covariance matrices calculated by the maximum likelihood\nalgorithm\
+    \ under the Bayesian framework. The network does not calculate\nthe gradient,\
+    \ which allows it to utilize complicated neural models and\nloss functions [29].\
+    \ The appropriate networks are selected from the\navailable set of neural networks\
+    \ to achieve an effective ensemble, using\nan approach called Genetic Algorithm-based\
+    \ Selective Neural Network\nEnsemble (GASEN). GASEN term proposed by Zhi-Hua et\
+    \ al*.* (2002), trains\nneural networks, assigns random weights to the networks,\
+    \ evolves, and\nemploys a genetic algorithm to find the better fit among available\n\
+    networks. The study by Zhi-Hua et al. (2002) shows that compared to\nbagging and\
+    \ boosting, ENN can create a better neural network with\nsmaller sizes [28].</p>\n\
+    <p>Soon et al*.* (2020) have used ENN, RNN, and FFNN on phishing datasets\nand\
+    \ have produced several highly accurate models using different\nhyperparameters.\
+    \ The researchers have run all three models using two\nscenarios to improve accuracy\
+    \ detection. In the first scenario, all\nthree models have been executed using\
+    \ a range of 1-18 input layers. All\nthe models have been performed for the second\
+    \ scenario using a 0.001 --\n0.1 learning rate. The final experiment shows that\
+    \ ENN has produced a\nbetter accuracy score than RNN and FFNN. The researchers\
+    \ have concluded\nthat ENN requires fewer neurons than the other two models. A\
+    \ lower\nlearning rate produces better results for phishing detection due to its\n\
+    ability to reduce error [17].\_</p>\n<p>Various Machine Learning techniques have\
+    \ been used to identify phishing\nattempts. Dharani et al*.* (2021) proposed using\
+    \ Machine Learning\nMethods such as Random Forest Algorithm and Extreme Gradient\
+    \ Boosting\n(XGBoost) Algorithm for efficient and accurate phishing website\n\
+    detection on its Uniform Resource Locator [5]. Most research focused\non identifying\
+    \ phishing attempts by evaluating the URLs rather than the\nemail content and\
+    \ patterns. Another similar study,\_Akinyelu et al*.*\n(2014),*\_<em>in the paper</em>\_\
+    Classification of Phishing Email Using Random\nForest Machine Learning Technique,*\_\
+    mentions that most tools and\ntechniques are used to flag emails to identify spam\
+    \ emails. In contrast,\nphishing detection tools are not standard [3]. Most phishing\
+    \ detection\ntechniques involve scanning URLs through block-listed [4] sets of\
+    \ URLs\npreviously flagged as malicious. While these studies present essential\n\
+    aspects of the Random Forest classification modeling technique for the\nURL portion\
+    \ of the emailing system, these studies are based on one\nmethod that can be ineffective\
+    \ for detecting early phishing. The\npaper's authors compare multiple modeling\
+    \ techniques and Random Forest\nto build the optimal machine learning model. This\
+    \ research study also\ninvestigates other avenues of the emailing system, such\
+    \ as the text body\nof the email processing using Natural Language Processing.\_\
+    </p>\n<p>Abu-Nimeh et al*.* (2009*)*, in their work,\u202F <em>Distributed Phishing\n\
+    Detection by Applying Variable Selection Using Bayesian Additive\nRegression Trees,</em>\u202F\
+    focused on detecting phishing emails on mobile\ndevices. They have used distributed\
+    \ detection techniques applying\nvariable selection using Bayesian additive regression\
+    \ trees. The study\nnotes that BART improves accuracy when combined with other\
+    \ machine\nlearning classifiers. The study concludes that future work is necessary.\n\
+    However, BART can be tool to improve accuracy [6].\_</p>\n<p><strong>2.3 Natural\
+    \ Language Processing on Text</strong></p>\n<p>While other studies have focused\
+    \ on a single method*,* Ramanathan, &amp;\nWechsler, H*.* (2012) propose a multi-layered\
+    \ methodology called\nphishGILLNET. The researchers applied the methods three\
+    \ times: Fisher\nsimilarity, second Adaboost, and third used NLP techniques on\
+    \ misspelled\nwords to identify phishing [10]. The authors used a large dataset\
+    \ of\npublic corpus emails (about 400,000) to conduct the study and noted\noutstanding\
+    \ results. \_ The paper mentioned that users of social media,\nsuch as Internet\
+    \ Messages, chat, blog posts, etc., could apply the\nphishGILLNET methods [10].</p>\n\
+    <p>Attackers continually evolve their methods to evade advances in\nprotection\
+    \ and exploit newly discovered vulnerabilities or events. The\ncurrent anti-phishing\
+    \ products use a combination of blocklist,\nheuristic, visual, and machine learning\
+    \ to detect the attacks.\_Sahingoz\net al*.* (2019)\_promote using classification\
+    \ algorithms and natural\nlanguage processing base features to see malicious links\
+    \ and emails in\nreal-time rather than from a list of databases. Experiments used\
+    \ a newly\nconstructed test dataset utilizing the Random Forrest model with\n\
+    NLP-based features that created an accuracy rate of 99.98% [11]. The\nstudy can\
+    \ be helpful as it combines machine learning techniques with\nNatural Language\
+    \ Processing. However, it still lacks research on how an\nintegrated approach\
+    \ can improve phishing detection using URLs and text\nbody text.\_\_\_</p>\n<p>Since\
+    \ phishing detection is a classification case,\_Sahingoz et al*.*\ndeploy a model\
+    \ which extracts keywords using the \"frequency-inverse\ndocument\" algorithm.\
+    \ The drawback of this technique is that the model is\nhelpful with the English\
+    \ language. Also, it tends to produce many false\npositives, although the model\
+    \ has a high accuracy rate. The model\ndetermines website legitimacy, detects\
+    \ possible target domains using a\nsearch engine, and determines whether the domains\
+    \ in the query are\nlegitimate or not. It can also study offline websites using\
+    \ a support\nvector machine. The Adaptive Regularization of Weights algorithm\
+    \ is used\nfor fraud detection on online websites. These are all non-linear\n\
+    approaches for detecting phishing attacks [11].\_</p>\n<p>Sanglerdsinlapachai\
+    \ et al.\u202F(2010) have added a new dimension to the\nliterature by focusing\
+    \ on domain top page similarity. Their\nresearch,\u202F<em>\"Using Domain Top-Page\
+    \ Similarity Feature in Machine\nLearning-Based Web Phishing Detection,\"</em>\
+    \ explored\u202Fdomain top page\nsimilarity to detect any new phishing websites.\
+    \ Authors note the high\nsuccess rate of detecting phishing, though the samples\
+    \ were tiny [7].\nOn the other hand, Abbasi et al*.* (2021)*\u202F*argue that\
+    \ the root cause of\nthe problem is the internet users' lack of ability to identify\
+    \ malicious\nemails or products. The study introduced the phishing funnel model\n\
+    (PFM). It is a design artifact that predicts users' susceptibility to\nphishing\
+    \ outlets such as websites, emails, etc. [12]. For the target\nvariable, the research\
+    \ focused on user behavior regarding interaction\nwith phishing attacks instead\
+    \ of predicting whether the links of\nwebsites or emails are related to phishing\
+    \ attacks. Using over 1,200\nemployees and around 49,000 phishing interactions,\
+    \ the model has\noutperformed other existing models, reducing the number of phishing\n\
+    attacks as it was able to make users classify incoming emails and\nattachments\
+    \ as malicious items [12].</p>\n<p>Despite the large sample size, the question\
+    \ is, can we avoid human\nerrors by training machines to identify phishing. Alhogail\
+    \ &amp; Alsabih et\nal*.* (2021) research seemed to look for the answer*.* Alhogail\
+    \ &amp;\nAlsabih\u202Fet al*.* (2021).\u202Fhave emphasized the importance of\
+    \ using machine\nlearning methods to detect phishing instead of relying on humans.\
+    \ In\ntheir studies on <em>Applying machine learning and natural language\nprocessing\
+    \ to detect phishing emails,</em> authors propose a deep learning\nmethod using\
+    \ Graph convolutional network (GCN) and natural language\nprocessing on the email\
+    \ body text. The method is more efficient at\ndetecting zero-day phishing emails\
+    \ than other methods [8]. However,\nthe authors concluded that more study is necessary\
+    \ to confirm the\nfindings.</p>\n<p>Regarding PFM, the proposed research will\
+    \ address some of the gaps that\nneed to be addressed.\_ Alhogail &amp; Alsabih*\u202F\
+    <em>et al</em>.* analysis brings up\nthree research gaps. First, prior works have\
+    \ not investigated the\ndetails of user behavior as a target variable. Second,\
+    \ previous studies\nhave focused on \"single decision,\" such as binary classification\
+    \ of the\nmalicious or non-malicious status. Third, prior models did not emphasize\n\
+    tools much when studying users' susceptibility to attacks [12].\_This\nresearch\
+    \ paper addresses the second gap in binary classification's\n\"single decision.\"\
+    </p>\n<p>**<br>\n**</p>\n<p><strong>2.4 Email Attachment Phishing Detection</strong></p>\n\
+    <p>Cybercriminals target users by sending malicious attachments through\nemails.\
+    \ The attachments are sent through different file formats such as\npdf, SVG, XML,\
+    \ JSON, etc. Users often download the files by mistake,\ncontaining malware that\
+    \ installs automatically on their devices. This\nallows the attackers to gain\
+    \ personal information through fraudulent\nactivities such as transferring money\
+    \ from victims' banks, stealing\ntrade secrets from organizations, and even threatening\
+    \ individuals for\ndifferent motives. Machine learning models can be instrumental\
+    \ in\ndetecting attacks through attachments. Akinyelu et al*.* (2014) have\nstudied\
+    \ branches in emails using Random Forest models to improve the\naccuracy rate\
+    \ for phishing detection. This technique has produced an\naccuracy rate of 99.7%\
+    \ compared to other machine learning models that\nhave made 97% [3].</p>\n<p>Phishing\
+    \ attacks lure individuals to access malicious email content,\nincluding attachments\
+    \ and links. Attackers often use one or more of the\nphishing techniques listed\
+    \ in Table 2 to persuade users to access the\ninformation by downloading an attachment\
+    \ (malware) or simply clicking on\na link that installs malware into the victim's\
+    \ system [35].</p>\n<hr>\n<p>Techniques      Description</p>\n<hr>\n<p><em>Authority</em>\
+    \     Attackers claim to be someone from reputable\norganizations to ask for the\
+    \ victim's information</p>\n<p><em>Urgency</em>       Attackers ask victims to\
+    \ respond to a claim in an\nurgent manner</p>\n<p><em>Reciprocity</em>   Attackers\
+    \ claim to favor victims using stated service</p>\n<p><em>Social Proof</em>  Attackers\
+    \ try to gain information by saying others have\nresponded to the claim.</p>\n\
+    <p><em>Reward</em>        Attackers offer a reward to the victims for a response.</p>\n\
+    <p><em>Loss</em>          Attackers claim victims will deal with some form of\n\
+    loss if they don't respond.</p>\n<h2><a id=\"user-content-scarcity------attackers-offer-a-limited-amount-of-opportunity-to-thevictims-such-as-a-claim-for-the-first-20-responders\"\
+    \ class=\"anchor\" aria-hidden=\"true\" href=\"#scarcity------attackers-offer-a-limited-amount-of-opportunity-to-thevictims-such-as-a-claim-for-the-first-20-responders\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\n<em>Scarcity</em>\
+    \      Attackers offer a limited amount of opportunity to the\nvictims such as\
+    \ a claim for the first 20 responders.</h2>\n<p>: Table 2. Attachment-based phishing\
+    \ techniques [35]</p>\n<p>Using Table 2, Williams et al*.* (2018) mentioned two\
+    \ theoretical\nframeworks that have been applied to detecting these attacks. The\n\
+    Suspicion, Cognition, and Automaticity Model (SCAM) is a theory that\ntakes a\
+    \ company's users' knowledge, beliefs, and habits to analyze\nusers' susceptibility\
+    \ to phishing attacks [35]. Protection Motivation\nTheory (PMT) is a theory that\
+    \ has been applied to generic security\nbehavior to understand users' perceptions\
+    \ of these types of attacks\n[35]. For the research, Williams et al*.* (2018)\
+    \ have created two\nhypotheses -- 1) users will respond to authority-based attacks,\
+    \ and 2)\nwill respond to urgency-based attacks. Given the results from the\n\
+    statistical modeling, both hypotheses have been validated with a z score\nof 72.68,\
+    \ p &lt; 0.001 for hypothesis 1, and a z score of 39.12, p &lt;\n0.001 for hypothesis\
+    \ 2.</p>\n<p><strong><br>\n2.5 Moving to a Multi-Faceted Approach</strong></p>\n\
+    <p>Prior studies are highly based on analyzing URLs and body text\nseparately[11,\
+    \ 5]. Abbasi et al*.* introduce a phishing detection\nstudy using user behavior\
+    \ only [12]. These phishing detection methods\nhave been primarily uni-directional\
+    \ since the authors have analyzed\nphishing detection of emails using unique composite\
+    \ features along with\nNLP or machine learning model separately. For example,\
+    \ Dharani et al*.*\n(2021) have used the non-neural network model XGBoost on text\
+    \ data from\nURLs only [5]. Furthermore, others, such as Aljofey et al., have\
+    \ used\nneural network models such as Convolutional Neural Network on URL data\n\
+    [13]. These studies are primarily uni-directional as authors have used\none feature\
+    \ and one technique to analyze phishing attacks. Few studies\nhave studied email\
+    \ features using combination techniques such as NLP\ntransformation and Neural\
+    \ Networks. Haynes et al. used NLP for URL text\npreprocessing and Artificial\
+    \ Neural Network for phishing attack\ndetection [9]. Sahingoz et al*.* (2019)\
+    \ have analyzed the emails'\nbody text using NLP preprocessing and random forest\
+    \ modeling techniques\nfor phishing attack detection [11]. Although these simplistic\n\
+    multi-faceted studies have added more tools to the algorithm for\nphishing attack\
+    \ detection, this research still lacks a comprehensive\ndesign of the algorithm\
+    \ that includes all the composite features of\nemail such as body text, URLs,\
+    \ metadata, and attachments for analysis\nand detection. Comprehensive design\
+    \ is crucial as attackers constantly\nupgrade and build more sophisticated techniques\
+    \ to target people for\nstealing confidential information or other cyber attacks.\
+    \ Relying on a\nsingle method is not a good reliable long-term solution as attackers\
+    \ may\novercome that check. Using as much information available to design a\n\
+    phishing detection model is a promising approach. This multi-faceted\nphishing\
+    \ detection approach utilizes various composite features of the\nemails in the\
+    \ algorithm for data processing and modeling for attack\ndetection.</p>\n<p>The\
+    \ proposed multi-faceted study introduces a new method called DARTH\nFramework.\
+    \ It helps us to address the gaps that currently exist in\nphishing detection.\
+    \ It contains clear target variables, creates models\nto lower users' susceptibility\
+    \ to attacks, and relies on multiple\nmethods to design models for phishing attack\
+    \ detection. The framework\nfills the gap in the existing literature for early\
+    \ phishing detection.\_\_</p>\n<p>This research combines multiple machine learning\
+    \ modeling techniques and\nmachine learning on all the available avenues of emailing\
+    \ systems.\_\_The\nresearch hypothesizes that the DARTH framework can combine\
+    \ the natural\nlanguage processing of email text and machine learning algorithms\
+    \ on the\nmetadata to identify phishing email attempts.</p>\n<p>3 Methods</p>\n\
+    <p>As covered in Section 2, there is a gap in phishing detection techniques\n\
+    and prior research. Most researches focus on one aspect of detecting\nphishing\
+    \ emails, while few studies attempted a simplistic multi-feature\napproach. In\
+    \ this research, the proposed algorithm addresses the problem\nby including multiple\
+    \ composite email features, preprocessing them, and\nexecuting simulation to predict\
+    \ whether emails being phishing or\nlegitimate. In this Section, the intrinsic\
+    \ details of the DARTH\nframework are presented.</p>\n<p><strong>3.1 The DARTH\
+    \ Framework</strong></p>\n<p>The novel DARTH framework breaks emails into several\
+    \ parts such as the\nbody texts, the embedded URLs in the emails, the email headers,\
+    \ and\nemail attachment metadata. The data extracted from the emails are first\n\
+    processed to vectorize the data and add composite data to add more\nfeatures to\
+    \ the data. The pre-processed data are analyzed through\nvarious individual machine\
+    \ learning models. As a final step, the output\nfrom the individual models is\
+    \ fed into an ensemble neural network. The\noutput of the ensemble model is to\
+    \ predict if the is phishing or\nlegitimate. An important aspect of the DARTH\
+    \ framework is that the\nindividual models like URLs and attachments are trained\
+    \ on an external\ndataset published in prior studies and research, more details\
+    \ are\ncovered in Section 3.5. The framework is flexible and allows the\naddition\
+    \ of any new neural network models on individual composite\nfeatures of the emails\
+    \ or a more complex model to improve the accuracy\nof the output. Figure 1 explains\
+    \ the DARTH framework and its various\nfacets. Sections 3.2 to 3.5 covers each\
+    \ aspect of the DARTH framework in\ndetail.</p>\n<p><a target=\"_blank\" rel=\"\
+    noopener noreferrer\" href=\"media/image1.tiff\"><img src=\"media/image1.tiff\"\
+    \ alt=\"Diagram Description automatically generated\" style=\"max-width: 100%;\"\
+    ></a>{width=\"4.8125in\"\nheight=\"1.9833333333333334in\"}</p>\n<p><strong>Fig.\
+    \ 1.</strong> The DARTH Framework Basic Architecture</p>\n<p><strong>3.2 The Ensemble\
+    \ Model</strong></p>\n<p>The final layer of the DARTH Framework is the ensemble\
+    \ model which takes\ninputs from various other models, primarily three different\
+    \ models\npredicting the output of the email being malicious or legitimate based\n\
+    on an individual composite feature of the email data. Darth Ensemble is\na two-layer\
+    \ ensemble, where it takes the output of the email body text\nmodel, the embedded\
+    \ URLs model predictions, and the prediction output on\nthe emails header metadata\
+    \ to the final layer. The model is built to\ntake the inputs from the email attachments\
+    \ as well as an additional\nmodel. This ensemble model is actually the ensemble\
+    \ of other small\nensemble models and the results from each model are evaluated\
+    \ in detail\nin Sections 4 and 5.</p>\n<p>\_<strong>3.3 Feature Models</strong></p>\n\
+    <p>As discussed in Sections 3.1 and 3.2, there are several individual\ncomposite\
+    \ features of the emails which are evaluated in detail to get\nthe individual\
+    \ predictions prior to combining them into an ensemble\nmodel. Over 50,000 emails\
+    \ were evaluated with a mix of legitimate and\nmalicious emails. Sections 3.3.1\
+    \ to Section 3.3.4 covers each composite\nfeature in detail.</p>\n<p>The composite\
+    \ feature models are neural network models as it was\nrecorded to give superior\
+    \ results. However, additional modeling\ntechniques like Logistic Regression,\
+    \ RandomForest, and XGBoost model are\nalso created to compare the results to\
+    \ that of the neural network model.\nA neural network model is designed just like\
+    \ the human brain where\ninformation is gathered, processed in neurons, and then\
+    \ can provide\npredictions in terms of the categorical variable or continuous\
+    \ variable.\nThere are three types of layers -- input, dense, and output. The\
+    \ input\nlayer captures all the data, the dense layer processes the data and\n\
+    learns from the dataset, and the output layer provides prediction. Deep\nlearning\
+    \ is a subset of machine learning which uses dense layers in the\nneural network\
+    \ to learn from the data at a granular level. Each layer\ncontains neurons that\
+    \ learn from the data and assigns weights to all the\ncomposite features. The\
+    \ output layer classifies whether an email is spam\nor not.</p>\n<p><strong>3.3.1\
+    \ Email Body Text Model</strong></p>\n<p>The email body text was evaluated in\
+    \ detail as it has the most profound\nimpact on the receiver of the email. Email\
+    \ texts can trick an\nunsuspecting individual to access malicious content by clicking\
+    \ on the\nembedded links, downloading attachments or sharing sensitive personal\n\
+    details with the attacker. Phishing emails often have one of two\nimportant aspects,\
+    \ they \"masquerade\" the actual identity of the sender\nto be someone trusted\
+    \ or they create an \"urgency\" in the mind of the\nreceiver of the email to take\
+    \ quick action without thinking a lot about\nthe authenticity of the email. For\
+    \ example, an email from a well-known\ne-commerce website telling the receiver\
+    \ that their order was canceled\ndue to a problem and they must click on the link\
+    \ to confirm their\npayment details. The user may actually access the link and\
+    \ provide\nsensitive information like password and credit card details to the\n\
+    spurious webpage.</p>\n<p>The email text data is analyzed using non-parametric\
+    \ methods like\nclustering to group them into similar groups using the KMeans\
+    \ clustering\ntechnique to understand if there is a pattern to the phishing emails\
+    \ and\ntext can be used to identify such attempts. The pattern of such\nmalicious\
+    \ emails includes words like \"click now\", \"urgent\",\n\"immediately\", \"now\"\
+    \ etc.</p>\n<p>Various NLP techniques were employed to analyze the texts like\n\
+    \"word2vec\", \"topic modeling\" and \"BERT\". The final model was built using\n\
+    the transfer learning from the BERT [31], which is a pretrained\nEnglish NLP model\
+    \ and is used to classify the email text as a phishing\nattempt or legitimate.\
+    \ A common email phishing technique is posing as\nAmazon for a deep discount on\
+    \ a product or an official email from\nMicrosoft. Such phishing attempts then\
+    \ hide their actual URLs under the\npopular domain names for Microsoft it can\
+    \ be <em>Microsoft-sales-nk.com,</em>\nto lure users into accessing the link thinking\
+    \ it's from Microsoft. This\nsentiment is captured from body text and sent as\
+    \ a composite feature to\nneural networks. As discussed earlier, a common technique\
+    \ is to create a\nsense of urgency by urging receivers to click on links with\
+    \ little\nthought. The urgency of the texts can be measured quantitatively using\n\
+    Natural Language Processing. This composite feature is passed on to\nneural networks\
+    \ as additional data. Thus, two new features are\nintroduced, \"Masquerade-ness\"\
+    \ and \"Urgent-ness\".</p>\n<p>BERT is short for \"Bidirectional Encoder Representations\
+    \ from\nTransformers\", it's a deep learning model trained upon the Wikipedia\n\
+    articles. It is a bidirectional model which helps in analyzing the text\nin both\
+    \ directions of the target word such that it can predict the\nprevious text as\
+    \ well as the next text based on the surrounding words.\nDue to its training on\
+    \ a huge dataset of Wikipedia articles, it is\nextremely powerful and has been\
+    \ used in the industry for various tasks\nlike sentiment analysis, text prediction,\
+    \ chatbots, auto-completion of\nthe queries and email, etc. Using BERT as transfer\
+    \ learning proves to be\na powerful tool in predicting the outcome of the email\
+    \ texts malicious\nor legitimate.</p>\n<p><strong>3.3.2 Embedded URLs Model</strong></p>\n\
+    <p>This featured model is built upon the embedded URLs in the emails. One\nof\
+    \ the major patterns noticed as part of email text clustering and topic\nmodeling\
+    \ of phishing emails is that the users are urged into accessing a\nlink embedded\
+    \ in the email. It's pertinent that the URLs to be analyzed\nas a perfectly normal-looking\
+    \ email from a trusted sender may contain a\nmalicious link. In the event of man-in-the-middle\
+    \ attacks, where an\nattacker might access the conversations and relay an updated\
+    \ message\nwith a malicious link, or in the event of an account being compromised\n\
+    the emails received may appear to be trustworthy but may have the\nmalicious content.\
+    \ It's essential to analyze each URLs even if the\nreceiver trusts the sender.\
+    \ The URLs have various vital features like\nsubdomains, top domains, suffixes,\
+    \ age of the URLs, etc. The features of\nthe URLs were trained on an independent\
+    \ dataset with verified phishing\nfrom phishtank.com website data and Hannousse\
+    \ et al*.* (2021) published\ndataset. This model allows models to be created using\
+    \ external data and\nadded to the ensemble. Ensembling models trained with external\
+    \ data\nprovided valuable information to the neural networks to better detect\n\
+    phishing from the externally trained models.</p>\n<p>The embedded URLs data from\
+    \ the email were analyzed through the\npre-trained models, including Logistic\
+    \ Regression, XGBoost, and Neural\nNetwork models, to predict the legitimate or\
+    \ malicious links. This model\nis to identify the malicious emails solely based\
+    \ on the probability of\nthe embedded URLs being malicious or not. The output\
+    \ from the neural\nnetwork model is sent further into the ensemble model.</p>\n\
+    <p><strong>3.3.3 Email Headers Model</strong></p>\n<p>A crucial part of every\
+    \ email is the header section which contains\nimportant information about the\
+    \ email and can help determine if the\nemail can be malicious. Even though it's\
+    \ an integral part of any email,\nthe content of the header is not immediately\
+    \ visible to the user and is\neasy to ignore. The headers of the email consist\
+    \ of a large amount of\ninformation such as the sender details, the email's route\
+    \ to get to the\ninbox (computers' addresses that an email may have been transferred\n\
+    through), MIME-version (Multipurpose Internet Mail Extension), and the\nattachment\
+    \ counts, etc. This information was used as test data to\npredict whether the\
+    \ email was suspicious to be malicious. The original\nmodel is built on the train\
+    \ data from the confirmed malicious emails.</p>\n<p>The header data was analyzed\
+    \ using Logistic Regression, a Random Forest\nmodel, and a Neural Network model.\
+    \ The results were compared, and the\nneural network model output was sent further\
+    \ to the ensemble model for\nfinal prediction. This model predicts whether the\
+    \ email is malicious or\nlegitimate solely on the header information. The email\
+    \ may contain\nseveral tens of headers, but for this analysis, only the first\
+    \ 11\nheaders per email were used.</p>\n<p><strong>3.3.4 Additional Models</strong></p>\n\
+    <p>Some additional models can also be added to the framework, for example\nemail\
+    \ attachments. This model analyzes the entropy of the email\nattachments and compares\
+    \ that to the typical entropy of such file types.\nIf there is a significant difference\
+    \ in the entropy of the attachment\ncompared to the expected entropy then it can\
+    \ be a malicious email.</p>\n<p>NapierOne has published a large dataset of malicious\
+    \ files of different\ntypes. A small subset of the NapierOne dataset was used\
+    \ to calculate the\nentropy of the different file types. The entropy measures\
+    \ the randomness\nof the data in a file and if the entropy value is higher than\
+    \ expected\nit could be due to any hidden executables in the simple file types\
+    \ (like\ntext files). The entropy of different file types is calculated and\n\
+    published in Figure 2. It should be noted that if the entropy values of\ncertain\
+    \ files type are not within the threshold doesn't necessarily mean\nthat it's\
+    \ malicious, however, this is important information that must\nbe accounted for\
+    \ to identify phishing attempts.</p>\n<p>Though the documents were analyzed, the\
+    \ email attachments are not part\nof the final ensemble model.</p>\n<p><a target=\"\
+    _blank\" rel=\"noopener noreferrer\" href=\"media/image2.png\"><img src=\"media/image2.png\"\
+    \ alt=\"Chart, waterfall chart Description automatically generated\" style=\"\
+    max-width: 100%;\"></a>{width=\"4.8125in\"\nheight=\"2.5069444444444446in\"}</p>\n\
+    <p>Fig. 2. Calculated Entropy for each file type shows how the entropy\nvaries\
+    \ by the type of file with non-malicious content</p>\n<p><strong>3.4 Parsed and\
+    \ Processed Data</strong></p>\n<p>One of the major aspects of any data analysis\
+    \ is data processing. It is\nimportant that data is appropriately handled to extract\
+    \ as much\ninformation as possible. The models, such as URL models and attachments,\n\
+    were trained on externally published data; see Section 3.5 for the\ndetails of\
+    \ the data sources. However, recent emails with phishing\nattempts are required\
+    \ to test the models accurately. The authors'\npersonal emails were used for model\
+    \ building and testing. To use the\ndata appropriately, it's required to parse\
+    \ the information from the\nemails, for example: extract the email body text,\
+    \ parse out the embedded\nURLs and separate the header information.</p>\n<p><strong>3.4.1\
+    \ Email Data Extraction</strong></p>\n<p>Email data is comprised of a .msg filetype\
+    \ that stores the entire\ncontent of an email in text format. This format of files\
+    \ can be\ndownloaded from email providers as mbox files. As such, each .msg file\n\
+    contains the entire data of an email. Data is parsed to read the email\nheaders,\
+    \ body text, attachment counts, and, if there are any\nattachments, the file type.</p>\n\
+    <p>For email body text, the email is scanned for the content type. If the\nbody\
+    \ is plain text, then the entire body is used as text. However, if\nthe body text\
+    \ is in HTML format, all visible texts are harvested and\nstored as plain text.\
+    \ Similarly, if the text is base64 encoded, it's\nfirst decoded then the text\
+    \ is stored. The stored text is pre-processed\nbefore running any further models.</p>\n\
+    <p>The header information is extracted from the email headers and stored as\n\
+    a dataset with multiple features as the header information. Similarly,\neach email\
+    \ is scanned for any URLs. Once the URLs are identified, they\nare stored for\
+    \ further processing covered in Section 3.4.2.</p>\n<p>Since data extraction is\
+    \ a performance-intensive process, SMU's\nManeFrame II HPC (High-Performance Computing)\
+    \ was extensively used to\ncomplete the data extraction.</p>\n<p><strong>3.4.2\
+    \ Preprocessing Data</strong></p>\n<p>The email body text analysis requires Natural\
+    \ Language Processing (NLP)\ntechniques. This requires the text data to be tokenized\
+    \ for any further\nresearch. Tokenization breaks down text into words which are\
+    \ called\ntokens. It establishes the meaning and context of the text by analyzing\n\
+    the sequences of the words. A new feature is added to the data frame,\ncontaining\
+    \ word token counts from the text. Using the new feature, we\ncan notice the frequency\
+    \ of different token lengths for both legitimate\nand malicious emails. Malicious\
+    \ emails generally have 100 or few tokens,\nas shown in Figure 3.</p>\n<p><a target=\"\
+    _blank\" rel=\"noopener noreferrer\" href=\"media/image3.png\"><img src=\"media/image3.png\"\
+    \ alt=\"\" style=\"max-width: 100%;\"></a>{width=\"4.8125in\" height=\"2.5833333333333335in\"\
+    }</p>\n<p>Fig. 3. Email token length by the legitimate and malicious emails. The\n\
+    malicious emails have lower token length compared to that legitimate\nemails.</p>\n\
+    <p>Once the URLs are extracted from the emails, a master list of URLs is\ncreated.\
+    \ These URLs have lots of useful metadata which is extracted\nduring pre-processing.\
+    \ The extracted information has more than 50\nfeatures about the URLs, the features\
+    \ include top-level domains,\nsubdomains, and suffixes. The pre-processed URL\
+    \ data is sent to the\nvarious models to predict if the URL is suspected to be\
+    \ malicious or\nnot. The predicted outcome is stored against each URL. Any new\
+    \ URL\nextracted from the email is scanned through the master list to capture\n\
+    the predicted outcome for the existing URLs and if a new URL is found,\nits pre-processed\
+    \ similarly to other URLs and added to the master list.</p>\n<p><strong>3.5 Data\
+    \ Sources</strong></p>\n<p>The data is sourced from various different reputed\
+    \ places to design the\nDARTH framework. The training data is taken from different\
+    \ data sources\nlike phishtank.com and Hannousse et al*.* (2021) published a URLs\n\
+    dataset. NapierOne has published a dataset of malicious documents which\nis useful\
+    \ in calculating the entropy of such files. For emails, the\npersonal emails of\
+    \ the authors have been used to manually identify the\nphishing attempts to be\
+    \ used as an test and train dataset for the model.\nThe details of various data\
+    \ sources used are listed in Table 3.</p>\n<p>+-------------------+--------------------------------------------------+\n\
+    | <strong>Data Sources</strong>  | <strong>Description</strong>              \
+    \                    |\n+===================+==================================================+\n\
+    | <em>phishtank.com</em>   | Phishtank.com is an internet community website  \
+    \ |\n|                   | where phishing data is published for anyone to   |\n\
+    |                   | download. The website is managed by Cisco Talos  |\n|  \
+    \                 | Intelligence data. It is an open-source platform |\n|    \
+    \               | for any of its registered users to submit URLs   |\n|      \
+    \             | suspected of phishing. The Cisco team verifies   |\n|        \
+    \           | the submitted request and any additional         |\n|          \
+    \         | information provided along with the request. If  |\n|            \
+    \       | Cisco teams deem it to be phishing, then the     |\n|              \
+    \     | link is then added to a list of phishing         |\n|                \
+    \   | websites. There are currently about 4900         |\n|                  \
+    \ | confirmed phishing URLs available at             |\n|                   |\
+    \ phishtank.com.                                   |\n+-------------------+--------------------------------------------------+\n\
+    | <em>URLs dataset     | Hannousse et al</em>.* (2021) published a URLs      \
+    \ |\n| from the research | dataset with the research paper <em>Web page      \
+    \  |\n| paper</em> Web page   | phishing detection* [15]. This dataset has an\
+    \  |\n| phishing          | equal number of phishing and non-phishing URLs   |\n\
+    | detection         | and the URL metadata. This dataset includes      |\n| <em>[15].</em>\
+    \         | various features of the URLs including domain,   |\n|            \
+    \       | sub-domain, age of the domain, number of hits    |\n|              \
+    \     | etc.                                             |\n+-------------------+--------------------------------------------------+\n\
+    | <em>UCI Spam         | The UCI dataset is a list of emails that are     |\n\
+    | dataset</em>          | classified as spam and non-spam email with email |\n\
+    |                   | metadata [30]. The texts are analyzed for NLP. |\n|    \
+    \               | The attachments and URLs available in the email  |\n|      \
+    \             | is used against the respective models for URLs   |\n|        \
+    \           | and documents.                                   |\n+-------------------+--------------------------------------------------+\n\
+    | <em>NapierOne Mixed  | NapierOne Mixed File Dataset [16] published a  |\n| File\
+    \ Dataset</em>     | list of file types and 5000 files of each file   |\n|   \
+    \                | type. In addition, the list contains some common |\n|     \
+    \              | ransomware affected/encrypted files of the same  |\n|       \
+    \            | files in those 5000 examples. This study used    |\n|         \
+    \          | only non-ransomware-affected files to calculate  |\n|           \
+    \        | the entropy of a typical file type.              |\n+-------------------+--------------------------------------------------+\n\
+    | <em>Author's         | Authors' emails with confirmed spam and phishing |\n\
+    | personal emails   | attempts are downloaded and read by a Python     |\n| with\
+    \ phishing     | script along with the metadata, email body text, |\n| attempts</em>\
+    \         | attachments, and embedded URLs. The data is used |\n|            \
+    \       | as model verification for NLP-based text         |\n|              \
+    \     | classifier models as well as URL verification    |\n|                \
+    \   | against the phishtank.com dataset.               |\n+-------------------+--------------------------------------------------+\n\
+    | <em>Sample text      | To train the BERT model to identify the emails   |\n\
+    | messages to train | urging users to acts swiftly with little thought |\n| models\
+    \ in         | to the content of the email, it was required to  |\n| detecting\
+    \         | capture sample email text to identify such       |\n| \"urgent-ness\"\
+    \ in  | attempts. Sample email text taken from below     |\n| the messages</em>\
+    \     | sources used to train the model to identify the  |\n|                \
+    \   | \"urgentness\" in the emails.                      |\n|                \
+    \   |                                                  |\n|                  \
+    \ | 1.  Mobile Ecosystem Forum (Feb'2022):           |\n|                   |\
+    \     <a href=\"https://mobileecosystemforum.com\" rel=\"nofollow\">https://mobileecosystemforum.com</a>\
+    \             |\n|                   | /2022/02/18/top-five-text-message-scams-in-2021/\
+    \ |\n|                   |                                                  |\n\
+    |                   | 2.  Panda Security:                              |\n|  \
+    \                 |     <a href=\"https://www.pandasecurity\" rel=\"nofollow\"\
+    >https://www.pandasecurity</a>                    |\n|                   | .com/en/mediacenter/security/text-message-scams/\
+    \ |\n+-------------------+--------------------------------------------------+</p>\n\
+    <p>: Table 3: Dataset and sources with the description of each data source.</p>\n\
+    <p>4 Results</p>\n<p>The DARTH framework for phishing email detection contains\
+    \ an ensemble\nmodel, which is composed of four neural network models using email\
+    \ body\ntext, embedded URLs, email metadata, and attachment datasets. In order\n\
+    to evaluate the performance of this model, six other ensemble models are\ncreated\
+    \ using all four datasets individually and a combination of those\ndatasets. Ensemble\
+    \ model 1 uses the email body text dataset. The data\nhas been preprocessed using\
+    \ NLP and trained with the BERT modeling\ntechnique for phishing detection. Ensemble\
+    \ Model 2 uses an embedded URL\ndataset, and Ensemble Model 3 uses an email metadata\
+    \ dataset. All three\nof those models are built using the neural network modeling\
+    \ technique.</p>\n<p>All other models are different combinations of the above\
+    \ three models\ninto an ensemble neural network model to predict whether the email\
+    \ is\nmalicious or legitimate. The ensemble of Model 1 and Model 2 is called\n\
+    Model 4 which consists of the predictions based on the BERT model for\nbody texts\
+    \ and the predictions based on the embedded links in the email.\nModel 5 is a\
+    \ combination of model 3 and model 2 which includes\npredictions based on the\
+    \ email headers and the embedded links.\nSimilarly, model 6 is an ensemble of\
+    \ Models 1 and 3. And the final model\nis the ensemble of all three models which\
+    \ takes into account the\npredictions based on the email body texts, embedded\
+    \ links in the emails,\nand the header information captured from the emails. This\
+    \ is called\nensemble Model 7. The results from all seven models were compared\
+    \ to\nidentify the best model with the highest accuracy and precision. The\nmodels\
+    \ were tested on an test dataset to determine the accuracy and\nother metrics\
+    \ of the model proficiency. Table 4 defines all seven models\nand the steps for\
+    \ training those models.</p>\n<p>As discussed previously, several models were\
+    \ created with different\ndatasets to predict whether the data were malicious\
+    \ or legitimate for\nthe respective data. In the end, all the predictions and\
+    \ composite\nfeatures from individual models were combined in an ensemble model\
+    \ to\naccurately identify whether the emails were phishing or not. The results\n\
+    from these models with their Accuracy, Precision, and F Score are listed\nin Table\
+    \ 5. This also includes the results from prior studies by the\nrespective authors\
+    \ in a similar field and is relevant to the DARTH\nframework presented in this\
+    \ paper.</p>\n<p>In the listed results, the most essential metrics are precision\
+    \ and\nF-Score as the target feature is imbalanced. <em>Precision</em> and <em>F-score</em>\n\
+    are important metrics for performance evaluation for predicting\nimbalanced features\
+    \ because it breaks down both of its scores for each\nclass -- 0 being legitimate\
+    \ and 1 being malicious. Precision tells how\nwell the model has predicted over\
+    \ correct and incorrect predictions for\neach class. Recall tells us the number\
+    \ of true positives has been found\nover the number of true positives in the population.\
+    \ F-Score is the\nweighted mean of both recall and precision metrics.</p>\n<hr>\n\
+    <p><strong>Ensemble Model</strong>   <strong>Input Feature        <strong>Notes</strong>\n\
+    Models</strong></p>\n<hr>\n<p><em>Ensemble Model 1    Body Text NN           Trained\
+    \ with email body text\n(EM1): Email Body                           dataset. Model\
+    \ outputs and\nText</em>                                       results are from\
+    \ the trained\nmodel utilizing transfer\nlearning from BERT. Output\nalso includes\
+    \ urgency\nprediction based on the\nmodel trained on external\ndata.</p>\n<p><em>Ensemble\
+    \ Model 2    URLs NN                Trained with URLs dataset\n(EM2): Embedded\
+    \                             and its metadata. The model\nURLs</em>         \
+    \                              was trained on the external\ndataset and was used\
+    \ to\npredict the embedded URLs\nfrom the emails.</p>\n<p><em>Ensemble Model 3\
+    \    Metadata NN            Trained with email header\n(EM3): Metadata</em>  \
+    \                          metadata obtained from the\nemails dataset. Predicted\n\
+    outputs are used for further\nensemble models.</p>\n<p><em>Ensemble Model 4  \
+    \  Email Text NN and      Pre-trained models from\n(EM4): Email Texts   Embedded\
+    \ URLs NN       earlier steps were used in\nand Embedded URLs</em>           \
+    \               the ensemble NN model\nincuding the predictions\nfrom the respective\
+    \ models\nfor phishing detection.</p>\n<p><em>Ensemble Model 5    Embedded URLs\
+    \ NN,      Pre-trained models with URL\n(EM5): Metadata and  Header Metadata NN\
+    \     and Metadata datasets.\nURLs</em>                                      \
+    \ Prediction outputs from\nthose models used in the\nensemble model for phishing\n\
+    email prediction.</p>\n<p><em>Ensemble Model 6    Header Metadata NN,    Pre-trained\
+    \ models with\n(EM6): Metadata and  Body Text NN           email body text (BERT)\
+    \ and\nBody Text</em>                                  Metadata datasets.\nPrediction\
+    \ outputs from\nthose models used in the\nensemble model for phishing\nemail prediction</p>\n\
+    <h2><a id=\"user-content-ensemble-model-7----body-text-nn-embedded-final-model-utilizingem7-body-text----urls-nn-metadata-nn---inputes-from-pre-trainedurls-metadata-----------------------------models-and-their-predictedoutput-for-this-ensemblemodel-to-detect-phishingemails\"\
+    \ class=\"anchor\" aria-hidden=\"true\" href=\"#ensemble-model-7----body-text-nn-embedded-final-model-utilizingem7-body-text----urls-nn-metadata-nn---inputes-from-pre-trainedurls-metadata-----------------------------models-and-their-predictedoutput-for-this-ensemblemodel-to-detect-phishingemails\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>\n<em>Ensemble\
+    \ Model 7    Body Text NN, Embedded Final model utilizing\n(EM7): Body Text, \
+    \   URLs NN, Metadata NN   inputes from pre-trained\nURLs, Metadata</em>     \
+    \                        models and their predicted\noutput for this ensemble\n\
+    model to detect phishing\nemails.</h2>\n<p>: Table 4: List of Ensemble Models\
+    \ and the details about the inputs to\nthe model</p>\n<p>To evaluate the model's\
+    \ effectiveness, Table 5 presents accuracy,\nprecision, and f-scores for all seven\
+    \ models. Also, scores from other\nrelevant research projects are presented in\
+    \ Table 5. The DARTH framework\nwith an ensemble of models utilizing all email\
+    \ composite features\nprovides high accuracy and precision results. The framework\
+    \ is Ensemble\nModel 7, producing an accuracy score of over 99%. The model consistently\n\
+    performs better than the other models with individual email features and\nother\
+    \ published studies. The performance scores of the models are listed\nin Table\
+    \ 5. As previously mentioned, six other ensemble models have been\ncreated to\
+    \ evaluate the framework.</p>\n<hr>\n<p><strong>Category</strong>    <strong>Models</strong>\
+    \               <strong>Accuracy</strong>   <strong>Precision</strong>   <strong>F-Score</strong></p>\n\
+    <hr>\n<p><em>Email Body     <strong>EM1: Email Body Text</strong> <strong>96.00</strong>\
+    \      <strong>96.00</strong>       <strong>96.00</strong>\nText</em></p>\n<pre><code>\
+    \              Ahogail et al. \\[8\\] NLP 98.20          98.20           98.20\n\
+    \              and Graph Convolutional                                 \n    \
+    \          Network on Email Body                                   \n        \
+    \      Text                                                    \n\n          \
+    \    Ramanathan et al. \\[10\\] 97.00          NA              100.00\n      \
+    \        Topic Modeling plus                                     \n          \
+    \    Adaboost on Email Body                                  \n              Text\
+    \                                                    \n</code></pre>\n<p><em>Embedded\
+    \ URLs</em> <strong>EM2: Embedded URLs</strong>   <strong>92.00</strong>     \
+    \ <strong>92.00</strong>       <strong>92.00</strong></p>\n<pre><code>       \
+    \       Haynes et al. \\[9\\] Bert 96.30          96.90           96.30\n    \
+    \          on URL                                                  \n\n      \
+    \        Aljofey et al. \\[13\\]    95.20          95.00           95.20\n   \
+    \           CNN using URL                                           \n\n     \
+    \         Dharani et al. \\[5\\]     93.70          93.80           92.80\n  \
+    \            XGBoost and Random on                                   \n      \
+    \        URL                                                     \n\n        \
+    \      Sahingoz et al. \\[11\\]   98.00          97.00           98.00\n     \
+    \         Random Forest and NLP on                                \n         \
+    \     URL                                                     \n</code></pre>\n\
+    <p><em>Ensemble       <strong>EM3: Metadata</strong>        <strong>98.00</strong>\
+    \      <strong>98.00</strong>       <strong>98.00</strong>\nModel -<br>\nMetadata</em></p>\n\
+    <p><em>Ensemble       <strong>EM4: Email Body Text   <strong>97.39</strong>  \
+    \    <strong>97.66</strong>       <strong>97.38</strong>\nModel - Body    and\
+    \ Embedded URLs</strong><br>\nText and URLs</em></p>\n<p><em>Ensemble       <strong>EM5:\
+    \ Metadata and      <strong>99.95</strong>      <strong>99.93</strong>       <strong>99.96</strong>\n\
+    Model -         URLs</strong><br>\nMetadata and<br>\nURLs</em></p>\n<pre><code>\
+    \              Soon et al. \\[17\\] ENN - 94.20          NA              NA\n\
+    \              URL and Metadata                                        \n</code></pre>\n\
+    <p><em>Ensemble       <strong>EM6: Metadata and Body <strong>99.94</strong>  \
+    \    <strong>99.93</strong>       <strong>99.94</strong>\nModel -         Text</strong><br>\n\
+    Metadata and<br>\nBody Text</em></p>\n<h2><a id=\"user-content-ensemble-------em7-body-text-urls---9998------9997-------9998model---body----and-metadatatext-metadataand-url\"\
+    \ class=\"anchor\" aria-hidden=\"true\" href=\"#ensemble-------em7-body-text-urls---9998------9997-------9998model---body----and-metadatatext-metadataand-url\"\
+    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a><em>Ensemble\
+    \       <strong>EM7: Body Text, URLs   <strong>99.98</strong>      <strong>99.97</strong>\
+    \       <strong>99.98</strong>\nModel - Body    and Metadata</strong><br>\nText,\
+    \ Metadata<br>\nand URL</em></h2>\n<p>: Table 5: Results of various models computed\
+    \ and in comparison to\npreviously published research studies by the respective\
+    \ authors</p>\n<p>EM1: Email Body Text, EM2: Embedded URLs, and EM3: Metadata\
+    \ models are\nbased on individual composite features of emails, such as email\
+    \ body\ntext, URLs, and metadata. These models performed at 96%, 92%, and 98%\n\
+    accuracy, precision, and f-score, respectively. Ensemble Model 4, which\nutilizes\
+    \ email body text and URLs, has an accuracy score of 97.39%.\nEnsemble model 5,\
+    \ which utilizes metadata and URLs, has an accuracy\nscore of 99.95%. Ensemble\
+    \ model 6, which utilizes metadata and body\ntext, also has produced an accuracy\
+    \ score of 99.94%. Ensemble Model 5\nand Ensemble Model 6 scored higher than Ensemble\
+    \ model 4. Both Ensemble\nModel 5 and Ensemble Model 6 utilize metadata, unlike\
+    \ Ensemble Model 4.\nAll multi-faceted ensemble models have higher accuracy and\
+    \ precision\nscores compared to that of individual composite feature models. The\n\
+    model performance accuracy scores are presented in Figure 4. The results\nshow\
+    \ that not all composite feature combinations yield similar scores.\nAmong all\
+    \ the composite feature models, the ensemble models with\nmetadata as a composite\
+    \ feature yields higher accuracy and precision\nscores.</p>\n<p><a target=\"_blank\"\
+    \ rel=\"noopener noreferrer\" href=\"media/image4.emf\"><img src=\"media/image4.emf\"\
+    \ alt=\"\" style=\"max-width: 100%;\"></a>{width=\"4.8125in\" height=\"2.4680555555555554in\"\
+    }</p>\n<p>Fig. 4. Accuracy percentage distribution of each ensemble model</p>\n\
+    <p>5 Discussion</p>\n<p>The results, as covered in Section 4, show that the ensemble\
+    \ models with\nmultiple composite features yield much higher accuracy. Individual\n\
+    composite features analysis does give promising results with accuracy\nabove 90%,\
+    \ however, the ensemble models with muti-faceted features are\nmore successful\
+    \ in identifying the malicious emails. The attackers\ncontinue to change their\
+    \ tactics to dupe unsuspecting individuals. A\nsingle feature-based model is likely\
+    \ to fail in scenarios when attackers\nmake the emails look even more similar\
+    \ to legitimate emails. Analyzing\nand building an ensemble model using several\
+    \ aspects of the received\nemail does provide better results.</p>\n<p>One of the\
+    \ crucial aspects of emails is the attachments. The document or\nfile attached\
+    \ to the email can contain malware; otherwise, a\nlegitimate-looking email can\
+    \ install malicious content in the users'\nsystem and network. As part of the\
+    \ DARTH framework, it is recommended to\nadd optional models, including attachment\
+    \ analysis. The documents\nentropy varies by different file types, which can help\
+    \ identify\nsuspicious documents; however, the attachment is not part of the\n\
+    analysis of this study due to the unavailability of malicious test\nemails with\
+    \ attachments. Results from Figure 4 show the improvement in\naccuracy scores\
+    \ when multiple composite featuire models are combined\ninto an ensemble model.\
+    \ Body text models produced less effective\naccuracy scores by itself, but metadata-based\
+    \ models produced results\nwith higer accuracy and precision. This points to the\
+    \ fact that email\nmetadata is an important aspect in the identification of legitimate\
+    \ or\nmalicious emails. The email headers are part of the metadata, and often\n\
+    users ignore that information as it is not typically visible to the\ncommon users.\
+    \ The results show that metadata may hold more clues to\nfinding the phishing\
+    \ than other features and is an important feature\nwhich plays a significant role\
+    \ in identifying the phishing email with\nbetter accuracyin the DARTH framework.</p>\n\
+    <p>Other traditional research models from Soon et al., Ahogail et al. and\nHaynes\
+    \ et al. have not scored as high as the EM:5, EM:6, and EM:7 as\ncovered in Table\
+    \ 5. Among the traditional research discussed in Table 5,\ngraph convolutional\
+    \ networks and NLP on email body text for a phishing\ndetection model have produced\
+    \ high accuracy of 98.20% [8], however,\nthe multi-faceted ensemble models (EM:7)\
+    \ yields higher accuracy of\n99.98%.</p>\n<p>The individual feature models for\
+    \ DARTH framework are trained using\nexternal datasets like Hannousse et al*.*\
+    \ (2021) dataset to train the\nURL model. It provides a good baseline for the\
+    \ ensemble models to\nperform as it learns from previous researches and applies\
+    \ to new\nstudies.</p>\n<p>The results demonstrate that phishing detection can\
+    \ be improved through\na multi-faceted approach. The existing phishing detection\
+    \ tools used in\nthe industry can employ the techniques that are covered as part\
+    \ of the\nDARTH framework. It can help and thwart the phishing attacks on an\n\
+    individual or an organization using such tools. This same idea can be\nused for\
+    \ many problem domains where adding multiple models have a better\noutcome than\
+    \ a few highly tuned models.</p>\n<p>Any research conducted has a responsibility\
+    \ toward society, and the\nethics of said research and its possible implications\
+    \ must be discussed\nin detail. Section 5.1 talks about the ethical considerations\
+    \ as part of\nthe study of the DARTH framework.</p>\n<p><strong>5.1 Ethics</strong></p>\n\
+    <p>Algorithmic bias is a field of study under <em>algorithmic ethics</em> that\n\
+    analyzes the fairness of an algorithm based upon its probability of\nerrors and\
+    \ compliance with its solution requirements. Ethics encompasses\na broad range\
+    \ of topics, and primarily those are social ethics and\nalgorithmic ethics. Algorithm\
+    \ ethics defines how the algorithm needs to\nbehave and act. It should also clearly\
+    \ list the behavior it should avoid\nfor producing outcomes or providing recommendations.\
+    \ It also deals with\nfairness which helps to understand and reduce bias in the\
+    \ algorithm. The\nethics state that the design of the algorithm should be auditable\
+    \ so the\nmodels can be analyzed for further development. One of the normative\n\
+    concerns of ethics is fairness. It deals with the algorithm's trade-off\nbetween\
+    \ accuracy and different notions of fairness [38]. Tramadol et\nal. describe the\
+    \ fairness of algorithm in four ways -- protect\ncategories such as race are not\
+    \ distinctly used for the function of the\nalgorithm, false-positive error and\
+    \ false-negative error are equal for\nall classes of categorical variables, algorithms\
+    \ are properly\n'calibrated' between different classes, and equal probability\n\
+    estimates across all classes of categorical variables [39]. There are\nsome drawbacks\
+    \ to these definitions. One cannot just remove sensitive\ncategorical features\
+    \ such as race and ethnicity from the dataset. Veale\net al. suggest two ways\
+    \ fairness can be preserved in the algorithm.</p>\n<p>One is that a third party\
+    \ can audit the dataset and algorithm design to\nreduce discrimination [1]. The\
+    \ other way is to have the algorithm\ndesigners collaborate with other relevant\
+    \ stakeholders who are experts\nin the domain [1]. Bias tends to arise when there\
+    \ is a lack of\nfairness. It occurs when algorithm developers deviate from requirements\n\
+    that list out the data collection and algorithm design standards.\nRemoving skewed\
+    \ data, using a biased estimator, or introducing\ncompensatory bias to the algorithm\
+    \ are ways to reduce bias [39]. The\nalgorithm may behave unethically if biases\
+    \ are not reduced.</p>\n<p>The institution for Electrical and Electronics Engineers\
+    \ (IEEE) is an\norganization that has devoted itself to defining a code of ethics\
+    \ and\nstandards for engineering professionals, most notably in emerging areas\n\
+    such as AI, robotics, and data management. The code of ethics ensures\nthat professionals\
+    \ comply with the company and government rules. One of\nthe organization's standards\
+    \ is IEEE P7003 which deals with algorithm\nethics. The standard provides a framework\
+    \ that makes algorithm\ndevelopers prioritize ethics and communicate with regulators\
+    \ and other\nstakeholders for any clarity or feedback on the objective or\nfunctionality\
+    \ of the application [40]. The proposed algorithm's\nobjective is to identify\
+    \ phishing attacks accurately.</p>\n<p>Given this classification problem, the\
+    \ research is subjected to Type I\nand Type II errors. False-positive and false-negative\
+    \ rates dictate the\nbiasness and fairness of the phishing attack detection algorithm.\
+    \ In the\nproposed framework, the model performance shows that the algorithm is\n\
+    not biased towards predicting legitimate emails over phishing emails.\nThe precision\
+    \ rate for spam and legitimate email detection is over 99%.\nThe recall rate for\
+    \ spam and legitimate email detection is also over\n99%. The models in the proposed\
+    \ framework sound ethical as the false\npositive and false negative error rates\
+    \ are low and equal for both\nclasses. Biases often challenge the framework as\
+    \ one can question the\nalgorithm's fairness. The authors have set strict rules\
+    \ and procedures\nfor collecting both legitimate and spam emails to address this\
+    \ concern.\nMost importantly, the algorithm should provide enough spam email data\
+    \ of\nseveral types. Since there are more volumes of legitimate emails, the\n\
+    algorithm will have a natural bias towards that class compared to the\nother class.</p>\n\
+    <p>Unintended bias and unfairness in algorithm impacts societies\nnegatively.\
+    \ Technology improves societies worldwide by bringing\nefficiency through technological\
+    \ innovations, which benefit people in\nall aspects of their lives. These innovations\
+    \ occur by scaling and\nspeeding technical advances using an astronomical amount\
+    \ of data. As the\nvolume of sophisticated data grows, the threat of phishing\
+    \ attacks from\ndifferent cybercriminal parties worldwide increases. The proposed\n\
+    algorithm from this research can reduce this problem. It can protect a\nperson\
+    \ or entity from revealing personal or sensitive information by\nmistake or aggressive\
+    \ cyberattacks. The protection can astronomically\nbenefit anyone in this digital\
+    \ age. It can address ethics from a\npractical standpoint as the researchers present\
+    \ the steps to handle data\ncollection, processing, and model building. Researchers\
+    \ also need to\nmake proper judgments in the interest of the public or stakeholders\n\
+    since they deal with a group of people's sensitive and personal\ninformation.\
+    \ It is essential due to the public's lack of understanding\nor misconception\
+    \ of algorithms in detail. First, the proposed framework\nshows all the steps\
+    \ of collecting private emails. Then it lists out the\nprocesses that have been\
+    \ used to wrangle the data for building the model\nfor the algorithm. The algorithm\
+    \ does not require human intervention as\none does not need to access these emails\
+    \ for any data processing for\nphishing detection. There is no purpose for accessing\
+    \ any individual\nemail for building this algorithm. The lack of human intervention\n\
+    addresses a critical aspect of the cybersecurity code of ethics:\npersonal autonomy.\
+    \ As described previously, some existing methods\nrequire human intervention to\
+    \ preprocess emails for phishing attack\nprevention. In a manual process, the\
+    \ scientist may have to access\nprivate emails for preprocessing or may end up\
+    \ mistakenly taking a step\nthat may leak the confidential information of the\
+    \ senders and\nrecipients. After detecting the attack, cybersecurity analysts\
+    \ must take\nmanual steps where the individual must take the server down to act\
+    \ on\nthe attack.</p>\n<p>Formosa et al. state that during a manual process like\
+    \ that, the chance\nof preventing the attack is low [37]. The proposed algorithm\n\
+    eliminates manual processes like this as there is no human intervention\nfor preprocessing,\
+    \ and the suspicious emails never reach the\nrecipients' destination. The elimination\
+    \ of the process benefits\neveryone as private information never gets leaked.\
+    \ Also, the public and\nany institution never have to face any threats the attackers\
+    \ pose. All\nthe steps meet the requirement of IEEE standards.</p>\n<p>The composite\
+    \ features like URLs and body text don't give better\nresults, but metadata performs\
+    \ better than other composite features of\nemails. Headers are essential metadata\
+    \ that users typically don't see\nbut are an important composite feature in detecting\
+    \ phishing.</p>\n<p>6 Conclusion</p>\n<p>The multi-faceted approach of using an\
+    \ ensemble of multiple independent\ncomposite feature models yields highly accurate\
+    \ ensemble phishing\ndetection models even when lower quality feature models are\
+    \ used. The\nnovel DARTH framework decomposes email into composite features and\n\
+    allows independent models on each composite feature to be developed and\nused.\
+    \ The ensemble of the output of these models achieved 99.98%\naccuracy in detecting\
+    \ phishing emails in our test data.</p>\n<p>Adding more composite features improves\
+    \ the accuracy of the ensemble\nmodel. Experiments showed that the ensemble model\
+    \ created from two\ncomposite features always yielded better results than the\
+    \ models for\nindividual composite feature, and the ensemble model created from\
+    \ three\ncomposite feature yielded superior results compared to the ensemble\n\
+    models with two composite features. Ensemble models developed using the\nmultiple\
+    \ models DARTH framework are more accurate compared to a single\nmodel with only\
+    \ non-composite features as input.</p>\n<p>The DARTH framework is usable in any\
+    \ problem domain with identifiable\nand separable composite features. The phishing\
+    \ email detection problem\ndomain is perhaps the exemplary domain for the DARTH\
+    \ framework.</p>\n<p>References</p>\n<ol>\n<li>\n<p>Veale M, Binns R (2017) Fairer\
+    \ machine learning in the real world:\nmitigating discrimination without collecting\
+    \ sensitive data. Big\nData Soc 4(2):205395171774353. <a href=\"https://doi.org/10.1177/20539\"\
+    \ rel=\"nofollow\">https://doi.org/10.1177/20539</a>\n51717743530</p>\n</li>\n\
+    <li>\n<p>Dutta AK (2021) Detecting phishing websites using machine learning\n\
+    technique. PLoS ONE 16(10): e0258361.\n<a href=\"https://doi.org/10.1371/journal.pone.0258361\"\
+    \ rel=\"nofollow\">https://doi.org/10.1371/journal.pone.0258361</a></p>\n</li>\n\
+    <li>\n<p>Akinyelu, Ayo &amp; Adewumi, Aderemi. (2014). Classification of Phishing\n\
+    Email Using Random Forest Machine Learning Technique. Journal of\nApplied Mathematics.\
+    \ 2014. 10.1155/2014/425731.</p>\n</li>\n<li>\n<p>P. Prakash, M. Kumar, R. R.\
+    \ Kompella and M. Gupta, \"PhishNet:\nPredictive Blocklisting to Detect Phishing\
+    \ Attacks,\" 2010\nProceedings IEEE INFOCOM, 2010, pp. 1-5, doi:\n10.1109/INFCOM.2010.5462216.</p>\n\
+    </li>\n<li>\n<p>Detection of Phishing Websites Using Ensemble Machine Learning\n\
+    Approach Dharani M.,\_Soumya Badkul,\_Kimaya Gharat,\_Amarsinh Vidhate\nand\_\
+    Dhanashri Bhosale ITM Web Conf., 40 (2021) 03012,</p>\n</li>\n</ol>\n<blockquote>\n\
+    <p>DOI: <a href=\"https://doi.org/10.1051/itmconf/20214003012\" rel=\"nofollow\"\
+    >https://doi.org/10.1051/itmconf/20214003012</a></p>\n</blockquote>\n<ol start=\"\
+    6\">\n<li>\n<p>Abu-Nimeh, S., et al. \"Distributed Phishing Detection by Applying\n\
+    Variable Selection Using Bayesian Additive Regression Trees.\" 2009\nIEEE International\
+    \ Conference on Communications, IEEE, 2009, pp.\n1--5, <a href=\"https://doi.org/10.1109/ICC.2009.5198931\"\
+    \ rel=\"nofollow\">https://doi.org/10.1109/ICC.2009.5198931</a>.</p>\n</li>\n\
+    <li>\n<p>Sanglerdsinlapachai, N, and A Rungsawang. \"Using Domain Top-Page\nSimilarity\
+    \ Feature in Machine Learning-Based Web Phishing\nDetection.\" IEEE, 2010, pp.\
+    \ 187--190,\n<a href=\"https://doi.org/10.1109/WKDD.2010.108\" rel=\"nofollow\"\
+    >https://doi.org/10.1109/WKDD.2010.108</a>.</p>\n</li>\n<li>\n<p>Alhogail, &amp;\
+    \ Alsabih, A. (2021). Applying machine learning and\nnatural language processing\
+    \ to detect phishing email. Computers &amp;\nSecurity, 110, 102414--.\n<a href=\"\
+    https://doi.org/10.1016/j.cose.2021.102414\" rel=\"nofollow\">https://doi.org/10.1016/j.cose.2021.102414</a></p>\n\
+    </li>\n<li>\n<p>Haynes, Shirazi, H., &amp; Ray, I. (2021). Lightweight URL-based\n\
+    phishing detection using natural language processing transformers\nfor mobile\
+    \ devices. Procedia Computer Science, 191, 127--134.\n<a href=\"https://doi.org/10.1016/j.procs.2021.07.040\"\
+    \ rel=\"nofollow\">https://doi.org/10.1016/j.procs.2021.07.040</a></p>\n</li>\n\
+    <li>\n<p>Ramanathan, &amp; Wechsler, H. (2012). phishGILLNET---phishing detection\n\
+    methodology using probabilistic latent semantic analysis, AdaBoost,\nand co-training.\
+    \ EURASIP Journal on Multimedia and Information\nSecurity, 2012(1), 1--1. <a href=\"\
+    https://doi.org/10.1186/1687-417X-2012-1\" rel=\"nofollow\">https://doi.org/10.1186/1687-417X-2012-1</a></p>\n\
+    </li>\n<li>\n<p>Sahingoz, Buber, E., Demir, O., &amp; Diri, B. (2019). Machine\
+    \ learning\nbased phishing detection from URLs. Expert Systems with\nApplications,\
+    \ 117, 345--357.\n<a href=\"https://doi.org/10.1016/j.eswa.2018.09.029\" rel=\"\
+    nofollow\">https://doi.org/10.1016/j.eswa.2018.09.029</a></p>\n</li>\n<li>\n<p>Abbasi,\
+    \ Dobolyi, D., Vance, A., &amp; Zahedi, F. M. (2021). The Phishing\nFunnel Model:\
+    \ A Design Artifact to Predict User Susceptibility to\nPhishing Websites. Information\
+    \ Systems Research, 32(2), 410--436.\n<a href=\"https://doi.org/10.1287/isre.2020.0973\"\
+    \ rel=\"nofollow\">https://doi.org/10.1287/isre.2020.0973</a></p>\n</li>\n<li>\n\
+    <p>Aljofey, Jiang, Q., Qu, Q., Huang, M., &amp; Niyigena, J.-P. (2020). An\nEffective\
+    \ Phishing Detection Model Based on Character Level\nConvolutional Neural Network\
+    \ from URL. Electronics (Basel), 9(9),\n1514--. <a href=\"https://doi.org/10.3390/electronics9091514\"\
+    \ rel=\"nofollow\">https://doi.org/10.3390/electronics9091514</a></p>\n</li>\n\
+    <li>\n<p>Jones, C. (2022, January 18). 50 phishing stats you should know\nin 2022.\
+    \ 50 Phishing Stats You Should Know In 2022. Retrieved\nJanuary 27, 2022, from\n\
+    <a href=\"https://expertinsights.com/insights/50-phishing-stats-you-should-know/\"\
+    \ rel=\"nofollow\">https://expertinsights.com/insights/50-phishing-stats-you-should-know/</a></p>\n\
+    </li>\n<li>\n<p>Hannousse, Abdelhakim; Yahiouche, Salima (2021), \"Web page phishing\n\
+    detection\", Mendeley Data, V3, doi: 10.17632/c2gw7fy2j4.3</p>\n</li>\n<li>\n\
+    <p>NapierOne Mixed File Dataset was accessed on\_February 19, 2022, from\n<a href=\"\
+    https://registry.opendata.aws/napierone\" rel=\"nofollow\">https://registry.opendata.aws/napierone</a>.</p>\n\
+    </li>\n<li>\n<p>Kim Soon, Kim On, C., Mohd Rusli, N., Soo Fun, T., Alfred, R.,\
+    \ &amp; Tse\nGuan, T. (2020). Comparison of simple feedforward neural network,\n\
+    recurrent neural network and ensemble neural networks in phishing\ndetection.\_\
+    Journal of Physics. Conference Series,\_1502(1), 12033--.\n<a href=\"https://doi.org/10.1088/1742-6596/1502/1/012033\"\
+    \ rel=\"nofollow\">https://doi.org/10.1088/1742-6596/1502/1/012033</a></p>\n</li>\n\
+    <li>\n<p>Zhu, Ju, Y., Chen, Z., Liu, F., &amp; Fang, X. (2020). DTOF-ANN: An\n\
+    Artificial Neural Network phishing detection model based on Decision\nTree and\
+    \ Optimal Features. Applied Soft Computing, 95, 106505--.\n<a href=\"https://doi.org/10.1016/j.asoc.2020.106505\"\
+    \ rel=\"nofollow\">https://doi.org/10.1016/j.asoc.2020.106505</a></p>\n</li>\n\
+    <li>\n<p>Mohammad, Thabtah, F., &amp; McCluskey, L. (2013). Predicting phishing\n\
+    websites based on self-structuring neural network. Neural Computing\n&amp; Applications,\
+    \ 25(2), 443--458.\n<a href=\"https://doi.org/10.1007/s00521-013-1490-z\" rel=\"\
+    nofollow\">https://doi.org/10.1007/s00521-013-1490-z</a></p>\n</li>\n<li>\n<p>Wei,\
+    \ Ke, Q., Nowak, J., Korytkowski, M., Scherer, R., &amp; Wo\u017Aniak, M.\n(2020).\
+    \ Accurate and fast URL phishing detector: A convolutional\nneural network approach.\
+    \ Computer Networks (Amsterdam, Netherlands:\n1999), 178, 107275--. <a href=\"\
+    https://doi.org/10.1016/j.comnet.2020.107275\" rel=\"nofollow\">https://doi.org/10.1016/j.comnet.2020.107275</a></p>\n\
+    </li>\n<li>\n<p>Kamireddy Neeharika, K P Ruphaa Sri, B Vishruthi, &amp; M Suresh\
+    \ Anand.\n(2021). Precise Detection of Phishing URLS Using Recurrent Neural\n\
+    Networks. i-Manager's Journal on Computer Science, 9(1), 21--.\n<a href=\"https://doi.org/10.26634/jcom.9.1.18154\"\
+    \ rel=\"nofollow\">https://doi.org/10.26634/jcom.9.1.18154</a></p>\n</li>\n<li>\n\
+    <p>Ahmad, Rafie, M., &amp; Ghorabie, S. M. (2021). Spam detection on\nTwitter\
+    \ using a support vector machine and users' features by\nidentifying their interactions.\
+    \ Multimedia Tools and Applications,\n80(8), 11583--11605. <a href=\"https://doi.org/10.1007/s11042-020-10405-7\"\
+    \ rel=\"nofollow\">https://doi.org/10.1007/s11042-020-10405-7</a></p>\n</li>\n\
+    <li>\n<p>Grimes. (2017). Hacking the Hacker: Learn from the Experts Who Take\n\
+    down Hackers. John Wiley &amp; Sons, Incorporated.</p>\n</li>\n<li>\n<p>California\
+    \ Enacts Tough Anti-phishing Law; California Gov. Arnold\nSchwarzenegger has signed\
+    \ anti-phishing legislation into law.\n(2005).\_InternetWeek (Manhasset, N.Y.).</p>\n\
+    </li>\n<li>\n<p>Bowman, S. R., Angeli, G., Potts, C., &amp; Manning, C. D. (2015).\
+    \ A\nlarge, annotated corpus for learning natural language inference.\narXiv preprint\
+    \ arXiv:1508.05326. Chicago.</p>\n</li>\n<li>\n<p>California Enacts Tough Anti-phishing\
+    \ Law; California Gov. Arnold\nSchwarzenegger has signed anti-phishing legislation\
+    \ into law.\n(2005). InternetWeek (Manhasset, N.Y.).</p>\n</li>\n<li>\n<p>Verizon\
+    \ 2021 Data Breach Investigations Report [Online].\nAvailable: verizon.com/dbir/</p>\n\
+    </li>\n<li>\n<p>Zhou, Z. H., Wu, J., &amp; Tang, W. (2002). Ensembling neural\
+    \ networks:\nmany could be better than all.\_Artificial intelligence,\_137(1-2),\n\
+    239-263.</p>\n</li>\n<li>\n<p>Chen, Y., Chang, H., Meng, J., &amp; Zhang, D. (2019).\
+    \ Ensemble Neural\nNetworks (ENN): A gradient-free stochastic method.\_Neural\n\
+    Networks,\_110, 170-185.</p>\n</li>\n<li>\n<p>Dua, D. and Graff, C. (2019). UCI\
+    \ Machine Learning Repository\n[<a href=\"http://archive.ics.uci.edu/ml%5C%5D\"\
+    \ rel=\"nofollow\">http://archive.ics.uci.edu/ml\\]</a>. Irvine, CA: the University\
+    \ of\nCalifornia, School of Information and Computer Science.</p>\n</li>\n<li>\n\
+    <p>Devlin, J., Chang, M. W., Lee, K., &amp; Toutanova, K. (2018). Bert:\nPre-training\
+    \ of deep bidirectional transformers for language\nunderstanding.\_arXiv preprint\
+    \ arXiv:1810.04805</p>\n</li>\n<li>\n<p>Rekouche, K. (2011). Early phishing.\_\
+    <em>arXiv preprint\narXiv:1106.4692</em>.</p>\n</li>\n<li>\n<p>Merriam-Webster.\
+    \ (n.d.). Phishing. In\_Merriam-Webster.com\ndictionary. Retrieved April 9, 2022,\
+    \ from\n<a href=\"https://www.merriam-webster.com/dictionary/phishing\" rel=\"\
+    nofollow\">https://www.merriam-webster.com/dictionary/phishing</a></p>\n</li>\n\
+    <li>\n<p>Webroot, Types of Phishing Attacks You Need to Know to Stay Safe\n[Online].\
+    \ Available:\n<a href=\"https://mypage.webroot.com/rs/557-FSI-195/images/Webroot_11%20Types%20of%20Phishing_eBook.pdf\"\
+    \ rel=\"nofollow\">https://mypage.webroot.com/rs/557-FSI-195/images/Webroot_11%20Types%20of%20Phishing_eBook.pdf</a></p>\n\
+    </li>\n<li>\n<p>Williams, Hinds, J., &amp; Joinson, A. N. (2018). Exploring\n\
+    susceptibility to phishing in the workplace. International Journal\nof Human-Computer\
+    \ Studies, 120, 1--13.\n<a href=\"https://doi.org/10.1016/j.ijhcs.2018.06.004\"\
+    \ rel=\"nofollow\">https://doi.org/10.1016/j.ijhcs.2018.06.004</a></p>\n</li>\n\
+    <li>\n<p>Vallor, S. (n.d.). Intro to cybersecurity ethics - an introduction\n\
+    to cybersecurity ethics module author: Shannon. StuDocu. Retrieved\nMay 30, 2022,\
+    \ from\n<a href=\"https://www.studocu.com/en-us/document/boston-university/information-security/intro-to-cybersecurity-ethics/17140429\"\
+    \ rel=\"nofollow\">https://www.studocu.com/en-us/document/boston-university/information-security/intro-to-cybersecurity-ethics/17140429</a></p>\n\
+    </li>\n<li>\n<p>Formosa, Paul, et al. \"A Principlist Framework for Cybersecurity\n\
+    Ethics.\" Computers &amp; Security, vol. 109, Elsevier Ltd, 2021, p.\n102382--,\
+    \ <a href=\"https://doi.org/10.1016/j.cose.2021.102382\" rel=\"nofollow\">https://doi.org/10.1016/j.cose.2021.102382</a>.</p>\n\
+    </li>\n<li>\n<p>Kearns, M., &amp; Roth, A. (2022, March 9). Ethical Algorithm\
+    \ Design\nShould Guide Technology Regulation. Brookings. Retrieved June 9,\n2022,\
+    \ from\n<a href=\"https://www.brookings.edu/research/ethical-algorithm-design-should-guide-technology-regulation/#footnote-3\"\
+    \ rel=\"nofollow\">https://www.brookings.edu/research/ethical-algorithm-design-should-guide-technology-regulation/#footnote-3</a></p>\n\
+    </li>\n<li>\n<p>Tsamados, Andreas, et al. \"The Ethics of Algorithms: Key Problems\n\
+    and Solutions.\" AI &amp; Society, vol. 37, no. 1, Springer London, 2021,\npp.\
+    \ 215--30, <a href=\"https://doi.org/10.1007/s00146-021-01154-8\" rel=\"nofollow\"\
+    >https://doi.org/10.1007/s00146-021-01154-8</a>.</p>\n</li>\n<li>\n<p>IEEE Announces\
+    \ Standards Project Addressing Algorithmic Bias\nConsiderations. (2017, Mar 09).\
+    \ Business Wire\n<a href=\"http://proxy.libraries.smu.edu/login?url=https://www.proquest.com/wire-feeds/ieee-announces-standards-project-addressing/docview/1875371352/se-2?accountid=6667\"\
+    \ rel=\"nofollow\">https://www.proquest.com/wire-feeds/ieee-announces-standards-project-addressing/docview/1875371352/se-2?accountid=6667</a></p>\n\
+    </li>\n<li>\n<p>Anti-Phishing Working Group (APWG) (2014) Phishing Activity Trends\n\
+    Report, 3rd Quarter 2021 [Online]. Available:\n<a href=\"https://docs.apwg.org/reports/apwg_trends_report_q3_2021.pdf\"\
+    \ rel=\"nofollow\">https://docs.apwg.org/reports/apwg_trends_report_q3_2021.pdf</a></p>\n\
+    </li>\n</ol>\n"
+  stargazers_count: 1
+  subscribers_count: 2
+  topics: []
+  updated_at: 1658945123.0
 renjithravindrankannath/spack_repository_test:
   data_format: 2
   description: New spack repository to reproduce the issue observed in PR 31591
   filenames:
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s-mac/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/build_systems/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/e4s-oneapi/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml
   full_name: renjithravindrankannath/spack_repository_test
   latest_release: null
   readme: "<h1><a id=\"user-content--spack\" class=\"anchor\" aria-hidden=\"true\"\
@@ -6945,10 +8184,10 @@ salotz/scopes-demos:
   data_format: 2
   description: null
   filenames:
+  - 002_pong/spack.yaml
   - 001_chipmunk2d-hello-world/spack.yaml
   - template/{{name}}/spack.yaml
   - 003_python-embed/spack.yaml
-  - 002_pong/spack.yaml
   full_name: salotz/scopes-demos
   latest_release: null
   readme: "<h2><a id=\"user-content-running-the-demos\" class=\"anchor\" aria-hidden=\"\
@@ -7022,14 +8261,14 @@ salotz/snailpacks:
   data_format: 2
   description: Spack repo for multimedia development
   filenames:
-  - examples/c-genie/spack.yaml
   - examples/c-meson/spack.yaml
   - examples/c-cmake/spack.yaml
-  - examples/c-premake/spack.yaml
-  - examples/c-embed-chibi/spack.yaml
+  - examples/c-embed-python/spack.yaml
   - examples/c-scons/spack.yaml
   - examples/c-wgpu/spack.yaml
-  - examples/c-embed-python/spack.yaml
+  - examples/c-genie/spack.yaml
+  - examples/c-premake/spack.yaml
+  - examples/c-embed-chibi/spack.yaml
   full_name: salotz/snailpacks
   latest_release: null
   stargazers_count: 1
@@ -7058,16 +8297,17 @@ spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - BOISESTATE/borah/environments/b4s/_spack.yaml
-  - OLCF/summit/spack.yaml
-  - OLCF/andes/spack.yaml
-  - OLCF/frontier/spack.yaml
-  - BOISESTATE/borah/environments/base/_spack.yaml
+  - OLCF/peak/spack.yaml
   - BOISESTATE/borah/applications/gromacs/_spack.yaml
   - OLCF/spock/spack.yaml
-  - BOISESTATE/borah/environments/compilers/_spack.yaml
+  - NERSC/perlmutter/e4s-22.05/spack.yaml
+  - OLCF/andes/spack.yaml
   - OLCF/crusher/spack.yaml
-  - OLCF/peak/spack.yaml
+  - BOISESTATE/borah/environments/b4s/_spack.yaml
+  - BOISESTATE/borah/environments/compilers/_spack.yaml
+  - BOISESTATE/borah/environments/base/_spack.yaml
+  - OLCF/summit/spack.yaml
+  - OLCF/frontier/spack.yaml
   - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
   full_name: spack/spack-configs
   latest_release: null
@@ -7117,8 +8357,8 @@ srini009/serviz:
   data_format: 2
   description: Ascent visualization microservice built using the Mochi software stack
   filenames:
-  - spack.yaml
   - spack_laptop.yaml
+  - spack.yaml
   full_name: srini009/serviz
   latest_release: v0.1.0
   readme: '<h1><a id="user-content-serviz-a-shared-in-situ-visualization-service"
@@ -7462,12 +8702,12 @@ ukri-excalibur/excalibur-tests:
   data_format: 2
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
-  - spack-environments/tursa/cpu/spack.yaml
   - spack-environments/csd3-icelake/compute-node/spack.yaml
-  - spack-environments/myriad/compute-node/spack.yaml
-  - spack-environments/tesseract/compute-node/spack.yaml
-  - spack-environments/csd3-skylake/compute-node/spack.yaml
   - spack-environments/dial3/compute-node/spack.yaml
+  - spack-environments/tesseract/compute-node/spack.yaml
+  - spack-environments/myriad/compute-node/spack.yaml
+  - spack-environments/tursa/cpu/spack.yaml
+  - spack-environments/csd3-skylake/compute-node/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
   readme: "<h1><a id=\"user-content-excalibur-tests\" class=\"anchor\" aria-hidden=\"\

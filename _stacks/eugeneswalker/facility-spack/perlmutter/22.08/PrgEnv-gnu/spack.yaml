@@ -7,20 +7,20 @@ spack:
 
   compilers:
   - compiler:
-    spec: gcc@11.2.0
-    paths:
-      cc: cc
-      cxx: CC
-      f77: ftn
-      fc: ftn
-    flags: {}
-    operating_system: sles15
-    target: any
-    modules:
-    - PrgEnv-gnu
-    - gcc/11.2.0
-    - craype-x86-milan
-    - libfabric
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-milan
+      - libfabric
 
   packages:
     all:
@@ -326,7 +326,7 @@ spack:
   - vtk-m@1.8.0 +cuda cuda_arch=80
   - zfp@0.5.5 +cuda cuda_arch=80
 
-  # FAILURES
+  # GPU FAILURES
   # - dealii@9.4.0 +cuda    # dealii
   # -----
   # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
