@@ -27,7 +27,7 @@ spack:
       compiler: [gcc@11.2.0]
       providers:
         blas: [cray-libsci]
-        mpi: [cray-mpich]
+        mpi: [mvapich2]
       target: [zen3]
       variants: +mpi
     binutils:
@@ -52,22 +52,21 @@ spack:
     xz:
       variants: +pic
 
-    # EXTERNALS
+    # CRAY EXTERNALS
+    mvapich2:
+      externals:
+      - spec: mvapich2@3.0a
+        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install
+        environment:
+          prepend_path:
+            MODULEPATH: /global/cfs/cdirs/m3896/shared/modulefiles
+        modules: [mvapich2/3.0a]
     cray-libsci:
       buildable: false
       externals:
       - spec: cray-libsci@21.08.1.2
         modules:
         - cray-libsci/21.08.1.2
-    cray-mpich:
-      # cray-mpich externals need to define prefix
-      buildable: false
-      externals:
-      - spec: cray-mpich@8.1.17 %gcc
-        prefix: /opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1
-        modules:
-        - cray-mpich/8.1.17
-        - cudatoolkit/11.5
     libfabric:
       buildable: false
       variants: fabrics=sockets,tcp,udp,rxm
@@ -112,7 +111,7 @@ spack:
         blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [cray-mpich, cmake^ncurses@6.3]
+        whitelist: [mvapich2, cmake^ncurses@6.3]
         hierarchy: [mpi]
         projections: {}
         core_specs: []
