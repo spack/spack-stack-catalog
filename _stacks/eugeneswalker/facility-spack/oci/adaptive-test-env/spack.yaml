@@ -1,10 +1,8 @@
 spack:
   view: false
-
   concretizer:
     reuse: false
     unify: false
-
   modules:
     prefix_inspections:
       ./lib:
@@ -16,8 +14,9 @@ spack:
       tcl:
         blacklist_implicits: true
         hash_length: 0
-        whitelist: [cmake]
+        whitelist: [cmake^ncurses@6.3, mvapich2^ncurses@6.3]
         naming_scheme: '{name}/{version}'
+        verbose: false
         all:
           autoload: direct
           conflict: ['{name}']
@@ -27,8 +26,14 @@ spack:
             unset: []
           load: []
           suffixes: {}
-        verbose: false
-
+        mvapich2:
+          suffixes: 
+            ^ncurses@6.2: ncurses6.2
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
   compilers:
   - compiler:
       spec: gcc@4.8.5
@@ -56,7 +61,6 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-
   packages:
     all:
       compiler: [gcc@11.2.0]
@@ -92,15 +96,13 @@ spack:
       variants: +pic
     mesa:
       version: [21.3.8]
-
-    # EXTERNALS
     rdma-core:
-      buildable: False
+      buildable: false
       externals:
       - spec: rdma-core@22.4
         prefix: /usr
-
   specs:
+  
   # CPU
   - adios@1.13.1
   - adios2@2.8.3

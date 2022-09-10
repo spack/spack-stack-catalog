@@ -1,0 +1,78 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  # This section lists the "root specs" for the environment. This example
+  # only specfied Margo, which is a C API for construction of RPC-based
+  # clients and servers.  It can be replaced or augmented with other Mochi
+  # components or microservices.
+  - mochi-margo
+  repos:
+  # Update this path refer to your own local copy of the Mochi Spack
+  # repository; see the top level README.md for details.
+  - /tmp/hello-mochi/mochi-spack-packages
+  modules:
+  # The following options are recommended to ensure that Spack automatically
+  # populates the runtime library path when Mochi packages are loaded.
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+  # The following options are used by packages that Mochi depends
+  # upon.  You can start with one of these examples and modify them to suit
+  # your particular system.
+  #
+  # TCP #############################################################
+    mercury:
+      variants: ~boostsys ~checksum +ofi
+    libfabric:
+      variants: fabrics=rxm,tcp
+  #
+  # Shared memory (no off-node comunication ##########################
+  #  mercury:
+  #    variants: ~boostsys ~checksum ~ofi
+  #
+  # IB/Verbs #########################################################
+  #  mercury:
+  #    variants: ~boostsys ~checksum +ofi
+  #  libfabric:
+  #    variants: fabrics=rxm,verbs
+  #
+  # IB/Verbs using a system-provided rdma-core/OFED library ##########
+  #  mercury:
+  #    variants: ~boostsys ~checksum +ofi
+  #  libfabric:
+  #    variants: fabrics=rxm,verbs
+  #  rdma-core:
+  #    externals:
+  #    - spec: rdma-core@41.0
+  #      prefix: /usr
+  #
+  # OmniPath/PSM2 with built-in Mercury driver #######################
+  #  mercury:
+  #    variants: ~boostsys ~checksum +psm2 ~ofi
+  #
+  # OmniPath/PSM2 with libfabric driver ##############################
+  #  mercury:
+  #    variants: ~boostsys ~checksum +ofi
+  #  libfabric:
+  #    variants: fabrics=psm2
+  #
+  # Aries/GNI #######################################################
+  #  mercury:
+  #    variants: ~boostsys ~checksum +ofi
+  #  libfabric:
+  #    variants: fabrics=gni
+  #
+  # Slingshot/CXI ##################################################
+  #    note the use of a vendor-supplied libfabric library
+  #  mercury:
+  #    variants: ~boostsys ~checksum +ofi
+  #  libfabric:
+  #    externals:
+  #    - spec: libfabric@1.15.0.0
+  #      modules:
+  #      - libfabric/1.15.0.0
+  #

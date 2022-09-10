@@ -1,0 +1,298 @@
+spack:
+  definitions:
+  - intel_stable_compiler: [intel@20.0.4]
+  - intel_stable_mpi: [intel-mpi@2019.10.317 +external-libfabric]
+  - intel_stable_blas: [intel-mkl@2020.4.304]
+  - intel_stable_blas_parallel: [intel-mkl@2020.4.304]
+  - intel_stable_python3: [python@3.10.4 +tkinter +optimizations ^freetype@2.7.1 ^fontconfig@2.12.3]
+  - intel_stable_gpu: []
+  - gcc_stable_compiler: [gcc@12.1.0]
+  - gcc_stable_mpi: [mvapich2@2.3.7 fabrics=mrail process_managers=slurm threads=multiple]
+  - gcc_stable_blas: [openblas@0.3.20 threads=none +locking]
+  - gcc_stable_blas_parallel: [openblas@0.3.20 threads=openmp +locking]
+  - gcc_stable_python3: [python@3.10.4 +tkinter +optimizations ~debug]
+  - gcc_stable_python2: [python@2.7.18 +tkinter ~debug]
+  - gcc_stable_gpu: []
+  - core_compiler: [gcc@8.5.0]
+  - core_packages:
+    - cmake +ncurses +ownlibs
+    - curl
+    - git
+    - git-lfs
+    - i7z
+    - libtool
+    - lmod
+    - m4
+    - tmux
+  - serial_packages:
+    - fftw +openmp ~mpi
+    - gsl
+    - hdf5 ~mpi
+    - hisat2
+    - metis
+    - muscle
+    - netcdf-c ~mpi ^hdf5 ~mpi
+    - netcdf-fortran ^netcdf-c ~mpi ^hdf5 ~mpi
+    - openssl
+    - scotch ~mpi
+  - serial_packages_gpu:
+    - hwloc
+    - llvm
+    - ucx
+  - serial_packages_blas:
+    - arpack-ng~mpi
+    - gmsh ~mpi +hdf5 +cgns +eigen ~opencascade +openmp ~fltk ^cgns~mpi ^hdf5~mpi
+      ^med~mpi ^mmg ^scotch~mpi
+    - ncview ^netcdf-c~mpi ^hdf5 ~mpi
+    - superlu
+  - serial_packages_blas_gpu:
+    - suite-sparse ~cuda
+  - serial_packages_python_activated:
+    - py-cython
+    - py-pip
+    - py-ply
+    - py-six
+    - py-sympy
+    - py-termcolor
+    - py-virtualenv
+    - py-wheel
+    - py-wrapt
+  - serial_packages_python_blas_activated:
+    - py-matplotlib
+    - py-numpy
+    - py-pandas
+    - py-scipy
+  - serial_packages_python:
+    - cairo
+    - mercurial
+    - ninja
+    - py-pybind11
+    - scons
+  - serial_packages_python_blas:
+    - boost ~mpi
+    - py-pybigwig
+    - py-scikit-learn
+    - py-statsmodels
+  - external_packages:
+    - openjdk
+  - mpi_packages:
+    - arpack-ng
+    - fftw +mpi +openmp
+    - hdf5 +mpi
+    - netcdf-c +mpi
+    - netcdf-fortran
+    - openfoam-org +metis ^scotch+mpi
+    - parmetis
+    - phylobayesmpi
+    - scotch +mpi
+  - mpi_lapack_packages:
+    - gmsh +openmp +hdf5 ~fltk ~opencascade
+    - quantum-espresso+mpi+scalapack
+    - quantum-espresso+mpi+scalapack hdf5=parallel
+    - superlu-dist
+  - mpi_lapack_gpu_packages:
+    - hypre
+  - mpi_python_packages:
+    - py-h5py ^hdf5 +mpi
+    - py-mpi4py
+  - mpi_blas_packages_gcc_stable:
+    - mumps  ^scotch +mpi ^netlib-scalapack
+    - netlib-scalapack
+  - mpi_blas_packages_intel_stable:
+    - mumps+mpi+parmetis+metis+scotch+ptscotch
+  - mpi_lapack_python_packages:
+    - boost +mpi
+    - cgal ^boost+mpi
+    - plumed
+    - petsc  ^hdf5 +mpi
+    - slepc
+    - freefem +mpi +petsc
+  - mpi_blas_python_packages_gcc_stable:
+    - lammps@20220107 build_type=Release +asphere +atc +body +class2 +colloid +compress
+      +coreshell +dipole +diffraction +extra-dump +granular +h5md +kspace +latboltz
+      +latte +lib +manybody +mc +misc +molecule +mpi +mpiio +netcdf +peri ~poems +python
+      +qeq  +replica +rigid +shock +ml-snap +srd +voronoi +plumed ~cuda  ^netcdf-c+mpi
+    - opencv +vtk +python3 ~cuda  ^netcdf-c +mpi ^boost +mpi
+  specs:
+  - matrix:
+    - [$intel_stable_compiler]
+    - [$%core_compiler]
+  - matrix:
+    - [$intel_stable_mpi]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$intel_stable_blas]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$intel_stable_blas_parallel]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$intel_stable_gpu]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$gcc_stable_compiler]
+    - [$%core_compiler]
+  - matrix:
+    - [$gcc_stable_mpi]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$gcc_stable_blas]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$gcc_stable_blas_parallel]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$gcc_stable_python2]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$gcc_stable_gpu]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$core_packages]
+    - [$%core_compiler]
+  - matrix:
+    - [$serial_packages]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_gpu]
+    - [$^gcc_stable_gpu]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_gpu]
+    - [$^intel_stable_gpu]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_blas]
+    - [$^gcc_stable_blas]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_blas]
+    - [$^intel_stable_blas]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_blas_gpu]
+    - [$^gcc_stable_blas]
+    - [$^gcc_stable_gpu]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_blas_gpu]
+    - [$^intel_stable_blas]
+    - [$^intel_stable_gpu]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_activated]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_activated]
+    - [$^intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_blas_activated]
+    - [$^gcc_stable_python3]
+    - [$^gcc_stable_blas_parallel]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_blas_activated]
+    - [$^intel_stable_python3]
+    - [$^intel_stable_blas_parallel]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_python]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python]
+    - [$^intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_blas]
+    - [$^gcc_stable_blas_parallel]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_blas]
+    - [$^intel_stable_blas_parallel]
+    - [$^intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$external_packages]
+    - [$%core_compiler]
+  - matrix:
+    - [$mpi_packages]
+    - [$^gcc_stable_mpi]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_packages]
+    - [$^intel_stable_mpi]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_packages]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_blas]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_packages]
+    - [$^intel_stable_mpi]
+    - [$^intel_stable_blas]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_gpu_packages]
+    - [$^gcc_stable_gpu]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_blas]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_gpu_packages]
+    - [$^intel_stable_gpu]
+    - [$^intel_stable_mpi]
+    - [$^intel_stable_blas]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_python_packages]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_python_packages]
+    - [$^intel_stable_mpi]
+    - [$^intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_blas_packages_gcc_stable]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_blas]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_blas_packages_intel_stable]
+    - [$^intel_stable_mpi]
+    - [$^intel_stable_blas]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_python_packages]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_blas]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$mpi_lapack_python_packages]
+    - [$^intel_stable_mpi]
+    - [$^intel_stable_blas]
+    - [$^intel_stable_python3]
+    - [$%intel_stable_compiler]
+  - matrix:
+    - [$mpi_blas_python_packages_gcc_stable]
+    - [$^gcc_stable_mpi]
+    - [$^gcc_stable_blas]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  view: false
