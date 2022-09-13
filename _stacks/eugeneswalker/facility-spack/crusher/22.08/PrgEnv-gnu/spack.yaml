@@ -432,7 +432,6 @@ spack:
 
   # CPU FAILURES
   # - alquimia@1.0.9                          # pflotran
-  # - ascent@0.8.0                            # vtk-m
   # - bricks@r0.1                             # bricks
   # - catalyst                                # catalyst
   # - dealii                                  # dealii
@@ -445,7 +444,6 @@ spack:
   # - stat@4.1.0                              # launchmon-master
   # - variorum@0.4.1                          # variorum
   # - wannier90                               # wannier90
-  # - vtk-m@1.8.0 ~openmp ~rendering          # vtk-m
   # -----
   # bricks: weak/args.h:14:8: error: 'size_t' does not name a type; VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
   # catalyst: Catalyst-v5.6.0/VTK/Common/Core/vtkMath.h:1514:15: error: 'clamp' is not a member of 'std'
