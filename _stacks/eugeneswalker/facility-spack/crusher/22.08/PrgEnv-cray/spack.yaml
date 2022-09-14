@@ -525,7 +525,7 @@ spack:
   # - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a     # netlib-scalapack
   # - trilinos +rocm amdgpu_target=gfx90a                   # trilinos
   # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a           # umpire
-  # - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a                 # vtk-m
+  # - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a                # vtk-m
   # --------
   # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
   # cabana: https://github.com/spack/spack/issues/27967
