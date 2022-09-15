@@ -4,5 +4,6 @@ spack:
   - py-pybind11
   - py-mpi4py
   - mochi-thallium
+  - spdlog
   concretizer:
     unify: true

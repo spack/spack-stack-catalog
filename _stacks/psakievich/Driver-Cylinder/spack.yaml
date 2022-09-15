@@ -1,0 +1,13 @@
+# spack environment file for building and testing this with and without gpu's
+# 
+# To use gpu's `spack load exawind+cuda`
+# CPU only `spack load exawind~cuda`
+#
+# Must be built with spack-manager to work
+spack:
+  specs: [exawind+cuda+amr_wind_gpu+nalu_wind_gpu+hypre cuda_arch=70, exawind+hypre]
+  view: false
+  concretizer:
+    unify: when_possible
+  include:
+  - include.yaml
