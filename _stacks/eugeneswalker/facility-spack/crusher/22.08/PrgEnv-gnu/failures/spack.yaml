@@ -32,6 +32,9 @@ spack:
             ^warpx dims=2: dims2
             ^warpx dims=3: dims3
             ^warpx dims=rz: dimsRZ
+        visit:
+          suffixes:
+            ^vtk-m +rocm: rocm
 
   compilers:
   - compiler:
@@ -310,7 +313,6 @@ spack:
   specs:
   # CPU FAILURES
   - alquimia@1.0.9                          # pflotran
-  - ascent@0.8.0                            # vtk-m
   - bricks@r0.1                             # bricks
   - catalyst                                # catalyst
   - dealii                                  # dealii
@@ -347,7 +349,6 @@ spack:
   # wannier90: ../comms.F90:1214:22: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU FAILURES
-  - cabana@0.5.0 +rocm
   - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
   - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a     # umpire
   - hpctoolkit@2022.05.15 +rocm                               # rocprofiler-dev
@@ -362,10 +363,6 @@ spack:
   # petsc: configure fail: WARNING: Using default optimization C flags -g -O
   # raja: g++: error: unrecognized command-line option '--rocm-path=/opt/rocm-5.2.0'
   # rocprofiler-dev: /usr/bin/ld: cannot find -ldrm, cannot find -ldrm_amdgpu
+  # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # trilinos: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
   # umpire: src/umpire/util/io.cpp:188:34: error: 'fspath_path' was not declared in this scope
-
-  # SKIPPED
-  # - nvhpc@22.7                 # not relevant on AMD GPU system
-  # - libnrm                     # hard mpich dependency
-  # - gptune@3.0.0               # hard openmpi dependency
