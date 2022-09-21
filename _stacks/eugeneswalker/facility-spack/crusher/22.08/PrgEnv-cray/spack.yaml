@@ -362,7 +362,6 @@ spack:
   - conduit@0.8.3
   - datatransferkit@3.1-rc3
   - dyninst@12.2.0
-  - ecp-data-vis-sdk@1.0 ~adios2 +ascent +cinema ~darshan ~faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs ~veloc ~visit +vtkm +zfp ~cuda ~rocm
   - flecsi@1.4.2
   - flit@2.1.0
   - flux-core@0.40.0
@@ -429,7 +428,6 @@ spack:
   - amrex@22.08 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
   - cabana@0.5.0 +rocm
-  - ecp-data-vis-sdk@1.0 ~adios2 ~ascent +cinema ~darshan ~faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs ~veloc ~visit ~vtkm +zfp ~cuda +rocm amdgpu_target=gfx90a
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
   - hpx@1.8.1 +rocm amdgpu_target=gfx90a
@@ -457,6 +455,9 @@ spack:
   # - zfp@0.5.5
 
   # ecp-data-viz-sdk failures
+  # - ecp-data-vis-sdk@1.0 ~adios2 +ascent +cinema ~darshan ~faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs ~veloc ~visit +vtkm +zfp ~cuda ~rocm
+  # - ecp-data-vis-sdk@1.0 ~adios2 ~ascent +cinema ~darshan ~faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs ~veloc ~visit ~vtkm +zfp ~cuda +rocm amdgpu_target=gfx90a
+  # general failures: apcomp, sz, conduit
   # +visit: silo
   # +veloc: boost
   # +faodel: boost

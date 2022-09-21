@@ -272,12 +272,17 @@ spack:
       externals:
       - spec: hip@5.2.0
         prefix: /opt/rocm-5.2.0/hip
-        modules: [rocm/5.2.0]
+        modules:
+        - craype-accel-amd-gfx90a
+        - rocm/5.2.0
         extra_attributes:
           compilers:
-            c: /opt/rocm-5.2.0/llvm/bin/clang++
-            c++: /opt/rocm-5.2.0/llvm/bin/clang++
-            hip: /opt/rocm-5.2.0/hip/bin/hipcc
+            c: CC
+            c++: CC
+            hip: CC
+        environment:
+          set:
+            MPICH_GPU_SUPPORT_ENABLED: 1
     llvm-amdgpu:
       buildable: false
       externals:
@@ -342,6 +347,27 @@ spack:
         modules: [rocm/5.2.0]
 
   specs:
+  # ecp-data-viz-sdk failures
+  - ecp-data-vis-sdk@1.0 +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf ~sensei +sz +unifyfs +veloc +visit +vtkm +zfp ~cuda ~rocm
+  - ecp-data-vis-sdk@1.0 +adios2 ~ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf ~sensei +sz +unifyfs +veloc +visit +vtkm +zfp ~cuda +rocm amdgpu_target=gfx90a
+  # general failures: apcomp, sz, conduit
+  # +visit: silo
+  # +veloc: boost
+  # +faodel: boost
+  # +darshan: darshan-runtime
+  # +adios2: sz
+  # +paraview: sz
+  # ----
+  # apcomp: ld.lld: error: ../lib/libapcomp.so: undefined reference to _cray$mt_kmpc_fork_call_with_flags [--no-allow-shlib-undefined]
+  # boost: ./b2: error while loading shared libraries: libamdhip64.so.5: cannot open shared object file: No such file or directory
+  # conduit: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/cce/14.0.0/cce/x86_64/lib/pkgconfig/..//libcrayacc_amdgpu.so: undefined reference to `hipMemcpyHtoD@@hip_4.2'
+  # darshan-runtime: configure: error: cannot run C compiled programs.
+  # netcdf-cxx: configure: error: cannot run C++ compiled programs.
+  # qt: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.cpp:(.text.startup+0x11): undefined reference to `dlclose'
+  # silo: configure: error: cannot run C++ compiled programs.
+  # sz: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/cce/14.0.0/cce/x86_64/lib/pkgconfig/..//libcrayacc_amdgpu.so: undefined reference to `hipMemcpyHtoD@@hip_4.2'
+  # vtk-m: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
+
   # CPU FAILURES
   - alquimia@1.0.9                    # pflotran
   - bricks@r0.1                       # bricks
@@ -354,7 +380,6 @@ spack:
   - netlib-scalapack@2.2.0            # netlib-scalapack
   - nrm@0.1.0                         # py-numopy@1.23.2
   - omega-h@9.34.1                    # omega-h
-  - paraview +qt ^llvm@12.0.1         # llvm@12
   - parsec@3.0.2012 ~cuda             # parsec
   - phist@1.9.5                       # phist
   - pruners-ninja@1.0.1               # pruners-ninja
@@ -371,7 +396,6 @@ spack:
   - stat@4.1.0 %cce                   # intel-tbb, rust
   - strumpack@6.3.1 ~slate            # arpack-ng
   - wannier90@3.1.0                   # wannier90
-  - paraview@5.10.1 +qt ^mesa@21.3.8  # llvm@12.0.1
   # --------
   # arpack-ng: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: lib/libarpack.so.2.1.0: undefined reference to `_ismin_'
   # bricks: cc1plus: error: bad value ('OFF') for '-mtune=' switch; stencils/3axis_sycl.cpp:8:10: fatal error: 'CL/sycl.hpp' file not found
@@ -412,6 +436,7 @@ spack:
   # GPU FAILURES
   - caliper@2.8.0 +rocm amdgpu_target=gfx90a              # caliper
   - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a # umpire
+  - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a               # ginkgo
   - hpctoolkit@2022.05.15 +rocm                           # rocprofiler-dev
   - papi@6.0.0.1 +rocm amdgpu_target=gfx90a               # rocprofiler-dev; https://github.com/spack/spack/issues/27898
   - petsc@3.17.4 +rocm amdgpu_target=gfx90a               # petsc
@@ -421,23 +446,16 @@ spack:
   - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a     # netlib-scalapack
   - trilinos +rocm amdgpu_target=gfx90a                   # trilinos
   - umpire@2022.03.1 +rocm amdgpu_target=gfx90a           # umpire
+  - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a                # vtk-m
   # --------
-  # petsc: WARNING Using default Cxx optimization flags -g -O3
-  # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
+  # ginkgo: libginkgo_omp.so.1.4.0: undefined reference to _cray$mt_kmpc_fork_call_with_flags [--no-allow-shlib-undefined]
   # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
   # cabana: https://github.com/spack/spack/issues/27967
+  # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
+  # petsc: WARNING Using default Cxx optimization flags -g -O3
   # raja: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
   # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
   # trilinos: CMake Error at packages/kokkos/cmake/kokkos_arch.cmake:448 (MESSAGE): HIP enabled but no AMD GPU architecture currently enabled.  Please enable one AMD GPU architecture via -DKokkos_ARCH_{..}=ON'.
   # trilinos: HIP/Kokkos_HIP_Kernel Launch.hpp:79:3: error: __constant__, __device__, and __managed__ are not allowed on non-static local variables
   # umpire: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
   # vtk-m: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
-  # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
-
-  # SKIPPED
-  # - dyninst@12.1.0        # %clang conflict
-  # - gptune@3.0.0          # hard openmpi dependency
-  # - libnrm@0.1.0          # hard dependency on mpich specifically
-  # - nvhpc@22.7            # not relevant on AMD GPU system
-  # - plasma@21.8.29        # %clang conflict
-  # - stat@4.1.0            # mesa

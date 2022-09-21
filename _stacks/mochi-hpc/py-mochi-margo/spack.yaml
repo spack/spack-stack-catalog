@@ -1,6 +1,13 @@
 spack:
   specs:
-  - mochi-margo
+  - mochi-margo ^libfabric fabrics=tcp,rxm
   - py-pkgconfig
   - py-pybind11
-  concretization: together
+  - py-setuptools
+  concretizer:
+    unify: true
+    reuse: false
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
