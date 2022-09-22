@@ -273,7 +273,7 @@ spack:
   - openmpi@4.1.4+cuda+cxx+cxx_exceptions~internal-hwloc~java~static fabrics=ucx
   - oracle-instant-client@19.11.0.0.0
   - oracleocci-abi-hack-cms
-  - pacparser@1.4.0
+  - pacparser@1.4.0+python
   - pcre@8.43~jit~multibyte+utf
   - pcre2@10.36
   - photos@3.64+hepmc~hepmc3

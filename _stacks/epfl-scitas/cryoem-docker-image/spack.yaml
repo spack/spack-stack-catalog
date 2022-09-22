@@ -1,0 +1,117 @@
+spack:
+  repos:
+  - /opt/scitas-cryoem-spack-packages
+
+  mirrors:
+    cache:
+      fetch:
+        url: file:///buildcache
+        access_pair:
+          - null
+          - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///buildcache
+        access_pair:
+          - null
+          - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+
+  packages:
+    all:
+      target: [x86_64_v3]
+      providers:
+        mpi: [openmpi]
+        jpeg: [libjpeg]
+    gcc:
+      externals:
+      - spec: gcc@9.4.0 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/x86_64-linux-gnu-gcc-9
+            cxx: /usr/bin/x86_64-linux-gnu-g++-9
+            fortran: /usr/bin/x86_64-linux-gnu-gfortran-9
+    boost:
+      variants: [+atomic+chrono~clanglibcpp~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel~icu+iostreams~json+locale+log+math~mpi+multithreaded~nowide+numpy~pic+program_options+python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~versionedlayout+wave]
+    cairo:
+      variants: [+X+fc+ft+png+pdf+gobject]
+    cuda:
+      version: [11.4.3]
+      variants: [+allow-unsupported-compilers]
+    openmpi:
+      variants: [+cuda +thread_multiple +singularity schedulers=slurm +pmix fabrics=ucx]
+      version: [4.1.3]
+    ucx:
+      variants: [+cuda cuda_arch=70 +gdrcopy]
+    relion:
+      version: [4.0-beta]
+    rdma-core:
+      version: [34.0]
+    mesa:
+      variants: [~llvm]
+    py-tensorflow:
+      variants: [+cuda cuda_arch=70 +mpi]
+    protobuf:
+      version: [3.11.1]
+    slurm:
+      version: [20-02-7-1]
+    wxwidgets:
+      version: [3.0.2]
+    python:
+      variants: [+bz2+ctypes+dbm~debug+ensurepip+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl+tkinter~ucs4+uuid+zlib]
+    py-setuptools:
+      version: [51.0.0]
+    py-six:
+      version: [1.15.0]
+    py-numpy:
+      version: [1.19.5]
+    nccl:
+      variants: [+cuda cuda_arch=70]
+    hwloc:
+      variants: [+cuda cuda_arch=70]
+
+  definitions:
+  - mpi_codes:
+    - relion +cuda cuda_arch=70 +double-gpu ~gui
+    - relion@3.1.3 +cuda cuda_arch=70 +double-gpu ~gui
+    - fftw +mpi
+    - eman2 +cuda +mpi
+
+    # do to mpi dependent dependency
+    - cistem
+    - ctffind
+    - unblur
+    - py-pymol
+  specs:
+    # required pacakges
+    - gctf@1.18
+    - py-cryolobm
+    - py-pyem
+    - matrix:
+      - [$mpi_codes]
+      - [^openmpi]
+#  concretization: together
+  view:
+    default:
+      root: /opt/view
+      exclude: ['^cuda@:11.2', 'cuda@:11.2', 'relion@3.1.3']
+      link_type: symlink
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc-9
+        cxx: /usr/bin/g++-9
+        f77: /usr/bin/gfortran-9
+        fc: /usr/bin/gfortran-9
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

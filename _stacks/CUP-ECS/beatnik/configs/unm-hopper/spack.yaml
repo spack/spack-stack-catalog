@@ -1,0 +1,17 @@
+spack:
+  specs:
+  - matrix:
+    - - cuda@11.7
+      - ucx +ib_hw_tm +gdrcopy
+      - openmpi@4.1.4 +cuda cuda_arch=80 fabrics=ucx
+      - heffte +fftw +cuda cuda_arch=80
+      - kokkos std=17 +hwloc +cuda +cuda_lambda +wrapper cuda_arch=80
+      - cabana @master +cajita +heffte +mpi +cuda
+    - ['%gcc@11.2.0']
+  - hdf5+mpi
+  - silo@4.11 +mpi
+  - blt
+  - cmake
+  concretizer:
+    unify: true
+  view: true
