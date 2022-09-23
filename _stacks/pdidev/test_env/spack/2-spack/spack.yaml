@@ -7,7 +7,8 @@ spack:
   - baselibs: []
   - mpi: []
   - optlibs: []
-  concretization: together
+  concretizer:
+    unify: true
   specs:
   - matrix:
     - ['$%compiler']
