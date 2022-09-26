@@ -3,8 +3,9 @@ spack:
     all:
       target: [x86_64]
   definitions:
-  - compiler: []
   - baselibs: []
+  - compiler: []
+  - compilerpkg: []
   - mpi: []
   - optlibs: []
   concretizer:
@@ -14,6 +15,7 @@ spack:
     - ['$%compiler']
     - ['target=x86_64']
     - 
+      - '$compilerpkg'
       - '$baselibs'
       - '$mpi'
       - '$optlibs'
