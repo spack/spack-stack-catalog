@@ -345,6 +345,13 @@ spack:
       - spec: rocthrust@5.2.0
         prefix: /opt/rocm-5.2.0
         modules: [rocm/5.2.0]
+    rocprofiler-dev:
+      buildable: false
+      externals:
+      - spec: rocprofiler-dev@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules:
+        - rocm/5.2.0
 
   specs:
   # CPU
@@ -430,10 +437,12 @@ spack:
   - cabana@0.5.0 +rocm
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
   - heffte@2.2.0 +rocm amdgpu_target=gfx90a
+  - hpctoolkit@2022.05.15 +rocm
   - hpx@1.8.1 +rocm amdgpu_target=gfx90a
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
   - mfem@4.4.0 +rocm amdgpu_target=gfx90a
+  - papi@6.0.0.1 +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
@@ -532,7 +541,6 @@ spack:
   # py-numpy@1.23.2: clang-14: error: unknown argument: '-mavx5124fmaps'
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
-  # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
   # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
   # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
   # scr: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
@@ -545,9 +553,7 @@ spack:
   # GPU FAILURES
   # - caliper@2.8.0 +rocm amdgpu_target=gfx90a              # caliper
   # - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a # umpire
-  # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a                ginkgo
-  # - hpctoolkit@2022.05.15 +rocm                           # rocprofiler-dev
-  # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a               # rocprofiler-dev; https://github.com/spack/spack/issues/27898
+  # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a               # ginkgo
   # - petsc@3.17.4 +rocm amdgpu_target=gfx90a               # petsc
   # - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a     # raja
   # - slate@2022.06.00 +rocm amdgpu_target=gfx90a           # netlib-scalapack
@@ -561,9 +567,10 @@ spack:
   # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
   # cabana: https://github.com/spack/spack/issues/27967
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
+  # caliper: https://github.com/spack/spack/issues/32827
   # petsc: WARNING Using default Cxx optimization flags -g -O3
+  # petsc: https://github.com/spack/spack/issues/32826
   # raja: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900
-  # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
   # trilinos: CMake Error at packages/kokkos/cmake/kokkos_arch.cmake:448 (MESSAGE): HIP enabled but no AMD GPU architecture currently enabled.  Please enable one AMD GPU architecture via -DKokkos_ARCH_{..}=ON'.
   # trilinos: HIP/Kokkos_HIP_Kernel Launch.hpp:79:3: error: __constant__, __device__, and __managed__ are not allowed on non-static local variables
   # umpire: /opt/cray/pe/cce/14.0.0/cce/x86_64/bin/cce_omp_offload_linker: Unsupported hip accelerator target: gfx900

@@ -325,6 +325,13 @@ spack:
       - spec: rocthrust@5.2.0
         prefix: /opt/rocm-5.2.0
         modules: [rocm/5.2.0]
+    rocprofiler-dev:
+      buildable: false
+      externals:
+      - spec: rocprofiler-dev@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules:
+        - rocm/5.2.0
 
   specs:
   # CPU
@@ -431,6 +438,7 @@ spack:
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
   - mfem@4.4.0 +rocm amdgpu_target=gfx90a
+  - papi@6.0.0.1 +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
@@ -476,7 +484,6 @@ spack:
   # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
-  # rocprofiler-dev: /usr/bin/ld: cannot find -ldrm, cannot find -ldrm_amdgpu
   # unifyfs: unifyfs.c:1502:7: error: unused function 'next_page_align' [-Werror,-Wunused-function]
   # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
   # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
@@ -487,7 +494,6 @@ spack:
   # GPU FAILURES
   # - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a       # umpire
   # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a                     # ginkgo
-  # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                     # rocprofiler-dev
   # - petsc@3.17.4 +rocm amdgpu_target=gfx90a                     # petsc
   # - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a           # raja
   # - slate@2022.06.00 +rocm amdgpu_target=gfx90a                 # blaspp
@@ -504,11 +510,14 @@ spack:
   # cabana: https://github.com/spack/spack/issues/27967
   # ginkgo: core/base/extended_float.hpp:48:10: fatal error: 'cuda_fp16.h' file not found
   # petsc:  ***** WARNING: Using default FORTRAN optimization flags -O
+  # petsc: https://github.com/spack/spack/issues/32826
   # raja: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: ... which is prefixed in the source directory.
-  # rocprofiler-dev: ld.lld: error: unable to find library -ldrm, -ldrm_amdgpu
+  # raja: https://github.com/spack/spack/issues/32830
   # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # trilinos: belos/src/BelosPseudoBlockTFQMRSolMgr.hpp:278:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
+  # trilinos: https://github.com/spack/spack/issues/30626
   # umpire: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: ... which is prefixed in the source directory.
+  # umpire: https://github.com/spack/spack/issues/32830
   # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
   # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
 

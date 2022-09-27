@@ -1,0 +1,21 @@
+spack:
+  packages:
+    all:
+      target: [x86_64]
+  definitions:
+  - baselibs: []
+  - compiler: []
+  - compilerpkg: []
+  - mpi: []
+  - optlibs: []
+  concretizer:
+    unify: true
+  specs:
+  - matrix:
+    - ['$%compiler']
+    - ['target=x86_64']
+    - 
+      - '$compilerpkg'
+      - '$baselibs'
+      - '$mpi'
+      - '$optlibs'
