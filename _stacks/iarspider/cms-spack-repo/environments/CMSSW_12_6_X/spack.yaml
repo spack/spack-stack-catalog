@@ -292,9 +292,9 @@ spack:
   - py-argparse@1.4.0
   - py-arrow@1.2.3
   - py-asn1crypto@1.5.1
-  - py-asstokens@2.0.8
+  - py-asttokens@2.0.8
   - py-astor@0.8.1
-  - py-astroid@2.12.7  
+  - py-astroid@2.12.7
   - py-astunparse@1.6.3
   - py-async-lru@1.0.3
   - py-async-timeout@4.0.2
@@ -322,7 +322,7 @@ spack:
   - py-click@8.1.3
   - py-clikit@0.6.2
   - py-climate@0.1.0
-  - py-cleo@0.8.1
+  - py-cleo@1.0.0a5
   - py-cloudpickle@2.1.0
   - py-cmake@3.21.4
   - py-cmsml@0.1.2
@@ -404,7 +404,7 @@ spack:
   - py-jinja2-time@0.2.0
   - py-joblib@1.1.0
   - py-jsonpickle@2.2.0
-  - py-jsonschema@3.2.0
+  - py-jsonschema@4.10.0
   - py-jupyter-client@7.3.5
   - py-jupyter-console@6.4.4
   - py-jupyter-core@4.11.1
@@ -479,11 +479,11 @@ spack:
   - py-ply@3.11
   - py-pillow@9.2.0
   - py-pip@22.2.2
-  - py-platformdirs@2.4.0
+  - py-platformdirs@2.5.2
   - py-pluggy@1.0.0
   - py-poetry@1.2.0
   - py-poetry-core@1.1.0
-  - py-poetry-plugin-expert@1.0.6
+  - py-poetry-plugin-export@1.0.6
   - py-prettytable@3.4.1
   - py-prompt-toolkit@3.0.41
   - py-prometheus-client@0.12.0
@@ -563,12 +563,11 @@ spack:
   - py-tables@3.7.0
   - py-tenacity@8.0.1
   - py-typing-extensions@3.10.0.2
-  - py-tensorboard-plugin-wit@1.8.0
+  - py-tensorboard-plugin-wit@1.8.1
   - py-tensorboard@2.10.0            # wheel
   - py-tensorboard-dataserver@0.6.1 # wheel
   - py-tensorflow@2.6.4.cms~cuda~nccl~only_python+mpi
   - py-tensorflow-estimator@2.10.0
-  - py-tensorflow-plugin-wit@1.8.1
   - py-termcolor@1.1.0
   - py-terminado@0.15.0
   - py-testpath@0.6.0
