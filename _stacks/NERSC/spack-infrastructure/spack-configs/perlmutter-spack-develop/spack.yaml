@@ -5,7 +5,6 @@ spack:
     - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
     - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
   config:
-    view: false
     concretization: separately
     build_stage: $spack/var/spack/stage
     misc_cache: $spack/var/spack/misc_cache
@@ -13,7 +12,7 @@ spack:
     install_tree:
       padded_length: 128    
   mirrors:
-    perlmutter-spack-buildcache: /global/common/software/spackecp/mirrors/perlmutter-spack-develop   
+    perlmutter-spack-buildcache: file:///global/common/software/spackecp/mirrors/perlmutter-spack-develop   
   cdash:
     build-group: DOE nightly E4S builds
     url: https://cdash.spack.io
@@ -158,14 +157,19 @@ spack:
     enable-artifacts-buildcache: false
     rebuild-index: true
     before_script:
+    - module reset
+    - module use /global/common/software/nersc/$(cat /etc/nersc_modules_rev)/extra_modulefiles
+    - module load cpu
+    - module list
+    - source setup-env.sh
     - git clone ${SPACK_REPO}
-    - pushd spack && git checkout ${SPACK_CHECKOUT_VERSION} && popd
-    - spack --version
-    - pwd
+    - pushd spack && git checkout ${SPACK_CHECKOUT_VERSION} && popd    
     - . spack/share/spack/setup-env.sh
+    - spack --version
+    - spack-python --path
     script:
     - cd ${SPACK_CONCRETE_ENV_DIR} 
-    - spack env activate --without-view -d $CI_PROJECT_DIR/spack-configs/perlmutter-spack-develop 
+    - spack env activate --without-view -d .
     - spack env st
     - spack -d ci rebuild
     after_script:

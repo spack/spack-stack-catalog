@@ -12,31 +12,46 @@ spack:
     - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
     - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
   config:
+    #locks: false
     concretization: separately
     build_stage: $spack/var/spack/stage
     misc_cache: $spack/var/spack/misc_cache
     concretizer: clingo
     install_tree:
-      padded_length: 128   
+      padded_length: 128
+  cdash:
+    build-group: DOE nightly E4S builds
+    url: https://cdash.spack.io
+    project: Spack
+    site: NERSC - Perlmutter E4S-22.05 
   mirrors:
-    source_mirror: /global/common/software/spackecp/mirrors/source_mirror        
-    perlmutter-e4s-22.05: /global/common/software/spackecp/mirrors/perlmutter-e4s-22.05
+    source_mirror: file:///global/common/software/spackecp/mirrors/source_mirror        
+    perlmutter-e4s-22.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-22.05
   gitlab-ci:
     enable-artifacts-buildcache: false
     rebuild-index: true
     before_script:
-    - git clone ${SPACK_REPO}
-    - pushd spack && git checkout ${SPACK_CHECKOUT_VERSION} && popd
+    #- git clone ${SPACK_REPO}
+    #- pushd spack && git checkout ${SPACK_CHECKOUT_VERSION} && popd
+    #- spack --version
+    #- pwd    
+    - module reset
+    - module use /global/common/software/nersc/$(cat /etc/nersc_modules_rev)/extra_modulefiles
+    - module load cpu
+    - module list
+    - source setup-env.sh
+    - echo $SPACK_CLONE_PATH
+    - . $SPACK_CLONE_PATH/share/spack/setup-env.sh
+    #- . $CFS/m3503/workdir/spack/share/spack/setup-env.sh
+    - which spack
     - spack --version
-    - pwd
-    - . spack/share/spack/setup-env.sh
+    - spack-python --path
     script:
+    - echo ${SPACK_CONCRETE_ENV_DIR}
     - cd ${SPACK_CONCRETE_ENV_DIR} 
-    - spack env activate -d $CI_PROJECT_DIR/spack-configs/perlmutter-e4s-22.05/ci
+    - spack env activate -d . 
     - spack env st
     - spack -d ci rebuild
-    after_script:
-    - rm -rf $SPACK_ROOT
     service-job-attributes:
       tags: [perlmutter-e4s]
       script:
@@ -188,18 +203,19 @@ spack:
     # ==> Warning: Skipping build of imagemagick-7.0.8-7-uplsylzyug36bhtuxwihndsucb3xiz6f since ghostscript-9.54.0-rwza23rfwzl2wmqcxfppcumiktvmtyut failed
     #- imagemagick
   specs:
-  - matrix:
-    - [$gcc_specs]
-    - [$gcc_compilers]
-  - matrix:
-    - [$cuda_specs]
-    - [$gcc_compilers]
-  - matrix:
-    - [$cce_specs]
-    - [$cce_compilers]
-  - matrix:
-    - [$nersc_specs]
-    - [$gcc_compilers]
+    - hypre@2.24.0
+  #- matrix:
+  #  - [$gcc_specs]
+  #  - [$gcc_compilers]
+  #- matrix:
+  #  - [$cuda_specs]
+  #  - [$gcc_compilers]
+  #- matrix:
+  #  - [$cce_specs]
+  #  - [$cce_compilers]
+  #- matrix:
+  #  - [$nersc_specs]
+  #  - [$gcc_compilers]
   #- matrix:
   #  - [$nvhpc_specs]
   #  - [$nvhpc_compilers]
