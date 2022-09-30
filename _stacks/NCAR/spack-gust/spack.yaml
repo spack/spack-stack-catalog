@@ -633,6 +633,36 @@ spack:
         - cray-mpich/8.1.18
         - craype-network-ofi
         - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.19 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.19/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.19
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.19 %cce
+        prefix: /opt/cray/pe/mpich/8.1.19/ofi/cray/10.0
+        modules:
+        - cray-mpich/8.1.19
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.19 %nvhpc
+        prefix: /opt/cray/pe/mpich/8.1.19/ofi/nvidia/20.7
+        modules:
+        - cray-mpich/8.1.19
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.19 %oneapi
+        prefix: /opt/cray/pe/mpich/8.1.19/ofi/intel/19.0
+        modules:
+        - cray-mpich/8.1.19
+        - craype-network-ofi
+        - libfabric/1.15.0.0
+      - spec: cray-mpich@8.1.19 %intel
+        prefix: /opt/cray/pe/mpich/8.1.19/ofi/intel/19.0
+        modules:
+        - cray-mpich/8.1.19
+        - craype-network-ofi
+        - libfabric/1.15.0.0
       buildable: false
     cray-libsci:
       externals:
@@ -826,8 +856,28 @@ spack:
       operating_system: sles15
       target: any
       modules:
-      - PrgEnv-cray
+      - PrgEnv-cray/8.3.2
       - cce/14.0.2
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
+  - compiler:
+      spec: cce@14.0.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.3
       environment:
         prepend_path:
           CPATH: /glade/u/apps/common/22.08/opt/include
@@ -846,7 +896,7 @@ spack:
       operating_system: sles15
       target: any
       modules:
-      - PrgEnv-gnu
+      - PrgEnv-gnu/8.3.2
       - gcc/10.3.0
       environment:
         prepend_path:
@@ -866,8 +916,28 @@ spack:
       operating_system: sles15
       target: any
       modules:
-      - PrgEnv-gnu
+      - PrgEnv-gnu/8.3.2
       - gcc/11.2.0
+      environment:
+        prepend_path:
+          CPATH: /glade/u/apps/common/22.08/opt/include
+          LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+      extra_rpaths:
+      - /glade/u/apps/common/22.08/opt/lib64
+      - /glade/u/apps/common/22.08/opt/lib
+  - compiler:
+      spec: gcc@12.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu/8.3.3
+      - gcc/12.1.0
       environment:
         prepend_path:
           CPATH: /glade/u/apps/common/22.08/opt/include
@@ -958,6 +1028,10 @@ spack:
               CRAY_NVIDIA_VERSION: '{version}'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
+        nvhpc@21.3:
+          environment:
+            set:
+              CRAY_CPU_TARGET: x86-rome
         ncarcompilers:
           environment:
             set:
@@ -1192,3 +1266,11 @@ spack:
   - esmf@8.3.0%intel@2022.1.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%intel@2022.1.0
   - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2
   - ncview@2.1.8%gcc@11.2.0
+  - ncarcompilers@0.7.0%gcc@11.2.0
+  - ncarcompilers@0.7.0%gcc@10.3.0
+  - ncarcompilers@0.7.0%nvhpc@21.3
+  - ncarcompilers@0.7.0%nvhpc@22.2
+  - ncarcompilers@0.7.0%nvhpc@22.7
+  - ncarcompilers@0.7.0%oneapi@2022.1.0
+  - ncarcompilers@0.7.0%intel@2022.1.0
+  - ncarcompilers@0.7.0%cce@14.0.2
