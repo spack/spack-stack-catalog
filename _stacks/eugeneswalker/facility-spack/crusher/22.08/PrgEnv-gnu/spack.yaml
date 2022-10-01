@@ -431,7 +431,7 @@ spack:
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
 
-  # Included in ecp-data-viz-sdk
+  # Included in ecp-data-vis-sdk
   # - adios2@2.8.3
   # - ascent@0.8.0
   # - darshan-runtime@3.4.0

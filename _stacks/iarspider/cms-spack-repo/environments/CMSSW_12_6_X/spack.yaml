@@ -129,7 +129,7 @@ spack:
   - automake@1.16.3
   - bazel@3.7.2
   - berkeley-db@6.2.32
-  - benchmark@develop
+  - benchmark@20211215
   - bison@3.7.6
   - blackhat@0.9.9
   - boost@1.78.0.cms+atomic~icu~container~context~coroutine+exception+graph+locale+log+math+random+wave+shared+multithreaded~debug+mpi+python+iostreams
@@ -149,7 +149,7 @@ spack:
   - coral@CORAL_2_3_21
   - coral-tool-conf@10.0
   - cppunit@1.15.x
-  - cpu-features@0.7.7
+  - cpu-features@0.7.0
   - crab@1.0
   - crab-dev@v3.220714.00
   - crab-pre@v3.220323.00
@@ -273,7 +273,7 @@ spack:
   - openmpi@4.1.4+cuda+cxx+cxx_exceptions~internal-hwloc~java~static fabrics=ucx
   - oracle-instant-client@19.11.0.0.0
   - oracleocci-abi-hack-cms
-  - pacparser@1.4.0+python
+  - pacparser@1.4.0
   - pcre@8.43~jit~multibyte+utf
   - pcre2@10.36
   - photos@3.64+hepmc~hepmc3
@@ -322,7 +322,7 @@ spack:
   - py-click@8.1.3
   - py-clikit@0.6.2
   - py-climate@0.1.0
-  - py-cleo@1.0.0a5
+  - py-cleo@0.8.1
   - py-cloudpickle@2.1.0
   - py-cmake@3.21.4
   - py-cmsml@0.1.2
@@ -404,7 +404,7 @@ spack:
   - py-jinja2-time@0.2.0
   - py-joblib@1.1.0
   - py-jsonpickle@2.2.0
-  - py-jsonschema@4.10.0
+  - py-jsonschema@3.2.0
   - py-jupyter-client@7.3.5
   - py-jupyter-console@6.4.4
   - py-jupyter-core@4.11.1
@@ -562,7 +562,6 @@ spack:
   - py-sympy@1.11.1
   - py-tables@3.7.0
   - py-tenacity@8.0.1
-  - py-typing-extensions@3.10.0.2
   - py-tensorboard-plugin-wit@1.8.1
   - py-tensorboard@2.10.0            # wheel
   - py-tensorboard-dataserver@0.6.1 # wheel
@@ -729,106 +728,138 @@ spack:
   - data-recoparticleflow-pftracking@V13-01-00
   - data-simtransport-hectorproducer@V01-00-01
   config:
+    build_jobs: 16
     install_tree:
       projections:
-        cmslhetoeosmanager: "{name}/{version}"
-        cmssw: "{name}/{version}"
-        cmssw-osenv: "{name}/{version}"
-        cmssw-wm-tools: "{name}/{version}"
-        crab-dev: "{name}/{version}"
-        crab-pre: "{name}/{version}"
-        crab-prod: "{name}/{version}"
-        data-alignment-offlinevalidation: "{name}/{version}"
-        data-calibcalorimetry-calomiscalibtools: "{name}/{version}"
-        data-calibcalorimetry-ecaltrivialcondmodules: "{name}/{version}"
-        data-calibpps-esproducers: "{name}/{version}"
-        data-calibration-tools: "{name}/{version}"
-        data-calibtracker-sipixelesproducers: "{name}/{version}"
-        data-calibtracker-sistripdcs: "{name}/{version}"
-        data-condformats-jetmetobjects: "{name}/{version}"
-        data-condtools-siphase2tracker: "{name}/{version}"
-        data-condtools-sistrip: "{name}/{version}"
-        data-configuration-generator: "{name}/{version}"
-        data-dataformats-patcandidates: "{name}/{version}"
-        data-detectordescription-schema: "{name}/{version}"
-        data-dqm-dtmonitorclient: "{name}/{version}"
-        data-dqm-ecalmonitorclient: "{name}/{version}"
-        data-dqm-physicshww: "{name}/{version}"
-        data-dqm-sistripmonitorclient: "{name}/{version}"
-        data-egammaanalysis-electrontools: "{name}/{version}"
-        data-eventfilter-l1trawtodigi: "{name}/{version}"
-        data-fastsimulation-materialeffects: "{name}/{version}"
-        data-fastsimulation-trackingrechitproducer: "{name}/{version}"
-        data-fireworks-geometry: "{name}/{version}"
-        data-fwcore-modules: "{name}/{version}"
-        data-generatorinterface-evtgeninterface: "{name}/{version}"
-        data-generatorinterface-reggegribovpartonmcinterface: "{name}/{version}"
-        data-geometry-dtgeometrybuilder: "{name}/{version}"
-        data-geometry-testreference: "{name}/{version}"
-        data-heterogeneouscore-sonictriton: "{name}/{version}"
-        data-hltrigger-jetmet: "{name}/{version}"
-        data-iopool-input: "{name}/{version}"
-        data-l1trigger-csctriggerprimitives: "{name}/{version}"
-        data-l1trigger-dttriggerphase2: "{name}/{version}"
-        data-l1trigger-l1tcalorimeter: "{name}/{version}"
-        data-l1trigger-l1tglobal: "{name}/{version}"
-        data-l1trigger-l1thgcal: "{name}/{version}"
-        data-l1trigger-l1tmuon: "{name}/{version}"
-        data-l1trigger-phase2l1particleflow: "{name}/{version}"
-        data-l1trigger-rpctrigger: "{name}/{version}"
-        data-l1trigger-trackfindingtmtt: "{name}/{version}"
-        data-l1trigger-trackfindingtracklet: "{name}/{version}"
-        data-l1trigger-tracktrigger: "{name}/{version}"
-        data-magneticfield-engine: "{name}/{version}"
-        data-magneticfield-interpolation: "{name}/{version}"
-        data-physicstools-nanoaod: "{name}/{version}"
-        data-physicstools-patutils: "{name}/{version}"
-        data-recobtag-combined: "{name}/{version}"
-        data-recobtag-ctagging: "{name}/{version}"
-        data-recobtag-secondaryvertex: "{name}/{version}"
-        data-recobtag-softlepton: "{name}/{version}"
-        data-recoctpps-totemrplocal: "{name}/{version}"
-        data-recoecal-egammaclusterproducers: "{name}/{version}"
-        data-recoegamma-electronidentification: "{name}/{version}"
-        data-recoegamma-photonidentification: "{name}/{version}"
-        data-recohgcal-ticl: "{name}/{version}"
-        data-recohi-hijetalgos: "{name}/{version}"
-        data-recojets-jetproducers: "{name}/{version}"
-        data-recolocalcalo-ecaldeadchannelrecoveryalgos: "{name}/{version}"
-        data-recomet-metpusubtraction: "{name}/{version}"
-        data-recomtd-timingidtools: "{name}/{version}"
-        data-recomuon-muonidentification: "{name}/{version}"
-        data-recomuon-trackerseedgenerator: "{name}/{version}"
-        data-recoparticleflow-pfblockproducer: "{name}/{version}"
-        data-recoparticleflow-pfproducer: "{name}/{version}"
-        data-recoparticleflow-pftracking: "{name}/{version}"
-        data-recotautag-trainingfiles: "{name}/{version}"
-        data-recotracker-finaltrackselectors: "{name}/{version}"
-        data-recotracker-mkfit: "{name}/{version}"
-        data-recotracker-tkseedgenerator: "{name}/{version}"
-        data-simg4cms-calo: "{name}/{version}"
-        data-simg4cms-forward: "{name}/{version}"
-        data-simg4cms-hgcaltestbeam: "{name}/{version}"
-        data-simpps-ppspixeldigiproducer: "{name}/{version}"
-        data-simtracker-sistripdigitizer: "{name}/{version}"
-        data-simtransport-hectorproducer: "{name}/{version}"
-        data-simtransport-ppsprotontransport: "{name}/{version}"
-        data-simtransport-totemrpprotontransportparametrization: "{name}/{version}"
-        data-slhcupgradesimulations-geometry: "{name}/{version}"
-        data-validation-geometry: "{name}/{version}"
-        data-validation-hgcalvalidation: "{name}/{version}"
-        geant4data: "{name}/{version}"
-        g4abla: "{name}/{version}"
-        g4emlow: "{name}/{version}"
-        g4ensdfstate: "{name}/{version}"
-        g4incl: "{name}/{version}"
-        g4ndl: "{name}/{version}"
-        g4particlexs: "{name}/{version}"
-        g4photonevaporation: "{name}/{version}"
-        g4radioactivedecay: "{name}/{version}"
-        g4realsurface: "{name}/{version}"
-        g4saiddata: "{name}/{version}"
-        intel-vtune: "{name}/{version}"
-        lcov: "{name}/{version}"
-        scram: "{name}/{version}"
-        all: "{name}/{version}-{hash}"
+        cmslhetoeosmanager: '{name}/{version}'
+        cmssw: '{name}/{version}'
+        cmssw-osenv: '{name}/{version}'
+        cmssw-wm-tools: '{name}/{version}'
+        crab-dev: '{name}/{version}'
+        crab-pre: '{name}/{version}'
+        crab-prod: '{name}/{version}'
+        data-alignment-offlinevalidation: '{name}/{version}'
+        data-calibcalorimetry-calomiscalibtools: '{name}/{version}'
+        data-calibcalorimetry-ecaltrivialcondmodules: '{name}/{version}'
+        data-calibpps-esproducers: '{name}/{version}'
+        data-calibration-tools: '{name}/{version}'
+        data-calibtracker-sipixelesproducers: '{name}/{version}'
+        data-calibtracker-sistripdcs: '{name}/{version}'
+        data-condformats-jetmetobjects: '{name}/{version}'
+        data-condtools-siphase2tracker: '{name}/{version}'
+        data-condtools-sistrip: '{name}/{version}'
+        data-configuration-generator: '{name}/{version}'
+        data-dataformats-patcandidates: '{name}/{version}'
+        data-detectordescription-schema: '{name}/{version}'
+        data-dqm-dtmonitorclient: '{name}/{version}'
+        data-dqm-ecalmonitorclient: '{name}/{version}'
+        data-dqm-physicshww: '{name}/{version}'
+        data-dqm-sistripmonitorclient: '{name}/{version}'
+        data-egammaanalysis-electrontools: '{name}/{version}'
+        data-eventfilter-l1trawtodigi: '{name}/{version}'
+        data-fastsimulation-materialeffects: '{name}/{version}'
+        data-fastsimulation-trackingrechitproducer: '{name}/{version}'
+        data-fireworks-geometry: '{name}/{version}'
+        data-fwcore-modules: '{name}/{version}'
+        data-generatorinterface-evtgeninterface: '{name}/{version}'
+        data-generatorinterface-reggegribovpartonmcinterface: '{name}/{version}'
+        data-geometry-dtgeometrybuilder: '{name}/{version}'
+        data-geometry-testreference: '{name}/{version}'
+        data-heterogeneouscore-sonictriton: '{name}/{version}'
+        data-hltrigger-jetmet: '{name}/{version}'
+        data-iopool-input: '{name}/{version}'
+        data-l1trigger-csctriggerprimitives: '{name}/{version}'
+        data-l1trigger-dttriggerphase2: '{name}/{version}'
+        data-l1trigger-l1tcalorimeter: '{name}/{version}'
+        data-l1trigger-l1tglobal: '{name}/{version}'
+        data-l1trigger-l1thgcal: '{name}/{version}'
+        data-l1trigger-l1tmuon: '{name}/{version}'
+        data-l1trigger-phase2l1particleflow: '{name}/{version}'
+        data-l1trigger-rpctrigger: '{name}/{version}'
+        data-l1trigger-trackfindingtmtt: '{name}/{version}'
+        data-l1trigger-trackfindingtracklet: '{name}/{version}'
+        data-l1trigger-tracktrigger: '{name}/{version}'
+        data-magneticfield-engine: '{name}/{version}'
+        data-magneticfield-interpolation: '{name}/{version}'
+        data-physicstools-nanoaod: '{name}/{version}'
+        data-physicstools-patutils: '{name}/{version}'
+        data-recobtag-combined: '{name}/{version}'
+        data-recobtag-ctagging: '{name}/{version}'
+        data-recobtag-secondaryvertex: '{name}/{version}'
+        data-recobtag-softlepton: '{name}/{version}'
+        data-recoctpps-totemrplocal: '{name}/{version}'
+        data-recoecal-egammaclusterproducers: '{name}/{version}'
+        data-recoegamma-electronidentification: '{name}/{version}'
+        data-recoegamma-photonidentification: '{name}/{version}'
+        data-recohgcal-ticl: '{name}/{version}'
+        data-recohi-hijetalgos: '{name}/{version}'
+        data-recojets-jetproducers: '{name}/{version}'
+        data-recolocalcalo-ecaldeadchannelrecoveryalgos: '{name}/{version}'
+        data-recomet-metpusubtraction: '{name}/{version}'
+        data-recomtd-timingidtools: '{name}/{version}'
+        data-recomuon-muonidentification: '{name}/{version}'
+        data-recomuon-trackerseedgenerator: '{name}/{version}'
+        data-recoparticleflow-pfblockproducer: '{name}/{version}'
+        data-recoparticleflow-pfproducer: '{name}/{version}'
+        data-recoparticleflow-pftracking: '{name}/{version}'
+        data-recotautag-trainingfiles: '{name}/{version}'
+        data-recotracker-finaltrackselectors: '{name}/{version}'
+        data-recotracker-mkfit: '{name}/{version}'
+        data-recotracker-tkseedgenerator: '{name}/{version}'
+        data-simg4cms-calo: '{name}/{version}'
+        data-simg4cms-forward: '{name}/{version}'
+        data-simg4cms-hgcaltestbeam: '{name}/{version}'
+        data-simpps-ppspixeldigiproducer: '{name}/{version}'
+        data-simtracker-sistripdigitizer: '{name}/{version}'
+        data-simtransport-hectorproducer: '{name}/{version}'
+        data-simtransport-ppsprotontransport: '{name}/{version}'
+        data-simtransport-totemrpprotontransportparametrization: '{name}/{version}'
+        data-slhcupgradesimulations-geometry: '{name}/{version}'
+        data-validation-geometry: '{name}/{version}'
+        data-validation-hgcalvalidation: '{name}/{version}'
+        geant4data: '{name}/{version}'
+        g4abla: '{name}/{version}'
+        g4emlow: '{name}/{version}'
+        g4ensdfstate: '{name}/{version}'
+        g4incl: '{name}/{version}'
+        g4ndl: '{name}/{version}'
+        g4particlexs: '{name}/{version}'
+        g4photonevaporation: '{name}/{version}'
+        g4radioactivedecay: '{name}/{version}'
+        g4realsurface: '{name}/{version}'
+        g4saiddata: '{name}/{version}'
+        intel-vtune: '{name}/{version}'
+        lcov: '{name}/{version}'
+        scram: '{name}/{version}'
+        all: '{name}/{version}-{hash}'
+      root: /build/razumov/nightly-spack/install/el8_amd64_gcc11
+      padded_length: 128
+    allow_sgid: false
+    shared_linking: runpath
+    'build_stage:': $spack/stage
+    'test_stage:': $spack/test_stage
+    'misc_cache:': $spack/cache
+    extensions:
+    - /build/razumov/nightly-spack/cms-spack-repo/spack-scripting
+    template_dirs:
+    - $spack/share/spack/templates
+
+  # Directory where licenses should be located
+    license_dir: $spack/etc/spack/licenses
+    source_cache: $spack/var/spack/cache
+    connect_timeout: 10
+    verify_ssl: true
+    suppress_gpg_warnings: false
+    install_missing_compilers: false
+    checksum: true
+    deprecated: false
+    dirty: false
+    build_language: C
+    locks: true
+    url_fetch_method: urllib
+    ccache: false
+    concretizer: clingo
+    db_lock_timeout: 3
+    package_lock_timeout: null
+    terminal_title: false
+    debug: false

@@ -7,7 +7,6 @@ spack:
   - nlohmann-json
   - tclap
   - leveldb@1.22
-  - rocksdb
   - berkeley-db+cxx+stl
   - tkrzw
   - gdbm
@@ -20,6 +19,7 @@ spack:
   - py-mochi-margo
   - mochi-bedrock
   - ycsb-cpp-interface
+  - rocksdb+rtti
   concretizer:
     unify: true
     reuse: false
