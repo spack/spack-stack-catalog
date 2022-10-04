@@ -12,13 +12,14 @@ spack:
     - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
     - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
   config:
-    #locks: false
     concretization: separately
     build_stage: $spack/var/spack/stage
     misc_cache: $spack/var/spack/misc_cache
     concretizer: clingo
     install_tree:
       padded_length: 128
+  concretizer:
+    reuse: false
   cdash:
     build-group: DOE nightly E4S builds
     url: https://cdash.spack.io
@@ -35,8 +36,8 @@ spack:
     - module load cpu
     - module list
     - source setup-env.sh
-    - echo $SPACK_CLONE_PATH 
-    - . $SPACK_CLONE_PATH/spack/share/spack/setup-env.sh
+    - git clone --depth=10 -b e4s-22.05 $SPACK_REPO     
+    - . spack/share/spack/setup-env.sh
     - which spack
     - spack --version
     - spack-python --path
@@ -48,7 +49,8 @@ spack:
     service-job-attributes:
       tags: [perlmutter-e4s]
       before_script:
-        - . $SPACK_CLONE_PATH/spack/share/spack/setup-env.sh        
+        - git clone --depth=10 -b e4s-22.05 $SPACK_REPO
+        - . spack/share/spack/setup-env.sh        
         - spack --version
       script:
       - echo "End Pipeline"
