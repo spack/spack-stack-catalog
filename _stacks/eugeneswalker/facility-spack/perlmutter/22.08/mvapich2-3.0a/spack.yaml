@@ -316,16 +316,20 @@ spack:
   # libcircle: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved.; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
   # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
   # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+  # loki: https://github.com/spack/spack/issues/32122
   # parallel-netcdf: /usr/bin/grep: /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
   # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
   # pfunit: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # phist: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
   # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # pruners-ninja: https://github.com/spack/spack/issues/32112
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # rempi: https://github.com/spack/spack/issues/32123
   # unifyfs: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved. ; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
   # upcxx: configure error: Requested PMI version cray could not be found
   # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
+  # variorum: https://github.com/spack/spack/issues/32110
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU FAILURES
