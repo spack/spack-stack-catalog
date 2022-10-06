@@ -4,6 +4,9 @@ spack:
   - py-pybind11
   - py-setuptools
   - mochi-margo@main
+  - py-flake8
+  - py-mypy
+  - py-pybind11-stubgen
   concretizer:
     unify: true
     reuse: false

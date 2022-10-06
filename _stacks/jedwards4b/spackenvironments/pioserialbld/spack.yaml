@@ -1,0 +1,363 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  definitions:
+  - packages: [parallelio ~mpi]
+  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
+  specs:
+  - matrix:
+    - [$packages]
+    - [$compilers]
+  view: false
+  concretizer:
+    unify: false
+    reuse: true
+  compilers:
+  - compiler:
+      spec: cce@14.0.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/14.0.2
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/8.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2022.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/2022.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-intel
+      - oneapi/2022.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@21.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/21.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.7
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/22.7
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.1.0
+      paths:
+        cc: clang
+        cxx: clang++
+        f77: null
+        fc: flang
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.3
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@12.1.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.2.0
+      paths:
+        cc: clang
+        cxx: clang++
+        f77: null
+        fc: flang
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2022.1.0
+      paths:
+        cc: icx
+        cxx: icpx
+        f77: null
+        fc: /intle64/ifort
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.3
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: null
+        fc: nvfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.2
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.1
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: rocmcc@5.1.0
+      paths:
+        cc: amdclang
+        cxx: amdclang++
+        f77: null
+        fc: amdflang
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@13.0.2
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    netcdf-fortran:
+      require: '@4.5.3'
+      externals:
+      - spec: netcdf-fortran@4.5.3%gcc
+        prefix: /glade/u/apps/gust/22.08b/spack/opt/spack/netcdf-fortran/4.5.3/gcc/11.2.0/
+      - spec: netcdf-fortran@4.5.3%intel
+        prefix: /glade/u/apps/gust/22.08b/spack/opt/spack/netcdf-fortran/4.5.3/intel/2022.1.0/
+      - spec: netcdf-fortran@4.5.3%oneapi
+        prefix: /glade/u/apps/gust/22.08b/spack/opt/spack/netcdf-fortran/4.5.3/oneapi/2022.1.0/
+      - spec: netcdf-fortran@4.5.3%nvhpc
+        prefix: /glade/u/apps/gust/22.08b/spack/opt/spack/netcdf-fortran/4.5.3/nvhpc/22.7/
+      - spec: netcdf-fortran@4.5.3%cce
+        prefix: /glade/u/apps/gust/22.08b/spack/opt/spack/netcdf-fortran/4.5.3/cce/14.0.2/
+      buildable: false
+    gmake:
+      externals: []
+    findutils:
+      externals: []
+    bison:
+      externals: []
+    autoconf:
+      externals: []
+    automake:
+      externals: []
+    flex:
+      externals: []
+    libtool:
+      externals: []
+    diffutils:
+      externals: []
+    coreutils:
+      externals:
+      - spec: coreutils@8.32
+        prefix: /usr
+    git:
+      externals: []
+    cvs:
+      externals: []
+    tar:
+      externals: []
+    binutils:
+      externals:
+      - spec: binutils@2.38
+        prefix: /opt/cray/pe/cce/14.0.2/binutils/x86_64/x86_64-pc-linux-gnu
+    pkg-config:
+      externals: []
+    openssh:
+      externals: []
+    texinfo:
+      externals: []
+    curl:
+      externals: []
+    subversion:
+      externals: []
+    openssl:
+      externals: []
+    m4:
+      externals: []
+    groff:
+      externals: []
+    gawk:
+      externals: []
