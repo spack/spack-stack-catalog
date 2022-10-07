@@ -1,0 +1,11 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [hwloc, python@3.10, py-pip ^python@3.10, py-gitpython ^python@3.10, py-pyyaml
+      ^python@3.10, py-requests ^python@3.10, py-rich ^python@3.10]
+  view: true
+  concretizer:
+    unify: when_possible
