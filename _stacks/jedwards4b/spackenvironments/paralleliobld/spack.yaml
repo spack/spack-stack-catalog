@@ -1,0 +1,304 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  view: false
+  modules:
+    default:
+      lmod:
+        projections:
+          all: '{name}/{version}'
+          +debug: '{name}/{version}-debug'
+          +logging: '{name}/{version}-debug'
+          build_type=Debug: '{name}/{version}-debug'
+  definitions:
+  - packages: [parallelio@2.5.9+pnetcdf ^cray-mpich@8.1.18, parallelio@2.5.9+pnetcdf+logging
+        build_type=Debug ^cray-mpich@8.1.18]
+  
+        #  - packages: [parallelio@2.5.9+pnetcdf+logging build_type=Debug, esmf@8.4.0b15 +debug
+        #        -xerces +parallelio ^parallelio+pnetcdf+logging build_type=Debug ^libxml2@2.9.13]
+        #  - packages: [parallelio@2.5.9+pnetcdf, esmf@8.4.0b15 -xerces +parallelio ^parallelio+pnetcdf]
+  - compilers: ['%intel', '%oneapi', '%cce', '%gcc', '%nvhpc']
+  specs:
+  - matrix:
+    - [$packages]
+    - [$compilers]
+  concretizer:
+    unify: false
+    reuse: true
+  compilers:
+  - compiler:
+      spec: cce@14.0.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/14.0.2
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/8.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2022.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/2022.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-intel
+      - oneapi/2022.1.0
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@21.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/21.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.7
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/22.7
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.1.0
+      paths:
+        cc: clang
+        cxx: clang++
+        f77: null
+        fc: flang
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.3
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@12.1.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: null
+        fc: gfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: aocc@3.2.0
+      paths:
+        cc: clang
+        cxx: clang++
+        f77: null
+        fc: flang
+      flags:
+        cflags: null
+        cxxflags: null
+        fflags: null
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.3
+      paths:
+        cc: nvc
+        cxx: nvc++
+        f77: null
+        fc: nvfortran
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: cce@14.0.1
+      paths:
+        cc: craycc
+        cxx: craycxx
+        f77: null
+        fc: crayftn
+      flags: {}
+      operating_system: sles15sp3
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      providers:
+        mpi: [cray-mpich]
+    curl:
+      externals: []
+    texinfo:
+      externals: []
+    m4:
+      externals: []
+    automake:
+      externals: []
+    libtool:
+      externals: []
+    cmake:
+      externals:
+      - spec: cmake@3.23.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/cmake/3.23.2/gcc/7.5.0
+    binutils:
+      externals:
+      - spec: binutils@2.38
+        prefix: /opt/cray/pe/cce/14.0.2/binutils/x86_64/x86_64-pc-linux-gnu
+    flex:
+      externals: []
+    openssl:
+      externals: []
+    pkg-config:
+      externals: []
+    gmake:
+      externals: []
+    groff:
+      externals: []
+    subversion:
+      externals: []
+    coreutils:
+      externals:
+      - spec: coreutils@8.32
+        prefix: /usr
+    bison:
+      externals: []
+    openssh:
+      externals: []
+    tar:
+      externals: []
+    diffutils:
+      externals: []
+    autoconf:
+      externals: []
+    git:
+      externals: []
+    cvs:
+      externals: []
+    findutils:
+      externals: []
+    gawk:
+      externals: []
