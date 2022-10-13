@@ -20,6 +20,10 @@ spack:
       target: x86_64
   repos:
   - /path/to/mochi-spack-packages
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     all:
       providers:

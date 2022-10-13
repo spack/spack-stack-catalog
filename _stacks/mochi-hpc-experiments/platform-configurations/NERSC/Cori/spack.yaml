@@ -18,6 +18,10 @@ spack:
       spec: gcc@11.2.0
   repos:
   - /path/to/mochi-spack-packages
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     all:
       providers:

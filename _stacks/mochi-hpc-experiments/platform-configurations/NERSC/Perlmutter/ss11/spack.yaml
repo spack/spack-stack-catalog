@@ -26,6 +26,10 @@ spack:
       - libfabric/1.15.0.0
       environment: {}
       extra_rpaths: []
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     all:
       providers:

@@ -177,7 +177,7 @@ spack:
   - fftjet@1.5.0
   - fftw@3.3.8~mpi~openmp precision=double
   - fjcontrib@1.044.cms
-  - flatbuffers@2.0
+  - flatbuffers@2.0.0
   - flex@2.6.4
   - fmt@8.0.1+shared
   - form@4.2.1~gmp
@@ -299,7 +299,7 @@ spack:
   - py-async-lru@1.0.3
   - py-async-timeout@4.0.2
   - py-atomicwrites@1.4.1
-  - py-attrs@22.0.0
+  - py-attrs@22.1.0
   - py-autopep8@1.7.0
   - py-avro@1.11.1
   - py-awkward@1.9.0
@@ -323,7 +323,7 @@ spack:
   - py-clikit@0.6.2
   - py-climate@0.1.0
   - py-cleo@0.8.1
-  - py-cloudpickle@2.1.0
+  - py-cloudpickle@2.2.0
   - py-cmake@3.21.4
   - py-cmsml@0.1.2
   - py-colorama@0.4.5
@@ -353,7 +353,7 @@ spack:
   - py-dulwich@0.20.46
   - py-editables@0.3
   - py-entrypoints@0.4
-  - py-executing@1.0.0
+  - py-executing@1.1.0
   - py-fasteners@0.17.3
   - py-fastjsonschema@2.16.1
   - py-filelock@3.8.0
@@ -361,7 +361,7 @@ spack:
   - py-flake8@5.0.4
   - py-flatbuffers@2.0.7
   - py-flawfinder@2.0.19
-  - py-fonttools@4.37.1
+  - py-fonttools@4.37.3
   - py-frozenlist@1.3.1
   - py-flit@3.7.1
   - py-flit-core@3.7.1
@@ -402,7 +402,7 @@ spack:
   - py-jeepney@0.8.0
   - py-jinja2@3.1.2
   - py-jinja2-time@0.2.0
-  - py-joblib@1.1.0
+  - py-joblib@1.2.0
   - py-jsonpickle@2.2.0
   - py-jsonschema@3.2.0
   - py-jupyter-client@7.3.5
@@ -456,7 +456,7 @@ spack:
   - py-numba@0.56.2
   - py-numexpr@2.8.3
   - py-numpy@1.22.4
-  - py-oauthlib@3.2.0~extras
+  - py-oauthlib@3.2.1~extras
   - py-onnx@1.12.0
   - py-onnxmltools@1.11.0
   - py-onnx-runtime@1.12.0+cuda
@@ -485,9 +485,9 @@ spack:
   - py-poetry-core@1.1.0
   - py-poetry-plugin-export@1.0.6
   - py-prettytable@3.4.1
-  - py-prompt-toolkit@3.0.41
+  - py-prompt-toolkit@3.0.31
   - py-prometheus-client@0.12.0
-  - py-protobuf@4.21.5
+  - py-protobuf@4.21.7
   - py-prwlock@0.4.1
   - py-psutil@5.9.2
   - py-ptyprocess@0.7.0
@@ -566,7 +566,7 @@ spack:
   - py-tensorboard@2.10.0            # wheel
   - py-tensorboard-dataserver@0.6.1 # wheel
   - py-tensorflow@2.6.4.cms~cuda~nccl~only_python+mpi
-  - py-tensorflow-estimator@2.10.0
+  - py-tensorflow-estimator@2.10
   - py-termcolor@1.1.0
   - py-terminado@0.15.0
   - py-testpath@0.6.0

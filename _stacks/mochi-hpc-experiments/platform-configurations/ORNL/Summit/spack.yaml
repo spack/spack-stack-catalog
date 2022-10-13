@@ -18,6 +18,10 @@ spack:
        extra_rpaths: []
   repos:
   - /path/to/mochi-spack-packages
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     all:
       compiler: [gcc@9.1.0]

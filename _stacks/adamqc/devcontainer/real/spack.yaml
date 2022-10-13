@@ -1,0 +1,42 @@
+spack:
+  specs:
+  - cmake
+  - dealii@master+mpi+petsc+p4est+python+trilinos+hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples
+  - eigen
+  - python
+  - mfem@develop+mpi+petsc+suite-sparse+superlu-dist
+  - mumps+mpi+metis+parmetis
+  - petsc+hypre+mumps+superlu-dist
+  - tetgen
+  - valgrind
+  - nanoflann
+
+  packages:
+    all:
+      target:
+      - x86_64
+
+  container:
+    images:
+      os: "ubuntu:22.04"
+      spack: develop
+
+    format: docker
+
+    strip: true
+
+    os_packages:
+      final:
+      - build-essential
+      - clangd
+      - clang-format
+      - gfortran
+      - git
+
+    extra_instructions:
+      final: |
+        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy scipy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
+        ENV OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+        RUN echo "source /etc/profile" >> /root/.bashrc
+        USER root
+        WORKDIR /root

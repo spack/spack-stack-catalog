@@ -4,6 +4,10 @@ spack:
   concretization: together
   repos:
   - /path/to/mochi-spack-packages
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     libfabric:
       externals:
