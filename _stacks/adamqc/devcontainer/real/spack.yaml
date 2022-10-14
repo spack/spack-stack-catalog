@@ -1,12 +1,12 @@
 spack:
   specs:
   - cmake
-  - dealii@master+mpi+petsc+p4est+python+trilinos+hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples
+  - dealii@master+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples
   - eigen
   - python
   - mfem@develop+mpi+petsc+suite-sparse+superlu-dist
   - mumps+mpi+metis+parmetis
-  - petsc+hypre+mumps+superlu-dist
+  - petsc+hypre+mumps+superlu-dist~hdf5
   - tetgen
   - valgrind
   - nanoflann
@@ -32,6 +32,7 @@ spack:
       - clang-format
       - gfortran
       - git
+      - vim
 
     extra_instructions:
       final: |

@@ -991,6 +991,13 @@ spack:
           template: ncar_default.lua
         mpi:
           template: ncar_wrapper_mpi.lua
+          environment:
+            append_path:
+              MODULEPATH: /glade/u/apps/cseg/modules/{name}/{version}/{compiler.name}/{compiler.version}
+        gcc:
+          environment:
+            append_path:
+              MODULEPATH: /glade/u/apps/cseg/modules/{name}/{version}
         intel-oneapi-compilers:
           environment:
             set:
@@ -1003,6 +1010,8 @@ spack:
               F77: '{prefix}/compiler/{version}/linux/bin/ifx'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/compiler/{version}/linux/compiler/lib/intel64'
+            append_path:
+              MODULEPATH: /glade/u/apps/cseg/modules/oneapi/{version}
         intel-oneapi-compilers-classic:
           autoload: none
           filter:
@@ -1018,6 +1027,8 @@ spack:
               PATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/linux/bin/intel64'
               NLSPATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/linux/compiler/lib/intel64_lin/locale/%l_%t/%N'
               MANPATH: '{^intel-oneapi-compilers.prefix}/compiler/{version}/documentation/en/man/common'
+            append_path:
+              MODULEPATH: /glade/u/apps/cseg/modules/intel/{version}
         nvhpc:
           environment:
             set:
@@ -1028,6 +1039,8 @@ spack:
               CRAY_NVIDIA_VERSION: '{version}'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
+            append_path:
+              MODULEPATH: /glade/u/apps/cseg/modules/nvhpc/{version}
         nvhpc@21.3:
           environment:
             set:
@@ -1073,6 +1086,10 @@ spack:
               CONDA_ROOT: '{prefix}'
               CONDA_EXE: '{prefix}/bin/conda'
           template: conda.lua
+        apptainer:
+          environment:
+            prepend_path:
+              PATH: '{^squashfs.prefix}/bin'
         ncarenv:
           template: ncar_env.lua
         netcdf~mpi:
@@ -1229,13 +1246,6 @@ spack:
   - hdf5@1.12.2%nvhpc@22.2+mpi ^cray-mpich@8.1.18%nvhpc@22.2
   - netcdf@4.8.1%nvhpc@22.2+mpi ^cray-mpich@8.1.18%nvhpc@22.2
   - miniconda3
-  - parallelio@2_5_8%gcc@11.2.0 ^cray-mpich@8.1.18%gcc@11.2.0
-  - parallelio@2_5_8%gcc@10.3.0 ^cray-mpich@8.1.18%gcc@10.3.0
-  - parallelio@2_5_8%nvhpc@21.3 ^cray-mpich@8.1.18%nvhpc@21.3
-  - parallelio@2_5_8%nvhpc@22.2 ^cray-mpich@8.1.18%nvhpc@22.2
-  - parallelio@2_5_8%nvhpc@22.7 ^cray-mpich@8.1.18%nvhpc@22.7
-  - parallelio@2_5_8%oneapi@2022.1.0 ^cray-mpich@8.1.18%oneapi@2022.1.0
-  - parallelio@2_5_8%cce@14.0.2 ^cray-mpich@8.1.18%cce@14.0.2
   - intel-oneapi-mkl@2022.1.0%oneapi@2022.1.0
   - intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0
   - cray-mpich@8.1.18%intel@2022.1.0
@@ -1249,7 +1259,6 @@ spack:
   - parallel-netcdf@1.12.2%intel@2022.1.0 ^cray-mpich@8.1.18%intel@2022.1.0
   - hdf5@1.12.2%intel@2022.1.0+mpi ^cray-mpich@8.1.18%intel@2022.1.0
   - netcdf@4.8.1%intel@2022.1.0+mpi ^cray-mpich@8.1.18%intel@2022.1.0
-  - parallelio@2_5_8%intel@2022.1.0 ^cray-mpich@8.1.18%intel@2022.1.0
   - intel-oneapi-compilers-classic@2022.1.0
   - intel-oneapi-mkl@2022.1.0%intel@2022.1.0
   - intel-oneapi-mpi@2021.6.0%intel@2022.1.0
@@ -1261,10 +1270,6 @@ spack:
   - ncarcompilers@0.6.2%oneapi@2022.1.0
   - ncarcompilers@0.6.2%intel@2022.1.0
   - ncarcompilers@0.6.2%cce@14.0.2
-  - esmf@8.3.0%gcc@11.2.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@11.2.0
-  - esmf@8.3.0%gcc@10.3.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%gcc@10.3.0
-  - esmf@8.3.0%intel@2022.1.0 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%intel@2022.1.0
-  - esmf@8.3.0%cce@14.0.2 ^cray-libsci@22.08.1.1 ^cray-mpich@8.1.18%cce@14.0.2
   - ncview@2.1.8%gcc@11.2.0
   - ncarcompilers@0.7.0%gcc@11.2.0
   - ncarcompilers@0.7.0%gcc@10.3.0
@@ -1274,3 +1279,66 @@ spack:
   - ncarcompilers@0.7.0%oneapi@2022.1.0
   - ncarcompilers@0.7.0%intel@2022.1.0
   - ncarcompilers@0.7.0%cce@14.0.2
+  - cray-mpich@8.1.18%gcc@12.1.0
+  - cray-mpich@8.1.18%cce@14.0.3
+  - cray-mpich@8.1.19%gcc@12.1.0
+  - cray-mpich@8.1.19%gcc@11.2.0
+  - cray-mpich@8.1.19%gcc@10.3.0
+  - cray-mpich@8.1.19%nvhpc@21.3
+  - cray-mpich@8.1.19%nvhpc@22.2
+  - cray-mpich@8.1.19%nvhpc@22.7
+  - cray-mpich@8.1.19%oneapi@2022.1.0
+  - cray-mpich@8.1.19%intel@2022.1.0
+  - cray-mpich@8.1.19%cce@14.0.3
+  - cray-mpich@8.1.19%cce@14.0.2
+  - ncarcompilers@0.7.0%gcc@12.1.0
+  - ncarcompilers@0.7.0%cce@14.0.3
+  - fftw@3.3.10%gcc@12.1.0
+  - fftw@3.3.10%cce@14.0.3
+  - udunits@2.2.28%gcc@12.1.0
+  - udunits@2.2.28%cce@14.0.3
+  - hdf5@1.12.2%gcc@12.1.0
+  - hdf5@1.12.2%cce@14.0.3
+  - netcdf@4.8.1%gcc@12.1.0
+  - netcdf@4.8.1%cce@14.0.3
+  - eccodes@2.25.0%gcc@12.1.0
+  - eccodes@2.25.0%cce@14.0.3
+  - proj@8.2.1%gcc@12.1.0
+  - proj@8.2.1%cce@14.0.3
+  - hdf@4.2.15%gcc@12.1.0
+  - parallel-netcdf@1.12.2%gcc@12.1.0 ^cray-mpich@8.1.18%gcc@12.1.0
+  - parallel-netcdf@1.12.2%gcc@12.1.0 ^cray-mpich@8.1.19%gcc@12.1.0
+  - parallel-netcdf@1.12.2%gcc@11.2.0 ^cray-mpich@8.1.19%gcc@11.2.0
+  - parallel-netcdf@1.12.2%gcc@10.3.0 ^cray-mpich@8.1.19%gcc@10.3.0
+  - parallel-netcdf@1.12.2%nvhpc@21.3 ^cray-mpich@8.1.19%nvhpc@21.3
+  - parallel-netcdf@1.12.2%nvhpc@22.2 ^cray-mpich@8.1.19%nvhpc@22.2
+  - parallel-netcdf@1.12.2%nvhpc@22.7 ^cray-mpich@8.1.19%nvhpc@22.7
+  - parallel-netcdf@1.12.2%oneapi@2022.1.0 ^cray-mpich@8.1.19%oneapi@2022.1.0
+  - parallel-netcdf@1.12.2%intel@2022.1.0 ^cray-mpich@8.1.19%intel@2022.1.0
+  - parallel-netcdf@1.12.2%cce@14.0.3 ^cray-mpich@8.1.18%cce@14.0.3
+  - parallel-netcdf@1.12.2%cce@14.0.3 ^cray-mpich@8.1.19%cce@14.0.3
+  - parallel-netcdf@1.12.2%cce@14.0.2 ^cray-mpich@8.1.19%cce@14.0.2
+  - hdf5@1.12.2%gcc@12.1.0+mpi ^cray-mpich@8.1.18%gcc@12.1.0
+  - hdf5@1.12.2%gcc@12.1.0+mpi ^cray-mpich@8.1.19%gcc@12.1.0
+  - hdf5@1.12.2%gcc@11.2.0+mpi ^cray-mpich@8.1.19%gcc@11.2.0
+  - hdf5@1.12.2%gcc@10.3.0+mpi ^cray-mpich@8.1.19%gcc@10.3.0
+  - hdf5@1.12.2%nvhpc@21.3+mpi ^cray-mpich@8.1.19%nvhpc@21.3
+  - hdf5@1.12.2%nvhpc@22.2+mpi ^cray-mpich@8.1.19%nvhpc@22.2
+  - hdf5@1.12.2%nvhpc@22.7+mpi ^cray-mpich@8.1.19%nvhpc@22.7
+  - hdf5@1.12.2%oneapi@2022.1.0+mpi ^cray-mpich@8.1.19%oneapi@2022.1.0
+  - hdf5@1.12.2%intel@2022.1.0+mpi ^cray-mpich@8.1.19%intel@2022.1.0
+  - hdf5@1.12.2%cce@14.0.3+mpi ^cray-mpich@8.1.18%cce@14.0.3
+  - hdf5@1.12.2%cce@14.0.3+mpi ^cray-mpich@8.1.19%cce@14.0.3
+  - hdf5@1.12.2%cce@14.0.2+mpi ^cray-mpich@8.1.19%cce@14.0.2
+  - netcdf@4.8.1%gcc@12.1.0+mpi ^cray-mpich@8.1.18%gcc@12.1.0
+  - netcdf@4.8.1%gcc@12.1.0+mpi ^cray-mpich@8.1.19%gcc@12.1.0
+  - netcdf@4.8.1%gcc@11.2.0+mpi ^cray-mpich@8.1.19%gcc@11.2.0
+  - netcdf@4.8.1%gcc@10.3.0+mpi ^cray-mpich@8.1.19%gcc@10.3.0
+  - netcdf@4.8.1%nvhpc@21.3+mpi ^cray-mpich@8.1.19%nvhpc@21.3
+  - netcdf@4.8.1%nvhpc@22.2+mpi ^cray-mpich@8.1.19%nvhpc@22.2
+  - netcdf@4.8.1%nvhpc@22.7+mpi ^cray-mpich@8.1.19%nvhpc@22.7
+  - netcdf@4.8.1%oneapi@2022.1.0+mpi ^cray-mpich@8.1.19%oneapi@2022.1.0
+  - netcdf@4.8.1%intel@2022.1.0+mpi ^cray-mpich@8.1.19%intel@2022.1.0
+  - netcdf@4.8.1%cce@14.0.3+mpi ^cray-mpich@8.1.18%cce@14.0.3
+  - netcdf@4.8.1%cce@14.0.3+mpi ^cray-mpich@8.1.19%cce@14.0.3
+  - netcdf@4.8.1%cce@14.0.2+mpi ^cray-mpich@8.1.19%cce@14.0.2
