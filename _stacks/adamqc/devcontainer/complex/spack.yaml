@@ -35,7 +35,7 @@ spack:
 
     extra_instructions:
       final: |
-        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy scipy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
+        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy scipy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache && sed -i 's/ -lopen-pal//g' /opt/view/lib/cmake/deal.II/deal.IIConfig.cmake
         ENV OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
         RUN echo "source /etc/profile" >> /root/.bashrc
         USER root
