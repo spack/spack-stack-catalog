@@ -670,11 +670,11 @@ Alpine-DAV/spack_configs:
   data_format: 2
   description: spack envs
   filenames:
-  - _experimental/envs/llnl/pascal-cuda/spack.yaml
-  - _experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml
+  - _experimental/envs/olcf/summit/spack.yaml
   - _experimental/envs/llnl/quartz/spack.yaml
   - _experimental/envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
-  - _experimental/envs/olcf/summit/spack.yaml
+  - _experimental/envs/llnl/pascal-cuda/spack.yaml
+  - _experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml
   full_name: Alpine-DAV/spack_configs
   latest_release: null
   readme: '<h1><a id="user-content-spack_configs" class="anchor" aria-hidden="true"
@@ -1115,91 +1115,19 @@ CUP-ECS/beatnik:
   subscribers_count: 4
   topics: []
   updated_at: 1663692777.0
-CUP-ECS/cajitafluids:
-  data_format: 2
-  description: A simple poisson finite difference fluid solver in Cajita/Kokkos for
-    testing MPI communication abstractions and their performance
-  filenames:
-  - configs/github/spack.yaml
-  - configs/tutorial-uao-cuda/spack.yaml
-  - configs/llnl-lassen/spack.yaml
-  - configs/generic/spack-cuda-wrapper.yaml
-  - configs/generic/spack-cuda-clang.yaml
-  full_name: CUP-ECS/cajitafluids
-  latest_release: null
-  readme: '<h1><a id="user-content-poisson-mpi-benchmark" class="anchor" aria-hidden="true"
-    href="#poisson-mpi-benchmark"><span aria-hidden="true" class="octicon octicon-link"></span></a>Poisson
-    MPI Benchmark</h1>
-
-    <p>This directory contains code for a relatively simple finite difference
-
-    fluid advection solver for exploring communication issues on modern architectures
-
-    (particularly GPUs). The main goal is to look at different neighbor collective
-
-    and GPU communication approaches.</p>
-
-    <p>Computationally, the benchmark advects a material feature (that doesn''t otherwise
-    effect
-
-    fluid flow, e.g. by changing pressite) using the incompressible Euler fluid flow
-    equations.
-
-    Consider, for example, something like a dye being carried through a tank of water
-    or a
-
-    fragrance wafting across a room.</p>
-
-    <p>The main elements of the benchmark are:</p>
-
-    <ul>
-
-    <li>Solution of the pressure gradient at each timestep to maintain
-
-    incompressibility. The benchmark has two initial implementations:
-
-    (1) Calling a matrix-free solver in HYPRE to solve the problem or (2)
-
-    running a local matrix-free preconditioned CG solver, in which different
-
-    MPI approaches for the halo exchange are explored.</li>
-
-    <li>Interpolation (either cubic splines or linear) for semi-Lagrangian
-
-    advection of the material being advected across timesteps.</li>
-
-    <li>3rd-order Runge Kutta for time integration</li>
-
-    </ul>
-
-    <p>Sources:</p>
-
-    <ul>
-
-    <li>Fluid Simulation for Comptuer Graphics by Bridson</li>
-
-    <li>Incremental Fluids in Kokkos (<a href="mailto:git@github.com">git@github.com</a>:pkestene/incremental-fluids-kokkos.git)</li>
-
-    </ul>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 11
-  topics: []
-  updated_at: 1654983605.0
 E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
+  - environments/22.05/oneapi.spack.yaml
+  - environments/22.08/cuda-x86_64.spack.yaml
   - environments/22.05/cuda-x86_64.spack.yaml
+  - environments/22.05/rocm.spack.yaml
+  - environments/22.08/oneapi.spack.yaml
+  - environments/22.08/cuda-aarch64.spack.yaml
+  - environments/22.05/cuda-ppc64le.spack.yaml
   - environments/22.08/rocm.spack.yaml
   - environments/22.08/cuda-ppc64le.spack.yaml
-  - environments/22.08/cuda-aarch64.spack.yaml
-  - environments/22.05/oneapi.spack.yaml
-  - environments/22.05/cuda-ppc64le.spack.yaml
-  - environments/22.05/rocm.spack.yaml
-  - environments/22.08/cuda-x86_64.spack.yaml
-  - environments/22.08/oneapi.spack.yaml
   full_name: E4S-Project/e4s
   latest_release: null
   readme: "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -1274,14 +1202,14 @@ ECP-WarpX/WarpX:
   description: WarpX is an advanced, t-based electromagnetic & electrostatic Particle-In-Cell
     code.
   filenames:
-  - Tools/machines/desktop/spack-ubuntu-rocm.yaml
-  - Tools/machines/desktop/spack-ubuntu-openmp.yaml
-  - Tools/machines/desktop/spack-debian-cuda.yaml
-  - Docs/spack.yaml
   - Tools/machines/desktop/spack-macos-openmp.yaml
-  - Tools/machines/desktop/spack-debian-openmp.yaml
+  - Docs/spack.yaml
   - Tools/machines/desktop/spack-debian-rocm.yaml
+  - Tools/machines/desktop/spack-ubuntu-rocm.yaml
+  - Tools/machines/desktop/spack-debian-cuda.yaml
+  - Tools/machines/desktop/spack-debian-openmp.yaml
   - Tools/machines/desktop/spack-ubuntu-cuda.yaml
+  - Tools/machines/desktop/spack-ubuntu-openmp.yaml
   full_name: ECP-WarpX/WarpX
   latest_release: '22.10'
   readme: '<h1><a id="user-content-warpx" class="anchor" aria-hidden="true" href="#warpx"><span
@@ -1996,8 +1924,8 @@ FluidNumerics/SELF:
   data_format: 2
   description: Spectral Element Library in Fortran
   filenames:
-  - env/moog/spack.yaml
   - env/oram/spack.yaml
+  - env/moog/spack.yaml
   full_name: FluidNumerics/SELF
   latest_release: null
   readme: '<h1><a id="user-content-spectral-element-libraries-in-fortran-self" class="anchor"
@@ -2102,10 +2030,10 @@ LLNL/UnifyFS:
   data_format: 2
   description: 'UnifyFS: A file system for burst buffers'
   filenames:
-  - .spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml
-  - .spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml
   - .spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml
   - .spack-env/unifyfs-lsf-gcc8_3_1/spack.yaml
+  - .spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml
+  - .spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml
   full_name: LLNL/UnifyFS
   latest_release: v1.0
   readme: '<h1><a id="user-content-unifyfs-a-distributed-burst-buffer-file-system"
@@ -2173,7 +2101,7 @@ LLNL/UnifyFS:
 
     '
   stargazers_count: 82
-  subscribers_count: 17
+  subscribers_count: 18
   topics:
   - system-software
   - burst-buffers
@@ -2183,8 +2111,6 @@ LLNL/hiop:
   data_format: 2
   description: HPC solver for nonlinear optimization problems
   filenames:
-  - scripts/platforms/newell/spack.yaml
-  - scripts/platforms/marianas/spack.yaml
   - scripts/platforms/summit/spack.yaml
   full_name: LLNL/hiop
   latest_release: v0.7.0
@@ -2422,13 +2348,13 @@ LLNL/sundials:
     fixes and minor changes.
   filenames:
   - docker/sundials-ci/e4s-quarterly/int64-extended/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml
-  - docker/sundials-ci/spack-nightly/int64-double/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml
-  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
   - docker/sundials-ci/e4s-quarterly/int32-extended/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml
+  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
+  - docker/sundials-ci/spack-nightly/int64-double/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml
   full_name: LLNL/sundials
   latest_release: v6.3.0
   readme: '<h1><a id="user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers"
@@ -2794,15 +2720,13 @@ NERSC/spack-infrastructure:
   data_format: 2
   description: null
   filenames:
-  - spack-configs/perlmutter-e4s-21.11/ci/spack.yaml
-  - spack-configs/cori-e4s-20.10/spack.yaml
-  - spack-configs/perlmutter-e4s-22.05/spack.yaml
-  - spack-configs/cori-spack-develop/spack.yaml
   - docs/spack.yaml
+  - spack-configs/cori-e4s-20.10/spack.yaml
+  - spack-configs/perlmutter-e4s-21.11/ci/spack.yaml
   - spack-configs/perlmutter-e4s-22.05/ci/spack.yaml
-  - spack-configs/perlmutter-spack-develop/spack.yaml
-  - spack-configs/cori-e4s-20.10/prod/spack.yaml
   - spack-configs/perlmutter-e4s-21.11/spack.yaml
+  - spack-configs/cori-e4s-20.10/prod/spack.yaml
+  - spack-configs/cori-spack-develop/spack.yaml
   full_name: NERSC/spack-infrastructure
   latest_release: null
   readme: "<h1><a id=\"user-content-spack-infrastructure\" class=\"anchor\" aria-hidden=\"\
@@ -3323,15 +3247,15 @@ NOAA-EMC/spack-stack:
   data_format: 2
   description: null
   filenames:
-  - configs/templates/ufs-weather-model/spack.yaml
   - configs/templates/jedi-ufs-all/spack.yaml
-  - configs/templates/gfs-v16.2/spack.yaml
-  - configs/templates/ufs-srw-public-v2/spack.yaml
-  - configs/templates/ufs-srw-dev/spack.yaml
-  - configs/templates/hpc-stack-dev/spack.yaml
   - configs/templates/empty/spack.yaml
+  - configs/templates/ufs-srw-dev/spack.yaml
+  - configs/templates/ufs-srw-public-v2/spack.yaml
   - configs/templates/hpc-dev-v1/spack.yaml
+  - configs/templates/hpc-stack-dev/spack.yaml
+  - configs/templates/ufs-weather-model/spack.yaml
   - configs/templates/skylab-dev/spack.yaml
+  - configs/templates/gfs-v16.2/spack.yaml
   full_name: NOAA-EMC/spack-stack
   latest_release: 1.1.0
   readme: '<h1><a id="user-content-spack-stack" class="anchor" aria-hidden="true"
@@ -3534,15 +3458,15 @@ PawseySC/pawsey-spack-config:
   data_format: 2
   description: Configuration files for Spack at Pawsey
   filenames:
-  - setonix/environments/env_io_libs/spack.yaml
-  - setonix/environments/env_utils/spack.yaml
   - setonix/environments/env_langs/spack.yaml
-  - setonix/environments/env_devel/spack.yaml
-  - setonix/environments/env_bench/spack.yaml
+  - setonix/environments/env_io_libs/spack.yaml
   - setonix/environments/env_python/spack.yaml
-  - setonix/environments/env_apps/spack.yaml
-  - setonix/environments/env_bio/spack.yaml
+  - setonix/environments/env_utils/spack.yaml
   - setonix/environments/env_astro/spack.yaml
+  - setonix/environments/env_apps/spack.yaml
+  - setonix/environments/env_bench/spack.yaml
+  - setonix/environments/env_bio/spack.yaml
+  - setonix/environments/env_devel/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1><a id="user-content-pawsey-spack-config" class="anchor" aria-hidden="true"
@@ -3683,10 +3607,10 @@ SouthernMethodistUniversity/mp_testing:
   data_format: 2
   description: null
   filenames:
-  - mp/testing/08_pytorch/spack.yaml
-  - mp/testing/05_openmm/spack.yaml
-  - mp/testing/01_spack/spack_lammps.yaml
   - mp/testing/01_spack/spack_nvhpc.yaml
+  - mp/testing/05_openmm/spack.yaml
+  - mp/testing/08_pytorch/spack.yaml
+  - mp/testing/01_spack/spack_lammps.yaml
   full_name: SouthernMethodistUniversity/mp_testing
   latest_release: null
   readme: '<h1><a id="user-content-notes" class="anchor" aria-hidden="true" href="#notes"><span
@@ -4189,27 +4113,27 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
+  - docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml
+  - docker-recipes/runner/rhel8-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml
   - docker-recipes/minimal/ubuntu22.04-x86_64/spack.yaml
-  - docker-recipes/runner/rhel8-x86_64/spack.yaml
-  - docker-recipes/minimal/ubuntu22.04-aarch64/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml
+  - docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml
   - docker-recipes/minimal/ubuntu22.04-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu18.04-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml
-  - docker-recipes/minimal/rhel8-ppc64le/spack.yaml
+  - docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml
+  - docker-recipes/runner/rhel8-aarch64/spack.yaml
+  - docker-recipes/minimal/rhel8-x86_64/spack.yaml
+  - docker-recipes/runner/rhel8-x86_64/spack.yaml
   - docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml
   - docker-recipes/minimal/rhel8-aarch64/spack.yaml
-  - docker-recipes/runner/rhel8-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml
+  - docker-recipes/minimal/rhel8-ppc64le/spack.yaml
   - docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml
-  - docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml
-  - docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml
-  - docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml
+  - docker-recipes/minimal/ubuntu22.04-aarch64/spack.yaml
   - docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml
-  - docker-recipes/runner/ubuntu22.04-x86_64/spack.yaml
-  - docker-recipes/minimal/rhel8-x86_64/spack.yaml
-  - docker-recipes/runner/rhel8-aarch64/spack.yaml
-  - docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml
   - docker-recipes/runner/ubuntu18.04-x86_64/spack.yaml
+  - docker-recipes/runner/ubuntu18.04-ppc64le/spack.yaml
+  - docker-recipes/runner/ubuntu22.04-x86_64/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -4249,11 +4173,11 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
+  - cent8/envs/x86_64/spack.yaml
   - cent8/envs/avx512/lusoft/spack.yaml
+  - cent8/envs/solhawk/spack.yaml
   - cent8/envs/avx2/lusoft/spack.yaml
   - cent8/envs/avx/lusoft/spack.yaml
-  - cent8/envs/x86_64/spack.yaml
-  - cent8/envs/solhawk/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1><a id="user-content-spack-environments" class="anchor" aria-hidden="true"
@@ -4494,53 +4418,32 @@ bsurc/spack-configs:
   data_format: 2
   description: spack configuration settings used at BSU research computing
   filenames:
-  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
-  - BOISESTATE/borah/environments/base/_spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml
-  - BOISESTATE/borah/environments/b4s/_spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
-  - BOISESTATE/borah/environments/compilers/_spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-x86_64.yaml
-  - BOISESTATE/falcon/environments/applications/gromacs/_spack.yaml
-  - NERSC/perlmutter/e4s-21.11/spack.yaml
-  - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/prod/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.08/spack.yaml
-  - BOISESTATE/borah/applications/gromacs/_spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
-  - BOISESTATE/falcon/environments/applications/namd/_spack.yaml
-  - NERSC/cori/e4s-stacks/hsw/spack.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - NERSC/cori/e4s-stacks/knl/spack.yaml
-  - NERSC/cori/e4s-21.02/spack.yaml
-  - BOISESTATE/falcon/environments/applications/wrf/_spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - NERSC/cori/e4s-20.10/spack.yaml
-  - BOISESTATE/falcon/environments/compilers/_spack.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - OLCF/spock/spack.yaml
-  - UOREGON/E4S-Develop/spack-ubuntu20.04-ppc64le.yaml
-  - BOISESTATE/falcon/environments/libraries/netcdf/_spack.yaml
-  - NREL/configs/rhodes/base/spack.yaml
-  - BOISESTATE/falcon/environments/applications/openfoam/_spack.yaml
-  - NERSC/cori/e4s-21.05/spack.yaml
   - ANL/JLSE/Arcticus/E4S-21.08/prod/spack.yaml
-  - OLCF/e4s-stacks/etc/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - NREL/configs/rhodes/software/spack.yaml
-  - NERSC/cori/e4s-21.02/prod/spack.yaml
-  - NERSC/cori/e4s-stacks/x86/spack.yaml
-  - OLCF/crusher/spack.yaml
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - BOISESTATE/falcon/environments/applications/lammps/_spack.yaml
-  - BOISESTATE/falcon/environments/Core/_spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
   - OLCF/summit/spack.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - OLCF/e4s-stacks/spack/var/spack/environments/test/spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - NERSC/cori/e4s-22.02/spack.yaml
+  - BOISESTATE/falcon/environments/applications/gromacs-cp2k/_spack.yaml
+  - UOREGON/E4S-21.08-Facility-Examples/spack.yaml
+  - NERSC/cori/e4s-stacks/x86/spack.yaml
+  - BOISESTATE/falcon/environments/applications/vacuumms/_spack.yaml
+  - BOISESTATE/falcon/environments/applications/wps/_spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-ppc64le.yaml
+  - BOISESTATE/falcon/environments/base/_spack.yaml
+  - NREL/configs/rhodes/software/spack.yaml
+  - BOISESTATE/falcon/environments/applications/gromacs/_spack.yaml
+  - BOISESTATE/falcon/environments/Core/_spack.yaml
+  - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml
+  - NERSC/cori/e4s-stacks/hsw/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.08/spack.yaml
+  - UOREGON/E4S-Develop/spack-ubuntu18.04-x86_64.yaml
+  - NERSC/perlmutter/e4s-21.11/spack.yaml
+  - NERSC/cori/e4s-21.02/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - BOISESTATE/falcon/environments/applications/vasp/_spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.11/spack.yaml
+  - BOISESTATE/falcon/environments/applications/openfoam/_spack.yaml
+  - BOISESTATE/falcon/environments/libraries/hdf5/_spack.yaml
+  - NERSC/cori/e4s-20.10/spack.yaml
+  - OLCF/spock/spack.yaml
   full_name: bsurc/spack-configs
   latest_release: null
   readme: '<h1><a id="user-content-spack-configs" class="anchor" aria-hidden="true"
@@ -5162,14 +5065,14 @@ dbkinghorn/Puget-Labs-Containers:
   data_format: 2
   description: Puget Labs container build files
   filenames:
-  - hpcg-amd/spack.yaml
-  - openfoam-amd/spack.yaml
-  - gromacs-amd/spack.yaml
-  - hpl-amd/spack.yaml
-  - wrf-amd/spack.yaml
-  - hmmer-amd/spack.yaml
-  - quantum-espresso-amd/spack.yaml
   - namd-amd/spack.yaml
+  - gromacs-amd/spack.yaml
+  - quantum-espresso-amd/spack.yaml
+  - openfoam-amd/spack.yaml
+  - hmmer-amd/spack.yaml
+  - wrf-amd/spack.yaml
+  - hpl-amd/spack.yaml
+  - hpcg-amd/spack.yaml
   - lammps-amd/spack.yaml
   full_name: dbkinghorn/Puget-Labs-Containers
   latest_release: null
@@ -5547,102 +5450,17 @@ epfl-scitas/cryoem-docker-image:
   subscribers_count: 3
   topics: []
   updated_at: 1663761990.0
-epfl-scitas/spack-sdploy:
-  data_format: 2
-  description: Toolset to deploy software stacks
-  filenames:
-  - temp/spack.yaml
-  - samples/spack.yaml
-  full_name: epfl-scitas/spack-sdploy
-  latest_release: null
-  readme: "<h1><a id=\"user-content-spack-sdploy\" class=\"anchor\" aria-hidden=\"\
-    true\" href=\"#spack-sdploy\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>spack-sdploy</h1>\n<p>Spack extension for automatic package configuration\
-    \ and deployment.</p>\n<h2><a id=\"user-content-how-to-install\" class=\"anchor\"\
-    \ aria-hidden=\"true\" href=\"#how-to-install\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>How to install</h2>\n<p>You can try out this\
-    \ Spack extension be executing 4 easy steps:</p>\n<ul>\n<li>Set up and activate\
-    \ a local python environment</li>\n<li>Set up and activate <code>spack</code>\n\
-    </li>\n<li>Install <code>spack-sdploy</code> dependencies</li>\n<li>Clone and\
-    \ configure spack-sdploy</li>\n</ul>\n<p>This 4 steps are now detailed in the\
-    \ next section.</p>\n<h3><a id=\"user-content-step-by-step-installation\" class=\"\
-    anchor\" aria-hidden=\"true\" href=\"#step-by-step-installation\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Step-by-step installation</h3>\n\
-    <p>Just for a matter of completeness, all the steps needed get up and running\
-    \ with\nspack-sdploy extension will be covered, which can be a bit pedantic.</p>\n\
-    <h4><a id=\"user-content-set-up-and-activate-a-local-python-environment\" class=\"\
-    anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-a-local-python-environment\"\
-    ><span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Set up and\
-    \ activate a local python environment</h4>\n<p>It is recommended that a Python\
-    \ environment be used to support sdploy. This same\nPython can also be used to\
-    \ run Spack.</p>\n<pre><code>python3 -m venv &lt;path-to-environment-directory&gt;\n\
-    . &lt;path-to-environment-directory&gt;/bin/activate\n</code></pre>\n<p>For more\
-    \ information on how to create a virtual environment in Python refer to\nthe PEP\
-    \ 405 \u2013 Python Virtual Environments documentation.</p>\n<h4><a id=\"user-content-set-up-and-activate-spack\"\
-    \ class=\"anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-spack\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Set up and activate\
-    \ Spack</h4>\n<p>See the\n<a href=\"https://spack.readthedocs.io/en/latest/getting_started.html#installation\"\
-    \ rel=\"nofollow\">Spack documentation</a>\non how to install Spack. For sake\
-    \ of completeness, we copy paste the commands here:</p>\n<pre><code>git clone\
-    \ -c feature.manyFiles=true https://github.com/spack/spack.git\n. spack/share/spack/setup-env.sh\n\
-    </code></pre>\n<h4><a id=\"user-content-install-spack-sdploy-dependencies\" class=\"\
-    anchor\" aria-hidden=\"true\" href=\"#install-spack-sdploy-dependencies\"><span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a>Install <code>spack-sdploy</code>\
-    \ dependencies</h4>\n<p>Up to now the only dependency of spack-sdploy if jinja2.\
-    \ Once you have activated\nPython environment, you can simply use pip to install\
-    \ the packages.</p>\n<pre><code>pip install jinja2\n</code></pre>\n<h4><a id=\"\
-    user-content-clone-and-configure-spack-sdploy\" class=\"anchor\" aria-hidden=\"\
-    true\" href=\"#clone-and-configure-spack-sdploy\"><span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a>Clone and configure spack-sdploy</h4>\n<pre><code>git\
-    \ clone git@github.com:epfl-scitas/spack-sdploy\n</code></pre>\n<p>To activate\
-    \ the spack-sdploy extension you must add it to the config.yaml. If\nyou already\
-    \ have another Spack installation and just want to try out\nspack-sdploy may very\
-    \ well create a temporary directory to store the\nconfiguration and then use the\
-    \ SPACK_USER_CONFIG_PATH variable to point this new\ndirectory.</p>\n<pre><code>mkdir\
-    \ temporary_config\nexport SPACK_USER_CONFIG_PATH=/path/to/temporary_config\n\
-    </code></pre>\n<p>and then, inside the temporary_config directory, write a config.yaml\
-    \ file with\nthe following contents:</p>\n<pre><code>config:\n  extensions:\n\
-    \  - /path/to/spack-sdploy\n</code></pre>\n<p>Be sure you do not change the spack-dploy\
-    \ directory. Spack forces the extensions\nto follow strict rules. Please see the\n\
-    <a href=\"https://spack.readthedocs.io/en/latest/extensions.html\" rel=\"nofollow\"\
-    >Spack Extensions</a>\ndocumentation for more details about this subject. At this\
-    \ point you should now\nbe able to call <code>spack -h</code> and see the new\
-    \ Spack commands deployed by the\nspack-sdploy extension.</p>\n<h2><a id=\"user-content-how-to-use\"\
-    \ class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-use\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>How to use</h2>\n<p>At the present\
-    \ time, spack-sdploy will add 2 commands to your already existing\nSpack commands.\
-    \ These commandes are:</p>\n<pre><code>spack write-spack-yaml\nspack write-packages-yaml\n\
-    </code></pre>\n<p>In the future we may change the names of these commands, but\
-    \ for now lets just\nimagine these are short and easy to type commands.</p>\n\
-    <p>As you may have guessed it (if you haven't that's ok), write-spack-yaml will\n\
-    write the spack.yaml file and write-packages-yaml will write the packages.yaml\n\
-    file. Of course, Spack does not (yet!) guess what you may want to install and\n\
-    for that purpose, both these commands will read all the specs you want in your\n\
-    spack.yaml file by reading another file you have previously written and which\n\
-    we call by stack.yaml.</p>\n<p>For the time being, spack-sdploy already comes\
-    \ with a dummy stack.yaml so we can\nget started using the new commands.</p>\n\
-    <h2><a id=\"user-content-write-spack-yaml\" class=\"anchor\" aria-hidden=\"true\"\
-    \ href=\"#write-spack-yaml\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>write-spack-yaml</h2>\n<pre><code>spack write-spack-yaml\n</code></pre>\n\
-    <h2><a id=\"user-content-write-packages-yaml\" class=\"anchor\" aria-hidden=\"\
-    true\" href=\"#write-packages-yaml\"><span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a>write-packages-yaml</h2>\n<pre><code>spack write-packages-yaml\n\
-    </code></pre>\n"
-  stargazers_count: 1
-  subscribers_count: 10
-  topics: []
-  updated_at: 1659345843.0
 eth-cscs/spack-stack:
   data_format: 2
   description: fast spack builds on slow filesystem
   filenames:
-  - packages/nvhpc/spack.yaml
-  - compilers/2-gcc/spack.yaml
-  - compilers/1-gcc/spack.yaml
-  - packages/gcc/spack.yaml
-  - compilers/3-llvm/spack.yaml
-  - packages/tools/spack.yaml
   - packages/clang/spack.yaml
+  - packages/tools/spack.yaml
+  - compilers/2-gcc/spack.yaml
+  - compilers/3-llvm/spack.yaml
+  - packages/gcc/spack.yaml
+  - compilers/1-gcc/spack.yaml
+  - packages/nvhpc/spack.yaml
   full_name: eth-cscs/spack-stack
   latest_release: null
   readme: '<p>Bootstrap GCC, LLVM and NVHPC, and build an HPC software stack based
@@ -5776,94 +5594,70 @@ eugeneswalker/facility-spack:
   data_format: 2
   description: null
   filenames:
-  - arcticus/22.08/failures/spack.yaml
-  - uo-containers/22.08/components/cpu/spack.yaml
+  - oci/adaptive-test-env/spack.yaml
+  - crusher/22.08/PrgEnv-amd/failures/spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml
   - uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml
-  - uo-containers/22.08/_archive/prep/cpu/spack.yaml
-  - crusher/22.08/PrgEnv-gnu/failures/spack.yaml
-  - uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml
-  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml
-  - uo-containers/22.08/_archive/prep/oneapi/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml
-  - arcticus/22.08/spack.yaml
-  - uo-containers/22.08/components/gpu-rocm-noex/spack.yaml
-  - uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml
+  - uo-containers/22.08/release/public/cpu.spack.yaml
   - aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml
-  - uo-containers/22.08/release/public/oneapi.spack.yaml
   - uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml
   - crusher/22.05/PrgEnv-gnu/spack.yaml
-  - frontera/22.05/spack.yaml
-  - perlmutter/22.05/mvapich2/spack.yaml
-  - uo-containers/22.08/components/gpu-rocm/spack.yaml
   - perlmutter/22.05/mvapich2-2.3.7/spack.yaml
-  - uo-containers/22.08/release/public/rocm.spack.yaml
-  - perlmutter/22.08/mvapich2-3.0a/spack.yaml
-  - uo-containers/22.08/release/public/cuda.spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le.spack.yaml
-  - uo-containers/22.08/components/gpu-cuda-noex/spack.yaml
-  - crusher/22.08/PrgEnv-cray/failures/spack.yaml
-  - perlmutter/22.08/mvapich2-3.0a/failures/spack.yaml
-  - aws/paratools/parallelcluster-3.1.4/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml
-  - perlmutter/22.05/mvapich2-3.0a/spack.yaml
-  - uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda-noextern.spack.yaml
-  - crusher/22.08/PrgEnv-amd/spack.yaml
-  - uo-containers/22.08/release/public/cuda-aarch64.spack.yaml
-  - crusher/22.05/mvapich2/spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda/spack.yaml
-  - perlmutter/22.08/PrgEnv-gnu/spack.yaml
-  - uo-containers/22.05/production/base/aarch64-cuda.spack.yaml
-  - crusher/22.05/PrgEnv-cray/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml
-  - uo-containers/22.08/components/gpu-cuda/spack.yaml
-  - uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml
-  - uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml
-  - uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml
-  - crusher/22.05/PrgEnv-amd/spack.yaml
   - perlmutter/22.05/PrgEnv-gnu/failures/spack.yaml
-  - uo-containers/22.08/release/public/cpu.spack.yaml
-  - uo-containers/ubuntu20-minimal/spack.yaml
-  - crusher/22.08/mvapich2/spack.yaml
-  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml
+  - uo-containers/22.05/production/base/amd64-oneapi.spack.yaml
+  - uo-containers/22.05/production/base/ppc64le-cuda.spack.yaml
+  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le.spack.yaml
+  - oci/mvapich2/spack.yaml
+  - frontera/22.05/spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml
+  - crusher/22.05/PrgEnv-amd/spack.yaml
   - bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml
-  - arcticus/develop/spack.yaml
-  - uo-containers/22.05/production/base/amd64-rocm.spack.yaml
-  - uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml
-  - uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml
+  - arcticus/22.08/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda-noextern.spack.yaml
+  - uo-containers/ubuntu20-minimal/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le.spack.yaml
+  - perlmutter/22.08/mvapich2-3.0a/failures/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml
+  - uo-containers/22.08/release/public/oneapi.spack.yaml
+  - aws/paratools/e4s-mvapich/spack.yaml
+  - crusher/22.08/PrgEnv-gnu/failures/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-cuda.spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml
+  - aws/paratools/parallelcluster-3.1.4/spack.yaml
+  - uo-containers/22.05/production/base/amd64-cuda.spack.yaml
   - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml
+  - crusher/22.08/PrgEnv-gnu/spack.yaml
+  - crusher/22.08/PrgEnv-cray/failures/spack.yaml
+  - crusher/22.08/mvapich2/spack.yaml
+  - perlmutter/22.05/PrgEnv-nvhpc/spack.yaml
+  - arcticus/develop/spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml
+  - uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml
+  - perlmutter/22.05/mvapich2/spack.yaml
+  - perlmutter/22.05/mvapich2-3.0a/spack.yaml
+  - uo-containers/22.08/release/public/rocm.spack.yaml
+  - oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml
+  - uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml
+  - crusher/22.05/PrgEnv-amd/failures/spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml
+  - crusher/22.08/PrgEnv-amd/spack.yaml
   - uo-containers/22.05/production/e4s-22.05-cuda-ppc64le-noextern.spack.yaml
   - uo-containers/22.05/components/e4s-cuda-builder-ppc64le-noextern.spack.yaml
-  - crusher/22.05/PrgEnv-cray/failures/spack.yaml
-  - crusher/22.08/mvapich2/failures/spack.yaml
-  - uo-containers/22.05/production/base/ppc64le-cuda.spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-cuda.spack.yaml
-  - oci/mvapich2/spack.yaml
-  - crusher/22.08/PrgEnv-gnu/spack.yaml
-  - crusher/22.08/PrgEnv-cray/spack.yaml
-  - uo-containers/22.05/components/e4s-cuda-builder-ppc64le.spack.yaml
-  - uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml
-  - uo-containers/22.05/production/e4s-22.05-rocm-noextern.spack.yaml
-  - uo-containers/22.05/production/base/amd64-cuda.spack.yaml
-  - uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml
-  - cori/21.05/PrgEnv-intel/spack.yaml
-  - aws/paratools/e4s-mvapich/spack.yaml
-  - oci/adaptive-test-env/spack.yaml
-  - uo-containers/22.05/production/base/amd64-oneapi.spack.yaml
-  - uo-containers/22.08/_archive/prep/rocm/spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml
-  - crusher/22.08/PrgEnv-amd/failures/spack.yaml
   - applications/exago/crusher/spack.yaml
-  - perlmutter/22.05/PrgEnv-nvhpc/spack.yaml
-  - perlmutter/22.08/mvapich2-3.0a/ecp-data-vis-sdk/spack.yaml
-  - oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml
-  - crusher/22.05/PrgEnv-amd/failures/spack.yaml
-  - uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml
-  - perlmutter/22.08/PrgEnv-gnu/failures/spack.yaml
+  - cori/21.05/PrgEnv-intel/spack.yaml
+  - uo-containers/22.05/production/base/amd64-rocm.spack.yaml
+  - crusher/22.05/PrgEnv-cray/failures/spack.yaml
+  - uo-containers/22.08/release/public/cuda-aarch64.spack.yaml
+  - crusher/22.08/PrgEnv-cray/spack.yaml
+  - uo-containers/22.05/production/e4s-22.05-rocm-noextern.spack.yaml
+  - crusher/22.05/PrgEnv-cray/spack.yaml
+  - crusher/22.08/mvapich2/failures/spack.yaml
   - perlmutter/22.05/PrgEnv-gnu/spack.yaml
-  - uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml
+  - arcticus/22.08/failures/spack.yaml
+  - uo-containers/22.05/production/base/aarch64-cuda.spack.yaml
+  - uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml
   full_name: eugeneswalker/facility-spack
   latest_release: null
   stargazers_count: 0
@@ -5874,8 +5668,8 @@ fnalacceleratormodeling/synergia2-containers:
   data_format: 2
   description: null
   filenames:
-  - ubuntu-clang/spack.yaml
   - ubuntu-gcc/spack.yaml
+  - ubuntu-clang/spack.yaml
   full_name: fnalacceleratormodeling/synergia2-containers
   latest_release: null
   readme: '<h1><a id="user-content-synergia2-containers" class="anchor" aria-hidden="true"
@@ -6628,8 +6422,8 @@ haampie/spack-intermediate-gcc-example:
   data_format: 2
   description: null
   filenames:
-  - gcc-1/spack.yaml
   - gcc-2/spack.yaml
+  - gcc-1/spack.yaml
   full_name: haampie/spack-intermediate-gcc-example
   latest_release: null
   readme: '<h1><a id="user-content-simpler-example-of-dependencies-across-spack-environments"
@@ -6786,9 +6580,6 @@ jedwards4b/spackenvironments:
   filenames:
   - paralleliobld/spack.yaml
   - esmfserialbld/spack.yaml
-  - mpiserialbld/spack.yaml
-  - esmfbld/spack.yaml
-  - pioserialbld/spack.yaml
   full_name: jedwards4b/spackenvironments
   latest_release: null
   stargazers_count: 0
@@ -6955,8 +6746,8 @@ jkbk2004/src:
   data_format: 2
   description: null
   filenames:
-  - src/UPP/ci/spack.yaml
   - src/ufs-weather-model/WW3/model/ci/spack.yaml
+  - src/UPP/ci/spack.yaml
   full_name: jkbk2004/src
   latest_release: null
   readme: "<h1><a id=\"user-content-ufs-short-range-weather-application\" class=\"\
@@ -7132,8 +6923,8 @@ jvanhare/demeter:
   description: Spack environments
   filenames:
   - horus_heimdall_gcc@12.2.0_i64/spack.yaml
-  - horus_heimdall_clang@15.0.2_i64/spack.yaml
   - horus_heimdall_apple-clang@14.0.0_i64/spack.yaml
+  - horus_heimdall_clang@15.0.2_i64/spack.yaml
   full_name: jvanhare/demeter
   latest_release: null
   readme: '<h1><a id="user-content-demeter" class="anchor" aria-hidden="true" href="#demeter"><span
@@ -7153,15 +6944,12 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack recipe repository of Key4hep software.
   filenames:
+  - environments/key4hep-nightlies-rootmod/spack.yaml
+  - environments/key4hep-release-user/spack.yaml
+  - environments/contrib-compilers/spack.yaml
+  - environments/geant4-data-share/spack.yaml
   - environments/key4hep-desy-release/spack.yaml
   - environments/key4hep-nightlies/spack.yaml
-  - environments/key4hep-release-user/spack.yaml
-  - environments/key4hep-nightlies-rootmod/spack.yaml
-  - environments/contrib-compilers/spack.yaml
-  - environments/key4hep-nightlies-clang/spack.yaml
-  - environments/key4hep-release/spack.yaml
-  - environments/geant4-data-share/spack.yaml
-  - environments/key4hep-ci/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-10-29'
   readme: '<h1><a id="user-content-spack-package-repo-for-key4hep-software-packaging"
@@ -7207,11 +6995,11 @@ laristra/ristra_spackages:
   description: 'A mirror of Ristra''s internal gitlab repository. '
   filenames:
   - env/x86_64/flecsi/spack.yaml
-  - .gitlab-ci/env/local-build/spack.yaml
-  - .gitlab-ci/env/dry-run/spack.yaml
-  - env/broadwell/flecsi/spack.yaml
   - .gitlab-ci/env/root-build/spack.yaml
   - env/power9le/flecsi/spack.yaml
+  - .gitlab-ci/env/dry-run/spack.yaml
+  - env/broadwell/flecsi/spack.yaml
+  - .gitlab-ci/env/local-build/spack.yaml
   full_name: laristra/ristra_spackages
   latest_release: null
   readme: '<h1><a id="user-content-ristra-spackages" class="anchor" aria-hidden="true"
@@ -7267,70 +7055,6 @@ laristra/ristra_spackages:
   subscribers_count: 3
   topics: []
   updated_at: 1649449003.0
-lfortran/lfortran:
-  data_format: 2
-  description: Official main repository for LFortran
-  filenames:
-  - spack.yaml
-  full_name: lfortran/lfortran
-  latest_release: null
-  readme: "<h1><a id=\"user-content-lfortran\" class=\"anchor\" aria-hidden=\"true\"\
-    \ href=\"#lfortran\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>LFortran</h1>\n<p><a href=\"https://lfortran.zulipchat.com/\" rel=\"\
-    nofollow\"><img src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\"\
-    \ alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\"\
-    \ style=\"max-width: 100%;\"></a></p>\n<p>LFortran is a modern open-source (BSD\
-    \ licensed) interactive Fortran compiler\nbuilt on top of LLVM. It can execute\
-    \ user's code interactively to allow\nexploratory work (much like Python, MATLAB\
-    \ or Julia) as well as compile to\nbinaries with the goal to run user's code on\
-    \ modern architectures such as\nmulti-core CPUs and GPUs.</p>\n<p>Website: <a\
-    \ href=\"https://lfortran.org/\" rel=\"nofollow\">https://lfortran.org/</a></p>\n\
-    <p>Try online: <a href=\"https://dev.lfortran.org/\" rel=\"nofollow\">https://dev.lfortran.org/</a></p>\n\
-    <h1><a id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\"\
-    \ href=\"#documentation\"><span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a>Documentation</h1>\n<p>All documentation, installation instructions,\
-    \ motivation, design, ... is\navailable at:</p>\n<p><a href=\"https://docs.lfortran.org/\"\
-    \ rel=\"nofollow\">https://docs.lfortran.org/</a></p>\n<p>Which is generated using\
-    \ the files in the <code>doc</code> directory.</p>\n<h1><a id=\"user-content-development\"\
-    \ class=\"anchor\" aria-hidden=\"true\" href=\"#development\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Development</h1>\n<p>We welcome\
-    \ all contributions.\nThe main development repository is at GitHub:</p>\n<p><a\
-    \ href=\"https://github.com/lfortran/lfortran\">https://github.com/lfortran/lfortran</a></p>\n\
-    <p>Please send Pull Requests (PRs) and open issues there.</p>\n<p>See the <a href=\"\
-    CONTRIBUTING.md\">CONTRIBUTING</a> document for more information.</p>\n<p>Main\
-    \ mailinglist:</p>\n<p><a href=\"https://groups.io/g/lfortran\" rel=\"nofollow\"\
-    >https://groups.io/g/lfortran</a></p>\n<p>You can also chat with us on Zulip (<a\
-    \ href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\"\
-    \ alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\"\
-    \ style=\"max-width: 100%;\"></a>).</p>\n<p>Note: We moved to the above GitHub\
-    \ repository from GitLab on July 18, 2022.</p>\n<h1><a id=\"user-content-donations\"\
-    \ class=\"anchor\" aria-hidden=\"true\" href=\"#donations\"><span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a>Donations</h1>\n<p>You can support\
-    \ LFortran's development by donating to NumFOCUS or Open\nCollective as well as\
-    \ GitHub Sponsors:</p>\n<ul>\n<li><a href=\"https://numfocus.org/donate-to-lfortran\"\
-    \ rel=\"nofollow\">https://numfocus.org/donate-to-lfortran</a></li>\n<li><a href=\"\
-    https://opencollective.com/lfortran\" rel=\"nofollow\">https://opencollective.com/lfortran</a></li>\n\
-    <li><a href=\"https://github.com/sponsors/lfortran\">https://github.com/sponsors/lfortran</a></li>\n\
-    </ul>\n<p>All donations will be used strictly to fund LFortran development, by\
-    \ supporting\ntasks such as paying developers to implement features, sprints,\
-    \ improved\ndocumentation, fixing bugs, etc.</p>\n<p>The donations to LFortran\
-    \ are managed by the NumFOCUS foundation. NumFOCUS is a\n501(c)3 non-profit foundation,\
-    \ so if you are subject to US Tax law, your\ncontributions will be tax-deductible.</p>\n\
-    <p>If you want to discuss another way to fund or help with the development, feel\n\
-    free to contact Ond\u0159ej \u010Cert\xEDk (<a href=\"mailto:ondrej@certik.us\"\
-    >ondrej@certik.us</a>).</p>\n"
-  stargazers_count: 418
-  subscribers_count: 12
-  topics:
-  - fortran
-  - interactive
-  - compiler
-  - library
-  - repl
-  - jupyter
-  - jupyter-notebook
-  - jupyter-kernels
-  updated_at: 1665701079.0
 mfem/mfem:
   data_format: 2
   description: Lightweight, general, scalable C++ library for finite element methods
@@ -7417,13 +7141,14 @@ mochi-hpc-experiments/colza-experiments:
   data_format: 2
   description: Experiments using Colza for In Situ Analysis
   filenames:
-  - ubuntu/collectives/spack.yaml
-  - ubuntu/vtk/spack.yaml
   - ubuntu/resizing/spack.yaml
-  - ubuntu/amr-wind/spack.yaml
+  - ubuntu/collectives/spack.yaml
+  - theta/amr-wind/spack.yaml
+  - ubuntu/vtk/spack.yaml
+  - cori/vtk/spack.yaml
   - cori/collectives/spack.yaml
   - ubuntu/overhead/spack.yaml
-  - cori/vtk/spack.yaml
+  - ubuntu/amr-wind/spack.yaml
   full_name: mochi-hpc-experiments/colza-experiments
   latest_release: ipdps2022
   readme: '<h1><a id="user-content-colza-experiments" class="anchor" aria-hidden="true"
@@ -7458,8 +7183,16 @@ mochi-hpc-experiments/platform-configurations:
   description: This repository provides a set of configuration files and example scripts
     for running Mochi experiments on various platforms.
   filenames:
-  - ANL/Polaris/spack.yaml
-  - generic/spack.yaml
+  - ORNL/Summit/spack.yaml
+  - NERSC/Perlmutter/ss11/spack.yaml
+  - NERSC/Cori/spack.yaml
+  - ANL/Theta/spack.yaml
+  - ANL/Bebop/spack.yaml
+  - ORNL/Crusher/spack.yaml
+  - ANL/Cooley/spack.yaml
+  - ANL/ThetaGPU/spack.yaml
+  - NERSC/Perlmutter/ss10/spack.yaml
+  - ANL/JLSE/spack.yaml
   full_name: mochi-hpc-experiments/platform-configurations
   latest_release: null
   readme: '<h1><a id="user-content-platform-configurations-for-mochi" class="anchor"
@@ -8504,11 +8237,11 @@ mpbelhorn/olcf-spack-environments:
   data_format: 2
   description: Spack environments for OLCF resources.
   filenames:
-  - hosts/summit/envs/base/spack.yaml
-  - hosts/peak/envs/base/spack.yaml
+  - hosts/ascent/envs/base/spack.yaml
   - hosts/borg/envs/base/spack.yaml
   - hosts/crusher/envs/base/spack.yaml
-  - hosts/ascent/envs/base/spack.yaml
+  - hosts/peak/envs/base/spack.yaml
+  - hosts/summit/envs/base/spack.yaml
   full_name: mpbelhorn/olcf-spack-environments
   latest_release: null
   readme: '<h1><a id="user-content-olcf-spack-environments" class="anchor" aria-hidden="true"
@@ -8949,8 +8682,8 @@ range3/chfs-containers:
   data_format: 2
   description: null
   filenames:
-  - spack/envs/chfs/spack.yaml
   - spack/envs/chfs-master/spack.yaml
+  - spack/envs/chfs/spack.yaml
   full_name: range3/chfs-containers
   latest_release: null
   readme: '<h1><a id="user-content-chfs-containers" class="anchor" aria-hidden="true"
@@ -9097,20 +8830,20 @@ renjithravindrankannath/spack_repository_test:
   data_format: 2
   description: New spack repository to reproduce the issue observed in PR 31591
   filenames:
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s-mac/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s-oneapi/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug-aarch64/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/build_systems/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/e4s-oneapi/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/e4s-mac/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/aws-ahug-aarch64/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc-aarch64/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml
   full_name: renjithravindrankannath/spack_repository_test
   latest_release: null
   readme: "<h1><a id=\"user-content--spack\" class=\"anchor\" aria-hidden=\"true\"\
@@ -9288,7 +9021,6 @@ salotz/scopes-demos:
   description: null
   filenames:
   - 002_pong/spack.yaml
-  - template/{{name}}/spack.yaml
   - 001_chipmunk2d-hello-world/spack.yaml
   - 003_python-embed/spack.yaml
   full_name: salotz/scopes-demos
@@ -9364,14 +9096,14 @@ salotz/snailpacks:
   data_format: 2
   description: Spack repo for multimedia development
   filenames:
-  - examples/c-cmake/spack.yaml
   - examples/c-wgpu/spack.yaml
-  - examples/c-embed-python/spack.yaml
-  - examples/c-meson/spack.yaml
   - examples/c-embed-chibi/spack.yaml
-  - examples/c-genie/spack.yaml
   - examples/c-scons/spack.yaml
+  - examples/c-genie/spack.yaml
+  - examples/c-meson/spack.yaml
   - examples/c-premake/spack.yaml
+  - examples/c-embed-python/spack.yaml
+  - examples/c-cmake/spack.yaml
   full_name: salotz/snailpacks
   latest_release: null
   stargazers_count: 1
@@ -9411,13 +9143,12 @@ spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
+  - OLCF/andes/spack.yaml
+  - OLCF/peak/spack.yaml
   - NERSC/perlmutter/e4s-22.05/spack.yaml
-  - BOISESTATE/borah/environments/base/_spack.yaml
-  - BOISESTATE/borah/environments/b4s/_spack.yaml
-  - OLCF/frontier/spack.yaml
-  - BOISESTATE/borah/environments/compilers/_spack.yaml
-  - BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml
-  - BOISESTATE/borah/applications/gromacs/_spack.yaml
+  - OLCF/summit/spack.yaml
+  - OLCF/spock/spack.yaml
+  - OLCF/crusher/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1><a id="user-content-spack-configs" class="anchor" aria-hidden="true"
@@ -9854,12 +9585,10 @@ ukri-excalibur/excalibur-tests:
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
   - spack-environments/tursa/cpu/spack.yaml
-  - spack-environments/tesseract/compute-node/spack.yaml
-  - spack-environments/csd3-icelake/compute-node/spack.yaml
-  - spack-environments/csd3-skylake/compute-node/spack.yaml
-  - spack-environments/dial3/compute-node/spack.yaml
   - spack-environments/archer2/compute-node/spack.yaml
   - spack-environments/myriad/compute-node/spack.yaml
+  - spack-environments/tesseract/compute-node/spack.yaml
+  - spack-environments/dial3/compute-node/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
   readme: "<h1><a id=\"user-content-excalibur-tests\" class=\"anchor\" aria-hidden=\"\

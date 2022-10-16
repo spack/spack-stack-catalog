@@ -23,7 +23,7 @@ spack:
       - '%intel'
 #      - '%oneapi'
     - - ^libtiff@3.9.7
-    - - target=x86_64
+#    - - target=x86_64
 
   concretizer:
     unify: false

@@ -1,0 +1,135 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+# need to build special fftw with openmp: - ../../../includes/fftw.yaml
+
+  view: false
+  config:
+    concretizer: clingo
+    install_tree:
+#      root: /software/opt
+#      padded_length: 128
+      root: /lfs/software/opt
+      padded_length: 0
+    build_stage: $tempdir/user/spack-stage
+
+  compilers:
+  - compiler:
+      paths:
+        cc: /lfs/software/opt/linux-rocky8-x86_64/gcc-8.5.0/gcc-12.1.0-b2zrdgxtipaiqaadgk224vt2ad2laklo/bin/gcc
+        cxx: /lfs/software/opt/linux-rocky8-x86_64/gcc-8.5.0/gcc-12.1.0-b2zrdgxtipaiqaadgk224vt2ad2laklo/bin/g++
+        f77: /lfs/software/opt/linux-rocky8-x86_64/gcc-8.5.0/gcc-12.1.0-b2zrdgxtipaiqaadgk224vt2ad2laklo/bin/gfortran
+        fc: /lfs/software/opt/linux-rocky8-x86_64/gcc-8.5.0/gcc-12.1.0-b2zrdgxtipaiqaadgk224vt2ad2laklo/bin/gfortran
+      operating_system: rocky8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+#      flags:
+#        cflags: "-gdwarf-4"
+#        fflags: "-gdwarf-4"
+#        cxxflags: "-gdwarf-4"
+      spec: gcc@12.1.0
+
+  packages:
+
+    cmake:
+      version: 
+      - 3.24.2
+      externals:
+      - spec: cmake@3.24.2
+        prefix: /lfs/software/opt/linux-rocky8-x86_64/gcc-12.1.0/cmake-3.24.2-7bf344tdbrmmar6ktnedhjreayruw2l3   
+      buildable: false
+
+#    openblas:
+#      version:
+#      - 0.3.20
+#      externals:
+#      - spec: openblas@0.3.20
+#        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/openblas-0.3.20-okgwlmqb77q3it5eteozvetsua3yhvbw
+#      buildable: false
+
+#    netlib-scalapack:
+#      version:
+#      - 2.2.0
+#      externals:
+#      - spec: netlib-scalapack@2.2.0
+#        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/netlib-scalapack-2.2.0-wd3lvw5sjvjhyhvzztxbpu2qhwlg25mt
+#      buildable: false
+
+    fftw:
+      version:
+      - 3.3.10
+      externals:
+      - spec: fftw@3.3.10
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/fftw-3.3.10-vpxw5npicdq2gunotolrgsvo377xkyjo
+      buildable: false
+
+    cp2k:
+      version:
+      - 2022.1
+      externals:
+      - spec: cp2k@2022.1~cosma~cuda~elpa+libint~libvori+libxc+mpi+openmp~pexsi~plumed~sirius~spglib lmax=5 smm=blas ^mpich
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/cp2k-2022.1-sadplxrlqihze54yqgyydarqtxltlwpn
+      buildable: False
+
+    dbcsr:
+      version:
+      - 2.3.0
+      externals:
+      - spec: dbcsr@2.3.0~cuda~cuda_arch_35_k20x~ipo+mpi~opencl~openmp~rocm+shared build_type=RelWithDebInfo smm=blas
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/dbcsr-2.3.0-dhdwqzkawrwlwkaoadck7ny7k6kmsnjc
+      buildable: false
+
+    intel-mkl:
+      version:
+      - 2020.4.304
+      externals:
+      - spec: intel-mkl@2020.4.304
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/intel-mkl-2020.4.304-2xc7tvgayjwwscmfvldijqeowsd6li5r
+      buildable: False
+
+  specs:
+##  - fftw@3.3.10%gcc +mpi +openmp ^mpich
+
+#  - cp2k@2022.1~cosma~cuda~elpa+libint~libvori+libxc+mpi+openmp~pexsi~plumed~sirius~spglib lmax=5 smm=blas fflags="-gdwarf-4" cflags="-gdwarf-4" cxxflags="-gdwarf-4" %gcc ^mpich ^intel-mkl
+
+#  - dbcsr@2.3.0~cuda~cuda_arch_35_k20x~ipo+mpi~opencl~openmp~rocm+shared build_type=Release smm=blas fflags="-gdwarf-4" cflags="-gdwarf-4" cxxflags="-gdwarf-4" %gcc ^mpich ^intel-mkl
+
+##  - dbcsr@2.3.0~cuda~cuda_arch_35_k20x~ipo+mpi~opencl~openmp~rocm+shared build_type=RelWithDebInfo smm=blas
+
+##  - gromacs@2022.2+cp2k %gcc cflags="-L/lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/netlib-scalapack-2.2.0-wd3lvw5sjvjhyhvzztxbpu2qhwlg25mt/lib -lscalapack" ^mpich target=broadwell
+
+  - gromacs@2022.2+cp2k fflags="-gdwarf-4" cflags="-gdwarf-4" cxxflags="-gdwarf-4" %gcc ^mpich target=broadwell ^intel-mkl
+
+##  - netlib-scalapack%gcc
+
+#  - intel-mkl%gcc
+
+
+  concretizer:
+    unify: when_possible
+
+  modules::
+    default:
+      roots:
+        lmod: /lfs/software/modules
+        tcl: /tmp
+      arch_folder: false
+      enable:
+      - lmod
+      - tcl
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+        blacklist_implicits: true
+        hierarchy:
+        - mpi
+
+  mirrors:
+    falcon: file:///lfs/software/falcon-mirror
