@@ -315,7 +315,7 @@ spack:
   - py-cachecontrol@0.12.11
   - py-cachetools@5.2.0
   - py-cachy@0.3.0
-  - py-certifi@2022.6.15
+  - py-certifi@2022.9.14
   - py-cffi@1.15.1
   - py-chardet@5.0.0
   - py-charset-normalizer@2.0.7
@@ -355,7 +355,7 @@ spack:
   - py-entrypoints@0.4
   - py-executing@1.1.0
   - py-fasteners@0.17.3
-  - py-fastjsonschema@2.16.1
+  - py-fastjsonschema@2.16.2
   - py-filelock@3.8.0
   - py-fire@0.4.0      # test
   - py-flake8@5.0.4
@@ -392,7 +392,7 @@ spack:
   - py-importlib-resources@5.9.0
   - py-iniconfig@1.1.1
   - py-ipaddress@1.0.23
-  - py-ipykernel@6.15.2
+  - py-ipykernel@6.16.0
   - py-ipython@8.5.0
   - py-ipython-genutils@0.2.0  # NB: Not in cms, needed for almost all ipy/jupy packages
   - py-ipywidgets@8.0.2
@@ -459,7 +459,7 @@ spack:
   - py-oauthlib@3.2.1~extras
   - py-onnx@1.12.0
   - py-onnxmltools@1.11.0
-  - py-onnx-runtime@1.12.0+cuda
+  - py-onnx-runtime@1.10.0+cuda
   - py-onnxconverter-common@1.9.0
   - py-opt-einsum@3.3.0
   - py-packaging@21.3
@@ -483,7 +483,7 @@ spack:
   - py-pluggy@1.0.0
   - py-poetry@1.2.0
   - py-poetry-core@1.1.0
-  - py-poetry-plugin-export@1.0.6
+  - py-poetry-plugin-export@1.0.7
   - py-prettytable@3.4.1
   - py-prompt-toolkit@3.0.31
   - py-prometheus-client@0.12.0
@@ -525,7 +525,7 @@ spack:
   - py-pytools@2022.1.12
   - py-pytz@2022.2.1
   - py-pyyaml@6.0~libyaml
-  - py-pyzmq@22.2.1
+  - py-pyzmq@24.0.1
   - py-regex@2022.8.17
   - py-repoze-lru@0.7
   - py-requests@2.28.1
@@ -644,7 +644,7 @@ spack:
   - yoda@1.9.6+root
   - zlib@1.2.11.cms+optimize
   - zstd@1.4.5+shared~static~programs~legacy
-  - cmsdist@12.5.0.pre4
+  - cmsdist@IB-CMSSW_12_6_X_2022-10-16-0000-el8_amd64_gcc11
   - data-l1trigger-csctriggerprimitives@V00-12-00
   - data-recomet-metpusubtraction@V01-02-00
   - data-recoegamma-photonidentification@V01-05-00
