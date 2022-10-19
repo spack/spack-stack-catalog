@@ -8,7 +8,6 @@ spack:
   - mumps+mpi+metis+parmetis
   - petsc+hypre+mumps+superlu-dist~hdf5
   - tetgen
-  - valgrind
   - nanoflann
 
   packages:
@@ -32,6 +31,7 @@ spack:
       - clang-format
       - gfortran
       - git
+      - valgrind
       - vim
 
     extra_instructions:
