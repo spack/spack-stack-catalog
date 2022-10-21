@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - cmake
+  - mochi-poesie+bedrock+python~lua
+  - mochi-bedrock~abtio~ssg~mpi~mona
+  - mochi-yokan+python+bedrock
+  concretizer:
+    unify: true

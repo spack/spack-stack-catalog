@@ -497,7 +497,7 @@ spack:
   # - geopm@1.1.0 ~doc                  # py-numpy@1.23.2
   # - h5bench@1.2                       # h5bench
   # - lammps@20220623                   # kim-api
-  # - nrm@0.1.0                         # py-numopy@1.23.2
+  # - nrm@0.1.0                         # py-numpy@1.23.2
   # - omega-h@9.34.1                    # omega-h
   # - paraview +qt ^llvm@12.0.1         # llvm@12
   # - paraview@5.10.1 +qt ^mesa@21.3.8  # llvm@12.0.1

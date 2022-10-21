@@ -439,6 +439,7 @@ spack:
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
   - mfem@4.4.0 +rocm amdgpu_target=gfx90a
   - papi@6.0.0.1 +rocm amdgpu_target=gfx90a
+  - slate@2022.06.00 +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
@@ -496,7 +497,6 @@ spack:
   # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a                     # ginkgo
   # - petsc@3.17.4 +rocm amdgpu_target=gfx90a                     # petsc
   # - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a           # raja
-  # - slate@2022.06.00 +rocm amdgpu_target=gfx90a                 # blaspp
   # - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a # arpack-ng
   # - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a           # arpack-ng
   # - trilinos@13.4.0 +rocm amdgpu_target=gfx90a                  # trilinos
@@ -513,7 +513,6 @@ spack:
   # petsc: https://github.com/spack/spack/issues/32826
   # raja: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: ... which is prefixed in the source directory.
   # raja: https://github.com/spack/spack/issues/32830
-  # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # trilinos: belos/src/BelosPseudoBlockTFQMRSolMgr.hpp:278:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
   # trilinos: https://github.com/spack/spack/issues/30626
   # umpire: Target "blt_hip" INTERFACE_INCLUDE_DIRECTORIES property contains path: ... which is prefixed in the source directory.
