@@ -1,0 +1,12 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  view: false
+  concretizer:
+    unify: when_possible
+  specs:
+  - matrix:
+    - [hpctoolkit +viewer ~mpi]
+    - [+cuda ~papi, ~cuda +papi]

@@ -1,0 +1,11 @@
+spack:
+  specs:
+  - cmake
+  - mochi-margo
+  - mochi-bedrock
+  - lua
+  - python
+  - json-c
+  - py-mochi-margo@main
+  concretizer:
+    unify: true

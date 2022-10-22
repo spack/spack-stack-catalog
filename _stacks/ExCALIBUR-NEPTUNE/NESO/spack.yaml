@@ -1,0 +1,23 @@
+# This is a Spack Environment file.
+#
+# It describes the set of packages to be installed when developing
+# NESO, along with configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - neso%gcc ^openblas ^hipsycl
+  #- neso%oneapi ^nektar%oneapi ^intel-oneapi-mpi ^intel-oneapi-mkl ^py-numpy%intel ^boost%intel ^py-cython%oneapi ^dpcpp
+  view: true
+  concretizer:
+    unify: true
+  repos:
+  - ./NESO-Spack
+  - $spack/var/spack/repos/builtin
+  packages:
+    all:
+      providers:
+        mpi: [mpich, openmpi]
+  develop:
+    neso:
+      path: .
+      spec: neso@working

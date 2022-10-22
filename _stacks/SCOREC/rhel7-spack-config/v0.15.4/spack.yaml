@@ -178,12 +178,10 @@ spack:
   - hypre %gcc@10.1.0
   - fftw %gcc@10.1.0
   - netcdf-cxx4 ~doxygen %gcc@7.4.0
+  - netcdf-cxx4 ~doxygen %gcc@10.1.0
   - nco %gcc@10.1.0
-
-
-
-
-
+  - netlib-lapack %gcc@10.1.0
+  - netcdf-c +parallel-netcdf %gcc@10.1.0
   - $pumiSim17.0-220411dev
   - $pumiSim17.0-220511
   - $pumiSim17.0-220516
