@@ -240,7 +240,7 @@ spack:
       buildable: false
       externals:
       - spec: hip@5.2.0
-        prefix: /opt/rocm-5.2.0/hip
+        prefix: /opt/rocm-5.2.0
         modules: [rocm/5.2.0]
         extra_attributes:
           compilers:
@@ -415,6 +415,7 @@ spack:
   - amrex@22.08 +rocm amdgpu_target=gfx90a
   - arborx@1.2 +rocm amdgpu_target=gfx90a
   - cabana@0.5.0 +rocm
+  - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a
   - ecp-data-vis-sdk@1.0 +adios2 ~ascent +cinema +darshan +faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs +veloc +visit +vtkm +zfp ~cuda +rocm amdgpu_target=gfx90a
   - gasnet@2022.3.0 +rocm amdgpu_target=gfx90a
   - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a
@@ -424,11 +425,15 @@ spack:
   - kokkos@3.6.01 +rocm amdgpu_target=gfx90a
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
   - mfem@4.4.0 +rocm amdgpu_target=gfx90a
+  - petsc@3.17.4 +rocm amdgpu_target=gfx90a
+  - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a
   - slate@2022.06.00 +rocm amdgpu_target=gfx90a
+  - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a
   - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
+  - umpire@2022.03.1 +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
 
   # Included in ecp-data-vis-sdk
@@ -449,7 +454,6 @@ spack:
   # CPU FAILURES
   # - alquimia@1.0.9                          # pflotran
   # - bricks@r0.1                             # bricks
-  # - catalyst                                # catalyst
   # - dealii                                  # dealii
   # - geopm@1.1.0                             # geopm
   # - h5bench@1.2                             # h5bench
@@ -462,8 +466,6 @@ spack:
   # - wannier90                               # wannier90
   # -----
   # bricks: weak/args.h:14:8: error: 'size_t' does not name a type; VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
-  # catalyst: Catalyst-v5.6.0/VTK/Common/Core/vtkMath.h:1514:15: error: 'clamp' is not a member of 'std'
-  # catalyst: https://github.com/spack/spack/issues/30478
   # dealii: trilinos-13.0.1-gf2n2lavzxs77fcpqyw657s3ysgu2e5l/lib/cmake/ShyLU/ShyLUConfig.cmake:160 (INCLUDE): INCLUDE could not find requested file:
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
   # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async'
@@ -471,13 +473,13 @@ spack:
   # launchmon: launchmon/src/sdbg_base_symtab.hxx:207:49: error: ISO C++17 does not allow dynamic exception specifications
   # launchmon: sdbg_base_symtab.hxx:197:34: error: ISO C++17 does not allow dynamic exception specifications
   # librsvg: error: could not compile `cssparser` due to: /usr/bin/ld: cannot find .../spack-stage-librsvg-2.51.0-i3kyrqfehr7ip7msht4uiboatpbxjfnt/spack-src/target/release/deps/libproc_macro2-b865193815fed41d.rlib: No such file or directory
-  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
   # loki: https://github.com/spack/spack/issues/32122
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
   # pflotran: pflotran/option.F90:750:21: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
-  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
   # pruners-ninja: https://github.com/spack/spack/issues/32112
-  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
   # rempi: https://github.com/spack/spack/issues/32123
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
   # scr: CMake Error at cmake/SCR_DEPENDENCIES.cmake:10 (MESSAGE): Could not find MPI! Either add an MPI compiler to your path or force CMake
   # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
   # variorum: https://github.com/spack/spack/issues/32110
@@ -485,26 +487,17 @@ spack:
 
   # GPU FAILURES
   # - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
-  # - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a     # umpire
   # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                   # papi
-  # - petsc@3.17.4 +rocm amdgpu_target=gfx90a                   # petsc
-  # - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a         # raja
-  # - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a # petsc
   # - trilinos@13.4.0 +rocm amdgpu_target=gfx90a                # trilinos
-  # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a               # umpire
   # ------
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827
   # papi: Fatal Error: File '/opt/rocm-5.2.0/llvm/include/omp_lib.mod' opened at (1) is not a GNU Fortran module file
-  # petsc: configure fail: WARNING: Using default optimization C flags -g -O
-  # petsc: https://github.com/spack/spack/issues/32826
-  # raja: g++: error: unrecognized command-line option '--rocm-path=/opt/rocm-5.2.0'
-  # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # trilinos: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
   # trilinos: https://github.com/spack/spack/issues/30626
-  # umpire: src/umpire/util/io.cpp:188:34: error: 'fspath_path' was not declared in this scope
 
   # SKIPPED
   # - nvhpc@22.7                 # not relevant on AMD GPU system
   # - libnrm                     # hard mpich dependency
   # - gptune@3.0.0               # hard openmpi dependency
+  # - catalyst                   # versions >= 5.7 are in paraview now

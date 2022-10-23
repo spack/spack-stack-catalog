@@ -439,6 +439,7 @@ spack:
   - magma@2.6.2 ~cuda +rocm amdgpu_target=gfx90a
   - mfem@4.4.0 +rocm amdgpu_target=gfx90a
   - papi@6.0.0.1 +rocm amdgpu_target=gfx90a
+  - petsc@3.17.4 +rocm amdgpu_target=gfx90a
   - slate@2022.06.00 +rocm amdgpu_target=gfx90a
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
@@ -494,13 +495,12 @@ spack:
 
   # GPU FAILURES
   # - chai@2022.03.0 ~benchmarks +rocm amdgpu_target=gfx90a       # umpire
-  # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a                     # ginkgo
-  # - petsc@3.17.4 +rocm amdgpu_target=gfx90a                     # petsc
   # - raja@2022.03.0 ~openmp +rocm amdgpu_target=gfx90a           # raja
+  # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a                 # umpire
   # - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a # arpack-ng
   # - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a           # arpack-ng
+  # - ginkgo@1.4.0 +rocm amdgpu_target=gfx90a                     # ginkgo
   # - trilinos@13.4.0 +rocm amdgpu_target=gfx90a                  # trilinos
-  # - umpire@2022.03.1 +rocm amdgpu_target=gfx90a                 # umpire
   # - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a                   # upcxx
   # - vtk-m@1.8.0 ~openmp ~rendering +rocm amdgpu_target=gfx90a   # vtk-m
   # -----
