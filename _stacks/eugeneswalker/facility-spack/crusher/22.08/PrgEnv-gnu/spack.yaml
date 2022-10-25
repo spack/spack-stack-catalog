@@ -433,6 +433,11 @@ spack:
   - sundials@6.2.0 +rocm amdgpu_target=gfx90a
   - superlu-dist@7.2.0 +rocm amdgpu_target=gfx90a
   - tasmanian@7.7 ~openmp +rocm amdgpu_target=gfx90a
+  - trilinos@13.4.0 +amesos +amesos2 +anasazi +aztec ~belos +boost +epetra +epetraext
+    +ifpack ~ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+    +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu ~stokhos +stratimikos
+    +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    +rocm amdgpu_target=gfx90a
   - umpire@2022.03.1 +rocm amdgpu_target=gfx90a
   - upcxx@2022.3.0 +rocm amdgpu_target=gfx90a
 
@@ -488,13 +493,10 @@ spack:
   # GPU FAILURES
   # - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
   # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                   # papi
-  # - trilinos@13.4.0 +rocm amdgpu_target=gfx90a                # trilinos
   # ------
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827
   # papi: Fatal Error: File '/opt/rocm-5.2.0/llvm/include/omp_lib.mod' opened at (1) is not a GNU Fortran module file
-  # trilinos: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
-  # trilinos: https://github.com/spack/spack/issues/30626
 
   # SKIPPED
   # - nvhpc@22.7                 # not relevant on AMD GPU system
