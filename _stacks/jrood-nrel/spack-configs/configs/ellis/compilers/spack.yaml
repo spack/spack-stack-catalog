@@ -19,3 +19,5 @@ spack:
     - llvm@13.0.1
     - llvm@12.0.1
   view: False
+  concretizer:
+    unify: false

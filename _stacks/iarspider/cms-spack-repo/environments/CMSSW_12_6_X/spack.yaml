@@ -51,6 +51,18 @@ spack:
     libxpm:
       externals: [{spec: libxpm@4.11.0, prefix: /usr}]
       buildable: false
+    libxrender:
+      externals: [{spec: libxrender@0.9.10, prefix: /usr}]
+      buildable: false
+    libxau:
+      externals: [{spec: libxau@1.0.8, prefix: /usr}]
+      buildable: false
+    libxrandr:
+      externals: [{spec: libxrandr@1.5.0, prefix: /usr}]
+      buildable: false
+    xrandr:
+      externals: [{spec: xrandr@1.5.0, prefix: /usr}]
+      buildable: false
     xextproto:
       externals: [{spec: xextproto@7.3.0, prefix: /usr}]
       buildable: false
@@ -111,7 +123,8 @@ spack:
     libiconv:
       buildable: false
     mesa:
-      variants: [~llvm]
+      externals: [{spec: mesa@22.0.2~llvm, prefix: /usr}]
+      buildable: false
     llvm:
       variants: [~gold]
     gdk-pixbuf:
@@ -121,7 +134,7 @@ spack:
   view: false
   specs:
   - cms-config # For platform-dependent packages
-  - cmssw@CMSSW_12_5_0_pre4
+  - cmssw # NB: version set inside recipe
   - abseil-cpp@20210324.2
   - alpgen@2.1.4 recipe=cms
   - alpaka@20220902
@@ -151,9 +164,9 @@ spack:
   - cppunit@1.15.x
   - cpu-features@0.7.0
   - crab@1.0
-  - crab-dev@v3.220714.00
-  - crab-pre@v3.220323.00
-  - crab-prod@v3.220823.00
+  - crab-dev # NB: version set inside the recipe
+  - crab-pre # -"-
+  - crab-prod # -"-
   - csctrackfinderemulation@1.2
   - cuda@11.5.2
   - cudnn@8.3.3.40-11.5 # NB: version includes CUDA version
@@ -166,7 +179,7 @@ spack:
   - dd4hep@1.19x+xercesc+geant4units~edm4hep
   - dip@c8693f00cc422b4a15858fcd84249acaeb07b6316
   - dmtcp@3.0.0-dev                          # CMS: +geant4 is set internally to build static version of ddg4
-  - dqmgui@1.0.1_R6.24.07
+  - dqmgui@1.0.1
   - dwz@0.14-20220401
   - eigen@82dd3710dac619448f50331c1d6a35da673f764a
   - elfutils@0.186~nls
@@ -222,7 +235,7 @@ spack:
   - hls@2019.08
   - hydjet@1.9.1
   - hydjet2@2.4.3
-  - hwloc@2.8.0+cuda+nvml+libxml2~cairo~netloc+pci~rocm libs=static,shared # Temp without rocm
+  - hwloc@2.8.0+cuda+nvml+libxml2~cairo~netloc+pci~rocm libs=static,shared # temporary ~rocm
   - igprof@5.9.16
   - intel-tbb@2021.5
   - intel-vtune@2022
@@ -487,7 +500,7 @@ spack:
   - py-prettytable@3.4.1
   - py-prompt-toolkit@3.0.31
   - py-prometheus-client@0.12.0
-  - py-protobuf@4.21.7
+  - py-protobuf@4.21.7~cpp
   - py-prwlock@0.4.1
   - py-psutil@5.9.2
   - py-ptyprocess@0.7.0
@@ -566,7 +579,7 @@ spack:
   - py-tensorboard@2.10.0            # wheel
   - py-tensorboard-dataserver@0.6.1 # wheel
   - py-tensorflow@2.6.4.cms~cuda~nccl~only_python+mpi
-  - py-tensorflow-estimator@2.10
+  - py-tensorflow-estimator@2.10.0
   - py-termcolor@1.1.0
   - py-terminado@0.15.0
   - py-testpath@0.6.0
@@ -610,8 +623,8 @@ spack:
   - rdma-core@39.1
   - re2c@0.13.5
   - rivet@3.1.6 hepmc=2
-  - root@6.24.07.patches_cms_b5aa8fd+davix+fftw~fits~graphviz+gsl+math+minuit+mlp~mysql+opengl~postgres~pythia6~pythia8+python~qt4+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd+spectrum
-  - rust@1.57.0~rustfmt~analysis~clippy~src
+  - root+davix+fftw~fits~graphviz+gsl+math+minuit+mlp~mysql+opengl~postgres~pythia6~pythia8+python~qt4+root7+roofit~sqlite+ssl+tmva+tbb~vdt~veccore+x+xrootd+spectrum # NB: version defined inside recipe
+  - rust@1.57.0+rustfmt~analysis~clippy~src # rustfmt neede by tensorboard-data-server
   - scitokens-cpp@0.7.0
   - scons@4.3.0
   - scram@V3_00_53
