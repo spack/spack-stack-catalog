@@ -1,0 +1,141 @@
+#comment
+spack:
+  config:
+    target: x86_64
+    install_tree:
+      root: /opt/scorec/spack/v0181_1/install
+    modules:
+      roots:
+        lmod: /opt/scorec/spack/v0181_1/lmod
+    misc_cache: /opt/scorec/spack/v0181_1/misc_cache
+    build_stage:
+    - /space/cwsmith/spack/v0181_1/build_stage
+    allow_sgid: false
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        mpi: [mpich]
+      target: [x86_64]
+      version: []
+      buildable: true
+  include:
+  - modules.yaml
+
+  view: false
+  definitions:
+  - pumi:
+    - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran
+  - pumiSim18.0-220930beta:
+    - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@18.0-220930beta
+  specs:
+  - gcc@7.4.0 %gcc@4.8.5_rhel7 # Step 1
+  
+  #core packages # Step 2
+  - llvm %gcc@7.4.0
+  - gcc@11.2.0 %gcc@7.4.0
+  - octave %gcc@7.4.0
+  - py-pandas %gcc@7.4.0
+  - vim %gcc@7.4.0
+  - emacs %gcc@7.4.0
+  - graphviz   +libgd %gcc@7.4.0
+  - git %gcc@7.4.0
+  - tmux %gcc@7.4.0
+  - gdb %gcc@7.4.0
+  - cmake %gcc@7.4.0
+  - valgrind -mpi %gcc@7.4.0
+  - octave %gcc@7.4.0
+  - py-pandas %gcc@7.4.0
+  - py-scipy %gcc@7.4.0
+  - anaconda3 %gcc@7.4.0
+
+
+
+
+
+  
+  #packages built with gcc 11 # Step 3
+  - mpich %gcc@11.2.0
+  - mpich ~fortran %clang@15.0.2
+  - openmpi +cuda %gcc@11.2.0
+  - hypre %gcc@11.2.0
+  - fftw %gcc@11.2.0
+  - netcdf-cxx4 ~doc %gcc@11.2.0
+  - nco %gcc@11.2.0
+  - netlib-lapack %gcc@11.2.0
+  - netcdf-c +parallel-netcdf %gcc@11.2.0
+  - netcdf-fortran %gcc@11.2.0
+  - $pumi
+  - $pumiSim18.0-220930beta
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5_rhel7
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.4.0
+      paths:
+        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gcc
+        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/g++
+        f77: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gfortran
+        fc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gcc
+        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/g++
+        f77: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gfortran
+        fc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@15.0.2
+      paths:
+        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/llvm-15.0.2-i3phr252dy5qcwtkeovfy34bqbjxknsw/bin/clang
+        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/llvm-15.0.2-i3phr252dy5qcwtkeovfy34bqbjxknsw/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  mirrors:
+    E4S:
+      fetch:
+        url: https://cache.e4s.io
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: https://cache.e4s.io
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

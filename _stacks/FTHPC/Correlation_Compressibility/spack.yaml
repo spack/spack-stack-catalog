@@ -4,12 +4,11 @@ spack:
       target:
       - x86_64
   specs:
-  - qcat@master
   - libpressio+libdistributed+hdf5+mgard+python+sz+sz3+zfp+mpi+bitgrooming+digitrounding+fpzip
-    ^sz@master+stats ^mgard@robertu94+cuda cuda_arch=70 ^libstdcompat+boost
-  - py-h5py
+    ^sz@master+stats ^mgard@2021-11-12+cuda cuda_arch=70 ^libstdcompat+boost ^libdistributed@0.4.1
   - libpressio-tthresh
   - libpressio-tools+opt+tthresh+mpi
+  - py-h5py
   - r+X
   - r-rinside
   - py-matplotlib

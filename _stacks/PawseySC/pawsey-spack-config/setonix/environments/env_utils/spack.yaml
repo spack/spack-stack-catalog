@@ -16,7 +16,7 @@ spack:
     - mpifileutils@0.11+lustre
 # utilities for Nextflow Tower
     - tower-agent@0.4.5
-    - tower-cli@0.6.2
+    - tower-cli@0.7.0
 # add nano here for now
     - nano@6.3
   - licensed:

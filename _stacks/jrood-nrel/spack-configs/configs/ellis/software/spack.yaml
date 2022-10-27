@@ -1,6 +1,8 @@
 spack:
-  specs:
-    - matrix:
-      - [osu-micro-benchmarks, py-numpy, py-matplotlib, py-pandas, py-nose, py-autopep8, py-flake8, py-horovod, py-jedi, py-pip, py-pyyaml, py-seaborn, py-sphinx, py-scipy, py-tensorflow, py-torch, py-yapf, py-yt, masa, valgrind, ascent, nccmp, netcdf-fortran, amrvis dims=3, amrvis+profiling dims=2, scotch, parmetis, paraview, sensei, visit]
-      - ['%gcc@10.4.0', '%clang@15.0.2']
+  specs: [py-numpy, py-matplotlib, py-pandas, py-nose, py-autopep8, py-flake8, py-jedi, py-pip, py-pyyaml, py-seaborn, py-sphinx, py-scipy, py-yapf, py-yt, masa, valgrind, ascent, nccmp, netcdf-fortran, amrvis dims=3, amrvis+profiling dims=2, mpich, hdf5, parallel-netcdf, netcdf-c, boost, hypre, h5z-zfp, yaml-cpp]
+    #- matrix:
+      #- [py-numpy, py-matplotlib, py-pandas, py-nose, py-autopep8, py-flake8, py-jedi, py-pip, py-pyyaml, py-seaborn, py-sphinx, py-scipy, py-yapf, py-yt, masa, valgrind, ascent, nccmp, netcdf-fortran, amrvis dims=3, amrvis+profiling dims=2, mpich, hdf5, parallel-netcdf, netcdf-c, boost, hypre, h5z-zfp, yaml-cpp]
+      #- ['%gcc@10.4.0', '%clang@15.0.2']
   view: false
+  concretizer:
+    unify: false
