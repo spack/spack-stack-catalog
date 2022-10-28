@@ -1,0 +1,130 @@
+# This is a Spack Environment file.
+spack:
+#
+  definitions:
+    - compilers_core: [gcc@4.8.5]
+    - compilers_gcc: [gcc@11.2.0]
+    - compilers_intel: [intel@2021.4.0]
+    - compilers_oneapi: [oneapi@2021.4.0]
+    #- packages_compilers: [gcc, intel-oneapi-compilers]
+    - packages_compilers: [gcc]
+    #
+    - mpis: [mpich]
+    - packages_mpis: [mpich]
+    #
+    - packages_serial: [metis, libxsmm, yaml-cpp, lua, cmake, python, eigen]
+    #
+    # , netcdf-fortran, netcdf-cxx4, parallel-netcdf
+    - packages_parallel: [hdf5, netcdf-c]
+    
+  specs:
+  # compilers:
+  # Do we need this, or can we just check the "build compilers if we need them" box?
+  - matrix:
+    - [$packages_compilers]
+    - [$%compilers_core]
+  #
+  # build serial packages and MPI(s)
+  - matrix:
+    - [$packages_serial, $mpis]
+    - [$%compilers_gcc]
+  #
+  # Parallel (MPI) packages:
+  - matrix:
+    - [$packages_parallel]
+    - [$^mpis]
+    - [$%compilers_gcc]
+  #
+  view: true
+  packages:
+    gcc:
+      version: [12.2]
+      compiler: [gcc@4.8.5]
+      target: [x86_64_v3]
+    mpich:
+      version: [4.0.2]
+    python:
+      version: [3.9.13]
+    metis:
+      variants: +optimizations
+    libxsmm:
+      variants: +shared
+    yaml-cpp:
+      version: [0.7.0]
+    lua:
+      version: [5.3.5]
+    cmake:
+      version: [3.23.3]
+    hdf5:
+      variants: ~cxx~debug+fortran+hl~java+mpi+shared~szip+threadsafe
+    netcdf-c:
+      variants: +mpi
+#    parmetis:
+#    eigen:
+    all:
+      compiler: [gcc]
+      target: [x86_64_v3]
+      variants: build_type=Release +MPI
+      providers:
+        mpi: [mpich]
+      permissions:
+        read: world
+        write: user
+  modules:
+    default:
+      roots:
+        lmod: $spack/share/spack/lmod_cees
+        tcl: $spack/share/spack/modules_cees
+      enable::
+      - lmod
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+        hierarchy:
+        - mpi
+        - compiler
+        'hash_length:': 5
+        projections:
+          all: '{name}-cees-beta/{version}'
+          ^mpi: '{name}-cees-beta/{^mpi.name}-{version}'
+    prefix_inspections:
+      bin:
+      - PATH
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      include:
+      - CPATH
+  #
+  config:
+    install_missing_compilers: true
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: original
+    shared_linking: rpath
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+#
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags:
+        cflags: -mrdrnd
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
