@@ -8,3 +8,17 @@ spack:
   view: true
   concretizer:
     unify: false
+  compilers:
+  - compiler:
+      spec: gcc@11.3.0
+      paths:
+        cc: /nix/store/n95cd4q1dqzdvsiy1hmrkx9shwi3n4sh-gcc-wrapper-11.3.0/bin/gcc
+        cxx: /nix/store/n95cd4q1dqzdvsiy1hmrkx9shwi3n4sh-gcc-wrapper-11.3.0/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu22.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

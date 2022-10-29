@@ -734,10 +734,12 @@ spack:
       variants: [+external-libfabric, +ilp64]
     intel-oneapi-mkl:
       variants: [+ilp64]
+    gdb:
+      variants: [+gold, +ld, +lto, +tui, ~python]
   view:
     baseenv:
       root: /glade/u/apps/gust/22.10/opt
-      select: [tmux, ghostscript, emacs]
+      select: [tmux, ghostscript, emacs, gdb]
       link_type: symlink
       link: roots
   compilers:
@@ -999,6 +1001,10 @@ spack:
         - cray-mpich
         - cray-libsci
         - cray-fftw
+        - tmux
+        - ghostscript
+        - emacs
+        - gdb
         whitelist:
         - git
         all:
@@ -1350,3 +1356,4 @@ spack:
   - nco@5.0.1%gcc@11.2.0
   - cdo@2.0.6%gcc@11.2.0
   - ncview@2.1.8%gcc@11.2.0
+  - gdb
