@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - caliper@2.7.0
+  - adiak@0.2.1
+  - camp
+  - py-hatchet
+
+  concretizer:
+    unify: true
+
+  container:
+    images:
+      os: "ubuntu:22.04"
+      spack: develop
