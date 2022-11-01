@@ -1,0 +1,170 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - deps:
+    - kokkos +openmp +disable_deprecated_code
+    - 'googletest@1.8:'
+    - 'mpi@3.0:'
+    - 'mpi-cpp@0.3:'
+    - 'gtest-mpi@0.1:'
+    - 'optional-lite@3.2:'
+    - 'span-lite@0.5:'
+    - 'string-view-lite@1.2:'
+  - exclude_gcc_deps:
+    - benchmark@1.4.0
+  - build_deps:
+    - 'cmake@3.13:'
+    - 'doxygen@1.8:'
+  - all_deps:
+    - $build_deps
+    - matrix:
+      - [$exclude_gcc_deps]
+      - ['%intel@18.0.5']
+    - matrix:
+      - [$deps]
+      - ['%intel@18.0.5', '%gcc@6.4.0', '%gcc@7.4.0']
+  specs:
+  - $all_deps
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  compilers:
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: []
+      operating_system: rhel7
+      paths:
+        cc: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/6.4.0/bin/gcc
+        cxx: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/6.4.0/bin/g++
+        f77: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/6.4.0/bin/gfortran
+        fc: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/6.4.0/bin/gfortran
+      spec: gcc@6.4.0
+      target: x86_64
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: []
+      operating_system: rhel7
+      paths:
+        cc: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/7.4.0/bin/gcc
+        cxx: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/7.4.0/bin/g++
+        f77: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/7.4.0/bin/gfortran
+        fc: /yellow/usr/projects/hpcsoft/toss3/common/x86_64/gcc/7.4.0/bin/gfortran
+      spec: gcc@7.4.0
+      target: x86_64
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: [intel/18.0.5]
+      operating_system: rhel7
+      paths:
+        cc: /yellow/usr/projects/hpcsoft/toss3/common/intel-clusterstudio/2018.4.057/compilers_and_libraries_2018/linux/bin/intel64/icc
+        cxx: /yellow/usr/projects/hpcsoft/toss3/common/intel-clusterstudio/2018.4.057/compilers_and_libraries_2018/linux/bin/intel64/icpc
+        f77: /yellow/usr/projects/hpcsoft/toss3/common/intel-clusterstudio/2018.4.057/compilers_and_libraries_2018/linux/bin/intel64/ifort
+        fc: /yellow/usr/projects/hpcsoft/toss3/common/intel-clusterstudio/2018.4.057/compilers_and_libraries_2018/linux/bin/intel64/ifort
+      spec: intel@18.0.5
+      target: x86_64
+  packages:
+    cmake:
+      modules:
+        cmake@3.12.1 arch=linux-rhel7-x86_64: cmake/3.12.1
+        cmake@3.14.0 arch=linux-rhel7-x86_64: cmake/3.14.0
+        cmake@3.14.6 arch=linux-rhel7-x86_64: cmake/3.14.6
+      buildable: true
+      version: []
+      providers: {}
+      paths: {}
+      compiler: []
+    doxygen:
+      paths:
+        doxygen@1.8.5 arch=linux-rhel7-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+    intel-mpi:
+      modules:
+        intel-mpi@2018.4%intel@18.0.5 arch=linux-rhel7-x86_64: intel-mpi/2018.4
+        intel-mpi@2019.4%intel@18.0.5 arch=linux-rhel7-x86_64: intel-mpi/2019.4
+      buildable: false
+      version: []
+      providers: {}
+      paths: {}
+      compiler: []
+    llvm:
+      modules:
+        llvm@5.0.2 arch=linux-rhel7-x86_64: llvm/5.0.2
+        llvm@7.0.0 arch=linux-rhel7-x86_64: llvm/7.0.0
+      buildable: true
+      version: []
+      providers: {}
+      paths: {}
+      compiler: []
+    curl:
+      paths:
+        curl@7.29 arch=linux-rhel7-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+    openmpi:
+      paths:
+        openmpi@2.1.2%intel@18.0.5 arch=linux-rhel7-x86_64: /usr/projects/hpcsoft/toss3/snow/openmpi/2.1.2-intel-18.0.5
+        openmpi@2.1.2%gcc@6.4.0 arch=linux-rhel7-x86_64: /usr/projects/hpcsoft/toss3/snow/openmpi/2.1.2-gcc-6.4.0
+        openmpi@2.1.2%gcc@7.4.0 arch=linux-rhel7-x86_64: /usr/projects/hpcsoft/toss3/snow/openmpi/2.1.2-gcc-7.4.0
+      buildable: false
+      version: []
+      providers: {}
+      compiler: []
+      modules: {}
+    openssl:
+      paths:
+        openssl@1.0.2k-fips arch=linux-rhel7-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+    binutils:
+      paths:
+        binutils@2.27 arch=linux-rhel7-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+    hwloc:
+      paths:
+        hwloc@1.11.4: /usr/bin
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+    all:
+      compiler: [intel, gcc]
+      providers:
+        mpi: [openmpi, intel-mpi]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+  config: {}
+  view:
+    default:
+      root: .spack-env/view
+      projections:
+        cmake: ''
+        doxygen: ''
+        all: '{compiler.name}-{compiler.version}'

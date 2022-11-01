@@ -1,0 +1,49 @@
+spack:
+  include:
+  - config.yaml
+  - concretizer.yaml
+  - packages.yaml
+  - compilers.yaml
+  - modules.yaml
+  definitions:
+  - gcc_compilers:
+    - '%gcc@11.3.0'
+  - gcc_packages:
+    - kokkos@3.7.00 +openmp std=17
+    - caliper@2.8.0 +fortran
+    - petsc@3.14.6 +fortran+mpi
+    - hdf5@1.12.2 +cxx+fortran+hl+mpi
+    - boost@1.80.0 cxxstd=17 +atomic+chrono+context+filesystem+program_options+regex+serialization+system+timer
+    - gmsh@4.10.3 +opencascade+openmp
+#  - standalone_packages:
+#    - py-pre-commit@2.20.0
+#    - reframe@3.12.0
+#    - hpctoolkit@2022.05.15 +mpi
+  specs:
+  - matrix:
+    - [$gcc_packages]
+    - [$gcc_compilers]
+#  - $standalone_packages
+  view:
+    default:
+      root: /home/benjamin/sw/views/default
+      select: ['%gcc']
+      link_type: symlink
+      link: roots
+    full:
+      root: /home/benjamin/sw/views/full
+      projections:
+        ^mpi: '{name}/{name}-{version}-{^mpi.name}-{^mpi.version}-{compiler.name}-{compiler.version}'
+        all: '{name}/{name}-{version}-{compiler.name}-{compiler.version}'
+      link_type: symlink
+  mirrors:
+    E4S:
+      fetch:
+        url: https://cache.e4s.io
+      push:
+        url: https://cache.e4s.io
+    binary_mirror:
+      fetch:
+        url: https://binaries.spack.io/develop
+      push:
+        url: https://binaries.spack.io/develop

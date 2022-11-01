@@ -1,0 +1,101 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - kokkos +openmp +disable_deprecated_code
+  - 'googletest@1.8:'
+  - 'mpi@3.0:'
+  - 'mpi-cpp@0.3:'
+  - 'gtest-mpi@0.1:'
+  - 'optional-lite@3.2:'
+  - 'span-lite@0.5:'
+  - 'string-view-lite@1.2:'
+  - benchmark@1.4.0
+  - 'cmake@3.13:'
+  - gtest-mpi
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  compilers:
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: []
+      operating_system: rhel7
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      spec: gcc@8.3.0
+      target: x86_64
+  packages:
+    cmake:
+      modules:
+        cmake@3.12.1 arch=linux-ubuntu19.04-x86_64: cmake/3.13.4
+      buildable: true
+      version: []
+      providers: {}
+      paths: {}
+      compiler: []
+      target: []
+    curl:
+      paths:
+        curl@7.29 arch=linux-ubuntu19.04-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    openmpi:
+      paths:
+        openmpi@2.1.2 arch=linux-ubuntu19.04-x86_64: /usr
+      buildable: false
+      version: []
+      providers: {}
+      compiler: []
+      modules: {}
+      target: []
+    openssl:
+      paths:
+        openssl@1.0.2k-fips arch=linux-ubuntu19.04-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    binutils:
+      paths:
+        binutils@2.27 arch=linux-ubuntu19.04-x86_64: /usr
+      buildable: true
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    all:
+      compiler: [gcc]
+      providers:
+        mpi: [openmpi]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+      target: []
+  config: {}
+  view:
+    default:
+      root: .spack-env/view
+      projections:
+        cmake: ''
+        doxygen: ''
+        all: '{compiler.name}-{compiler.version}'
+  definitions: []
+  concretization: separately

@@ -1,0 +1,117 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+  - 'googletest@1.8:'
+  - 'mpi@3.0:'
+  - 'mpi-cpp@0.3:'
+  - 'gtest-mpi@0.1.1:'
+  - 'optional-lite@3.2:'
+  - 'span-lite@0.5:'
+  - 'string-view-lite@1.2:'
+  - 'benchmark@1.4.0:'
+  - kokkos+disable_deprecated_code+openmp
+  - 'cmake@3.13:'
+  - 'doxygen@1.8:'
+  concretization: together
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  compilers:
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: []
+      operating_system: mojave
+      paths:
+        cc: /opt/local/bin/gcc-mp-9
+        cxx: /opt/local/bin/g++-mp-9
+        f77: /opt/local/bin/gfortran-mp-9
+        fc: /opt/local/bin/gfortran-mp-9
+      spec: gcc@9.2.0
+      target: x86_64
+  - compiler:
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      modules: []
+      operating_system: mojave
+      paths:
+        cc: /opt/local/bin/clang-mp-9.0
+        cxx: /opt/local/bin/clang++-mp-9.0
+        f77: /opt/local/bin/gfortran-mp-9
+        fc: /opt/local/bin/gfortran-mp-9
+      spec: clang@9.0.0
+      target: x86_64
+  packages:
+    cmake:
+      paths:
+        cmake@3.16.0: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    doxygen:
+      paths:
+        doxygen@1.8.16: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    curl:
+      paths:
+        curl@7.67.0: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    openmpi:
+      paths:
+        openmpi@4.0.1: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      compiler: []
+      modules: {}
+      target: []
+    openssl:
+      paths:
+        openssl@1.1.1d: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    hwloc:
+      paths:
+        hwloc@1.11.8: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    all:
+      compiler: [clang@9.0.0, gcc@9.2.0]
+      providers:
+        mpi: [openmpi]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+      target: []
+  config: {}
+  view: .spack-env/view
+  definitions: []

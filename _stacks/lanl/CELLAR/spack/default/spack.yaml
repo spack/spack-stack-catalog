@@ -1,0 +1,19 @@
+spack:
+  specs:
+  - kokkos
+  - 'googletest@1.8:'
+  - 'mpi@3.0:'
+  - 'mpi-cpp@0.3: ^mpi@3.0:'
+  - 'gtest-mpi@0.1:'
+  - benchmark@1.4.0
+  - 'optional-lite@3.2:'
+  - 'span-lite@0.5:'
+  - 'string-view-lite@1.2:'
+  config: {}
+  mirrors: {}
+  modules:
+    enable: []
+  packages: {}
+  repos: []
+  upstreams: {}
+  definitions: []
