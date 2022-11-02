@@ -4,8 +4,34 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [hwloc, python@3.10, py-pip ^python@3.10, py-gitpython ^python@3.10, py-pyyaml
-      ^python@3.10, py-requests ^python@3.10, py-rich ^python@3.10]
+  specs:
+  - hwloc
+  - util-linux
+  - coreutils
+  - time
+  - python@3.10
+  - py-pip
+  - py-gitpython
+  - py-pyyaml
+  - py-requests
+  - py-rich
+  - snakemake
+  - nextflow
+  - py-tomli@2.0.1
   view: true
   concretizer:
     unify: when_possible
+  compilers:
+  - compiler:
+      spec: gcc@11.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu22.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

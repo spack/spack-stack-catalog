@@ -12,4 +12,5 @@ spack:
   - fmt
   - cppunit
   - tclap
-  concretization: together
+  concretizer:
+    unify: true
