@@ -16,8 +16,17 @@ spack:
   - py-requests
   - py-rich
   - snakemake
-  - nextflow
   - py-tomli@2.0.1
+  - nextflow
+  - java
+  - py-tqdm
+  - py-parsl
+  - py-xxhash
+  - py-pygithub
+  - py-charmonium-time-block patches=2ca26cf
+  - py-charmonium-freeze
+  - py-mypy
+  - py-pytest
   view: true
   concretizer:
     unify: when_possible
@@ -35,3 +44,5 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
+  repos:
+  - /home/sagrays/wf-reg-test/spack_repo

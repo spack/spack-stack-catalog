@@ -1,0 +1,14 @@
+spack:
+  specs: [acclapack-tests@master+rocm %gcc@11.3.0 ^intel-mkl threads=openmp]
+  develop:
+    acclapack-tests:
+      spec: acclapack-tests@master
+      path: ../../
+  view: true
+  packages:
+    all:
+      variants: amdgpu_target=gfx90a amdgpu_target_sram_ecc=gfx90a
+  concretizer:
+    unify: false
+  repos:
+  - ../../spack-repo
