@@ -24,7 +24,7 @@ spack:
   - py-xxhash
   - py-pygithub
   - py-charmonium-time-block patches=2ca26cf
-  - py-charmonium-freeze
+  - py-charmonium-freeze@0.6.0
   - py-mypy
   - py-pytest
   view: true

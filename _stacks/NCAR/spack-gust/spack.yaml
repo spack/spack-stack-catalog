@@ -1357,3 +1357,4 @@ spack:
   - cdo@2.0.6%gcc@11.2.0
   - ncview@2.1.8%gcc@11.2.0
   - gdb
+  - lmod@8.7.14

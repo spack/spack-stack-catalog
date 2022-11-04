@@ -34,21 +34,21 @@ spack:
   specs:
   - matrix:
     - [$hdf5-set]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
     - [api=v110, api=v18, api=v16]
     - [+mpi, ~mpi+cxx]
     - [+hl +fortran +szip build_type=Release]
   - matrix:
     - [hdf5@1.12.1]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
     - [api=v112]
     - [+mpi, ~mpi+cxx]
     - [+hl +fortran +szip build_type=Release]
   - matrix:
     - [$adios-set]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
     - [+python, ~python]
     - [+hdf5]
@@ -57,6 +57,6 @@ spack:
     #  ^hdf5@1.12.1 +hl +fortran +szip api=v18 build_type=Release]
   - matrix:
     - [$netcdf-set]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
   view: false

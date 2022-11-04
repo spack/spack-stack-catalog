@@ -1,0 +1,76 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  specs:
+    - "googletest@1.8:"
+    - "mpi@3.0:"
+  mirrors: {}
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  compilers:
+    - compiler:
+        environment: {}
+        extra_rpaths: []
+        flags: {}
+        modules: []
+        operating_system: mojave
+        paths:
+          cc: /opt/local/bin/gcc-mp-8
+          cxx: /opt/local/bin/g++-mp-8
+          f77: /opt/local/bin/gfortran-mp-8
+          fc: /opt/local/bin/gfortran-mp-8
+        spec: gcc@8.3.0
+        target: x86_64
+  packages:
+    cmake:
+      paths:
+        cmake@3.15.3: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    doxygen:
+      paths:
+        doxygen@1.8.15: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    openmpi:
+      paths:
+        openmpi@4.0.1: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      compiler: []
+      modules: {}
+      target: []
+    openssl:
+      paths:
+        openssl@1.0.2s: /opt/local
+      buildable: false
+      version: []
+      providers: {}
+      modules: {}
+      compiler: []
+      target: []
+    all:
+      compiler: [gcc@8.3.0]
+      providers:
+        mpi: [openmpi]
+      buildable: true
+      version: []
+      paths: {}
+      modules: {}
+      target: []
+  config: {}
+  view: .spack-env/view
+  definitions: []

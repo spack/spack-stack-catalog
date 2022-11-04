@@ -2,7 +2,6 @@ spack:
 # note: preferred versions are set in packages.yaml
   definitions:
   - packages:
-    
 # py-pip and py-setuptools: installed in env_langs
 # snakemake: docs recommend to install with conda
     - ffmpeg@4.4 +avresample
@@ -10,7 +9,7 @@ spack:
     - llvm@14.0.0 ~omp_as_runtime ~clang ~compiler-rt ~polly ~gold
     - nextflow@22.04.3
     - parallel@20210922
-    - reframe@3.6.1
+    - reframe@3.10.1
     - reframe@3.4
     - singularity@3.8.6
     - mpifileutils@0.11+lustre
@@ -24,15 +23,15 @@ spack:
   specs:
   - matrix:
     - [cmake@3.21.4]
-    - ['%gcc@11.2.0', '%cce@13.0.2', '%aocc@3.2.0']
+    - ['%gcc@12.1.0', '%cce@14.0.3', '%aocc@3.2.0']
     - [target=zen3]
   - matrix:
     - [$packages]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
 # TODO: build licensed software
   # - matrix:
   #   - [$licensed]
-  #   - ['%gcc@11.2.0']
+  #   - ['%gcc@12.1.0']
   #   - [target=zen3]
   view: false

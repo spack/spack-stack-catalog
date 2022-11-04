@@ -8,6 +8,6 @@ spack:
   specs:
   - matrix:
     - [$packages]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
   view: false

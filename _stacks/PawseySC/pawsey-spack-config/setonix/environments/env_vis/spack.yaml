@@ -1,7 +1,6 @@
 spack:
   definitions:
   - packages:
-    
 # igv and vmd on vis nodes only
     # for visti@ issue with dependencies installation, py-mako, py-markupsafe,mesa18 which depends on llvm 
     # NotReadyYet:    - paraview@5.9.1 +adios2 +hdf5 +osmesa +python3 +qt #llvm@12.0.1 installation is failing
@@ -9,6 +8,6 @@ spack:
   specs:
   - matrix:
     - [$packages]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
   view: false

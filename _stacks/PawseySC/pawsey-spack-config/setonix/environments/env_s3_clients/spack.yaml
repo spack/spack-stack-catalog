@@ -10,17 +10,19 @@ spack:
     - py-boto3@1.18.12
   - s3-go-set:
     - rclone@1.58.1
+    - rclone@1.59.2
     # later versions of minio require further updates and also 
     # a recipe for a new go package it seems 
     - miniocli@2022-02-02T02-03-24Z
+    - miniocli@2022-10-29T10-09-23Z
   # add package specs to the `specs` list
   specs:
   - matrix:
     - [$s3-python-set]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen2, target=zen3]
   - matrix:
     - [$s3-go-set]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen2, target=zen3]
   view: false

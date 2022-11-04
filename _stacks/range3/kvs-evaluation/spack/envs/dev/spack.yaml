@@ -1,0 +1,108 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: []
+  view: true
+  concretizer:
+    unify: true
+  compilers:
+  - compiler:
+      spec: clang@11.0.1
+      paths:
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: debian11
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.2.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran-10
+        fc: /usr/bin/gfortran-10
+      flags: {}
+      operating_system: debian11
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    coreutils:
+      externals:
+      - spec: coreutils@8.32
+        prefix: /usr
+    cmake:
+      externals:
+      - spec: cmake@3.18.4
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@4.3
+        prefix: /usr
+    iwyu:
+      externals:
+      - spec: iwyu@0.15
+        prefix: /usr
+    curl:
+      externals:
+      - spec: curl@7.74.0+gssapi+ldap+nghttp2
+        prefix: /usr
+    binutils:
+      externals:
+      - spec: binutils@2.35.2
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.30.2~tcltk
+        prefix: /usr
+      - spec: git@2.38.1+tcltk
+        prefix: /usr/local
+    groff:
+      externals:
+      - spec: groff@1.22.4
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.3
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.1.1n
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.7
+        prefix: /usr
+    ninja:
+      externals:
+      - spec: ninja@1.10.1
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.8.0
+        prefix: /usr

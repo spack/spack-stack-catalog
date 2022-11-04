@@ -8,14 +8,13 @@ spack:
       buildable: true
   definitions:
   - packages:
-    
 #comsol: no recipe, manual install?
     - ansys-fluids@2022R1
     - ansys-structures@2022R1
     - ansys-fluidstructures@2022R1
 # charris: roms recipe in 0.17, user installs, see roms.yaml
 # charris: wrf recipe, user installs, see wrf.yaml
-    - amber@20 +openmp ^hdf@4.2.15 ~external-xdr
+    - amber@20 +openmp ^hdf@4.2.15 +external-xdr
     - cpmd@4.3 +mpi +omp
     - cp2k@8.2 +plumed ^plumed@2.7.2
     - gromacs@2020.4 +double +lapack +plumed build_type=Release ^plumed@2.6.6
@@ -47,6 +46,7 @@ spack:
   specs:
   - matrix:
     - [$packages]
-    - ['%gcc@11.2.0']
+    - ['%gcc@12.1.0']
     - [target=zen3]
+  - amber
   view: false
