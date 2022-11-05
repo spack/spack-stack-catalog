@@ -10,6 +10,12 @@ spack:
         hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
         netcdf-c^hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
         eccodes^hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
+        netcdf-c^mpi: netcdf/{version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
+        netcdf-fortran^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
+        netcdf-cxx4^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
+        netcdf-c: netcdf/{version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
+        netcdf-fortran: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
+        netcdf-cxx4: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
         all: '{name}/{version}/{compiler.name}/{compiler.version}'
         ^mpi: '{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}'
     build_jobs: 8
@@ -21,6 +27,99 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/gust/22.10/envs/build/templates/modules
   packages:
+    zstd:
+      externals:
+      - spec: zstd@1.5.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/zstd/1.5.2/gcc/7.5.0
+      buildable: false
+    arm-forge:
+      externals:
+      - spec: arm-forge@22.1.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/arm-forge/22.1.1/gcc/7.5.0
+      buildable: false
+    gawk:
+      externals:
+      - spec: gawk@4.2.1
+        prefix: /usr
+    gcc:
+      externals:
+      - spec: gcc@7.5.0 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+      compiler: [gcc@7.5.0]
+      variants: [+piclibs, 'languages=c,c++,fortran,go']
+    groff:
+      externals:
+      - spec: groff@1.22.3
+        prefix: /usr
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.7
+        prefix: /usr
+      - spec: libfuse@3.6.1
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+    rsync:
+      externals:
+      - spec: rsync@3.1.3
+        prefix: /usr
+    bash:
+      externals:
+      - spec: bash@4.4.23
+        prefix: /usr
+      buildable: false
+    cpio:
+      externals:
+      - spec: cpio@2.12
+        prefix: /usr
+      buildable: false
+    diffutils:
+      externals:
+      - spec: diffutils@3.6
+        prefix: /usr
+      buildable: false
+    findutils:
+      externals:
+      - spec: findutils@4.8.0
+        prefix: /usr
+      buildable: false
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+      buildable: false
+    lustre:
+      externals:
+      - spec: lustre@2.12.6.2_cray_6_g44c857f
+        prefix: /usr
+      buildable: false
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+      buildable: false
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+      buildable: false
+    tar:
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+      buildable: false
+    ghostscript:
+      externals:
+      - spec: ghostscript@9.52
+        prefix: /usr
+      buildable: false
     libfabric:
       externals:
       - spec: libfabric@1.15.0.0
@@ -498,89 +597,6 @@ spack:
       externals:
       - spec: antlr@2.7.7
         prefix: /glade/u/apps/common/22.08/spack/opt/spack/antlr/2.7.7/gcc/7.5.0
-      buildable: false
-    gawk:
-      externals:
-      - spec: gawk@4.2.1
-        prefix: /usr
-    gcc:
-      externals:
-      - spec: gcc@7.5.0 languages=c,c++,fortran
-        prefix: /usr
-        extra_attributes:
-          compilers:
-            c: /usr/bin/gcc
-            cxx: /usr/bin/g++
-            fortran: /usr/bin/gfortran
-      compiler: [gcc@7.5.0]
-      variants: [+piclibs, 'languages=c,c++,fortran,go']
-    groff:
-      externals:
-      - spec: groff@1.22.3
-        prefix: /usr
-    libfuse:
-      externals:
-      - spec: libfuse@2.9.7
-        prefix: /usr
-      - spec: libfuse@3.6.1
-        prefix: /usr
-    openssh:
-      externals:
-      - spec: openssh@8.4p1
-        prefix: /usr
-    rsync:
-      externals:
-      - spec: rsync@3.1.3
-        prefix: /usr
-    bash:
-      externals:
-      - spec: bash@4.4.23
-        prefix: /usr
-      buildable: false
-    cpio:
-      externals:
-      - spec: cpio@2.12
-        prefix: /usr
-      buildable: false
-    diffutils:
-      externals:
-      - spec: diffutils@3.6
-        prefix: /usr
-      buildable: false
-    findutils:
-      externals:
-      - spec: findutils@4.8.0
-        prefix: /usr
-      buildable: false
-    gmake:
-      externals:
-      - spec: gmake@4.2.1
-        prefix: /usr
-      buildable: false
-    lustre:
-      externals:
-      - spec: lustre@2.12.6.2_cray_6_g44c857f
-        prefix: /usr
-      buildable: false
-    m4:
-      externals:
-      - spec: m4@1.4.18
-        prefix: /usr
-      buildable: false
-    pkg-config:
-      externals:
-      - spec: pkg-config@0.29.2
-        prefix: /usr
-      buildable: false
-    tar:
-      externals:
-      - spec: tar@1.30
-        prefix: /usr
-      buildable: false
-    ghostscript:
-      externals:
-      - spec: ghostscript@9.52
-        prefix: /usr
       buildable: false
     all:
       'compiler:': [gcc@7.5.0, gcc, cce, nvhpc, oneapi]
@@ -1358,3 +1374,49 @@ spack:
   - ncview@2.1.8%gcc@11.2.0
   - gdb
   - lmod@8.7.14
+  - arm-forge@22.1.1
+  - netcdf@4.9.0%gcc@12.1.0
+  - netcdf@4.9.0%gcc@11.2.0
+  - netcdf@4.9.0%gcc@10.3.0
+  - netcdf@4.9.0%nvhpc@21.3
+  - netcdf@4.9.0%nvhpc@22.2
+  - netcdf@4.9.0%nvhpc@22.7
+  - netcdf@4.9.0%oneapi@2022.1.0
+  - netcdf@4.9.0%intel@2021.6.0
+  - netcdf@4.9.0%cce@14.0.3
+  - netcdf@4.9.0%gcc@12.1.0+mpi ^cray-mpich@8.1.19%gcc@12.1.0
+  - netcdf@4.9.0%gcc@12.1.0+mpi ^openmpi@4.1.4%gcc@12.1.0
+  - netcdf@4.9.0%gcc@11.2.0+mpi ^cray-mpich@8.1.19%gcc@11.2.0
+  - netcdf@4.9.0%gcc@11.2.0+mpi ^openmpi@4.1.4%gcc@11.2.0
+  - netcdf@4.9.0%gcc@10.3.0+mpi ^cray-mpich@8.1.19%gcc@10.3.0
+  - netcdf@4.9.0%gcc@10.3.0+mpi ^openmpi@4.1.4%gcc@10.3.0
+  - netcdf@4.9.0%nvhpc@21.3+mpi ^cray-mpich@8.1.19%nvhpc@21.3
+  - netcdf@4.9.0%nvhpc@21.3+mpi ^openmpi@4.1.4%nvhpc@21.3
+  - netcdf@4.9.0%nvhpc@22.2+mpi ^cray-mpich@8.1.19%nvhpc@22.2
+  - netcdf@4.9.0%nvhpc@22.2+mpi ^openmpi@4.1.4%nvhpc@22.2
+  - netcdf@4.9.0%nvhpc@22.7+mpi ^cray-mpich@8.1.19%nvhpc@22.7
+  - netcdf@4.9.0%nvhpc@22.7+mpi ^openmpi@4.1.4%nvhpc@22.7
+  - netcdf@4.9.0%oneapi@2022.1.0+mpi ^cray-mpich@8.1.19%oneapi@2022.1.0
+  - netcdf@4.9.0%oneapi@2022.1.0+mpi ^openmpi@4.1.4%oneapi@2022.1.0
+  - netcdf@4.9.0%intel@2021.6.0+mpi ^cray-mpich@8.1.19%intel@2021.6.0
+  - netcdf@4.9.0%intel@2021.6.0+mpi ^openmpi@4.1.4%intel@2021.6.0
+  - netcdf@4.9.0%cce@14.0.3+mpi ^cray-mpich@8.1.19%cce@14.0.3
+  - netcdf@4.9.0%cce@14.0.3+mpi ^openmpi@4.1.4%cce@14.0.3
+  - fftw@3.3.10%gcc@12.1.0+mpi ^cray-mpich@8.1.19%gcc@12.1.0
+  - fftw@3.3.10%gcc@12.1.0+mpi ^openmpi@4.1.4%gcc@12.1.0
+  - fftw@3.3.10%gcc@11.2.0+mpi ^cray-mpich@8.1.19%gcc@11.2.0
+  - fftw@3.3.10%gcc@11.2.0+mpi ^openmpi@4.1.4%gcc@11.2.0
+  - fftw@3.3.10%gcc@10.3.0+mpi ^cray-mpich@8.1.19%gcc@10.3.0
+  - fftw@3.3.10%gcc@10.3.0+mpi ^openmpi@4.1.4%gcc@10.3.0
+  - fftw@3.3.10%nvhpc@21.3+mpi ^cray-mpich@8.1.19%nvhpc@21.3
+  - fftw@3.3.10%nvhpc@21.3+mpi ^openmpi@4.1.4%nvhpc@21.3
+  - fftw@3.3.10%nvhpc@22.2+mpi ^cray-mpich@8.1.19%nvhpc@22.2
+  - fftw@3.3.10%nvhpc@22.2+mpi ^openmpi@4.1.4%nvhpc@22.2
+  - fftw@3.3.10%nvhpc@22.7+mpi ^cray-mpich@8.1.19%nvhpc@22.7
+  - fftw@3.3.10%nvhpc@22.7+mpi ^openmpi@4.1.4%nvhpc@22.7
+  - fftw@3.3.10%oneapi@2022.1.0+mpi ^cray-mpich@8.1.19%oneapi@2022.1.0
+  - fftw@3.3.10%oneapi@2022.1.0+mpi ^openmpi@4.1.4%oneapi@2022.1.0
+  - fftw@3.3.10%intel@2021.6.0+mpi ^cray-mpich@8.1.19%intel@2021.6.0
+  - fftw@3.3.10%intel@2021.6.0+mpi ^openmpi@4.1.4%intel@2021.6.0
+  - fftw@3.3.10%cce@14.0.3+mpi ^cray-mpich@8.1.19%cce@14.0.3
+  - fftw@3.3.10%cce@14.0.3+mpi ^openmpi@4.1.4%cce@14.0.3
