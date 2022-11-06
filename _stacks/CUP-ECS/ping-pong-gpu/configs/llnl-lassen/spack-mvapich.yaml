@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - mvapich2-gdr %gcc@7.3.1
+  - cuda @11.6.1 %gcc@7.3.1
+  - cmake
+  - kokkos std=14 +cuda +cuda_lambda cuda_arch=70 +wrapper %gcc@7.3.1
+  concretizer:
+    unify: true
+  view: true

@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - spectrum-mpi
+  #- mvapich2
+  - kokkos std=14 +cuda +cuda_lambda cuda_arch=70 +wrapper %xl
+  - cuda @11.1.1 
+  concretization: together
+  view: true

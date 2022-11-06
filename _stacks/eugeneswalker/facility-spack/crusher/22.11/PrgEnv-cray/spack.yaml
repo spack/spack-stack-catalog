@@ -49,6 +49,7 @@ spack:
       modules:
       - PrgEnv-cray/8.3.3
       - cce/14.0.2
+      - xpmem
       - craype-x86-trento
       - libfabric
       - cray-pmi/6.1.3
@@ -56,6 +57,7 @@ spack:
         set:
           RFE_811452_DISABLE: '1'
         append_path:
+          PKG_CONFIG_PATH: /opt/cray/xpmem/2.4.4-2.3_11.2__gff0e1d9.shasta/lib64/pkgconfig
           LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
         prepend_path:
           LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.3/lib
@@ -109,6 +111,7 @@ spack:
     ncurses:
       require: "@6.3 +termlib"
     openblas:
+      require: "@0.3.20"
       variants: threads=openmp
     python:
       require: "@3.7.15"

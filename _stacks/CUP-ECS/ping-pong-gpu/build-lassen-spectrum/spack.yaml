@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - spectrum-mpi %gcc@8.3.1
+  - cuda %gcc@8.3.1
+  - cmake
+  - kokkos std=14 +cuda +cuda_lambda cuda_arch=70 +wrapper %gcc@8.3.1
+  concretizer:
+    unify: true
+  view: true

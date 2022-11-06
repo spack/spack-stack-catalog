@@ -1,0 +1,15 @@
+spack:
+  specs:
+  
+  # For the things that are cuda-dependent, we matrix the compiler so we can 
+  # force exactly the compiler we want.
+  - matrix:
+    - - cuda@11.6.2
+      - ucx +ib_hw_tm +gdrcopy
+      - openmpi@4.1.4 +cuda cuda_arch=80 fabrics=ucx
+      - kokkos std=17 +hwloc +cuda +cuda_lambda +wrapper cuda_arch=80
+    - ['%gcc@11.2.0']
+  - cmake
+  concretizer:
+    unify: true
+  view: true

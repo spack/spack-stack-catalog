@@ -1,0 +1,21 @@
+spack:
+  specs:
+  - spectrum-mpi
+  #- mvapich2
+
+  #- mvapich2:
+  #    externals:
+  #    - spec: mvapich2@2021.05.28-cuda-11.1.1
+  #      modules:
+  #      - mvapich2/2021.05.28-cuda-11.1.1
+  #    - spec: mvapich2@2021.05.28-cuda-11.0.2
+  #      modules:
+  #      - mvapich2/2021.05.28-cuda-11.0.2
+  #    - spec: mvapich2@2021.05.28-cuda-10.1.243
+  #      modules:
+  #      - mvapich2/2021.05.28-cuda-10.1.243
+  #    buildable: False 
+  - kokkos std=14 +cuda +cuda_lambda cuda_arch=70 +wrapper
+  - cuda @11.1.1
+  concretization: together
+  view: true
