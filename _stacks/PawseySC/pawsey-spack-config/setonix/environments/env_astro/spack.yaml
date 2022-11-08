@@ -15,16 +15,15 @@ spack:
   # casacore variants
   # try running spack install --no-checksum 
   - casacore-legacy:
-    - casacore@3.2.1 +python build_type=Release # no checksum for this release 
-
+    - casacore@3.2.1 +python build_type=Release ^python@3.9.15 # no checksum for this release 
   - casacore-set:
     - casacore@3.3.0
     - casacore@3.4.0
-
   - astro-util-set:
     - cfitsio
     - wcslib
-
+    - pgplot
+    - wcstools
   - askap-util-set:
     - cppzmq
     - libzmq
@@ -36,18 +35,15 @@ spack:
     - mcpp
     - xerces-c
     - subversion
-
   - mwa-util-set:
-    - wcstools
     - chgcentre build_type=Release ^casacore ~python build_type=Release
+  - mwa-util-set-with-python:
     - wsclean@3.0 +mpi +idg +everybeam build_type=Release ^chgcentre build_type=Release
       ^casacore ~python build_type=Release
     - wsclean@3.0 ~mpi +idg +everybeam build_type=Release ^chgcentre build_type=Release
       ^casacore ~python build_type=Release
     - wsclean@2.10.1 build_type=Release ^chgcentre build_type=Release ^casacore ~python
       build_type=Release
-    - pgplot
-
   # TODO add versions 
   - python-astro-set:
     - py-funcsigs
@@ -55,29 +51,36 @@ spack:
     - py-astropy@5.1+extras
     - py-healpy ^py-astropy@4.2.1+extras
     - py-emcee
-
   # add package specs to the `specs` list
   specs:
   - matrix:
     - [$casacore-set]
     - ['%gcc@12.1.0']
     - [target=zen3]
-    - [+python build_type=Release]
+    - [+python build_type=Release ^python@3.9.15]
     - [+openmp, ~openmp]
     - [~adios2 ~hdf5, +adios2 +hdf5 ^adios2@2.7.1 +hdf5 ^hdf5@1.12.1 +hl +fortran
         build_type=Release +szip api=v112]
-#    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
     - [$casacore-legacy]
     - ['%gcc@12.1.0']
     - [target=zen3]
-#    - ['^fftw@3.3.9 +openmp precision=float,double,long_double']
   - matrix:
-    - [$astro-util-set, $askap-util-set, $mwa-util-set]
+    - [$astro-util-set, $askap-util-set]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  - matrix:
+    - [$mwa-util-set-with-python]
+    - [^python@3.9.15]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  - matrix:
+    - [$mwa-util-set]
     - ['%gcc@12.1.0']
     - [target=zen3]
   - matrix:
     - [$python-astro-set]
+    - [^python@3.9.15]
     - ['%gcc@12.1.0']
     - [target=zen3]
   view: false

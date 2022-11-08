@@ -19,6 +19,7 @@ spack:
   specs:
   - matrix:
     - [$s3-python-set]
+    - [^python@3.9.15]
     - ['%gcc@12.1.0']
     - [target=zen2, target=zen3]
   - matrix:

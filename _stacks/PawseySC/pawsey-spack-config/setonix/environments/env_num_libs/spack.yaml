@@ -19,15 +19,9 @@ spack:
     - kokkos@3.4.01 +hwloc +memkind +numactl +hpx +hpx_async_dispatch +tuning ~openmp
       cxxstd=14 build_type=Release ^hpx@1.6.0 +async_mpi malloc=jemalloc max_cpu_count=128
       networking=mpi build_type=Release
-  - numerical:
-    - openblas@0.3.15 threads=openmp
-    - netlib-lapack@3.9.1 build_type=Release
-    - netlib-scalapack@2.1.0
-    - blaspp@2021.04.01 ~cuda build_type=Release ^openblas
-    - eigen@3.4.0 build_type=Release # charris: build ok on Joey 2021-12-16
-    - fftw@2.1.5 +openmp precision=float,double # fftw 2 does not support long doubles
-    - fftw@3.3.9 +openmp precision=float,double,long_double
-    - gsl@2.6
+  # because of odd concretization of packages with python dependences defaulting to 3.9.9 and not the 
+  # version specified in the packages.yaml, separate packages between those with python dep and those without
+  - numerical-with-python:
     # updates to lapack/blas for new hardware like GPUs  
     # TODO: no need for magma in phase 1 as it is GPU only 
     #- magma@2.5.4 
@@ -50,27 +44,48 @@ spack:
     # for the moment trilinos disabled 
     #- petsc@3.15.5 +fftw +trilinos +hwloc +openmp +complex ~cuda
     - petsc@3.15.5 +fftw ~trilinos +hwloc +openmp +complex ~cuda
-  - amd:
+  - numerical:
+    - openblas@0.3.15 threads=openmp
+    - netlib-lapack@3.9.1 build_type=Release
+    - netlib-scalapack@2.1.0
+    - blaspp@2021.04.01 ~cuda build_type=Release ^openblas
+    - eigen@3.4.0 build_type=Release # charris: build ok on Joey 2021-12-16
+    - fftw@2.1.5 +openmp precision=float,double # fftw 2 does not support long doubles
+    - fftw@3.3.9 +openmp precision=float,double,long_double
+    - gsl@2.6
+  - amd-with-python:
     # AMD AOCL
     - amdblis@3.0 threads=openmp
+    - amdblis@3.0
     # variant below useful for at least one PaCER
-    - amdblis@3.0 threads=openmp ~suphandling
-    - amdlibflame@3.0 threads=openmp
+    - amdlibflame@3.0
     - amdscalapack@3.0 build_type=Release
     - aocl-sparse@3.0 build_type=Release
+  - amd:
     - amdfftw@3.0 precision=float,double,long_double
-    - amdlibm@3.0
   specs:
   - matrix:
     - [$parallel]
     - ['%gcc@12.1.0']
+    - [^python@3.9.15]
     - [target=zen3]
   - matrix:
     - [$numerical]
     - ['%gcc@12.1.0']
     - [target=zen3]
   - matrix:
-    - [$amd]
-    - ['%gcc@12.1.0', '%aocc@3.2.0']
+    - [$numerical-with-python]
+    - ['%gcc@12.1.0']
+    - [^python@3.9.15]
     - [target=zen3]
+# for now don't build amd math libraries
+  #- matrix:
+  #  - [$amd]
+  #  - ['%gcc@12.1.0', '%cce@14.0.3', '%aocc@3.2.0']
+  #  - [target=zen3]
+  #- matrix:
+  #  - [$amd-with-python]
+  #  - ['%gcc@12.1.0', '%cce@14.0.3', '%aocc@3.2.0']
+  #  - [^python@3.9.15]
+  #  - [target=zen3]
   view: false

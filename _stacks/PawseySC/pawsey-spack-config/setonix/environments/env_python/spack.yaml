@@ -21,12 +21,10 @@ spack:
     - py-plotly@5.2.2
     - py-scikit-learn@1.0.1
     - py-scipy@1.7.1
-
   # need these here, too, for the python collection
   - utilities:
     - py-pip@22.2.2
     - py-setuptools@57.4.0
-
   specs:
   - matrix:
     - [python@3.9.15]

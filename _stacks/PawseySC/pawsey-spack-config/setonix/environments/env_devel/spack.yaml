@@ -7,8 +7,7 @@ spack:
     - caliper@2.7.0 +fortran build_type=Release
     #- hpctoolkit@2021.10.15 +mpi ^dyninst@11.0.1 #issues with elfutils version on setonix and possibly binutils
     - hpcviewer@2021.10
-    - py-hatchet@1.3.1a0
-
+    - py-hatchet@1.3.1a0 ^python@3.9.15
   specs:
   - matrix:
     - [$packages]

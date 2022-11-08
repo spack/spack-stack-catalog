@@ -1,0 +1,159 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  packages:
+    all:
+      compiler: [gcc@11.1.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    tbb:
+      require: intel-tbb
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    openblas:
+      variants: threads=openmp
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+    mpich:
+      require: '@4.0.2 ~wrapperrpath ~hwloc'
+    ncurses:
+      require: '@6.3 +termlib'
+    python:
+      require: '@3.7.15'
+
+  specs:
+  # CPU
+  - adios
+  - alquimia
+  - aml
+  - amrex
+  - arborx
+  - archer
+  - argobots
+  - axom
+  - bolt
+  - bricks
+  - butterflypack
+  - cabana
+  - caliper
+  - chai ~benchmarks ~tests
+  - charliecloud
+  - conduit
+  - datatransferkit
+  - dyninst
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
+  - exaworks
+  - flecsi
+  - flit
+  - flux-core
+  - fortrilinos
+  - gasnet
+  - ginkgo
+  - globalarrays
+  - gmp
+  - gotcha
+  - gptune
+  - h5bench
+  - heffte +fftw
+  - hpctoolkit
+  - hpx networking=mpi
+  - hypre
+  - kokkos +openmp
+  - kokkos-kernels +openmp
+  - lammps
+  - legion
+  - libnrm
+  - libquo
+  - libunwind
+  - mercury
+  - metall
+  - mfem
+  - mpark-variant
+  - mpifileutils ~xattr
+  - nccmp
+  - nco
+  - netlib-scalapack
+  - nrm
+  - nvhpc
+  - omega-h
+  - openmpi
+  - openpmd-api
+  - papi
+  - papyrus
+  - parsec ~cuda
+  - pdt
+  - petsc
+  - phist
+  - plasma
+  - plumed
+  - precice
+  - pumi
+  - py-jupyterhub
+  - py-libensemble
+  - py-petsc4py
+  - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
+  - py-warpx ^warpx dims=rz
+  - qthreads scheduler=distrib
+  - quantum-espresso
+  - raja
+  - scr
+  - slate ~cuda
+  - slepc
+  - stc
+  - strumpack ~slate
+  - sundials
+  - superlu
+  - superlu-dist
+  - swig
+  - swig@4.0.2-fortran
+  - tasmanian
+  - tau +mpi +python
+  - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+    +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+    +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+    +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  - turbine
+  - umap
+  - umpire
+  - upcxx
+  - variorum
+  - wannier90
+
+  # IN ECP-DATA-VIS-SDK
+  # - adios2
+  # - ascent
+  # - darshan-runtime
+  # - darshan-util
+  # - faodel
+  # - hdf5 +fortran +hl +shared
+  # - hdf5-vol-async
+  # - parallel-netcdf
+  # - py-cinemasci
+  # - sz
+  # - unifyfs
+  # - veloc
+  # - vtk-m
+  # - zfp

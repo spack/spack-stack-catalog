@@ -2,20 +2,23 @@ spack:
 # note: preferred versions are set in packages.yaml
   definitions:
   - packages:
+    
 # py-pip and py-setuptools: installed in env_langs
 # snakemake: docs recommend to install with conda
     - ffmpeg@4.4 +avresample
-    - gnuplot@5.4.2 +X  #^gettext@0.21
-    - llvm@14.0.0 ~omp_as_runtime ~clang ~compiler-rt ~polly ~gold
+    - gnuplot@5.4.2 +X  ^python@3.9.15 #^gettext@0.21
+    - llvm@14.0.0 ~omp_as_runtime ~clang ~compiler-rt ~polly ~gold ^python@3.9.15
     - nextflow@22.04.3
     - parallel@20210922
-    - reframe@3.10.1
-    - reframe@3.4
+    - reframe@3.10.1 ^python@3.9.15
+    - reframe@3.4 ^python@3.9.15
     - singularity@3.8.6
     - mpifileutils@0.11+lustre
+    
 # utilities for Nextflow Tower
     - tower-agent@0.4.5
     - tower-cli@0.7.0
+    
 # add nano here for now
     - nano@6.3
   - licensed:

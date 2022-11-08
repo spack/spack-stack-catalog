@@ -1,0 +1,61 @@
+spack:
+  specs:
+  - py-fenics-dolfinx@main%gcc@11.3.0 ^intel-oneapi-mpi@2021.6.0%gcc@11.3.0 ^petsc@main
+  - re2c
+  view: true
+  develop:
+    fenics-basix:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/basix
+      spec: fenics-basix@main
+    py-fenics-basix:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/basix
+      spec: py-fenics-basix@main
+    fenics-dolfinx:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/dolfinx
+      spec: fenics-dolfinx@main
+    py-fenics-dolfinx:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/dolfinx
+      spec: py-fenics-dolfinx@main
+    py-fenics-ufl:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/ufl
+      spec: py-fenics-ufl@main
+    fenics-ufcx:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/ffcx
+      spec: fenics-ufcx@main
+    py-fenics-ffcx:
+      path: /rds/project/rds-5mCMIDBOkPU/ma595/fenics/ffcx
+      spec: py-fenics-ffcx@main
+  packages:
+    intel-oneapi-mpi:
+      externals:
+      - spec: intel-oneapi-mpi@2021.6.0%gcc
+        prefix: /usr/local/software/spack/spack-rhel8-20210927/opt/spack/linux-rocky8-icelake/intel-2021.6.0/intel-oneapi-mpi-2021.6.0-guxuvcpmykplbrr2e3af2yd7njqhau5e/
+        # extra_attributes:
+        # compilers:
+        #   c: /bin/x86_64-pc-linux-gnu-gcc-9
+        #   cxx: /bin/g++-9
+      buildable: false
+    all:
+      providers:
+        mpi: [intel-oneapi-mpi]
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /usr/local/software/master/gcc/11/bin/gcc
+        cxx: /usr/local/software/master/gcc/11/bin/g++
+        f77: /usr/local/software/master/gcc/11/bin/gfortran
+        fc: /usr/local/software/master/gcc/11/bin/gfortran
+      flags: {}
+      operating_system: rocky8
+      target: x86_64
+      modules: []
+      environment:
+        prepend_path:
+          I_MPI_PMI_LIBRARY: /usr/local/software/slurm/current-rhel8/lib/libpmi2.so
+          I_MPI_CC: gcc
+          I_MPI_CXX: g++
+          I_MPI_F77: gfortran
+          I_MPI_F90: gfortran
+          I_MPI_FC: gfortran
+      extra_rpaths: []
