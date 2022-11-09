@@ -83,10 +83,10 @@ spack:
   - umpire ~shared +cuda cuda_arch=70
 
   # ECP-DATA-VIS-SDK
-  # - vtk-m +cuda cuda_arch=70
-  # - zfp +cuda cuda_arch=70
-  # - adios2 +cuda cuda_arch=70
-  # - ascent +cuda cuda_arch=70
+  - adios2 +cuda cuda_arch=70
+  - ascent +cuda cuda_arch=70
+  - vtk-m +cuda cuda_arch=70
+  - zfp +cuda cuda_arch=70
 
   # ERRORS
   # - bricks +cuda                  # bricks

@@ -106,7 +106,7 @@ spack:
   - parsec ~cuda
   - pdt
   - petsc
-  - phist
+  - phist +mpi ^openmpi
   - plasma
   - plumed
   - precice
