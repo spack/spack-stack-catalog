@@ -23,17 +23,3 @@ spack:
   specs:
   - qqbar2mumu-2022@1.0.0
   view: false
-  compilers:
-  - compiler:
-      spec: gcc@11.3.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: ubuntu22.04
-      target: aarch64
-      modules: []
-      environment: {}
-      extra_rpaths: []

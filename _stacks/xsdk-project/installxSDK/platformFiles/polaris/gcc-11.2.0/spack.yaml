@@ -1,0 +1,120 @@
+spack:
+  view: false
+  config:
+    concretizer: clingo
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+  modules:
+    default:
+      'enable:': [lmod]
+      lmod:
+        defaults:
+        - cray-mpich@8.1.16
+        core_compilers: [gcc@11.2.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [cray-mpich, cmake^ncurses@6.3]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        bricks:
+          suffixes:
+            +cuda: cuda
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        legion:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        tau:
+          suffixes:
+            +cuda: cuda
+        upcxx:
+          suffixes:
+            +cuda: cuda
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [zen3]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    cuda:
+      version: [11.4.2]
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.11.0
+        modules:
+        - libfabric/1.11.0.4.125
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.16 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.16/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.16
+        - libfabric
+
+  specs:
+  - xsdk@0.8.0 +cuda cuda_arch=80
+

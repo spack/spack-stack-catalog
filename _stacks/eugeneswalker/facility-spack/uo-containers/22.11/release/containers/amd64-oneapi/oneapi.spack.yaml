@@ -1,0 +1,179 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: dpcpp@2022.1.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/dpcpp
+        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: [compiler]
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icpx
+        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: [compiler]
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      require: '%oneapi'
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    py-cryptography:
+      require: '@38.0.1'
+    m4:
+      require: '%gcc'
+    autoconf:
+      require: '%gcc'
+    unzip:
+      require: '%gcc'
+    binutils:
+      require: '%gcc'
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    llvm:
+      require: '%gcc'
+    mpich:
+      require: '@4.0.2 ~wrapperrpath ~hwloc'
+    ncurses:
+      require: '@6.3 +termlib'
+    openblas:
+      variants: threads=openmp
+    python:
+      require: '@3.7.15'
+    ruby:
+      require: '%gcc'
+    rust:
+      require: '%gcc'
+    papi:
+      require: '%gcc'
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    vtk-m:
+      require: ~openmp
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+    default:
+      'enable:': [lmod]
+      lmod:
+        projections:
+          all: '{name}/{version}-{compiler.name}-{compiler.version}'
+        core_compilers: [oneapi@2022.1.0, gcc@11.1.0]
+        verbose: true
+        hash_length: 0
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        exclude_implicits: true
+        include:
+        - adios2
+        - ascent
+        - autoconf%gcc ^perl%gcc
+        - automake%gcc
+        - cmake%gcc
+        - darshan-runtime
+        - darshan-util
+        - hdf5-vol-async
+        - mpich
+        - parallel-netcdf
+        - py-cinemasci
+        - sz
+        - unifyfs
+        - veloc
+        - vtk-m
+        - zfp
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            '%oneapi': oneapi
+            +sycl: sycl
+            +ze: level-zero
+            +level_zero: level-zero
+            +openmp: openmp
+        kokkos-kernels:
+          suffixes:
+            ^kokkos+sycl: sycl
+        mpich:
+          suffixes:
+            ^xz@5.2.6: xz5.2.6
+        adios2:
+          suffixes:
+            ~cuda+hdf5: hdf5
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  specs:
+  - aml +ze
+  - amrex +sycl
+  - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples
+  - cabana +sycl ^kokkos+ sycl +openmp std=17 +tests +examples
+  - kokkos +sycl +openmp std=17 +tests +examples
+  - kokkos-kernels build_type=Release ^kokkos +sycl +openmp std=17 +tests +examples
+  - tau +mpi +opencl +level_zero ~pdt %oneapi ^binutils%gcc ^papi%gcc
+
+  # FAILURES
+  # - ginkgo +oneapi
+  # - hpctoolkit +level_zero
+  # - sundials +sycl cxxstd=17

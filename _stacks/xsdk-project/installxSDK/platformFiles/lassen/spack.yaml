@@ -1,10 +1,6 @@
-# This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
-  # add package specs to the `specs` list
-  specs: [xsdk~dealii+slate%gcc@7.3.1 +cuda cuda_arch=70 ^precice%gcc@8.3.1]
+  specs:
+  - xsdk@0.8.0%gcc@8.3.1+cuda~dealii cuda_arch=70 ^cuda@11.7.0 ^python@3.9.10
   view: true
   compilers:
   - compiler:
@@ -35,19 +31,6 @@ spack:
         fc: /usr/tce/packages/xl/xl-2021.03.11/bin/xlf2003
       spec: xl_r@16.1.1
       target: ppc64le
-  - compiler:
-      spec: clang@11.0.1
-      paths:
-        cc: /usr/tcetmp/bin/clang
-        cxx: /usr/tcetmp/bin/clang++
-        f77: null
-        fc: null
-      flags: {}
-      operating_system: rhel7
-      target: ppc64le
-      modules: []
-      environment: {}
-      extra_rpaths: []
   - compiler:
       environment: {}
       extra_rpaths: []
@@ -88,6 +71,11 @@ spack:
       environment: {}
       extra_rpaths: []
   packages:
+    cmake:
+      externals:
+      - spec: cmake@3.21.1
+        prefix: /usr/tce/packages/cmake/cmake-3.21.1
+      buildable: false
     spectrum-mpi:
       externals:
       - spec: spectrum-mpi@10.3.1.03rtm0%gcc@8.3.1
@@ -97,30 +85,19 @@ spack:
       - spec: spectrum-mpi@10.3.1.03rtm0%xl@16.1
         prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-xl-2021.03.11
     all:
-      compiler: [gcc, xl]
+      compiler:
+      - gcc
+      - xl
     cuda:
       externals:
       - spec: cuda@10.1.243
         prefix: /usr/tce/packages/cuda/cuda-10.1.243
         modules:
         - cuda/10.1.243
+      - spec: cuda@11.7.0
+        prefix: /usr/tce/packages/cuda/cuda-11.7.0
+        modules:
+        - cuda/11.7.0
       buildable: false
-    git:
-      externals:
-      - spec: git@2.8.3+tcltk
-        prefix: /usr/tce
-      buildable: false
-    git-lfs:
-      externals:
-      - spec: git-lfs@2.9.2
-        prefix: /usr/tce
-      buildable: false
-    py-numpy:
-      version: [1.19.5]
-    # python:
-    #   externals:
-    #   - spec: python@3.6.8+bz2+ctypes+dbm+lzma+nis+pyexpat+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
-    #     prefix: /usr/tce/packages/python/python-3.8.2
-    #     moudles:
-    #     - python/3.8.2
-    #   buildable: false
+  concretizer:
+    unify: true

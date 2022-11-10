@@ -62,7 +62,23 @@ spack:
         projections: {}
         core_specs: []
         exclude_implicits: true
-        include: [mpich, automake, autoconf, cmake]
+        include:
+        - adios2
+        - ascent
+        - autoconf
+        - automake
+        - cmake
+        - darshan-runtime
+        - darshan-util
+        - hdf5-vol-async
+        - mpich
+        - parallel-netcdf
+        - py-cinemasci
+        - sz
+        - unifyfs
+        - veloc
+        - vtk-m
+        - zfp
         all:
           autoload: direct
           environment:
@@ -94,6 +110,9 @@ spack:
         mpich:
           suffixes:
             ^xz@5.2.6: xz5.2.6
+        adios2:
+          suffixes:
+            ~cuda+hdf5: hdf5
         py-warpx:
           suffixes:
             ^warpx dims=2: dims2
@@ -142,6 +161,7 @@ spack:
   - lammps
   - legion
   - libnrm
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp
   - libquo
   - libunwind
   - mercury

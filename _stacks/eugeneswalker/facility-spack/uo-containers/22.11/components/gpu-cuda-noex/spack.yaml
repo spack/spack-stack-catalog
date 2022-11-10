@@ -53,9 +53,9 @@ spack:
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80
   - caliper +cuda cuda_arch=80
   - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+  - cusz +cuda cuda_arch=80
   - dealii +cuda cuda_arch=80
   - flecsi +cuda cuda_arch=80
-  # - ecp-data-vis-sdk ~rocm +cuda cuda_arch=80 +adios2 +ascent +hdf5 +vtkm +zfp
   - flux-core +cuda
   - ginkgo +cuda cuda_arch=80
   - heffte +cuda cuda_arch=80
@@ -79,6 +79,7 @@ spack:
   - tau +mpi +cuda
   - trilinos@13.4.0 +cuda cuda_arch=80
   - umpire ~shared +cuda cuda_arch=80
+  # - ecp-data-vis-sdk ~rocm +cuda cuda_arch=80 +adios2 +ascent +hdf5 +vtkm +zfp
 
   - amrex +cuda cuda_arch=70
   - arborx +cuda cuda_arch=70 ^kokkos +wrapper
@@ -86,9 +87,9 @@ spack:
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=70
   - caliper +cuda cuda_arch=70
   - chai ~benchmarks ~tests +cuda cuda_arch=70 ^umpire ~shared
+  - cusz +cuda cuda_arch=70
   - dealii +cuda cuda_arch=70
   - flecsi +cuda cuda_arch=70
-  # - ecp-data-vis-sdk ~rocm +cuda cuda_arch=70 +adios2 +ascent +hdf5 +vtkm +zfp
   - flux-core +cuda
   - ginkgo +cuda cuda_arch=70
   - heffte +cuda cuda_arch=70
@@ -112,6 +113,7 @@ spack:
   - tau +mpi +cuda
   - trilinos@13.4.0 +cuda cuda_arch=70
   - umpire ~shared +cuda cuda_arch=70
+  # - ecp-data-vis-sdk ~rocm +cuda cuda_arch=70 +adios2 +ascent +hdf5 +vtkm +zfp
   
   # ECP-DATA-VIS-SDK
   - adios2 +cuda cuda_arch=80

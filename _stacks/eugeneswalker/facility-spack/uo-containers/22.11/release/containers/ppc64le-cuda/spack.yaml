@@ -65,7 +65,23 @@ spack:
         projections: {}
         core_specs: []
         exclude_implicits: true
-        include: [mpich, cmake, autoconf, automake]
+        include:
+        - adios2
+        - ascent
+        - autoconf
+        - automake
+        - cmake
+        - darshan-runtime
+        - darshan-util
+        - hdf5-vol-async
+        - mpich
+        - parallel-netcdf
+        - py-cinemasci
+        - sz
+        - unifyfs
+        - veloc
+        - vtk-m
+        - zfp
         all:
           autoload: direct
           environment:
@@ -97,6 +113,9 @@ spack:
         mpich:
           suffixes:
             ^xz@5.2.6: xz5.2.6
+        sz:
+          suffixes:
+            ^zstd+programs: zstd-programs
         py-warpx:
           suffixes:
             ^warpx dims=2: dims2
@@ -143,6 +162,7 @@ spack:
   - lammps
   - legion
   - libnrm
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp
   - libquo
   - libunwind
   - mercury
@@ -232,26 +252,26 @@ spack:
   - umpire ~shared +cuda cuda_arch=70
 
   # ECP-DATA-VIS-SDK
-  - adios2 +cuda cuda_arch=70
-  - ascent +cuda cuda_arch=70
-  - vtk-m +cuda cuda_arch=70
-  - zfp +cuda cuda_arch=70
+  # - adios2 +cuda cuda_arch=70
+  # - ascent +cuda cuda_arch=70
+  # - vtk-m +cuda cuda_arch=70
+  # - zfp +cuda cuda_arch=70
 
   # IN ECP-DATA-VIS-SDK
-  # - adios2
-  # - ascent
-  # - darshan-runtime
-  # - darshan-util
-  # - faodel
-  # - hdf5 +fortran +hl +shared
-  # - hdf5-vol-async
-  # - parallel-netcdf
-  # - py-cinemasci
-  # - sz
-  # - unifyfs
-  # - veloc
-  # - vtk-m
-  # - zfp
+  - adios2
+  - ascent
+  - darshan-runtime
+  - darshan-util
+  - faodel
+  - hdf5 +fortran +hl +shared
+  - hdf5-vol-async
+  - parallel-netcdf
+  - py-cinemasci
+  - sz
+  - unifyfs
+  - veloc
+  - vtk-m
+  - zfp
 
   # ERRORS
   # - bricks                        # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
