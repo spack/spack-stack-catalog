@@ -29,6 +29,7 @@ spack:
       providers:
         blas: [cray-libsci]
         mpi: [cray-mpich]
+        tbb: [intel-tbb]
       target: [zen3]
       variants: +mpi
     binutils:
@@ -168,14 +169,12 @@ spack:
   - darshan-runtime
   - darshan-util
   - datatransferkit
-  - dyninst
-  - exaworks
+  - dyninst ^intel-tbb
   - faodel
   - flecsi
   - flit
   - flux-core
   - fortrilinos
-  - gasnet
   - ginkgo
   - globalarrays
   - gmp
@@ -192,6 +191,7 @@ spack:
   - lammps
   - legion
   - libnrm
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
   - libquo
   - libunwind
   - mercury
@@ -213,7 +213,6 @@ spack:
   - parsec ~cuda
   - pdt
   - petsc
-  - phist
   - plumed
   - precice
   - pumi
@@ -238,7 +237,6 @@ spack:
   - swig@4.0.2-fortran
   - sz
   - tasmanian
-  - tau +mpi +python
   - turbine
   - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
@@ -246,13 +244,11 @@ spack:
     +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
   - umap
   - umpire
-  - unifyfs
   - veloc
   - vtk-m
   - zfp
 
   # no cuda_arch
-  - tau +mpi +cuda
   - papi +cuda
   - flux-core +cuda
   - hpctoolkit +cuda
@@ -286,18 +282,24 @@ spack:
   - zfp +cuda cuda_arch=80
 
   # CPU FAILURES
-  # - alquimia@1.0.9                    # pflotran:
-  # - bricks@r0.1                       # bricks
-  # - geopm@1.1.0                       # geopm
-  # - h5bench@1.2                       # h5bench
-  # - loki@0.1.7                        # loki
-  # - paraview@5.10.1 +qt ^mesa@21.3.8  # llvm@12.0.1
-  # - plasma@21.8.29                    # plasma
-  # - pruners-ninja@1.0.1               # pruners-ninja
-  # - rempi@1.1.0                       # rempi
-  # - upcxx@2022.3.0                    # upcxx
-  # - variorum@0.4.1                    # variorum
-  # - wannier90@3.1.0                   # wannier90
+  # - alquimia                    # pflotran:
+  # - bricks                      # bricks
+  # - exaworks                    # rust
+  # - gasnet                      # gasnet
+  # - geopm                       # geopm
+  # - h5bench                     # h5bench
+  # - loki                        # loki
+  # - paraview +qt ^mesa          # llvm
+  # - phist                       # phist
+  # - plasma                      # plasma
+  # - pruners-ninja               # pruners-ninja
+  # - quantum-espresso            # quantum-espresso
+  # - rempi                       # rempi
+  # - tau +mpi +python            # tau
+  # - unifyfs                     # unifyfs
+  # - upcxx                       # upcxx
+  # - variorum                    # variorum
+  # - wannier90                   # wannier90
   # ----
   # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
   # font-util: configure.ac:11: installing './compile'
@@ -318,10 +320,11 @@ spack:
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU FAILURES
-  # - bricks@r0.1 +cuda                   # bricks
-  # - dealii@9.4.0 +cuda                  # dealii
-  # - parsec@3.0.2012 +cuda cuda_arch=80  # parsec
-  # - raja@2022.03.0 +cuda cuda_arch=80   # raja
+  # - bricks +cuda                        # bricks
+  # - dealii +cuda                        # dealii
+  # - parsec +cuda cuda_arch=80           # parsec
+  # - raja +cuda cuda_arch=80             # raja
+  # - tau +mpi +cuda                      # tau
   # - trilinos@13.4.0 +cuda cuda_arch=80  # trilinos
   # -----
   # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png

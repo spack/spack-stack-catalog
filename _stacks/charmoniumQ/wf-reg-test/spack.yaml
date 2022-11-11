@@ -27,6 +27,10 @@ spack:
   - py-charmonium-freeze@0.6.0
   - py-mypy
   - py-pytest
+  - singularity ^python@3.10
+  - miniconda3
+  - xxhash
+  - py-ipython
   view: true
   concretizer:
     unify: when_possible

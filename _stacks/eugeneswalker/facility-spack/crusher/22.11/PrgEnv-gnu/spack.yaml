@@ -336,7 +336,6 @@ spack:
   - chai ~benchmarks ~tests
   - conduit
   - datatransferkit
-  - dyninst
   - ecp-data-vis-sdk +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf ~sensei +sz ~unifyfs +veloc +visit +vtkm +zfp ~cuda ~rocm 
   - exaworks
   - flecsi
@@ -391,7 +390,6 @@ spack:
   - qthreads scheduler=distrib
   - raja
   - slate ~cuda
-  - slepc
   - stc
   - strumpack ~slate
   - sundials
@@ -400,7 +398,6 @@ spack:
   - swig
   - swig@4.0.2-fortran
   - tasmanian
-  - tau +mpi +python
   - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -412,7 +409,6 @@ spack:
   - upcxx
 
   # no amdgpu_target
-  - tau +mpi +rocm
 
   # amdgpu_target=gfx90a
   - amrex +rocm amdgpu_target=gfx90a
@@ -431,7 +427,6 @@ spack:
   - petsc +rocm amdgpu_target=gfx90a
   - raja ~openmp +rocm amdgpu_target=gfx90a
   - slate +rocm amdgpu_target=gfx90a
-  - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a
   - strumpack ~slate +rocm amdgpu_target=gfx90a
   - sundials +rocm amdgpu_target=gfx90a
   - superlu-dist +rocm amdgpu_target=gfx90a
@@ -463,13 +458,16 @@ spack:
   # - alquimia@1.0.9                          # pflotran
   # - bricks@r0.1                             # bricks
   # - dealii                                  # dealii
+  # - dyninst                                 # dyninst
   # - geopm@1.1.0                             # geopm
   # - h5bench@1.2                             # h5bench
   # - loki@0.1.7                              # loki
   # - pruners-ninja@1.0.1                     # pruners-ninja
   # - rempi@1.1.0                             # rempi
   # - scr@3.0                                 # scr
+  # - slepc                                   # slepc
   # - stat@4.1.0                              # launchmon-master
+  # - tau +mpi +python                        # tau
   # - variorum@0.4.1                          # variorum
   # - wannier90                               # wannier90
   # -----
@@ -496,6 +494,8 @@ spack:
   # GPU FAILURES
   # - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
   # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                   # papi
+  # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # slepc
+  # - tau +mpi +rocm
   # ------
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827

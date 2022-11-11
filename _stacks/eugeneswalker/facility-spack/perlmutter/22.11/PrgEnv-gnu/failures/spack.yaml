@@ -1,0 +1,202 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-milan
+      - libfabric
+
+  packages:
+    all:
+      require: "%gcc@11.2.0"
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [cray-libsci]
+        mpi: [cray-mpich]
+        tbb: [intel-tbb]
+      target: [zen3]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    ncurses:
+      require: "@6.3 +termlib"
+    openblas:
+      variants: threads=openmp
+    python:
+      require: "@3.7.15"
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # EXTERNALS
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@21.08.1.2
+        modules:
+        - cray-libsci/21.08.1.2
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.17 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.17
+    libfabric:
+      buildable: false
+      variants: fabrics=sockets,tcp,udp,rxm
+      externals:
+      - spec: libfabric@1.15.0.0
+        prefix: /opt/cray/libfabric/1.15.0.0
+        modules:
+        - libfabric
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
+    openssh:
+      buildable: false
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+    slurm:
+      buildable: false
+      externals:
+      - spec: slurm@22.05.5
+        prefix: /usr
+
+    # SITE VARIANT/VERSION PREFERENCES
+    mesa:
+      variants: +osmesa~glx
+
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+    default:
+      'enable:': [lmod]
+      lmod:
+        defaults:
+        - cray-mpich@8.1.17
+        core_compilers: [gcc@11.2.0]
+        verbose: true
+        hash_length: 0
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        exclude_implicits: true
+        include: [cray-mpich]
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=80: cuda80
+        tau:
+          suffixes:
+            +cuda: cuda
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        bricks:
+          suffixes:
+            +cuda: cuda
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  specs:
+  # CPU FAILURES
+  - alquimia                    # pflotran:
+  - bricks                      # bricks
+  - exaworks                    # rust
+  - gasnet                      # gasnet
+  - geopm                       # geopm
+  - h5bench                     # h5bench
+  - loki                        # loki
+  - paraview +qt ^mesa          # llvm
+  - phist                       # phist
+  - plasma                      # plasma
+  - pruners-ninja               # pruners-ninja
+  - quantum-espresso            # quantum-espresso
+  - rempi                       # rempi
+  - tau +mpi +python            # tau
+  - unifyfs                     # unifyfs
+  - upcxx                       # upcxx
+  - variorum                    # variorum
+  - wannier90                   # wannier90
+  # ----
+  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
+  # font-util: configure.ac:11: installing './compile'
+  # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
+  # h5bench: collect2: error: ld returned 1 exit status
+  # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+  # loki: https://github.com/spack/spack/issues/32122
+  # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
+  # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # pruners-ninja: https://github.com/spack/spack/issues/32112
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # rempi: https://github.com/spack/spack/issues/32123
+  # upcxx: configure error: Requested PMI version cray could not be found
+  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
+  # variorum: https://github.com/spack/spack/issues/32110
+  # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
+
+  # GPU FAILURES
+  - bricks +cuda                        # bricks
+  - dealii +cuda                        # dealii
+  - parsec +cuda cuda_arch=80           # parsec
+  - raja +cuda cuda_arch=80             # raja
+  - tau +mpi +cuda                      # tau
+  - trilinos@13.4.0 +cuda cuda_arch=80  # trilinos
+  # -----
+  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
+  # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
+  # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
+  # raja: RAJA/policy/tensor/arch/avx2/avx2_int32.hpp(317): error: "RAJA::expt::Register<int32_t, RAJA::expt::avx2_register> &(const int32_t &)" contains a vector, which is not supported in device code
+  # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
