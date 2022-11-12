@@ -1,0 +1,170 @@
+spack:
+  include:
+  - /appl/lumi/spack/etc/22.08/0.18.1/config.yaml
+  - /appl/lumi/spack/etc/22.08/0.18.1/packages.yaml
+  - /appl/lumi/spack/etc/22.08/0.18.1/compilers.yaml
+  definitions:
+  - core_compiler:
+    - '%gcc@7.5.0'
+  - gcc_compilers:
+    - '%gcc@11.2.0'
+  - cray_compilers:
+    - '%cce@14.0.2'
+  - core_packages:
+    - vim features=huge
+    - emacs
+    - nano
+    - tmux
+    - htop
+    - git
+    - subversion
+    - mercurial
+    - ccache
+    - libzmq
+    - gnupg
+    - googletest
+    - git-lfs
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
+    - julia
+    - go
+    - bazel ^openjdk@11.0:11.99
+    - meson
+    - rust
+    - mono+patch-folder-path
+    - rclone
+    - xterm
+    - gnuplot +X
+    - mc
+    - llvm@14.0.2 targets=amdgpu
+    - grace ^hdf5~mpi
+    - ripgrep
+    - exa
+    - hyperfine
+  - gcc_packages:
+    - hpl+openmp
+    - hpl+openmp ^openblas
+    - openblas@0.3.17 threads=none
+    - openblas@0.3.17 threads=openmp
+    - openblas@0.3.17 threads=pthreads
+    - lammps+class2+colloid+compress+coreshell+dipole+granular+kspace+manybody+mc+misc+molecule+mpi+mpiio+openmp+peri+poems+python+qeq+replica+rigid+shock+snap+spin+srd+voronoi
+    - quantum-espresso+epw+libxc+mpi+openmp+scalapack hdf5=serial
+    - cp2k+cosma+elpa+plumed+spglib
+    - dftd4+openmp
+    - octave+fftw+hdf5+zlib ^cray-mpich
+    - darshan-runtime
+    - darshan-util
+    - hpctoolkit
+    - kokkos ~rocm~cuda~wrapper+openmp
+    - kokkos-kernels+openmp
+    - kokkos +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - legion~cuda+hdf5
+    - raja ~examples~tests~rocm~cuda+openmp
+    - magma@2.6.1 +rocm~cuda amdgpu_target=gfx90a
+    - trilinos ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx90a
+    - trilinos ~cuda~wrapper
+    - fortrilinos
+    - parmetis
+    - petsc ~cuda ^superlu-dist+rocm amdgpu_target=gfx90a
+    - gasnet
+    - archer
+    - argobots
+    - hpx ~cuda ^boost cxxstd=17 ^asio cxxstd=17
+    - zfp ~cuda
+    - chai ~benchmarks~tests~rocm~cuda
+    - eigen
+    - flac
+    - nwchem+openmp
+    - gromacs@2021.4+plumed+openmp
+    - gromacs@2021.5+openmp
+    - cdo
+    - nco
+    - cmor
+    - eccodes+aec+fortran+memfs+netcdf+openmp+python+tools samples=none
+    - globalarrays+scalapack
+    - swig
+    - scorep
+    - scalasca
+    - jasper
+  - cray_packages:
+    - hpl+openmp
+    - chai@2.4.0 ~benchmarks~examples~tests+rocm~cuda amdgpu_target=gfx90a
+    - umpire@6.0.0 +shared+rocm~cuda amdgpu_target=gfx90a
+    - raja@0.14.0 ~exercises~examples~tests+rocm~cuda~openmp amdgpu_target=gfx90a
+  - core_specs:
+    - matrix:
+      - - $core_packages
+      - - $core_compiler
+      - - arch=cray-sles15-zen
+  - gcc_specs:
+    - matrix:
+      - - $gcc_packages
+      - - $gcc_compilers
+      - - arch=cray-sles15-zen2
+  - cray_specs:
+    - matrix:
+      - - $cray_packages
+      - - $cray_compilers
+      - - arch=cray-sles15-zen2
+  specs:
+  - $core_specs
+  - $gcc_specs
+  - $cray_specs
+  view: false
+  concretizer:
+    unify: false
+  modules:
+    default:
+      enable:
+      - tcl
+      tcl:
+        hash_length: 2
+        projections:
+          all: '{name}/{version}-{compiler.name}'
+        all:
+          environment:
+            set:
+              ${PACKAGE}_INSTALL_ROOT: ${PREFIX}
+        blacklist:
+        - cray-mpich
+        - cray-libsci
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+            openblas threads=none: serial
+        hpl:
+          suffixes:
+            hpl ^openblas: openblas
+        zstd:
+          suffixes:
+            zstd ~programs: nobin
+        binutils:
+          suffixes:
+            binutils +gold: gold
+        xz:
+          suffixes:
+            xz +pic: pic
+        elfutils:
+          suffixes:
+            elfutils +bzip2: compress
+        trilinos:
+          suffixes:
+            trilinos +rocm: gpu
+        kokkos:
+          suffixes:
+            kokkos +rocm: gpu
+        chai:
+          suffixes:
+            chai +rocm: gpu
+        raja:
+          suffixes:
+            raja +rocm: gpu
+        umpire:
+          suffixes:
+            umpire +rocm: gpu
+        gromacs:
+          suffixes:
+            gromacs +plumed: plumed
+

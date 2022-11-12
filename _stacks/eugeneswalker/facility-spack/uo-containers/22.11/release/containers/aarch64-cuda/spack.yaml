@@ -87,13 +87,13 @@ spack:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
             +cuda cuda_arch=70: cuda70
-            +cuda cuda_arch=70: cuda75
+            +cuda cuda_arch=75: cuda75
             +cuda cuda_arch=80: cuda80
             +openmp: openmp
         cabana:
           suffixes:
             ^kokkos +cuda cuda_arch=70: cuda70
-            ^kokkos +cuda cuda_arch=70: cuda75
+            ^kokkos +cuda cuda_arch=75: cuda75
             ^kokkos +cuda cuda_arch=80: cuda80
         tau:
           suffixes:
@@ -133,7 +133,6 @@ spack:
   - argobots
   - axom
   - bolt
-  - bricks
   - butterflypack
   - cabana
   - caliper
@@ -142,7 +141,6 @@ spack:
   - conduit
   - datatransferkit
   - dyninst
-  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
   - exaworks
   - flecsi
   - flit
@@ -157,7 +155,6 @@ spack:
   - h5bench
   - heffte +fftw
   - hpctoolkit
-  - hpx networking=mpi
   - hypre
   - kokkos +openmp
   - kokkos-kernels +openmp
@@ -185,7 +182,6 @@ spack:
   - parsec ~cuda
   - pdt
   - petsc
-  - phist
   - plasma
   - plumed
   - precice
@@ -219,14 +215,12 @@ spack:
   - umap
   - umpire
   - upcxx
-  - variorum
   - wannier90
 
   # CUDA
   - adios2 +cuda cuda_arch=75
   - amrex +cuda cuda_arch=75
   - arborx +cuda cuda_arch=75 ^kokkos +wrapper
-  - bricks +cuda
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=75
   - caliper +cuda cuda_arch=75
   - chai ~benchmarks ~tests +cuda cuda_arch=75 ^umpire ~shared
@@ -236,11 +230,9 @@ spack:
   - ginkgo +cuda cuda_arch=75
   - heffte +cuda cuda_arch=75
   - hpctoolkit +cuda
-  - hpx +cuda cuda_arch=75
   - hypre +cuda cuda_arch=75
   - kokkos +wrapper +cuda cuda_arch=75
   - kokkos-kernels +cuda cuda_arch=75 ^kokkos +wrapper +cuda cuda_arch=75
-  - libpressio +bitgrooming +bzip2 +cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cuda cuda_arch=75 ^cusz +cuda cuda_arch=75
   - magma +cuda cuda_arch=75
   - mfem +cuda cuda_arch=75
   - omega-h +cuda cuda_arch=75
@@ -262,7 +254,6 @@ spack:
   - adios2 +cuda cuda_arch=80
   - amrex +cuda cuda_arch=80
   - arborx +cuda cuda_arch=80 ^kokkos +wrapper
-  - bricks +cuda
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80
   - caliper +cuda cuda_arch=80
   - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
@@ -272,11 +263,9 @@ spack:
   - ginkgo +cuda cuda_arch=80
   - heffte +cuda cuda_arch=80
   - hpctoolkit +cuda
-  - hpx +cuda cuda_arch=80
   - hypre +cuda cuda_arch=80
   - kokkos +wrapper +cuda cuda_arch=80
   - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
-  - libpressio +bitgrooming +bzip2 +cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cuda cuda_arch=80 ^cusz +cuda cuda_arch=80
   - magma +cuda cuda_arch=80
   - mfem +cuda cuda_arch=80
   - omega-h +cuda cuda_arch=80
@@ -310,3 +299,14 @@ spack:
   # - veloc
   # - vtk-m
   # - zfp
+
+  # - bricks # bricks
+  # - bricks +cuda # bricks
+  # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # harfbuzz
+  # - hpx +cuda cuda_arch=75 # hpx
+  # - hpx +cuda cuda_arch=80 # hpx
+  # - hpx networking=mpi # hpx
+  # - libpressio +bitgrooming +bzip2 +cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cuda cuda_arch=75 ^cusz +cuda cuda_arch=75 # cusz
+  # - libpressio +bitgrooming +bzip2 +cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cuda cuda_arch=80 ^cusz +cuda cuda_arch=80 # cusz
+  # - phist # phist
+  # - variorum # variorum

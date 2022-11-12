@@ -9,6 +9,9 @@ spack:
       lib: [LD_LIBRARY_PATH]
       lib64: [LD_LIBRARY_PATH]
   packages:
+    all:
+      providers:
+        mpi: [cray-mpich]
     libfabric:
       externals:
       - spec: libfabric@1.15.0.0
@@ -22,7 +25,7 @@ spack:
     mercury:
       variants: ~boostsys ~checksum
       buildable: true
-      version: [ 2.2.0rc1 ]
+      version: []
       target: []
       providers: {}
       compiler: []
@@ -35,12 +38,13 @@ spack:
       externals:
       - spec: json-c@0.13
         prefix: /usr
-    mpich:
+    cray-mpich:
       buildable: false
       externals:
-      - spec: mpich@8.1.12
+      - spec: cray-mpich@8.1.17
         modules:
-        - cray-mpich/8.1.12
+        - cray-mpich/8.1.17
+        - libfabric
     autoconf:
       buildable: false
       version: []
