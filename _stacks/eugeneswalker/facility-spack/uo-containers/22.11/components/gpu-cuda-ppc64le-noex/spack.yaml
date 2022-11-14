@@ -53,7 +53,6 @@ spack:
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=70
   - caliper +cuda cuda_arch=70
   - chai ~benchmarks ~tests +cuda cuda_arch=70 ^umpire ~shared
-  - cusz +cuda cuda_arch=70
   - ecp-data-vis-sdk ~rocm +cuda cuda_arch=70 +adios2 +ascent +hdf5 +vtkm +zfp
   - flecsi +cuda cuda_arch=70
   - flux-core +cuda
@@ -88,7 +87,9 @@ spack:
 
   # ERRORS
   # - bricks +cuda                  # bricks
+  # - cusz +cuda cuda_arch=70       # cusz
   # - dealii +cuda cuda_arch=70     # fltk
   # ---
+  # cusz: CUB not found during CMake phase
   # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
   # fltk: pngrutil.c:(.text.png_read_filter_row+0x94): undefined reference to `png_init_filter_functions_vsx'
