@@ -27,15 +27,50 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/gust/22.10/envs/build/templates/modules
   packages:
-    zstd:
+    slirp4netns:
       externals:
-      - spec: zstd@1.5.2
-        prefix: /glade/u/apps/common/22.08/spack/opt/spack/zstd/1.5.2/gcc/7.5.0
+      - spec: slirp4netns@1.1.12
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/slirp4netns/1.1.12/gcc/7.5.0
       buildable: false
-    arm-forge:
+    python:
       externals:
-      - spec: arm-forge@22.1.1
-        prefix: /glade/u/apps/common/22.08/spack/opt/spack/arm-forge/22.1.1/gcc/7.5.0
+      - spec: python@3.9.13+bz2+ctypes+dbm+lzma~nis+pyexpat+pythoncmd+readline+sqlite3+ssl~tix~tkinter+uuid+zlib
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/python/3.9.13/gcc/7.5.0
+      buildable: false
+    py-setuptools:
+      externals:
+      - spec: py-setuptools@63.0.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/py-setuptools/63.0.0/gcc/7.5.0
+      buildable: false
+    ninja:
+      externals:
+      - spec: ninja@1.11.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/ninja/1.11.0/gcc/7.5.0
+      buildable: false
+    meson:
+      externals:
+      - spec: meson@0.62.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/meson/0.62.2/gcc/7.5.0
+      buildable: false
+    libslirp:
+      externals:
+      - spec: libslirp@4.6.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libslirp/4.6.1/gcc/7.5.0
+      buildable: false
+    libcap:
+      externals:
+      - spec: libcap@2.64
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/libcap/2.64/gcc/7.5.0
+      buildable: false
+    gpgme:
+      externals:
+      - spec: gpgme@1.16.0
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/gpgme/1.16.0/gcc/7.5.0
+      buildable: false
+    glib:
+      externals:
+      - spec: glib@2.72.3
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/glib/2.72.3/gcc/7.5.0
       buildable: false
     gawk:
       externals:
@@ -112,6 +147,8 @@ spack:
       buildable: false
     tar:
       externals:
+      - spec: tar@1.34
+        prefix: /usr
       - spec: tar@1.30
         prefix: /usr
       buildable: false
@@ -119,6 +156,16 @@ spack:
       externals:
       - spec: ghostscript@9.52
         prefix: /usr
+      buildable: false
+    zstd:
+      externals:
+      - spec: zstd@1.5.2
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/zstd/1.5.2/gcc/7.5.0
+      buildable: false
+    arm-forge:
+      externals:
+      - spec: arm-forge@22.1.1
+        prefix: /glade/u/apps/common/22.08/spack/opt/spack/arm-forge/22.1.1/gcc/7.5.0
       buildable: false
     libfabric:
       externals:
@@ -827,6 +874,7 @@ spack:
         prepend_path:
           CPATH: /glade/u/apps/common/22.08/opt/include
           LIBRARY_PATH: /glade/u/apps/common/22.08/opt/lib64:/glade/u/apps/common/22.08/opt/lib
+          PKG_CONFIG_PATH: /glade/u/apps/common/22.08/opt/lib64/pkgconfig:/glade/u/apps/common/22.08/opt/lib/pkgconfig
       extra_rpaths:
       - /glade/u/apps/common/22.08/opt/lib64
       - /glade/u/apps/common/22.08/opt/lib
@@ -1264,6 +1312,7 @@ spack:
         - ncview
         defaults:
         - netcdf@4.8.1
+        - parallel-netcdf@1.12.2
   mirrors:
     glade_gust:
       fetch:
@@ -1534,3 +1583,4 @@ spack:
   - hdf5@1.12.2%cce@15.0.0+mpi ^cray-mpich@8.1.21%cce@15.0.0
   - netcdf@4.9.0%cce@15.0.0+mpi ^cray-mpich@8.1.21%cce@15.0.0
   - fftw@3.3.10%cce@15.0.0+mpi ^cray-mpich@8.1.21%cce@15.0.0
+  - podman

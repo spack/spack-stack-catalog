@@ -5,51 +5,6 @@ spack:
     reuse: false
     unify: false
 
-  compilers:
-  - compiler:
-      spec: dpcpp@2022.1.0
-      paths:
-        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
-        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/dpcpp
-        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
-        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules: [compiler]
-      environment:
-        prepend_path:
-          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
-      extra_rpaths: []
-  - compiler:
-      spec: oneapi@2022.1.0
-      paths:
-        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
-        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icpx
-        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
-        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules: [compiler]
-      environment:
-        prepend_path:
-          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
-      extra_rpaths: []
-  - compiler:
-      spec: gcc@11.1.0
-      paths:
-        cc: /usr/bin/gcc-11
-        cxx: /usr/bin/g++-11
-        f77: /usr/bin/gfortran-11
-        fc: /usr/bin/gfortran-11
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
-
   packages:
     adios2:
       require: '%gcc'
@@ -96,119 +51,226 @@ spack:
       variants: +pic
     mesa:
       version: [21.3.8]
+
+  compilers:
+  - compiler:
+      spec: dpcpp@2022.1.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/dpcpp
+        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: [compiler]
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/icpx
+        f77: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2022.1.0/linux/bin/ifx
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: [compiler]
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+    default:
+      'enable:': [lmod]
+      lmod:
+        projections:
+          all: '{name}/{version}-{compiler.name}-{compiler.version}'
+        core_compilers: [oneapi@2022.1.0, gcc@11.1.0]
+        verbose: true
+        hash_length: 0
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        exclude_implicits: true
+        include:
+        - adios2
+        - ascent
+        - autoconf%gcc ^perl%gcc
+        - automake%gcc
+        - cmake%gcc
+        - darshan-runtime
+        - darshan-util
+        - hdf5-vol-async
+        - mpich
+        - parallel-netcdf
+        - py-cinemasci
+        - sz
+        - unifyfs
+        - veloc
+        - vtk-m
+        - zfp
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            '%oneapi': oneapi
+            +sycl: sycl
+            +ze: level-zero
+            +level_zero: level-zero
+            +openmp: openmp
+        kokkos-kernels:
+          suffixes:
+            ^kokkos+sycl: sycl
+        mpich:
+          suffixes:
+            ^xz@5.2.6: xz5.2.6
+        adios2:
+          suffixes:
+            ~cuda+hdf5: hdf5
+        sz:
+          suffixes:
+            ^zstd+programs: zstd-programs
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
   specs:
-  
   # CPU
-  - adios
-  - alquimia
-  - aml
-  - amrex
-  - arborx
-  - archer
-  - argobots
-  - ascent
-  - axom
-  - bolt
-  - bricks
-  - butterflypack
-  - cabana
-  - caliper
-  - chai ~benchmarks ~tests
-  - conduit
-  - darshan-runtime
-  - darshan-util
-  - datatransferkit
-  - exaworks
-  - faodel
-  - flit
-  - flux-core
-  - fortrilinos
-  - gasnet
-  - ginkgo
-  - globalarrays
-  - gmp
-  - gotcha
-  - gptune
-  - hdf5 +fortran +hl +shared
-  - heffte +fftw
-  - hpx networking=mpi
-  - hypre
-  - kokkos-kernels +openmp
-  - kokkos +openmp
-  - lammps
-  - legion
-  - libnrm
-  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
-  - libquo
-  - libunwind
-  - loki
-  - mercury
-  - metall
-  - mfem
-  - mpark-variant
-  - mpifileutils ~xattr
-  - nccmp
-  - nco
-  - netlib-scalapack
-  - nrm
-  - omega-h
-  - openmpi
-  - openpmd-api
-  - papi
-  - papyrus
-  - parallel-netcdf
-  - parsec ~cuda
-  - pdt
-  - petsc
-  - plasma
-  - plumed
-  - precice
-  - pumi
-  - py-cinemasci
-  - py-jupyterhub
-  - py-libensemble
-  - py-petsc4py
-  - py-warpx ^warpx dims=2
-  - py-warpx ^warpx dims=3
-  - py-warpx ^warpx dims=rz
-  - qthreads scheduler=distrib
-  - quantum-espresso
-  - raja
-  - scr
-  - slate ~cuda
-  - slepc
-  - stc
-  - strumpack ~slate
-  - sundials
-  - superlu-dist
-  - superlu
-  - swig
+  - adios@1.13.1
+  - alquimia@1.0.10
+  - aml@0.2.0
+  - amrex@22.11
+  - arborx@1.3
+  - archer@2.0.0
+  - argobots@1.1
+  - ascent@0.8.0
+  - axom@0.7.0
+  - bolt@2.0
+  - bricks@r0.1
+  - butterflypack@2.2.2
+  - cabana@0.5.0
+  - caliper@2.8.0
+  - chai@2022.03.0 ~benchmarks ~tests
+  - conduit@0.8.4
+  - darshan-runtime@3.4.0
+  - darshan-util@3.4.0
+  - datatransferkit@3.1-rc3
+  - exaworks@0.1.0
+  - faodel@1.2108.1
+  - flit@2.1.0
+  - flux-core@0.44.0
+  - fortrilinos@2.1.0
+  - gasnet@2022.9.0
+  - ginkgo@1.4.0
+  - globalarrays@5.8
+  - gmp@6.2.1
+  - gotcha@1.0.4
+  - gptune@3.0.0
+  - hdf5@1.12.2 +fortran +hl +shared
+  - heffte@2.3.0 +fftw
+  - hpx@1.8.1 networking=mpi
+  - hypre@2.26.0
+  - kokkos-kernels@3.7.00 +openmp
+  - kokkos@3.7.00 +openmp
+  - lammps@20220623
+  - legion@21.03.0
+  - libnrm@0.1.0
+  - libpressio@0.88.0 +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
+  - libquo@1.3.1
+  - libunwind@1.6.2
+  - loki@0.1.7
+  - mercury@2.1.0
+  - metall@0.21
+  - mfem@4.5.0
+  - mpark-variant@1.4.0
+  - mpifileutils@0.11.1 ~xattr
+  - nccmp@1.9.0.1
+  - nco@5.0.1
+  - netlib-scalapack@2.2.0
+  - nrm@0.1.0
+  - omega-h@9.34.13
+  - openmpi@4.1.4
+  - openpmd-api@0.14.5
+  - papi@6.0.0.1
+  - papyrus@1.0.2
+  - parallel-netcdf@1.12.3
+  - parsec@3.0.2209 ~cuda
+  - pdt@3.25.1
+  - petsc@3.18.1
+  - plasma@22.9.29
+  - plumed@2.8.0
+  - precice@2.5.0
+  - pumi@2.2.7
+  - py-cinemasci@1.7.0
+  - py-jupyterhub@1.4.1
+  - py-libensemble@0.9.3
+  - py-petsc4py@3.18.1
+  - py-warpx@22.10 ^warpx dims=2
+  - py-warpx@22.10 ^warpx dims=3
+  - py-warpx@22.10 ^warpx dims=rz
+  - qthreads@1.16 scheduler=distrib
+  - quantum-espresso@7.1
+  - raja@2022.03.0
+  - scr@3.0.1
+  - slate@2022.07.00 ~cuda
+  - slepc@3.18.1
+  - stc@0.9.0
+  - strumpack@7.0.1 ~slate
+  - sundials@6.4.1
+  - superlu-dist@8.1.1
+  - superlu@5.3.0
+  - swig@4.0.2
   - swig@4.0.2-fortran
-  - sz
-  - tasmanian
-  - tau +mpi +python
+  - sz@2.1.12.2
+  - tasmanian@7.9
+  - tau@2.32 +mpi +python
   - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
     +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
-  - turbine
-  - umap
-  - umpire
-  - unifyfs
-  - upcxx
-  - veloc
-  - vtk-m ~openmp # can't build +openmp w/ %oneapi: https://github.com/spack/spack/issues/31830
-  - wannier90
-  - zfp
+  - turbine@1.3.0
+  - umap@2.1.0
+  - umpire@2022.03.1
+  - unifyfs@1.0
+  - upcxx@2022.9.0
+  - veloc@1.5
+  - vtk-m@1.9.0 ~openmp # can't build +openmp w/ %oneapi: https://github.com/spack/spack/issues/31830
+  - wannier90@3.1.0
+  - zfp@0.5.5
 
   # GPU
-  - aml +ze
-  - amrex +sycl
-  - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples
-  - cabana +sycl ^kokkos+sycl +openmp std=17 +tests +examples
-  - kokkos +sycl +openmp std=17 +tests +examples %oneapi
-  - kokkos-kernels build_type=Release %oneapi ^kokkos +sycl +openmp std=17 +tests
-    +examples %oneapi
+  - aml@0.2.0 +ze
+  - amrex@22.11 +sycl
+  - arborx@1.3 +sycl ^kokkos@3.7.00 +sycl +openmp std=17 +tests +examples
+  - cabana@0.5.0 +sycl ^kokkos@3.7.00 +sycl +openmp std=17 +tests +examples
+  - kokkos-kernels@3.7.00 build_type=Release %oneapi ^kokkos@3.7.00 +sycl +openmp std=17 +tests +examples
+  - kokkos@3.7.00 +sycl +openmp std=17 +tests +examples
+  - tau@2.32 +mpi +opencl +level_zero ~pdt
 
   # CPU BUILD FAILURES
   # - adios2@2.8.0                        # adios2
@@ -220,36 +282,23 @@ spack:
   # - paraview +qt                        # qt
   # - phist@1.9.5                         # phist
   # - pruners-ninja@1.0.1                 # pruners-ninja
-  # - rempi                               # rempi
   # - variorum@0.4.1                      # variorum
-
-  # CPU BUILD FAILURES - NOTES
-  # adios2: /usr/bin/ld: ../../lib/libadios2_fortran.so.2.8.2: version node not found for symbol adios2_adios_init_mod@adios2_adios_init_serial_smod._; /usr/bin/ld: failed to set dynamic section sizes: bad value
-  # binutils: gold/powerpc.cc:3590: undefined reference to `gold::Sized_symbol<64>::Value_type gold::Symbol_table::compute_final_value<64>(gold::Sized_symbol<64> const*, gold::Symbol_table::Compute_final_value_status*) const'
-  # charliecloud: autoreconf phase: RuntimeError: configure script not found in ...
-  # flux-sched: include/yaml-cpp/emitter.h:164:9: error: comparison with NaN always evaluates to false in fast floating point modes [-Werror,-Wtautological-constant-compare]
-  # flux-sched: include/yaml-cpp/emitter.h:171:24: error: comparison with infinity always evaluates to false in fast floating point modes [-Werror,-Wtautological-constant-compare]
-  # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async';
-  # intel-tbb: clang++clang++clang++clang++clang++clang++clang++: : : : : : : clang++error: : unknown argument: '-flifetime-dse=1'
-  # phist: fortran_bindings/test/kernels.F90(63): error #8284: If the actual argument is scalar, the dummy argument shall be scalar unless the actual argument is of type character or is an element of an array that is not assumed shape, pointer, or polymorphic.   [ARGV]
-  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
-  # ruby: limits.c:415:34: error: invalid suffix 'D' on floating constant
-  # rust: /usr/bin/ld: /opt/intel/oneapi/compiler/2022.1.0/linux/bin-llvm/../compiler/lib/intel64_lin/libimf.a(libm_feature_flag.o): in function `__libm_feature_flag_init': libm_feature_flag.c:(.text+0x25): undefined reference to `__intel_cpu_feature_indicator_x'
-  # variorum: ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
-  # vtk-m +openmp: clang++: error: clang frontend command failed with exit code 139 (use -v to see invocation)
 
   # GPU BUILD FAILURES
   #- ginkgo@1.4.0 +oneapi %dpcpp ^cmake%oneapi                                              # ginkgo
   #- hpctoolkit@2022.04.15 +level_zero                                                      # dyninst
-  #- sundials@6.2.0 +sycl cxxstd=17                                                         # sundials
-  #- tau@2.31.1 +mpi +opencl +level_zero ~pdt %oneapi ^binutils%gcc@9.4.0 ^papi%gcc@9.4.0   # tau
+  #- sundials@6.2.0 +sycl cxxstd=17   
 
-  # GPU BUILD FAILURES - NOTES
-  # berkeley-db %dpcpp: dpcpp: dpcpperror: : no such file or directory: '/tmp/conftest-9d8d34.o'
-  # ginkgo %dpcpp: CMakeTestCXXCompiler.cmake:62: /usr/bin/ld: warning: libsvml.so, needed by /opt/intel/oneapi/compiler/2022.1.0/linux/bin-llvm/../lib/libsycl.so, not found (try using -rpath or -rpath-link) ...
-  # ncurses %dpcpp: If you have ncurses 4.2 applications, you should read the INSTALL document, and install the terminfo without the -x optiontic: error while loading shared libraries: libsvml.so: cannot open shared object file: No such file or directory
-  # sundials: include/sunmemory/sunmemory_sycl.h:20:10: fatal error: 'CL/sycl.hpp' file not found
-  # tau: requires libdrm-dev
+  # FINISHED ERROR LOGS
+  # - dealii@9.4.0                        # assimp
+  # - hdf5-vol-async@1.3                  # hdf5@1.13.2
+  # - rempi@1.1.0                         # rempi
+  # - visit@3.2.2                         # in ecp-data-vis-sdk; fails because of assimp
+  # ---
+  # assimp:
+  # intel-tbb: clang++: error: unknown argument: '-flifetime-dse=1'
+  # hdf5@1.13.2: 
+  # rempi:                                                      # sundials
 
   # SKIPPED
   #- flecsi@1.4.2    # dependency pfunit marks oneapi as an unsupported compiler
