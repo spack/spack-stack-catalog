@@ -1,7 +1,7 @@
 spack:
   specs:
-  - xsdk@0.8.0%gcc@8.3.1+cuda~dealii cuda_arch=70 ^cuda@11.7.0 ^python@3.9.10
-  view: true
+  - xsdk@0.8.0%gcc@8.3.1+cuda~dealii~raja cuda_arch=70 ^cuda@11.7.0 ^python@3.9.10
+  view: /g/g13/balos1/Workspaces/xsdk/spack-lassen-view
   compilers:
   - compiler:
       environment: {}

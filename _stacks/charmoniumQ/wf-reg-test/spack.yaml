@@ -20,17 +20,20 @@ spack:
   - nextflow
   - java
   - py-tqdm
-  - py-parsl
   - py-xxhash
   - py-pygithub
   - py-charmonium-time-block patches=2ca26cf
   - py-charmonium-freeze@0.6.0
   - py-mypy
   - py-pytest
-  - singularity ^python@3.10
+  - singularity
   - miniconda3
   - xxhash
   - py-ipython
+  - py-dask@2022.10.2~distributed
+  - py-fasteners
+  - py-dask
+  - py-parsl
   view: true
   concretizer:
     unify: when_possible

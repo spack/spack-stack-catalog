@@ -1,0 +1,52 @@
+spack:
+  concretizer:
+    unify: false
+  view: false
+  config:
+    install_missing_compilers: true
+    concretize: separate
+  definitions:
+  - compilers:
+    - nvhpc@22.5+mpi
+    - nvhpc@22.7+mpi
+    - nvhpc@22.9+mpi
+    # # - aocc@4.0.0
+    - intel-oneapi-compilers@2022.2.0
+    - intel-oneapi-compilers-classic@2021.7.0
+    - llvm@15.0.4+flang
+    - gcc@12.2.0
+    - gcc@9.5.0
+    - gcc@10.4.0
+    - gcc@11.3.0
+    - aocc@3.1.0+license-agreed
+    - aocc@3.2.0+license-agreed
+    # - acfl@22.1
+  - blass:
+    - intel-oneapi-mkl@2022.2.1
+    - openblas@0.3.21
+  - mpis:
+    - intel-oneapi-mpi@2021.7.1
+    - openmpi@4.1.4 +pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers
+    - mvapich2@2.3.7
+  - hdf5:
+    - hdf5@1.13.2 +cxx+threadsafe+fortran
+  - netcdfc:
+    - netcdf-c@4.9.0
+  - netcdffrt:
+    - netcdf-fortran@4.6.0
+  - adios2:
+    - adios2@2.7.1 +fortran+hdf5
+  specs:
+  - $compilers
+  - matrix:
+    - [$blass]
+    - [$%compilers]
+  - matrix:
+    - [$mpis]
+    - [$%compilers]
+  - matrix:
+    - [$netcdffrt]
+    - [$%compilers]
+    - [$^netcdfc]
+    - [$^hdf5]
+    - [$^mpis]

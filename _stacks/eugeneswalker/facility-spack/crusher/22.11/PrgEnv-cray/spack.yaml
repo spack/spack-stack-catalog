@@ -90,6 +90,7 @@ spack:
 
   packages:
     all:
+      require: "%cce@14.0.2"
       compiler: [cce@14.0.2]
       providers:
         blas: [openblas]
@@ -124,6 +125,9 @@ spack:
       variants: +pic
     mesa:
       version: [21.3.8]
+
+    unzip:
+      require: "%gcc"
 
     py-numpy:
       require: "@1.21.6"
@@ -366,7 +370,6 @@ spack:
   - amrex
   - arborx
   - argobots
-  - axom
   - bolt
   - butterflypack
   - cabana
@@ -408,7 +411,6 @@ spack:
   - plumed
   - precice
   - pumi
-  - py-jupyterhub
   - py-libensemble
   - py-petsc4py
   - qthreads scheduler=distrib
@@ -422,7 +424,6 @@ spack:
   - swig
   - swig@4.0.2-fortran
   - tasmanian
-  - tau +mpi +python ^libelf # elfutils has %cce conflict
   - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -435,7 +436,6 @@ spack:
   - variorum
 
   # no amdgpu_target
-  - tau +mpi +rocm ^libelf # elfutils has %cce conflict
 
   # amdgpu_target=gfx90a
   - amrex +rocm amdgpu_target=gfx90a
@@ -447,9 +447,7 @@ spack:
   - hpx +rocm amdgpu_target=gfx90a
   - kokkos +rocm amdgpu_target=gfx90a
   - magma ~cuda +rocm amdgpu_target=gfx90a
-  - mfem +rocm amdgpu_target=gfx90a
   - papi +rocm amdgpu_target=gfx90a
-  - petsc +rocm amdgpu_target=gfx90a
   - raja ~openmp +rocm amdgpu_target=gfx90a
   - slate +rocm amdgpu_target=gfx90a
   - sundials +rocm amdgpu_target=gfx90a
@@ -523,6 +521,9 @@ spack:
   # - stat@4.1.0 %cce                   # intel-tbb, rust
   # - strumpack@6.3.1 ~slate            # strumpack
   # - wannier90@3.1.0                   # wannier90
+  # - tau +mpi +python ^libelf          # elfutils has %cce conflict
+  # - axom                              # axom
+  # - py-jupyterhub                     # py-jupyterhub
   # --------
   # py-scipy@1.8.1: ftn-78 ftn: ERROR in command line: The -f option has an invalid argument, "no-second-underscore".
   # bricks: cc1plus: error: bad value ('OFF') for '-mtune=' switch; stencils/3axis_sycl.cpp:8:10: fatal error: 'CL/sycl.hpp' file not found
@@ -560,6 +561,9 @@ spack:
   # - slepc@3.17.2 +rocm amdgpu_target=gfx90a ^petsc@3.17.4 +rocm amdgpu_target=gfx90a # petsc
   # - strumpack@6.3.1 ~slate +rocm amdgpu_target=gfx90a     # strumpack
   # - vtk-m@1.8.0 +rocm amdgpu_target=gfx90a                # vtk-m
+  # - tau +mpi +rocm ^libelf                                # elfutils has %cce conflict
+  # - petsc +rocm amdgpu_target=gfx90a                      # hipsolver
+  # - mfem +rocm amdgpu_target=gfx90a                       # mfem
   # --------
   # ginkgo: libginkgo_omp.so.1.4.0: undefined reference to _cray$mt_kmpc_fork_call_with_flags [--no-allow-shlib-undefined]
   # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'

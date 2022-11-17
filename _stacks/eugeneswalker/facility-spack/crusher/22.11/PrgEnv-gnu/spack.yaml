@@ -57,6 +57,7 @@ spack:
 
   packages:
     all:
+      require: "%gcc@11.2.0"
       compiler: [gcc@11.2.0]
       providers:
         blas: [openblas]
@@ -423,7 +424,6 @@ spack:
   - hpx +rocm amdgpu_target=gfx90a
   - kokkos +rocm amdgpu_target=gfx90a
   - magma ~cuda +rocm amdgpu_target=gfx90a
-  - mfem +rocm amdgpu_target=gfx90a
   - petsc +rocm amdgpu_target=gfx90a
   - raja ~openmp +rocm amdgpu_target=gfx90a
   - slate +rocm amdgpu_target=gfx90a
@@ -493,9 +493,10 @@ spack:
 
   # GPU FAILURES
   # - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
+  # - mfem +rocm amdgpu_target=gfx90a                           # mfem
   # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                   # papi
   # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # slepc
-  # - tau +mpi +rocm
+  # - tau +mpi +rocm                                            # tau
   # ------
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827

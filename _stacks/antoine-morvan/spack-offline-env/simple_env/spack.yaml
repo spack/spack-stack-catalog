@@ -1,0 +1,26 @@
+spack:
+  concretizer:
+    unify: false
+  view: false
+  config:
+    install_missing_compilers: true
+    concretize: separate
+    source_cache: $SPACK_ENV/spack_mirror
+  mirrors:
+    offline_spack_mirror: file://$SPACK_ENV/spack_mirror
+  bootstrap:
+    root: $SPACK_ENV/spack_bootstrap
+  definitions:
+  - mpis:
+    - openmpi@4.1.2+cxx
+  - hdf5:
+    - hdf5@1.13.2 +cxx+threadsafe+fortran
+  - compilers:
+    - gcc@11.2.0
+  specs:
+  - matrix:
+    - [$compilers]
+  - matrix:
+    - [$hdf5]
+    - [$%compilers]
+    - [$^mpis]

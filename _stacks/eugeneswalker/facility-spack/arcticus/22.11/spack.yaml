@@ -27,7 +27,7 @@ spack:
       - intel_compute_runtime/release/pvc-prq-29
       environment:
         prepend_path:
-          LD_LIBRARY_PATH: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/pseudo-20220630/compiler/linux/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+          LD_LIBRARY_PATH: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/pseudo-20220630/compiler/linux/compiler/lib/intel64_lin/:/soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/pseudo-20220630/compiler/linux/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
       extra_rpaths:
       - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
   - compiler:
@@ -69,8 +69,6 @@ spack:
       variants: +bzip2 ~nls +xz
     hdf5:
       variants: +fortran +hl +shared
-    libfabric:
-      variants: fabrics=sockets,tcp,udp,rxm
     libunwind:
       variants: +pic +xz
     llvm:
@@ -126,7 +124,6 @@ spack:
   - archer
   - argobots
   - ascent
-  - axom
   - bolt
   - bricks
   - butterflypack
@@ -137,7 +134,6 @@ spack:
   - darshan-runtime
   - darshan-util
   - datatransferkit
-  - exaworks
   - faodel
   - flit
   - flux-core
@@ -147,10 +143,8 @@ spack:
   - globalarrays
   - gmp
   - gotcha
-  - gptune
   - hdf5 +fortran +hl +shared
   - heffte +fftw
-  - hpx networking=mpi
   - hypre
   - kokkos-kernels +openmp
   - kokkos +openmp
@@ -168,31 +162,18 @@ spack:
   - nccmp
   - nco
   - netlib-scalapack
-  - nrm
-  - omega-h
-  - openmpi
-  - openpmd-api
   - papi
   - papyrus
   - parallel-netcdf
-  - parsec ~cuda
-  - pdt
+  - pdt %gcc
   - petsc
   - plasma
   - plumed
   - precice
   - pumi
-  - py-cinemasci
-  - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=2
-  - py-warpx ^warpx dims=3
-  - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
-  - raja
-  - rempi
-  - scr
   - slate ~cuda
   - slepc
   - stc
@@ -201,10 +182,8 @@ spack:
   - superlu-dist
   - superlu
   - swig
-  - swig@4.0.2-fortran
   - sz
   - tasmanian
-  - tau +mpi +python
   - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -221,27 +200,46 @@ spack:
   
   # GPU
   - aml +ze
-  - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples
   - cabana +sycl ^kokkos +sycl +openmp std=17 +tests +examples
   - kokkos +sycl +openmp std=17 +tests +examples
   - kokkos-kernels build_type=Release ^kokkos +sycl +openmp std=17 +tests +examples
 
   # CPU BUILD FAILURES
-  #- adios2@2.8.0                                     # adios2
-  #- charliecloud@0.26                                # charliecloud
-  #- dyninst@12.1.0                                   # old intel-tbb
-  #- geopm@1.1.0                                      # geopm
-  #- h5bench@1.2                                      # h5bench
-  #- hpctoolkit                                       # dyninst
-  #- phist@1.9.5                                      # phist
-  #- paraview +qt                                     # qt
-  #- pruners-ninja@1.0.1                              # pruners-ninja
-  #- variorum@0.4.1                                   # variorum
+  # - adios2                                    # adios2
+  # - amrex                                     # amrex
+  # - axom                                      # raja
+  # - charliecloud                              # charliecloud
+  # - dyninst                                   # old intel-tbb
+  # - exaworks                                  # krb5
+  # - geopm                                     # geopm
+  # - gptune                                    # py-scipy
+  # - h5bench                                   # h5bench
+  # - hpctoolkit                                # dyninst
+  # - hpx networking=mpi                        # krb5
+  # - nrm                                       # nrm
+  # - omega-h                                   # trilinos@12.18.1
+  # - openmpi                                   # krb5
+  # - openpmd-api                               # adios2
+  # - paraview +qt                              # qt
+  # - parsec ~cuda                              # parsec
+  # - phist                                     # phist
+  # - pruners-ninja                             # pruners-ninja
+  # - py-cinemasci                              # py-scipy
+  # - py-jupyterhub                             # krb5
+  # - py-warpx ^warpx dims=2                    # py-scipy
+  # - py-warpx ^warpx dims=3                    # py-scipy
+  # - py-warpx ^warpx dims=rz                   # py-scipy
+  # - raja                                      # raja
+  # - rempi                                     # rempi
+  # - scr                                       # libyogrt
+  # - swig@4.0.2-fortran                        # swig
+  # - tau +mpi +python                          # pdt
+  # - variorum                                  # variorum
 
   # GPU BUILD FAILURES
-  #- amrex
-  #- amrex +sycl
-  #- ginkgo@1.4.0 +oneapi %dpcpp ^cmake%oneapi                                              # ginkgo
-  #- hpctoolkit@2022.04.15 +level_zero                                                      # dyninst
-  #- sundials@6.2.0 +sycl cxxstd=17                                                         # sundials
-  #- tau@2.31.1 +mpi +opencl +level_zero ~pdt %oneapi ^binutils%gcc@9.4.0 ^papi%gcc@9.4.0   # tau
+  # - amrex +sycl                                                 # amrex
+  # - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples  # arborx
+  # - ginkgo +oneapi %dpcpp                                       # ginkgo
+  # - hpctoolkit +level_zero                                      # dyninst
+  # - sundials +sycl cxxstd=17                                    # sundials
+  # - tau +mpi +opencl +level_zero ~pdt                           # tau

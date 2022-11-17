@@ -4,6 +4,5 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: ['bpmf-ompss %gcc@7.3.0 ^nanos6@argodsm ^openmpi+pmix+thread_multiple fabrics=ofi,ucx
-      schedulers=tm ^openpbs ^ucx+mlx5-dv']
+  specs: ['bpmf-ompss ^nanos6@argodsm ^openmpi+pmix+thread_multiple fabrics=ofi,ucx schedulers=tm ^openpbs ^ucx+mlx5-dv']
   view: true

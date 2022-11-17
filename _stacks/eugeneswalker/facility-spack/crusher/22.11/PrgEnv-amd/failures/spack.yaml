@@ -1,0 +1,438 @@
+spack:
+
+  view: false
+
+  concretizer:
+    reuse: False
+    unify: False
+
+  modules:
+    default:
+      'enable:': [lmod]
+      lmod:
+        defaults: [cray-mpich@8.1.17]
+        core_compilers: [clang@14.0.0-rocm5.2.0]
+        verbose: true
+        hash_length: 0
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +rocm: rocm
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        exclude_implicits: true
+        include: [cray-mpich]
+    prefix_inspections:
+      lib64: [LD_LIBRARY_PATH]
+      lib: [LD_LIBRARY_PATH]
+
+  compilers:
+  - compiler:
+      spec: clang@14.0.0-rocm5.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd/8.3.3
+      - amd/5.2.0
+      - xpmem
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.3
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          PKG_CONFIG_PATH: /opt/cray/xpmem/2.4.4-2.3_11.2__gff0e1d9.shasta/lib64/pkgconfig
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.3/lib
+          LIBRARY_PATH: /opt/rocm-5.2.0/lib:/opt/rocm-5.2.0/lib64
+      extra_rpaths:
+      - /opt/rocm-5.2.0/lib
+      - /opt/rocm-5.2.0/lib64
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.3/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+
+  packages:
+    all:
+      require: "%clang@14.0.0-rocm5.2.0"
+      compiler: [clang@14.0.0-rocm5.2.0]
+      providers:
+        blas: [openblas]
+        lapack: [openblas]
+        mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
+      target: [zen3]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    ncurses:
+      require: "@6.3 +termlib"
+    openblas:
+      variants: threads=openmp
+    python:
+      require: "@3.7.15"
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+
+    unzip:
+      require: "%gcc"
+
+    # FACILITY REQUESTED PREFERENCES
+    petsc:
+      variants: +batch
+    parallel-netcdf:
+      variants: +cxx +fortran +fpic
+    netlib-scalapack:
+      variants: +fpic
+    netcdf-c:
+      variants: ~hdf4 +mpi +parallel-netcdf +shared
+    fftw:
+      variants: precision=float,double,long_double
+    darshan-runtime:
+      variants: scheduler=slurm
+
+    # EXTERNALS
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.17 %clang@14.0.0-rocm5.2.0
+        prefix: /opt/cray/pe/mpich/8.1.17/ofi/amd/5.0
+        modules:
+        - cray-mpich/8.1.17
+        - libfabric/1.15.0.0
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.15
+        modules:
+        - libfabric/1.15.0.0
+
+    # ROCm 5.2.0
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/hip
+        modules: [rocm/5.2.0]
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@5.2.0
+        prefix: /opt/rocm-5.2.0/opencl
+        modules: [rocm/5.2.0]
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules:
+        - craype-accel-amd-gfx90a
+        - rocm/5.2.0
+        extra_attributes:
+          compilers:
+            c: CC
+            c++: CC
+            hip: CC
+        environment:
+          set:
+            MPICH_GPU_SUPPORT_ENABLED: 1
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@5.2.0
+        prefix: /opt/rocm-5.2.0/llvm
+        modules: [rocm/5.2.0]
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.2.0
+        prefix: /opt/rocm-5.2.0/
+        modules: [rocm/5.2.0]
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-5.2.0/llvm/bin/clang++
+            cxx: /opt/rocm-5.2.0/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@5.2.0
+        prefix: /opt/rocm-5.2.0/roctracer
+        modules: [rocm/5.2.0]
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules: [rocm/5.2.0]
+    rocprofiler-dev:
+      buildable: false
+      externals:
+      - spec: rocprofiler-dev@5.2.0
+        prefix: /opt/rocm-5.2.0
+        modules:
+        - rocm/5.2.0
+
+  specs:
+  # CPU FAILURES
+  - alquimia                        # pflotran
+  - archer                          # llvm@8
+  - ascent                          # conduit, vtk-h
+  - axom                            # conduit
+  - bricks                           # bricks
+  - butterflypack                   # arpack-ng
+  - conduit                         # conduit
+  - flecsi                          # pfunit
+  - geopm                           # geopm
+  - h5bench                           # h5bench
+  - omega-h                        # omega-h
+  - paraview +qt      # llvm@12.0.1
+  - phist                           # phist
+  - pruners-ninja                   # pruners-ninja
+  - slepc                         # arpack-ng
+  - strumpack ~slate                # arpack-ng
+  - unifyfs                         # unifyfs
+  - upcxx                        # upcxx
+  - variorum                        # variorum
+  # -----
+  # arpack-ng: F90-S-0034-Syntax error at or near , (.../spack-src/stat.h: 20)
+  # bricks: cc1plus: error: bad value ('OFF') for '-mtune=' switch
+  # conduit: F90-S-0450-Argument number 1 to assert_true: kind mismatch: tests/conduit/fortran/t_f_conduit_node_obj.f90: 248)
+  # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
+  # geopm: src/MSRControlImp.hpp:69:28: error: explicitly defaulted copy assignment operator is implicitly deleted [-Werror,-Wdefaulted-function-deleted]
+  # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async'
+  # h5bench: https://github.com/spack/spack/issues/32113
+  # llvm@12.0.1: FAILED: lib/clang/12.0.1/lib/linux/libclang_rt.fuzzer_interceptors-x86_64.a
+  # llvm@12.0.1: spack/lib/spack/env/ld.lld: line 778: exec: ld.lld: not found
+  # llvm@8: compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc:1121:1: error: 'assertion_failed__1121' declared as an array with a negative size
+  # llvm@8: FAILED: projects/compiler-rt/lib/sanitizer_common/CMakeFiles/RTSanitizerCommon.x86_64.dir/sanitizer_platform_limits_posix.cc.o
+  # omega-h: src/r3d.hpp:965:9: error: variable 'tface' set but not used [-Werror,-Wunused-but-set-variable]
+  # pflotran: F90-S-0043-Illegal attempt to redefine symbol materialcompresssoilptr (.../src/pflotran/material_aux.F90: 112)
+  # pflotran: pflotran/option.F90:750:21: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
+  # pfunit: Unrecognized compiler.  Please use ifort, gfortran, gfortran-mp-4
+  # phist: cxx_bindings/make_cxx_bindings.py:106: DeprecationWarning: 'U' mode is deprecated
+  # pruners-ninja: https://github.com/spack/spack/issues/32112
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
+  # rempi: https://github.com/spack/spack/issues/32123
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # unifyfs: unifyfs.c:1502:7: error: unused function 'next_page_align' [-Werror,-Wunused-function]
+  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
+  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
+  # variorum: https://github.com/spack/spack/issues/32110
+  # variorum: ld.lld: error: duplicate symbol: g_platform
+  # vtk-h: CMake: Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
+
+  # GPU FAILURES
+  - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a # arpack-ng
+  - strumpack ~slate +rocm amdgpu_target=gfx90a           # arpack-ng
+  - ginkgo +rocm amdgpu_target=gfx90a                     # ginkgo
+  - vtk-m ~openmp ~rendering +rocm amdgpu_target=gfx90a   # vtk-m
+  - petsc +rocm amdgpu_target=gfx90a                     # hipsolver
+  - slate +rocm amdgpu_target=gfx90a                 # blaspp
+  - mfem +rocm amdgpu_target=gfx90a                             # mfem
+  # -----
+  # arpack-ng: F90-S-0034-Syntax error at or near , (.../spack-src/stat.h: 20)
+  # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
+  # cabana: https://github.com/spack/spack/issues/27967
+  # ginkgo: core/base/extended_float.hpp:48:10: fatal error: 'cuda_fp16.h' file not found
+  # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
+
+  # SKIPPED
+  # - dyninst@12.2.0                  # %clang conflict
+  # - gptune@3.0.0                    # hard openmpi dependency
+  # - hpctoolkit@2022.05.15           # ^dyninst%clang conflict
+  # - hpctoolkit@2022.05.15  +rocm    # ^dyninst%clang conflict
+  # - libnrm@0.1.0                    # hard mpich dependency
+  # - nvhpc@22.7                      # not relevant on AMD GPU system
+  # - plasma@21.8.29                  # %clang conflict
+  # - stat@4.1.0                      # ^dyninst%clang conflict
+  # - openmpi@4.1.4                   # not relevant
