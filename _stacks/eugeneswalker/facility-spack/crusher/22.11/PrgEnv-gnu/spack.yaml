@@ -63,9 +63,12 @@ spack:
         blas: [openblas]
         lapack: [openblas]
         mpi: [cray-mpich]
+        tbb: [intel-tbb]
         scalapack: [netlib-scalapack]
       target: [zen3]
       variants: +mpi
+    tbb:
+      require: "intel-tbb"
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     elfutils:
@@ -324,6 +327,7 @@ spack:
   specs:
   # CPU
   - adios
+  - alquimia
   - aml
   - amrex
   - arborx
@@ -335,8 +339,10 @@ spack:
   - cabana
   - caliper
   - chai ~benchmarks ~tests
+  - charliecloud
   - conduit
   - datatransferkit
+  - dyninst ^intel-tbb
   - ecp-data-vis-sdk +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf ~sensei +sz ~unifyfs +veloc +visit +vtkm +zfp ~cuda ~rocm 
   - exaworks
   - flecsi
@@ -348,15 +354,17 @@ spack:
   - globalarrays
   - gmp
   - gotcha
+  - h5bench
   - hdf5-vol-async
   - heffte +fftw
   - hpctoolkit
-  - hpx networking=mpi
+  - hpx max_cpu_count=512 networking=mpi
   - hypre
   - kokkos-kernels +openmp
   - kokkos +openmp
   - lammps
   - legion
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
   - libquo
   - libunwind
   - mercury
@@ -389,6 +397,7 @@ spack:
   - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
+  - quantum-espresso
   - raja
   - slate ~cuda
   - stc
@@ -399,6 +408,7 @@ spack:
   - swig
   - swig@4.0.2-fortran
   - tasmanian
+  - tau +mpi +python
   - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -408,22 +418,25 @@ spack:
   - umpire
   - unifyfs
   - upcxx
+  - variorum
 
   # no amdgpu_target
+  - cabana +rocm
+  - hpctoolkit +rocm
+  - tau +mpi +rocm
 
   # amdgpu_target=gfx90a
   - amrex +rocm amdgpu_target=gfx90a
   - arborx +rocm amdgpu_target=gfx90a
-  - cabana +rocm
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
-  - ecp-data-vis-sdk +adios2 ~ascent +cinema +darshan +faodel +hdf5 ~paraview +pnetcdf ~sensei +sz ~unifyfs +veloc +visit +vtkm +zfp ~cuda +rocm amdgpu_target=gfx90a
+  - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a
   - gasnet +rocm amdgpu_target=gfx90a
   - ginkgo +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a
-  - hpctoolkit +rocm
-  - hpx +rocm amdgpu_target=gfx90a
+  - hpx max_cpu_count=512 +rocm amdgpu_target=gfx90a
   - kokkos +rocm amdgpu_target=gfx90a
   - magma ~cuda +rocm amdgpu_target=gfx90a
+  - mfem +rocm amdgpu_target=gfx90a
   - petsc +rocm amdgpu_target=gfx90a
   - raja ~openmp +rocm amdgpu_target=gfx90a
   - slate +rocm amdgpu_target=gfx90a
@@ -440,70 +453,56 @@ spack:
   - upcxx +rocm amdgpu_target=gfx90a
 
   # Included in ecp-data-vis-sdk
-  # - adios2@2.8.3
-  # - ascent@0.8.0
-  # - darshan-runtime@3.4.0
-  # - darshan-util@3.4.0
-  # - faodel@1.2108.1
-  # - hdf5@1.12.2 +fortran +hl +shared
-  # - parallel-netcdf@1.12.2
-  # - paraview@5.10.1 +qt ^mesa@21.3.8
-  # - sz@2.1.12.2
-  # - veloc@1.5
-  # - vtk-m@1.8.0
-  # - vtk-m@1.8.0 ~openmp ~rendering +rocm amdgpu_target=gfx90a
-  # - zfp@0.5.5
+  # - adios2
+  # - ascent
+  # - darshan-runtime
+  # - darshan-util
+  # - faodel
+  # - hdf5 +fortran +hl +shared
+  # - parallel-netcdf
+  # - paraview +qt ^mesa
+  # - sz
+  # - veloc
+  # - vtk-m
+  # - vtk-m ~openmp ~rendering +rocm amdgpu_target=gfx90a
+  # - zfp
 
-  # CPU FAILURES
-  # - alquimia@1.0.9                          # pflotran
-  # - bricks@r0.1                             # bricks
-  # - dealii                                  # dealii
-  # - dyninst                                 # dyninst
-  # - geopm@1.1.0                             # geopm
-  # - h5bench@1.2                             # h5bench
-  # - loki@0.1.7                              # loki
-  # - pruners-ninja@1.0.1                     # pruners-ninja
-  # - rempi@1.1.0                             # rempi
-  # - scr@3.0                                 # scr
-  # - slepc                                   # slepc
-  # - stat@4.1.0                              # launchmon-master
-  # - tau +mpi +python                        # tau
-  # - variorum@0.4.1                          # variorum
-  # - wannier90                               # wannier90
+  # CPU ERRORS
+  # - bricks                # bricks
+  # - dealii                # slepc
+  # - geopm                 # geopm
+  # - loki                  # loki
+  # - pruners-ninja         # pruners-ninja
+  # - rempi                 # rempi
+  # - scr                   # scr
+  # - slepc                 # slepc
+  # - stat                  # launchmon-master
+  # - wannier90             # wannier90
   # -----
   # bricks: weak/args.h:14:8: error: 'size_t' does not name a type; VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
-  # dealii: trilinos-13.0.1-gf2n2lavzxs77fcpqyw657s3ysgu2e5l/lib/cmake/ShyLU/ShyLUConfig.cmake:160 (INCLUDE): INCLUDE could not find requested file:
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
-  # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async'
-  # h5bench: https://github.com/spack/spack/issues/32113
-  # launchmon: launchmon/src/sdbg_base_symtab.hxx:207:49: error: ISO C++17 does not allow dynamic exception specifications
-  # launchmon: sdbg_base_symtab.hxx:197:34: error: ISO C++17 does not allow dynamic exception specifications
-  # librsvg: error: could not compile `cssparser` due to: /usr/bin/ld: cannot find .../spack-stage-librsvg-2.51.0-i3kyrqfehr7ip7msht4uiboatpbxjfnt/spack-src/target/release/deps/libproc_macro2-b865193815fed41d.rlib: No such file or directory
   # loki: https://github.com/spack/spack/issues/32122
   # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
-  # pflotran: pflotran/option.F90:750:21: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
   # pruners-ninja: https://github.com/spack/spack/issues/32112
   # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
   # scr: CMake Error at cmake/SCR_DEPENDENCIES.cmake:10 (MESSAGE): Could not find MPI! Either add an MPI compiler to your path or force CMake
-  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
-  # variorum: https://github.com/spack/spack/issues/32110
+  # slepc: /usr/bin/sha1sum: a.out: No such file or directory
   # wannier90: ../comms.F90:1214:22: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
-  # GPU FAILURES
-  # - caliper@2.8.0 +rocm amdgpu_target=gfx90a                  # caliper
-  # - mfem +rocm amdgpu_target=gfx90a                           # mfem
-  # - papi@6.0.0.1 +rocm amdgpu_target=gfx90a                   # papi
+  # GPU ERRORS
+  # - caliper +rocm amdgpu_target=gfx90a                                  # caliper
+  # - papi +rocm amdgpu_target=gfx90a                                     # papi
   # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # slepc
-  # - tau +mpi +rocm                                            # tau
   # ------
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827
   # papi: Fatal Error: File '/opt/rocm-5.2.0/llvm/include/omp_lib.mod' opened at (1) is not a GNU Fortran module file
+  # slepc: /usr/bin/sha1sum: a.out: No such file or directory
 
   # SKIPPED
-  # - nvhpc@22.7                 # not relevant on AMD GPU system
-  # - libnrm                     # hard mpich dependency
-  # - gptune@3.0.0               # hard openmpi dependency
   # - catalyst                   # versions >= 5.7 are in paraview now
+  # - gptune                     # hard openmpi dependency
+  # - libnrm                     # hard mpich dependency
+  # - nvhpc                      # not relevant on AMD GPU system

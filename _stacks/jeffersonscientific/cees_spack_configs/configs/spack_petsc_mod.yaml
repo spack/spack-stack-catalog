@@ -8,8 +8,8 @@ spack:
   specs: [curl, mpich, petsc, libgcrypt, libtool, autoconf]
   view: true
   include:
-  - $spack/../configs/packages_petsc.yaml
-  - $spack/../configs/compilers_sherlock_O2.yaml
+  - $spack/../configs/packages_petsc_inc.yaml
+  - $spack/../configs/compilers_sherlock_O2_inc.yaml
   #
   config:
     install_missing_compilers: true

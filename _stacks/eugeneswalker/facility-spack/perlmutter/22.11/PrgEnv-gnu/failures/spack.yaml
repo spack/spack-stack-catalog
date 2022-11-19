@@ -32,6 +32,8 @@ spack:
         tbb: [intel-tbb]
       target: [zen3]
       variants: +mpi
+    tbb:
+      require: "intel-tbb"
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     elfutils:
@@ -149,13 +151,12 @@ spack:
             ^warpx dims=rz: dimsRZ
 
   specs:
-  # CPU FAILURES
-  - alquimia                    # pflotran:
+  # CPU ERRORS
   - bricks                      # bricks
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # font-util
   - exaworks                    # rust
   - gasnet                      # gasnet
   - geopm                       # geopm
-  - h5bench                     # h5bench
   - loki                        # loki
   - paraview +qt ^mesa          # llvm
   - phist                       # phist
@@ -163,40 +164,45 @@ spack:
   - pruners-ninja               # pruners-ninja
   - quantum-espresso            # quantum-espresso
   - rempi                       # rempi
-  - tau +mpi +python            # tau
+  - stat                        # launchmon
   - unifyfs                     # unifyfs
   - upcxx                       # upcxx
-  - variorum                    # variorum
+  - visit                       # font-util
   - wannier90                   # wannier90
-  # ----
-  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
+  # --
+  # bricks: weak/args.h:14:8: error: 'size_t' does not name a type
+  # catalyst: Catalyst-v5.6.0/VTK/Common/Core/vtkMath.h:1514:15: error: 'clamp' is not a member of 'std'
   # font-util: configure.ac:11: installing './compile'
+  # font-util: configure.ac:35: installing './compile'
+  # gasnet: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
+  # gasnet: configure: checking for C compiler flag -Wuse-after-free... no/error: gcc: error: unrecognized command-line option '-Wuse-after-free'
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
-  # h5bench: collect2: error: ld returned 1 exit status
+  # launchmon: sdbg_base_symtab.hxx:197:34: error: ISO C++17 does not allow dynamic exception specifications
   # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
-  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
   # loki: https://github.com/spack/spack/issues/32122
-  # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+  # mesa18: llvm-config: error: missing: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.11/PrgEnv-gnu/spack/opt/spack/linux-sles15-zen3/gcc-11.2.0/llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMCore.so
+  # phist: ./cfwrapper.py:343: DeprecationWarning: 'U' mode is deprecated
   # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
-  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
   # pruners-ninja: https://github.com/spack/spack/issues/32112
-  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # quantum-espresso: CMake Error at cmake/FindSCALAPACK.cmake:505 (message): A required library with SCALAPACK API not found.  Please specify library location: -DSCALAPACK_DIR=/your/path/to/scalapack
   # rempi: https://github.com/spack/spack/issues/32123
-  # upcxx: configure error: Requested PMI version cray could not be found
-  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
-  # variorum: https://github.com/spack/spack/issues/32110
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # rust: error: failed to run custom build command for `openssl-sys v0.9.65`
+  # unifyfs: configure: error: couldn't find a suitable openssl-devel
+  # unifyfs: configure: error: couldn't find a suitable openssl-devel
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
-  # GPU FAILURES
+  # GPU ERRORS
   - bricks +cuda                        # bricks
   - dealii +cuda                        # dealii
-  - parsec +cuda cuda_arch=80           # parsec
-  - raja +cuda cuda_arch=80             # raja
-  - tau +mpi +cuda                      # tau
   - trilinos@13.4.0 +cuda cuda_arch=80  # trilinos
-  # -----
-  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
-  # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
-  # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
-  # raja: RAJA/policy/tensor/arch/avx2/avx2_int32.hpp(317): error: "RAJA::expt::Register<int32_t, RAJA::expt::avx2_register> &(const int32_t &)" contains a vector, which is not supported in device code
+  # --
+  # bricks: weak/args.h:14:8: error: 'size_t' does not name a type
+  # mesa18: llvm-config: error: missing: llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMDemangle.so
   # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
+
+  # SKIPPED
+  # - catalyst                          # catalyst is in paraview since @5.7

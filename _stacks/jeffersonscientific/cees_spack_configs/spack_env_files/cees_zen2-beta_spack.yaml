@@ -1,0 +1,379 @@
+# This is a Spack Environment file.
+# env zen2-beta
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  definitions:
+  - compilers_core: [gcc@4.8.5]
+  - compilers_gcc: [gcc@11.2.0]
+  - compilers_intel: [intel@2021.4.0, oneapi@2021.4.0]
+  - compilers_intel19: [intel@19.0.0.117]
+  
+  #
+  #
+  - mpis_gcc: [mpich, openmpi, intel-oneapi-mpi]
+  - mpis_intel: [intel-oneapi-mpi, mpich]
+  - packages_compilers: [gcc, intel-oneapi-compilers]
+  
+  #
+  #
+  - packages_serial: [proj, swig, geos, maven, intel-oneapi-tbb, intel-oneapi-mkl,
+      libdwarf, tar, cuda, numactl, nco]
+  - packages_serial_gcc: [$packages_serial, ncurses, ucx, font-util]
+  - packages_serial_intel: [$packages_serial]
+  
+  #
+  # NOTE: Not sure we need nasm@2.14.02. Looks likd .15 gets installed (anyway, as a dependency?)
+  #- packages_serial_intel19: [proj, swig, geos, maven, intel-oneapi-tbb, intel-oneapi-mkl,
+  #    sintel-tbb, ncurses, libdwarf@20160507, libsigsegv@2.12, tar@1.32]
+  #
+  - packages_mpi: [hdf5, netcdf-c, netcdf-fortran, netcdf-cxx4, cdo, parallel-netcdf,
+      petsc, fftw, parallelio, cgal]
+  - packages_mpi_gcc:
+    - $packages_mpi
+    - paraview
+  - packages_mpi_intel:
+    - $packages_mpi
+  #
+  specs:
+  # compilers:
+  - matrix:
+    - [$packages_compilers]
+    - [$%compilers_core]
+  # Serial: gcc
+  - matrix:
+    - [$packages_serial_gcc, $mpis_gcc]
+    - [$%compilers_gcc]
+  # Serial: intel@20+
+  - matrix:
+    - [$packages_serial_intel, $mpis_intel]
+    - [$%compilers_intel]
+  # Serial: intel@19
+  # NOTE: we might not need this; we might be ablte to better configure the intel/19 compiler so it will compile the same set.
+  #- matrix:
+  #  - [$packages_serial_intel19, $mpis_intel]
+  #  - [$%compilers_intel19]
+  #
+  # MPI installs: GCC
+  - matrix:
+    - [$packages_mpi_gcc]
+    - [$^mpis_gcc]
+    - [$%compilers_gcc]
+  # MPI installs: Intel
+  - matrix:
+    - [$packages_mpi_intel]
+    - [$^mpis_intel]
+    - [$%compilers_intel]
+  #
+  #
+  ## breaking on what looks like a misplaced spec, bug in cuda requrement (somehwere there is a cuda@11.1 spec.)
+  #- cudnn@8.2.4.15-11.4%gcc@11.2.0 ^cuda@11.4.0 cflags="-O3 -mrdrnd" cxxflags="-O3"
+  #  fflags="-O3 -fallow-argument-mismatch"  arch=linux-centos7-zen2
+  view: true
+  concretizer:
+    unify: when_possible
+  packages:
+    numactl:
+      version: [2.0.14]
+    perl:
+      version: [5.34.0]
+    findutils:
+      version: [4.8.0]
+    font-util:
+      version: [1.3.2]
+    python:
+      version: [3.8.11]
+    berkeley-db:
+      version: [18.1.40]
+    gdbm:
+      version: [1.18.1]
+    readline:
+      version: [8.1]
+    libdwarf:
+      version: [20180129]
+    ncurses:
+      version: [6.2]
+    petsc:
+      version: [3.15.0]
+      variants: +hypre+fftw+mumps+hdf5+batch
+    mpich:
+      version: [3.4.2]
+    openmpi:
+      variants: +pmi +pmix +legacylaunchers schedulers=slurm fabrics=ucx,ofi
+      version: [4.1.1]
+    ucx:
+      version: [1.11.2]
+      variants: [+cm +cma +dc +ib-hw-tm +mlx5-dv +rc +thread_multiple +ud]
+    proj:
+      version: [8.1.0] #[7.2.1]
+    geos:
+      version: [3.8.1]
+    ascent:
+      variants: +python
+    binutils:
+      version: [2.34]
+    boost:
+      version: [1.75.0]
+    cmake:
+      version: [3.21.3] #[3.20.1]
+    cuda:
+      version: [11.4.0]
+    emacs:
+      variants: +tls
+    fftw:
+      version: [3.3.9]
+    hdf5:
+      variants: ~cxx~debug+fortran+hl~java+mpi+shared~szip+threadsafe
+      version: [1.10.7, 1.12.0]
+    netcdf-c:
+      version: [4.7.4]
+    netcdf-cxx4:
+      version: [4.3.1]
+    netcdf-cxx:
+      version: [4.2]
+    netcdf-fortran:
+      version: [4.5.3]
+    parallel-netcdf:
+      version: [1.12.1]
+    parallelio:
+      version: [252]
+    paraview:
+      version: [5.9.1]
+      variants: [+hdf5 +python3]
+    muparser:
+      version: [2.2.6.1]
+    maven:
+      version: [3.6.3]
+    memsurfer:
+      version: [1.0]
+    swig:
+      version: [4.0.2]
+    cgal:
+      version: [5.0.3]
+    gdal:
+      version: [3.2.2]
+    eigen:
+      version: [3.3.9]
+    cdo:
+      version: [1.9.10]
+    vtk:
+      version: [9.0.0]
+    dealii:
+      version: [9.2.0]
+    xios:
+      version: [2.5]
+    gcc:
+      version: [11.2.0]
+      compiler: [gcc@4.8.5]
+      target: [x86_64_v3]
+    intel-oneapi-compilers:
+      version: [2021.4.0]
+      compiler: [gcc@4.8.5]
+      target: [x86_64_v3]
+    intel-oneapi-tbb:
+      version: [2021.4.0]
+    intel-oneapi-mkl:
+      version: [2021.4.0]
+    intel-oneapi-mpi:
+      version: [2021.4.0]
+    intel-tbb:
+      version: [2021.4.0]
+    blitz:
+      version: [1.0.2]
+    tar:
+      version: [1.34]
+    m4:
+      version: [1.4.19]
+    gettext:
+      version: [0.21]
+    all:
+      target: [zen2]
+      compiler: [gcc@11.2.0, intel@2021.4.0, oneapi@2021.4.0]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [mpich, openmpi, intel-oneapi-mpi]
+        blas: [openblas]
+        lapack: [openblas]
+        gl: [osmesa+opengl]
+        glx: [osmesa+glx]
+        awk: [gawk]
+        elf: [elfutils]
+        fftw-api: [fftw]
+        golang: [gcc]
+        iconv: [libiconv]
+        java: [openjdk]
+        jpeg: [libjpeg-turbo]
+        pil: [py-pillow]
+        pkgconfig: [pkg-config]
+        rpc: [libtirpc]
+        scalapack: [netlib-scalapack]
+        sycl: [hipsycl]
+        szip: [libszip]
+        unwind: [libunwind]
+        yacc: [bison]
+        uuid: [libuuid]
+      permissions:
+        read: world
+        write: user
+  modules:
+    default:
+      roots:
+        lmod: $spack/share/spack/lmod_zen2_zen2-beta
+        tcl: $spack/share/spack/modules_zen2_zen2-beta
+      enable:
+      - lmod
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+        hierarchy:
+        - mpi
+        - compiler
+        hash_length: 5
+        projections:
+          all: '{name}-cees-beta/{version}'
+          ^mpi: '{name}-cees-beta/{^mpi.name}-{version}'
+        all:
+          environment:
+            set:
+              '${PACKAGE}_ROOT': '${PREFIX}'
+    prefix_inspections:
+      bin:
+      - PATH
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      - ${PACKAGE}_LIB
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      include:
+      - CPATH
+      - ${PACKAGE}_INC
+  #
+  config:
+    install_missing_compilers: true
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: clingo
+    shared_linking: rpath
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+#
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags:
+        cflags: -mrdrnd
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@19.0.0.117
+      paths:
+        cc: /share/software/user/restricted/icc/2019/bin/icc
+        cxx: /share/software/user/restricted/icc/2019/bin/icpc
+        f77: /share/software/user/restricted/ifort/2019/bin/ifort
+        fc: /share/software/user/restricted/ifort/2019/bin/ifort
+      flags:
+        cflags: -O3
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: [devel, icc/2019, ifort/2019]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /home/groups/s-ees/share/cees/spack_compilers/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/gcc-11.2.0-pjl2s6u6mujagujmbvb2chncwdrgeec6/bin/gcc
+        cxx: /home/groups/s-ees/share/cees/spack_compilers/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/gcc-11.2.0-pjl2s6u6mujagujmbvb2chncwdrgeec6/bin/g++
+        f77: /home/groups/s-ees/share/cees/spack_compilers/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/gcc-11.2.0-pjl2s6u6mujagujmbvb2chncwdrgeec6/bin/gfortran
+        fc: /home/groups/s-ees/share/cees/spack_compilers/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/gcc-11.2.0-pjl2s6u6mujagujmbvb2chncwdrgeec6/bin/gfortran
+      flags:
+        cflags: -O3 -mrdrnd
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2021.2.0
+      paths:
+        cc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/intel64/icc
+        cxx: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/intel64/icpc
+        f77: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/intel64/ifort
+        fc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/intel64/ifort
+      flags:
+        cflags: -O3
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: [gcc/10.]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2021.2.0
+      paths:
+        cc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/icx
+        cxx: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/icpx
+        f77: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/ifx
+        fc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-oneapi-compilers-2021.2.0-jd7px7e7gil7j5fh5ca4duqotxidhukh/compiler/2021.2.0/linux/bin/ifx
+      flags:
+        cflags: -O3
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: [gcc/10.]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2021.4.0
+      paths:
+        cc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/intel64/icc
+        cxx: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/intel64/icpc
+        f77: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/intel64/ifort
+        fc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/intel64/ifort
+      flags:
+        cflags: -O3
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: [gcc/10.]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2021.4.0
+      paths:
+        cc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/icx
+        cxx: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/icpx
+        f77: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/ifx
+        fc: /home/groups/s-ees/share/cees/spack_cees/spack/opt/spack/linux-centos7-x86_64_v3/gcc-4.8.5/intel-oneapi-compilers-2021.4.0-2xfl6e7kdhxegq5msukpqoxdmftsu2w6/compiler/2021.4.0/linux/bin/ifx
+      flags:
+        cflags: -O3
+        cxxflags: -O3
+        fflags: -O3 -fallow-argument-mismatch
+      operating_system: centos7
+      target: x86_64
+      modules: [gcc/10.]
+      environment: {}
+      extra_rpaths: []

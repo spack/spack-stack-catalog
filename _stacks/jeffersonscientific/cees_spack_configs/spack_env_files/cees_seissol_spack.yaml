@@ -1,0 +1,183 @@
+# This is a Spack Environment file.
+spack:
+  definitions:
+  - compilers_core: [gcc@4.8.5]
+  - compilers_gcc: [gcc@12.1.0]
+  
+#  - compilers_intel: [intel@2021.4.0]
+#  - compilers_oneapi: [oneapi@2021.4.0]
+#  
+#  - packages_core: [gcc]
+  #
+  - mpis: [mpich]
+  - packages_mpis: [mpich]
+  
+    #
+  - packages_serial: [metis, libxsmm, yaml-cpp, lua, cmake, python, eigen, flex, bison,
+      numactl]
+  
+    #
+    # , netcdf-fortran, netcdf-cxx4, parallel-netcdf
+    #
+    ## gmsh
+  - packages_parallel: [hdf5, netcdf-c, parmetis, asagi, pumi, gmsh]
+  specs:
+  
+  # compilers:
+  # Do we need this, or can we just check the "build compilers if we need them" box?
+#  - matrix:
+#    - [$packages_core]
+#    - [$%compilers_core]
+  #
+  # build serial packages and MPI(s)
+  - matrix:
+    - [$packages_serial, $packages_mpis]
+    - [$%compilers_gcc]
+  #
+  # Parallel (MPI) packages:
+  - matrix:
+    - [$packages_parallel]
+    - [$^mpis]
+    - [$%compilers_gcc]
+  #
+  view: false
+  concretizer:
+    unify: when_possible
+  packages:
+    libxsmm:
+      variants: +shared+generator
+    hdf5:
+      variants: ~cxx~debug+fortran+hl~java+mpi+shared~szip+threadsafe
+    netcdf-c:
+      variants: +mpi
+    cmake:
+      version: [3.23.1]
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /share/software/user/open/cmake/3.23.1
+        modules: [system, curl/7.81.0, cmake/3.23.1]
+    curl:
+      version: [7.81.0]
+      externals:
+      - spec: cmake@7.81.0
+        prefix: /share/software/user/open/curl/7.81.0
+        modules: [system, curl/7.81.0]
+    metis:
+      variants: +optimizations+int64+real64
+    parmetis:
+      variants: +int64+real64
+    pumi:
+      variants: +fortran +int64 +ipo +shared ~zoltan
+    gmsh:
+      variants: +mpi +hdf5 ~fltk
+    gcc:
+      version: [12.2.0]
+      compiler: [gcc@10.1.0]
+      target: [x86_64]
+      externals:
+      - spec: gcc@12.1.0
+        prefix: /share/software/user/open/gcc/12.1.0
+        modules: [gcc/12.1.0]
+      - spec: gcc@10.1.0
+        prefix: /share/software/user/open/gcc/10.1.0
+        modules: [devel, gcc/10.1.0, binutils/]
+    intel-oneapi-compilers:
+      compiler: [gcc@4.8.5]
+      target: [x86_64]
+    all:
+      compiler: [gcc@12.1.0]
+      target: [x86_64]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [mpich]
+      permissions:
+        read: world
+        write: user
+  modules:
+    default:
+      roots:
+        lmod: $spack/share/spack/lmod_seissol
+        tcl: $spack/share/spack/modules_seissol
+      'enable:':
+      - lmod
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+        hierarchy:
+        - mpi
+        - compiler
+        'hash_length:': 5
+        projections:
+          all: '{name}-seissol/{version}'
+          ^mpi: '{name}-seissol/{^mpi.name}-{version}'
+    prefix_inspections:
+      bin:
+      - PATH
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      include:
+      - CPATH
+  #
+  # config:module_roots has been replaced by modules:[module set]:roots
+  config:
+    install_missing_compilers: true
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: clingo
+    shared_linking: rpath
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+#
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      flags:
+        cflags: -fPIC
+        cxxflags: -fPIC
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.1.0
+      paths:
+        cc: /share/software/user/open/gcc/9.1.0/bin/gcc
+        cxx: /share/software/user/open/gcc/9.1.0/bin/g++
+        f77: /share/software/user/open/gcc/9.1.0/bin/gfortran
+        fc: /share/software/user/open/gcc/9.1.0/bin/gfortran
+      flags:
+        cflags: -fPIC
+        cxxflags: -fPIC
+      operating_system: centos7
+      target: x86_64
+      modules: [devel, gcc/9.1.0, binutils/2.38]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@12.1.0
+      paths:
+        cc: /share/software/user/open/gcc/12.1.0/bin/gcc
+        cxx: /share/software/user/open/gcc/12.1.0/bin/g++
+        f77: /share/software/user/open/gcc/12.1.0/bin/gfortran
+        fc: /share/software/user/open/gcc/12.1.0/bin/gfortran
+      modules: [devel, gcc/12.1.0, binutils/2.38]
+      flags:
+        cflags: -fPIC
+        cxxflags: -fPIC
+      operating_system: centos7
+      target: x86_64

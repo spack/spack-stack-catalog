@@ -1,0 +1,97 @@
+# This is a Spack Environment file.
+# env beta2
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  definitions:
+  - compilers_core: [gcc@4.8.5 target=x86_64_v3]
+  - packages_compilers: [intel-oneapi-compilers@2021.2.0, intel-oneapi-compilers@2021.4.0,
+      gcc@11.2.0]
+  specs:
+  
+  # compilers:
+  - matrix:
+    - [$packages_compilers]
+    - [$%compilers_core]
+  #
+  view: true
+  packages:
+    intel-oneapi-compilers:
+      version: [2021.4.0, 2021.2.0]
+      compiler: [gcc@4.8.5]
+      target: [x86_64_v3]
+    gcc:
+      version: [11.2.0]
+    all:
+      compiler: [gcc@4.8.5]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [mpich, openmpi, intel-oneapi-mpi]
+        blas: [openblas]
+        lapack: [openblas]
+        gl: [osmesa+opengl]
+        glx: [osmesa+glx]
+        awk: [gawk]
+        elf: [elfutils]
+        fftw-api: [fftw]
+        golang: [gcc]
+        iconv: [libiconv]
+        java: [openjdk]
+        jpeg: [libjpeg-turbo]
+        pil: [py-pillow]
+        pkgconfig: [pkg-config]
+        rpc: [libtirpc]
+        scalapack: [netlib-scalapack]
+        sycl: [hipsycl]
+        szip: [libszip]
+        unwind: [libunwind]
+        yacc: [bison]
+        uuid: [libuuid]
+      permissions:
+        read: world
+        write: user
+  modules:
+    default:
+      roots:
+        lmod: $spack/share/spack/lmod_zen2_zen2-beta
+        tcl: $spack/share/spack/modules_zen2_zen2-beta
+      'enable:':
+      - lmod
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+        hierarchy:
+        - mpi
+        - compiler
+        'hash_length:': 5
+        projections:
+          all: '{name}-compilers-beta/{version}'
+          ^mpi: '{name}-compilers-beta/{^mpi.name}-{version}'
+    prefix_inspections:
+      bin:
+      - PATH
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      include:
+      - CPATH
+  #
+  config:
+    install_missing_compilers: false
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: original
+    shared_linking: rpath
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+

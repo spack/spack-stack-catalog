@@ -96,13 +96,12 @@ spack:
         blas: [openblas]
         lapack: [openblas]
         mpi: [cray-mpich]
+        tbb: [intel-tbb]
         scalapack: [netlib-scalapack]
       target: [zen3]
       variants: +mpi
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
-    elfutils:
-      variants: +bzip2 ~nls +xz
     hdf5:
       variants: +fortran +hl +shared
     libfabric:
@@ -129,6 +128,11 @@ spack:
     unzip:
       require: "%gcc"
     dyninst:
+      require: "%gcc"
+    tbb:
+      require: "intel-tbb"
+    elfutils:
+      variants: +bzip2 ~nls +xz
       require: "%gcc"
 
     py-numpy:
@@ -366,126 +370,80 @@ spack:
         - rocm/5.2.0
 
   specs:
-  # Included in ecp-data-viz-sdk
-  # - adios2@2.8.3
-  # - ascent@0.8.0
-  # - darshan-runtime@3.4.0
-  # - darshan-util@3.4.0
-  # - faodel@1.2108.1
-  # - hdf5@1.12.2 +fortran +hl +shared
-  # - parallel-netcdf@1.12.2
-  # - paraview@5.10.1 +qt ^mesa@21.3.8
-  # - sz@2.1.12.2
-  # - veloc@1.5
-  # - vtk-m@1.8.0
-  # - vtk-m@1.8.0 ~openmp ~rendering +rocm amdgpu_target=gfx90a
-  # - zfp@0.5.5
-
-  # ecp-data-viz-sdk failures
-  - ecp-data-vis-sdk@1.0 ~cuda ~rocm +adios2 +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
-  - ecp-data-vis-sdk@1.0 +vtkm +rocm amdgpu_target=gfx90a
-  # general failures: apcomp, sz, conduit
-  # +visit: silo
-  # +veloc: boost
-  # +faodel: boost
-  # +darshan: darshan-runtime
-  # +adios2: sz
-  # +paraview: sz
-  # ----
-  # apcomp: ld.lld: error: ../lib/libapcomp.so: undefined reference to _cray$mt_kmpc_fork_call_with_flags [--no-allow-shlib-undefined]
-  # boost: ./b2: error while loading shared libraries: libamdhip64.so.5: cannot open shared object file: No such file or directory
-  # conduit: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/cce/14.0.0/cce/x86_64/lib/pkgconfig/..//libcrayacc_amdgpu.so: undefined reference to `hipMemcpyHtoD@@hip_4.2'
-  # darshan-runtime: configure: error: cannot run C compiled programs.
-  # netcdf-cxx: configure: error: cannot run C++ compiled programs.
-  # qt: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.cpp:(.text.startup+0x11): undefined reference to `dlclose'
-  # silo: configure: error: cannot run C++ compiled programs.
-  # sz: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/cce/14.0.0/cce/x86_64/lib/pkgconfig/..//libcrayacc_amdgpu.so: undefined reference to `hipMemcpyHtoD@@hip_4.2'
-  # vtk-m: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
-
-  # CPU FAILURES
+  # CPU ERRORS
   - alquimia                    # pflotran
-  - bricks                       # bricks
-  - dealii                            # intel-tbb
+  - axom                        # axom
+  - bricks                      # bricks
+  - dealii                      # intel-tbb@2020.3
+  - dyninst                     # intel-tbb@2020.3
+  - ecp-data-vis-sdk@1.0 ~cuda ~rocm +adios2 +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # qt@5.14.2
   - exaworks                    # rust
   - geopm ~doc                  # geopm
-  - h5bench                       # h5bench
-  - lammps                   # kim-api
-  - nrm                         # py-scipy@1.8.1
-  - omega-h                    # omega-h
-  - paraview +qt ^llvm         # llvm@12
-  - paraview +qt ^mesa  # llvm@12.0.1
-  - parsec ~cuda             # parsec
+  - hpctoolkit                  # intel-tbb@2020.3
+  - lammps                      # kim-api
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf  # bitgroomingz
+  - nrm                         # py-scipy@1.5.4
+  - paraview +qt ^llvm          # llvm@14.0.6
+  - paraview +qt ^mesa          # qt@5.15.5
+  - parsec ~cuda                # parsec
   - phist                       # phist
   - pruners-ninja               # pruners-ninja
-  - py-cinemasci                # py-scipy@1.8.1
-  - py-warpx ^warpx dims=2      # py-scipy@1.8.1
-  - py-warpx ^warpx dims=3      # py-scipy@1.8.1
-  - py-warpx ^warpx dims=rz     # py-scipy@1.8.1
+  - py-cinemasci                # py-scipy@1.5.4
+  - py-jupyterhub               # py-jupyterhub
+  - py-warpx ^warpx dims=2      # py-scipy@1.5.4
+  - py-warpx ^warpx dims=3      # py-scipy@1.5.4
+  - py-warpx ^warpx dims=rz     # py-scipy@1.5.4
+  - quantum-espresso            # quantum-espresso
   - rempi                       # rempi
-  - scr                           # scr
-  - stat                   # intel-tbb, rust
-  - strumpack ~slate            # strumpack
-  - wannier90                   # wannier90
-  - tau +mpi +python ^libelf          # elfutils has %cce conflict
-  - axom                              # axom
-  - py-jupyterhub                     # py-jupyterhub
-  # --------
-  # py-scipy@1.8.1: ftn-78 ftn: ERROR in command line: The -f option has an invalid argument, "no-second-underscore".
+  - scr                         # scr
+  - stat                        # intel-tbb@2020.3
+  - tau +mpi +python ^libelf    # tau
+  - visit                       # qt@5.14.2
+  # --
+  # qt@5.14.2: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.o: in function `main': main.cpp:(.text.startup+0x9): undefined reference to `dlopen'
+  # axom: CMake Error at axom/sidre/cmake_install.cmake:154 (file): file INSTALL cannot find "spack-stage-axom-0.7.0-vg7dfgnm4wkwfby5blzlinp25mznp2jr/spack-build-vg7dfgn/lib/fortran/axom_spio.mod": No such file or directory.
+  # bitgroomingz: Detecting CXX compiler ABI info - failed
   # bricks: cc1plus: error: bad value ('OFF') for '-mtune=' switch; stencils/3axis_sycl.cpp:8:10: fatal error: 'CL/sycl.hpp' file not found
-  # cabana: googletest-src/googlemock/include/gmock/gmock-actions.h:455:3: error: definition of implicit copy constructor for 'PolymorphicAction<testing::internal::ReturnNullAction>' is deprecated because it has a user-declared copy assignment operator [-Werror,-Wdeprecated-copy]
   # geopm: ftn-2307 ftn: ERROR in command line: The "-m" option must be followed by 0, 1, 2, 3 or 4.
-  # h5bench: https://github.com/spack/spack/issues/32113
-  # h5bench: ld.lld: error: duplicate symbol: has_vol_async
-  # intel-tbb: clang-14: error: unknown argument: '-flifetime-dse=1'
-  # intel-tbb: clang-14: error: unknown argument: '-flifetime-dse=1'
+  # intel-tbb@2020.3: clang-14: error: unknown argument: '-flifetime-dse=1'
   # kim-api: ftn-78 ftn: ERROR in command line: The -s option has an invalid argument, "td=gnu".
-  # llvm@12: Process.cpp:(.text._ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi+0x2f): undefined reference to `pthread_sigmask'
-  # mesa: gallium/drivers/swr/rasterizer/jitter/builder_mem.h:87:36: error: cannot convert 'llvm::Value*' to 'llvm::Type*'
-  # omega-h: src/Omega_h_int128.hpp:18:10: error: definition of implicit copy assignment operator for 'Int128' is deprecated because it has a user-declared copy constructor [-Werror,-Wdeprecated-copy]
-  # pango: gi-docgen/meson.build:10:0: Exception: python3 is missing modules: jinja2, markdown, markupsafe, pygments, toml, typogri
+  # llvm@14.0.6: BitcodeReader.cpp:(.text._ZN4llvm13readWideAPIntENS_8ArrayRefImEEj+0x7f): undefined reference to `__cray_dset_detect'
   # parsec: ftn-78 ftn: ERROR in command line: The -O option has an invalid argument, "g".
   # pflotran: ftn-855 ftn: ERROR GRID_UNSTRUCTURED_MODULE,
   # phist: ftn-78 ftn: ERROR in command line: The -f option has an invalid argument, "finite-math-only".
-  # plumed: lepton/Operation.h:902:39: error: 'numeric_limits' is not a member of 'std'
   # pruners-ninja: https://github.com/spack/spack/issues/32112
   # pruners-ninja: ld.lld: error: duplicate symbol: a
+  # py-scipy@1.5.4: setup.py:462: UserWarning: Unrecognized setuptools command ('dist_info --egg-base /tmp/pip-modern-metadata-_bk8h8nt'), proceeding with generating Cython sources and expanding templates
+  # qt@5.14.2: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.cpp:(.text.startup+0x11): undefined reference to `dlclose'
+  # qt@5.15.5: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.cpp:(.text.startup+0x11): undefined reference to `dlclose'
+  # quantum-espresso: ftn-100 ftn: ERROR LOCK_BUFFER_RM, File = external/devxlib/src/device_fbuff.f90, Line = 615, Column = 1
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
   # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
   # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
   # scr: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
   # scr: ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
-  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
-  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
-  # variorum: https://github.com/spack/spack/issues/32110
-  # wannier90: src/hamiltonian.F90:167: undefined reference to `_zgemm_'
+  # tau: WARNING: valid options for c++ are 
 
-  # GPU FAILURES
-  - caliper +rocm amdgpu_target=gfx90a              # caliper
-  - ginkgo +rocm amdgpu_target=gfx90a               # ginkgo
-  - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a # petsc
-  - strumpack ~slate +rocm amdgpu_target=gfx90a     # strumpack
-  - vtk-m +rocm amdgpu_target=gfx90a                # vtk-m
-  - tau +mpi +rocm ^libelf                                # elfutils has %cce conflict
-  - petsc +rocm amdgpu_target=gfx90a                      # hipsolver
-  - mfem +rocm amdgpu_target=gfx90a                       # mfem
-  # --------
-  # ginkgo: libginkgo_omp.so.1.4.0: undefined reference to _cray$mt_kmpc_fork_call_with_flags [--no-allow-shlib-undefined]
-  # cabana: g++: error: unrecognized command-line option '-fno-gpu-rdc'
-  # cabana: https://github.com/spack/spack/issues/27967
-  # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
-  # caliper: https://github.com/spack/spack/issues/32827
-  # vtk-m: vtkm/filter/particleadvection/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
+  # GPU ERRORS
+  - ecp-data-vis-sdk@1.0 +vtkm +rocm amdgpu_target=gfx90a               # vtk-m@1.9.0
+  - hpctoolkit +rocm                                                    # intel-tbb@2020.3
+  - petsc +rocm amdgpu_target=gfx90a                                    # hipsolver
+  - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # hipsolver
+  - strumpack ~slate +rocm amdgpu_target=gfx90a                         # strumpack
+  - tau +mpi +rocm ^libelf                                              # tau
+  - vtk-m +rocm amdgpu_target=gfx90a                                    # vtk-m@1.9.0
+  # --
+  # hipsolver: tn-988 ftn: ERROR HIPSOLVERZGEBRD, File = library/src/hipsolver_module.f90, Line = 1066, Column = 17  "C_INT" is the result name of function "HIPSOLVERZGEBRD", therefo re it must not be use associated from module "HIPSOLVER_ENUMS"
+  # intel-tbb@2020.3: clang-14: error: unknown argument: '-flifetime-dse=1'
+  # strumpack: ld.lld: error: undefined symbol: omp_get_max_threads
+  # tau: WARNING: valid options for c++ are
+  # vtk-m@1.9.0: vtkm/filter/flow/internal/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
-  # - archer@2.0.0 ^libelf          # part of llvm now
-  # - caliper@2.8.0                 # %cce conflict with elfutils; trying to use ^libelf causes weird cuda_arch concretizer error
-  # - dyninst@12.2.0                # %cce conflict
-  # - gptune@3.0.0                  # hard dependency on openmpi
-  # - hpctoolkit@2022.05.15         # %cce conflict with dyninst
-  # - hpctoolkit@2022.05.15 +rocm   # %cce conflict with dyninst
-  # - libnrm@0.1.0                  # hard dependency on mpich
-  # - nvhpc@22.7                    # not relevant
-  # - openmpi                       # not relevant
-  # - plasma@21.8.29                # %cce conflict
-  # - stat@4.1.0                    # mesa
+  # - archer ^libelf        # part of llvm now
+  # - gptune                # hard dependency on openmpi
+  # - libnrm                # hard dependency on mpich
+  # - nvhpc                 # not relevant
+  # - openmpi               # not relevant
+  # - plasma                # %cce conflict

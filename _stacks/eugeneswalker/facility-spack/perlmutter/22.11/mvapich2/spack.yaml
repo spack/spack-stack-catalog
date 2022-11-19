@@ -170,6 +170,7 @@ spack:
   - butterflypack
   - cabana
   - caliper
+  - catalyst
   - chai ~benchmarks ~tests
   - charliecloud
   - conduit
@@ -177,6 +178,7 @@ spack:
   - darshan-util
   - datatransferkit
   - dyninst
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
   - exaworks
   - faodel
   - flit
@@ -188,17 +190,18 @@ spack:
   - gmp
   - gotcha
   - gptune
-  - hdf5-vol-async
   - hdf5 +fortran +hl +shared
+  - hdf5-vol-async
   - heffte +fftw
   - hpctoolkit
   - hpx1 networking=mpi
   - hypre
-  - kokkos-kernels
   - kokkos +openmp
+  - kokkos-kernels
   - lammps
   - legion
   - libnrm
+  - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
   - libquo
   - libunwind
   - mercury
@@ -229,15 +232,17 @@ spack:
   - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
+  - quantum-espresso
   - raja
   - scr
   - slate ~cuda
   - slepc
+  - stat
   - stc
   - strumpack ~slate
   - sundials
-  - superlu-dist
   - superlu
+  - superlu-dist
   - swig
   - swig@4.0.2-fortran
   - sz
@@ -251,6 +256,7 @@ spack:
   - umap
   - umpire
   - veloc
+  - visit
   - vtk-m
   - zfp
 
@@ -268,14 +274,16 @@ spack:
   - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80
   - caliper +cuda cuda_arch=80
   - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+  - ecp-data-vis-sdk +adios2 +hdf5 +vtkm +zfp +cuda cuda_arch=80 
   - flecsi +cuda cuda_arch=80
   - heffte +cuda cuda_arch=80
   - hpx +cuda cuda_arch=80
   - hypre +cuda cuda_arch=80
-  - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
   - kokkos +wrapper +cuda cuda_arch=80
+  - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
   - lammps +cuda cuda_arch=80
   - legion +cuda
+  - libpressio +bitgrooming +bzip2 +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cusz +cuda cuda_arch=80 ^cusz +cuda cuda_arch=80
   - magma +cuda cuda_arch=80
   - mfem +cuda cuda_arch=80
   - petsc +cuda cuda_arch=80

@@ -1,35 +1,53 @@
 spack:
   concretizer:
-    unify: false
+    unify: when_possible
   view: false
   config:
     install_missing_compilers: true
     concretize: separate
   definitions:
+  # note: compiler list, without variants
   - compilers:
-    - nvhpc@22.5+mpi
-    - nvhpc@22.7+mpi
-    - nvhpc@22.9+mpi
-    # # - aocc@4.0.0
+    # - nvhpc@22.5
+    # - nvhpc@22.7
+    - nvhpc@22.9
     - intel-oneapi-compilers@2022.2.0
     - intel-oneapi-compilers-classic@2021.7.0
-    - llvm@15.0.4+flang
+    - llvm@15.0.4
+    # - gcc@9.5.0
+    # - gcc@10.4.0
+    # - gcc@11.3.0
     - gcc@12.2.0
-    - gcc@9.5.0
-    - gcc@10.4.0
-    - gcc@11.3.0
-    - aocc@3.1.0+license-agreed
-    - aocc@3.2.0+license-agreed
+    # - aocc@3.1.0
+    - aocc@3.2.0
+    # - aocc@4.0.0
+    # - acfl@22.1
+  # note: compiler list, with variants for setup
+  - compilers-setup:
+    # - nvhpc@22.5 +mpi
+    # - nvhpc@22.7 +mpi
+    - nvhpc@22.9 +mpi
+    - intel-oneapi-compilers@2022.2.0
+    - intel-oneapi-compilers-classic@2021.7.0
+    - llvm@15.0.4 +flang+cuda+mlir+omp_debug+polly+python cuda_arch=90
+    # - gcc@9.5.0 +graphite+nvptx+piclibs
+    # - gcc@10.4.0 +graphite+nvptx+piclibs
+    # - gcc@11.3.0 +graphite+nvptx+piclibs
+    - gcc@12.2.0 +graphite+nvptx+piclibs
+    # - aocc@3.1.0 +license-agreed
+    - aocc@3.2.0 +license-agreed
+    # - aocc@4.0.0
     # - acfl@22.1
   - blass:
     - intel-oneapi-mkl@2022.2.1
     - openblas@0.3.21
   - mpis:
     - intel-oneapi-mpi@2021.7.1
-    - openmpi@4.1.4 +pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers
-    - mvapich2@2.3.7
+    - openmpi@4.1.4 +cuda+pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers cuda_arch=90
+    - mvapich2@2.3.7 +cuda process_managers=slurm,hydra cuda_arch=90
+    - mpich@4.0.2 +cuda+fortran+hcoll+hwloc+hydra+rocm+slurm+verbs pmi=pmi2 cuda_arch=90
   - hdf5:
-    - hdf5@1.13.2 +cxx+threadsafe+fortran
+    - hdf5@1.13.2 +hl+mpi+szip+cxx+threadsafe+fortran
   - netcdfc:
     - netcdf-c@4.9.0
   - netcdffrt:
@@ -37,16 +55,16 @@ spack:
   - adios2:
     - adios2@2.7.1 +fortran+hdf5
   specs:
-  - $compilers
+  - $compilers-setup
   - matrix:
     - [$blass]
     - [$%compilers]
-  - matrix:
-    - [$mpis]
-    - [$%compilers]
-  - matrix:
-    - [$netcdffrt]
-    - [$%compilers]
-    - [$^netcdfc]
-    - [$^hdf5]
-    - [$^mpis]
+  # - matrix:
+  #   - [$mpis]
+  #   - [$%compilers]
+  # - matrix:
+  #   - [$netcdffrt]
+  #   - [$%compilers]
+  #   - [$^netcdfc]
+  #   - [$^hdf5]
+  #   - [$^mpis]
