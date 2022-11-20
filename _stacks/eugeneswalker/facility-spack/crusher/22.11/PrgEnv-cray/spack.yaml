@@ -459,7 +459,7 @@ spack:
   - hpx max_cpu_count=512 +rocm amdgpu_target=gfx90a
   - kokkos +rocm amdgpu_target=gfx90a
   - magma ~cuda +rocm amdgpu_target=gfx90a
-  - mfem +rocm amdgpu_target=gfx90a
+  - mfem +rocm amdgpu_target=gfx90a  # required adding explicit depends_on for rocsparse
   - papi +rocm amdgpu_target=gfx90a
   - raja ~openmp +rocm amdgpu_target=gfx90a
   - slate +rocm amdgpu_target=gfx90a
