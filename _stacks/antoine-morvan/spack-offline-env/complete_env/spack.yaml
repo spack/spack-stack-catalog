@@ -5,39 +5,23 @@ spack:
   config:
     install_missing_compilers: true
     concretize: separate
+  packages:
+    llvm:
+      variants:  +flang+cuda+mlir+omp_debug+polly+python cuda_arch=89
+    nvhpc:
+      variants: +mpi
+    gcc:
+      variants: +graphite+nvptx+piclibs
+    aocc:
+      variants: +license-agreed
   definitions:
-  # note: compiler list, without variants
   - compilers:
-    # - nvhpc@22.5
-    # - nvhpc@22.7
     - nvhpc@22.9
     - intel-oneapi-compilers@2022.2.0
     - intel-oneapi-compilers-classic@2021.7.0
     - llvm@15.0.4
-    # - gcc@9.5.0
-    # - gcc@10.4.0
-    # - gcc@11.3.0
     - gcc@12.2.0
-    # - aocc@3.1.0
     - aocc@3.2.0
-    # - aocc@4.0.0
-    # - acfl@22.1
-  # note: compiler list, with variants for setup
-  - compilers-setup:
-    # - nvhpc@22.5 +mpi
-    # - nvhpc@22.7 +mpi
-    - nvhpc@22.9 +mpi
-    - intel-oneapi-compilers@2022.2.0
-    - intel-oneapi-compilers-classic@2021.7.0
-    - llvm@15.0.4 +flang+cuda+mlir+omp_debug+polly+python cuda_arch=90
-    # - gcc@9.5.0 +graphite+nvptx+piclibs
-    # - gcc@10.4.0 +graphite+nvptx+piclibs
-    # - gcc@11.3.0 +graphite+nvptx+piclibs
-    - gcc@12.2.0 +graphite+nvptx+piclibs
-    # - aocc@3.1.0 +license-agreed
-    - aocc@3.2.0 +license-agreed
-    # - aocc@4.0.0
-    # - acfl@22.1
   - blass:
     - intel-oneapi-mkl@2022.2.1
     - openblas@0.3.21
@@ -55,10 +39,10 @@ spack:
   - adios2:
     - adios2@2.7.1 +fortran+hdf5
   specs:
-  - $compilers-setup
-  - matrix:
-    - [$blass]
-    - [$%compilers]
+  - $compilers
+  # - matrix:
+  #   - [$blass]
+  #   - [$%compilers]
   # - matrix:
   #   - [$mpis]
   #   - [$%compilers]

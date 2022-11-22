@@ -320,21 +320,16 @@ spack:
 
   specs:
   # CPU ERRORS
-  - alquimia                          # pflotran
   - bricks                            # bricks
   - dealii                            # slepc
   - flecsi                            # pfunit
   - geopm                             # geopm
-  - h5bench                           # h5bench
   - loki                              # loki
   - phist                             # phist
   - pruners-ninja                     # pruners-ninja
   - rempi                             # rempi
-  - scr                               # glib
   - slepc                             # slepc
   - stat                              # launchmon
-  - upcxx                             # upcxx
-  - variorum                          # variorum
   - visit                             # vtk@8.1.2
   - wannier90                         # wannier90
   # --
@@ -343,56 +338,34 @@ spack:
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
   # glib: ERROR: Unhandled python exception Disk quota exceeded - (122, 'Disk quota exceeded') this is probably not a Meson bug. FAILED: meson-internal__install
   # gtkplus: modules/printbackends/cups/gtkprintbackendcups.c:34:10: fatal error: cups/cups.h: No such file or directory
-  # h5bench: commons/h5bench_util.h:196: multiple definition of `has_vol_async'
-  # h5bench: https://github.com/spack/spack/issues/32113
   # launchmon: launchmon/src/sdbg_base_symtab.hxx:207:49: error: ISO C++17 does not allow dynamic exception specifications
   # launchmon: sdbg_base_symtab.hxx:197:34: error: ISO C++17 does not allow dynamic exception specifications
   # librsvg: error: could not compile `cssparser` due to: /usr/bin/ld: cannot find .../spack-stage-librsvg-2.51.0-i3kyrqfehr7ip7msht4uiboatpbxjfnt/spack-src/target/release/deps/libproc_macro2-b865193815fed41d.rlib: No such file or directory
   # loki: https://github.com/spack/spack/issues/32122
   # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
-  # pflotran: pflotran/option.F90:750:21: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
   # pfunit: Fatal Error: Cannot read module file '/gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # phist: Fatal Error: Cannot read module file '/gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # pruners-ninja: https://github.com/spack/spack/issues/32112
   # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a'
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
-  # scr: CMake Error at cmake/SCR_DEPENDENCIES.cmake:10 (MESSAGE): Could not find MPI! Either add an MPI compiler to your path or force CMake
   # slepc: /usr/bin/sha1sum: a.out: No such file or directory
   # slurm: libtool:   error: 'openapi_ref.lo' is not a valid libtool object
-  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
-  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/IvyBridge_3E.c.o:(.bss+0x0): multiple definition of `g_platform';
-  # variorum: https://github.com/spack/spack/issues/32110
   # vtk@8.1.2: Could NOT find HDF5 (missing: HDF5_HL_LIBRARIES) (found version "1.8.21")
   # wannier90: ../comms.F90:1214:22: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU ERRORS
-  - amrex +rocm amdgpu_target=gfx90a                  # amrex
   - caliper +rocm amdgpu_target=gfx90a                # caliper
-  - chai ~benchmarks +rocm amdgpu_target=gfx90a       # umpire
-  - magma ~cuda +rocm amdgpu_target=gfx90a            # magma
   - papi +rocm amdgpu_target=gfx90a                   # papi
-  - petsc +rocm amdgpu_target=gfx90a                  # petsc
-  - raja ~openmp +rocm amdgpu_target=gfx90a           # raja
   - slepc +rocm amdgpu_target=gfx90a                  # slepc
-  - sundials +rocm amdgpu_target=gfx90a               # sundials
-  - tasmanian ~openmp +rocm amdgpu_target=gfx90a      # tasmanian
   - trilinos@13.4.0 +rocm amdgpu_target=gfx90a        # trilinos
-  - umpire +rocm amdgpu_target=gfx90a                 # umpire
-  - upcxx +rocm amdgpu_target=gfx90a                  # upcxx
   # --
   # caliper: /usr/bin/ld: ../../libcaliper-serial.so.2.8.0: undefined reference to `hipKernelNameRef'
   # caliper: https://github.com/spack/spack/issues/32827
   # papi: Fatal Error: File '/opt/rocm-5.2.0/llvm/include/omp_lib.mod' opened at (1) is not a GNU Fortran module file
-  # petsc: configure fail: WARNING: Using default optimization C flags -g -O
-  # petsc: https://github.com/spack/spack/issues/32826
-  # raja: g++: error: unrecognized command-line option '--rocm-path=/opt/rocm-5.2.0'
   # slate: cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:230: Could NOT find Threads (missing: Threads_FOUND)
   # slepc: /usr/bin/sha1sum: a.out: No such file or directory
-  # tasmanian: The C++ compiler "/opt/rocm-5.2.0/hip/bin/hipcc" is not able to compile a simple test program.
   # trilinos: belos/src/BelosBlockCGSolMgr.hpp:370:37: error: dynamic initialization is not supported for __device__, __constant__, __shared__, and __managed__ variables.
-  # umpire: src/umpire/util/io.cpp:188:34: error: 'fspath_path' was not declared in this scope
-  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
 
   # SKIPPED
   # - catalyst              # included in paraview since @5.7:

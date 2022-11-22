@@ -5,6 +5,9 @@ spack:
   config:
     install_missing_compilers: true
     concretize: separate
+  packages:
+    gcc:
+      variants: +graphite+nvptx+piclibs
   definitions:
   - mpis:
     - openmpi@4.1.2+cxx
@@ -12,10 +15,8 @@ spack:
     - hdf5@1.13.2 +hl+mpi+szip+cxx+threadsafe+fortran
   - compilers:
     - gcc@11.2.0
-  - compilers-setup:
-    - gcc@11.2.0 +graphite+nvptx+piclibs
   specs:
-  - $compilers-setup
+  - $compilers
   - matrix:
     - [$hdf5]
     - [$%compilers]

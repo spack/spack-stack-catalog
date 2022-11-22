@@ -32,6 +32,10 @@ spack:
         tbb: [intel-tbb]
       target: [zen3]
       variants: +mpi
+    tbb:
+      require: "intel-tbb"
+    mpi:
+      require: "mvapich2"
     binutils:
       variants: +ld +gold +headers +libiberty ~nls
     elfutils:
@@ -170,7 +174,6 @@ spack:
   - butterflypack
   - cabana
   - caliper
-  - catalyst
   - chai ~benchmarks ~tests
   - charliecloud
   - conduit
@@ -194,7 +197,7 @@ spack:
   - hdf5-vol-async
   - heffte +fftw
   - hpctoolkit
-  - hpx1 networking=mpi
+  - hpx max_cpu_count=512 networking=mpi
   - hypre
   - kokkos +openmp
   - kokkos-kernels
@@ -277,7 +280,7 @@ spack:
   - ecp-data-vis-sdk +adios2 +hdf5 +vtkm +zfp +cuda cuda_arch=80 
   - flecsi +cuda cuda_arch=80
   - heffte +cuda cuda_arch=80
-  - hpx +cuda cuda_arch=80
+  - hpx max_cpu_count=512 +cuda cuda_arch=80
   - hypre +cuda cuda_arch=80
   - kokkos +wrapper +cuda cuda_arch=80
   - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
@@ -298,56 +301,56 @@ spack:
   - vtk-m +cuda cuda_arch=80
   - zfp +cuda cuda_arch=80
 
-  # CPU FAILURES
-  # - alquimia                   # pflotran:
-  # - bricks                       # bricks
-  # - flecsi                      # pfunit
-  # - geopm                       # py-numpy
-  # - h5bench                       # h5bench
-  # - loki                        # loki
-  # - mpifileutils ~xattr        # libcircle
-  # - parallel-netcdf           # parallel-netcdf
-  # - paraview +qt ^mesa@21.3.8  # llvm@12.0.1
-  # - phist                       # phist
-  # - plasma                    # plasma
-  # - pruners-ninja               # pruners-ninja
-  # - rempi                       # rempi
-  # - unifyfs                     # unifyfs
-  # - upcxx                    # upcxx
-  # - variorum                    # variorum
-  # - wannier90                  # wannier90
-  # ----
+  # CPU ERRORS
+  - alquimia                    # pflotran:
+  - bricks                      # bricks
+  - flecsi                      # pfunit
+  - geopm                       # py-numpy
+  - h5bench                     # h5bench
+  - loki                        # loki
+  - mpifileutils ~xattr         # libcircle
+  - parallel-netcdf             # parallel-netcdf
+  - paraview +qt ^mesa@21.3.8   # llvm@12.0.1
+  - phist                       # phist
+  - plasma                      # plasma
+  - pruners-ninja               # pruners-ninja
+  - rempi                       # rempi
+  - unifyfs                     # unifyfs
+  - upcxx                       # upcxx
+  - variorum                    # variorum
+  - wannier90                   # wannier90
+  # --
   # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
   # font-util: configure.ac:11: installing './compile'
   # h5bench: collect2: error: ld returned 1 exit status
   # libcircle: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved.; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
   # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
-  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
   # loki: https://github.com/spack/spack/issues/32122
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
   # parallel-netcdf: /usr/bin/grep: /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
   # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
   # pfunit: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # phist: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
-  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
   # pruners-ninja: https://github.com/spack/spack/issues/32112
-  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
   # rempi: https://github.com/spack/spack/issues/32123
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
   # unifyfs: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved. ; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
   # upcxx: configure error: Requested PMI version cray could not be found
   # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
   # variorum: https://github.com/spack/spack/issues/32110
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
-  # GPU FAILURES
-  # - axom +cuda cuda_arch=80       # axom
-  # - bricks +cuda                   # bricks
-  # - dealii +cuda                  # dealii
-  # - ginkgo +cuda cuda_arch=80     # ginkgo
-  # - parsec +cuda cuda_arch=80  # parsec
-  # - trilinos +cuda cuda_arch=80  # trilinos
-  # - upcxx@ +cuda cudar_arch=80  # upcxx
-  # -----
+  # GPU ERRORS
+  - axom +cuda cuda_arch=80       # axom
+  - bricks +cuda                  # bricks
+  - dealii +cuda                  # dealii
+  - ginkgo +cuda cuda_arch=80     # ginkgo
+  - parsec +cuda cuda_arch=80     # parsec
+  - trilinos +cuda cuda_arch=80   # trilinos
+  - upcxx +cuda cuda_arch=80      # upcxx
+  # --
   # axom: /usr/bin/ld: ../../../core/CMakeFiles/core.dir/utilities/FileUtilities.cpp.o: in function `__sti____cudaRegisterAll()': /tmp/tmpxft_00027a8c_00000000-6_FileUtilities.cudafe1.stub.c:14: undefined reference to `__cudaRegisterLinkedBinary_9689a2e4_17_FileUtilities_cpp_14a850bb'
   # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
   # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
@@ -355,3 +358,6 @@ spack:
   # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
   # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
   # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
+
+  # SKIPPED
+  # - catalyst        # included in paraview since @5.7:
