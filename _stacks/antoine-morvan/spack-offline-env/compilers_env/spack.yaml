@@ -1,0 +1,31 @@
+spack:
+  concretizer:
+    unify: when_possible
+    reuse: false
+  view: false
+  config:
+    install_missing_compilers: true
+    concretize: separate
+  packages:
+    llvm:
+      variants: +flang+mlir+polly
+    nvhpc:
+      variants: +mpi
+    gcc:
+      variants: +graphite+nvptx+piclibs
+    aocc:
+      variants: +license-agreed
+  definitions:
+  - compilers:
+    - nvhpc@22.9
+    - oneapi@2022.2.0
+    - intel@2021.7.0
+    - gcc@12.2.0
+    - aocc@3.2.0
+    - llvm@15.0.4
+  - zlib:
+    - zlib
+  specs:
+  - matrix:
+    - [$zlib]
+    - [$%compilers]

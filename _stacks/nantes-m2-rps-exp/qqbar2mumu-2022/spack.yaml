@@ -12,7 +12,7 @@ spack:
     all:
       variants: cxxstd=17 build_type=Release
     root:
-      variants: cxxstd=17 ~pythia6 ~pythia8 ~x ~gdml ~examples ~davix ~tbb ~python
+      variants: cxxstd=17 ~pythia6 ~pythia8 ~x ~gdml ~examples ~davix ~tbb +python
         ~roofit ~gminimal +gsl ~minuit build_type=Release
       version: [6.26.06]
     boost:

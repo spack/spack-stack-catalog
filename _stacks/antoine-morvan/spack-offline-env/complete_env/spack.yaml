@@ -1,13 +1,14 @@
 spack:
   concretizer:
     unify: when_possible
+    reuse: false
   view: false
   config:
     install_missing_compilers: true
     concretize: separate
   packages:
     llvm:
-      variants:  +flang+cuda+mlir+omp_debug+polly+python cuda_arch=89
+      variants: +flang+mlir+polly
     nvhpc:
       variants: +mpi
     gcc:
@@ -16,20 +17,21 @@ spack:
       variants: +license-agreed
   definitions:
   - compilers:
-    - nvhpc@22.9
-    - intel-oneapi-compilers@2022.2.0
-    - intel-oneapi-compilers-classic@2021.7.0
+    # - nvhpc@22.9
+    # - oneapi@2022.2.0
+    # - intel@2021.7.0
+    # - gcc@12.2.0
+    # - aocc@3.2.0
     - llvm@15.0.4
-    - gcc@12.2.0
-    - aocc@3.2.0
   - blass:
-    - intel-oneapi-mkl@2022.2.1
+    # - intel-oneapi-mkl@2022.2.1
     - openblas@0.3.21
   - mpis:
     - intel-oneapi-mpi@2021.7.1
-    - openmpi@4.1.4 +cuda+pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers cuda_arch=90
-    - mvapich2@2.3.7 +cuda process_managers=slurm,hydra cuda_arch=90
-    - mpich@4.0.2 +cuda+fortran+hcoll+hwloc+hydra+rocm+slurm+verbs pmi=pmi2 cuda_arch=90
+    - openmpi@4.1.4 +cuda+pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers
+      cuda_arch=90
+    - mvapich2@2.3.7 +cuda process_managers=slurm
+    - mpich@4.0.2 +cuda+fortran+hcoll+hwloc+hydra+slurm+verbs pmi=pmi2 cuda_arch=90
   - hdf5:
     - hdf5@1.13.2 +hl+mpi+szip+cxx+threadsafe+fortran
   - netcdfc:

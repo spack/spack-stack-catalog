@@ -1,0 +1,228 @@
+spack:
+  view: false
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: gcc
+        cxx: g++
+        f77: gfortran
+        fc: gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-milan
+      - libfabric
+
+  packages:
+    all:
+      require: "%gcc@11.2.0"
+      compiler: [gcc@11.2.0]
+      providers:
+        blas: [cray-libsci]
+        mpi: [mvapich2]
+        tbb: [intel-tbb]
+      target: [zen3]
+      variants: +mpi
+    tbb:
+      require: "intel-tbb"
+    mpi:
+      require: "mvapich2"
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    ncurses:
+      require: "@6.3 +termlib"
+    openblas:
+      variants: threads=openmp
+    python:
+      require: "@3.7.15"
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # CRAY EXTERNALS
+    mvapich2:
+      externals:
+      - spec: mvapich2@3.0a
+        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install
+        environment:
+          prepend_path:
+            MODULEPATH: /global/cfs/cdirs/m3896/shared/modulefiles
+        modules: [mvapich2/3.0a]
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@21.08.1.2
+        modules:
+        - cray-libsci/21.08.1.2
+    libfabric:
+      buildable: false
+      variants: fabrics=sockets,tcp,udp,rxm
+      externals:
+      - spec: libfabric@1.15.0.0
+        prefix: /opt/cray/libfabric/1.15.0.0
+        modules:
+        - libfabric
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
+    openssh:
+      buildable: false
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+    slurm:
+      buildable: false
+      externals:
+      - spec: slurm@22.05.5
+        prefix: /usr
+
+    # SITE VARIANT/VERSION PREFERENCES
+    mesa:
+      variants: +osmesa~glx
+
+  modules:
+    prefix_inspections:
+      ./lib:
+      - LD_LIBRARY_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+    default:
+      'enable:': [lmod]
+      lmod:
+        defaults:
+        - mvapich2@3.0a
+        core_compilers: [gcc@11.2.0]
+        blacklist_implicits: true
+        verbose: true
+        hash_length: 0
+        whitelist: [mvapich2, cmake^ncurses@6.3]
+        hierarchy: [mpi]
+        projections: {}
+        core_specs: []
+        all:
+          autoload: direct
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+          suffixes:
+            +cuda cuda_arch=70: cuda70
+            +cuda cuda_arch=80: cuda80
+            +openmp: openmp
+        cabana:
+          suffixes:
+            ^kokkos +cuda cuda_arch=70: cuda70
+            ^kokkos +cuda cuda_arch=80: cuda80
+        tau:
+          suffixes:
+            +cuda: cuda
+        hpctoolkit:
+          suffixes:
+            +cuda: cuda
+        bricks:
+          suffixes:
+            +cuda: cuda
+        flux-core:
+          suffixes:
+            +cuda: cuda
+        papi:
+          suffixes:
+            +cuda: cuda
+        mpich:
+          suffixes:
+            ^hwloc+cuda: hwloc-cuda
+            ^ncurses@6.3: ncurses6.3
+            ^ncurses@6.2: ncurses6.2
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+
+  specs:
+  # CPU ERRORS
+  - bricks                      # bricks
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # parallel-netcdf, font-util@1.3.2, silo, mesa18
+  - exaworks                    # rust
+  - flecsi                      # pfunit
+  - gasnet                      # gasnet
+  - geopm                       # geopm
+  - loki                        # loki
+  - mpifileutils ~xattr         # libcircle
+  - parallel-netcdf             # parallel-netcdf
+  - paraview +qt ^mesa@21.3.8   # font-util
+  - phist                       # phist
+  - plasma                      # plasma
+  - pruners-ninja               # pruners-ninja
+  - quantum-espresso            # quantum-espresso
+  - rempi                       # rempi
+  - stat                        # launchmon
+  - tau +mpi +python            # tau
+  - unifyfs                     # unifyfs
+  - upcxx                       # upcxx
+  - visit                       # silo, mesa18
+  - wannier90                   # wannier90
+  # --
+  # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
+  # font-util: configure.ac:35: installing './compile'
+  # font-util@1.3.2: configure.ac:11: installing './compile'
+  # gasnet: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
+  # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
+  # h5bench: collect2: error: ld returned 1 exit status
+  # launchmon: sdbg_base_symtab.hxx:204:33: error: ISO C++17 does not allow dynamic exception specifications
+  # libcircle: /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
+  # loki: https://github.com/spack/spack/issues/32122
+  # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
+  # mesa18: llvm-config: error: missing: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.11/mvapich2/spack/opt/spack/linux-sles15-zen3/gcc-11.2.0/llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMDemangle.so
+  # parallel-netcdf: /usr/bin/sed: can't read /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
+  # pfunit: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
+  # phist: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
+  # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
+  # pruners-ninja: https://github.com/spack/spack/issues/32112
+  # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # quantum-espresso: CMake Error at cmake/FindSCALAPACK.cmake:505 (message): A required library with SCALAPACK API not found.  Please specify library location: -DSCALAPACK_DIR=/your/path/to/scalapack
+  # rempi: https://github.com/spack/spack/issues/32123
+  # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
+  # rust: error: failed to run custom build command for `openssl-sys v0.9.65`
+  # silo: /usr/bin/grep: /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
+  # unifyfs: configure: error: couldn't find a suitable openssl-devel
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
+  # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
+
+  # GPU ERRORS
+  - axom +cuda cuda_arch=80       # axom
+  - bricks +cuda                  # bricks
+  - dealii +cuda                  # mesa18
+  - tau +mpi +cuda                # tau
+  - trilinos +cuda cuda_arch=80   # trilinos
+  - upcxx +cuda cuda_arch=80      # upcxx
+  # --
+  # axom: raja-2022.03.0-6qduv6ra5hh2xvlwt7sq3skw2msmwoxc/include/RAJA/policy/cuda/MemUtils_CUDA.hpp:120:3: error: 'cuda_dim_t' does not name a type; did you mean 'cudaLimit'?
+  # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
+  # mesa18: llvm-config: error: missing: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.11/mvapich2/spack/opt/spack/linux-sles15-zen3/gcc-11.2.0/llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMBinaryFormat.so
+  # tau: ?
+  # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
+
+  # SKIPPED
+  # - catalyst        # included in paraview since @5.7:

@@ -163,6 +163,7 @@ spack:
   # CPU
   - adios
   - adios2
+  - alquimia
   - aml
   - amrex
   - arborx
@@ -181,18 +182,16 @@ spack:
   - darshan-util
   - datatransferkit
   - dyninst
-  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
-  - exaworks
   - faodel
   - flit
   - flux-core
   - fortrilinos
-  - gasnet
   - ginkgo
   - globalarrays
   - gmp
   - gotcha
   - gptune
+  - h5bench
   - hdf5 +fortran +hl +shared
   - hdf5-vol-async
   - heffte +fftw
@@ -235,12 +234,10 @@ spack:
   - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
-  - quantum-espresso
   - raja
   - scr
   - slate ~cuda
   - slepc
-  - stat
   - stc
   - strumpack ~slate
   - sundials
@@ -250,7 +247,6 @@ spack:
   - swig@4.0.2-fortran
   - sz
   - tasmanian
-  - tau +mpi +python
   - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
     +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
     +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
@@ -258,13 +254,12 @@ spack:
   - turbine
   - umap
   - umpire
+  - variorum
   - veloc
-  - visit
   - vtk-m
   - zfp
 
   # no cuda_arch
-  - tau +mpi +cuda
   - papi +cuda
   - flux-core +cuda
   - hpctoolkit +cuda
@@ -279,6 +274,7 @@ spack:
   - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
   - ecp-data-vis-sdk +adios2 +hdf5 +vtkm +zfp +cuda cuda_arch=80 
   - flecsi +cuda cuda_arch=80
+  - ginkgo +cuda cuda_arch=80
   - heffte +cuda cuda_arch=80
   - hpx max_cpu_count=512 +cuda cuda_arch=80
   - hypre +cuda cuda_arch=80
@@ -289,6 +285,7 @@ spack:
   - libpressio +bitgrooming +bzip2 +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cusz +cuda cuda_arch=80 ^cusz +cuda cuda_arch=80
   - magma +cuda cuda_arch=80
   - mfem +cuda cuda_arch=80
+  - parsec +cuda cuda_arch=80
   - petsc +cuda cuda_arch=80
   - raja +cuda cuda_arch=80
   - slate +cuda cuda_arch=80
@@ -302,62 +299,68 @@ spack:
   - zfp +cuda cuda_arch=80
 
   # CPU ERRORS
-  - alquimia                    # pflotran:
-  - bricks                      # bricks
-  - flecsi                      # pfunit
-  - geopm                       # py-numpy
-  - h5bench                     # h5bench
-  - loki                        # loki
-  - mpifileutils ~xattr         # libcircle
-  - parallel-netcdf             # parallel-netcdf
-  - paraview +qt ^mesa@21.3.8   # llvm@12.0.1
-  - phist                       # phist
-  - plasma                      # plasma
-  - pruners-ninja               # pruners-ninja
-  - rempi                       # rempi
-  - unifyfs                     # unifyfs
-  - upcxx                       # upcxx
-  - variorum                    # variorum
-  - wannier90                   # wannier90
+  # - bricks                      # bricks
+  # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # parallel-netcdf, font-util@1.3.2, silo, mesa18
+  # - exaworks                    # rust
+  # - flecsi                      # pfunit
+  # - gasnet                      # gasnet
+  # - geopm                       # geopm
+  # - loki                        # loki
+  # - mpifileutils ~xattr         # libcircle
+  # - parallel-netcdf             # parallel-netcdf
+  # - paraview +qt ^mesa@21.3.8   # font-util
+  # - phist                       # phist
+  # - plasma                      # plasma
+  # - pruners-ninja               # pruners-ninja
+  # - quantum-espresso            # quantum-espresso
+  # - rempi                       # rempi
+  # - stat                        # launchmon
+  # - tau +mpi +python            # tau
+  # - unifyfs                     # unifyfs
+  # - upcxx                       # upcxx
+  # - visit                       # silo, mesa18
+  # - wannier90                   # wannier90
   # --
-  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
-  # font-util: configure.ac:11: installing './compile'
+  # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
+  # font-util: configure.ac:35: installing './compile'
+  # font-util@1.3.2: configure.ac:11: installing './compile'
+  # gasnet: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
+  # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
   # h5bench: collect2: error: ld returned 1 exit status
-  # libcircle: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved.; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
-  # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
+  # launchmon: sdbg_base_symtab.hxx:204:33: error: ISO C++17 does not allow dynamic exception specifications
+  # libcircle: /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
   # loki: https://github.com/spack/spack/issues/32122
   # loki: loki/SmallObj.h:462:57: error: ISO C++17 does not allow dynamic exception specifications
-  # parallel-netcdf: /usr/bin/grep: /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
-  # pflotran: Error: Rank mismatch between actual argument at (1) and actual argument at (2) (scalar and rank-1)
+  # mesa18: llvm-config: error: missing: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.11/mvapich2/spack/opt/spack/linux-sles15-zen3/gcc-11.2.0/llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMDemangle.so
+  # parallel-netcdf: /usr/bin/sed: can't read /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
   # pfunit: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # phist: Fatal Error: Cannot read module file '/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/include/mpi.mod' opened at (1), because it was created by a different version of GNU Fortran
   # plasma: Could NOT find CBLAS (missing: CBLAS_INCLUDE_DIRS CBLAS_LIBRARIES), Could NOT find Accelerate (missing: Accelerate_INCLUDE_DIRS Accelerate_LIBRARIES)
   # pruners-ninja: https://github.com/spack/spack/issues/32112
   # pruners-ninja: test/ninja_test_util.c:34: multiple definition of `a';
+  # quantum-espresso: CMake Error at cmake/FindSCALAPACK.cmake:505 (message): A required library with SCALAPACK API not found.  Please specify library location: -DSCALAPACK_DIR=/your/path/to/scalapack
   # rempi: https://github.com/spack/spack/issues/32123
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
-  # unifyfs: libtool: link: warning: library `/global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install/lib/libmpi.la' was moved. ; /usr/bin/grep: /usr/lib64/libxml2.la: No such file or directory
-  # upcxx: configure error: Requested PMI version cray could not be found
-  # variorum: /usr/bin/ld: Intel/CMakeFiles/variorum_intel.dir/msr_core.c.o:(.bss+0x0): multiple definition of `g_platform'; CMakeFiles/variorum.dir/config_architecture.c.o:(.bss+0x0): first defined here
-  # variorum: https://github.com/spack/spack/issues/32110
+  # rust: error: failed to run custom build command for `openssl-sys v0.9.65`
+  # silo: /usr/bin/grep: /gpfs/alpine/csc439/world-shared/mvapich2/mvapich2-3.0a/install/lib/libmpi.la: No such file or directory
+  # unifyfs: configure: error: couldn't find a suitable openssl-devel
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU ERRORS
-  - axom +cuda cuda_arch=80       # axom
-  - bricks +cuda                  # bricks
-  - dealii +cuda                  # dealii
-  - ginkgo +cuda cuda_arch=80     # ginkgo
-  - parsec +cuda cuda_arch=80     # parsec
-  - trilinos +cuda cuda_arch=80   # trilinos
-  - upcxx +cuda cuda_arch=80      # upcxx
+  # - axom +cuda cuda_arch=80       # axom
+  # - bricks +cuda                  # bricks
+  # - dealii +cuda                  # mesa18
+  # - tau +mpi +cuda                # tau
+  # - trilinos +cuda cuda_arch=80   # trilinos
+  # - upcxx +cuda cuda_arch=80      # upcxx
   # --
-  # axom: /usr/bin/ld: ../../../core/CMakeFiles/core.dir/utilities/FileUtilities.cpp.o: in function `__sti____cudaRegisterAll()': /tmp/tmpxft_00027a8c_00000000-6_FileUtilities.cudafe1.stub.c:14: undefined reference to `__cudaRegisterLinkedBinary_9689a2e4_17_FileUtilities_cpp_14a850bb'
-  # bricks: Error downloading object: docs/media/fast-MPI-ghostzone.png (7f174b6): Smudge error: Error downloading docs/media/fast-MPI-ghostzone.png
-  # dealii: Could NOT find CUDA: CMake Error at cmake/configure/configure_10_cuda.cmake:200
-  # ginkgo: what():  /tmp/lpeyrala/spack-stage/spack-stage-ginkgo-1.4.0-iebunhbjqtdwoffjhiecqwmigunx6cna/spack-src/cuda/base/cublas_bindings.hpp:117: gemm: CUBLAS_STATUS_INVALID_VALUE
-  # parsec: parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
+  # axom: raja-2022.03.0-6qduv6ra5hh2xvlwt7sq3skw2msmwoxc/include/RAJA/policy/cuda/MemUtils_CUDA.hpp:120:3: error: 'cuda_dim_t' does not name a type; did you mean 'cudaLimit'?
+  # bricks: VSBrick-7pt.py-Scalar-8x8x8-1:30:3: error: 'vfloat512' was not declared in this scope
+  # mesa18: llvm-config: error: missing: /global/cfs/cdirs/m3896/shared/ParaTools/E4S/22.11/mvapich2/spack/opt/spack/linux-sles15-zen3/gcc-11.2.0/llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMBinaryFormat.so
+  # tau: ?
   # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
-  # upcxx: configure error: User requested --enable-mpi but I don't know how to build mpi programs for your system
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
 
   # SKIPPED
   # - catalyst        # included in paraview since @5.7:
