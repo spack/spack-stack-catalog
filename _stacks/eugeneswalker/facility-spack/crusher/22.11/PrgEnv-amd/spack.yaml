@@ -457,12 +457,12 @@ spack:
   - zfp
 
   # no amdgpu_target
+  - cabana +rocm
   - tau +mpi +rocm
 
   # amdgpu_target=gfx90a
   - amrex +rocm amdgpu_target=gfx90a
   - arborx +rocm amdgpu_target=gfx90a
-  - cabana +rocm
   - caliper +rocm amdgpu_target=gfx90a
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
   - gasnet +rocm amdgpu_target=gfx90a

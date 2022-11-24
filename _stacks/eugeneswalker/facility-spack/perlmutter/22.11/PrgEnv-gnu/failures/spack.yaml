@@ -153,6 +153,7 @@ spack:
   specs:
   # CPU ERRORS
   - bricks                      # bricks
+  - dealii                      # mesa18
   - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # font-util
   - exaworks                    # rust
   - gasnet                      # gasnet
@@ -173,9 +174,7 @@ spack:
   # bricks: weak/args.h:14:8: error: 'size_t' does not name a type
   # catalyst: Catalyst-v5.6.0/VTK/Common/Core/vtkMath.h:1514:15: error: 'clamp' is not a member of 'std'
   # font-util: configure.ac:11: installing './compile'
-  # font-util: configure.ac:35: installing './compile'
   # gasnet: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
-  # gasnet: configure: checking for C compiler flag -Wuse-after-free... no/error: gcc: error: unrecognized command-line option '-Wuse-after-free'
   # geopm: configure: error: Failed to determine MPI Fortran build flags use --with-mpi-bin or --with-mpicxx or --disable-mpi
   # launchmon: sdbg_base_symtab.hxx:197:34: error: ISO C++17 does not allow dynamic exception specifications
   # llvm@12.0.1: FAILED: openmp/libomptarget/libomptarget.so.12
@@ -191,18 +190,21 @@ spack:
   # rempi: rempi_message_manager.h:53:3: error: 'string' does not name a type; did you mean 'stdin'?
   # rust: error: failed to run custom build command for `openssl-sys v0.9.65`
   # unifyfs: configure: error: couldn't find a suitable openssl-devel
-  # unifyfs: configure: error: couldn't find a suitable openssl-devel
   # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
   # wannier90: Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).
 
   # GPU ERRORS
+  - axom +cuda cuda_arch=80             # axom
   - bricks +cuda                        # bricks
   - dealii +cuda                        # dealii
   - trilinos@13.4.0 +cuda cuda_arch=80  # trilinos
+  - upcxx +cuda cuda_arch=80            # upcxx
   # --
+  # axom: include/RAJA/policy/cuda/MemUtils_CUDA.hpp:120:3: error: 'cuda_dim_t' does not name a type; did you mean 'cudaLimit'?
   # bricks: weak/args.h:14:8: error: 'size_t' does not name a type
   # mesa18: llvm-config: error: missing: llvm-10.0.1-5x7ckqxk2ekykp27p4warz4yu6qxx3hj/lib/libLLVMDemangle.so
   # trilinos: The C++ compiler "/opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1/bin/mpicxx" is not able to compile a simple test program.
+  # upcxx: configure error: Default PMI version "cray" could not be found.  Try loading the "cray-pmi" or "pmi" environment module, or specifying a different --with-pmi-version=?.
 
   # SKIPPED
-  # - catalyst                          # catalyst is in paraview since @5.7
+  # - catalyst                            # catalyst is in paraview since @5.7

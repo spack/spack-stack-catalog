@@ -452,7 +452,7 @@ spack:
   - umpire +rocm amdgpu_target=gfx90a
   - upcxx +rocm amdgpu_target=gfx90a
 
-  # Included in ecp-data-vis-sdk
+  # INCLUDED IN ECP-DATA-VIS-SDK
   # - adios2
   # - ascent
   # - darshan-runtime
@@ -460,7 +460,7 @@ spack:
   # - faodel
   # - hdf5 +fortran +hl +shared
   # - parallel-netcdf
-  # - paraview +qt ^mesa
+  # - paraview
   # - sz
   # - veloc
   # - vtk-m

@@ -1,0 +1,9 @@
+spack:
+  config:
+    install_tree:
+      root: ${SE_ROOT}/catalog/gcc-11.3.0
+  specs:
+  - gcc@11.3.0
+  view: false
+  concretizer:
+    unify: true

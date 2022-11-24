@@ -320,8 +320,8 @@ spack:
 
   specs:
   # CPU
-  - alquimia
   - adios
+  - alquimia
   - aml
   - amrex
   - arborx

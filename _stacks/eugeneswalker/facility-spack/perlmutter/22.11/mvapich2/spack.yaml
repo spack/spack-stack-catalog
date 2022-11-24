@@ -300,6 +300,7 @@ spack:
 
   # CPU ERRORS
   # - bricks                      # bricks
+  # - dealii                      # mesa18
   # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # parallel-netcdf, font-util@1.3.2, silo, mesa18
   # - exaworks                    # rust
   # - flecsi                      # pfunit

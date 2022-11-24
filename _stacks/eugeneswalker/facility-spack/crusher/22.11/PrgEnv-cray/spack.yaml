@@ -378,6 +378,7 @@ spack:
   - bolt
   - butterflypack
   - cabana
+  - caliper
   - chai ~benchmarks ~tests
   - charliecloud
   - conduit
@@ -474,19 +475,20 @@ spack:
   - umpire +rocm amdgpu_target=gfx90a
   - upcxx +rocm amdgpu_target=gfx90a
 
-  # Included in ecp-data-viz-sdk
+  # INCLUDED IN ECP-DATA-VIS-SDK
   # - adios2
-  # - ascent                                                # missing
+  # - ascent                      # failed because ?
   # - darshan-runtime
   # - darshan-util
   # - faodel
   # - hdf5 +fortran +hl +shared
   # - parallel-netcdf
-  # - paraview +qt
+  # - paraview
   # - sz
   # - veloc
   # - vtk-m
-  # - vtk-m ~openmp ~rendering +rocm amdgpu_target=gfx90a   # missing
+  # - vtk-m ~openmp ~rendering
+  #   +rocm amdgpu_target=gfx90a  # vtk-m
   # - zfp
 
   # CPU ERRORS
@@ -495,7 +497,7 @@ spack:
   # - bricks                      # bricks
   # - dealii                      # intel-tbb@2020.3
   # - dyninst                     # intel-tbb@2020.3
-  # - ecp-data-vis-sdk@1.0 ~cuda ~rocm +adios2 +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # qt@5.14.2
+  # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp  # qt@5.14.2
   # - exaworks                    # rust
   # - geopm ~doc                  # geopm
   # - hpctoolkit                  # intel-tbb@2020.3

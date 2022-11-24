@@ -1,0 +1,20 @@
+spack:
+  include:
+  - /apps/hohgant/se/catalog/gcc-11.3.0/compilers.yaml
+  - /apps/hohgant/se/catalog/nvhpc-22.9/compilers.yaml
+  config:
+    install_tree:
+      root: ${SE_ROOT}/catalog/libxc-5.2.3
+  specs:
+  - libxc%nvhpc ^perl%gcc
+  - libxc%gcc
+  view: false
+  concretizer:
+    unify: false
+    reuse: true
+  packages:
+    all:
+      compiler: [nvhpc, gcc]
+  upstreams:
+    core-packages:
+      install_tree: /apps/hohgant/se/catalog/core

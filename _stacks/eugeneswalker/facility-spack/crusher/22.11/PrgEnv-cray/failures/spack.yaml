@@ -376,7 +376,7 @@ spack:
   - bricks                      # bricks
   - dealii                      # intel-tbb@2020.3
   - dyninst                     # intel-tbb@2020.3
-  - ecp-data-vis-sdk@1.0 ~cuda ~rocm +adios2 +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # qt@5.14.2
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp  # qt@5.14.2
   - exaworks                    # rust
   - geopm ~doc                  # geopm
   - hpctoolkit                  # intel-tbb@2020.3

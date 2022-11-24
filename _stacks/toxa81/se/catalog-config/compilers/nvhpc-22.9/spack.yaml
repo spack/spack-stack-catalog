@@ -1,0 +1,9 @@
+spack:
+  config:
+    install_tree:
+      root: ${SE_ROOT}/catalog/nvhpc-22.9
+  specs:
+  - nvhpc@22.9
+  view: false
+  concretizer:
+    unify: true
