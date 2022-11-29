@@ -1,9 +1,4 @@
-# This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
-  # add package specs to the `specs` list
   specs:
   - hwloc
   - util-linux
@@ -15,7 +10,12 @@ spack:
   - py-pyyaml
   - py-requests
   - py-rich
-  - snakemake
+  - snakemake@7.18.2+s3+http+ftp
+
+
+  
+  # Note that many Snakemake repositories require snakemake@7.5:
+  # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
   - py-tomli@2.0.1
   - nextflow
   - java
@@ -34,6 +34,7 @@ spack:
   - py-fasteners
   - py-dask
   - py-parsl
+  - py-click
   view: true
   concretizer:
     unify: when_possible

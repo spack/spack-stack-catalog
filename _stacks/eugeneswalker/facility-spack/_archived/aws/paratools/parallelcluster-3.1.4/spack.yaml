@@ -1,0 +1,64 @@
+spack:
+  view: False
+
+  concretizer:
+    reuse: False
+    unify: when_possible
+
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+      all:
+        compiler: [gcc@9.4.0]
+        target: [x86_64]
+        providers:
+          mpi: [mpich]
+      
+      # E4S Preferences
+      mpich:
+        version: [4.0.2]
+        variants: ~wrapperrpath pmi=pmi netmod=ofi device=ch4
+      
+      # AWS Parallel Cluster 3.1.4 Externals
+      intel-mpi:
+          buildable: False
+          externals:
+          - spec: intel-mpi@2020.4.0
+            prefix: /opt/intel/mpi/2021.4.0/
+      libfabric:
+          buildable: False
+          variants: fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+          externals:
+          - spec: libfabric@1.13.2 fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+            prefix: /opt/amazon/efa
+      openmpi:
+          variants: fabrics=ofi +legacylaunchers schedulers=slurm ^libfabric
+          externals:
+          - spec: openmpi@4.1.1 %gcc@7.3.1
+            prefix: /opt/amazon/openmpi
+      pmix:
+          externals:
+            - spec: pmix@3.2.3 ~pmi_backwards_compatibility
+              prefix: /opt/pmix
+      slurm:
+          buildable: False
+          variants: +pmix sysconfdir=/opt/slurm/etc
+          externals:
+          - spec: slurm@21.08.8-2 +pmix sysconfdir=/opt/slurm/etc
+            prefix: /opt/slurm
+
+  specs:
+  - mpich

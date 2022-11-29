@@ -102,6 +102,7 @@ spack:
       providers: {}
       externals:
       - spec: openmpi@4.0.5
+        prefix: /lus/theta-fs0/software/thetagpu/openmpi-4.0.5
         modules:
         - openmpi/openmpi-4.0.5
     mercury:

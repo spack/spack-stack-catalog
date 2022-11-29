@@ -62,7 +62,7 @@ spack:
     mvapich2:
       externals:
       - spec: mvapich2@3.0a
-        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install
+        prefix: /global/cfs/cdirs/m3896/shared/opt/mvapich2/mvapich2-3.0a/install-slurm
         environment:
           prepend_path:
             MODULEPATH: /global/cfs/cdirs/m3896/shared/modulefiles
@@ -103,36 +103,35 @@ spack:
 
   modules:
     prefix_inspections:
-      ./lib:
-      - LD_LIBRARY_PATH
-      ./lib64:
-      - LD_LIBRARY_PATH
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
     default:
       'enable:': [lmod]
       lmod:
         defaults:
         - mvapich2@3.0a
         core_compilers: [gcc@11.2.0]
-        blacklist_implicits: true
         verbose: true
         hash_length: 0
-        whitelist: [mvapich2, cmake^ncurses@6.3]
         hierarchy: [mpi]
         projections: {}
         core_specs: []
+        exclude_implicits: true
+        include: [mvapich2]
         all:
           autoload: direct
           environment:
             set:
               ${PACKAGE}_ROOT: ${PREFIX}
           suffixes:
-            +cuda cuda_arch=70: cuda70
             +cuda cuda_arch=80: cuda80
             +openmp: openmp
         cabana:
           suffixes:
-            ^kokkos +cuda cuda_arch=70: cuda70
             ^kokkos +cuda cuda_arch=80: cuda80
+        legion:
+          suffixes:
+            +cuda: cuda
         tau:
           suffixes:
             +cuda: cuda
@@ -151,8 +150,6 @@ spack:
         mpich:
           suffixes:
             ^hwloc+cuda: hwloc-cuda
-            ^ncurses@6.3: ncurses6.3
-            ^ncurses@6.2: ncurses6.2
         py-warpx:
           suffixes:
             ^warpx dims=2: dims2

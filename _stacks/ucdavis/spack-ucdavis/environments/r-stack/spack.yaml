@@ -5,8 +5,8 @@
 spack:
   definitions:
   - r_bases:
-    - r@4.1.1 +X /ybw6n43225ehcx4yarllkg7ktttfjxmx
-    - r@4.2.0 +X /bw3cuw3akzxjjal3seumetfi274upw7j
+    - r@4.1.1 +X
+    - r@4.2.0 +X
   - r_libraries:
     - r-annotationdbi
     - r-annotationhub
@@ -194,11 +194,11 @@ spack:
           template: hpccf/r-stack-view.tcl
   view:
     r-4.1.1:
-      root: /share/apps/spackuser/environments/r-stack/views/4.1.1
+      root: /share/apps/spack/environments/r-stack/views/4.1.1
       select: [r@4.1.1, ^r@4.1.1]
       link_type: symlink
     r-4.2.0:
-      root: /share/apps/spackuser/environments/r-stack/views/4.2.0
+      root: /share/apps/spack/environments/r-stack/views/4.2.0
       select: [r@4.2.0, ^r@4.2.0]
       link_type: symlink
   concretizer:

@@ -1,0 +1,84 @@
+spack:
+  view: false
+  concretizer:
+    reuse: false
+    unify: when_possible
+  repos:
+  - /home/ubuntu/spack/var/spack/repos/exawind
+
+  packages:
+    all:
+      compiler: [gcc@9.4.0]
+      target: [x86_64]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [mpich]
+        blas: [netlib-lapack]
+        lapack: [netlib-lapack]
+    mpich:
+      version: [4.0.2]
+      variants: ~wrapperrpath pmi=pmi netmod=ofi device=ch4
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@11.4.4
+        prefix: /usr/local/cuda-11.4
+    intel-mpi:
+      buildable: false
+      externals:
+      - spec: intel-mpi@2020.4.0
+        prefix: /opt/intel/mpi/2021.4.0/
+    libfabric:
+      buildable: false
+      variants: fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+      externals:
+      - spec: libfabric@1.13.2 fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+        prefix: /opt/amazon/efa
+    openmpi:
+      variants: fabrics=ofi +legacylaunchers schedulers=slurm ^libfabric
+      externals:
+      - spec: openmpi@4.1.1 %gcc@7.3.1
+        prefix: /opt/amazon/openmpi
+    pmix:
+      externals:
+      - spec: pmix@3.2.3 ~pmi_backwards_compatibility
+        prefix: /opt/pmix
+    slurm:
+      buildable: false
+      variants: +pmix sysconfdir=/opt/slurm/etc
+      externals:
+      - spec: slurm@21.08.8-2 +pmix sysconfdir=/opt/slurm/etc
+        prefix: /opt/slurm
+    # SPACK-MANAGER PREFERENCES
+    amr-wind:
+      variants: +ascent
+    ascent:
+      variants: ~fortran
+    conduit:
+      variants: ~fortran~hdf5_compat
+    boost:
+      version: [1.76.0]
+      variants: cxxstd=14
+    hdf5:
+      version: [1.10.7]
+      variants: +cxx+hl
+    netcdf-c:
+      version: [4.7.4]
+      variants: +parallel-netcdf maxdims=65536 maxvars=524288
+    openfast:
+      version: [master]
+      variants: +cxx
+    parallel-netcdf:
+      version: [1.12.2]
+    tioga:
+      version: [develop]
+    hypre:
+      version: [develop]
+    yaml-cpp:
+      version: [0.6.3]
+    trilinos:
+      version: [stable, develop]
+      variants: ~adios2~alloptpkgs~amesos+amesos2~anasazi~aztec+belos+boost~chaco~complex~debug~dtk~epetra~epetraext+exodus+explicit_template_instantiation~float+fortran~fortrilinos+glm+gtest+hdf5~hypre~ifpack+ifpack2~intrepid~intrepid2~isorropia+kokkos~mesquite+metis~minitensor~ml+mpi+muelu~mumps~nox~openmp~phalanx~piro~python~rol~rythmos~sacado+shards~shylu+stk~stratimikos~suite-sparse~superlu~superlu-dist~teko~tempus+teuchos+tpetra+uvm~x11~xsdkflags+zlib+zoltan+zoltan2
+        gotype=long cxxstd=14 build_type=Release
+  specs:
+  - exawind +amr_wind_gpu +nalu_wind_gpu +cuda cuda_arch=70 ^mpich

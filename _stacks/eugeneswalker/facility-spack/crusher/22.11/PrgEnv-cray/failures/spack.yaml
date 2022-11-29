@@ -397,7 +397,6 @@ spack:
   - rempi                       # rempi
   - scr                         # scr
   - stat                        # intel-tbb@2020.3
-  - tau +mpi +python ^libelf    # tau
   - visit                       # qt@5.14.2
   # --
   # qt@5.14.2: /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: main.o: in function `main': main.cpp:(.text.startup+0x9): undefined reference to `dlopen'
@@ -423,7 +422,6 @@ spack:
   # rust: ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
   # scr: /opt/cray/pe/cce/14.0.0/binutils/x86_64/x86_64-pc-linux-gnu/bin/ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
   # scr: ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
-  # tau: WARNING: valid options for c++ are 
 
   # GPU ERRORS
   - ecp-data-vis-sdk@1.0 +vtkm +rocm amdgpu_target=gfx90a               # vtk-m@1.9.0
@@ -431,13 +429,11 @@ spack:
   - petsc +rocm amdgpu_target=gfx90a                                    # hipsolver
   - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # hipsolver
   - strumpack ~slate +rocm amdgpu_target=gfx90a                         # strumpack
-  - tau +mpi +rocm ^libelf                                              # tau
   - vtk-m +rocm amdgpu_target=gfx90a                                    # vtk-m@1.9.0
   # --
   # hipsolver: tn-988 ftn: ERROR HIPSOLVERZGEBRD, File = library/src/hipsolver_module.f90, Line = 1066, Column = 17  "C_INT" is the result name of function "HIPSOLVERZGEBRD", therefo re it must not be use associated from module "HIPSOLVER_ENUMS"
   # intel-tbb@2020.3: clang-14: error: unknown argument: '-flifetime-dse=1'
   # strumpack: ld.lld: error: undefined symbol: omp_get_max_threads
-  # tau: WARNING: valid options for c++ are
   # vtk-m@1.9.0: vtkm/filter/flow/internal/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
