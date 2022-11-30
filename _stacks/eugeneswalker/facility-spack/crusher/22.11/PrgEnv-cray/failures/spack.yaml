@@ -134,9 +134,12 @@ spack:
     elfutils:
       variants: +bzip2 ~nls +xz
       require: "%gcc"
-
     py-numpy:
       require: "@1.21.6"
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
 
     # FACILITY REQUESTED PREFERENCES
     petsc:
@@ -376,15 +379,13 @@ spack:
   - bricks                      # bricks
   - dealii                      # intel-tbb@2020.3
   - dyninst                     # intel-tbb@2020.3
-  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp  # qt@5.14.2
   - exaworks                    # rust
   - geopm ~doc                  # geopm
   - hpctoolkit                  # intel-tbb@2020.3
   - lammps                      # kim-api
   - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf  # bitgroomingz
   - nrm                         # py-scipy@1.5.4
-  - paraview +qt ^llvm          # llvm@14.0.6
-  - paraview +qt ^mesa          # qt@5.15.5
+  - paraview ^llvm              # llvm@14.0.6
   - parsec ~cuda                # parsec
   - phist                       # phist
   - pruners-ninja               # pruners-ninja

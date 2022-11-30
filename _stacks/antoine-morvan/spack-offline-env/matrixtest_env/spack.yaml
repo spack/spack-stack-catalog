@@ -1,16 +1,13 @@
 spack:
+  concretizer:
+    unify: when_possible
   view: false
-  concretization: separately
   config:
     install_missing_compilers: true
-    source_cache: /software/spack/mirror
-  mirrors:
-    software-mirror: file://software/spack/mirror
-  bootstrap:
-    root: $SPACK_ENV/bootstrap
+    concretize: separate
   definitions:
   - mpis:
-    - openmpi@4.1.1+cxx+pmi+pmix schedulers=auto fabrics=auto
+    - openmpi@4.1.4 +cuda+pmi+cxx fabrics=verbs,knem,ucx,xpmem schedulers=slurm +legacylaunchers cuda_arch=90
   - hdf5:
     - hdf5@1.12.1 +cxx+threadsafe+fortran
   - compilers:

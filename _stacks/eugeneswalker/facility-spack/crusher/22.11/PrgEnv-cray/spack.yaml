@@ -136,6 +136,10 @@ spack:
       require: "%gcc"
     py-numpy:
       require: "@1.21.6"
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
 
     # FACILITY REQUESTED PREFERENCES
     petsc:
@@ -383,6 +387,7 @@ spack:
   - charliecloud
   - conduit
   - datatransferkit
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
   - flecsi
   - flit
   - flux-core
@@ -456,6 +461,7 @@ spack:
   - arborx +rocm amdgpu_target=gfx90a
   - caliper +rocm amdgpu_target=gfx90a
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
+  - ecp-data-vis-sdk@1.0 ~vtkm +rocm amdgpu_target=gfx90a
   - gasnet +rocm amdgpu_target=gfx90a
   - ginkgo +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a
@@ -499,15 +505,13 @@ spack:
   # - bricks                      # bricks
   # - dealii                      # intel-tbb@2020.3
   # - dyninst                     # intel-tbb@2020.3
-  # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp  # qt@5.14.2
   # - exaworks                    # rust
   # - geopm ~doc                  # geopm
   # - hpctoolkit                  # intel-tbb@2020.3
   # - lammps                      # kim-api
   # - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf  # bitgroomingz
   # - nrm                         # py-scipy@1.5.4
-  # - paraview +qt ^llvm          # llvm@14.0.6
-  # - paraview +qt ^mesa          # qt@5.15.5
+  # - paraview ^llvm              # llvm@14.0.6
   # - parsec ~cuda                # parsec
   # - phist                       # phist
   # - pruners-ninja               # pruners-ninja
@@ -560,8 +564,7 @@ spack:
   # vtk-m@1.9.0: vtkm/filter/flow/internal/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
-  # - archer                # part of llvm now
-  # - catalyst              # included in paraview since @5.7
+  # - archer ^libelf        # part of llvm now
   # - gptune                # hard dependency on openmpi
   # - libnrm                # hard dependency on mpich
   # - nvhpc                 # not relevant
