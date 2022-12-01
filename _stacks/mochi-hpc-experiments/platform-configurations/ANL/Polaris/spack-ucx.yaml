@@ -48,7 +48,7 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: cray-mpich@8.1.16 arch=cray-sles15-zen3
+      - spec: cray-mpich@8.1.16
         modules:
         - cray-mpich/8.1.16
     mercury:

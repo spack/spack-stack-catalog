@@ -6,7 +6,9 @@ spack:
   # add package specs to the `specs` list
   definitions:
   - packages: [mpi-serial cppflags="-fPIC"]
-  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
+  
+#  - compilers: ['%gcc', '%oneapi', '%cce', '%intel@2021.6.0', '%nvhpc']
+  - compilers: ['%cce@15.0.0']
   specs:
   - matrix:
     - [$packages]
@@ -14,102 +16,51 @@ spack:
   view: false
   concretizer:
     unify: false
-    reuse: false
+    reuse: true
   compilers:
   - compiler:
-      spec: cce@14.0.2
+      spec: cce@15.0.0
       paths:
         cc: cc
         cxx: CC
         f77: ftn
         fc: ftn
-      flags:
-        cppflags: null
+      flags: {}
       operating_system: sles15
       target: any
       modules:
       - PrgEnv-cray
-      - cce/14.0.2
+      - cce/15.0.0
       environment: {}
       extra_rpaths: []
   - compiler:
-      spec: gcc@8.1.0
+      spec: dpcpp@2022.1.0
       paths:
         cc: cc
         cxx: CC
         f77: ftn
         fc: ftn
-      flags:
-        cppflags: null
+      flags: {}
       operating_system: sles15
       target: any
       modules:
-      - PrgEnv-gnu
-      - gcc/8.1.0
+      - PrgEnv-oneapi
+      - dpcpp/2022.1.0
       environment: {}
       extra_rpaths: []
   - compiler:
-      spec: gcc@10.3.0
+      spec: intel@2021.6.0
       paths:
         cc: cc
         cxx: CC
         f77: ftn
         fc: ftn
-      flags:
-        cppflags: null
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/10.3.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: gcc@11.2.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags:
-        cppflags: null
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/11.2.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: intel@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags:
-        cppflags: null
+      flags: {}
       operating_system: sles15
       target: any
       modules:
       - PrgEnv-intel
-      - intel/2022.1.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: oneapi@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags:
-        cppflags: null
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-intel
-      - oneapi/2022.1.0
+      - intel/2021.6.0
       environment: {}
       extra_rpaths: []
   - compiler:
@@ -119,13 +70,27 @@ spack:
         cxx: CC
         f77: ftn
         fc: ftn
-      flags:
-        cppflags: null
+      flags: {}
       operating_system: sles15
       target: any
       modules:
       - PrgEnv-nvhpc
       - nvhpc/21.3
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.2
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/22.2
       environment: {}
       extra_rpaths: []
   - compiler:
@@ -135,8 +100,7 @@ spack:
         cxx: CC
         f77: ftn
         fc: ftn
-      flags:
-        cppflags: null
+      flags: {}
       operating_system: sles15
       target: any
       modules:
@@ -144,52 +108,18 @@ spack:
       - nvhpc/22.7
       environment: {}
       extra_rpaths: []
-  packages:
-    gmake:
-      externals: []
-    findutils:
-      externals: []
-    bison:
-      externals: []
-    autoconf:
-      externals: []
-    automake:
-      externals: []
-    flex:
-      externals: []
-    libtool:
-      externals: []
-    diffutils:
-      externals: []
-    coreutils:
-      externals:
-      - spec: coreutils@8.32
-        prefix: /usr
-    git:
-      externals: []
-    cvs:
-      externals: []
-    tar:
-      externals: []
-    binutils:
-      externals:
-      - spec: binutils@2.38
-        prefix: /opt/cray/pe/cce/14.0.2/binutils/x86_64/x86_64-pc-linux-gnu
-    pkg-config:
-      externals: []
-    openssh:
-      externals: []
-    texinfo:
-      externals: []
-    curl:
-      externals: []
-    subversion:
-      externals: []
-    openssl:
-      externals: []
-    m4:
-      externals: []
-    groff:
-      externals: []
-    gawk:
-      externals: []
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-oneapi
+      - oneapi/2022.1.0
+      environment: {}
+      extra_rpaths: []

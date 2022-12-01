@@ -1,0 +1,241 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - r_bases:
+    - r@4.1.1 +X
+    - r@4.2.0 +X
+  - r_libraries:
+    - r-annotationdbi
+    - r-annotationhub
+    - r-annotatr
+    - r-ape
+    - r-aplot
+    - r-askpass
+    - r-assertthat
+    - r-base64enc
+    - r-bglr
+    - r-bien
+    - r-biocfilecache
+    - r-biocinstaller
+    - r-biocio
+    - r-biocmanager
+    - r-biocsingular
+    - r-biocversion
+    - r-biocviews
+    - r-biomart
+    - r-boot
+    - r-boruta
+    - r-brew
+    - r-brio
+    - r-brms
+    - r-broom
+    - r-bslib
+    - r-bsseq
+    - r-cachem
+    - r-callr
+    - r-caret
+    - r-chipseeker
+    - r-class
+    - r-classint
+    - r-clipr
+    - r-cluster
+    - r-cmplot
+    - r-codetools
+    - r-colorspace
+    - r-commonmark
+    - r-contfrac
+    - r-covr
+    - r-cowplot
+    - r-cpp11
+    - r-credentials
+    - r-crosstalk
+    - r-deoptim
+    - r-desc
+    - r-desolve
+    - r-devtools
+    - r-dismo
+    - r-dmrichr
+    - r-dmrseq
+    - r-dofuture
+    - r-doparallel
+    - r-dorng
+    - r-dose
+    - r-dplyr
+    - r-dqrng
+    - r-elliptic
+    - r-emmeans
+    - r-enrichplot
+    - r-enrichr
+    - r-ensembldb
+    - r-envirem
+    - r-estimability
+    - r-farver
+    - r-fasterize
+    - r-fastmap
+    - r-fastmatch
+    - r-fgsea
+    - r-filelock
+    - r-flowsorted-blood-450k
+    - r-fontawesome
+    - r-forcats
+    - r-fs
+    - r-future
+    - r-gbm
+    - r-gdalutils
+    - r-genomicfeatures
+    - r-ggbiplot
+    - r-ggforce
+    - r-ggfun
+    - r-ggplot2
+    - r-ggplotify
+    - r-ggraph
+    - r-ggrepel
+    - r-ggsci
+    - r-ggtree
+    - r-ggvenndiagram
+    - r-glimma
+    - r-glmnet
+    - r-glue
+    - r-gofuncr
+    - r-gosemsim
+    - r-gplots
+    - r-graph
+    - r-graphlayouts
+    - r-gridbase
+    - r-gridgraphics
+    - r-gsl
+    - r-gstat
+    - r-gt
+    - r-gtrellis
+    - r-hablar
+    - r-hmisc
+    - r-htmltools
+    - r-hypergeo
+    - r-igraph
+    - r-illuminahumanmethylation450kmanifest
+    - r-irlba
+    - r-jquerylib
+    - r-jtools
+    - r-keggrest
+    - r-limsolve
+    - r-lme4
+    - r-logspline
+    - r-lpsolve
+    - r-lsmeans
+    - r-magrittr
+    - r-maxnet
+    - r-memuse
+    - r-methylcc
+    - r-minfi
+    - r-mptinr
+    - r-mvtnorm
+    - r-ncdf4
+    - r-nlp
+    - r-nnet
+    - r-numderiv
+    - r-openxlsx
+    - r-outliers
+    - r-pander
+    - r-patchwork
+    - r-pbapply
+    - r-performanceanalytics
+    - r-permute
+    - r-pheatmap
+    - r-pinfsc50
+    - r-plotrix
+    - r-plyr
+    - r-polyclip
+    - r-proxy
+    - r-qvalue
+    - r-r2html
+    - r-randomforest
+    - r-raster
+    - r-rbgl
+    - r-rcpp
+    - r-rcppprogress
+    - r-readxl
+    - r-regioner
+    - r-renv
+    - r-reshape2
+    - r-restfulr
+    - r-rgdal
+    - r-rgeos
+    - r-rjags
+    - r-rjava
+    - r-rlang
+    - r-rodbc
+    - r-rrblup
+    - r-rrvgo
+    - r-rsvd
+    - r-runit
+    - r-runjags
+    - r-rvenn
+    - r-s2
+    - r-sass
+    - r-scaledmatrix
+    - r-scatterpie
+    - r-sdmtools
+    - r-sdmtune
+    - r-sf
+    - r-shadowtext
+    - r-sitmo
+    - r-slam
+    - r-snowfall
+    - r-sommer
+    - r-sparsem
+    - r-spdep
+    - r-terra
+    - r-tibble
+    - r-tidygraph
+    - r-tidytree
+    - r-tidyverse
+    - r-tinytex
+    - r-tm
+    - r-treebugs
+    - r-treeio
+    - r-treemap
+    - r-tweenr
+    - r-umap
+    - r-v8
+    - r-vcfr
+    - r-viridis
+    - r-vroom
+    - r-wesanderson
+    - r-wordcloud
+    - r-yulab-utils
+  specs:
+  - matrix:
+    - [$r_libraries]
+    - [$^r_bases]
+  - $r_bases
+  modules:
+    default:
+      tcl:
+        hash_length: 0
+        exclude_implicits: true
+        include:
+        - r
+        exclude:
+        - ^r
+        projections:
+          r: R/{version}
+        all:
+          conflict:
+          - '{name}'
+        r:
+          template: r-stack-view.tcl
+  view:
+    r-4.1.1:
+      root: /share/apps/spackuser/environments/r-stack/views/4.1.1
+      select: [r@4.1.1, ^r@4.1.1]
+      link_type: symlink
+    r-4.2.0:
+      root: /share/apps/spackuser/environments/r-stack/views/4.2.0
+      select: [r@4.2.0, ^r@4.2.0]
+      link_type: symlink
+  concretizer:
+    reuse: true
+    unify: when_possible

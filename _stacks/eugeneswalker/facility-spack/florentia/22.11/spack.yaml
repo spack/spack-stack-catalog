@@ -1,0 +1,352 @@
+spack:
+  view: false
+ 
+  concretizer:
+    reuse: false
+    unify: false
+
+  compilers:
+  - compiler:
+      spec: oneapi@2022.2.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/bin/icpx
+        f77: /soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/release/2022.10.15.003
+      - spack/linux-opensuse_leap15-x86_64
+      - libnl/3.3.0-gcc-10.2.0-h7m7thf
+      - rdma-core/36.3-gcc-10.2.0-l2rnrjy
+      - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+      - libpciaccess/0.16-gcc-10.2.0-kluhisj
+      - hwloc/master-gcc-10.2.0-fbu4tbk
+      - intel_compute_runtime/release/pvc-prq-29
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/compiler/lib/intel64_lin/:/soft/restricted/CNDA/sdk/2022.10.15.001/oneapi/compiler/2022.2.0/linux/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+      extra_rpaths:
+      - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+  - compiler:
+      spec: oneapi@2022.1.0
+      paths:
+        cc: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/bin/icx
+        cxx: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/bin/icpx
+        f77: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/bin/ifx
+        fc: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/bin/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - oneapi/release/2022.06.30.005
+      - spack/linux-opensuse_leap15-x86_64
+      - libnl/3.3.0-gcc-10.2.0-h7m7thf
+      - rdma-core/36.3-gcc-10.2.0-l2rnrjy
+      - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+      - libpciaccess/0.16-gcc-10.2.0-kluhisj
+      - hwloc/master-gcc-10.2.0-fbu4tbk
+      - intel_compute_runtime/release/pvc-prq-29
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin/:/soft/restricted/CNDA/sdk/2022.06.30.001/oneapi/compiler/2022.1.0/linux/lib:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+      extra_rpaths:
+      - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gcc
+        cxx: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/g++
+        f77: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gfortran
+        fc: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gfortran
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    adios2:
+      require: '%gcc'
+    all:
+      require: '%oneapi@2022.2.0'
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [icelake]
+      variants: +mpi
+    py-cryptography:
+      require: '@38.0.1'
+    pdt:
+      require: '%gcc'
+    m4:
+      require: '%gcc'
+    autoconf:
+      require: '%gcc'
+    unzip:
+      require: '%gcc'
+    binutils:
+      require: '%gcc'
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    llvm:
+      require: '%gcc'
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      require: '@3.7.15'
+    ruby:
+      require: '%gcc'
+    rust:
+      require: '%gcc'
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    vtk-m:
+      require: ~openmp
+    xz:
+      variants: +pic
+    mesa:
+      require: osmesa
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
+
+    # EXTERNALS
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.14.0 fabrics=psm3,rxm,shm,sockets,tcp,udp,verbs ~kdreg ~debug
+        prefix: /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r
+        modules:
+        - spack/linux-opensuse_leap15-x86_64
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@4.1a1~hydra device=ch4 %oneapi@2022.2.0
+        prefix: /soft/restricted/CNDA/mpich/drop49.1/mpich-ofi-sockets-icc-default-gpu-drop49
+        modules:
+        - oneapi/release/2022.10.15.003
+        - mpi/aurora_mpich/icc-sockets/49.1
+        - spack/linux-opensuse_leap15-x86_64
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+      - spec: mpich@4.1a1~hydra device=ch4 %oneapi@2022.1.0
+        prefix: /soft/restricted/CNDA/mpich/drop49.1/mpich-ofi-sockets-icc-default-gpu-drop49
+        modules:
+        - oneapi/release/2022.06.30.005
+        - mpi/aurora_mpich/icc-sockets/49.1
+        - spack/linux-opensuse_leap15-x86_64
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+
+  modules:
+    default:
+      enable:: [tcl]
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        all:
+          autoload: direct
+          conflict: ['{name}']
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          load: []
+          suffixes:
+            ^mpich: mpi
+            +sycl: sycl
+            +level_zero: level-zero
+            ^kokkos+sycl: sycl
+            +ze: ze
+        verbose: false
+
+  specs:
+  # CPU
+  - adios
+  - alquimia
+  - aml
+  - amrex
+  - arborx
+  - archer
+  - argobots
+  - ascent
+  - bolt
+  - bricks
+  - butterflypack
+  - cabana
+  - caliper
+  - chai ~benchmarks ~tests
+  - conduit
+  - darshan-runtime
+  - darshan-util
+  - datatransferkit
+  - faodel
+  - flit
+  - flux-core
+  - fortrilinos
+  - gasnet
+  - ginkgo
+  - globalarrays
+  - gmp
+  - gotcha
+  - h5bench
+  - hdf5 +fortran +hl +shared
+  - hdf5-vol-async
+  - heffte +fftw
+  - hypre
+  - kokkos-kernels +openmp
+  - kokkos +openmp
+  - lammps
+  - legion
+  - libnrm
+  - libquo
+  - libunwind
+  - loki
+  - mercury
+  - metall
+  - mfem
+  - mpark-variant
+  - mpifileutils ~xattr
+  - nccmp
+  - nco
+  - netlib-scalapack
+  - papi
+  - papyrus
+  - parallel-netcdf
+  - pdt %gcc
+  - petsc
+  - phist
+  - plasma
+  - plumed
+  - precice
+  - pumi
+  - py-libensemble
+  - py-petsc4py
+  - qthreads scheduler=distrib
+  - slate ~cuda
+  - slepc
+  - stc
+  - strumpack ~slate
+  - sundials
+  - superlu-dist
+  - superlu
+  - swig
+  - sz
+  - tasmanian
+  - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+    +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+    +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+    +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  - turbine
+  - umap
+  - umpire
+  - unifyfs
+  - upcxx
+  - veloc
+  - vtk-m ~openmp # can't build +openmp w/ %oneapi: https://github.com/spack/spack/issues/31830
+  - wannier90
+  - variorum
+  - zfp
+  
+  # GPU
+  - aml +ze
+  - amrex +sycl
+  - cabana +sycl ^kokkos +sycl +openmp std=17 +tests +examples
+  - kokkos +sycl +openmp std=17 +tests +examples
+  - kokkos-kernels build_type=Release ^kokkos +sycl +openmp std=17 +tests +examples
+  - tau +mpi +opencl +level_zero ~pdt
+
+  # CPU ERRORS
+  # - adios2                                    # adios2
+  # - axom                                      # raja
+  # - catalyst                                  # krb5
+  # - charliecloud                              # krb5
+  # - dealii                                    # scotch
+  # - dyninst                                   # old intel-tbb
+  # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp  # vtk-m@1.7.1
+  # - exaworks                                  # krb5
+  # - flecsi                                    # pfunit
+  # - geopm                                     # ruby-rdiscount, ruby-hpricot, doxygen
+  # - gptune                                    # krb5, py-scipy@1.5.4
+  # - hpctoolkit                                # intel-tbb
+  # - hpx networking=mpi                        # krb5
+  # - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf  # py-numcodecs
+  # - nrm                                       # nrm
+  # - omega-h                                   # trilinos@12.18.1
+  # - openmpi                                   # krb5
+  # - openpmd-api                               # adios2
+  # - paraview +qt                              # llvm@14.0.6, libxkbcommon
+  # - parsec ~cuda                              # parsec
+  # - pruners-ninja                             # pruners-ninja
+  # - py-cinemasci                              # py-scipy@1.5.4
+  # - py-jupyterhub                             # krb5
+  # - py-warpx ^warpx dims=2                    # adios2
+  # - py-warpx ^warpx dims=3                    # adios2
+  # - py-warpx ^warpx dims=rz                   # adios2
+  # - quantum-espresso                          # krb5
+  # - raja                                      # raja
+  # - rempi                                     # rempi
+  # - scr                                       # libyogrt
+  # - stat                                      # graphviz
+  # - swig@4.0.2-fortran                        # swig
+  # - tau +mpi +python                          # pdt
+  # - visit                                     # vtk-m@1.9.0
+  # --
+  # adios2: Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND MPI_Fortran_FOUND CFortran)
+  # doxygen: bison/skeletons/yacc.c:420: undefined macro `b4_symbol(23, code)'
+  # gobject-introspection: bison/skeletons/yacc.c:420: undefined macro `b4_symbol(67, code)'
+  # graphviz: grammar.c:731:3: error: source file is not valid UTF-8
+  # intel-tbb: icpx: error: unknown argument: '-flifetime-dse=1'
+  # krb5: getdate.y:185:20: error: field has incomplete type 'enum _MERIDIAN'
+  # krb5: y.tab.c:1103:16: error: call to undeclared function 'yylex'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  # libxkbcommon: bison/skeletons/yacc.c:420: undefined macro `b4_symbol(51, code)'
+  # libxkbcommon: bison/skeletons/yacc.c:420: undefined macro `b4_symbol(51, code)'
+  # libyogrt: configure: error: slurm is not in specified location!
+  # llvm@14.0.6: CMake Error at openmp/runtime/cmake/LibompUtils.cmake:26 (message): LIBOMP: Hwloc requested but not available
+  # llvm@14.0.6: CMake Error: LIBOMP: Hwloc requested but not available
+  # parsec: parsec/interfaces/ptg/ptg-compiler/parsec.y:188:5: error: unknown type name 'jdf_expr_operand_t'
+  # pdt: make[2]: libpdb.a: Command not found
+  # pfunit: package.py: InstallError("Unsupported compiler.")
+  # pruners-ninja: ninja_test_pingpong.c:79:5: error: call to undeclared library function 'memset' with type 'void *(void *, int, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  # py-numcodecs: c-blosc/internal-complibs/zlib-1.2.8/gzread.c:30:15: error: call to undeclared function 'read'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  # py-scipy@1.5.4: for_main.c:(.text+0x19): undefined reference to `MAIN__'
+  # raja: RAJA/policy/tensor/arch/avx512/avx512_int32.hpp:213:5: error: C-style cast from vector 'RAJA::expt::Register<int, RAJA::expt::avx512_register>::register_type' (aka '__m512i') to vector '__m256i' (vector of 4 'long long' values) of different size
+  # rempi: ./rempi_message_manager.h:53:3: error: unknown type name 'string'
+  # ruby-hpricot: WARNING:  licenses is empty, but is recommended.  Use a license identifier from http://spdx.org/licenses or 'Nonstandard' for a nonstandard license.
+  # ruby-rdiscount: WARNING: rubyforge_project= is deprecated and ignored. Please remove this from your gemspec to ensure that your gem continues to build in the future.
+  # scotch: <line lost: output was not encoded as UTF-8>
+  # swig: bison/skeletons/yacc.c:420: undefined macro `b4_symbol(103, tag)'
+  # sz: H5Z_SZ.c:24:9: error: call to undeclared function 'gettimeofday'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  # trilinos@12.18.1: CMake Error at cmake/tribits/core/package_arch/TribitsProcessEnabledTpl.cmake:144 (MESSAGE): ERROR: TPL_BoostLib_NOT_FOUND=TRUE, aborting!
+  # vtk-m@1.7.1: icpx: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+  # vtk-m@1.9.0: icpx: error: clang frontend command failed with exit code 139 (use -v to see invocation)
+
+  # GPU ERRORS
+  # - arborx +sycl ^kokkos +sycl +openmp std=17 +tests +examples  # arborx
+  # - ginkgo +oneapi                                              # ginkgo
+  # - hpctoolkit +level_zero                                      # intel-tbb
+  # - sundials +sycl cxxstd=17                                    # sundials
+  # --
+  # arborx: CMake Error at CMakeLists.txt:44 (find_package): By not providing "FindoneDPL.cmake" in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by "oneDPL", but CMake did not find one.
+  # ginkgo: InstallError: Ginkgo's oneAPI backend requires theDPC++ compiler as main CXX compiler.
+  # intel-tbb: icpx: error: unknown argument: '-flifetime-dse=1'
+  # sundials: include/sunmemory/sunmemory_sycl.h:20:10: fatal error: 'CL/sycl.hpp' file not found
+
+  # SKIPPED
+  # - magma           # cannot be built with ~cuda ~rocm
+  # - nvhpc           # not relevant

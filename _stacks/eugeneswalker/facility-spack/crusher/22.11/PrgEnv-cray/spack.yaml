@@ -461,7 +461,6 @@ spack:
   - arborx +rocm amdgpu_target=gfx90a
   - caliper +rocm amdgpu_target=gfx90a
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
-  - ecp-data-vis-sdk@1.0 ~vtkm +rocm amdgpu_target=gfx90a
   - gasnet +rocm amdgpu_target=gfx90a
   - ginkgo +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a

@@ -108,6 +108,10 @@ spack:
       variants: precision=float,double,long_double
     darshan-runtime:
       variants: scheduler=slurm
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
 
     # EXTERNALS
     cray-mpich:

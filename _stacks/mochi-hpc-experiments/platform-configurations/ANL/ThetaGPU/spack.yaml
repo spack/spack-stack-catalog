@@ -113,7 +113,7 @@ spack:
       buildable: true
       providers: {}
     libfabric:
-      variants: fabrics=verbs,rxm
+      variants: fabrics=verbs,rxm +cuda
       version: []
       target: []
       compiler: []
@@ -123,6 +123,10 @@ spack:
       externals:
       - spec: rdma-core@39.1
         prefix: /usr
+    cuda:
+      externals:
+      - spec: cuda@11.4.152
+        prefix: /usr/local/cuda
   view: true
   compilers:
   - compiler:

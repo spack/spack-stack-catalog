@@ -140,6 +140,10 @@ spack:
       require: "%gcc"
     py-numpy:
       require: "@1.21.6"
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
 
     # FACILITY REQUESTED PREFERENCES
     petsc:
@@ -387,7 +391,7 @@ spack:
   - hpctoolkit          # hpctoolkit
   - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf # libstdcompact
   - omega-h             # omega-h
-  - paraview +qt        # qt@5.15.5
+  - paraview            # qt@5.15.5
   - phist               # phist
   - pruners-ninja       # pruners-ninja
   - quantum-espresso    # quantum-espresso
@@ -424,6 +428,7 @@ spack:
   # vtk-h: CMake: Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
 
   # GPU ERRORS
+  - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a                   # vtk-m
   - ginkgo +rocm amdgpu_target=gfx90a                                   # ginkgo
   - hpctoolkit +rocm                                                    # hpctoolkit
   - mfem +rocm amdgpu_target=gfx90a                                     # mfem
@@ -432,7 +437,6 @@ spack:
   - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # hipsolver, arpack-ng
   - strumpack ~slate +rocm amdgpu_target=gfx90a                         # arpack-ng
   - vtk-m ~openmp ~rendering +rocm amdgpu_target=gfx90a                 # vtk-m
-  - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a                   # vtk-m
   # --
   # arpack-ng: F90-S-0034-Syntax error at or near , (.../spack-src/stat.h: 20)
   # blaspp: ld.lld: error: unable to find library -lCLANGRT_BUILTINS-NOTFOUND

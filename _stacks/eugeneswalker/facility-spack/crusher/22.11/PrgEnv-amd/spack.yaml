@@ -130,6 +130,10 @@ spack:
 
     unzip:
       require: "%gcc"
+    paraview:
+      require: ~qt +osmesa
+    visit:
+      require: ~gui +osmesa
 
     # FACILITY REQUESTED PREFERENCES
     petsc:
@@ -379,6 +383,7 @@ spack:
   - darshan-runtime
   - darshan-util
   - datatransferkit
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz ~unifyfs +veloc +visit +vtkm +zfp
   - exaworks
   - faodel
   - flit
@@ -549,6 +554,7 @@ spack:
   # vtk-h: CMake: Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
 
   # GPU ERRORS
+  # - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a                   # vtk-m
   # - ginkgo +rocm amdgpu_target=gfx90a                                   # ginkgo
   # - hpctoolkit +rocm                                                    # hpctoolkit
   # - mfem +rocm amdgpu_target=gfx90a                                     # mfem
@@ -557,7 +563,6 @@ spack:
   # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # hipsolver, arpack-ng
   # - strumpack ~slate +rocm amdgpu_target=gfx90a                         # arpack-ng
   # - vtk-m ~openmp ~rendering +rocm amdgpu_target=gfx90a                 # vtk-m
-  # - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a                   # vtk-m
   # --
   # arpack-ng: F90-S-0034-Syntax error at or near , (.../spack-src/stat.h: 20)
   # blaspp: ld.lld: error: unable to find library -lCLANGRT_BUILTINS-NOTFOUND

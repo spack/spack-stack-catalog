@@ -1,0 +1,234 @@
+# spack/develop 8ed8922af5a36a53876f4385096fc3ef2b7876ec
+# Mon May 2 14:17:48 2022 -0700
+# esw123/ubuntu20.04-rocm:5.1.0
+
+spack:
+  view: false
+  concretization: separately
+
+  config:
+    concretizer: clingo
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc-11
+        cxx: /usr/bin/g++-11
+        f77: /usr/bin/gfortran-11
+        fc: /usr/bin/gfortran-11
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages:
+    all:
+      compiler: [gcc@11.1.0]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [x86_64]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    # ROCm 5.1.1 EXTERNALS
+    comgr:
+      buildable: false
+      externals:
+      - spec: comgr@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hip-rocclr:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.1.1
+        prefix: /opt/rocm-5.1.1/hip
+    hipblas:
+      buildable: false
+      externals:
+      - spec: hipblas@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hipfft:
+      buildable: false
+      externals:
+      - spec: hipfft@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hipsparse:
+      buildable: false
+      externals:
+      - spec: hipsparse@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: hip-rocclr@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    miopengemm:
+      buildable: false
+      externals:
+      - spec: miopengemm@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rccl:
+      buildable: false
+      externals:
+      - spec: rccl@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocblas:
+      buildable: false
+      externals:
+      - spec: rocblas@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocfft:
+      buildable: false
+      externals:
+      - spec: rocfft@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - spec: rocm-clang-ocl@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-cmake:
+      buildable: false
+      externals:
+      - spec: rocm-cmake@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-dbgapi:
+      buildable: false
+      externals:
+      - spec: rocm-dbgapi@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-debug-agent:
+      buildable: false
+      externals:
+      - spec: rocm-debug-agent@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-gdb:
+      buildable: false
+      externals:
+      - spec: rocm-gdb@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    rocm-opencl:
+      buildable: false
+      externals:
+      - spec: rocm-opencl@5.1.1
+        prefix: /opt/rocm-5.1.1/opencl
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - spec: rocm-smi-lib@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.1.1
+        prefix: /opt/rocm-5.1.1/hip
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.1.1/llvm/bin/clang++
+            c++: /opt/rocm-5.1.1/llvm/bin/clang++
+            hip: /opt/rocm-5.1.1/hip/bin/hipcc
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@5.1.1
+        prefix: /opt/rocm-5.1.1/llvm
+        extra_attributes:
+          compilers:
+            c: /opt/rocm-5.1.1/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.1/llvm/bin/clang++
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - spec: hsakmt-roct@5.1.1
+        prefix: /opt/rocm-5.1.1/
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.1.1
+        prefix: /opt/rocm-5.1.1/
+        extra_atributes:
+          compilers:
+            c: /opt/rocm-5.1.1/llvm/bin/clang++
+            cxx: /opt/rocm-5.1.1/llvm/bin/clang++
+    roctracer-dev-api:
+      buildable: false
+      externals:
+      - spec: roctracer-dev-api@5.1.1
+        prefix: /opt/rocm-5.1.1/roctracer
+    rocprim:
+      buildable: false
+      externals:
+      - spec: rocprim@5.1.1
+        prefix: /opt/rocm-5.1.1
+    rocrand:
+      buildable: false
+      externals:
+      - spec: rocrand@5.1.1
+        prefix: /opt/rocm-5.1.1/rocrand
+    rocsolver:
+      buildable: false
+      externals:
+      - spec: rocsolver@5.1.1
+        prefix: /opt/rocm-5.1.1
+    rocsparse:
+      buildable: false
+      externals:
+      - spec: rocsparse@5.1.1
+        prefix: /opt/rocm-5.1.1
+    rocthrust:
+      buildable: false
+      externals:
+      - spec: rocthrust@5.1.1
+        prefix: /opt/rocm-5.1.1
+
+  specs:
+  - exago@1.4.1 +mpi +python ~ipopt +hiop ~raja +rocm amdgpu_target=gfx90a
+  - exago@1.4.1 +mpi +python ~ipopt +hiop +raja +rocm amdgpu_target=gfx90a
+  - hiop@0.6.1 +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
+
+  # This build fails because +ipopt
+  - exago@1.4.1 +mpi +python +ipopt +hiop +raja +rocm amdgpu_target=gfx90a ^hiop@0.6.1
+
+  # - hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
+
+  # develop:
+  #   hiop:
+  #     path: /gpfs/alpine/csc439/world-shared/E4S/ParaTools/ExaSGD/hiop-develop
+  #     spec: hiop@develop +mpi +raja ~sparse +kron +rocm amdgpu_target=gfx90a
