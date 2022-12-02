@@ -1,0 +1,171 @@
+# This is a Spack Environment file.
+spack:
+  definitions:
+  - compilers_core: [gcc@9.1.0]
+  - compilers_gcc: [gcc@12.2.0]
+  - compilers_intel: [intel]
+  
+#  - compilers_oneapi: [oneapi@2021.4.0]
+#  
+#  - packages_core: [intel-oneapi-compilers]
+  #
+  - mpis: [mpich]
+  - packages_mpis: [mpich]
+  
+  #
+  - packages_serial: []
+  
+    #
+  - packages_parallel: [pflotran]
+  specs:
+  
+  # compilers:
+  # Do we need this, or can we just check the "build compilers if we need them" box?
+#  - matrix:
+#    - [$packages_core]
+#    - [$%compilers_core]
+  #
+  # build serial packages and MPI(s)
+  # we don't have any serials, and MPICH should build as a dependency. Can we just do that? We might need
+  # to install it or add it as an "explicit" package?
+#  - matrix:
+#    - [$packages_serial, $packages_mpis]
+#    - [$%compilers_gcc]
+  #
+  # Parallel (MPI) packages:
+  - matrix:
+    - [$packages_parallel]
+    - [$^mpis]
+    - [$%compilers_gcc]
+  #
+  view: false
+  concretizer:
+    unify: true
+  packages:
+    paraview:
+      variants: +hdf5 +osmesa +pagosa +libcatalyst +python3
+    parflow:
+      variants: +ipo
+    libxsmm:
+      variants: +shared+generator
+    hdf5:
+      variants: ~cxx~debug+fortran+hl~java+mpi+shared~szip+threadsafe
+    netcdf-c:
+      variants: +mpi
+    cmake:
+      version: [3.23.1]
+    cdo:
+      variants: ~szip
+    petsc:
+      variants: +hdf5 +batch +fftw +hwloc +hypre
+    metis:
+      variants: +optimizations+int64+real64
+    nco:
+      version: [4.9.3]
+    parmetis:
+      variants: +int64+real64
+    pumi:
+      variants: +fortran +int64 +ipo +shared ~zoltan
+    gmsh:
+      variants: +mpi +hdf5 ~fltk
+    gcc:
+      version: [12.2.0]
+      compiler: [gcc@9.1.0]
+      target: [x86_64]
+    intel-oneapi-compilers:
+      compiler: [gcc@9.1.0]
+      target: [x86_64_v3]
+    all:
+      compiler: [gcc@12.2.0]
+      target: [x86_64]
+      variants: build_type=Release +mpi
+      providers:
+        mpi: [mpich]
+      permissions:
+        read: world
+        write: user
+  modules:
+    default:
+      roots:
+        lmod: $spack/share/spack/lmod_pflotran
+        tcl: $spack/share/spack/modules_pflotran
+      'enable:':
+      - lmod
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+        - gcc@9.1.0
+        hierarchy:
+        - mpi
+        - compiler
+        'hash_length:': 5
+        projections:
+          all: '{name}-pflotran/{version}'
+          ^mpi: '{name}-pflotran/{^mpi.name}-{version}'
+    prefix_inspections:
+      bin:
+      - PATH
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      include:
+      - CPATH
+  #
+  config:
+    install_missing_compilers: true
+    checksum: true
+    deprecated: false
+    dirty: false
+    ccache: false
+    concretizer: clingo
+    shared_linking:
+      type: rpath
+      bind: false
+    build_stage:
+    - /scratch/${user}/spack_stage
+    - $tempdir/${user}/spack-stage
+    - ~/.spack/stage
+  #
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      flags:
+        cflags: -fPIC
+        cxxflags: -fPIC
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@12.2.0
+      paths:
+        cc: /scratch/users/myoder96/spack_dev/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-12.2.0-v2bk2cpbgjzmzoeqtq7vjaqppldy4ayb/bin/gcc
+        cxx: /scratch/users/myoder96/spack_dev/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-12.2.0-v2bk2cpbgjzmzoeqtq7vjaqppldy4ayb/bin/g++
+        f77: /scratch/users/myoder96/spack_dev/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-12.2.0-v2bk2cpbgjzmzoeqtq7vjaqppldy4ayb/bin/gfortran
+        fc: /scratch/users/myoder96/spack_dev/spack/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-12.2.0-v2bk2cpbgjzmzoeqtq7vjaqppldy4ayb/bin/gfortran
+      flags: {}
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+#
+  container:
+    format: singularity
+    images:
+      os: centos:7
+      spack: develop
+    strip: true
+    labels:
+      app: pflotran
+      mpi: mpich

@@ -1,9 +1,11 @@
 spack:
   include:
-    - https://github.com/tuxfan/spack-env/blob/develop/flecsi-devel-clang/config
-  specs: [cgdb@master, git, caliper@master, graphviz, hdf5, kokkos, legion@ctrl-rep-13 conduit=mpi network=gasnet, parmetis, boost cxxstd=17 +program_options +atomic +filesystem +regex +system]
+  - https://github.com/tuxfan/spack-env/blob/develop/flecsi-devel-clang/config
+  specs: [cgdb, git, caliper, graphviz, hdf5, kokkos, legion
+      +shared +hdf5 +kokkos conduit=mpi network=gasnet, parmetis, boost cxxstd=17
+      +program_options +atomic +filesystem +regex +system]
   view: true
   concretizer:
     unify: true
   repos:
-    - /home/bergen/devel/gitlab/flecsi/2/spack-repo
+  - /home/bergen/devel/gitlab/flecsi/2/spack-repo

@@ -30,7 +30,9 @@ spack:
     
 # Failing:    - openfoam@v2012 +paraview +vtk #paraview is failing to be installed, then breaking this spec.
 # Current alternative:
-    - openfoam@v2012
+# Now failing with gcc@12:    - openfoam@v2012
+# Worked with specific depend:    - openfoam@v2206 ^boost@1.80.0 +mpi +numpy +python cxxstd=98 ^py-numpy@1.20.3
+    - openfoam@v2206
 
     
 # Failing:    - openfoam-org@8 #Alexis still working on it
@@ -40,6 +42,7 @@ spack:
   specs:
   - matrix:
     - [$packages]
-    - ['%gcc@10.3.0']
-    - ['target=zen3']
+    - [^python@3.9.15]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
   view: false
