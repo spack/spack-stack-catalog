@@ -7,14 +7,18 @@ spack:
   - pmix
   - ucx
   - openmpi
-  view: /share/apps/spack/environments/cluster-core/view
+  view:
+    default:
+      root: /share/apps/spack/environments/cluster-core/view
+      link_type: symlink
   modules:
     default:
+      use_view: default
       lmod:
         exclude:
-          - lmod
-          - mariadb
+        - lmod
+        - mariadb
         include:
-          - slurm
+        - slurm
   concretizer:
     unify: when_possible

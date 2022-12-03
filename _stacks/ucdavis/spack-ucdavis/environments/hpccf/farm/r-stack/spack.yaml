@@ -226,7 +226,7 @@ spack:
           conflict:
           - '{name}'
         r:
-          template: r-stack-view.tcl
+          template: hpccf/farm/r-stack-view.tcl
   view:
     r-4.1.1:
       root: /share/apps/spackuser/environments/r-stack/views/4.1.1
