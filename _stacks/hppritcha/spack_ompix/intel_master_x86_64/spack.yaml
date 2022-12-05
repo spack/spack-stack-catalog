@@ -3,15 +3,20 @@
 spack:
   include:
   - ./
-  definitions: []
+  definitions:
+  - oneapi: ['%oneapi@2022.1.2']
+  - gnu: ['%gcc@10.2.0']
+  - ompi: [openmpi]
+  - ompi_gnu: [m4, autoconf, automake, libtool]
   specs:
-  - openmpi
+  - matrix:
+    - [$oneapi]
+    - [$ompi]
+  - matrix:
+    - [$gnu]
+    - [$ompi_gnu]
   view: false
   concretizer:
     unify: true
   upstreams: {}
   mirrors: {}
-  modules:
-    enable: []
-  packages: {}
-  repos: []
