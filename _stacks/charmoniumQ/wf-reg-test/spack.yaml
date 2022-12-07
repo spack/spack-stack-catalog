@@ -4,53 +4,29 @@ spack:
   - util-linux
   - coreutils
   - time
-  - python@3.10
-  - py-pip
-  - py-gitpython
-  - py-pyyaml
-  - py-requests
-  - py-rich
-  - snakemake@7.18.2+s3+http+ftp
-
-
-  
-  # Note that many Snakemake repositories require snakemake@7.5:
-  # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
-  - py-tomli@2.0.1
   - nextflow
   - java
-  - py-tqdm
+  - apptainer
+  - micromamba
+  - snakemake@7.18.2+s3+http+ftp
+  # Note that many Snakemake repositories require snakemake@7.5:
+  # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
+  - python@3.10
+  # Next are python dependencies
+  - py-pygithub@1
+  - py-gitpython@3
   - py-xxhash
-  - py-pygithub
-  - py-charmonium-time-block patches=2ca26cf
-  - py-charmonium-freeze@0.6.0
-  - py-mypy
-  - py-pytest
-  - singularity
-  - miniconda3
-  - xxhash
-  - py-ipython
-  - py-dask@2022.10.2~distributed
-  - py-fasteners
-  - py-dask
+  - py-pyyaml@6
+  - py-charmonium-time-block@0.3:0
   - py-parsl
-  - py-click
+  - py-fasteners@0.18:0
+  - py-adlfs@2022
+  - py-click@8
+  - py-azure-identity
+  - py-pip
+  # - py-azure-cli
   view: true
   concretizer:
     unify: when_possible
-  compilers:
-  - compiler:
-      spec: gcc@11.3.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: null
-        fc: null
-      flags: {}
-      operating_system: ubuntu22.04
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
   repos:
-  - /home/sagrays/wf-reg-test/spack_repo
+  - /home/sam/box/wf-reg-test/spack_repo
