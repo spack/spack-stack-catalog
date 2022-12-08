@@ -1,24 +1,71 @@
 spack:
+  packages:
+    slurm:
+      version:
+      - 22-05-6-1
+      variants: +pmix +mariadb +hwloc +restd sysconfdir=/etc/slurm
+    hwloc:
+      version:
+      - 2.8.0
+      variants: +netloc +pci +libxml2 +libudev +cairo +nvml
+    cairo:
+      require: +X +ft +fc +pdf +png +gobject
+    python:
+      require: ~libxml2
+    libxml2:
+      require: '@2.10.2: +python'
+    libevent:
+      version:
+      - 2.1.12
+    pmix:
+      version:
+      - 4.1.2
+    ucx:
+      version:
+      - 1.13.1
+      variants: +thread_multiple
+    openmpi:
+      version:
+      - 4.1.4
+      variants: fabrics=ucx schedulers=slurm +cuda
+    lmod:
+      version:
+      - 8.7.14
+      variants: modulepath_root=/share/apps/spack/modulefiles/
+    cuda:
+      variants: cuda_arch=75
+    amdfftw:
+      version:
+      - 3.2
+      variants: +openmp
+  include:
+  - $spack/../environments/cluster-core/exports.yaml
   specs:
-  - lmod@8.7.2
+  - lmod@8.7.14
   - slurm
   - hwloc
   - libevent
   - pmix
   - ucx
   - openmpi
-  view:
-    default:
-      root: /share/apps/spack/environments/cluster-core/view
-      link_type: symlink
+  - cuda
+  - amdfftw target=zen2
+  view: /share/apps/spack/environments/cluster-core/view
   modules:
     default:
-      use_view: default
       lmod:
+        hierarchy:
+        - mpi
         exclude:
         - lmod
         - mariadb
         include:
         - slurm
+        - pmix
+        - ucx
+        - openmpi
+        - cuda
+        - amdfftw
   concretizer:
+    reuse: true
     unify: when_possible

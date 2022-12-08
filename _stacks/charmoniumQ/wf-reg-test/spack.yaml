@@ -9,9 +9,21 @@ spack:
   - apptainer
   - micromamba
   - snakemake@7.18.2+s3+http+ftp
+
+
+
+
+
+  
   # Note that many Snakemake repositories require snakemake@7.5:
   # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
   - python@3.10
+
+
+
+
+
+  
   # Next are python dependencies
   - py-pygithub@1
   - py-gitpython@3
