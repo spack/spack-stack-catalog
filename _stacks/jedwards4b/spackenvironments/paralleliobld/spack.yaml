@@ -4,27 +4,21 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  view: false
-  modules:
-    default:
-      lmod:
-        projections:
-          all: '{name}/{version}'
-          +debug: '{name}/{version}-debug'
-          +logging: '{name}/{version}-debug'
-          build_type=Debug: '{name}/{version}-debug'
+  # add package specs to the `specs` list
+  include:
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
   definitions:
-  
-#  - packages: [parallelio@2.5.9+pnetcdf ^cray-mpich@8.1.19, parallelio@2.5.9+pnetcdf+logging
-#        build_type=Debug ^cray-mpich@8.1.19]
   - packages: [parallelio@2.5.9+pnetcdf ^parallel-netcdf@1.12.3 ^netcdf-c@4.9.0, parallelio@2.5.9+pnetcdf
         +logging build_type=Debug ^netcdf-c@4.9.0 ^parallel-netcdf@1.12.3]
   
         #  - packages: [parallelio@2.5.9+pnetcdf+logging build_type=Debug, esmf@8.4.0b15 +debug
         #        -xerces +parallelio ^parallelio+pnetcdf+logging build_type=Debug ^libxml2@2.9.13]
         #  - packages: [parallelio@2.5.9+pnetcdf, esmf@8.4.0b15 -xerces +parallelio ^parallelio+pnetcdf]
-  - compilers: ['%intel@2021.6.0', '%oneapi', '%cce@15.0.0', '%gcc@12.1.0', '%nvhpc']
-  - mpilibs: [^cray-mpich@8.1.21, ^openmpi@4.1.4]
+  - compilers: ['%intel@2021.7.1', '%oneapi', '%cce@15.0.0', '%gcc@12.1.0', '%nvhpc']
+  
+#  - mpilibs: [^cray-mpich@8.1.21, ^openmpi@4.1.4]
+  - mpilibs: [^cray-mpich@8.1.21]
   specs:
   - matrix:
     - [$packages]
@@ -33,109 +27,3 @@ spack:
   concretizer:
     unify: false
     reuse: true
-  compilers:
-  - compiler:
-      spec: cce@15.0.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-cray
-      - cce/15.0.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: dpcpp@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-oneapi
-      - dpcpp/2022.1.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: intel@2021.6.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-intel
-      - intel/2021.6.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@21.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/21.3
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@22.2
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/22.2
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@22.7
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/22.7
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: oneapi@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-oneapi
-      - oneapi/2022.1.0
-      environment: {}
-      extra_rpaths: []

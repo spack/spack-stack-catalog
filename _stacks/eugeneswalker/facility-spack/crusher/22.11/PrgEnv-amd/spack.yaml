@@ -383,7 +383,8 @@ spack:
   - darshan-runtime
   - darshan-util
   - datatransferkit
-  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz ~unifyfs +veloc +visit +vtkm +zfp
+  - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel 
+    +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # +unifyfs required mochi-margo -lpthread patch
   - exaworks
   - faodel
   - flit

@@ -4,11 +4,14 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
+  include:
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
+  #  - /glade/u/apps/gust/22.12/config/modules.yaml
   definitions:
-  - packages: [mpi-serial cppflags="-fPIC"]
-  
-#  - compilers: ['%gcc', '%oneapi', '%cce', '%intel@2021.6.0', '%nvhpc']
-  - compilers: ['%cce@15.0.0']
+  - packages: [mpi-serial cppflags="-fPIC "]
+  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
+#  - compilers: ['%cce@15.0.0']
   specs:
   - matrix:
     - [$packages]
@@ -17,109 +20,3 @@ spack:
   concretizer:
     unify: false
     reuse: true
-  compilers:
-  - compiler:
-      spec: cce@15.0.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-cray
-      - cce/15.0.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: dpcpp@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-oneapi
-      - dpcpp/2022.1.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: intel@2021.6.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-intel
-      - intel/2021.6.0
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@21.3
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/21.3
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@22.2
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/22.2
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: nvhpc@22.7
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/22.7
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: oneapi@2022.1.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-oneapi
-      - oneapi/2022.1.0
-      environment: {}
-      extra_rpaths: []
