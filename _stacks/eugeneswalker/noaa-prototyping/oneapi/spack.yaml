@@ -48,26 +48,26 @@ spack:
   - zlib@1.2.12                           # deprecated version
 
   # NEED TO ADD VERSION
-# - bufr@11.7.0                           # add version
-# - crtm@v2.3-jedi.4                      # add version
-# - ecflow@5                              # add version
-# - eckit@1.19.0                          # add version
-# - fms@2019.01.03                        # add version
-# - fms@release-jcsda                     # add version
-# - nco@5.0.6                             # add version
-# - netcdf-cxx4@4.3.1                     # add version
-# - odc@1.4.5                             # add version
+  # - bufr@11.7.0                           # add version
+  # - crtm@v2.3-jedi.4                      # add version
+  # - ecflow@5                              # add version
+  # - eckit@1.19.0                          # add version
+  # - fms@2019.01.03                        # add version
+  # - fms@release-jcsda                     # add version
+  # - nco@5.0.6                             # add version
+  # - netcdf-cxx4@4.3.1                     # add version
+  # - odc@1.4.5                             # add version
 
   # NEED TO ADD PACKAGE
-# - ecmwf-atlas@0.29.0                    # add pkg
-# - ectrans@1.0.0                         # add pkg
-# - ewok@0.0.1                            # add pkg
-# - fckit@0.9.5                           # add pkg
-# - fiat@1.0.0                            # add pkg
-# - gftl-shared@1.5.0                     # add pkg
-# - jedi-cmake@1.3.0                      # add pkg
-# - mapl@2.22.0                           # add pkg
-# - r2d2@0.0.1                            # add pkg
-# - shumlib@macos_clang_linux_intel_port  # add pkg
-# - solo@1.0.0                            # add pkg
-# - yafyaml@0.5.1                         # add pkg
+  # - ecmwf-atlas@0.29.0                    # add pkg
+  # - ectrans@1.0.0                         # add pkg
+  # - ewok@0.0.1                            # add pkg
+  # - fckit@0.9.5                           # add pkg
+  # - fiat@1.0.0                            # add pkg
+  # - gftl-shared@1.5.0                     # add pkg
+  # - jedi-cmake@1.3.0                      # add pkg
+  # - mapl@2.22.0                           # add pkg
+  # - r2d2@0.0.1                            # add pkg
+  # - shumlib@macos_clang_linux_intel_port  # add pkg
+  # - solo@1.0.0                            # add pkg
+  # - yafyaml@0.5.1                         # add pkg
