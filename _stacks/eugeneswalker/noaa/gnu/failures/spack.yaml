@@ -1,0 +1,38 @@
+spack:
+  view: false
+
+  concretizer:
+    unify: false
+    reuse: false
+
+  packages:
+    all:
+      target: [x86_64]
+      require: '%gcc@11.1.0'
+    mpi:
+      require: mpich
+    mpich:
+      require: ~wrapperrpath
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  specs:
+  # ERRORS
+  - parallelio@2.5.4                      # parallelio
+  - w3nco@2.4.1                           # w3nco
+  # ---
+  # parallelio: patching failed: 1 out of 2 hunks FAILED -- saving rejects to file CMakeLists.txt.rej
+  # w3nco: Please submit a full bug report, with preprocessed source if appropriate. Please include the complete backtrace with any bug report.

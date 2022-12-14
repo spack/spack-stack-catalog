@@ -1,0 +1,126 @@
+spack:
+  view: false
+
+  concretizer:
+    unify: false
+    reuse: false
+
+  packages:
+    all:
+      target: [x86_64]
+      require: '%nvhpc@22.11'
+    cmake:
+      require: '%gcc'
+    git:
+      require: '%gcc'
+    jasper:
+      require: '%gcc'
+    libffi:
+      require: '%gcc'
+    libxcrypt:
+      require: '%gcc'
+    py-cython:
+      require: '%gcc'
+    python:
+      require: '%gcc'
+    readline:
+      require: '%gcc'
+    xz:
+      require: '%gcc'
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.11
+      paths:
+        cc: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/nvhpc-22.11-d4gioeteddqskfhdhbl3ririxuwef3ml/Linux_x86_64/22.11/compilers/bin/nvc
+        cxx: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/nvhpc-22.11-d4gioeteddqskfhdhbl3ririxuwef3ml/Linux_x86_64/22.11/compilers/bin/nvc++
+        f77: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/nvhpc-22.11-d4gioeteddqskfhdhbl3ririxuwef3ml/Linux_x86_64/22.11/compilers/bin/nvfortran
+        fc: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/nvhpc-22.11-d4gioeteddqskfhdhbl3ririxuwef3ml/Linux_x86_64/22.11/compilers/bin/nvfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  specs:
+  - bacio@2.4.1
+  - bison@3.8.2
+  - ecbuild@3.6.5
+  - eccodes@2.25.0
+  - eigen@3.4.0
+  - esmf@8.3.0b09 +pio
+  - flex@2.6.4
+  - g2@3.4.5
+  - g2tmpl@1.10.0
+  - hdf@4.2.15
+  - hdf5@1.12.1
+  - ip@3.3.3
+  - jasper@2.0.32
+  - libpng@1.6.37
+  - libyaml@0.2.5
+  - nccmp@1.9.0.1
+  - netcdf-c@4.8.1
+  - netcdf-fortran@4.5.4
+  - nlohmann-json-schema-validator@2.1.0
+  - nlohmann-json@3.10.5
+  - parallel-netcdf@1.12.2
+  - parallelio@2.5.4
+  - sp@2.3.3
+  - udunits@2.2.28
+  - w3nco@2.4.1
+  - zlib@1.2.12                             # deprecated version
+
+  # ERRORS
+  # - crtm@2.3.0                            # crtm
+  # - ecflow@5.8.3                          # py-numpy
+  # - fms@2022.01                           # fms
+  # - fms@2022.03                           # fms
+  # - fms@2022.04                           # fms
+  # - gftl-shared@1.5.0                     # gtfl-shared
+  # - py-numpy@1.22.3                       # py-numpy
+  # - py-pandas@1.4.0                       # py-numpy
+  # - py-scipy@1.8.0                        # re2c
+  # - py-shapely@1.8.0                      # re2c
+  # --
+  # crtm: NVFORTRAN-F-0004-Unable to open MODULE file iso_fortran_env.mod
+  # fms: NVFORTRAN-S-0155-Same name common blocks with different sizes in same file not supported  (fms2_io/netcdf_io.F90)
+  # gtfl-shared: CMake Error at cmake/fortran_try.cmake:13 (string): string sub-command STRIP requires two arguments.cmake/check_intrinsic_kinds.cmake:16 (CHECK_Fortran_SOURCE_RUN)
+  # py-numpy: ??
+  # re2c: src/dfa/closure_posix.h", line 83: error: no instance of function template "re2c::init_gor1" matches the argument list
+
+  # NEED TO ADD VERSION
+  # - bufr@11.7.0                           # add version: https://github.com/spack/spack/pull/34509
+  # - crtm@v2.3-jedi.4                      # add version: private?
+  # - eckit@1.19.0                          # add version: https://github.com/spack/spack/pull/34510
+  # - fms@2019.01.03                        # add version: https://github.com/spack/spack/pull/34511
+  # - fms@release-jcsda                     # add version: private?
+  # - nco@5.0.6                             # add version: https://github.com/spack/spack/pull/34512
+  # - netcdf-cxx@4.3.1                      # add version: deprecated? use new package?
+  # - odc@1.4.5                             # add version: https://github.com/spack/spack/pull/34513
+
+  # NEED TO ADD PACKAGE
+  # - ecmwf-atlas@0.29.0                    # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - ectrans@1.0.0                         # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - ewok@0.0.1                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - fckit@0.9.5                           # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - fiat@1.0.0                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - jedi-cmake@1.3.0                      # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - mapl@2.22.0                           # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - r2d2@0.0.1                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - shumlib@macos_clang_linux_intel_port  # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - solo@1.0.0                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - yafyaml@0.5.1                         # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
