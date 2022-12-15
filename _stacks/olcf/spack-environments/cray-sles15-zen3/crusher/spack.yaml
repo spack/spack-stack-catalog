@@ -1,0 +1,1352 @@
+# OLCF Crusher Spack Environment
+
+# README/NOTE?TODO - the current installation uses an internal fork of spack
+#                    Users can check out spack commit: b60d3dcd2959ef73d08695781270d94a42f5da44
+#                    to better match their version of spack.  If an installed module is not being recognized by the concretizer,
+#                    it can be added as an external module
+
+spack:
+  #############################################################################
+  specs: [] # FIXME - add spec list here
+  upstreams:
+    olcf:
+      install_tree: /sw/crusher/spack-envs/base/opt
+      modules:
+        lmod: /sw/crusher/spack-envs/base/modules
+  mirrors:
+    facility_builds: /sw/crusher/spack-env/mirrors/builds
+    source_mirror: /sw/sources/facility-spack/source_mirror
+  repos: [] # Add any custom packages here
+  config:
+    install_tree:
+      # FIXME - Customize where you want the install
+      #         root: /ccs/proj/<PROJID>/... # for persistant installs
+      #         root: /gpfs/alpine/... # for ephemeral installs
+      root: $spack/opt/spack
+      projections:
+        all: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    template_dirs:
+    - $spack/share/spack/templates
+    build_stage:
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    # source_cache: /path/to/source_cache  # OPTIONAL
+    misc_cache: $spack/var/spack/.mcache  # TODO: this directory must exist prior to use
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout: null
+    shared_linking: rpath
+    allow_sgid: true
+    concretizer: clingo
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: ~/.spack/test
+  packages:
+    # OPTIONAL: User can add external packages here via modules, may be needed if spack misses an already installed package
+    # EXAMPLE
+    # cmake:
+    #   version: [3.23.2]
+    #   buildable: false
+    #   externals:
+    #   - spec: cmake@3.23.2
+    #     modules:
+    #     - cmake/3.23.2
+    all:
+      buildable: true
+      compiler: [gcc@7.5.0, gcc]
+      providers:
+        blas: [openblas, cray-libsci@21.08.1.2]
+        lapack: [openblas, cray-libsci@21.08.1.2]
+        mpi: [cray-mpich]
+        scalapack: [netlib-scalapack]
+      target: [zen3]
+      version: []
+    axom:
+      variants: ~examples~openmp+hdf5+umpire+raja+mpi
+    binutils:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +libiberty
+      version: []
+    camp:
+      variants: ~rocm
+    chai:
+      variants: ~examples~benchmarks~tests~rocm
+    comgr:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: comgr@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: comgr@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: comgr@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: comgr@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: comgr@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: comgr@4.2.0
+    cray-libsci:
+      buildable: false
+      externals:
+      - modules:
+        - cray-libsci/21.08.1.2
+        spec: cray-libsci@21.08.1.2
+      - modules:
+        - cray-libsci/21.06.1.1
+        spec: cray-libsci@21.06.1.1
+      version: [21.08.1.2, 21.06.1.1]
+    cray-mpich:
+      buildable: false
+      compiler: []
+      externals:
+      - modules:
+        - cray-mpich/8.1.16
+        spec: cray-mpich@8.1.16
+      - modules:
+        - cray-mpich/8.1.12
+        spec: cray-mpich@8.1.12
+      providers: {}
+      target: []
+      version: [8.1.16, 8.1.12]
+    darshan-runtime:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +grouplogs scheduler=slurm logpath=/gpfs/alpine/darshan/crusher
+      version: []
+    fftw:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: precision=float,double,long_double
+      version: []
+    gdbm:
+      version: [1.19]
+    hdf5:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +hl+cxx+fortran
+      version: []
+    hip:
+      buildable: false
+      externals:
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-5.2.0/hip/bin/hipcc
+        prefix: /opt/rocm-5.2.0/hip
+        spec: hip@5.2.0
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-5.1.0/hip/bin/hipcc
+        prefix: /opt/rocm-5.1.0/hip
+        spec: hip@5.1.0
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-4.5.2/hip/bin/hipcc
+        prefix: /opt/rocm-4.5.2/hip
+        spec: hip@4.5.2
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-4.5.0/hip/bin/hipcc
+        prefix: /opt/rocm-4.5.0/hip
+        spec: hip@4.5.0
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-4.3.0/hip/bin/hipcc
+        prefix: /opt/rocm-4.3.0/hip
+        spec: hip@4.3.0
+      - extra_attributes:
+          compilers:
+            hip: /opt/rocm-4.2.0/hip/bin/hipcc
+        prefix: /opt/rocm-4.2.0/hip
+        spec: hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hip-rocclr:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/rocclr
+        spec: hip-rocclr@5.2.0 ^hsa-rocr-dev@5.2.0
+      - prefix: /opt/rocm-5.1.0/rocclr
+        spec: hip-rocclr@5.1.0 ^hsa-rocr-dev@5.1.0
+      - prefix: /opt/rocm-4.5.2/rocclr
+        spec: hip-rocclr@4.5.2 ^hsa-rocr-dev@4.5.2
+      - prefix: /opt/rocm-4.5.0/rocclr
+        spec: hip-rocclr@4.5.0 ^hsa-rocr-dev@4.5.0
+      - prefix: /opt/rocm-4.3.0/rocclr
+        spec: hip-rocclr@4.3.0 ^hsa-rocr-dev@4.3.0
+      - prefix: /opt/rocm-4.2.0/rocclr
+        spec: hip-rocclr@4.2.0 ^hsa-rocr-dev@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hipblas:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hipblas@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hipblas@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hipblas@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hipblas@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hipblas@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hipblas@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hipcub:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hipcub@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hipcub@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hipcub@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hipcub@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hipcub@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hipcub@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hipfft:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hipfft@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hipfft@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hipfft@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hipfft@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hipfft@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hipfft@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hipify-clang:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hipify-clang@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hipify-clang@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hipify-clang@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hipify-clang@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hipify-clang@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hipify-clang@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hipsparse:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hipsparse@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hipsparse@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hipsparse@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hipsparse@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hipsparse@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hipsparse@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hsa-rocr-dev@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hsa-rocr-dev@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hsa-rocr-dev@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hsa-rocr-dev@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hsa-rocr-dev@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hsa-rocr-dev@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    hsakmt-roct:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: hsakmt-roct@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: hsakmt-roct@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: hsakmt-roct@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: hsakmt-roct@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: hsakmt-roct@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: hsakmt-roct@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    libfabric:
+      buildable: true
+      externals:
+      - prefix: /opt/cray/libfabric/1.15.0.0
+        spec: libfabric@1.15.0.0
+      - prefix: /opt/cray/libfabric/1.13.0.0
+        spec: libfabric@1.13.0.0
+      version: [1.15.0.0, 1.13.0.0]
+      variants: fabrics=rxm,sockets,tcp,udp
+    libtool:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      version: [2.4.6]
+    llvm-amdgpu:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/llvm
+        spec: llvm-amdgpu@5.2.0
+      - prefix: /opt/rocm-5.1.0/llvm
+        spec: llvm-amdgpu@5.1.0
+      - prefix: /opt/rocm-4.5.2/llvm
+        spec: llvm-amdgpu@4.5.2
+      - prefix: /opt/rocm-4.5.0/llvm
+        spec: llvm-amdgpu@4.5.0
+      - prefix: /opt/rocm-4.3.0/llvm
+        spec: llvm-amdgpu@4.3.0
+      - prefix: /opt/rocm-4.2.0/llvm
+        spec: llvm-amdgpu@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    m4:
+      buildable: true
+      compiler: []
+      externals: []
+      providers: {}
+      target: []
+      version: [1.4.18]
+    miopen-hip:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: miopen-hip@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: miopen-hip@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: miopen-hip@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: miopen-hip@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: miopen-hip@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: miopen-hip@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    mpich:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +verbs+slurm device=ch4 netmod=ofi pmi=pmi
+      version: [3.4.1]
+    ncurses:
+      buildable: true
+      compiler: []
+      externals:
+      - prefix: /sw/crusher/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+        spec: ncurses@6.2%cce@13.0.0~symlinks+termlib
+      - prefix: /sw/crusher/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+        spec: ncurses@6.2%cce@13.0.1~symlinks+termlib
+      - prefix: /sw/crusher/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+        spec: ncurses@6.2%cce@13.0.2~symlinks+termlib
+      providers: {}
+      target: []
+      variants: +termlib
+      version: []
+    netcdf-c:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      version: []
+    netlib-scalapack:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +fpic
+      version: []
+    octave:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +magick+arpack+curl+fftw+fontconfig+freetype+glpk+gnuplot+hdf5+opengl+qhull+qrupdate+qt+readline+suitesparse+zlib
+      version: []
+    openmpi:
+      buildable: false
+      compiler: []
+      providers: {}
+      target: []
+      version: []
+    openssh:
+      buildable: false
+      compiler: []
+      externals:
+      - prefix: /usr
+        spec: openssh@8.4
+      providers: {}
+      target: []
+      version: [8.4]
+    openssl:
+      buildable: false
+      compiler: []
+      externals:
+      - spec: openssl@1.1.1-os
+        prefix: /usr
+      providers: {}
+      target: []
+      version: [1.1.1-os]
+    parallel-netcdf:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: +cxx+fortran+fpic
+      version: []
+    petsc:
+      variants: +batch
+    qt:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~ssl
+      version: []
+    r:
+      buildable: true
+      compiler: []
+      providers: {}
+      target: []
+      variants: ~X
+      version: []
+    raja:
+      variants: ~exercises~examples~tests~openmp~rocm
+    rccl:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rccl@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rccl@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rccl@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rccl@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rccl@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rccl@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocalution:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocalution@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocalution@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocalution@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocalution@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocalution@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocalution@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocblas:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocblas@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocblas@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocblas@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocblas@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocblas@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocblas@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocfft:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocfft@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocfft@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocfft@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocfft@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocfft@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocfft@4.2.0 ^hip@4.2.0
+      variants: amdgpu_target=gfx90a amdgpu_target_sram_ecc=gfx90a
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-clang-ocl:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocm-clang-ocl@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocm-clang-ocl@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocm-clang-ocl@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocm-clang-ocl@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocm-clang-ocl@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocm-clang-ocl@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-cmake:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocm-cmake@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocm-cmake@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocm-cmake@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocm-cmake@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocm-cmake@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocm-cmake@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-device-libs:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocm-device-libs@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocm-device-libs@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocm-device-libs@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocm-device-libs@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocm-device-libs@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocm-device-libs@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-gdb:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocm-gdb@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocm-gdb@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocm-gdb@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocm-gdb@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocm-gdb@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocm-gdb@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-opencl:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/opencl
+        spec: rocm-opencl@5.2.0
+      - prefix: /opt/rocm-5.1.0/opencl
+        spec: rocm-opencl@5.1.0
+      - prefix: /opt/rocm-4.5.2/opencl
+        spec: rocm-opencl@4.5.2
+      - prefix: /opt/rocm-4.5.0/opencl
+        spec: rocm-opencl@4.5.0
+      - prefix: /opt/rocm-4.3.0/opencl
+        spec: rocm-opencl@4.3.0
+      - prefix: /opt/rocm-4.2.0/opencl
+        spec: rocm-opencl@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-opencl-runtime:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/opencl
+        spec: rocm-opencl-runtime@5.2.0
+      - prefix: /opt/rocm-5.1.0/opencl
+        spec: rocm-opencl-runtime@5.1.0
+      - prefix: /opt/rocm-4.5.2/opencl
+        spec: rocm-opencl-runtime@4.5.2
+      - prefix: /opt/rocm-4.5.0/opencl
+        spec: rocm-opencl-runtime@4.5.0
+      - prefix: /opt/rocm-4.3.0/opencl
+        spec: rocm-opencl-runtime@4.3.0
+      - prefix: /opt/rocm-4.2.0/opencl
+        spec: rocm-opencl-runtime@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-openmp-extras:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/llvm
+        spec: rocm-openmp-extras@5.2.0
+      - prefix: /opt/rocm-5.1.0/llvm
+        spec: rocm-openmp-extras@5.1.0
+      - prefix: /opt/rocm-4.5.2/llvm
+        spec: rocm-openmp-extras@4.5.2
+      - prefix: /opt/rocm-4.5.0/llvm
+        spec: rocm-openmp-extras@4.5.0
+      - prefix: /opt/rocm-4.3.0/llvm
+        spec: rocm-openmp-extras@4.3.0
+      - prefix: /opt/rocm-4.2.0/llvm
+        spec: rocm-openmp-extras@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-smi:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/rocm_smi
+        spec: rocmsmi@5.2.0
+      - prefix: /opt/rocm-5.1.0/rocm_smi
+        spec: rocmsmi@5.1.0
+      - prefix: /opt/rocm-4.5.2/rocm_smi
+        spec: rocmsmi@4.5.2
+      - prefix: /opt/rocm-4.5.0/rocm_smi
+        spec: rocmsmi@4.5.0
+      - prefix: /opt/rocm-4.3.0/rocm_smi
+        spec: rocmsmi@4.3.0
+      - prefix: /opt/rocm-4.2.0/rocm_smi
+        spec: rocmsmi@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocm-smi-lib:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0/rocm_smi
+        spec: rocm-smi-lib@5.2.0
+      - prefix: /opt/rocm-5.1.0/rocm_smi
+        spec: rocm-smi-lib@5.1.0
+      - prefix: /opt/rocm-4.5.2/rocm_smi
+        spec: rocm-smi-lib@4.5.2
+      - prefix: /opt/rocm-4.5.0/rocm_smi
+        spec: rocm-smi-lib@4.5.0
+      - prefix: /opt/rocm-4.3.0/rocm_smi
+        spec: rocm-smi-lib@4.3.0
+      - prefix: /opt/rocm-4.2.0/rocm_smi
+        spec: rocm-smi-lib@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocminfo:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocminfo@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocminfo@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocminfo@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocminfo@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocminfo@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocminfo@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocprim:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocprim@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocprim@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocprim@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocprim@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocprim@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocprim@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocprofiler-dev:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocprofiler-dev@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocprofiler-dev@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocprofiler-dev@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocprofiler-dev@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocprofiler-dev@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocprofiler-dev@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocrand:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocrand@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocrand@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocrand@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocrand@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocrand@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocrand@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocsolver:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocsolver@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocsolver@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocsolver@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocsolver@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocsolver@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocsolver@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocsparse:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocsparse@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocsparse@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocsparse@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocsparse@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocsparse@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocsparse@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    rocthrust:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: rocthrust@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: rocthrust@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: rocthrust@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: rocthrust@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: rocthrust@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: rocthrust@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    roctracer-dev:
+      buildable: false
+      externals:
+      - prefix: /opt/rocm-5.2.0
+        spec: roctracer-dev@5.2.0 ^hip@5.2.0
+      - prefix: /opt/rocm-5.1.0
+        spec: roctracer-dev@5.1.0 ^hip@5.1.0
+      - prefix: /opt/rocm-4.5.2
+        spec: roctracer-dev@4.5.2 ^hip@4.5.2
+      - prefix: /opt/rocm-4.5.0
+        spec: roctracer-dev@4.5.0 ^hip@4.5.0
+      - prefix: /opt/rocm-4.3.0
+        spec: roctracer-dev@4.3.0 ^hip@4.3.0
+      - prefix: /opt/rocm-4.2.0
+        spec: roctracer-dev@4.2.0 ^hip@4.2.0
+      version:
+      - 4.5.0
+      - 4.3.0
+      - 4.2.0
+    slurm:
+      buildable: false
+      compiler: []
+      externals:
+      - prefix: /usr
+        spec: slurm@21.08.0
+      providers: {}
+      target: []
+      version: [21.08.0]
+    sundials:
+      variants: ~examples~examples-install
+    tcsh:
+      buildable: false
+      externals:
+      - prefix: /usr
+        spec: tcsh@6.20.00
+      version: [6.20.00]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    umpire:
+      variants: ~examples~rocm
+    vtk-m:
+      variants: +hip amdgpu_target=gfx908
+  modules:
+    default:
+      lmod:
+        core_compilers: [gcc@7.5.0]
+        all:
+          autoload: direct
+        blacklist_implicits: false
+        verbose: true
+        whitelist: []
+        blacklist: []
+        hash_length: 0
+        hierarchy: []
+        projections: {}
+        core_specs: []
+  view: false
+  concretizer:
+    reuse: true
+    targets:
+      granularity: microarchitectures
+      host_compatible: true
+  compilers:
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7-os
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+        unset: []
+      extra_rpaths: []
+  
+  # GCC 9.3.0
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths: []
+  
+  # GCC 10.3.0
+  - compiler:
+      spec: gcc@10.3.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.3.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths: []
+  
+  # GCC 11.2.0
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths: []
+  
+  # GCC 12.1.0
+  - compiler:
+      spec: gcc@12.1.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/12.1.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.5/lib
+      extra_rpaths: []
+  
+  # CCE 13.0.0
+  - compiler:
+      spec: cce@13.0.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 13.0.1
+  - compiler:
+      spec: cce@13.0.1
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.1
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 13.0.2
+  - compiler:
+      spec: cce@13.0.2
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.2
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 14.0.0
+  - compiler:
+      spec: cce@14.0.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.0
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.2
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 14.0.1
+  - compiler:
+      spec: cce@14.0.1
+      paths:
+        cc: /opt/cray/pe/craype/2.7.16/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.16/bin/CC
+        f77: /opt/cray/pe/craype/2.7.16/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.16/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.1
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.3
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.3/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 14.0.2
+  - compiler:
+      spec: cce@14.0.2
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.2
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.3
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # CCE 14.0.3
+  - compiler:
+      spec: cce@14.0.3
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray/8.3.3
+      - cce/14.0.2
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.5
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.5/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # AMD 4.5.0
+  - compiler:
+      spec: clang@13.0.0-rocm4.5.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd
+      - amd/4.5.0
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+          LIBRARY_PATH: /opt/rocm-4.5.0/lib:/opt/rocm-4.5.0/lib64
+      extra_rpaths:
+      - /opt/rocm-4.5.0/lib
+      - /opt/rocm-4.5.0/lib64
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # AMD 4.5.2
+  - compiler:
+      spec: clang@13.0.0-rocm4.5.2
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd
+      - amd/4.5.2
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+          LIBRARY_PATH: /opt/rocm-4.5.2/lib:/opt/rocm-4.5.2/lib64
+      extra_rpaths:
+      - /opt/rocm-4.5.2/lib
+      - /opt/rocm-4.5.2/lib64
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # AMD 5.1.0
+  - compiler:
+      spec: clang@14.0.0-rocm5.1.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd/8.3.3
+      - amd/5.1.0
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.2
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+          LIBRARY_PATH: /opt/rocm-5.1.0/lib:/opt/rocm-5.1.0/lib64
+      extra_rpaths:
+      - /opt/rocm-5.1.0/lib
+      - /opt/rocm-5.1.0/lib64
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  # AMD 5.2.0
+  - compiler:
+      spec: clang@14.0.0-rocm5.2.0
+      paths:
+        cc: /opt/cray/pe/craype/2.7.15/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.15/bin/CC
+        f77: /opt/cray/pe/craype/2.7.15/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.15/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-amd/8.3.3
+      - amd/5.2.0
+      - craype-x86-trento
+      - libfabric
+      - cray-pmi/6.1.2
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.1.2/lib
+          LIBRARY_PATH: /opt/rocm-5.2.0/lib:/opt/rocm-5.2.0/lib64
+      extra_rpaths:
+      - /opt/rocm-5.2.0/lib
+      - /opt/rocm-5.2.0/lib64
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+

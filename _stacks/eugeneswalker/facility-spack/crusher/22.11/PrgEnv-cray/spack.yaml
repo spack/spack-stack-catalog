@@ -461,6 +461,7 @@ spack:
   - arborx +rocm amdgpu_target=gfx90a
   - caliper +rocm amdgpu_target=gfx90a
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
+  - ecp-data-vis-sdk@1.0 +vtkm +rocm amdgpu_target=gfx90a # required vtk-m patch from ryan
   - gasnet +rocm amdgpu_target=gfx90a
   - ginkgo +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a
@@ -550,7 +551,6 @@ spack:
   # scr: ld: /opt/cray/pe/mpich/8.1.16/ofi/crayclang/10.0/lib/libmpi_cray.so: undefined reference to `PMI_Barrier'
 
   # GPU ERRORS
-  # - ecp-data-vis-sdk@1.0 +vtkm +rocm amdgpu_target=gfx90a               # vtk-m@1.9.0
   # - hpctoolkit +rocm                                                    # intel-tbb@2020.3
   # - petsc +rocm amdgpu_target=gfx90a                                    # hipsolver
   # - slepc +rocm amdgpu_target=gfx90a ^petsc +rocm amdgpu_target=gfx90a  # hipsolver
@@ -560,7 +560,6 @@ spack:
   # hipsolver: tn-988 ftn: ERROR HIPSOLVERZGEBRD, File = library/src/hipsolver_module.f90, Line = 1066, Column = 17  "C_INT" is the result name of function "HIPSOLVERZGEBRD", therefo re it must not be use associated from module "HIPSOLVER_ENUMS"
   # intel-tbb@2020.3: clang-14: error: unknown argument: '-flifetime-dse=1'
   # strumpack: ld.lld: error: undefined symbol: omp_get_max_threads
-  # vtk-m@1.9.0: vtkm/filter/flow/internal/BoundsMap.h:24:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
   # - archer ^libelf        # part of llvm now

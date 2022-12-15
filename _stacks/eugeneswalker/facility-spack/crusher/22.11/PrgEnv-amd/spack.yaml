@@ -369,7 +369,6 @@ spack:
   specs:
   # CPU
   - adios
-  - adios2
   - aml
   - amrex
   - arborx
@@ -380,13 +379,10 @@ spack:
   - chai ~benchmarks ~tests
   - charliecloud
   - conduit
-  - darshan-runtime
-  - darshan-util
   - datatransferkit
   - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel 
     +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp # +unifyfs required mochi-margo -lpthread patch
   - exaworks
-  - faodel
   - flit
   - flux-core
   - fortrilinos
@@ -457,8 +453,6 @@ spack:
   - umpire
   - upcxx
   - variorum
-  - veloc
-  - vtk-m
   - wannier90
   - zfp
 
@@ -471,6 +465,7 @@ spack:
   - arborx +rocm amdgpu_target=gfx90a
   - caliper +rocm amdgpu_target=gfx90a
   - chai ~benchmarks +rocm amdgpu_target=gfx90a
+  - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a # need vtk-m patch from kwryan
   - gasnet +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a
   - hpx max_cpu_count=512 +rocm amdgpu_target=gfx90a
@@ -555,7 +550,6 @@ spack:
   # vtk-h: CMake: Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND)
 
   # GPU ERRORS
-  # - ecp-data-vis-sdk +vtkm +rocm amdgpu_target=gfx90a                   # vtk-m
   # - ginkgo +rocm amdgpu_target=gfx90a                                   # ginkgo
   # - hpctoolkit +rocm                                                    # hpctoolkit
   # - mfem +rocm amdgpu_target=gfx90a                                     # mfem
@@ -571,7 +565,6 @@ spack:
   # hipsolver: F90-S-0087-Non-constant expression where constant expression required (spack-src/library/src/hipsolver_module.f90:180)
   # hpctoolkit: pipeline.cpp:310:39: error: reference to local binding 'm' declared in enclosing function 'hpctoolkit::ProfilePipeline::complete'
   # mfem: Error: KeyError: 'No spec with name rocsparse in mfem@4.5.0%clang@14.0.0-rocm5.2.0~amgx
-  # vtk-m: vtkm/filter/particleadvection/Messenger.h:26:10: fatal error: 'mpi.h' file not found
 
   # SKIPPED
   # - catalyst            # in paraview since @5.7
