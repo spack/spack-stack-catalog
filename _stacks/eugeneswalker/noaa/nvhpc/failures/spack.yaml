@@ -58,8 +58,10 @@ spack:
 
   specs:
   # ERRORS
+  - bufr@11.7.0                           # bufr
   - crtm@2.3.0                            # crtm
   - ecflow@5.8.3                          # py-numpy
+  - fms@2019.01.03                        # fms
   - fms@2022.01                           # fms
   - fms@2022.03                           # fms
   - fms@2022.04                           # fms
@@ -69,7 +71,9 @@ spack:
   - py-scipy@1.8.0                        # re2c
   - py-shapely@1.8.0                      # re2c
   # --
+  # bufr: NVFORTRAN-F-0004-Unable to open MODULE file iso_c_binding.mod (/tmp/root/spack-stage/spack-stage-bufr-11.7.0-4rxm4sgqs5b26pme66ekpfhpzvoc5qhl/spack-src/src/bufr_interface.f90: 18)
   # crtm: NVFORTRAN-F-0004-Unable to open MODULE file iso_fortran_env.mod
+  # fms: Ignoring extra path from command line: "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" CMake Error: The source directory "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" does not appear to contain CMakeLists.txt.
   # fms: NVFORTRAN-S-0155-Same name common blocks with different sizes in same file not supported  (fms2_io/netcdf_io.F90)
   # gtfl-shared: CMake Error at cmake/fortran_try.cmake:13 (string): string sub-command STRIP requires two arguments.cmake/check_intrinsic_kinds.cmake:16 (CHECK_Fortran_SOURCE_RUN)
   # py-numpy: ??

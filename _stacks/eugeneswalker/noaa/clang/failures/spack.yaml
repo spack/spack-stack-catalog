@@ -1,0 +1,57 @@
+spack:
+  view: false
+
+  concretizer:
+    unify: false
+    reuse: false
+
+  packages:
+    all:
+      target: [x86_64]
+      require: '%clang@15.0.6'
+    mpi:
+      require: mpich
+    mpich:
+      require: ~wrapperrpath
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@15.0.6
+      paths:
+        cc: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang
+        cxx: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  specs:
+  # ERRORS
+  - bufr@11.7.0                           # bufr
+  - esmf@8.3.0b09 +pio                    # esmf
+  - fms@2019.01.03                        # fms
+  - parallelio@2.5.4                      # parallelio
+  - w3nco@2.4.1                           # w3nco
+  # ---
+  # bufr: utils/sinv.f90:49:11: "/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placehold' // & Error: Unterminated character constant beginning at (1)
+  # esmf: Infrastructure/Mesh/src/Legacy/ESMCI_MeshPNC.C:125:45: error: non-constant-expression cannot be narrowed from type 'long' to 'int' in initializer list [-Wc++11-narrowing]
+  # fms: Ignoring extra path from command line: "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" CMake Error: The source directory "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" does not appear to contain CMakeLists.txt.
+  # parallelio: src/clib/pio_get_nc.c:41:5: error: conflicting types for 'PIOc_get_vars_text'
+  # w3nco: Please submit a full bug report, with preprocessed source if appropriate. Please include the complete backtrace with any bug report.

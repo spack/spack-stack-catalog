@@ -31,8 +31,12 @@ spack:
 
   specs:
   # ERRORS
+  - bufr@11.7.0                           # bufr
+  - fms@2019.01.03                        # fms
   - parallelio@2.5.4                      # parallelio
   - w3nco@2.4.1                           # w3nco
   # ---
+  # bufr: utils/sinv.f90:49:11: "/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placehold' // & Error: Unterminated character constant beginning at (1)
+  # fms: Ignoring extra path from command line: "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" CMake Error: The source directory "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" does not appear to contain CMakeLists.txt.
   # parallelio: patching failed: 1 out of 2 hunks FAILED -- saving rejects to file CMakeLists.txt.rej
   # w3nco: Please submit a full bug report, with preprocessed source if appropriate. Please include the complete backtrace with any bug report.

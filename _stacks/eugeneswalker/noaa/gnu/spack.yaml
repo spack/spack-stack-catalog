@@ -36,6 +36,7 @@ spack:
   - ecbuild@3.6.5
   - eccodes@2.25.0
   - ecflow@5.8.3
+  - eckit@1.19.0
   - eigen@3.4.0
   - esmf@8.3.0b09 +pio
   - flex@2.6.4
@@ -56,6 +57,7 @@ spack:
   - netcdf-fortran@4.5.4
   - nlohmann-json-schema-validator@2.1.0
   - nlohmann-json@3.10.5
+  - odc@1.4.5
   - parallel-netcdf@1.12.2
   - py-numpy@1.22.3
   - py-pandas@1.4.0
@@ -66,21 +68,21 @@ spack:
   - zlib@1.2.12                             # deprecated version
 
   # ERRORS
+  # - bufr@11.7.0                           # bufr
+  # - fms@2019.01.03                        # fms
   # - parallelio@2.5.4                      # parallelio
   # - w3nco@2.4.1                           # w3nco
   # ---
+  # bufr: utils/sinv.f90:49:11: "/spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placehold' // & Error: Unterminated character constant beginning at (1)
+  # fms: Ignoring extra path from command line: "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" CMake Error: The source directory "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-z325zggijsfjxvkys36gojgf24fzoadm/spack-src" does not appear to contain CMakeLists.txt.
   # parallelio: patching failed: 1 out of 2 hunks FAILED -- saving rejects to file CMakeLists.txt.rej
   # w3nco: Please submit a full bug report, with preprocessed source if appropriate. Please include the complete backtrace with any bug report.
 
   # NEED TO ADD VERSION
-  # - bufr@11.7.0                           # add version: https://github.com/spack/spack/pull/34509
   # - crtm@v2.3-jedi.4                      # add version: private?
-  # - eckit@1.19.0                          # add version: https://github.com/spack/spack/pull/34510
-  # - fms@2019.01.03                        # add version: https://github.com/spack/spack/pull/34511
   # - fms@release-jcsda                     # add version: private?
   # - nco@5.0.6                             # add version: https://github.com/spack/spack/pull/34512
   # - netcdf-cxx@4.3.1                      # add version: deprecated? use new package?
-  # - odc@1.4.5                             # add version: https://github.com/spack/spack/pull/34513
 
   # NEED TO ADD PACKAGE
   # - ecmwf-atlas@0.29.0                    # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
