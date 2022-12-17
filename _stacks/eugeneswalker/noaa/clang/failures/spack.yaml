@@ -33,8 +33,8 @@ spack:
       paths:
         cc: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang
         cxx: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang++
-        f77: null
-        fc: null
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
       flags: {}
       operating_system: ubuntu20.04
       target: x86_64

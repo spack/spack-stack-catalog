@@ -2,6 +2,21 @@ var data =
 [
   {
     "data_format": 2,
+    "description": "rhel7 spack configuration and scripts",
+    "filenames": [
+      "v0.15.4/spack.yaml",
+      "v0.18.1/spack.yaml"
+    ],
+    "full_name": "SCOREC/rhel7-spack-config",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-setup-on-scorec\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup-on-scorec\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esetup on SCOREC\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003ecd /opt/scorec/spack/rhel7-spack-config/\nsource setupSpack.sh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\u003ca id=\"user-content-rhel7-spack-config\" class=\"anchor\" aria-hidden=\"true\" href=\"#rhel7-spack-config\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003erhel7-spack-config\u003c/h1\u003e\n\u003cp\u003erhel7 spack configuration and scripts\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003einstall.sh\u003c/code\u003e script maintained in this repo is for documentation purposes (e.g., in case we had to reinstall the entire stack from scratch) and should not be executed as it will not use all of our existing package installs.  More discussion of package installation is below.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-useful-commands\" class=\"anchor\" aria-hidden=\"true\" href=\"#useful-commands\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003euseful commands\u003c/h2\u003e\n\u003cp\u003eregenerate lmod module tree:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack module lmod refresh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing-new-packages\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing-new-packages\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003einstalling new packages\u003c/h2\u003e\n\u003cp\u003eOur spack repo is tracking the master spack branch.  Spack package updates could result in additional installation of packages with little or no package source code changes.  These additional installs can be avoided when installing new packages by first examining the output of the \u003ccode\u003espack spec -I\u003c/code\u003e command.  If a utility/infrastructure level package, such as cmake or mpich, is marked with a \u003ccode\u003e[+]\u003c/code\u003e symbol in the leftmost column then it means that the existing install will be used.  If spack does not default to using the existing install you can append the hash of the package to the spec command.\u003c/p\u003e\n\u003cp\u003eFor example, lets see what happens when we ask for a pumi install using gcc 7.3.0\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64 \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0 patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2 arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSpack wants to install mpich 3.3, but we don\u0027t want to change to the new mpich version yet.  So, we will get the hash of the existing mpich 3.2.1 install:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack find -ldv mpich%gcc@7.3.0\n==\u0026gt; 1 installed package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\nniuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ethen append the hash \u003ccode\u003eniuhmad\u003c/code\u003e to the spec for pumi using the \u003ccode\u003e^\u003c/code\u003e syntax to specify it as a dependency:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack spec -I pumi@develop%gcc@7.3.0 ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64 \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd see that in the Concretized spec it is now using the existing mpich 3.2.1 install.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contents\" class=\"anchor\" aria-hidden=\"true\" href=\"#contents\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtents\u003c/h2\u003e\n\u003cp\u003ecompilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package installation commands\nmodules.yaml - hierarchical layout for lua modules\npackages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh - env needed for executing spack commands\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 6,
+    "topics": [],
+    "updated_at": 1643231013.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
       "spack/spack.yaml"
@@ -18,9 +33,9 @@ var data =
     "data_format": 2,
     "description": "SKA Spack environments related files",
     "filenames": [
-      "ska-env_izar/spack.yaml",
+      "ska-env_helvetios-debug/spack.yaml",
       "ska-env_helvetios/spack.yaml",
-      "ska-env_helvetios-debug/spack.yaml"
+      "ska-env_izar/spack.yaml"
     ],
     "full_name": "epfl-radio-astro/ska-spack-env",
     "latest_release": null,
@@ -48,9 +63,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "gnu/spack.yaml",
       "nvhpc/spack.yaml",
-      "oneapi/spack.yaml"
+      "oneapi/spack.yaml",
+      "gnu/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa-prototyping",
     "latest_release": null,
@@ -61,11 +76,27 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "my spack environments for software builds",
+    "filenames": [
+      "esmfserialbld/spack.yaml",
+      "mpiserialbld/spack.yaml",
+      "paralleliobld/spack.yaml",
+      "pioserialbld/spack.yaml",
+      "esmfbld/spack.yaml"
+    ],
+    "full_name": "jedwards4b/spackenvironments",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1664981968.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/hpccf/franklin/cluster-core/spack.yaml",
       "environments/hpccf/franklin/cryoem/spack.yaml",
-      "environments/hpccf/farm/r-stack/spack.yaml"
+      "environments/hpccf/franklin/cluster-core/spack.yaml"
     ],
     "full_name": "ucdavis/spack-ucdavis",
     "latest_release": null,
@@ -92,10 +123,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "gnu_master_x86_64/spack.yaml",
-      "intel_master_x86_64/spack.yaml",
+      "gnu_release_x86_64/spack.yaml",
       "intel_release_x86_64/spack.yaml",
-      "gnu_release_x86_64/spack.yaml"
+      "gnu_master_x86_64/spack.yaml",
+      "intel_master_x86_64/spack.yaml"
     ],
     "full_name": "hppritcha/spack_ompix",
     "latest_release": null,
@@ -109,29 +140,25 @@ var data =
     "data_format": 2,
     "description": "CEES spack configurations (take 3). Focus on environments only (or mostly), and modular configs.",
     "filenames": [
-      "spack_env_files/cees_seissol_spack.yaml",
-      "dev_configs/pflotran_spack.yaml",
-      "spack_env_files/cees_skylake-beta_spack.yaml",
-      "spack_env_files/dev_paraview_spack.yaml",
-      "spack_env_files/dev_cees-x86-oneapi_spack.yaml",
       "spack_env_files/paraview_spack.yaml",
-      "spack_env_files/pflotran_spack.yaml",
-      "spack_env_files/cees_x86_64-beta_spack.yaml",
-      "spack_env_files/py-bottleneck_spack.yaml",
-      "spack_env_files/cees_kimlab_spack.yaml",
-      "dev_configs/cees-x86-intel_spack.yaml",
+      "configs/spack_petsc_mod.yaml",
+      "dev_configs/cees-x86-oneapi_spack.yaml",
       "dev_configs/py-bottleneck_spack.yaml",
-      "dev_configs/paraview_spack.yaml",
+      "spack_env_files/cees_seissol_spack.yaml",
       "spack_env_files/cees-x86-intel_spack.yaml",
+      "spack_env_files/cees_skylake-beta_spack.yaml",
+      "dev_configs/pflotran_spack.yaml",
+      "spack_env_files/py-bottleneck_spack.yaml",
       "spack_env_files/dev_cees-x86-intel_spack.yaml",
       "spack_env_files/pflotran_ompi_sif_spack.yaml",
-      "configs/spack_petsc_mod.yaml",
-      "spack_env_files/cees_compilers_spack.yaml",
+      "spack_env_files/cees_kimlab_spack.yaml",
+      "spack_env_files/pflotran_spack.yaml",
+      "spack_env_files/dev_py-bottleneck_spack.yaml",
       "spack_env_files/pflotran_sif_spack.yaml",
+      "dev_configs/cees-x86-intel_spack.yaml",
       "spack_env_files/cees-x86-oneapi_spack.yaml",
-      "dev_configs/cees-x86-oneapi_spack.yaml",
-      "spack_env_files/cees_zen2-beta_spack.yaml",
-      "spack_env_files/dev_py-bottleneck_spack.yaml"
+      "dev_configs/paraview_spack.yaml",
+      "spack_env_files/cees_compilers_spack.yaml"
     ],
     "full_name": "jeffersonscientific/cees_spack_configs",
     "latest_release": null,
@@ -145,16 +172,20 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "setonix/environments/env_io_libs/spack.yaml",
-      "setonix/environments/env_langs/spack.yaml",
       "setonix/environments/env_python/spack.yaml",
+      "setonix/environments/env_langs/spack.yaml",
+      "setonix/environments/env_io_libs/spack.yaml",
+      "setonix/environments/env_vis/spack.yaml",
+      "setonix/environments/env_bio/spack.yaml",
       "joey/environments/env_apps/spack.yaml",
-      "setonix/environments/env_s3_clients/spack.yaml",
-      "setonix/environments/env_apps/spack.yaml",
+      "setonix/environments/env_wrf/spack.yaml",
+      "setonix/environments/env_utils/spack.yaml",
       "setonix/environments/env_devel/spack.yaml",
       "setonix/environments/env_num_libs/spack.yaml",
-      "setonix/environments/env_astro/spack.yaml",
-      "setonix/environments/env_utils/spack.yaml"
+      "setonix/environments/env_s3_clients/spack.yaml",
+      "setonix/environments/env_apps/spack.yaml",
+      "setonix/environments/env_bench/spack.yaml",
+      "setonix/environments/env_roms/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -193,6 +224,20 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Toolset to deploy software stacks",
+    "filenames": [
+      "samples/spack.yaml"
+    ],
+    "full_name": "epfl-scitas/spack-sdploy",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack-sdploy\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-sdploy\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003espack-sdploy\u003c/h1\u003e\n\u003cp\u003eSpack extension for automatic package configuration and deployment.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-how-to-install\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-install\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to install\u003c/h2\u003e\n\u003cp\u003eYou can try out this Spack extension be executing 4 easy steps:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSet up and activate a local python environment\u003c/li\u003e\n\u003cli\u003eSet up and activate \u003ccode\u003espack\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eInstall \u003ccode\u003espack-sdploy\u003c/code\u003e dependencies\u003c/li\u003e\n\u003cli\u003eClone and configure spack-sdploy\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis 4 steps are now detailed in the next section.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#step-by-step-installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step installation\u003c/h3\u003e\n\u003cp\u003eJust for a matter of completeness, all the steps needed get up and running with\nspack-sdploy extension will be covered, which can be a bit pedantic.\u003c/p\u003e\n\u003ch4\u003e\u003ca id=\"user-content-set-up-and-activate-a-local-python-environment\" class=\"anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-a-local-python-environment\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSet up and activate a local python environment\u003c/h4\u003e\n\u003cp\u003eIt is recommended that a Python environment be used to support sdploy. This same\nPython can also be used to run Spack.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython3 -m venv \u0026lt;path-to-environment-directory\u0026gt;\n. \u0026lt;path-to-environment-directory\u0026gt;/bin/activate\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information on how to create a virtual environment in Python refer to\nthe PEP 405 \u2013 Python Virtual Environments documentation.\u003c/p\u003e\n\u003ch4\u003e\u003ca id=\"user-content-set-up-and-activate-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSet up and activate Spack\u003c/h4\u003e\n\u003cp\u003eSee the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html#installation\" rel=\"nofollow\"\u003eSpack documentation\u003c/a\u003e\non how to install Spack. For sake of completeness, we copy paste the commands here:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone -c feature.manyFiles=true https://github.com/spack/spack.git\n. spack/share/spack/setup-env.sh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\u003ca id=\"user-content-install-spack-sdploy-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#install-spack-sdploy-dependencies\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall \u003ccode\u003espack-sdploy\u003c/code\u003e dependencies\u003c/h4\u003e\n\u003cp\u003eUp to now the only dependency of spack-sdploy if jinja2. Once you have activated\nPython environment, you can simply use pip to install the packages.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install jinja2\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\u003ca id=\"user-content-clone-and-configure-spack-sdploy\" class=\"anchor\" aria-hidden=\"true\" href=\"#clone-and-configure-spack-sdploy\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eClone and configure spack-sdploy\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003egit clone git@github.com:epfl-scitas/spack-sdploy\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo activate the spack-sdploy extension you must add it to the config.yaml. If\nyou already have another Spack installation and just want to try out\nspack-sdploy may very well create a temporary directory to store the\nconfiguration and then use the SPACK_USER_CONFIG_PATH variable to point this new\ndirectory.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir temporary_config\nexport SPACK_USER_CONFIG_PATH=/path/to/temporary_config\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand then, inside the temporary_config directory, write a config.yaml file with\nthe following contents:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003econfig:\n  extensions:\n  - /path/to/spack-sdploy\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBe sure you do not change the spack-dploy directory. Spack forces the extensions\nto follow strict rules. Please see the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/extensions.html\" rel=\"nofollow\"\u003eSpack Extensions\u003c/a\u003e\ndocumentation for more details about this subject. At this point you should now\nbe able to call \u003ccode\u003espack -h\u003c/code\u003e and see the new Spack commands deployed by the\nspack-sdploy extension.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-how-to-use\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-use\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to use\u003c/h2\u003e\n\u003cp\u003eAt the present time, spack-sdploy will add 2 commands to your already existing\nSpack commands. These commandes are:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack write-spack-yaml\nspack write-packages-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn the future we may change the names of these commands, but for now lets just\nimagine these are short and easy to type commands.\u003c/p\u003e\n\u003cp\u003eAs you may have guessed it (if you haven\u0027t that\u0027s ok), write-spack-yaml will\nwrite the spack.yaml file and write-packages-yaml will write the packages.yaml\nfile. Of course, Spack does not (yet!) guess what you may want to install and\nfor that purpose, both these commands will read all the specs you want in your\nspack.yaml file by reading another file you have previously written and which\nwe call by stack.yaml.\u003c/p\u003e\n\u003cp\u003eFor the time being, spack-sdploy already comes with a dummy stack.yaml so we can\nget started using the new commands.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-spack-yaml\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-spack-yaml\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-spack-yaml\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-spack-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-packages-yaml\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-packages-yaml\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-packages-yaml\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-packages-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-activate-list\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-activate-list\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-activate-list\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-activate-list -p \u0026lt;platform\u0026gt; -s \u0026lt;stack\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWrite to file named \u003ccode\u003epackages_to_activate\u003c/code\u003e list of packages to activate, using \u003ccode\u003espack activate \u0026lt;package\u0026gt;\u003c/code\u003e. Packages are writen one per line.\u003c/p\u003e\n\u003cp\u003ePackages to activate can be marked in the stack file in two possible ways: by adding the keyword \u003ccode\u003eactivate: true\u003c/code\u003e in the metadata section of a list of packages or by adding the keyword \u003ccode\u003eactivate: true\u003c/code\u003e to an individual package. Duplicates are removed.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 10,
+    "topics": [],
+    "updated_at": 1669125412.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
       "spack/spack.yaml"
@@ -208,10 +253,10 @@ var data =
     "data_format": 2,
     "description": "Software environments",
     "filenames": [
-      "catalog-config/libxc-5.2.3/spack.yaml",
       "catalog-config/compilers/nvhpc-22.9/spack.yaml",
-      "catalog-config/core/spack.yaml",
-      "catalog-config/compilers/gcc-11.3.0/spack.yaml"
+      "catalog-config/compilers/gcc-11.3.0/spack.yaml",
+      "catalog-config/libxc-5.2.3/spack.yaml",
+      "catalog-config/core/spack.yaml"
     ],
     "full_name": "toxa81/se",
     "latest_release": null,
@@ -225,10 +270,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "simple_env/spack.yaml",
-      "matrixtest_env/spack.yaml",
+      "compilers_env/spack.yaml",
       "complete_env/spack.yaml",
-      "compilers_env/spack.yaml"
+      "simple_env/spack.yaml"
     ],
     "full_name": "antoine-morvan/spack-offline-env",
     "latest_release": null,
@@ -250,22 +294,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1667463557.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "var/spack/environments/intelmpi/bpmf-ompss-cluster/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml",
-      "var/spack/environments/intelmpi/bpmf-ompss-argo/spack.yaml"
-    ],
-    "full_name": "tvandera/spack-repos",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1635166163.0
   },
   {
     "data_format": 2,
@@ -297,31 +325,30 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
+    "description": "Set up fenics spack on csd3",
     "filenames": [
-      "environments/CMSSW_12_6_X/spack.yaml"
+      "spack-skylake.yaml",
+      "spack-icelake.yaml"
     ],
-    "full_name": "iarspider/cms-spack-repo",
+    "full_name": "ma595/fenics-csd3-spack",
     "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-fenics-csd3-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#fenics-csd3-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003efenics-csd3-spack\u003c/h1\u003e\n\u003cp\u003eFollow instructions in icelake-spack-env.sh\u003c/p\u003e\n\u003cp\u003eOr, copy existing \u003ccode\u003espack.yaml\u003c/code\u003e files into cloned Spack repo. It is necessary to \u003ccode\u003emodule purge\u003c/code\u003e environment first, otherwise the prepend path inside \u003ccode\u003espack.yaml\u003c/code\u003e will lead to duplications.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 3,
+    "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1638894331.0
+    "updated_at": 1667830944.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/unm-hopper/spack-mpich+yaksa.yaml",
-      "build-mvapich/spack-mvapich.yaml",
-      "configs/llnl-lassen/spack-spectrum.yaml",
-      "configs/unm-hopper/spack-openmpi+ucx.yaml",
+      "build-xlc/spack-xlc-spectrum.yaml",
       "build-xlc/spack-xlc-mvapich.yaml",
-      "configs/llnl-lassen/spack-mvapich.yaml",
-      "build-lassen-spectrum/spack.yaml",
-      "build-hpctoolkit/spack-spectrum.yaml",
+      "configs/unm-hopper/spack-mpich+yaksa.yaml",
       "configs/unm-hopper/spack-mpich+yaksa+ucx.yaml",
-      "build-xlc/spack-xlc-spectrum.yaml"
+      "build-lassen-spectrum/spack.yaml",
+      "configs/llnl-lassen/spack-mvapich.yaml",
+      "build-hpctoolkit/spack-spectrum.yaml"
     ],
     "full_name": "CUP-ECS/ping-pong-gpu",
     "latest_release": null,
@@ -335,43 +362,61 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack/envs/chfs/spack.yaml"
+      "spack/envs/dev/spack.yaml"
     ],
-    "full_name": "range3/chfs-containers",
+    "full_name": "range3/kvs-evaluation",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-chfs-containers\" class=\"anchor\" aria-hidden=\"true\" href=\"#chfs-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003echfs-containers\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eexample\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e explicitly pull the latest chfs image \u003c/span\u003e\ndocker pull range3/chfs:master\n\ngit clone https://github.com/range3/chfs-containers\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e chfs-containers\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e start servers\u003c/span\u003e\ndocker-compose up -d\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e start another container for client\u003c/span\u003e\ndocker run -it --rm --network chfs_net --privileged range3/chfs:master bash\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e set CHFS_SERVER env\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CHFS_SERVER=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003echlist -c -s ofi+sockets://172.30.0.3:50000\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e list chfs servers\u003c/span\u003e\nchlist\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e mount chfs via FUSE\u003c/span\u003e\nmkdir /tmp/m\nchmkdir /tmp/m\nchfuse -o direct_io,modules=subdir,subdir=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/tmp/m\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e /tmp/m\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e \u0026lt;ctrl-D\u0026gt;\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e the client container is removed\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e stop and remove server containers\u003c/span\u003e\ndocker-compose down\u003c/pre\u003e\u003c/div\u003e\n",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-kvs-evaluation\" class=\"anchor\" aria-hidden=\"true\" href=\"#kvs-evaluation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ekvs-evaluation\u003c/h1\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e external/YCSB-C\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e sudo\u3092\u4f7f\u3063\u3066libhiredis.so\u304c/usr/local/lib\u306b\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u308b\u003c/span\u003e\nmake\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e LD_LIBRARY_PATH=/usr/local/lib\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e \u52d5\u4f5c\u78ba\u8a8d\u003c/span\u003e\n./ycsbc -db basic -threads 1 -P workloads/workloada.spec\u003c/pre\u003e\u003c/div\u003e\n\u003ch1\u003e\u003ca id=\"user-content-ycsb-c\" class=\"anchor\" aria-hidden=\"true\" href=\"#ycsb-c\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYCSB-C\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-workload\" class=\"anchor\" aria-hidden=\"true\" href=\"#workload\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eworkload\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eworkload\u003c/th\u003e\n\u003cth align=\"left\"\u003edescription\u003c/th\u003e\n\u003cth align=\"right\"\u003eread\u003c/th\u003e\n\u003cth align=\"right\"\u003einsert\u003c/th\u003e\n\u003cth align=\"right\"\u003eupdate\u003c/th\u003e\n\u003cth align=\"right\"\u003escan\u003c/th\u003e\n\u003cth align=\"right\"\u003eR-M-W\u003c/th\u003e\n\u003cth align=\"center\"\u003edistribution\u003c/th\u003e\n\u003cth align=\"center\"\u003eremarks\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eA\u003c/td\u003e\n\u003ctd align=\"left\"\u003eUpdate heavy\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.5\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.5\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003ezipfian\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eB\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRead mostly\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.95\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.05\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003ezipfian\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eC\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRead only\u003c/td\u003e\n\u003ctd align=\"right\"\u003e1\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003ezipfian\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eD\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRead latest\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.95\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.05\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003elatest\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eE\u003c/td\u003e\n\u003ctd align=\"left\"\u003eShort ranges\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.05\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.95\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003ezipfian\u003c/td\u003e\n\u003ctd align=\"center\"\u003emaxscanlength=100 random(uniform)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003eF\u003c/td\u003e\n\u003ctd align=\"left\"\u003eRead-modify-write\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.5\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e\u003c/td\u003e\n\u003ctd align=\"right\"\u003e0.5\u003c/td\u003e\n\u003ctd align=\"center\"\u003ezipfian\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003e\u003ca id=\"user-content-class-diagram-subset\" class=\"anchor\" aria-hidden=\"true\" href=\"#class-diagram-subset\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eclass diagram (subset)\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-mermaid\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eclassDiagram\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eDBFactory\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eDB\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003einterface\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e\u0026gt;\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eDB\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eabstruct\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e\u0026gt;\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlDB\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStringHashtable\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eV\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003einterface\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e\u0026gt;\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStringHashtable\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eKeyHashtable\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003einterface\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e\u0026gt;\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eKeyHashtable\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eFieldHashtable\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003einterface\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e\u0026gt;\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eFieldHashtable\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTable\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eV\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableKey\u003c/span\u003e \u003cspan class=\"pl-sg\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"pl-k\"\u003estd::unorderd_map\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eString,FieldHashtable*\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e}\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableField\u003c/span\u003e \u003cspan class=\"pl-sg\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"pl-k\"\u003estd::unorderd_map\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eString,const char*\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e}\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtable\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\u003cspan class=\"pl-ent\"\u003eT\u003c/span\u003e\u003cspan class=\"pl-sg\"\u003e~\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableKey\u003c/span\u003e \u003cspan class=\"pl-sg\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"pl-k\"\u003estd::mutex\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e}\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableField\u003c/span\u003e \u003cspan class=\"pl-sg\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"pl-k\"\u003estd::mutex\u003c/span\u003e\n\u003cspan class=\"pl-sg\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eDBFactory\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003ecreate\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eLockStlDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e*--\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableKey\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eLockStlHashtableKey\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eo--\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableField\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eLockStlDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableField\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003ecreate\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlDB\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStringHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTable\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStlHashTable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|--\u003c/span\u003e\u003cspan class=\"pl-en\"\u003eLockStlHashtable\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eStringHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eFieldHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStringHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eKeyHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStlHashTable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableKey\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStlHashTable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableField\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eLockStlHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableKey\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eLockStlHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableField\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003einstantiation\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eStlHashTableKey\u003c/span\u003e  \u003cspan class=\"pl-k\"\u003e\u0026lt;|--\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableKey\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eStlHashTableField\u003c/span\u003e  \u003cspan class=\"pl-k\"\u003e\u0026lt;|--\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eLockStlHashtableField\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eKeyHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableKey\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eFieldHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e\u0026lt;|..\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eStlHashTableField\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eKeyHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003euse\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eHashtableDB\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e..\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eFieldHashtable\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e:\u003c/span\u003e \u003cspan class=\"pl-s\"\u003euse\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1652094301.0
+    "updated_at": 1667533964.0
   },
   {
     "data_format": 2,
-    "description": "Example of Mochi service composing Poesie and Yokan via Bedrock",
+    "description": null,
     "filenames": [
-      "spack.yaml"
+      "spack-envs/cuda/spack.yaml",
+      "spack-envs/rocm/spack.yaml"
     ],
-    "full_name": "mochi-hpc-experiments/example-yokan-poesie-composition",
+    "full_name": "simonpintarelli/acclapack-tests",
     "latest_release": null,
-    "readme": "\u003ch2\u003e\u003ca id=\"user-content-example-yokanpoesie-composition\" class=\"anchor\" aria-hidden=\"true\" href=\"#example-yokanpoesie-composition\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample Yokan/Poesie composition\u003c/h2\u003e\n\u003cp\u003eThis repository contains an example of a \u003ca href=\"https://mochi.readthedocs.io/en/latest/bedrock.html\" rel=\"nofollow\"\u003eBedrock\u003c/a\u003e\nconfiguration that spins up a Yokan provider for key/value storage and a Poesie provider for\nembedding a Python interpreter.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etest.cpp\u003c/em\u003e file shows an example of first putting a key/value pair into the database\nusing the Yokan API, then using the Poesie API to send a python code that retrieves said value.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-building-the-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-code\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the code\u003c/h3\u003e\n\u003cp\u003eThe \u003cem\u003espack.yaml\u003c/em\u003e file in this repository allows creating a Spack environment with the\nrequired dependencies as follows, from inside the cloned repository (note that you must have installed\n\u003ca href=\"https://github.com/mochi-hpc/mochi-spack-packages\"\u003emochi-spack-packages\u003c/a\u003e as\ninstructed \u003ca href=\"https://mochi.readthedocs.io/en/latest/installing.html#installing-spack-and-the-mochi-repository\" rel=\"nofollow\"\u003ehere\u003c/a\u003e).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack env create -d .\n$ spack env activate .\n$ spack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can then build the code as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build\n$ cd build\n$ cmake ..\n$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\u003ca id=\"user-content-running-the-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-the-code\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning the code\u003c/h3\u003e\n\u003cp\u003eOpen two terminals, making sure the Spack environment is activated in both.\nIn the first termina, run the Bedrock daemon as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ bedrock na+sm -c src/config.json -v trace\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eMake a note of the address that the Bedrock server is reporting to be running on\n(e.g., \u003ccode\u003ena+sm://15865-0\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eIn the second, run the \u003ccode\u003eyokan-poesie-test\u003c/code\u003e executable with the address as\ncommand-line argument, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ./yokan-poesie-test na+sm://15865-0\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf everything goes well, the test program will print \"some_value\" before\nterminating.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-explanation\" class=\"anchor\" aria-hidden=\"true\" href=\"#step-by-step-explanation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step explanation\u003c/h3\u003e\n\u003cp\u003eThe \u003cem\u003econfig.json\u003c/em\u003e file describes how our service should look like on one node.\nOur service contains a \u003ca href=\"https://mochi.readthedocs.io/en/latest/yokan.html\" rel=\"nofollow\"\u003eYokan\u003c/a\u003e\nprovider, which is the component that provides key/value storage.\nIn the configuration of this component, we add a database called \u003cem\u003emy_kv_store\u003c/em\u003e,\nof type \u003cem\u003emap\u003c/em\u003e. This type corresponds to an in-memory, ordered map.\u003c/p\u003e\n\u003cp\u003eThe configuration then lists a Poesie provider, which is the component that will\nprovide us with an embedded Python interpreter. Its configuration lists\n\u003cem\u003emy_python_vm\u003c/em\u003e for this purpose.\u003c/p\u003e\n\u003cp\u003eIn the configuration of this VM, the \u003cem\u003epreamble\u003c/em\u003e entry lets us provide some code\nto execute upon initializing the VM (i.e., when the server starts). We take\nadvantage of this preamble to import \u003ccode\u003epyyokan_client\u003c/code\u003e, the Python binding for\nYokan\u0027s client library, and create the \u003ccode\u003emy_kv_store\u003c/code\u003e variable of type\n\u003ccode\u003epyyokan_client.Database\u003c/code\u003e to be a handle to the database managed by Yokan.\nThe \u003ccode\u003e__mid__\u003c/code\u003e and \u003ccode\u003e__address__\u003c/code\u003e variables are added by Poesie automatically\nand respectively represents the Margo instance in use and the process\u0027 own\naddress.\u003c/p\u003e\n\u003cp\u003eMoving over to the \u003cem\u003etest.c\u003c/em\u003e file, the \u003ccode\u003ewrite_with_yokan\u003c/code\u003e function shows\nan example of using the Yokan C API to look up the database by its name\nto get its id, building a \u003ccode\u003eyk_database_handle_t\u003c/code\u003e to interact with the database,\nthen putting \"some_value\" associated with the key \"my_key\" into the database.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eread_with_poesie\u003c/code\u003e function uses the Poesie C API to create a\n\u003ccode\u003epoesie_provider_handle_t\u003c/code\u003e, look up the VM id by its name, then\nsend over some Python code to be executed on the server.\nThe Python code in question uses the \u003ccode\u003emy_kv_store\u003c/code\u003e variable, initialized\nin the preamble of the VM, to interact with the local database using\nYokan\u0027s Python API. Here it first gets the length of the value associated\nwith \"my_key\", before actually fetching it into a \u003ccode\u003ebytearray\u003c/code\u003e buffer.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003e__poesie_output__\u003c/code\u003e variable is a special variable that the VM will\nlookup after executing the user code. Any object placed in this variable\nwill be transformed into a string (using the object\u0027s \u003ccode\u003e__str__\u003c/code\u003e method),\nbefore being sent back to the caller in as output. Poesie handles\nexecution results this way because \u003ccode\u003ereturn\u003c/code\u003e cannot be called outside of\nfunctions. In the present exemple, the content of the key, which is a\n\u003ccode\u003ebytearray\u003c/code\u003e, is transformed into a unicode string using \u003ccode\u003e.decode(\"utf-8\")\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eNote that if an exception is raised from the user code, Poesie will\nignore the content of \u003ccode\u003e__poesie_output__\u003c/code\u003e and return the exception\n(converted into a string) as output instead.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 6,
+    "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1666024613.0
+    "updated_at": 1667393188.0
   },
   {
     "data_format": 2,
-    "description": "POESIE is a Mochi microservice designed to run interpreters of various scripting languages (currently Lua and Python) and make them accessible remotely.",
+    "description": "Mochi bootstrapping service.",
     "filenames": [
       "spack.yaml"
     ],
-    "full_name": "mochi-hpc/mochi-poesie",
-    "latest_release": "v0.2",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-poesie-embedding-scripting-languages-for-mochi-services\" class=\"anchor\" aria-hidden=\"true\" href=\"#poesie-embedding-scripting-languages-for-mochi-services\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePOESIE: Embedding Scripting Languages for Mochi Services\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003ePOESIE can easily be installed using Spack:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install mochi-poesie\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis will install POESIE (and any required dependencies) with both\nPython and Lua backends. Disabling one or the other can be done by\nappending \u003ccode\u003e~lua\u003c/code\u003e or \u003ccode\u003e~python\u003c/code\u003e, for example:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install poesie~lua\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-architecture\" class=\"anchor\" aria-hidden=\"true\" href=\"#architecture\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArchitecture\u003c/h2\u003e\n\u003cp\u003eLike most mochi services, POESIE relies on a client/provider architecture.\nA provider, identified by its \u003cem\u003eaddress\u003c/em\u003e and \u003cem\u003eprovider id\u003c/em\u003e, manages one or more\ninterpreters (called \u003cem\u003evirtual machines\u003c/em\u003e, or \u003cem\u003eVMs\u003c/em\u003e), referenced externally\nby either their name or their VM id.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-starting-a-daemon-using-bedrock\" class=\"anchor\" aria-hidden=\"true\" href=\"#starting-a-daemon-using-bedrock\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStarting a daemon using Bedrock\u003c/h2\u003e\n\u003cp\u003eBy installing POESIE with the \u003ccode\u003e+bedrock\u003c/code\u003e variant, one can deploy a daemon\nby providing a JSON configuration like the following to Bedrock.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-json\"\u003e\u003cpre\u003e{\n    \u003cspan class=\"pl-ent\"\u003e\"libraries\"\u003c/span\u003e: [\n        \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003elibpoesie-bedrock-module.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n    ],\n    \u003cspan class=\"pl-ent\"\u003e\"providers\"\u003c/span\u003e: [\n        {\n            \u003cspan class=\"pl-ent\"\u003e\"name\"\u003c/span\u003e: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emy_poesie_provider\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n            \u003cspan class=\"pl-ent\"\u003e\"provider_id\"\u003c/span\u003e: \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e,\n            \u003cspan class=\"pl-ent\"\u003e\"config\"\u003c/span\u003e: {\n                \u003cspan class=\"pl-ent\"\u003e\"vms\"\u003c/span\u003e: {\n                    \u003cspan class=\"pl-ent\"\u003e\"my_vm\"\u003c/span\u003e: {\n                        \u003cspan class=\"pl-ent\"\u003e\"language\"\u003c/span\u003e: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epython\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n                    }\n                }\n            }\n        }\n    ]\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-client-api\" class=\"anchor\" aria-hidden=\"true\" href=\"#client-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eClient API\u003c/h2\u003e\n\u003cp\u003eThe client API is available in \u003cem\u003epoesie-client.h\u003c/em\u003e.\nThe codes in the \u003cem\u003etest\u003c/em\u003e folder illustrate how to use it.\u003c/p\u003e\n",
+    "full_name": "mochi-hpc/mochi-bedrock",
+    "latest_release": "v0.5.2",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-bedrock\" class=\"anchor\" aria-hidden=\"true\" href=\"#bedrock\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBedrock\u003c/h1\u003e\n\u003cp\u003eBedrock is Mochi\u0027s service bootstrapping mechanism.\nFor documentations and tutorials, please see\n\u003ca href=\"https://mochi.readthedocs.io/en/latest/bedrock.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 4,
     "topics": [],
-    "updated_at": 1633975197.0
+    "updated_at": 1640527359.0
+  },
+  {
+    "data_format": 2,
+    "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
+    "filenames": [
+      "spack/default/spack.yaml",
+      "spack/darwin-power9/spack.yaml",
+      "spack/snow/spack.yaml",
+      "spack/agaspar/spack.yaml",
+      "spack/ci/spack.yaml"
+    ],
+    "full_name": "lanl/CELLAR",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-cellar-----eap-core\" class=\"anchor\" aria-hidden=\"true\" href=\"#cellar-----eap-core\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCELLAR  -  EAP Core\u003c/h1\u003e\n\u003cp\u003eCELLAR is a C++ project that forms the foundation of cell based AMR for applications\u003c/p\u003e\n\u003cp\u003eIt provides the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eAMR Mesh Datastructure\u003c/li\u003e\n\u003cli\u003eAMR Mesh Reconstruction\u003c/li\u003e\n\u003cli\u003eCommunication Patterns\u003c/li\u003e\n\u003cli\u003eC++ Error Handling and Tracing\u003c/li\u003e\n\u003cli\u003ePerformance Monitoring\u003c/li\u003e\n\u003cli\u003eC++/Fortran Interop\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building\" class=\"anchor\" aria-hidden=\"true\" href=\"#building\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding\u003c/h2\u003e\n\u003cp\u003eThe easiest way to install dependencies is using \u003ca href=\"https://spack.io\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e.\nAfter\n\u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003einstalling Spack\u003c/a\u003e,\nyou can start build dependencies.\u003c/p\u003e\n\u003cp\u003eThe following instructions assume that you have Spack 0.13 or newer. You can check your\nSpack version like so:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack --version\n0.13.0\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFirst, add \u003ca href=\"https://github.com/lanl/cellar-spack\"\u003elanl/cellar-spack\u003c/a\u003e\nto your list of spack repos.\u003c/p\u003e\n\u003cp\u003eOnce you have the \u003ccode\u003elanl/cellar-spack\u003c/code\u003e installed, then you can install all\ndependencies using\n\u003ca href=\"https://spack.readthedocs.io/en/latest/tutorial_environments.html#\" rel=\"nofollow\"\u003eSpack environments\u003c/a\u003e.\nYou\u0027ll need to use a modern-ish C++ compiler that supports C++14:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ module load gcc/9.3.0\n$ spack compiler find\n$ cd path/to/eap-core\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen issue the following commands. This will build all of eap-core\u0027s dependencies.:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack env create -d spack/default\n$ spack env activate -d $PWD/spack/default\n$ spack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAny time you open a new shell, you\u0027ll need to re-activate the Spack environment:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack env activate -d $PWD/spack/default\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow you\u0027re ready to build eap-core. First configure the project using CMake:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir build \u0026amp;\u0026amp; cd build\ncmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd then build:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emake -j\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor snow, substitute in spack/snow in the above instructions in place of spack/default. If you need\nto change the environment use \"spack env deactivate\".\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eCode contributors should read the \u003ca href=\"DEVELOPERS.md\"\u003eDevelopers Guide\u003c/a\u003e prior to\nsending a pull request.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 3,
+    "topics": [],
+    "updated_at": 1667253429.0
   },
   {
     "data_format": 2,
@@ -445,7 +490,9 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/ellis/software/spack.yaml"
+      "configs/ellis/software/spack.yaml",
+      "configs/ellis/utilities/spack.yaml",
+      "configs/ellis/compilers/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -457,24 +504,66 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "rhel7 spack configuration and scripts",
+    "description": null,
     "filenames": [
-      "v0.18.1/spack.yaml"
+      "spack/envs/dev/spack.yaml"
     ],
-    "full_name": "SCOREC/rhel7-spack-config",
+    "full_name": "range3/ucx_practice",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-setup-on-scorec\" class=\"anchor\" aria-hidden=\"true\" href=\"#setup-on-scorec\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esetup on SCOREC\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003ecd /opt/scorec/spack/rhel7-spack-config/\nsource setupSpack.sh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch1\u003e\u003ca id=\"user-content-rhel7-spack-config\" class=\"anchor\" aria-hidden=\"true\" href=\"#rhel7-spack-config\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003erhel7-spack-config\u003c/h1\u003e\n\u003cp\u003erhel7 spack configuration and scripts\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003einstall.sh\u003c/code\u003e script maintained in this repo is for documentation purposes (e.g., in case we had to reinstall the entire stack from scratch) and should not be executed as it will not use all of our existing package installs.  More discussion of package installation is below.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-useful-commands\" class=\"anchor\" aria-hidden=\"true\" href=\"#useful-commands\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003euseful commands\u003c/h2\u003e\n\u003cp\u003eregenerate lmod module tree:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack module lmod refresh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing-new-packages\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing-new-packages\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003einstalling new packages\u003c/h2\u003e\n\u003cp\u003eOur spack repo is tracking the master spack branch.  Spack package updates could result in additional installation of packages with little or no package source code changes.  These additional installs can be avoided when installing new packages by first examining the output of the \u003ccode\u003espack spec -I\u003c/code\u003e command.  If a utility/infrastructure level package, such as cmake or mpich, is marked with a \u003ccode\u003e[+]\u003c/code\u003e symbol in the leftmost column then it means that the existing install will be used.  If spack does not default to using the existing install you can append the hash of the package to the spec command.\u003c/p\u003e\n\u003cp\u003eFor example, lets see what happens when we ask for a pumi install using gcc 7.3.0\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack spec -I pumi@develop%gcc@7.3.0\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n\nConcretized\n--------------------------------\n -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64 \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared arch=linux-rhel7-x86_64 \n -       ^mpich@3.3%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n[+]          ^findutils@4.6.0%gcc@7.3.0 patches=84b916c0bf8c51b7e7b28417692f0ad3e7030d1f3c248ba77c42ede5c1c5d11e,bd9e4e5cc280f9753ae14956c4e4aa17fe7a210f55dd6c84aa60b12d106d47a2 arch=linux-rhel7-x86_64 \n[+]              ^autoconf@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^automake@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^libtool@system%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]              ^m4@1.4.16%gcc@7.3.0 patches=c0a408fbffb7255fcc75e26bd8edab116fc81d216bfd18b473668b7739a4158e +sigsegv arch=linux-rhel7-x86_64 \n[+]              ^texinfo@6.5%gcc@7.3.0 arch=linux-rhel7-x86_64\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSpack wants to install mpich 3.3, but we don\u0027t want to change to the new mpich version yet.  So, we will get the hash of the existing mpich 3.2.1 install:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack find -ldv mpich%gcc@7.3.0\n==\u0026gt; 1 installed package\n-- linux-rhel7-x86_64 / gcc@7.3.0 -------------------------------\nniuhmad    mpich@3.2.1 device=ch3 +hydra netmod=tcp +pmi+romio~verbs\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ethen append the hash \u003ccode\u003eniuhmad\u003c/code\u003e to the spec for pumi using the \u003ccode\u003e^\u003c/code\u003e syntax to specify it as a dependency:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack spec -I pumi@develop%gcc@7.3.0 ^/niuhmad\nInput spec\n--------------------------------\n -   pumi@develop%gcc@7.3.0\n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n\nConcretized\n--------------------------------\n -   pumi@develop%gcc@7.3.0 build_type=RelWithDebInfo ~fortran~shared simmodsuite=none ~zoltan arch=linux-rhel7-x86_64 \n[+]      ^cmake@3.13.1%gcc@7.3.0~doc+ncurses+openssl+ownlibs~qt arch=linux-rhel7-x86_64 \n[+]          ^ncurses@6.1%gcc@7.3.0~symlinks~termlib arch=linux-rhel7-x86_64 \n[+]              ^pkgconf@1.5.4%gcc@7.3.0 arch=linux-rhel7-x86_64 \n[+]          ^openssl@1.1.1%gcc@7.3.0+systemcerts arch=linux-rhel7-x86_64 \n[+]              ^perl@5.16.3%gcc@7.3.0+cpanm patches=0eac10ed90aeb0459ad8851f88081d439a4e41978e586ec743069e8b059370ac +shared+threads arch=linux-rhel7-x86_64 \n[+]              ^zlib@1.2.11%gcc@7.3.0+optimize+pic+shared arch=linux-rhel7-x86_64 \n[+]      ^mpich@3.2.1%gcc@7.3.0 device=ch3 +hydra netmod=tcp +pmi+romio~verbs arch=linux-rhel7-x86_64 \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd see that in the Concretized spec it is now using the existing mpich 3.2.1 install.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contents\" class=\"anchor\" aria-hidden=\"true\" href=\"#contents\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtents\u003c/h2\u003e\n\u003cp\u003ecompilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package installation commands\nmodules.yaml - hierarchical layout for lua modules\npackages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh - env needed for executing spack commands\u003c/p\u003e\n",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-ucx_practice\" class=\"anchor\" aria-hidden=\"true\" href=\"#ucx_practice\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eucx_practice\u003c/h1\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 6,
+    "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1643231013.0
+    "updated_at": 1666601300.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "complex/spack.yaml",
-      "real/spack.yaml"
+      "spack/envs/chfs/spack.yaml"
+    ],
+    "full_name": "range3/chfs-containers",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-chfs-containers\" class=\"anchor\" aria-hidden=\"true\" href=\"#chfs-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003echfs-containers\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#example\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eexample\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e explicitly pull the latest chfs image \u003c/span\u003e\ndocker pull range3/chfs:master\n\ngit clone https://github.com/range3/chfs-containers\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e chfs-containers\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e start servers\u003c/span\u003e\ndocker-compose up -d\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e start another container for client\u003c/span\u003e\ndocker run -it --rm --network chfs_net --privileged range3/chfs:master bash\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e set CHFS_SERVER env\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CHFS_SERVER=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003echlist -c -s ofi+sockets://172.30.0.3:50000\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e list chfs servers\u003c/span\u003e\nchlist\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e mount chfs via FUSE\u003c/span\u003e\nmkdir /tmp/m\nchmkdir /tmp/m\nchfuse -o direct_io,modules=subdir,subdir=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/tmp/m\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e /tmp/m\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e \u0026lt;ctrl-D\u0026gt;\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e the client container is removed\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e stop and remove server containers\u003c/span\u003e\ndocker-compose down\u003c/pre\u003e\u003c/div\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1652094301.0
+  },
+  {
+    "data_format": 2,
+    "description": "Example of Mochi service composing Poesie and Yokan via Bedrock",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc-experiments/example-yokan-poesie-composition",
+    "latest_release": null,
+    "readme": "\u003ch2\u003e\u003ca id=\"user-content-example-yokanpoesie-composition\" class=\"anchor\" aria-hidden=\"true\" href=\"#example-yokanpoesie-composition\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample Yokan/Poesie composition\u003c/h2\u003e\n\u003cp\u003eThis repository contains an example of a \u003ca href=\"https://mochi.readthedocs.io/en/latest/bedrock.html\" rel=\"nofollow\"\u003eBedrock\u003c/a\u003e\nconfiguration that spins up a Yokan provider for key/value storage and a Poesie provider for\nembedding a Python interpreter.\u003c/p\u003e\n\u003cp\u003eThe \u003cem\u003etest.cpp\u003c/em\u003e file shows an example of first putting a key/value pair into the database\nusing the Yokan API, then using the Poesie API to send a python code that retrieves said value.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-building-the-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-code\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the code\u003c/h3\u003e\n\u003cp\u003eThe \u003cem\u003espack.yaml\u003c/em\u003e file in this repository allows creating a Spack environment with the\nrequired dependencies as follows, from inside the cloned repository (note that you must have installed\n\u003ca href=\"https://github.com/mochi-hpc/mochi-spack-packages\"\u003emochi-spack-packages\u003c/a\u003e as\ninstructed \u003ca href=\"https://mochi.readthedocs.io/en/latest/installing.html#installing-spack-and-the-mochi-repository\" rel=\"nofollow\"\u003ehere\u003c/a\u003e).\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack env create -d .\n$ spack env activate .\n$ spack install\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can then build the code as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build\n$ cd build\n$ cmake ..\n$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\u003ca id=\"user-content-running-the-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-the-code\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning the code\u003c/h3\u003e\n\u003cp\u003eOpen two terminals, making sure the Spack environment is activated in both.\nIn the first termina, run the Bedrock daemon as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ bedrock na+sm -c src/config.json -v trace\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eMake a note of the address that the Bedrock server is reporting to be running on\n(e.g., \u003ccode\u003ena+sm://15865-0\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eIn the second, run the \u003ccode\u003eyokan-poesie-test\u003c/code\u003e executable with the address as\ncommand-line argument, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ./yokan-poesie-test na+sm://15865-0\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf everything goes well, the test program will print \"some_value\" before\nterminating.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-explanation\" class=\"anchor\" aria-hidden=\"true\" href=\"#step-by-step-explanation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step explanation\u003c/h3\u003e\n\u003cp\u003eThe \u003cem\u003econfig.json\u003c/em\u003e file describes how our service should look like on one node.\nOur service contains a \u003ca href=\"https://mochi.readthedocs.io/en/latest/yokan.html\" rel=\"nofollow\"\u003eYokan\u003c/a\u003e\nprovider, which is the component that provides key/value storage.\nIn the configuration of this component, we add a database called \u003cem\u003emy_kv_store\u003c/em\u003e,\nof type \u003cem\u003emap\u003c/em\u003e. This type corresponds to an in-memory, ordered map.\u003c/p\u003e\n\u003cp\u003eThe configuration then lists a Poesie provider, which is the component that will\nprovide us with an embedded Python interpreter. Its configuration lists\n\u003cem\u003emy_python_vm\u003c/em\u003e for this purpose.\u003c/p\u003e\n\u003cp\u003eIn the configuration of this VM, the \u003cem\u003epreamble\u003c/em\u003e entry lets us provide some code\nto execute upon initializing the VM (i.e., when the server starts). We take\nadvantage of this preamble to import \u003ccode\u003epyyokan_client\u003c/code\u003e, the Python binding for\nYokan\u0027s client library, and create the \u003ccode\u003emy_kv_store\u003c/code\u003e variable of type\n\u003ccode\u003epyyokan_client.Database\u003c/code\u003e to be a handle to the database managed by Yokan.\nThe \u003ccode\u003e__mid__\u003c/code\u003e and \u003ccode\u003e__address__\u003c/code\u003e variables are added by Poesie automatically\nand respectively represents the Margo instance in use and the process\u0027 own\naddress.\u003c/p\u003e\n\u003cp\u003eMoving over to the \u003cem\u003etest.c\u003c/em\u003e file, the \u003ccode\u003ewrite_with_yokan\u003c/code\u003e function shows\nan example of using the Yokan C API to look up the database by its name\nto get its id, building a \u003ccode\u003eyk_database_handle_t\u003c/code\u003e to interact with the database,\nthen putting \"some_value\" associated with the key \"my_key\" into the database.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eread_with_poesie\u003c/code\u003e function uses the Poesie C API to create a\n\u003ccode\u003epoesie_provider_handle_t\u003c/code\u003e, look up the VM id by its name, then\nsend over some Python code to be executed on the server.\nThe Python code in question uses the \u003ccode\u003emy_kv_store\u003c/code\u003e variable, initialized\nin the preamble of the VM, to interact with the local database using\nYokan\u0027s Python API. Here it first gets the length of the value associated\nwith \"my_key\", before actually fetching it into a \u003ccode\u003ebytearray\u003c/code\u003e buffer.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003e__poesie_output__\u003c/code\u003e variable is a special variable that the VM will\nlookup after executing the user code. Any object placed in this variable\nwill be transformed into a string (using the object\u0027s \u003ccode\u003e__str__\u003c/code\u003e method),\nbefore being sent back to the caller in as output. Poesie handles\nexecution results this way because \u003ccode\u003ereturn\u003c/code\u003e cannot be called outside of\nfunctions. In the present exemple, the content of the key, which is a\n\u003ccode\u003ebytearray\u003c/code\u003e, is transformed into a unicode string using \u003ccode\u003e.decode(\"utf-8\")\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eNote that if an exception is raised from the user code, Poesie will\nignore the content of \u003ccode\u003e__poesie_output__\u003c/code\u003e and return the exception\n(converted into a string) as output instead.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 6,
+    "topics": [],
+    "updated_at": 1666024613.0
+  },
+  {
+    "data_format": 2,
+    "description": "POESIE is a Mochi microservice designed to run interpreters of various scripting languages (currently Lua and Python) and make them accessible remotely.",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc/mochi-poesie",
+    "latest_release": "v0.2",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-poesie-embedding-scripting-languages-for-mochi-services\" class=\"anchor\" aria-hidden=\"true\" href=\"#poesie-embedding-scripting-languages-for-mochi-services\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePOESIE: Embedding Scripting Languages for Mochi Services\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003ePOESIE can easily be installed using Spack:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install mochi-poesie\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis will install POESIE (and any required dependencies) with both\nPython and Lua backends. Disabling one or the other can be done by\nappending \u003ccode\u003e~lua\u003c/code\u003e or \u003ccode\u003e~python\u003c/code\u003e, for example:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003espack install poesie~lua\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-architecture\" class=\"anchor\" aria-hidden=\"true\" href=\"#architecture\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArchitecture\u003c/h2\u003e\n\u003cp\u003eLike most mochi services, POESIE relies on a client/provider architecture.\nA provider, identified by its \u003cem\u003eaddress\u003c/em\u003e and \u003cem\u003eprovider id\u003c/em\u003e, manages one or more\ninterpreters (called \u003cem\u003evirtual machines\u003c/em\u003e, or \u003cem\u003eVMs\u003c/em\u003e), referenced externally\nby either their name or their VM id.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-starting-a-daemon-using-bedrock\" class=\"anchor\" aria-hidden=\"true\" href=\"#starting-a-daemon-using-bedrock\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStarting a daemon using Bedrock\u003c/h2\u003e\n\u003cp\u003eBy installing POESIE with the \u003ccode\u003e+bedrock\u003c/code\u003e variant, one can deploy a daemon\nby providing a JSON configuration like the following to Bedrock.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-json\"\u003e\u003cpre\u003e{\n    \u003cspan class=\"pl-ent\"\u003e\"libraries\"\u003c/span\u003e: [\n        \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003elibpoesie-bedrock-module.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n    ],\n    \u003cspan class=\"pl-ent\"\u003e\"providers\"\u003c/span\u003e: [\n        {\n            \u003cspan class=\"pl-ent\"\u003e\"name\"\u003c/span\u003e: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emy_poesie_provider\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n            \u003cspan class=\"pl-ent\"\u003e\"provider_id\"\u003c/span\u003e: \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e,\n            \u003cspan class=\"pl-ent\"\u003e\"config\"\u003c/span\u003e: {\n                \u003cspan class=\"pl-ent\"\u003e\"vms\"\u003c/span\u003e: {\n                    \u003cspan class=\"pl-ent\"\u003e\"my_vm\"\u003c/span\u003e: {\n                        \u003cspan class=\"pl-ent\"\u003e\"language\"\u003c/span\u003e: \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epython\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n                    }\n                }\n            }\n        }\n    ]\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-client-api\" class=\"anchor\" aria-hidden=\"true\" href=\"#client-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eClient API\u003c/h2\u003e\n\u003cp\u003eThe client API is available in \u003cem\u003epoesie-client.h\u003c/em\u003e.\nThe codes in the \u003cem\u003etest\u003c/em\u003e folder illustrate how to use it.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1633975197.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "real/spack.yaml",
+      "complex/spack.yaml"
     ],
     "full_name": "adamqc/devcontainer",
     "latest_release": null,
@@ -482,21 +571,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1646725990.0
-  },
-  {
-    "data_format": 2,
-    "description": "spack configuration settings used at BSU research computing",
-    "filenames": [
-      "BOISESTATE/falcon/environments/applications/gromacs-cp2k/_spack.yaml",
-      "BOISESTATE/falcon/environments/applications/vacuumms/_spack.yaml"
-    ],
-    "full_name": "bsurc/spack-configs",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack-configs\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-configs\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack Configs\u003c/h1\u003e\n\u003cp\u003eThis is a repository that sites can use to share their configuration\nfiles for Spack.  You can contribute your own configuration files, or\nbrowse around and look at what others have done.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0\nlicenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack-configs/blob/master/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1660257692.0
   },
   {
     "data_format": 2,
@@ -529,8 +603,8 @@ var data =
     "data_format": 2,
     "description": "Test problem for the Exawind-Driver designed for demo\u0027s and debugging",
     "filenames": [
-      "spack_e4s.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "spack_e4s.yaml"
     ],
     "full_name": "psakievich/Driver-Cylinder",
     "latest_release": null,
@@ -557,17 +631,52 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Remote Key/Value storage service for Mochi",
+    "description": null,
     "filenames": [
-      "spack.yaml"
+      "003_python-embed/spack.yaml"
     ],
-    "full_name": "mochi-hpc/mochi-yokan",
-    "latest_release": "v0.2.10",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-yokan---mochis-keyvalue-and-more-storage-service\" class=\"anchor\" aria-hidden=\"true\" href=\"#yokan---mochis-keyvalue-and-more-storage-service\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYokan - Mochi\u0027s Key/Value (and more) storage service\u003c/h1\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\" alt=\"\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/mochi-hpc/mochi-yokan\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fc95c801bafa29b49219f4727f651b97e7385800c8dc4a4757a1dccadefe6611/68747470733a2f2f636f6465636f762e696f2f67682f6d6f6368692d6870632f6d6f6368692d796f6b616e2f6272616e63682f6d61696e2f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/mochi-hpc/mochi-yokan/branch/main/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease see documentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/yokan.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
+    "full_name": "salotz/scopes-demos",
+    "latest_release": null,
+    "readme": "\u003ch2\u003e\u003ca id=\"user-content-running-the-demos\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-the-demos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning the Demos\u003c/h2\u003e\n\u003cp\u003eYou will need Spack installed as well as the \u003ca href=\"\"\u003esnailpacks\u003c/a\u003e repo. The\nquick bootstrap script should be enough to get going if you don\u0027t have\nthis installed already:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecurl --proto \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e=https\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e\u003c/span\u003e --tlsv1.2 -sSf https://raw.githubusercontent.com/salotz/snailpacks/master/bootstrap.sh \u003cspan class=\"pl-k\"\u003e|\u003c/span\u003e sh\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen for each demo you can build the environment, activate it, and run\nthem.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e XXX_demo-name\n  make env\n  spacktivate \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\n  make run\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-creating-a-new-demo\" class=\"anchor\" aria-hidden=\"true\" href=\"#creating-a-new-demo\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCreating a New Demo\u003c/h2\u003e\n\u003cp\u003eYou can use the template for a quick start (requires \u003ccode\u003ecopier\u003c/code\u003e \u0026gt; 6):\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecopier template\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eTo update the\u003c/p\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1641326484.0
+    "updated_at": 1657842137.0
+  },
+  {
+    "data_format": 2,
+    "description": "Puget Labs container build files",
+    "filenames": [
+      "lammps-amd/spack.yaml",
+      "gromacs-amd/spack.yaml",
+      "namd-amd/spack.yaml",
+      "hpl-amd/spack.yaml",
+      "hpcg-amd/spack.yaml"
+    ],
+    "full_name": "dbkinghorn/Puget-Labs-Containers",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-puget-labs-containers\" class=\"anchor\" aria-hidden=\"true\" href=\"#puget-labs-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePuget Labs Containers\u003c/h1\u003e\n\u003cp\u003eThis is a collection of container spec files used to build the images available on \u003ca href=\"https://hub.docker.com/orgs/pugetsystems/repositories\" rel=\"nofollow\"\u003ehttps://hub.docker.com/orgs/pugetsystems/repositories\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMany of these images are based on performance optimized application builds for specific hardware targets i.e. AMD Zen3, Intel OneAPI, NVIDIA CUDA etc.\u003c/p\u003e\n\u003cp\u003eThese container images are the basis for some of our Scientific and Machine Learning benchmarks.\u003c/p\u003e\n\u003cp\u003eFiles included for each application include,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSpack spec.yaml build specifications\u003c/li\u003e\n\u003cli\u003eDockerfiles (Multi-stage)\u003c/li\u003e\n\u003cli\u003eEnroot container-bundle (self running) build scripts\u003c/li\u003e\n\u003cli\u003eBenchmarks\u003c/li\u003e\n\u003cli\u003eUsage notes\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1660670570.0
+  },
+  {
+    "data_format": 2,
+    "description": "spack envs",
+    "filenames": [
+      "_experimental/envs/olcf/summit/spack.yaml",
+      "_experimental/envs/llnl/quartz/spack.yaml",
+      "_experimental/envs/llnl/pascal-cuda/spack.yaml",
+      "_experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml"
+    ],
+    "full_name": "Alpine-DAV/spack_configs",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack_configs\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack_configs\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003espack_configs\u003c/h1\u003e\n\u003cp\u003eshared spack configs repo\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1639176281.0
   },
   {
     "data_format": 2,
@@ -656,25 +765,13 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Puget Labs container build files",
-    "filenames": [
-      "namd-amd/spack.yaml",
-      "hpl-amd/spack.yaml",
-      "hpcg-amd/spack.yaml"
-    ],
-    "full_name": "dbkinghorn/Puget-Labs-Containers",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-puget-labs-containers\" class=\"anchor\" aria-hidden=\"true\" href=\"#puget-labs-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePuget Labs Containers\u003c/h1\u003e\n\u003cp\u003eThis is a collection of container spec files used to build the images available on \u003ca href=\"https://hub.docker.com/orgs/pugetsystems/repositories\" rel=\"nofollow\"\u003ehttps://hub.docker.com/orgs/pugetsystems/repositories\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMany of these images are based on performance optimized application builds for specific hardware targets i.e. AMD Zen3, Intel OneAPI, NVIDIA CUDA etc.\u003c/p\u003e\n\u003cp\u003eThese container images are the basis for some of our Scientific and Machine Learning benchmarks.\u003c/p\u003e\n\u003cp\u003eFiles included for each application include,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSpack spec.yaml build specifications\u003c/li\u003e\n\u003cli\u003eDockerfiles (Multi-stage)\u003c/li\u003e\n\u003cli\u003eEnroot container-bundle (self running) build scripts\u003c/li\u003e\n\u003cli\u003eBenchmarks\u003c/li\u003e\n\u003cli\u003eUsage notes\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1660670570.0
-  },
-  {
-    "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
+      "env/x86_64/flecsi/spack.yaml",
       ".gitlab-ci/env/root-build/spack.yaml",
+      "env/broadwell/flecsi/spack.yaml",
+      "env/power9le/flecsi/spack.yaml",
+      ".gitlab-ci/env/dry-run/spack.yaml",
       ".gitlab-ci/env/local-build/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
@@ -761,14 +858,14 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "nvhpc/failures/spack.yaml",
-      "clang/spack.yaml",
       "oneapi/spack.yaml",
-      "nvhpc/spack.yaml",
-      "clang/failures/spack.yaml",
       "gnu/spack.yaml",
+      "nvhpc/spack.yaml",
+      "gnu/failures/spack.yaml",
+      "nvhpc/failures/spack.yaml",
+      "clang/failures/spack.yaml",
       "oneapi/failures/spack.yaml",
-      "gnu/failures/spack.yaml"
+      "clang/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
     "latest_release": null,
@@ -781,82 +878,96 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml",
-      "uo-containers/22.08/release/public/cuda.spack.yaml",
-      "uo-containers/22.08/_archive/prep/oneapi/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml",
-      "uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-x86_64/spack.yaml",
-      "uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml",
-      "crusher/22.11/PrgEnv-gnu/spack.yaml",
-      "florentia/22.11/spack.yaml",
-      "uo-containers/22.08/release/public/oneapi.spack.yaml",
-      "uo-containers/22.11/release/public/oneapi-x86_64/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml",
-      "crusher/22.11/PrgEnv-amd/rocm-rocmcc/spack.yaml",
-      "perlmutter/22.08/mvapich2-3.0a/ecp-data-vis-sdk/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-cuda/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-rocm/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda-ppc64le-noex/spack.yaml",
-      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/spack.yaml",
-      "arcticus/22.08/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml",
-      "uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml",
-      "uo-containers/22.08/release/public/cuda-aarch64.spack.yaml",
+      "uo-containers/22.08/components/gpu-rocm/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml",
       "crusher/22.11/PrgEnv-amd/spack.yaml",
-      "uo-containers/22.11/cuda.spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda-noex/spack.yaml",
-      "perlmutter/22.05/mvapich2-3.0a/spack.yaml",
-      "uo-containers/22.08/components/gpu-rocm-noex/spack.yaml",
+      "perlmutter/22.08/mvapich2-3.0a/spack.yaml",
+      "uo-containers/22.11/rocm.spack.yaml",
+      "crusher/22.08/PrgEnv-cray/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-cuda/spack.yaml",
+      "crusher/22.08/mvapich2/failures/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml",
+      "uo-containers/22.08/_archive/prep/oneapi/spack.yaml",
+      "crusher/22.11/PrgEnv-gnu/spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml",
+      "crusher/22.08/PrgEnv-gnu/failures/spack.yaml",
       "uo-containers/22.11/release/containers/amd64-oneapi/oneapi.spack.yaml",
+      "uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml",
+      "perlmutter/22.11/PrgEnv-gnu/failures/spack.yaml",
+      "_archived/bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml",
+      "crusher/22.08/PrgEnv-amd/spack.yaml",
+      "_archived/aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml",
+      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml",
+      "uo-containers/22.08/release/public/cuda.spack.yaml",
+      "uo-containers/22.08/release/public/oneapi.spack.yaml",
+      "uo-containers/22.11/oneapi.spack.yaml",
+      "uo-containers/22.11/release/containers/ppc64le-cuda/spack.yaml",
+      "uo-containers/22.11/release/public/oneapi-x86_64/spack.yaml",
+      "crusher/22.11/PrgEnv-cray/failures/spack.yaml",
+      "perlmutter/22.11/mvapich2/failures/spack.yaml",
+      "_archived/cori/21.05/PrgEnv-intel/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml",
+      "uo-containers/22.11/components/gpu-rocm/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-noex/spack.yaml",
+      "uo-containers/22.11/components/cpu/spack.yaml",
+      "uo-containers/22.11/release/public/rocm-x86_64/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml",
+      "uo-containers/22.11/release/public/cuda-aarch64/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-oneapi/cpu-gcc.spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml",
+      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml",
+      "_archived/frontera/22.05/spack.yaml",
+      "uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml",
+      "uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml",
+      "_archived/aws/paratools/e4s-mvapich/spack.yaml",
+      "crusher/22.11/PrgEnv-cray/spack.yaml",
+      "crusher/22.11/PrgEnv-amd/rocm-rocmcc/spack.yaml",
+      "crusher/22.11/mvapich2/failures/spack.yaml",
+      "_archived/oci/mvapich2/spack.yaml",
+      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml",
+      "uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml",
+      "_archived/oci/adaptive-test-env/spack.yaml",
+      "uo-containers/22.08/release/public/cuda-aarch64.spack.yaml",
+      "uo-containers/22.11/components/gpu-cuda-ppc64le-noex/spack.yaml",
+      "uo-containers/22.11/release/containers/aarch64-cuda/spack.yaml",
+      "uo-containers/22.11/release/public/cuda-x86_64/spack.yaml",
       "uo-containers/22.08/_archive/prep/cpu/spack.yaml",
       "crusher/22.08/PrgEnv-cray/failures/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda/spack.yaml",
-      "uo-containers/22.08/components/gpu-rocm/spack.yaml",
-      "perlmutter/22.08/mvapich2-3.0a/failures/spack.yaml",
-      "perlmutter/22.08/mvapich2-3.0a/spack.yaml",
-      "uo-containers/22.08/components/cpu/spack.yaml",
-      "uo-containers/22.11/release/public/rocm-x86_64/spack.yaml",
+      "arcticus/22.08/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml",
       "crusher/22.08/PrgEnv-amd/failures/spack.yaml",
-      "crusher/22.11/mvapich2/spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml",
-      "perlmutter/22.08/PrgEnv-gnu/failures/spack.yaml",
-      "arcticus/22.08/failures/spack.yaml",
-      "crusher/22.08/mvapich2/failures/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-ppc64le/spack.yaml",
-      "crusher/22.08/PrgEnv-gnu/failures/spack.yaml",
-      "perlmutter/22.08/PrgEnv-gnu/spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml",
-      "uo-containers/22.08/release/public/rocm.spack.yaml",
-      "arcticus/22.11/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml",
+      "perlmutter/22.11/PrgEnv-gnu/spack.yaml",
+      "uo-containers/22.08/components/gpu-rocm-noex/spack.yaml",
       "uo-containers/22.08/release/public/cpu.spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-noex/spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-oneapi/cpu-gcc.spack.yaml",
-      "crusher/22.11/mvapich2/failures/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml",
-      "arcticus/22.11/failures/spack.yaml",
-      "crusher/22.11/PrgEnv-cray/spack.yaml",
-      "uo-containers/22.11/rocm.spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml",
+      "uo-containers/22.11/release/public/cuda-ppc64le/spack.yaml",
+      "_archived/aws/paratools/parallelcluster-3.1.4/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml",
+      "uo-containers/22.08/release/public/rocm.spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml",
+      "perlmutter/22.08/PrgEnv-gnu/spack.yaml",
+      "perlmutter/22.05/mvapich2-3.0a/spack.yaml",
+      "crusher/22.08/PrgEnv-gnu/spack.yaml",
+      "uo-containers/22.08/components/cpu/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml",
+      "arcticus/22.08/failures/spack.yaml",
+      "perlmutter/22.11/mvapich2/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda/spack.yaml",
+      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/spack.yaml",
+      "uo-containers/22.11/components/gpu-cuda-noex/spack.yaml",
+      "_archived/applications/exago/crusher/spack.yaml",
+      "uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-rocm/spack.yaml",
+      "_archived/applications/exago/container/spack.yaml",
       "uo-containers/22.08/_archive/prep/rocm/spack.yaml",
-      "uo-containers/22.11/components/cpu/spack.yaml",
-      "crusher/22.11/PrgEnv-cray/failures/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-aarch64/spack.yaml",
-      "crusher/22.11/PrgEnv-amd/failures/spack.yaml",
-      "uo-containers/22.11/oneapi.spack.yaml",
-      "uo-containers/22.11/release/containers/aarch64-cuda/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml",
       "uo-containers/22.11/components/oneapi-public-release/spack.yaml",
-      "perlmutter/22.11/PrgEnv-gnu/failures/spack.yaml",
-      "crusher/22.11/PrgEnv-gnu/failures/spack.yaml",
-      "uo-containers/22.11/release/containers/ppc64le-cuda/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda/spack.yaml",
+      "perlmutter/22.08/PrgEnv-gnu/failures/spack.yaml",
+      "uo-containers/22.11/cuda.spack.yaml",
       "uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml"
     ],
     "full_name": "eugeneswalker/facility-spack",
@@ -870,8 +981,9 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "generic/spack.yaml",
-      "ANL/ThetaGPU/spack.yaml",
+      "NERSC/Perlmutter/ss11/spack.yaml",
+      "ANL/Polaris/spack-ucx.yaml",
+      "ANL/Polaris/spack.yaml",
       "ORNL/Crusher/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
@@ -886,8 +998,22 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "gcc-1/spack.yaml",
-      "gcc-2/spack.yaml"
+      "spack/agaspar/spack.yaml"
+    ],
+    "full_name": "lanl/cellar-gtest-mpi",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-google-test-for-mpi-gtest-mpi\" class=\"anchor\" aria-hidden=\"true\" href=\"#google-test-for-mpi-gtest-mpi\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGoogle Test for MPI (gtest-mpi)\u003c/h1\u003e\n\u003cp\u003eThis is a support library that helps users write Google Test unit tests that\nrely on MPI.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" href=\"#features\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eSerialized and rank-tagged Google Test output.\u003c/li\u003e\n\u003cli\u003eRank-tagged failure reports.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://spack.io\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e is the easiest way to install gtest-mpi. The gtest-mpi\npackage is available in\n\u003ca href=\"https://gitlab.lanl.gov/agaspar/spack-repo\" rel=\"nofollow\"\u003eagaspar/spack-repo\u003c/a\u003e. Follow the\nREADME there to use that spack repo. Once the agaspar-spack-repo repo is\ninstalled, installing gtest-mpi is as simple as running:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack install gtest-mpi\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen you want to use gtest-mpi, run \u003ccode\u003espack load gtest-mpi\u003c/code\u003e to load it into your\ncurrent environment.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-cmake\" class=\"anchor\" aria-hidden=\"true\" href=\"#cmake\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCMake\u003c/h3\u003e\n\u003cp\u003eIf you don\u0027t want to use spack, you can install gtest-mpi directly using CMake.\ngtest-mpi uses CMake, so all of your knowledge of CMake applies. gtest-mpi\nhas a dependency on Google Test, and uses\n\u003ca href=\"https://cmake.org/cmake/help/latest/module/FindGTest.html\" rel=\"nofollow\"\u003eFindGTest.cmake\u003c/a\u003e to\nfind it. Therefore, in order to install gtest-mpi, you must first have a\nworking installation of \u003ca href=\"https://github.com/google/googletest/\"\u003eGoogle Test\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eOnce you\u0027ve installed Google Test, building and installing gtest-mpi is just\nlike any other modern CMake package.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone git@gitlab.lanl.gov:agaspar/gtest-mpi.git\ncd gtest-mpi\nmkdir build \u0026amp;\u0026amp; cd build\ncmake ..\nmake install\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-using-gtest-mpi\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-gtest-mpi\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing gtest-mpi\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-with-cmake\" class=\"anchor\" aria-hidden=\"true\" href=\"#with-cmake\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWith CMake\u003c/h3\u003e\n\u003cp\u003eIf you don\u0027t need any custom startup logic, using gtest-mpi in your own CMake\nproject is simple:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-cmake\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003efind_package\u003c/span\u003e(gtest-mpi 0.1 \u003cspan class=\"pl-k\"\u003eREQUIRED\u003c/span\u003e)\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e gtest-mpi-main provides a main function for you\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003eadd_executable\u003c/span\u003e(my-test mytest.cpp)\n\u003cspan class=\"pl-c1\"\u003etarget_link_libraries\u003c/span\u003e(my-test gtest-mpi-main)\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen you can write a Google Test just like you normally would:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-c++\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e mytest.cpp\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0026lt;\u003c/span\u003egtest/gtest.h\u003cspan class=\"pl-pds\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0026lt;\u003c/span\u003empi.h\u003cspan class=\"pl-pds\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003eTEST\u003c/span\u003e(GTestMPI, Basic) {\n    \u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e rank;\n    \u003cspan class=\"pl-c1\"\u003eMPI_Comm_rank\u003c/span\u003e(MPI_COMM_WORLD, \u0026amp;rank);\n\n    \u003cspan class=\"pl-k\"\u003ebool\u003c/span\u003e is_root = rank == \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e;\n\n    \u003cspan class=\"pl-k\"\u003ebool\u003c/span\u003e is_anyone_root = \u003cspan class=\"pl-c1\"\u003efalse\u003c/span\u003e;\n    \u003cspan class=\"pl-c1\"\u003eMPI_Allreduce\u003c/span\u003e(\n        \u0026amp;is_root, \u0026amp;is_anyone_root, \u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e, MPI_CXX_BOOL, MPI_LOR, MPI_COMM_WORLD);\n\n    \u003cspan class=\"pl-c1\"\u003eASSERT_TRUE\u003c/span\u003e(is_anyone_root);\n}\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you need to write your own main function, that\u0027s also fairly straighforward.\nIn your CMake project, you link against \u003ccode\u003egtest-mpi-lib\u003c/code\u003e instead of\n\u003ccode\u003egtest-mpi-main\u003c/code\u003e. Then you must provide your own main function:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-c++\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e main.cpp\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0026lt;\u003c/span\u003egtest-mpi/init.hpp\u003cspan class=\"pl-pds\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0026lt;\u003c/span\u003egtest/gtest.h\u003cspan class=\"pl-pds\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0026lt;\u003c/span\u003empi.h\u003cspan class=\"pl-pds\"\u003e\u0026gt;\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e \u003cspan class=\"pl-en\"\u003emain\u003c/span\u003e(\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e argc, \u003cspan class=\"pl-k\"\u003echar\u003c/span\u003e **argv) {\n    \u003cspan class=\"pl-c1\"\u003etesting::InitGoogleTest\u003c/span\u003e(\u0026amp;argc, argv);\n    \u003cspan class=\"pl-c1\"\u003eMPI_Init\u003c/span\u003e(\u0026amp;argc, \u0026amp;argv);\n    \u003cspan class=\"pl-c1\"\u003egtest_mpi::init\u003c/span\u003e(\u0026amp;argc, \u0026amp;argv);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Your custom init logic goes here\u003c/span\u003e\n\n    \u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e exit_code = \u003cspan class=\"pl-c1\"\u003eRUN_ALL_TESTS\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Your custom finalize logic goes here\u003c/span\u003e\n\n    \u003cspan class=\"pl-c1\"\u003egtest_mpi::finalize\u003c/span\u003e();\n    \u003cspan class=\"pl-c1\"\u003eMPI_Finalize\u003c/span\u003e();\n\n    \u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e exit_code;\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-without-cmake\" class=\"anchor\" aria-hidden=\"true\" href=\"#without-cmake\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWithout CMake\u003c/h3\u003e\n\u003cp\u003eCMake is not required to use gtest-mpi, but it is recommended. If you wish to\nuse a different build system, then adding \u003ccode\u003e-lgtest-mpi-lib\u003c/code\u003e and (optionally)\n\u003ccode\u003e-lgtest-mpi-main\u003c/code\u003e to your link line will work.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-ctest\" class=\"anchor\" aria-hidden=\"true\" href=\"#ctest\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCTest\u003c/h2\u003e\n\u003cp\u003eHere\u0027s an example of adding a CTest using gtest-mpi to your CMake file:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-cmake\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003eenable_testing\u003c/span\u003e()\n\n\u003cspan class=\"pl-c1\"\u003eadd_test\u003c/span\u003e(\n    \u003cspan class=\"pl-k\"\u003eNAME\u003c/span\u003e my-test\n    \u003cspan class=\"pl-k\"\u003eCOMMAND\u003c/span\u003e\n        \u003cspan class=\"pl-smi\"\u003e${MPIEXEC}\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e${MPIEXEC_NUMPROC_FLAG}\u003c/span\u003e 4 \u003cspan class=\"pl-smi\"\u003e${MPIEXEC_PREFLAGS}\u003c/span\u003e\n            $\u0026lt;\u003cspan class=\"pl-k\"\u003eTARGET_FILE\u003c/span\u003e:my-test\u0026gt; \u003cspan class=\"pl-smi\"\u003e${MPIEXEC_POSTFLAGS}\u003c/span\u003e)\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThese tests can be run using \u003ccode\u003ectest\u003c/code\u003e.\u003c/p\u003e\n",
+    "stargazers_count": 1,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1668046366.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "gcc-2/spack.yaml",
+      "gcc-1/spack.yaml"
     ],
     "full_name": "haampie/spack-intermediate-gcc-example",
     "latest_release": null,
@@ -899,31 +1025,29 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "SYMBIOMON Monitoring Microservice",
+    "description": "Spack repo for multimedia development",
     "filenames": [
-      "spack.yaml"
+      "examples/c-cmake/spack.yaml",
+      "examples/c-scons/spack.yaml",
+      "examples/c-meson/spack.yaml",
+      "examples/c-premake/spack.yaml",
+      "examples/c-genie/spack.yaml",
+      "examples/c-embed-python/spack.yaml"
     ],
-    "full_name": "srini009/symbiomon",
+    "full_name": "salotz/snailpacks",
     "latest_release": null,
-    "readme": "\u003cp\u003eSYMBIOMON is a prototype distributed, metric monitoring service designed\nfor use on HPC systems. Internally, SYMBIOMON employs a time-series\ndata model and is composed of three microservice components:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eCOLLECTOR: Exposes the main metric API.\u003c/li\u003e\n\u003cli\u003eAGGREGATOR: Distributed microservice component that stores aggregated (reduced) time-series data.\u003c/li\u003e\n\u003cli\u003eREDUCER: Distributed microservice component that performs a global reduction on partially aggregated time-series data.\nAdditionally, it makes this globally reducted value available for use in adapting distributed components.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eAn illustration of the SYMBIOMON design is presented below:\n\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://user-images.githubusercontent.com/10570459/144708286-da263116-a128-47d6-9102-800bcd2838c4.png\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10570459/144708286-da263116-a128-47d6-9102-800bcd2838c4.png\" alt=\"SYMBIOMON_Conceptual_Illustration(7)\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eFurther detailed information can be found here: \u003ca href=\"https://docs.google.com/presentation/d/1SNAM1QaeQYSoRwDJfTa7bCO2IvcppCzPPFDCAUdALlU/edit?usp=sharing\" rel=\"nofollow\"\u003ehttps://docs.google.com/presentation/d/1SNAM1QaeQYSoRwDJfTa7bCO2IvcppCzPPFDCAUdALlU/edit?usp=sharing\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 1,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1653524013.0
-  },
-  {
-    "data_format": 2,
-    "description": "Testing environment for PDI",
-    "filenames": [
-      "spack/1b-spack/spack.yaml"
-    ],
-    "full_name": "pdidev/test_env",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-docker-images\" class=\"anchor\" aria-hidden=\"true\" href=\"#docker-images\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocker images:\u003c/h1\u003e\n\u003cp\u003eA set of related Docker images to build and test PDI.\u003c/p\u003e\n\u003cp\u003eWe provide images based on:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDask recipes,\u003c/li\u003e\n\u003cli\u003eBinary packages.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-dask-based-images\" class=\"anchor\" aria-hidden=\"true\" href=\"#dask-based-images\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDask-based images\u003c/h2\u003e\n\u003cp\u003eThese images are based on a minimal Ubuntu 18.08, with spack and all dependencies installed through\nspack.\u003c/p\u003e\n\u003cp\u003eThe images are named as: \u003ccode\u003eghcr.io/pdidev/spack/${deps_version}/${compiler}/${mpi}/${level}\u003c/code\u003e\nWith the following parameters:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003edeps_version\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eoldest\u003c/code\u003e: dependencies use the oldest versions supported by PDI,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003elatest\u003c/code\u003e: dependencies use the latest versions available in spack at the time of generation,\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecompiler\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003egcc\u003c/code\u003e:   using GCC compiler,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eclang\u003c/code\u003e: using clang for C/C++ and gfortran for Fortran,\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003empi\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eopenmpi\u003c/code\u003e: using openmpi implementation of MPI,\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003elevel\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003emini\u003c/code\u003e: dependencies \"vendored\" in PDI are not included in the image,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eall\u003c/code\u003e: dependencies \"vendored\" in PDI are included in the image.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-binary-package-based-images\" class=\"anchor\" aria-hidden=\"true\" href=\"#binary-package-based-images\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBinary package based images\u003c/h2\u003e\n\u003cp\u003eThese images are based on Ubuntu 18.08, with all dependencies installed through packages.\u003c/p\u003e\n\u003cp\u003eThe images are named as: \u003ccode\u003eghcr.io/pdidev/ubuntu/bionic/${mpi}/${level}\u003c/code\u003e\nWith the following parameters:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003empi\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003empich\u003c/code\u003e: using mpich implementation of MPI,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eopenmpi\u003c/code\u003e: using openmpi implementation of MPI,\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003elevel\u003c/code\u003e:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003emini\u003c/code\u003e: dependencies \"vendored\" in PDI are not included in the image,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eall\u003c/code\u003e: dependencies \"vendored\" in PDI are included in the image,\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003epdi\u003c/code\u003e: PDI is included in the image.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n",
     "stargazers_count": 1,
     "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1641653805.0
+    "topics": [
+      "spack",
+      "spack-repo",
+      "scopes-lang",
+      "multimedia",
+      "game-development",
+      "package-manager",
+      "development-environment"
+    ],
+    "updated_at": 1648089720.0
   },
   {
     "data_format": 2,
@@ -943,8 +1067,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "ubuntu-clang/spack.yaml",
-      "ubuntu-gcc/spack.yaml"
+      "ubuntu-gcc/spack.yaml",
+      "ubuntu-clang/spack.yaml"
     ],
     "full_name": "fnalacceleratormodeling/synergia2-containers",
     "latest_release": null,
@@ -1084,8 +1208,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "buildspecs/apps/e4s/22.05/spack.yaml",
-      "buildspecs/apps/e4s/22.02/spack.yaml"
+      "buildspecs/apps/e4s/22.02/spack.yaml",
+      "buildspecs/apps/e4s/22.05/spack.yaml"
     ],
     "full_name": "buildtesters/buildtest-nersc",
     "latest_release": null,
@@ -1101,11 +1225,8 @@ var data =
     "data_format": 2,
     "description": "Bash shell script for installing xSDK and other IDEAS packages",
     "filenames": [
-      "platformFiles/crusher/PrgEnv-cray/spack.yaml",
-      "platformFiles/lassen/spack.yaml",
-      "platformFiles/polaris/gcc-11.2.0/spack.yaml",
-      "platformFiles/crusher/PrgEnv-gnu/spack.yaml",
-      "platformFiles/summit/spack.yaml"
+      "platformFiles/summit/spack.yaml",
+      "platformFiles/lassen/spack.yaml"
     ],
     "full_name": "xsdk-project/installxSDK",
     "latest_release": "v0.1.1",
@@ -1154,17 +1275,9 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "spack-environments/tesseract/compute-node/spack.yaml",
-      "spack-environments/cosma8/compute-node/spack.yaml",
-      "spack-environments/csd3-icelake/compute-node/spack.yaml",
-      "spack-environments/dial3/compute-node/spack.yaml",
       "spack-environments/isambard-a64fx/compute-node/spack.yaml",
-      "spack-environments/isambard-cascadelake/compute-node/spack.yaml",
-      "spack-environments/tursa/cpu/spack.yaml",
-      "spack-environments/csd3-skylake/compute-node/spack.yaml",
-      "spack-environments/archer2/compute-node/spack.yaml",
       "spack-environments/myriad/compute-node/spack.yaml",
-      "spack-environments/github-actions/default/spack.yaml"
+      "spack-environments/isambard-cascadelake/compute-node/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1178,21 +1291,21 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-22.05/ci/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/decomposed/spack-gcc-cuda.yaml",
       "spack-configs/perlmutter-e4s-22.05/decomposed/spack-cce.yaml",
-      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/cori-e4s-22.02/ci/spack.yaml",
       "docs/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml",
       "spack-configs/perlmutter-e4s-22.05/decomposed/spack-gcc.yaml",
-      "spack-configs/perlmutter-user-spack/spack.yaml",
-      "spack-configs/perlmutter-e4s-21.11/spack.yaml",
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
       "spack-configs/perlmutter-e4s-21.11/ci/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/decomposed/spack-gcc-cuda.yaml"
+      "spack-configs/perlmutter-e4s-21.11/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/ci/spack.yaml",
+      "spack-configs/cori-e4s-22.02/ci/spack.yaml",
+      "spack-configs/perlmutter-user-spack/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1220,8 +1333,8 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
-      "environments/key4hep-nightlies/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-nightlies/spack.yaml",
       "environments/key4hep-nightlies-rootmod/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
@@ -1236,14 +1349,15 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/jedi-ufs-all/spack.yaml",
-      "configs/templates/hpc-stack-dev/spack.yaml",
-      "configs/templates/hpc-dev-v1/spack.yaml",
-      "configs/templates/skylab-no-python-dev/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml",
+      "configs/templates/ufs-srw-dev/spack.yaml",
+      "configs/templates/hpc-dev-v1/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
       "configs/templates/gfs-v16.2/spack.yaml",
+      "configs/templates/skylab-no-python-dev/spack.yaml",
+      "configs/templates/hpc-stack-dev/spack.yaml",
       "configs/templates/ufs-weather-model-static/spack.yaml",
-      "configs/templates/ufs-srw-dev/spack.yaml"
+      "configs/templates/jedi-ufs-all/spack.yaml"
     ],
     "full_name": "NOAA-EMC/spack-stack",
     "latest_release": "1.1.0",
@@ -1312,16 +1426,16 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/22.11/cuda-aarch64/spack.yaml",
-      "environments/22.08/cuda-x86_64.spack.yaml",
+      "environments/22.11/rocm-x86_64/spack.yaml",
+      "environments/22.08/cuda-aarch64.spack.yaml",
+      "environments/22.11/cuda-x86_64/spack.yaml",
       "environments/22.11/cuda-ppc64le/spack.yaml",
+      "environments/22.08/rocm.spack.yaml",
+      "environments/22.08/cuda-ppc64le.spack.yaml",
       "environments/22.08/oneapi.spack.yaml",
       "environments/22.11/oneapi-x86_64/spack.yaml",
-      "environments/22.08/cuda-ppc64le.spack.yaml",
-      "environments/22.11/cuda-x86_64/spack.yaml",
-      "environments/22.08/rocm.spack.yaml",
-      "environments/22.11/rocm-x86_64/spack.yaml",
-      "environments/22.08/cuda-aarch64.spack.yaml"
+      "environments/22.11/cuda-aarch64/spack.yaml",
+      "environments/22.08/cuda-x86_64.spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": null,
@@ -1349,19 +1463,19 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml",
-      "docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml",
       "docker-recipes/runner/rhel8-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml",
-      "docker-recipes/runner/ubuntu18.04-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml",
       "docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml",
+      "docker-recipes/runner/rhel8-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu18.04-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml",
       "docker-recipes/runner/rhel8-aarch64/spack.yaml",
       "docker-recipes/runner/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/rhel8-x86_64/spack.yaml"
+      "docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml",
+      "docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1484,11 +1598,10 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
+      "NERSC/perlmutter/e4s-21.11/spack.yaml",
+      "NERSC/perlmutter/e4s-21.11/ci/spack.yaml",
       "NERSC/perlmutter/e4s-22.05/ci/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml"
+      "NERSC/perlmutter/e4s-22.05/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1502,10 +1615,10 @@ var data =
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-lsf-gcc8_3_1/spack.yaml",
+      ".spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml",
       ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml",
       ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml"
+      ".spack-env/unifyfs-lsf-gcc8_3_1/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v1.0",
@@ -1546,35 +1659,13 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "A Full-Newton Finite Element Program for Free and Moving Boundary Problems with Coupled Fluid/Solid Momentum, Energy, Mass, and Chemical Species Transport",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "goma/goma",
-    "latest_release": "v7.3.0",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-goma\" class=\"anchor\" aria-hidden=\"true\" href=\"#goma\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGoma\u003c/h1\u003e\n\u003cp\u003eA Full-Newton Finite Element Program for Free and Moving Boundary Problems with Coupled Fluid/Solid Momentum, Energy, Mass, and Chemical Species Transport\u003c/p\u003e\n\u003cp\u003eFor more information see the \u003ca href=\"https://www.gomafem.com\" rel=\"nofollow\"\u003eGoma website\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eMost of the documentation can be found at \u003ca href=\"https://www.gomafem.com/documentation.html\" rel=\"nofollow\"\u003ehttps://www.gomafem.com/documentation.html\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSee \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e file. Some cmake modules under \u003ccode\u003ecmake/\u003c/code\u003e were modified from the Eigen library\nand are noted at the top of the cmake file.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-major-changes\" class=\"anchor\" aria-hidden=\"true\" href=\"#major-changes\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMajor Changes\u003c/h2\u003e\n\u003cp\u003eSee \u003ca href=\"CHANGES.md\"\u003eCHANGES.md\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-build-instructions\" class=\"anchor\" aria-hidden=\"true\" href=\"#build-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild Instructions\u003c/h2\u003e\n\u003cp\u003eSee \u003ca href=\"BUILD.md\"\u003eBUILD.md\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-spack-package\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-package\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack package\u003c/h2\u003e\n\u003cp\u003eThe Spack package manager \u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003ehttps://spack.io\u003c/a\u003e can be used to install\nGoma and all of Goma\u0027s third party libraries\u003c/p\u003e\n\u003cp\u003eCurrently available on the \u003ccode\u003edevelop\u003c/code\u003e branch of spack.\u003c/p\u003e\n\u003cp\u003eExample for a bash-like shell:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone https://github.com/spack/spack.git\n. spack/share/spack/setup-env.sh\nspack install goma\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information on build options see:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack info goma\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information on using spack see the \u003ca href=\"https://spack.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003espack documentation\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-third-party-libraries\" class=\"anchor\" aria-hidden=\"true\" href=\"#third-party-libraries\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThird party libraries\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eMetis 5.1.0 (Optional)\u003c/li\u003e\n\u003cli\u003eSEACAS 2022-01-27 (Required: Exodus and Aprepro)\u003c/li\u003e\n\u003cli\u003eBLAS/LAPACK (Configured through Trilinos)\u003c/li\u003e\n\u003cli\u003eTrilinos matrix solvers 13.0.1 and up (Required: AztecOO, Amesos, Epetra, TPL LAPACK; Optional: Stratimikos [with Teko, Ifpack, Belos, Tpetra])\u003c/li\u003e\n\u003cli\u003ePETSc matrix solvers (KSP, PC)\u003c/li\u003e\n\u003cli\u003eMUMPS 5.4.0 (through Trilinos or PETSc only)\u003c/li\u003e\n\u003cli\u003eSuperlu_dist 7.2.0 (through Trilinos or PETSc only, Trilinos requires parmetis build)\u003c/li\u003e\n\u003cli\u003eUMFPACK, SuiteSparse 5.10.1 (Optional)\u003c/li\u003e\n\u003cli\u003eARPACK/arpack-ng 3.8.0 (Optional)\u003c/li\u003e\n\u003cli\u003esparse 1.4b (Optional)\u003c/li\u003e\n\u003cli\u003eCatch2 (Optional testing)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-run-the-tutorial\" class=\"anchor\" aria-hidden=\"true\" href=\"#run-the-tutorial\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRun the tutorial\u003c/h3\u003e\n\u003cp\u003eTo get started with Goma, use the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://docs.gomafem.com/files/goma-beginners-tutorial.pdf\" rel=\"nofollow\"\u003eTutorial instructions\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://docs.gomafem.com/files/goma_beginners_tutorial.tar.gz\" rel=\"nofollow\"\u003eTutorial files tarball\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 89,
-    "subscribers_count": 24,
-    "topics": [
-      "finite-elements",
-      "finite-element-analysis",
-      "simulation",
-      "parallel",
-      "multiphysics",
-      "fem",
-      "snl-applications"
-    ],
-    "updated_at": 1670375120.0
-  },
-  {
-    "data_format": 2,
     "description": "SpECTRE is a code for multi-scale, multi-physics problems in astrophysics and gravitational physics.",
     "filenames": [
       "support/DevEnvironments/spack.yaml"
     ],
     "full_name": "sxs-collaboration/spectre",
-    "latest_release": "v2022.12.02",
-    "readme": "\u003cp\u003e\u003ca href=\"https://github.com/sxs-collaboration/spectre/blob/develop/LICENSE.txt\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/83d3746e5881c1867665223424263d8e604df233d0a11aae0813e0414d433943/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667\" alt=\"license\" data-canonical-src=\"https://img.shields.io/badge/license-MIT-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/C%2B%2B#Standardization\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a3dbfd7a9a0364af5f02772460bf69fce89f741e10fb7c8e9aa3f26a0d96cfe7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f632532422532422d31372d626c75652e737667\" alt=\"Standard\" data-canonical-src=\"https://img.shields.io/badge/c%2B%2B-17-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/sxs-collaboration/spectre/actions\"\u003e\u003cimg src=\"https://github.com/sxs-collaboration/spectre/workflows/Tests/badge.svg?branch=develop\" alt=\"Build Status\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/sxs-collaboration/spectre?branch=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/e909837c9640462fc3f2587028319e5f5dc6198453d97af6b12696ddeb34930b/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f7378732d636f6c6c61626f726174696f6e2f737065637472652f62616467652e7376673f6272616e63683d646576656c6f70\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/sxs-collaboration/spectre/badge.svg?branch=develop\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/sxs-collaboration/spectre\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2b0d1a9c279878e18a98627f608e86ad2f22a730eebd7713b9ba9b173a16cdbb/68747470733a2f2f636f6465636f762e696f2f67682f7378732d636f6c6c61626f726174696f6e2f737065637472652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/sxs-collaboration/spectre/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/sxs-collaboration/spectre/releases/tag/v2022.12.02\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a5833ab78b27ec6be69fb3cac87ee7633fe94e433bae195b21a12a3f289150d2/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656c656173652d76323032322e31322e30322d696e666f726d6174696f6e616c\" alt=\"release\" data-canonical-src=\"https://img.shields.io/badge/release-v2022.12.02-informational\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.7392128\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/1d776e574197ecea54188fe2799524c93bdd94d6fba01139db0149cb069cced0/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f646f692f31302e353238312f7a656e6f646f2e373339323132382e737667\" alt=\"DOI\" data-canonical-src=\"https://zenodo.org/badge/doi/10.5281/zenodo.7392128.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-what-is-spectre\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-spectre\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat is SpECTRE?\u003c/h2\u003e\n\u003cp\u003eSpECTRE is an open-source code for multi-scale, multi-physics problems\nin astrophysics and gravitational physics. In the future, we hope that\nit can be applied to problems across discipline boundaries in fluid\ndynamics, geoscience, plasma physics, nuclear physics, and\nengineering. It runs at petascale and is designed for future exascale\ncomputers.\u003c/p\u003e\n\u003cp\u003eSpECTRE is being developed in support of our collaborative Simulating\neXtreme Spacetimes (SXS) research program into the multi-messenger\nastrophysics of neutron star mergers, core-collapse supernovae, and\ngamma-ray bursts.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-citing-spectre\" class=\"anchor\" aria-hidden=\"true\" href=\"#citing-spectre\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting SpECTRE\u003c/h2\u003e\n\u003cp\u003ePlease cite SpECTRE in any publications that make use of its code or data. Cite\nthe latest version that you use in your publication. The DOI for this version\nis:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDOI: \u003ca href=\"https://doi.org/10.5281/zenodo.7392128\" rel=\"nofollow\"\u003e10.5281/zenodo.7392128\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYou can cite this BibTeX entry in your publication:\u003c/p\u003e\n\n\n\u003cdiv class=\"highlight highlight-text-bibtex\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003e@software\u003c/span\u003e{\u003cspan class=\"pl-en\"\u003espectrecode\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eauthor\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eDeppe, Nils and Throwe, William and Kidder, Lawrence E. and Vu,\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eNils L. and H\\\u0027ebert, Fran\\c{c}ois and Moxon, Jordan and Armaza, Crist\\\u0027obal and\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eBonilla, Gabriel S. and Kim, Yoonsoo and Kumar, Prayush and Lovelace, Geoffrey\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eand Macedo, Alexandra and Nelli, Kyle C. and O\u0027Shea, Eamonn and Pfeiffer, Harald\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eP. and Scheel, Mark A. and Teukolsky, Saul A. and Wittek, Nikolas A. and\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eothers\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003etitle\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\\texttt{SpECTRE v2022.12.02}\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eversion\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e2022.12.02\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003epublisher\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eZenodo\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003edoi\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e10.5281/zenodo.7392128\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eurl\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ehttps://spectre-code.org\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003ehowpublished\u003c/span\u003e =\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\\href{https://doi.org/10.5281/zenodo.7392128}{10.5281/zenodo.7392128}\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003elicense\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eMIT\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eyear\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e2022\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003emonth\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e12\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n}\u003c/pre\u003e\u003c/div\u003e\n\n\u003cp\u003eTo aid reproducibility of your scientific results with SpECTRE, we recommend you\nkeep track of the version(s) you used and report this information in your\npublication. We also recommend you supply the YAML input files and, if\nappropriate, any additional C++ code you wrote to compile SpECTRE executables as\nsupplemental material to the publication.\u003c/p\u003e\n\u003cp\u003eSee our \u003ca href=\"https://spectre-code.org/publication_policies.html\" rel=\"nofollow\"\u003epublication policy\u003c/a\u003e\nfor more information.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-viewing-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#viewing-documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eViewing Documentation\u003c/h2\u003e\n\u003cp\u003eThe documentation can be viewed at \u003ca href=\"https://spectre-code.org/\" rel=\"nofollow\"\u003ehttps://spectre-code.org/\u003c/a\u003e.\u003c/p\u003e\n",
+    "latest_release": "v2022.12.16",
+    "readme": "\u003cp\u003e\u003ca href=\"https://github.com/sxs-collaboration/spectre/blob/develop/LICENSE.txt\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/83d3746e5881c1867665223424263d8e604df233d0a11aae0813e0414d433943/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667\" alt=\"license\" data-canonical-src=\"https://img.shields.io/badge/license-MIT-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/C%2B%2B#Standardization\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a3dbfd7a9a0364af5f02772460bf69fce89f741e10fb7c8e9aa3f26a0d96cfe7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f632532422532422d31372d626c75652e737667\" alt=\"Standard\" data-canonical-src=\"https://img.shields.io/badge/c%2B%2B-17-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/sxs-collaboration/spectre/actions\"\u003e\u003cimg src=\"https://github.com/sxs-collaboration/spectre/workflows/Tests/badge.svg?branch=develop\" alt=\"Build Status\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://coveralls.io/github/sxs-collaboration/spectre?branch=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/e909837c9640462fc3f2587028319e5f5dc6198453d97af6b12696ddeb34930b/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f7378732d636f6c6c61626f726174696f6e2f737065637472652f62616467652e7376673f6272616e63683d646576656c6f70\" alt=\"Coverage Status\" data-canonical-src=\"https://coveralls.io/repos/github/sxs-collaboration/spectre/badge.svg?branch=develop\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/sxs-collaboration/spectre\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2b0d1a9c279878e18a98627f608e86ad2f22a730eebd7713b9ba9b173a16cdbb/68747470733a2f2f636f6465636f762e696f2f67682f7378732d636f6c6c61626f726174696f6e2f737065637472652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/sxs-collaboration/spectre/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/sxs-collaboration/spectre/releases/tag/v2022.12.16\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b4eb5543dfc881d90fb8064a6e373bb4c004b4585ad2d2afeeddb631389cbf0c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656c656173652d76323032322e31322e31362d696e666f726d6174696f6e616c\" alt=\"release\" data-canonical-src=\"https://img.shields.io/badge/release-v2022.12.16-informational\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.7447992\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/ab9c97d9d1e41cb777a715047e9a97b5e70307b5d1b7aa5e8da91711f71d1dc4/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f646f692f31302e353238312f7a656e6f646f2e373434373939322e737667\" alt=\"DOI\" data-canonical-src=\"https://zenodo.org/badge/doi/10.5281/zenodo.7447992.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-what-is-spectre\" class=\"anchor\" aria-hidden=\"true\" href=\"#what-is-spectre\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat is SpECTRE?\u003c/h2\u003e\n\u003cp\u003eSpECTRE is an open-source code for multi-scale, multi-physics problems\nin astrophysics and gravitational physics. In the future, we hope that\nit can be applied to problems across discipline boundaries in fluid\ndynamics, geoscience, plasma physics, nuclear physics, and\nengineering. It runs at petascale and is designed for future exascale\ncomputers.\u003c/p\u003e\n\u003cp\u003eSpECTRE is being developed in support of our collaborative Simulating\neXtreme Spacetimes (SXS) research program into the multi-messenger\nastrophysics of neutron star mergers, core-collapse supernovae, and\ngamma-ray bursts.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-citing-spectre\" class=\"anchor\" aria-hidden=\"true\" href=\"#citing-spectre\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting SpECTRE\u003c/h2\u003e\n\u003cp\u003ePlease cite SpECTRE in any publications that make use of its code or data. Cite\nthe latest version that you use in your publication. The DOI for this version\nis:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDOI: \u003ca href=\"https://doi.org/10.5281/zenodo.7447992\" rel=\"nofollow\"\u003e10.5281/zenodo.7447992\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYou can cite this BibTeX entry in your publication:\u003c/p\u003e\n\n\n\u003cdiv class=\"highlight highlight-text-bibtex\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003e@software\u003c/span\u003e{\u003cspan class=\"pl-en\"\u003espectrecode\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eauthor\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eDeppe, Nils and Throwe, William and Kidder, Lawrence E. and Vu,\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eNils L. and H\\\u0027ebert, Fran\\c{c}ois and Moxon, Jordan and Armaza, Crist\\\u0027obal and\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eBonilla, Gabriel S. and Kim, Yoonsoo and Kumar, Prayush and Lovelace, Geoffrey\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eand Macedo, Alexandra and Nelli, Kyle C. and O\u0027Shea, Eamonn and Pfeiffer, Harald\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eP. and Scheel, Mark A. and Teukolsky, Saul A. and Wittek, Nikolas A. and\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003eothers\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003etitle\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\\texttt{SpECTRE v2022.12.16}\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eversion\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e2022.12.16\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003epublisher\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eZenodo\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003edoi\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e10.5281/zenodo.7447992\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eurl\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ehttps://spectre-code.org\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003ehowpublished\u003c/span\u003e =\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\\href{https://doi.org/10.5281/zenodo.7447992}{10.5281/zenodo.7447992}\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003elicense\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eMIT\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003eyear\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e2022\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e,\n    \u003cspan class=\"pl-s\"\u003emonth\u003c/span\u003e = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e12\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n}\u003c/pre\u003e\u003c/div\u003e\n\n\u003cp\u003eTo aid reproducibility of your scientific results with SpECTRE, we recommend you\nkeep track of the version(s) you used and report this information in your\npublication. We also recommend you supply the YAML input files and, if\nappropriate, any additional C++ code you wrote to compile SpECTRE executables as\nsupplemental material to the publication.\u003c/p\u003e\n\u003cp\u003eSee our \u003ca href=\"https://spectre-code.org/publication_policies.html\" rel=\"nofollow\"\u003epublication policy\u003c/a\u003e\nfor more information.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-viewing-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#viewing-documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eViewing Documentation\u003c/h2\u003e\n\u003cp\u003eThe documentation can be viewed at \u003ca href=\"https://spectre-code.org/\" rel=\"nofollow\"\u003ehttps://spectre-code.org/\u003c/a\u003e.\u003c/p\u003e\n",
     "stargazers_count": 119,
     "subscribers_count": 14,
     "topics": [],
@@ -1598,14 +1689,13 @@ var data =
     "data_format": 2,
     "description": "WarpX is an advanced, time-based electromagnetic \u0026 electrostatic Particle-In-Cell code.",
     "filenames": [
-      "Tools/machines/desktop/spack-macos-openmp.yaml",
-      "Tools/machines/desktop/spack-debian-cuda.yaml",
-      "Tools/machines/desktop/spack-debian-rocm.yaml",
-      "Tools/machines/desktop/spack-ubuntu-openmp.yaml",
       "Tools/machines/desktop/spack-debian-openmp.yaml",
-      "Tools/machines/desktop/spack-ubuntu-cuda.yaml",
-      "Docs/spack.yaml",
-      "Tools/machines/desktop/spack-ubuntu-rocm.yaml"
+      "Tools/machines/desktop/spack-macos-openmp.yaml",
+      "Tools/machines/desktop/spack-debian-rocm.yaml",
+      "Tools/machines/desktop/spack-debian-cuda.yaml",
+      "Tools/machines/desktop/spack-ubuntu-openmp.yaml",
+      "Tools/machines/desktop/spack-ubuntu-rocm.yaml",
+      "Tools/machines/desktop/spack-ubuntu-cuda.yaml"
     ],
     "full_name": "ECP-WarpX/WarpX",
     "latest_release": "22.12",
@@ -1626,43 +1716,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "HPC solver for nonlinear optimization problems",
-    "filenames": [
-      "scripts/platforms/summit/spack.yaml"
-    ],
-    "full_name": "LLNL/hiop",
-    "latest_release": "v0.7.1",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-hiop---hpc-solver-for-optimization\" class=\"anchor\" aria-hidden=\"true\" href=\"#hiop---hpc-solver-for-optimization\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHiOp - HPC solver for optimization\u003c/h1\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/LLNL/hiop/workflows/tests/badge.svg\"\u003e\u003cimg src=\"https://github.com/LLNL/hiop/workflows/tests/badge.svg\" alt=\"tests\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eHiOp is an optimization solver for solving certain mathematical optimization problems expressed as nonlinear programming problems. HiOp is a lightweight HPC solver that leverages application\u0027s existing data parallelism to parallelize the optimization iterations by using specialized parallel linear algebra kernels.\u003c/p\u003e\n\u003cp\u003ePlease cite the user manual whenever HiOp is used:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@TECHREPORT{hiop_techrep,\n  title={{HiOp} -- {U}ser {G}uide},\n  author={Petra, Cosmin G. and Chiang, NaiYuan and Jingyi Wang},\n  year={2018},\n  institution = {Center for Applied Scientific Computing, Lawrence Livermore National Laboratory},\n  number = {LLNL-SM-743591}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn addition, when using the quasi-Newton solver please cite:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@ARTICLE{Petra_18_hiopdecomp,\ntitle = {A memory-distributed quasi-Newton solver for nonlinear programming problems with a small number of general constraints},\njournal = {Journal of Parallel and Distributed Computing},\nvolume = {133},\npages = {337-348},\nyear = {2019},\nissn = {0743-7315},\ndoi = {https://doi.org/10.1016/j.jpdc.2018.10.009},\nurl = {https://www.sciencedirect.com/science/article/pii/S0743731518307731},\nauthor = {Cosmin G. Petra},\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand when using the the PriDec solver please cite:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@article{wang2022,\n  archivePrefix = {arXiv},\n  eprint = {arXiv:2204.09631},\n  author = {J. Wang and C. G. Petra},\n  title = {An optimization algorithm for nonsmooth nonconvex problems with upper-$C^2$ objective},\n  publisher = {arXiv},\n  year = {2022},\n  journal={ (submitted) },\n}\n@INPROCEEDINGS{wang2021,\n  author={Wang, Jingyi and Chiang, Nai-Yuan and Petra, Cosmin G.},\n  booktitle={2021 20th International Symposium on Parallel and Distributed Computing (ISPDC)}, \n  title={An asynchronous distributed-memory optimization solver for two-stage stochastic programming problems}, \n  year={2021},\n  volume={},\n  number={},\n  pages={33-40},\n  doi={10.1109/ISPDC52870.2021.9521613}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-buildinstall-instructions\" class=\"anchor\" aria-hidden=\"true\" href=\"#buildinstall-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild/install instructions\u003c/h2\u003e\n\u003cp\u003eHiOp uses a CMake-based build system. A standard build can be done by invoking in the \u0027build\u0027 directory the following\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake ..\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThis sequence will build HiOp, run integrity and correctness tests, and install the headers and the library in the directory \u0027_dist-default-build\u0027 in HiOp\u0027s root directory.\u003c/p\u003e\n\u003cp\u003eCommand \u003ccode\u003emake test\u003c/code\u003e runs extensive tests of the various modules of HiOp to check integrity and correctness. The tests suite range from unit testing to solving concrete optimization problems and checking the performance of HiOp solvers on these problems against known solutions. By default \u003ccode\u003emake test\u003c/code\u003e runs \u003ccode\u003empirun\u003c/code\u003e locally, which may not work on some HPC machines. For these HiOp allows using \u003ccode\u003ebsub\u003c/code\u003e to schedule \u003ccode\u003emake test\u003c/code\u003e on the compute nodes; to enable this, the use should use \u003cem\u003e-DHIOP_TEST_WITH_BSUB=ON\u003c/em\u003e with cmake when building and run \u003ccode\u003emake test\u003c/code\u003e in a bsub shell session, for example,\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ebsub -P your_proj_name -nnodes 1 -W 30\nmake test\nCTRL+D\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe installation can be customized using the standard CMake options. For example, one can provide an alternative installation directory for HiOp by using\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DCMAKE_INSTALL_PREFIX=/usr/lib/hiop ..\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-selected-hiop-specific-build-options\" class=\"anchor\" aria-hidden=\"true\" href=\"#selected-hiop-specific-build-options\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSelected HiOp-specific build options\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eEnable/disable MPI: \u003cem\u003e-DHIOP_USE_MPI=[ON/OFF]\u003c/em\u003e (by default ON)\u003c/li\u003e\n\u003cli\u003eGPU support: \u003cem\u003e-DHIOP_USE_GPU=ON\u003c/em\u003e. MPI can be either off or on. For more build system options related to GPUs, see \"Dependencies\" section below.\u003c/li\u003e\n\u003cli\u003eEnable/disable \"developer mode\" build that enforces more restrictive compiler rules and guidelines: \u003cem\u003e-DHIOP_DEVELOPER_MODE=ON\u003c/em\u003e. This option is by default off.\u003c/li\u003e\n\u003cli\u003eAdditional checks and self-diagnostics inside HiOp meant to detect abnormalities and help to detect bugs and/or troubleshoot problematic instances: \u003cem\u003e-DHIOP_DEEPCHECKS=[ON/OFF]\u003c/em\u003e (by default ON). Disabling HIOP_DEEPCHECKS usually provides 30-40% execution speedup in HiOp. For full strength, it is recommended to use HIOP_DEEPCHECKS with debug builds. With non-debug builds, in particular the ones that disable the assert macro, HIOP_DEEPCHECKS does not perform all checks and, thus, may overlook potential issues.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_MPI=ON -DHIOP_DEEPCHECKS=ON ..\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-other-useful-options-to-use-with-cmake\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-useful-options-to-use-with-cmake\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOther useful options to use with CMake\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003e-DCMAKE_BUILD_TYPE=Release\u003c/em\u003e will build the code with the optimization flags on\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003e-DCMAKE_CXX_FLAGS=\"-O3\"\u003c/em\u003e will enable a high level of compiler code optimization\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#dependencies\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDependencies\u003c/h3\u003e\n\u003cp\u003eA complete list of dependencies is maintained \u003ca href=\"https://github.com/spack/spack/blob/develop/var/spack/repos/builtin/packages/hiop/package.py\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eFor a minimal build, HiOp requires LAPACK and BLAS. These dependencies are automatically detected by the build system. MPI is optional and by default enabled. To disable use cmake option \u0027-DHIOP_USE_MPI=OFF\u0027.\u003c/p\u003e\n\u003cp\u003eHiOp has support for NVIDIA \u003cstrong\u003eGPU-based computations\u003c/strong\u003e via CUDA and Magma. To enable the use of GPUs, use cmake with \u0027-DHIOP_USE_GPU=ON\u0027. The build system will automatically search for CUDA Toolkit. For non-standard CUDA Toolkit installations, use \u0027-DHIOP_CUDA_LIB_DIR=/path\u0027 and \u0027-DHIOP_CUDA_INCLUDE_DIR=/path\u0027. For \"very\" non-standard CUDA Toolkit installations, one can specify the directory of cuBlas libraries as well with \u0027-DHIOP_CUBLAS_LIB_DIR=/path\u0027.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-using-raja-and-umpire-portability-libraries\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-raja-and-umpire-portability-libraries\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing RAJA and Umpire portability libraries\u003c/h3\u003e\n\u003cp\u003ePortability libraries allow running HiOp\u0027s linear algebra either on host (CPU) or a device (GPU). RAJA and Umpire are disabled by default. You can turn them on together by passing \u003ccode\u003e-DHIOP_USE_RAJA=ON\u003c/code\u003e to CMake. If the two libraries are not automatically found, specify their installation directories like this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_RAJA=ON -DRAJA_DIR=/path/to/raja/dir -Dumpire_DIR=/path/to/umpire/dir\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf the GPU support is enabled, RAJA will run all HiOp linear algebra kernels on GPU, otherwise RAJA will run the kernels on CPU using an OpenMP execution policy.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-support-for-gpu-computations\" class=\"anchor\" aria-hidden=\"true\" href=\"#support-for-gpu-computations\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupport for GPU computations\u003c/h3\u003e\n\u003cp\u003eWhen GPU support is on, HiOp requires Magma linear solver library and CUDA Toolkit. Both are detected automatically in most cases. The typical cmake command to enable GPU support in HiOp is\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_GPU=ON ..\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eWhen Magma is not detected, one can specify its location by passing \u003ccode\u003e-DHIOP_MAGMA_DIR=/path/to/magma/dir\u003c/code\u003e to cmake.\u003c/p\u003e\n\u003cp\u003eFor custom CUDA Toolkit installations, the locations to the (missing/not found) CUDA libraries can be specified to cmake via \u003ccode\u003e-DNAME=/path/cuda/directory/lib\u003c/code\u003e, where \u003ccode\u003eNAME\u003c/code\u003e can be any of\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eCUDA_cublas_LIBRARY\nCUDA_CUDART_LIBRARY\nCUDA_cudadevrt_LIBRARY\nCUDA_cusparse_LIBRARY\nCUDA_cublasLt_LIBRARY\nCUDA_nvblas_LIBRARY\nCUDA_culibos_LIBRARY\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBelow is an example for specifiying \u003ccode\u003ecuBlas\u003c/code\u003e, \u003ccode\u003ecuBlasLt\u003c/code\u003e, and \u003ccode\u003envblas\u003c/code\u003e libraries, which were \u003ccode\u003eNOT_FOUND\u003c/code\u003e because of a non-standard CUDA Toolkit instalation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_GPU=ON -DCUDA_cublas_LIBRARY=/usr/local/cuda-10.2/targets/x86_64-linux/lib/lib64 -DCUDA_cublasLt_LIBRARY=/export/home/petra1/work/installs/cuda10.2.89/targets/x86_64-linux/lib/ -DCUDA_nvblas_LIBRARY=/export/home/petra1/work/installs/cuda10.2.89/targets/x86_64-linux/lib/ .. \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make -j \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eA detailed example on how to compile HiOp straight of the box on \u003ccode\u003esummit.olcf.ornl.gov\u003c/code\u003e is available \u003ca href=\"README_summit.md\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eRAJA and UMPIRE dependencies are usually detected by HiOp\u0027s cmake build system.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-kron-reduction\" class=\"anchor\" aria-hidden=\"true\" href=\"#kron-reduction\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eKron reduction\u003c/h3\u003e\n\u003cp\u003eKron reduction functionality of HiOp is disabled by default. One can enable it by using\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e rm -rf \u003cspan class=\"pl-k\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e cmake -DHIOP_WITH_KRON_REDUCTION=ON -DUMFPACK_DIR=/Users/petra1/work/installs/SuiteSparse-5.7.1 -DMETIS_DIR=/Users/petra1/work/installs/metis-4.0.3 .. \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make -j \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eMetis is usually detected automatically and needs not be specified under normal circumstances.\u003c/p\u003e\n\u003cp\u003eUMFPACK (part of SuiteSparse) and METIS need to be provided as shown above.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-interfacing-with-hiop\" class=\"anchor\" aria-hidden=\"true\" href=\"#interfacing-with-hiop\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInterfacing with HiOp\u003c/h1\u003e\n\u003cp\u003eHiOp supports three types of optimization problems, each with a separate input formats in the form of the C++ interfaces \u003ccode\u003ehiopInterfaceDenseConstraints\u003c/code\u003e,\u003ccode\u003ehiopInterfaceSparse\u003c/code\u003e and \u003ccode\u003ehiopInterfaceMDS\u003c/code\u003e. These interfaces are specified in \u003ca href=\"src/Interface/hiopInterface.hpp\"\u003ehiopInterface.hpp\u003c/a\u003e and documented and discussed as well in the \u003ca href=\"doc/hiop_usermanual.pdf\"\u003euser manual\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceDenseConstraints\u003c/code\u003e interface\u003c/em\u003e supports NLPs with \u003cstrong\u003ebillions\u003c/strong\u003e of variables with and without bounds but only limited number (\u0026lt;100) of general, equality and inequality constraints. The underlying algorithm is a limited-memory quasi-Newton interior-point method and generally scales well computationally (but it may not algorithmically) on thousands of cores. This interface uses MPI for parallelization\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceSparse\u003c/code\u003e interface\u003c/em\u003e supports general sparse and large-scale NLPs. This functionality is similar to that of the state-of-the-art \u003ca href=\"https://github.com/coin-or/Ipopt\"\u003eIpopt\u003c/a\u003e (without being as robust and flexible as Ipopt is). Acceleration for this class of problems can be achieved via OpenMP or CUDA, however, this is work in progress and you are encouraged to contact HiOp\u0027s developers for up-to-date information.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceMDS\u003c/code\u003e interface\u003c/em\u003e supports mixed dense-sparse NLPs and achives parallelization using GPUs and RAJA portability abstraction layer.\u003c/p\u003e\n\u003cp\u003eMore information on the HiOp interfaces are \u003ca href=\"src/Interface/README.md\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-running-hiop-tests-and-applications\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-hiop-tests-and-applications\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning HiOp tests and applications\u003c/h2\u003e\n\u003cp\u003eHiOp is using NVBlas library when built with CUDA support. If you don\u0027t specify\nlocation of the \u003ccode\u003envblas.conf\u003c/code\u003e configuration file, you may get an annoying\nwarnings. HiOp provides default \u003ccode\u003envblas.conf\u003c/code\u003e file and installs it at the same\nlocation as HiOp libraries. To use it, set environment variable as\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e NVBLAS_CONFIG_FILE=\u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003ehiop install dir\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e/lib/nvblas.conf\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eor, if you are using C-shell, as\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ setenv NVBLAS_CONFIG_FILE \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003ehiop install dir\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e/lib/nvblas.conf\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-existing-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#existing-issues\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExisting issues\u003c/h2\u003e\n\u003cp\u003eUsers are highly encouraged to report any issues they found from using HiOp.\nOne known issue is that there is some minor inconsistence between HiOp and linear package STRUMPACK.\nWhen STRUMPACK is compiled with MPI (and Scalapack), user must set flag \u003ccode\u003eHIOP_USE_MPI\u003c/code\u003e to \u003ccode\u003eON\u003c/code\u003e when compiling HiOp.\nOtherwise HiOp won\u0027t load MPI module and will return an error when links to STRUMPACK, since the later one requires a valid MPI module.\nSimilarly, if both Magma and STRUMPACK are linked to HiOp, user must guarantee the all the packages are compiled by the same CUDA compiler.\nUser can check other issues and their existing status from \u003ca href=\"https://github.com/LLNL/hiop\"\u003ehttps://github.com/LLNL/hiop\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n\u003cp\u003eHiOp has been developed under the financial support of:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDepartment of Energy, Office of Advanced Scientific Computing Research (ASCR): Exascale Computing Program (ECP) and Applied Math Program.\u003c/li\u003e\n\u003cli\u003eDepartment of Energy, Advanced Research Projects Agency-Energy (ARPA\u2011E)\u003c/li\u003e\n\u003cli\u003eLawrence Livermore National Laboratory Institutional Scientific Capability Portfolio (ISCP)\u003c/li\u003e\n\u003cli\u003eLawrence Livermore National Laboratory, through the LDRD program\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\u003ca id=\"user-content-contributors\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributors\u003c/h1\u003e\n\u003cp\u003eHiOp is written by Cosmin G. Petra (\u003ca href=\"mailto:petra1@llnl.gov\"\u003epetra1@llnl.gov\u003c/a\u003e), Nai-Yuan Chiang (\u003ca href=\"mailto:chiang7@llnl.gov\"\u003echiang7@llnl.gov\u003c/a\u003e), and Jingyi \"Frank\" Wang (\u003ca href=\"mailto:wang125@llnl.gov\"\u003ewang125@llnl.gov\u003c/a\u003e) from LLNL and has received important contributions from Asher Mancinelli (PNNL), Slaven Peles (ORNL), Cameron Rutherford (PNNL), Jake K. Ryan (PNNL), and Michel Schanen (ANL).\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright\u003c/h1\u003e\n\u003cp\u003eCopyright (c) 2017-2021, Lawrence Livermore National Security, LLC. All rights reserved. Produced at the Lawrence Livermore National Laboratory. LLNL-CODE-742473. HiOp is free software; you can modify it and/or redistribute it under the terms of the BSD 3-clause license. See \u003ca href=\"/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e and \u003ca href=\"/LICENSE\"\u003eLICENSE\u003c/a\u003e for complete copyright and license information.\u003c/p\u003e\n",
-    "stargazers_count": 165,
-    "subscribers_count": 14,
-    "topics": [
-      "hpc",
-      "nonlinear-optimization",
-      "nonlinear-programming",
-      "nonlinear-optimization-algorithms",
-      "nonlinear-programming-algorithms",
-      "interior-point-method",
-      "parallel-programming",
-      "mpi",
-      "bfgs",
-      "quasi-newton",
-      "constrained-optimization",
-      "solver",
-      "optimization",
-      "acopf",
-      "gpu-support",
-      "cuda",
-      "math-physics",
-      "radiuss"
-    ],
-    "updated_at": 1671139880.0
-  },
-  {
-    "data_format": 2,
     "description": "WAVEWATCH III",
     "filenames": [
-      "model/ci/spack_gnu.yaml",
-      "model/ci/spack_intel.yaml"
+      "model/ci/spack_intel.yaml",
+      "model/ci/spack_gnu.yaml"
     ],
     "full_name": "NOAA-EMC/WW3",
     "latest_release": "6.07.1",
@@ -1676,12 +1733,12 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.4.1",

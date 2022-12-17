@@ -61,14 +61,20 @@ spack:
 
   specs:
   # ERRORS
+  - eckit@1.19.0                            # eckit@1.19.0
   - esmf@8.3.0b09 +pio                      # esmf
+  - fms@2019.01.03                          # fms
   - gftl-shared@1.5.0                       # gtfl-shared
   - hdf@4.2.15                              # krb5
+  - odc@1.4.5                               # eckit@1.20.2
   - py-pandas@1.4.0                         # py-setuptools-scm
   - py-scipy@1.8.0                          # py-scipy
   - w3nco@2.4.1                             # w3nco
   # --
+  # eckit@1.19.0: eckit/sql/sqly.c:817:3: error: source file is not valid UTF-8
+  # eckit@1.20.2: eckit/sql/sqly.c:817:3: error: use of undeclared identifier 'pЇ' [looks like encoding error? utf-8 error?]
   # esmf: patch failed: 1 out of 1 hunk FAILED -- saving rejects to file src/Infrastructure/Mesh/src/Legacy/ESMCI_MeshPNC.C.rej, ESMCI_WriteWeightsPar.C.rej
+  # fms: CMake Warning: Ignoring extra path from command line: "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-b6pzdt3ck3eqeubrs5joas5wek4pa23x/spack-src" CMake Error: The source directory "/tmp/root/spack-stage/spack-stage-fms-2019.01.03-b6pzdt3ck3eqeubrs5joas5wek4pa23x/spack-src" does not appear to contain CMakeLists.txt.
   # gtfl-shared: CMake Error at CMakeLists.txt:35 (include): include could not find requested file: IntelLLVM
   # krb5: getdate.y:192:13: error: 'yyYear' undeclared (first use in this function); did you mean 'yychar'?
   # krb5: many more Werror=...

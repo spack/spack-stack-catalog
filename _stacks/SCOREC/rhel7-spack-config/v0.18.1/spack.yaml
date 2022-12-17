@@ -60,12 +60,14 @@ spack:
   - mpich ~fortran %clang@15.0.2
   - openmpi +cuda %gcc@11.2.0
   - hypre %gcc@11.2.0
-  - fftw %gcc@11.2.0
+  - fftw %gcc@11.2.0 ^mpich@4.0.2
   - netcdf-cxx4 ~doc %gcc@11.2.0
   - nco %gcc@11.2.0
   - netlib-lapack %gcc@11.2.0
+  - netlib-scalapack %gcc@11.2.0 ^mpich@4.0.2
   - netcdf-c +parallel-netcdf %gcc@11.2.0
   - netcdf-fortran %gcc@11.2.0
+  - esmf %gcc@11.2.0
   - $pumi
   - $pumiSim18.0-220930beta
   compilers:
