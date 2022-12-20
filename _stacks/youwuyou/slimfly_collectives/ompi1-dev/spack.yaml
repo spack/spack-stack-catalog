@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - osu-micro-benchmarks
+  - mpip
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    openmpi:
+      spec: openmpi@1.10.7+legacylaunchers fabrics=auto schedulers=none

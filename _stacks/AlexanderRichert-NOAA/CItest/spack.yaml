@@ -1,0 +1,11 @@
+# Spack environment file to build UPP dependencies
+spack:
+  packages:
+    all:
+      compiler:
+      - intel
+  specs:
+  - hdf5@1.10.2
+  view: true
+  concretizer:
+    unify: true
