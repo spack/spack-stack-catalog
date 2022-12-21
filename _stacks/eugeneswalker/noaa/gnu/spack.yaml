@@ -53,6 +53,7 @@ spack:
   - libpng@1.6.37
   - libyaml@0.2.5
   - nccmp@1.9.0.1
+  - nco@5.0.6
   - netcdf-c@4.8.1
   - netcdf-fortran@4.5.4
   - nlohmann-json-schema-validator@2.1.0
@@ -81,7 +82,6 @@ spack:
   # NEED TO ADD VERSION
   # - crtm@v2.3-jedi.4                      # add version: private?
   # - fms@release-jcsda                     # add version: private?
-  # - nco@5.0.6                             # add version: https://github.com/spack/spack/pull/34512
   # - netcdf-cxx@4.3.1                      # add version: deprecated? use new package?
 
   # NEED TO ADD PACKAGE

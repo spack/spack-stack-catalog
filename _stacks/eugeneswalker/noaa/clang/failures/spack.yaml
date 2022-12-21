@@ -31,8 +31,8 @@ spack:
   - compiler:
       spec: clang@15.0.6
       paths:
-        cc: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang
-        cxx: /spack/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholde/linux-ubuntu20.04-x86_64/gcc-11.1.0/llvm-15.0.6-yo3ejan3zqj4nrhkxiunn7ia3nqdispg/bin/clang++
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       flags: {}

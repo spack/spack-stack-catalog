@@ -8,7 +8,7 @@ spack:
   packages:
     all:
       target: [x86_64]
-      require: '%oneapi@2022.2.1'
+      require: '%oneapi@2023.0.0'
     mpi:
       require: intel-oneapi-mpi
     autoconf:
@@ -20,12 +20,12 @@ spack:
 
   compilers:
   - compiler:
-      spec: oneapi@2022.2.1
+      spec: oneapi@2023.0.0
       paths:
-        cc: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/icx
-        cxx: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/icpx
-        f77: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/ifx
-        fc: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/ifx
+        cc: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/icpx
+        f77: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/ifx
       flags: {}
       operating_system: ubuntu20.04
       target: x86_64
@@ -33,12 +33,12 @@ spack:
       environment: {}
       extra_rpaths: []
   - compiler:
-      spec: dpcpp@2022.2.1
+      spec: dpcpp@2023.0.0
       paths:
-        cc: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/icx
-        cxx: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/dpcpp
-        f77: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/ifx
-        fc: /opt/intel/oneapi/compiler/2022.2.1/linux/bin/ifx
+        cc: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/dpcpp
+        f77: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2023.0.0/linux/bin/ifx
       flags: {}
       operating_system: ubuntu20.04
       target: x86_64
@@ -66,7 +66,6 @@ spack:
   - crtm@2.3.0
   - ecbuild@3.6.5
   - eccodes@2.25.0
-  - ecflow@5.8.3
   - eigen@3.4.0
   - flex@2.6.4
   - fms@2022.01
@@ -80,6 +79,7 @@ spack:
   - libpng@1.6.37
   - libyaml@0.2.5
   - nccmp@1.9.0.1
+  - nco@5.0.6
   - netcdf-c@4.8.1
   - netcdf-fortran@4.5.4
   - nlohmann-json-schema-validator@2.1.0
@@ -93,6 +93,7 @@ spack:
   - zlib@1.2.12                               # deprecated version
 
   # ERRORS
+  # - ecflow@5.8.3                            # ecflow
   # - eckit@1.19.0                            # eckit@1.19.0
   # - esmf@8.3.0b09 +pio                      # esmf
   # - fms@2019.01.03                          # fms
@@ -103,6 +104,7 @@ spack:
   # - py-scipy@1.8.0                          # py-scipy
   # - w3nco@2.4.1                             # w3nco
   # --
+  # ecflow: boost/mpl/aux_/integral_wrapper.hpp:73:31: error: integer value -1 is outside the valid range of values [0, 3] for this enumeration type [-Wenum-constexpr-conversion]
   # eckit@1.19.0: eckit/sql/sqly.c:817:3: error: source file is not valid UTF-8
   # eckit@1.20.2: eckit/sql/sqly.c:817:3: error: use of undeclared identifier 'pЇ' [looks like encoding error? utf-8 error?]
   # esmf: patch failed: 1 out of 1 hunk FAILED -- saving rejects to file src/Infrastructure/Mesh/src/Legacy/ESMCI_MeshPNC.C.rej, ESMCI_WriteWeightsPar.C.rej
@@ -118,7 +120,6 @@ spack:
   # NEED TO ADD VERSION
   # - crtm@v2.3-jedi.4                      # add version: private?
   # - fms@release-jcsda                     # add version: private?
-  # - nco@5.0.6                             # add version: https://github.com/spack/spack/pull/34512
   # - netcdf-cxx@4.3.1                      # add version: deprecated? use new package?
 
   # NEED TO ADD PACKAGE
