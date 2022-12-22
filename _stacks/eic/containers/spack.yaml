@@ -8,6 +8,7 @@ spack:
     - cli11@2.1.1
     - cmake@3.24.3
     - cnpy@master
+    - cppcoro@git.10bbcdbf2be3ad3aa56febcf4c7662d771460a99
     - dawn@3_91a
     - dawncut@1_54a
     - dd4hep@1.23 +ddg4 +ddcad +hepmc3 +ipo +lcio
