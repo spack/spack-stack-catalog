@@ -2,4 +2,4 @@ spack:
         specs:
                 - compss
                 - py-dislib
-                - kratos apps=LinearSolversApplication,FluidDynamicsApplication,StructuralMechanicsApplication,ConvectionDiffusionApplication,RomApplication
+                - kratos@9.1.4 apps=LinearSolversApplication,FluidDynamicsApplication,StructuralMechanicsApplication,ConvectionDiffusionApplication,RomApplication
