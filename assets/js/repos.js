@@ -2,6 +2,20 @@ var data =
 [
   {
     "data_format": 2,
+    "description": "Container building infrastructure",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "eic/containers",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-eic-software-environment-container\" class=\"anchor\" aria-hidden=\"true\" href=\"#eic-software-environment-container\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEIC software environment container\u003c/h1\u003e\n\u003cp\u003eFor installation instructions of \u003ccode\u003eeic-shell\u003c/code\u003e, see \u003ca href=\"https://github.com/eic/eic-shell\"\u003ehttps://github.com/eic/eic-shell\u003c/a\u003e.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1669259240.0
+  },
+  {
+    "data_format": 2,
     "description": "Set up a simplified test case based on spack/HDF5 build fail due to /usr/local contents",
     "filenames": [
       "spack.yaml"
@@ -74,9 +88,9 @@ var data =
     "data_format": 2,
     "description": "SKA Spack environments related files",
     "filenames": [
-      "ska-env_izar/spack.yaml",
+      "ska-env_helvetios-debug/spack.yaml",
       "ska-env_helvetios/spack.yaml",
-      "ska-env_helvetios-debug/spack.yaml"
+      "ska-env_izar/spack.yaml"
     ],
     "full_name": "epfl-radio-astro/ska-spack-env",
     "latest_release": null,
@@ -90,9 +104,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "oneapi/spack.yaml",
       "gnu/spack.yaml",
-      "nvhpc/spack.yaml",
-      "oneapi/spack.yaml"
+      "nvhpc/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa-prototyping",
     "latest_release": null,
@@ -103,28 +117,26 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "my spack environments for software builds",
+    "description": null,
     "filenames": [
-      "esmfserialbld/spack.yaml",
-      "pioserialbld/spack.yaml",
-      "esmfbld/spack.yaml",
-      "paralleliobld/spack.yaml",
-      "mpiserialbld/spack.yaml"
+      "gnu_release_x86_64/spack.yaml",
+      "intel_release_x86_64/spack.yaml",
+      "gnu_master_x86_64/spack.yaml",
+      "intel_master_x86_64/spack.yaml"
     ],
-    "full_name": "jedwards4b/spackenvironments",
+    "full_name": "hppritcha/spack_ompix",
     "latest_release": null,
+    "readme": "\u003cp\u003eProject for using Gitlab CI to test spack builds of Open MPI master and release tarballs.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 1,
+    "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1664981968.0
+    "updated_at": 1640037910.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
       "environments/hpccf/farm/r-stack/spack.yaml",
-      "environments/hpccf/franklin/cluster-core/spack.yaml",
-      "environments/hpccf/franklin/cryoem/spack.yaml",
       "environments/hpccf/franklin/r-stack/spack.yaml"
     ],
     "full_name": "ucdavis/spack-ucdavis",
@@ -137,43 +149,31 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "gnu_release_x86_64/spack.yaml",
-      "intel_master_x86_64/spack.yaml",
-      "intel_release_x86_64/spack.yaml",
-      "gnu_master_x86_64/spack.yaml"
-    ],
-    "full_name": "hppritcha/spack_ompix",
-    "latest_release": null,
-    "readme": "\u003cp\u003eProject for using Gitlab CI to test spack builds of Open MPI master and release tarballs.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1640037910.0
-  },
-  {
-    "data_format": 2,
     "description": "CEES spack configurations (take 3). Focus on environments only (or mostly), and modular configs.",
     "filenames": [
-      "configs/spack_petsc_mod.yaml",
-      "spack_env_files/cees-x86-intel_spack.yaml",
-      "spack_env_files/py-bottleneck_spack.yaml",
+      "dev_configs/cees-x86-intel_spack.yaml",
+      "spack_env_files/dev_cees-x86-intel_spack.yaml",
       "spack_env_files/pflotran_ompi_sif_spack.yaml",
       "spack_env_files/paraview_spack.yaml",
-      "spack_env_files/dev_paraview_spack.yaml",
-      "spack_env_files/dev_cees-x86-intel_spack.yaml",
-      "spack_env_files/cees_skylake-beta_spack.yaml",
-      "spack_env_files/cees-x86-oneapi_spack.yaml",
-      "spack_env_files/cees_compilers_spack.yaml",
-      "spack_env_files/cees_x86_64-beta_spack.yaml",
-      "spack_env_files/cees_seissol_spack.yaml",
-      "spack_env_files/dev_py-bottleneck_spack.yaml",
-      "spack_env_files/dev_cees-x86-oneapi_spack.yaml",
+      "dev_configs/pflotran_spack.yaml",
       "spack_env_files/cees_zen2-beta_spack.yaml",
+      "spack_env_files/cees_compilers_spack.yaml",
       "spack_env_files/pflotran_sif_spack.yaml",
-      "spack_env_files/pflotran_spack.yaml",
-      "spack_env_files/cees_kimlab_spack.yaml"
+      "spack_env_files/cees_skylake-beta_spack.yaml",
+      "dev_configs/paraview_spack.yaml",
+      "configs/spack_petsc_mod.yaml",
+      "spack_env_files/cees_seissol_spack.yaml",
+      "spack_env_files/cees-x86-intel_spack.yaml",
+      "spack_env_files/cees_kimlab_spack.yaml",
+      "spack_env_files/cees_x86_64-beta_spack.yaml",
+      "spack_env_files/dev_cees-x86-oneapi_spack.yaml",
+      "spack_env_files/dev_py-bottleneck_spack.yaml",
+      "spack_env_files/cees-x86-oneapi_spack.yaml",
+      "dev_configs/cees-x86-oneapi_spack.yaml",
+      "spack_env_files/py-bottleneck_spack.yaml",
+      "spack_env_files/dev_paraview_spack.yaml",
+      "dev_configs/py-bottleneck_spack.yaml",
+      "spack_env_files/pflotran_spack.yaml"
     ],
     "full_name": "jeffersonscientific/cees_spack_configs",
     "latest_release": null,
@@ -187,21 +187,25 @@ var data =
     "data_format": 2,
     "description": "Configuration files for Spack at Pawsey",
     "filenames": [
-      "setonix/environments/env_langs/spack.yaml",
-      "joey/environments/env_apps/spack.yaml",
-      "setonix/environments/env_s3_clients/spack.yaml",
-      "setonix/environments/env_vis/spack.yaml",
-      "setonix/environments/env_num_libs/spack.yaml",
-      "setonix/environments/env_astro/spack.yaml",
-      "setonix/environments/env_roms/spack.yaml",
-      "setonix/environments/env_devel/spack.yaml",
-      "setonix/environments/env_bench/spack.yaml",
-      "setonix/environments/env_apps/spack.yaml",
-      "setonix/environments/env_io_libs/spack.yaml",
+      "setonix/environments/env_bio/spack.yaml",
       "setonix/environments/env_utils/spack.yaml",
+      "examples/joey_sprint/env_io/spack.yaml",
+      "setonix/environments/env_devel/spack.yaml",
+      "examples/joey_sprint/env_TEMPLATE/spack.yaml",
+      "examples/joey_sprint/env_marco/spack.yaml",
+      "joey/environments/env_apps/spack.yaml",
+      "setonix/environments/env_astro/spack.yaml",
+      "setonix/environments/env_s3_clients/spack.yaml",
+      "setonix/environments/env_io_libs/spack.yaml",
+      "setonix/environments/env_bench/spack.yaml",
+      "examples/joey_sprint/env_astro/spack.yaml",
       "setonix/environments/env_wrf/spack.yaml",
+      "setonix/environments/env_roms/spack.yaml",
+      "setonix/environments/env_langs/spack.yaml",
       "setonix/environments/env_python/spack.yaml",
-      "setonix/environments/env_bio/spack.yaml"
+      "setonix/environments/env_apps/spack.yaml",
+      "setonix/environments/env_vis/spack.yaml",
+      "setonix/environments/env_num_libs/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -240,34 +244,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Toolset to deploy software stacks",
-    "filenames": [
-      "samples/spack.yaml"
-    ],
-    "full_name": "epfl-scitas/spack-sdploy",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack-sdploy\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-sdploy\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003espack-sdploy\u003c/h1\u003e\n\u003cp\u003eSpack extension for automatic package configuration and deployment.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-how-to-install\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-install\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to install\u003c/h2\u003e\n\u003cp\u003eYou can try out this Spack extension be executing 4 easy steps:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSet up and activate a local python environment\u003c/li\u003e\n\u003cli\u003eSet up and activate \u003ccode\u003espack\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eInstall \u003ccode\u003espack-sdploy\u003c/code\u003e dependencies\u003c/li\u003e\n\u003cli\u003eClone and configure spack-sdploy\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis 4 steps are now detailed in the next section.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#step-by-step-installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step installation\u003c/h3\u003e\n\u003cp\u003eJust for a matter of completeness, all the steps needed get up and running with\nspack-sdploy extension will be covered, which can be a bit pedantic.\u003c/p\u003e\n\u003ch4\u003e\u003ca id=\"user-content-set-up-and-activate-a-local-python-environment\" class=\"anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-a-local-python-environment\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSet up and activate a local python environment\u003c/h4\u003e\n\u003cp\u003eIt is recommended that a Python environment be used to support sdploy. This same\nPython can also be used to run Spack.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython3 -m venv \u0026lt;path-to-environment-directory\u0026gt;\n. \u0026lt;path-to-environment-directory\u0026gt;/bin/activate\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more information on how to create a virtual environment in Python refer to\nthe PEP 405 \u2013 Python Virtual Environments documentation.\u003c/p\u003e\n\u003ch4\u003e\u003ca id=\"user-content-set-up-and-activate-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#set-up-and-activate-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSet up and activate Spack\u003c/h4\u003e\n\u003cp\u003eSee the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html#installation\" rel=\"nofollow\"\u003eSpack documentation\u003c/a\u003e\non how to install Spack. For sake of completeness, we copy paste the commands here:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone -c feature.manyFiles=true https://github.com/spack/spack.git\n. spack/share/spack/setup-env.sh\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\u003ca id=\"user-content-install-spack-sdploy-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#install-spack-sdploy-dependencies\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall \u003ccode\u003espack-sdploy\u003c/code\u003e dependencies\u003c/h4\u003e\n\u003cp\u003eUp to now the only dependency of spack-sdploy if jinja2. Once you have activated\nPython environment, you can simply use pip to install the packages.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install jinja2\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e\u003ca id=\"user-content-clone-and-configure-spack-sdploy\" class=\"anchor\" aria-hidden=\"true\" href=\"#clone-and-configure-spack-sdploy\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eClone and configure spack-sdploy\u003c/h4\u003e\n\u003cpre\u003e\u003ccode\u003egit clone git@github.com:epfl-scitas/spack-sdploy\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo activate the spack-sdploy extension you must add it to the config.yaml. If\nyou already have another Spack installation and just want to try out\nspack-sdploy may very well create a temporary directory to store the\nconfiguration and then use the SPACK_USER_CONFIG_PATH variable to point this new\ndirectory.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emkdir temporary_config\nexport SPACK_USER_CONFIG_PATH=/path/to/temporary_config\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand then, inside the temporary_config directory, write a config.yaml file with\nthe following contents:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003econfig:\n  extensions:\n  - /path/to/spack-sdploy\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBe sure you do not change the spack-dploy directory. Spack forces the extensions\nto follow strict rules. Please see the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/extensions.html\" rel=\"nofollow\"\u003eSpack Extensions\u003c/a\u003e\ndocumentation for more details about this subject. At this point you should now\nbe able to call \u003ccode\u003espack -h\u003c/code\u003e and see the new Spack commands deployed by the\nspack-sdploy extension.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-how-to-use\" class=\"anchor\" aria-hidden=\"true\" href=\"#how-to-use\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to use\u003c/h2\u003e\n\u003cp\u003eAt the present time, spack-sdploy will add 2 commands to your already existing\nSpack commands. These commandes are:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack write-spack-yaml\nspack write-packages-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn the future we may change the names of these commands, but for now lets just\nimagine these are short and easy to type commands.\u003c/p\u003e\n\u003cp\u003eAs you may have guessed it (if you haven\u0027t that\u0027s ok), write-spack-yaml will\nwrite the spack.yaml file and write-packages-yaml will write the packages.yaml\nfile. Of course, Spack does not (yet!) guess what you may want to install and\nfor that purpose, both these commands will read all the specs you want in your\nspack.yaml file by reading another file you have previously written and which\nwe call by stack.yaml.\u003c/p\u003e\n\u003cp\u003eFor the time being, spack-sdploy already comes with a dummy stack.yaml so we can\nget started using the new commands.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-spack-yaml\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-spack-yaml\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-spack-yaml\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-spack-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-packages-yaml\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-packages-yaml\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-packages-yaml\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-packages-yaml\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-write-activate-list\" class=\"anchor\" aria-hidden=\"true\" href=\"#write-activate-list\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewrite-activate-list\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003espack write-activate-list -p \u0026lt;platform\u0026gt; -s \u0026lt;stack\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWrite to file named \u003ccode\u003epackages_to_activate\u003c/code\u003e list of packages to activate, using \u003ccode\u003espack activate \u0026lt;package\u0026gt;\u003c/code\u003e. Packages are writen one per line.\u003c/p\u003e\n\u003cp\u003ePackages to activate can be marked in the stack file in two possible ways: by adding the keyword \u003ccode\u003eactivate: true\u003c/code\u003e in the metadata section of a list of packages or by adding the keyword \u003ccode\u003eactivate: true\u003c/code\u003e to an individual package. Duplicates are removed.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 10,
-    "topics": [],
-    "updated_at": 1669125412.0
-  },
-  {
-    "data_format": 2,
-    "description": "Container building infrastructure",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "eic/containers",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-eic-software-environment-container\" class=\"anchor\" aria-hidden=\"true\" href=\"#eic-software-environment-container\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEIC software environment container\u003c/h1\u003e\n\u003cp\u003eFor installation instructions of \u003ccode\u003eeic-shell\u003c/code\u003e, see \u003ca href=\"https://github.com/eic/eic-shell\"\u003ehttps://github.com/eic/eic-shell\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1669259240.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
       "spack/spack.yaml"
@@ -284,8 +260,8 @@ var data =
     "description": "Software environments",
     "filenames": [
       "catalog-config/compilers/nvhpc-22.9/spack.yaml",
-      "catalog-config/compilers/gcc-11.3.0/spack.yaml",
       "catalog-config/libxc-5.2.3/spack.yaml",
+      "catalog-config/compilers/gcc-11.3.0/spack.yaml",
       "catalog-config/core/spack.yaml"
     ],
     "full_name": "toxa81/se",
@@ -300,9 +276,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "matrixtest_env/spack.yaml",
-      "simple_env/spack.yaml",
       "complete_env/spack.yaml",
+      "simple_env/spack.yaml",
       "compilers_env/spack.yaml"
     ],
     "full_name": "antoine-morvan/spack-offline-env",
@@ -330,8 +305,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/intelmpi/bpmf-ompss-argo/spack.yaml",
       "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
+      "var/spack/environments/intelmpi/bpmf-ompss-argo/spack.yaml",
       "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml",
       "var/spack/environments/intelmpi/bpmf-ompss-cluster/spack.yaml"
     ],
@@ -344,31 +319,54 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Mobject is a prototype Mochi object storage system based on RADOS",
+    "description": "Notes and scripts for building applications on HPCs",
     "filenames": [
-      "spack.yaml"
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/build_systems/spack.yaml",
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml",
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
+      "results-spack/linux-centos7-haswell/Macmini8,1-(xiuhcoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-03_10,10/yamls/share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml",
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml",
+      "results-spack/linux-centos7-haswell/MacBookPro16,1-(ehecoatl)/linux/centos-7.9.2009/centos-7.9.2009-dantopa-docker-spack/2022-03-07_16,22/yamls/share/spack/gitlab/cloud_pipelines/stacks/build_systems/spack.yaml"
     ],
-    "full_name": "mochi-hpc/mobject",
-    "latest_release": "v0.6.1",
-    "readme": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"mobject_logo.png\"\u003e\u003cimg src=\"mobject_logo.png\" alt=\"logo\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-mobject\" class=\"anchor\" aria-hidden=\"true\" href=\"#mobject\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMobject\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/mochi-hpc/mobject/actions/workflows/spell.yml\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mobject/actions/workflows/spell.yml/badge.svg\" alt=\"check spelling\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mobject/actions/workflows/spack.yml\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mobject/actions/workflows/spack.yml/badge.svg\" alt=\"spack mobject\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mobject/actions/workflows/spack_bedrock.yml\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mobject/actions/workflows/spack_bedrock.yml/badge.svg\" alt=\"spack mobject+bedrock\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMobject is a distributed object storage system\nbuilt using a composition of \u003ca href=\"https://mochi.readthedocs.io\" rel=\"nofollow\"\u003eMochi\u003c/a\u003e components:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mochi-bake\"\u003emochi-bake\u003c/a\u003e (for bulk storage)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mochi-bedrock\"\u003emochi-bedrock\u003c/a\u003e\n(for configuration and bootstrapping)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mochi-sdskv\"\u003emochi-sdskv\u003c/a\u003e\n(for metadata and log indexing)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/mochi-hpc/mochi-ssg\"\u003emochi-ssg\u003c/a\u003e (for group membership)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://mochi.readthedocs.io/en/latest/installing.html#installing-spack-and-the-mochi-repository\" rel=\"nofollow\"\u003eInstall Spack and Mochi Spack Repository\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThen, run the following command to install mobject.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e   spack install mobject\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-hdf5-and-mobject\" class=\"anchor\" aria-hidden=\"true\" href=\"#hdf5-and-mobject\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHDF5 and Mobject\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"/include/librados-mobject-store.h\"\u003eMobject API\u003c/a\u003e is a subset of the\n\u003ca href=\"https://github.com/ceph/ceph/blob/main/src/include/rados/librados.h\"\u003eRADOS API\u003c/a\u003e\nfrom Ceph\u2019s object storage layer.\nTherefore, \u003ca href=\"https://github.com/HDFGroup/vol-rados\"\u003eHDF5 RADOS VOL plugin-in\u003c/a\u003e\ncan use Mobject.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-faq\" class=\"anchor\" aria-hidden=\"true\" href=\"#faq\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFAQ\u003c/h2\u003e\n\u003cp\u003eSee \u003ca href=\"doc/FAQ.md\"\u003edoc/FAQ.md\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 6,
-    "topics": [],
-    "updated_at": 1640785210.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack-settings/22.06/0.18.1/prod/spack.yaml"
-    ],
-    "full_name": "PDC-support/PDC-SoftwareStack",
+    "full_name": "floquet/builds",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-pdc-software-stack\" class=\"anchor\" aria-hidden=\"true\" href=\"#pdc-software-stack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePDC Software Stack\u003c/h1\u003e\n\u003cp\u003eRepository to store documentation, installation procedure, installation procedures and data for validation of installed software\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-modules\" class=\"anchor\" aria-hidden=\"true\" href=\"#modules\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eModules\u003c/h2\u003e\n\u003cp\u003eModules for easybuild and CrayPE are within the module folder.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-easybuild\" class=\"anchor\" aria-hidden=\"true\" href=\"#easybuild\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEasyBuild\u003c/h2\u003e\n\u003cp\u003eEasyBuild easyconfigs should be stored in \u003cem\u003eeasybuild/easyconfigs\u003c/em\u003e folder\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack\u003c/h2\u003e\n\u003cp\u003eSpack installation procedures for software should be store in the \u003cem\u003espack\u003c/em\u003e folder\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-manual-installations\" class=\"anchor\" aria-hidden=\"true\" href=\"#manual-installations\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eManual installations\u003c/h2\u003e\n\u003cp\u003eProcedures should be store in the \u003cem\u003eother\u003c/em\u003e folder\u003c/p\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 2,
     "topics": [],
-    "updated_at": 1666354279.0
+    "updated_at": 1641760136.0
+  },
+  {
+    "data_format": 2,
+    "description": "Ascent-based miniapp workflows",
+    "filenames": [
+      "inputs/spack/spack.yaml"
+    ],
+    "full_name": "cinemascienceworkflows/miniapp",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 6,
+    "topics": [],
+    "updated_at": 1646254492.0
+  },
+  {
+    "data_format": 2,
+    "description": "Spack fork used on OLCF resources",
+    "filenames": [
+      "share/spack/gitlab/cloud_pipelines/stacks/e4s-on-power/spack.yaml"
+    ],
+    "full_name": "mpbelhorn/olcf-spack",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content--spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\" width=\"64\" valign=\"middle\" alt=\"Spack\" data-canonical-src=\"https://cdn.rawgit.com/spack/spack/develop/share/spack/logo/spack-logo.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e Spack\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/spack/spack/actions\"\u003e\u003cimg src=\"https://github.com/spack/spack/workflows/linux%20tests/badge.svg\" alt=\"Unit Tests\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/spack/spack/actions/workflows/bootstrap.yml\"\u003e\u003cimg src=\"https://github.com/spack/spack/actions/workflows/bootstrap.yml/badge.svg\" alt=\"Bootstrapping\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/spack/spack/actions?query=workflow%3A%22macOS+builds+nightly%22\"\u003e\u003cimg src=\"https://github.com/spack/spack/workflows/macOS%20builds%20nightly/badge.svg?branch=develop\" alt=\"macOS Builds (nightly)\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/spack/spack\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4e223725486ecdae463d02d6ebd2b814945366210a908fc6f04b044ada8a7820/68747470733a2f2f636f6465636f762e696f2f67682f737061636b2f737061636b2f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/spack/spack/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spack.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/523aba38ec3f8d2294b874493fe63feed5805b98460c385611397b02be14a51c/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f737061636b2f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Read the Docs\" data-canonical-src=\"https://readthedocs.org/projects/spack/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://slack.spack.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4bbdc2b44561be6dfffe64e15730e1c5a2bed9c4efe6f9942638091a4ce3ede2/68747470733a2f2f736c61636b2e737061636b2e696f2f62616467652e737667\" alt=\"Slack\" data-canonical-src=\"https://slack.spack.io/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSpack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist.\u003c/p\u003e\n\u003cp\u003eSpack offers a simple \"spec\" syntax that allows users to specify versions\nand configuration options. Package files are written in pure Python, and\nspecs allow package authors to write a single script for many different\nbuilds of the same package.  With Spack, you can build your software\n\u003cem\u003eall\u003c/em\u003e the ways you want to.\u003c/p\u003e\n\u003cp\u003eSee the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/features.html\" rel=\"nofollow\"\u003eFeature Overview\u003c/a\u003e\nfor examples and highlights.\u003c/p\u003e\n\u003cp\u003eTo install spack and your first package, make sure you have Python.\nThen:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git clone -c feature.manyFiles=true https://github.com/spack/spack.git\n$ cd spack/bin\n$ ./spack install zlib\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://spack.readthedocs.io/\" rel=\"nofollow\"\u003e\u003cstrong\u003eFull documentation\u003c/strong\u003e\u003c/a\u003e is available, or\nrun \u003ccode\u003espack help\u003c/code\u003e or \u003ccode\u003espack help --all\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFor a cheat sheet on Spack syntax, run \u003ccode\u003espack help --spec\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-tutorial\" class=\"anchor\" aria-hidden=\"true\" href=\"#tutorial\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTutorial\u003c/h2\u003e\n\u003cp\u003eWe maintain a\n\u003ca href=\"https://spack.readthedocs.io/en/latest/tutorial.html\" rel=\"nofollow\"\u003e\u003cstrong\u003ehands-on tutorial\u003c/strong\u003e\u003c/a\u003e.\nIt covers basic to advanced usage, packaging, developer features, and large HPC\ndeployments.  You can do all of the exercises on your own laptop using a\nDocker container.\u003c/p\u003e\n\u003cp\u003eFeel free to use these materials to teach users at your organization\nabout Spack.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-community\" class=\"anchor\" aria-hidden=\"true\" href=\"#community\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommunity\u003c/h2\u003e\n\u003cp\u003eSpack is an open source project.  Questions, discussion, and\ncontributions are welcome. Contributions can be anything from new\npackages to bugfixes, documentation, or even new core features.\u003c/p\u003e\n\u003cp\u003eResources:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eSlack workspace\u003c/strong\u003e: \u003ca href=\"https://spackpm.slack.com\" rel=\"nofollow\"\u003espackpm.slack.com\u003c/a\u003e.\nTo get an invitation, visit \u003ca href=\"https://slack.spack.io\" rel=\"nofollow\"\u003eslack.spack.io\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMailing list\u003c/strong\u003e: \u003ca href=\"https://groups.google.com/d/forum/spack\" rel=\"nofollow\"\u003egroups.google.com/d/forum/spack\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTwitter\u003c/strong\u003e: \u003ca href=\"https://twitter.com/spackpm\" rel=\"nofollow\"\u003e@spackpm\u003c/a\u003e. Be sure to\n\u003ccode\u003e@mention\u003c/code\u003e us!\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eContributing to Spack is relatively easy.  Just send us a\n\u003ca href=\"https://help.github.com/articles/using-pull-requests/\"\u003epull request\u003c/a\u003e.\nWhen you send your request, make \u003ccode\u003edevelop\u003c/code\u003e the destination branch on the\n\u003ca href=\"https://github.com/spack/spack\"\u003eSpack repository\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYour PR must pass Spack\u0027s unit tests and documentation tests, and must be\n\u003ca href=\"https://www.python.org/dev/peps/pep-0008/\" rel=\"nofollow\"\u003ePEP 8\u003c/a\u003e compliant.  We enforce\nthese guidelines with our CI process. To run these tests locally, and for\nhelpful tips on git, see our\n\u003ca href=\"https://spack.readthedocs.io/en/latest/contribution_guide.html\" rel=\"nofollow\"\u003eContribution Guide\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSpack\u0027s \u003ccode\u003edevelop\u003c/code\u003e branch has the latest contributions. Pull requests\nshould target \u003ccode\u003edevelop\u003c/code\u003e, and users who want the latest package versions,\nfeatures, etc. can use \u003ccode\u003edevelop\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-releases\" class=\"anchor\" aria-hidden=\"true\" href=\"#releases\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReleases\u003c/h2\u003e\n\u003cp\u003eFor multi-user site deployments or other use cases that need very stable\nsoftware installations, we recommend using Spack\u0027s\n\u003ca href=\"https://github.com/spack/spack/releases\"\u003estable releases\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eEach Spack release series also has a corresponding branch, e.g.\n\u003ccode\u003ereleases/v0.14\u003c/code\u003e has \u003ccode\u003e0.14.x\u003c/code\u003e versions of Spack, and \u003ccode\u003ereleases/v0.13\u003c/code\u003e has\n\u003ccode\u003e0.13.x\u003c/code\u003e versions. We backport important bug fixes to these branches but\nwe do not advance the package versions or make other changes that would\nchange the way Spack concretizes dependencies within a release branch.\nSo, you can base your Spack deployment on a release branch and \u003ccode\u003egit pull\u003c/code\u003e\nto get fixes, without the package churn that comes with \u003ccode\u003edevelop\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe latest release is always available with the \u003ccode\u003ereleases/latest\u003c/code\u003e tag.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"https://spack.readthedocs.io/en/latest/developer_guide.html#releases\" rel=\"nofollow\"\u003edocs on releases\u003c/a\u003e\nfor more details.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" href=\"#code-of-conduct\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCode of Conduct\u003c/h2\u003e\n\u003cp\u003ePlease note that Spack has a\n\u003ca href=\".github/CODE_OF_CONDUCT.md\"\u003e\u003cstrong\u003eCode of Conduct\u003c/strong\u003e\u003c/a\u003e. By participating in\nthe Spack community, you agree to abide by its rules.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eMany thanks go to Spack\u0027s \u003ca href=\"https://github.com/spack/spack/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSpack was created by Todd Gamblin, \u003ca href=\"mailto:tgamblin@llnl.gov\"\u003etgamblin@llnl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-citing-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#citing-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Spack\u003c/h3\u003e\n\u003cp\u003eIf you are referencing Spack in a publication, please cite the following paper:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTodd Gamblin, Matthew P. LeGendre, Michael R. Collette, Gregory L. Lee,\nAdam Moody, Bronis R. de Supinski, and W. Scott Futral.\n\u003ca href=\"https://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf\" rel=\"nofollow\"\u003e\u003cstrong\u003eThe Spack Package Manager: Bringing Order to HPC Software Chaos\u003c/strong\u003e\u003c/a\u003e.\nIn \u003cem\u003eSupercomputing 2015 (SC\u201915)\u003c/em\u003e, Austin, Texas, November 15-20 2015. LLNL-CONF-669890.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0\nlicenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack/blob/develop/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1580743748.0
   },
   {
     "data_format": 2,
@@ -385,18 +383,33 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Set up fenics spack on csd3",
+    "filenames": [
+      "spack-skylake.yaml",
+      "spack-icelake.yaml"
+    ],
+    "full_name": "ma595/fenics-csd3-spack",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-fenics-csd3-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#fenics-csd3-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003efenics-csd3-spack\u003c/h1\u003e\n\u003cp\u003eFollow instructions in icelake-spack-env.sh\u003c/p\u003e\n\u003cp\u003eOr, copy existing \u003ccode\u003espack.yaml\u003c/code\u003e files into cloned Spack repo. It is necessary to \u003ccode\u003emodule purge\u003c/code\u003e environment first, otherwise the prepend path inside \u003ccode\u003espack.yaml\u003c/code\u003e will lead to duplications.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1667830944.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/unm-hopper/spack-openmpi+ucx.yaml",
-      "build-xlc/spack-xlc-mvapich.yaml",
       "build-lassen-spectrum/spack.yaml",
-      "build-hpctoolkit/spack-spectrum.yaml",
-      "configs/unm-hopper/spack-mpich+yaksa+ucx.yaml",
-      "configs/llnl-lassen/spack-mvapich.yaml",
-      "build-xlc/spack-xlc-spectrum.yaml",
-      "build-mvapich/spack-mvapich.yaml",
+      "build-xlc/spack-xlc-mvapich.yaml",
       "configs/llnl-lassen/spack-spectrum.yaml",
-      "configs/unm-hopper/spack-mpich+yaksa.yaml"
+      "build-hpctoolkit/spack-spectrum.yaml",
+      "configs/unm-hopper/spack-mpich+yaksa.yaml",
+      "configs/unm-hopper/spack-mpich+yaksa+ucx.yaml",
+      "build-mvapich/spack-mvapich.yaml",
+      "build-xlc/spack-xlc-spectrum.yaml",
+      "configs/unm-hopper/spack-openmpi+ucx.yaml",
+      "configs/llnl-lassen/spack-mvapich.yaml"
     ],
     "full_name": "CUP-ECS/ping-pong-gpu",
     "latest_release": null,
@@ -453,10 +466,10 @@ var data =
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
       "spack/snow/spack.yaml",
-      "spack/darwin-power9/spack.yaml",
       "spack/ci/spack.yaml",
-      "spack/default/spack.yaml",
-      "spack/agaspar/spack.yaml"
+      "spack/agaspar/spack.yaml",
+      "spack/darwin-power9/spack.yaml",
+      "spack/default/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -479,6 +492,32 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1658465316.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "tgamblin/cali-container",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1667175253.0
+  },
+  {
+    "data_format": 2,
+    "description": "container for the ISC/SC compression tutorial",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "robertu94/sz-zfp-zchecker",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1652997619.0
   },
   {
     "data_format": 2,
@@ -512,9 +551,9 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/ellis/software/spack.yaml",
       "configs/ellis/compilers/spack.yaml",
-      "configs/ellis/utilities/spack.yaml"
+      "configs/ellis/utilities/spack.yaml",
+      "configs/ellis/software/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -584,8 +623,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "real/spack.yaml",
-      "complex/spack.yaml"
+      "complex/spack.yaml",
+      "real/spack.yaml"
     ],
     "full_name": "adamqc/devcontainer",
     "latest_release": null,
@@ -626,8 +665,7 @@ var data =
     "data_format": 2,
     "description": "Test problem for the Exawind-Driver designed for demo\u0027s and debugging",
     "filenames": [
-      "spack.yaml",
-      "spack_e4s.yaml"
+      "spack.yaml"
     ],
     "full_name": "psakievich/Driver-Cylinder",
     "latest_release": null,
@@ -636,48 +674,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1665545780.0
-  },
-  {
-    "data_format": 2,
-    "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronic",
-    "filenames": [
-      "Docs/spack.yaml",
-      "Tools/machines/lxplus-cern/spack.yaml"
-    ],
-    "full_name": "AMReX-Microelectronics/artemis",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-artemis\" class=\"anchor\" aria-hidden=\"true\" href=\"#artemis\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eARTEMIS\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" href=\"#overview\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h2\u003e\n\u003cp\u003eARTEMIS (Adaptive Refinement Time-domain ElectrodynaMIcs Solver) is a development fork of WarpX for modeling micromagnetics and electrodynamic waves in next-generation microelectornics.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://picmi-standard.github.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/343c1eefa7d19641daf3e00da21e54db3a6211fe5f692c3004f2836a185668d8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532325049434d4925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICMI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22PICMI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.openPMD.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/062e5330b80f6eca55b1df50d6d154214f5a2033b7a87344ef2a580fd7a616dc/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532326f70656e504d4425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22openPMD%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://yt-project.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9e6cacd2df0d5a581d8afad30a57807b71f4b67c58e74faa4080dad7d81c6184/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d253232797425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"yt-project\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22yt%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIn order to learn how to install and run the code, please see the online documentation:\n\u003ca href=\"https://artemis-em.readthedocs.io\" rel=\"nofollow\"\u003ehttps://artemis-em.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTo contact the developers, feel free to open an issue on this repo.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://amrex-codes.github.io/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7053679f4412132d376afadf481432a9d435336f8127e7c8650808bc66d019b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232414d52655825323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"AMReX\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22AMReX%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://picsar.net\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/793037a9842c5343f4942ce7475c7c7696e69b44621531f666492ac87b5e80b8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323250494353415225323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICSAR\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22PICSAR%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://openpmd-api.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b7108e47d5ad6b76b60f07a4e04173ba260c5eef9bb244680f65ff91d8a319f8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532326f70656e504d442d61706925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD-api\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22openPMD-api%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://csmd.ornl.gov/adios\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d525e37817dc6dfc5f173eb31f4e9fd52947e668793967565910166b335ced93/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324144494f5325323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"ADIOS\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22ADIOS%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.hdfgroup.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/005f778c667adb78e4302d47579b9bedc5ec0f59f88c13552f6b4bb399f93438/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324844463525323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"HDF5\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22HDF5%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://www.ascent-dav.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/204f53a0d216a0a2fce9a367e3ba3a1957ac2285ed89026cb80321df6a125fc4/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232417363656e7425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"Ascent\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22Ascent%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://sensei-insitu.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/6f870e29c1d57a4e4209ec97a00fbe4f73c8fd6fb589bf4c12f3feef9d3aaaeb/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323253454e53454925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"SENSEI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22SENSEI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOur workflow is described in \u003ca href=\"CONTRIBUTING.rst\"\u003eCONTRIBUTING.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eWarpX Copyright (c) 2018-2022, The Regents of the University of California,\nthrough Lawrence Berkeley National Laboratory (subject to receipt of any\nrequired approvals from the U.S. Dept. of Energy).  All rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software,\nplease contact Berkeley Lab\u0027s Innovation \u0026amp; Partnerships Office at\n\u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE.  This Software was developed under funding from the U.S. Department\nof Energy and the U.S. Government consequently retains certain rights. As\nsuch, the U.S. Government has been granted for itself and others acting on\nits behalf a paid-up, nonexclusive, irrevocable, worldwide license in the\nSoftware to reproduce, distribute copies to the public, prepare derivative\nworks, and perform publicly and display publicly, and to permit other to do\nso.\u003c/p\u003e\n\u003cp\u003eLicense for WarpX can be found at \u003ca href=\"LICENSE.txt\"\u003eLICENSE.txt\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1665515384.0
-  },
-  {
-    "data_format": 2,
-    "description": "Remote Key/Value storage service for Mochi",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/mochi-yokan",
-    "latest_release": "v0.2.10",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-yokan---mochis-keyvalue-and-more-storage-service\" class=\"anchor\" aria-hidden=\"true\" href=\"#yokan---mochis-keyvalue-and-more-storage-service\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYokan - Mochi\u0027s Key/Value (and more) storage service\u003c/h1\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\" alt=\"\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/mochi-hpc/mochi-yokan\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fc95c801bafa29b49219f4727f651b97e7385800c8dc4a4757a1dccadefe6611/68747470733a2f2f636f6465636f762e696f2f67682f6d6f6368692d6870632f6d6f6368692d796f6b616e2f6272616e63682f6d61696e2f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/mochi-hpc/mochi-yokan/branch/main/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease see documentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/yokan.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1641326484.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "epfl-scitas/cryoem-docker-image",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 3,
-    "topics": [],
-    "updated_at": 1663761990.0
   },
   {
     "data_format": 2,
@@ -709,44 +705,44 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Spack configuration files for LUMI",
-    "filenames": [
-      "22.08/0.18.1/spack.yaml"
-    ],
-    "full_name": "Lumi-supercomputer/lumi-spack-settings",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack-configuration-files-for-lumi\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-configuration-files-for-lumi\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack configuration files for LUMI\u003c/h1\u003e\n\u003cp\u003eRepository containing configuration files for the Spack instances installed in \u003ccode\u003e/appl/lumi/spack\u003c/code\u003e on LUMI for public use. The files in this repository can be found in \u003ccode\u003e/appl/lumi/spack/etc/\u003c/code\u003e on LUMI. The folder hierarchy is determined by the Cray Programming Environment (CPE) version and Spack release version. For example, the directory\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e22.08/0.18.1/\n22.08/0.18.1-user/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003econtains the configuration files for Spack version 0.18.1 configured to use CPE 22.08. The first instance \u003ccode\u003e0.18.1\u003c/code\u003e is the upstream instance, which is maintained by the LUMI Support Team. The second instance \u003ccode\u003e0.18.1-user\u003c/code\u003e is a separate instance configured to install packages in a user-defined directory in e.g. \u003ccode\u003e/project/\u003c/code\u003e. It is chained to the upstream instance, so that already installed packages can be reused.\u003c/p\u003e\n\u003cp\u003eIf you are user of LUMI, and want to set up your own instance, you can copy the \u003ccode\u003ecompilers.yaml\u003c/code\u003eand  \u003ccode\u003epackages.yaml\u003c/code\u003e files to your instance. The \u003ccode\u003econfig.yaml\u003c/code\u003e needs to be modified if you want to use that one.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 12,
-    "topics": [],
-    "updated_at": 1661775740.0
-  },
-  {
-    "data_format": 2,
-    "description": "Spack Repos and Configuration Files",
-    "filenames": [
-      "environments/slurm/spack.yaml",
-      "environments/common/spack.yaml"
-    ],
-    "full_name": "ArjunaCluster/spack",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1637623732.0
-  },
-  {
-    "data_format": 2,
-    "description": "Enable PGO and LTO in Spack software stacks",
+    "description": "Remote Key/Value storage service for Mochi",
     "filenames": [
       "spack.yaml"
     ],
-    "full_name": "haampie/spack-pgo-lto-environment",
-    "latest_release": null,
+    "full_name": "mochi-hpc/mochi-yokan",
+    "latest_release": "v0.2.10",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-yokan---mochis-keyvalue-and-more-storage-service\" class=\"anchor\" aria-hidden=\"true\" href=\"#yokan---mochis-keyvalue-and-more-storage-service\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYokan - Mochi\u0027s Key/Value (and more) storage service\u003c/h1\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mochi-yokan/actions/workflows/test.yml/badge.svg?branch=main\" alt=\"\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/mochi-hpc/mochi-yokan\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fc95c801bafa29b49219f4727f651b97e7385800c8dc4a4757a1dccadefe6611/68747470733a2f2f636f6465636f762e696f2f67682f6d6f6368692d6870632f6d6f6368692d796f6b616e2f6272616e63682f6d61696e2f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/mochi-hpc/mochi-yokan/branch/main/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease see documentation \u003ca href=\"https://mochi.readthedocs.io/en/latest/yokan.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1653473825.0
+    "updated_at": 1641326484.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "epfl-scitas/cryoem-docker-image",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 3,
+    "topics": [],
+    "updated_at": 1663761990.0
+  },
+  {
+    "data_format": 2,
+    "description": "Mochi-based DB backends for the YCSB benchmark",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc/ycsb-cpp-interface",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-ycsb-c-interface\" class=\"anchor\" aria-hidden=\"true\" href=\"#ycsb-c-interface\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eYCSB C++ Interface\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/brianfrankcooper/YCSB\"\u003eYCSB\u003c/a\u003e is one of the most popular Cloud\nstorage benchmark. However it is written in Java, forcing databases implemented\nin other languages to provide a Java wrapper. While \u003ca href=\"https://github.com/ls4154/YCSB-cpp\"\u003eYCSC-cpp\u003c/a\u003e\nprovides a reimplementation of YCSB in C++, to date it only supports three backends, as\nopposed to 45 for the original YCSB.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/mochi-hpc/ycsb-cpp-interface\"\u003eycsb-cpp-interface\u003c/a\u003e\ntakes a different approach from YCSB-cpp, providing a Java/C++ library\nthat enables the use of C++ to write DB backends for YCSB.\u003c/p\u003e\n\u003cp\u003eycsb-cpp-inteface works in a modular way, dynamically loading your C++ database\nimplementation from a library using a factory pattern.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-building-manually\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-manually\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding manually\u003c/h3\u003e\n\u003cp\u003eTo build this repository from source, you will first need to have\nits dependencies installed and findable by CMake. These dependencies\ninclude:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eJava Development Kit (e.g., OpenJDK)\u003c/li\u003e\n\u003cli\u003eYCSB\u003c/li\u003e\n\u003cli\u003ecmake\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eMake sure to set the \u003ccode\u003eJAVA_HOME\u003c/code\u003e environment variable\nto point to where your JDK is installed so that CMake can find it.\nIt is recommended to install a distribution of YCSB, rather than\nthe source.\u003c/p\u003e\n\u003cp\u003eYou can then build the source contained in this repository as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build\n$ cd build\n$ cmake .. -DYCSB_ROOT=\u0026lt;path/to/where/ycsb/is/installed\u0026gt; \\\n           -DCMAKE_INSTALL_PREFIX=\u0026lt;install/prefix\u0026gt;\n$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\u003ca id=\"user-content-installing-using-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing-using-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling using Spack\u003c/h3\u003e\n\u003cp\u003eYou can install this library using \u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e.\nThe \u003ccode\u003eycsb-cpp-interface\u003c/code\u003e Spack package is available via the\n\u003ca href=\"https://github.com/mochi-hpc/mochi-spack-packages\"\u003eMochi repository\u003c/a\u003e,\nwhich can be added to Spack as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git clone https://github.com/mochi-hpc/mochi-spack-packages.git\n$ spack repo add mochi-spack-packages\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce the \u003ccode\u003emochi-spack-packages\u003c/code\u003e repository has been made available to Spack,\nyou can install \u003ccode\u003eycsb-cpp-interface\u003c/code\u003e as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ spack install ycsb-cpp-interface\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-testing\" class=\"anchor\" aria-hidden=\"true\" href=\"#testing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTesting\u003c/h2\u003e\n\u003cp\u003eIf you have installed ycsb-cpp-interface with Spack, make sure that\nthe package is loaded (\u003ccode\u003espack load ycsb-cpp-interface\u003c/code\u003e), then you\ncan start the CLI for testing, as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eycsb-cpp-cli\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWhen building from source, the CLI is located in the \u003ccode\u003ebin\u003c/code\u003e subdirectory\nof your build folder.\u003c/p\u003e\n\u003cp\u003eYou will end up in YCBS\u0027s CLI, with the YcsbDBClient loaded as the\nDB backend, itself using a test implementation of an in-memory database\nwith which you can interact (type \u003ccode\u003ehelp\u003c/code\u003e to see a list of available commands).\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-writing-your-own-c-db-backend\" class=\"anchor\" aria-hidden=\"true\" href=\"#writing-your-own-c-db-backend\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWriting your own C++ DB backend\u003c/h2\u003e\n\u003cp\u003eycsb-cpp-interface provides a header file, \u003ccode\u003eYCSBCppInterface.hpp\u003c/code\u003e, with\na \u003ccode\u003eycsb::DB\u003c/code\u003e abstract class. To implement your own C++ backend database,\nyou simply need to implement a child class of the \u003ccode\u003eycsb::DB\u003c/code\u003e class that\nimplements the required virtual functions. You may look at \u003ca href=\"src/TestDB.cpp\"\u003e\u003c/a\u003e\nas an example of such an implementation. Note the use of the\n\u003ccode\u003eYCSB_CPP_REGISTER_DB_TYPE\u003c/code\u003e macro after the class definition. This macro\nmust be called in a .cpp file to associate the name of your backend\n(e.g. \u003ccode\u003emyawesomedb\u003c/code\u003e) with the class name to use (e.g., \u003ccode\u003eMyAwesomeDB\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eOnce your database class is ready, compile it into a shared library\n(e.g., \u003ccode\u003elibmyawesomedb.so\u003c/code\u003e). Make sure the \u003ccode\u003eLD_LIBRARY_PATH\u003c/code\u003e environment\nvariable contains the path to your dynamic library. You may then test\nyour backend with the CLI as follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ycsb-cpp-cli -p ycsb.cpp.library=libmyawesomedb.so -p ycsb.cpp.backend=myawesomedb\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe \u003ccode\u003eycsb.cpp.library\u003c/code\u003e and \u003ccode\u003eycsb.cpp.backend\u003c/code\u003e properties are the only properties\nneeded by ycsb-cpp-interface. Any other properties provided will be propagated\nto your database implementation in the form of an \u003ccode\u003estd::unordered_map\u0026lt;std::string, std::string\u0026gt;\u003c/code\u003e.\nNote that \u003ccode\u003eycsb.cpp.library\u003c/code\u003e may accept a full path to your dynamic library,\nif you don\u0027t want to change the \u003ccode\u003eLD_LIBRARY_PATH\u003c/code\u003e environment variable.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-running-ycsb-with-your-c-db-backend\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-ycsb-with-your-c-db-backend\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning YCSB with your C++ DB backend\u003c/h2\u003e\n\u003cp\u003eycsb-cpp-interface provides a convenience script, \u003ccode\u003eycsb-cpp\u003c/code\u003e, to run YCSB\nwith your own backend. It can be used in a way similar to the original ycsb script,\nas follows.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ ycsb-cpp load -p ycsb.cpp.library=libmyawesomedb.so -p ycsb.cpp.backend=myawesomedb -P workloadfile\n$ ycsb-cpp run -p ycsb.cpp.library=libmyawesomedb.so -p ycsb.cpp.backend=myawesomedb -P workloadfile\n\u003c/code\u003e\u003c/pre\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 7,
+    "topics": [],
+    "updated_at": 1661162651.0
   },
   {
     "data_format": 2,
@@ -764,41 +760,100 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
+    "description": "Spack configuration files for LUMI",
     "filenames": [
-      "src/ufs-weather-model/WW3/model/ci/spack.yaml",
-      "src/UPP/ci/spack.yaml"
+      "22.08/0.18.1/spack.yaml"
     ],
-    "full_name": "jkbk2004/src",
+    "full_name": "Lumi-supercomputer/lumi-spack-settings",
     "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-ufs-short-range-weather-application\" class=\"anchor\" aria-hidden=\"true\" href=\"#ufs-short-range-weather-application\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUFS Short-Range Weather Application\u003c/h1\u003e\n\u003cp\u003eThe Unified Forecast System (UFS) is a community-based, coupled, comprehensive Earth modeling system. It is designed to be the source system for NOAA\u2019s operational numerical weather prediction applications while enabling research, development, and contribution opportunities for the broader weather enterprise. For more information about the UFS, visit the UFS Portal at \u003ca href=\"https://ufscommunity.org/\" rel=\"nofollow\"\u003ehttps://ufscommunity.org/\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe UFS includes multiple applications (see a complete list at \u003ca href=\"https://ufscommunity.org/science/aboutapps/\" rel=\"nofollow\"\u003ehttps://ufscommunity.org/science/aboutapps/\u003c/a\u003e) that support different forecast durations and spatial domains. This documentation describes the development branch of the UFS Short-Range Weather (SRW) Application, which targets predictions of atmospheric behavior on a limited spatial domain and on time scales from minutes to several days. The development branch of the application is continually evolving as the system undergoes open development. The latest SRW App release (v2.0.0) represents a snapshot of this continuously evolving system.\u003c/p\u003e\n\u003cp\u003eThe UFS SRW App User\u0027s Guide associated with the development branch is at: \u003ca href=\"https://ufs-srweather-app.readthedocs.io/en/develop/\" rel=\"nofollow\"\u003ehttps://ufs-srweather-app.readthedocs.io/en/develop/\u003c/a\u003e, while the guide specific to the SRW App v2.0.0 release can be found at: \u003ca href=\"https://ufs-srweather-app.readthedocs.io/en/release-public-v2/\" rel=\"nofollow\"\u003ehttps://ufs-srweather-app.readthedocs.io/en/release-public-v2/\u003c/a\u003e. The repository is at: \u003ca href=\"https://github.com/ufs-community/ufs-srweather-app\"\u003ehttps://github.com/ufs-community/ufs-srweather-app\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eFor instructions on how to clone the repository, build the code, and run the workflow, see:\n\u003ca href=\"https://github.com/ufs-community/ufs-srweather-app/wiki/Getting-Started\"\u003ehttps://github.com/ufs-community/ufs-srweather-app/wiki/Getting-Started\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUFS Development Team. (2022, June 23). Unified Forecast System (UFS) Short-Range Weather (SRW) Application (Version v2.0.0). Zenodo. \u003ca href=\"https://doi.org/10.5281/zenodo.6505854\" rel=\"nofollow\"\u003ehttps://doi.org/10.5281/zenodo.6505854\u003c/a\u003e\u003c/p\u003e\n",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-spack-configuration-files-for-lumi\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-configuration-files-for-lumi\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack configuration files for LUMI\u003c/h1\u003e\n\u003cp\u003eRepository containing configuration files for the Spack instances installed in \u003ccode\u003e/appl/lumi/spack\u003c/code\u003e on LUMI for public use. The files in this repository can be found in \u003ccode\u003e/appl/lumi/spack/etc/\u003c/code\u003e on LUMI. The folder hierarchy is determined by the Cray Programming Environment (CPE) version and Spack release version. For example, the directory\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e22.08/0.18.1/\n22.08/0.18.1-user/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003econtains the configuration files for Spack version 0.18.1 configured to use CPE 22.08. The first instance \u003ccode\u003e0.18.1\u003c/code\u003e is the upstream instance, which is maintained by the LUMI Support Team. The second instance \u003ccode\u003e0.18.1-user\u003c/code\u003e is a separate instance configured to install packages in a user-defined directory in e.g. \u003ccode\u003e/project/\u003c/code\u003e. It is chained to the upstream instance, so that already installed packages can be reused.\u003c/p\u003e\n\u003cp\u003eIf you are user of LUMI, and want to set up your own instance, you can copy the \u003ccode\u003ecompilers.yaml\u003c/code\u003eand  \u003ccode\u003epackages.yaml\u003c/code\u003e files to your instance. The \u003ccode\u003econfig.yaml\u003c/code\u003e needs to be modified if you want to use that one.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 1,
+    "subscribers_count": 12,
     "topics": [],
-    "updated_at": 1661692471.0
+    "updated_at": 1661775740.0
   },
   {
     "data_format": 2,
     "description": null,
     "filenames": [
-      "dependency/spack.yaml"
+      "ci/spack.yaml"
     ],
-    "full_name": "hariharan-devarajan/tailorfs",
+    "full_name": "rohankumardubey/libtree",
     "latest_release": null,
-    "readme": "",
+    "readme": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\"\u003e\u003cimg src=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\" alt=\"Test\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://aur.archlinux.org/packages/libtree/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7e7cc860b359b4e8c852178856fed7ba2f3ceb557ab7e2c021ab84d695412362/68747470733a2f2f696d672e736869656c64732e696f2f6175722f76657273696f6e2f6c6962747265653f6c6f676f3d417263682d4c696e7578\" alt=\"AUR version\" data-canonical-src=\"https://img.shields.io/aur/version/libtree?logo=Arch-Linux\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-libtree\" class=\"anchor\" aria-hidden=\"true\" href=\"#libtree\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003elibtree\u003c/h1\u003e\n\u003cp\u003eA tool that:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cg-emoji class=\"g-emoji\" alias=\"deciduous_tree\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f333.png\"\u003e\ud83c\udf33\u003c/g-emoji\u003e turns \u003ccode\u003eldd\u003c/code\u003e into a tree\u003c/li\u003e\n\u003cli\u003e\u003cg-emoji class=\"g-emoji\" alias=\"point_up\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/261d.png\"\u003e\u261d\ufe0f\u003c/g-emoji\u003e explains why shared libraries are found and why not\u003c/li\u003e\n\u003cli\u003e\u003cg-emoji class=\"g-emoji\" alias=\"package\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png\"\u003e\ud83d\udce6\u003c/g-emoji\u003e optionally deploys executables and dependencies into a single directory\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"doc/screenshot.png\"\u003e\u003cimg src=\"doc/screenshot.png\" alt=\"example\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eDownload the \u003ca href=\"https://github.com/haampie/libtree/releases\"\u003e\u003cstrong\u003elatest release\u003c/strong\u003e\u003c/a\u003e from Github.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eStatic executable\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ewget -qO libtree https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64\nchmod +x libtree\n./libtree \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich man\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003eStatic executable + optional dependencies\u003c/strong\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ewget -qO libtree.tar.gz https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64.tar.gz\nmkdir libtree\ntar -xf libtree.tar.gz -C libtree\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e PATH=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e$PWD\u003c/span\u003e/libtree:\u003cspan class=\"pl-smi\"\u003e$PATH\u003c/span\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\nlibtree \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich man\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-deploying-binaries--dependencies-into-a-folder\" class=\"anchor\" aria-hidden=\"true\" href=\"#deploying-binaries--dependencies-into-a-folder\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDeploying binaries + dependencies into a folder\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ libtree \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich man\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e -d man.bundle --chrpath --strip\nman\n\u251c\u2500\u2500 libmandb-2.9.1.so [runpath]\n\u2502   \u251c\u2500\u2500 libman-2.9.1.so [runpath]\n\u2502   \u2502   \u251c\u2500\u2500 libpipeline.so.1 [ld.so.conf]\n\u2502   \u2502   \u2514\u2500\u2500 libseccomp.so.2 [ld.so.conf]\n\u2502   \u2514\u2500\u2500 libgdbm.so.6 [ld.so.conf]\n\u251c\u2500\u2500 libman-2.9.1.so (collapsed) [runpath]\n\u2514\u2500\u2500 libpipeline.so.1 (collapsed) [ld.so.conf]\n\nDeploying to \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/bin/man\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/bin/man\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/lib/man-db/libmandb-2.9.1.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libmandb-2.9.1.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/lib/man-db/libman-2.9.1.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libman-2.9.1.so\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.2\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libpipeline.so.1.5.2\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n  creating symlink \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libpipeline.so.1\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.1\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libseccomp.so.2.5.1\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n  creating symlink \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libseccomp.so.2\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/usr/lib/x86_64-linux-gnu/libgdbm.so.6.0.0\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e =\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libgdbm.so.6.0.0\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n  creating symlink \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eman.bundle/usr/lib/libgdbm.so.6\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\n$ tree man.bundle/\nman.bundle/\n\u2514\u2500\u2500 usr\n    \u251c\u2500\u2500 bin\n    \u2502\u00a0\u00a0 \u2514\u2500\u2500 man\n    \u2514\u2500\u2500 lib\n        \u251c\u2500\u2500 libgdbm.so.6 -\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e libgdbm.so.6.0.0\n        \u251c\u2500\u2500 libgdbm.so.6.0.0\n        \u251c\u2500\u2500 libman-2.9.1.so\n        \u251c\u2500\u2500 libmandb-2.9.1.so\n        \u251c\u2500\u2500 libpipeline.so.1 -\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e libpipeline.so.1.5.2\n        \u251c\u2500\u2500 libpipeline.so.1.5.2\n        \u251c\u2500\u2500 libseccomp.so.2 -\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e libseccomp.so.2.5.1\n        \u2514\u2500\u2500 libseccomp.so.2.5.1\n\n3 directories, 9 files\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-verbose-output\" class=\"anchor\" aria-hidden=\"true\" href=\"#verbose-output\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVerbose output\u003c/h2\u003e\n\u003cp\u003eBy default certain standard depenendencies are not shown. For more verbose output use\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003elibtree -v $(which man)\u003c/code\u003e to show skipped libraries without their children\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003elibtree -a $(which apt-get)\u003c/code\u003e to show the full recursive list of libraries\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eUse the \u003ccode\u003e--path\u003c/code\u003e or \u003ccode\u003e-p\u003c/code\u003e flags to show paths rather than sonames:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003elibtree -p $(which tar)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-changing-search-paths\" class=\"anchor\" aria-hidden=\"true\" href=\"#changing-search-paths\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eChanging search paths\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003elibtree\u003c/code\u003e follows the rules of \u003ccode\u003eld.so\u003c/code\u003e to locate libraries, but does not use \u003ccode\u003eldconfig\u003c/code\u003e\u0027s\ncache. Instead it parses \u003ccode\u003e/etc/ld.so.conf\u003c/code\u003e at runtime. In fact you can change the search\npath config by setting \u003ccode\u003e--ldconf mylibs.conf\u003c/code\u003e. Search paths can be added as well via\n\u003ccode\u003eLD_LIBRARY_PATH=\"path1:path2:$LD_LIBRARY_PATH\" libtree ...\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building\" class=\"anchor\" aria-hidden=\"true\" href=\"#building\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eFrom source\u003c/strong\u003e:\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone https://github.com/haampie/libtree.git\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e libtree\nmkdir build\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e build\ncmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e/path/to/cxxopts;/path/to/elfio;/path/to/termcolor\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e ..\nmake -j\nmake install\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eUsing \u003ca href=\"https://github.com/spack/spack\"\u003espack\u003c/a\u003e\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode\u003espack install libtree +chrpath +strip\nspack load libtree\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-known-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#known-issues\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eKnown issues\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eWhen deploying libs with \u003ccode\u003elibtree app -d folder.bundle --chrpath\u003c/code\u003e, the runpaths are only\nchanged when the binaries already have an an rpath or runpath. This is a limitation of\n\u003ccode\u003echrpath\u003c/code\u003e. Another option is to use \u003ccode\u003epatchelf\u003c/code\u003e instead, but this tool is known to break\nbinaries sometimes.\u003c/li\u003e\n\u003c/ul\u003e\n",
     "stargazers_count": 0,
     "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1663026017.0
+    "updated_at": 1664232270.0
+  },
+  {
+    "data_format": 2,
+    "description": "Puget Labs container build files",
+    "filenames": [
+      "namd-amd/spack.yaml",
+      "hpcg-amd/spack.yaml",
+      "hpl-amd/spack.yaml"
+    ],
+    "full_name": "dbkinghorn/Puget-Labs-Containers",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-puget-labs-containers\" class=\"anchor\" aria-hidden=\"true\" href=\"#puget-labs-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePuget Labs Containers\u003c/h1\u003e\n\u003cp\u003eThis is a collection of container spec files used to build the images available on \u003ca href=\"https://hub.docker.com/orgs/pugetsystems/repositories\" rel=\"nofollow\"\u003ehttps://hub.docker.com/orgs/pugetsystems/repositories\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMany of these images are based on performance optimized application builds for specific hardware targets i.e. AMD Zen3, Intel OneAPI, NVIDIA CUDA etc.\u003c/p\u003e\n\u003cp\u003eThese container images are the basis for some of our Scientific and Machine Learning benchmarks.\u003c/p\u003e\n\u003cp\u003eFiles included for each application include,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eSpack spec.yaml build specifications\u003c/li\u003e\n\u003cli\u003eDockerfiles (Multi-stage)\u003c/li\u003e\n\u003cli\u003eEnroot container-bundle (self running) build scripts\u003c/li\u003e\n\u003cli\u003eBenchmarks\u003c/li\u003e\n\u003cli\u003eUsage notes\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1660670570.0
+  },
+  {
+    "data_format": 2,
+    "description": null,
+    "filenames": [
+      "py_src/spack.yaml"
+    ],
+    "full_name": "sayefsakin/auto_profiler",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1659512207.0
+  },
+  {
+    "data_format": 2,
+    "description": "Boost/STL for Scopes",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "salotz/scoot",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-scoot\" class=\"anchor\" aria-hidden=\"true\" href=\"#scoot\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003escoot\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eThe module is under \u003ccode\u003esrc/scoot\u003c/code\u003e. You can copy this subtree into your\nproject and then add it to the \u003ccode\u003epackage.path\u003c/code\u003e in your Scopes\n\u003ccode\u003e_project.sc\u003c/code\u003e file.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-with-spack\" class=\"anchor\" aria-hidden=\"true\" href=\"#with-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWith Spack\u003c/h3\u003e\n\u003cp\u003eThis module is available as the \u003ccode\u003escoot\u003c/code\u003e package in the\n\u003ca href=\"https://github.com/salotz/snailpacks\"\u003esnailpacks\u003c/a\u003e repository. This will pull in the necessary dependencies\nincluding Scopes.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  spack install scoot\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eSee the \u003ca href=\"https://github.com/salotz/snailpacks\"\u003esnailpacks\u003c/a\u003e documentation for more best practices of installing.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-development-environment\" class=\"anchor\" aria-hidden=\"true\" href=\"#development-environment\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopment Environment\u003c/h2\u003e\n\u003cp\u003eWe use \u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e to install dependencies. First install Spack.\u003c/p\u003e\n\u003cp\u003eThen you\u0027ll need our custom repo of build recipes:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  mkdir -p \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e`\u003c/span\u003e/.spack/repos\u003c/span\u003e\n\u003cspan class=\"pl-s\"\u003e  git clone git@github.com:salotz/snailpacks.git \u003cspan class=\"pl-pds\"\u003e`\u003c/span\u003e\u003c/span\u003e/.spack/repos/snailpacks\n  spack repo add \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e`\u003c/span\u003e/resources/spack-repos/snailpacks\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen you need to create an environment in this folder that will\ncontain the headers and libraries etc., this will create this and\ninstall the packages:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  make init\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen you can activate the environment to get started:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  spacktivate \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eRun some commands:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e run the sanity entrypoint\u003c/span\u003e\nmake sanity\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e run the tests\u003c/span\u003e\nmake \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eTo exit the environment (i.e. unset the env variables):\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e  despacktivate\u003c/pre\u003e\u003c/div\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1661112922.0
+  },
+  {
+    "data_format": 2,
+    "description": "Copier template for a Scopes library",
+    "filenames": [
+      "template/spack.yaml"
+    ],
+    "full_name": "salotz/scopes-lib_copier-template",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-project-template-for-a-scopes-lang-library\" class=\"anchor\" aria-hidden=\"true\" href=\"#project-template-for-a-scopes-lang-library\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProject Template for a Scopes Lang Library\u003c/h1\u003e\n\u003cp\u003eThis is a project template generator and updater using the\n\u003ca href=\"https://github.com/copier-org/copier/\"\u003ecopier\u003c/a\u003e tool for creating libraries for the \u003ca href=\"http://scopes.rocks\" rel=\"nofollow\"\u003eScopes\u003c/a\u003e programming language.\u003c/p\u003e\n\u003cp\u003ePlease install from the latest copier for this to work, not the latest\nstable release. Currently I am using\n\u003ca href=\"https://github.com/pypa/pipx\"\u003epipx\u003c/a\u003e:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epipx install copier\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-generating-and-updating-a-project\" class=\"anchor\" aria-hidden=\"true\" href=\"#generating-and-updating-a-project\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGenerating and Updating a Project\u003c/h2\u003e\n\u003cp\u003eThen you can generate your project:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecopier \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003egh:salotz/scopes-lib_copier-template\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e\u003c/span\u003e name-of-folder\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThis should generate something like the following (\u003ccode\u003erepo_name = my-lib\u003c/code\u003e):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ename-of-folder\n\u251c\u2500\u2500 __env.sc\n\u251c\u2500\u2500 Makefile\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 spack.yaml\n\u2514\u2500\u2500 src\n    \u2514\u2500\u2500 my-lib\n        \u251c\u2500\u2500 init.sc\n        \u2514\u2500\u2500 ...\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can update the project with:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e name-of-folder\ncopier update\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eSee documentation of copier for more details.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-development-environment\" class=\"anchor\" aria-hidden=\"true\" href=\"#development-environment\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopment Environment\u003c/h2\u003e\n\u003cp\u003eSee the docs in \u003ccode\u003etemplate/README.md.jinja\u003c/code\u003e that will be generated for\neach project.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-libraries-using-this-template\" class=\"anchor\" aria-hidden=\"true\" href=\"#libraries-using-this-template\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLibraries Using this Template\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/salotz/raylib-scopes\"\u003escopes-raylib\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/salotz/scopes-chipmunk2d\"\u003escopes-chipmunk2d\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [
+      "copier-template",
+      "scopes-lang"
+    ],
+    "updated_at": 1648781021.0
   },
   {
     "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
+      "env/broadwell/flecsi/spack.yaml",
       "env/power9le/flecsi/spack.yaml",
-      "env/x86_64/flecsi/spack.yaml",
       ".gitlab-ci/env/dry-run/spack.yaml",
-      "env/broadwell/flecsi/spack.yaml"
+      "env/x86_64/flecsi/spack.yaml"
     ],
     "full_name": "laristra/ristra_spackages",
     "latest_release": null,
@@ -826,14 +881,14 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "oneapi/spack.yaml",
       "clang/failures/spack.yaml",
+      "gnu/failures/spack.yaml",
       "gnu/spack.yaml",
       "oneapi/failures/spack.yaml",
-      "nvhpc/failures/spack.yaml",
-      "gnu/failures/spack.yaml",
-      "nvhpc/spack.yaml",
       "clang/spack.yaml",
-      "oneapi/spack.yaml"
+      "nvhpc/failures/spack.yaml",
+      "nvhpc/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
     "latest_release": null,
@@ -846,109 +901,90 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "florentia/22.11/spack.yaml",
-      "crusher/22.11/PrgEnv-cray/failures/spack.yaml",
-      "_archived/applications/exago/container/spack.yaml",
-      "uo-containers/22.08/release/public/cuda.spack.yaml",
-      "uo-containers/22.08/components/gpu-rocm-noex/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-rocm/spack.yaml",
-      "arcticus/22.05/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-oneapi.spack.yaml",
-      "_archived/applications/exago/crusher/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cpu/spack.yaml",
-      "uo-containers/22.08/_archive/prep/rocm/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml",
-      "uo-containers/22.11/components/gpu-rocm-noex/spack.yaml",
-      "uo-containers/22.08/components/cpu-plus-gpu-oneapi/spack.yaml",
-      "crusher/22.08/mvapich2/spack.yaml",
-      "crusher/22.08/PrgEnv-cray/failures/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml",
-      "uo-containers/22.05/failed-oneapi/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-aarch64/spack.yaml",
-      "_archived/oci/adaptive-test-env/spack.yaml",
-      "arcticus/develop/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-noex/spack.yaml",
-      "uo-containers/22.11/release/public/rocm-x86_64/spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-oneapi/cpu-gcc.spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-ppc64le-noex.spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-x86_64/spack.yaml",
-      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml",
-      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml",
-      "crusher/22.11/PrgEnv-gnu/failures/spack.yaml",
-      "arcticus/22.11/spack.yaml",
-      "uo-containers/22.11/release/containers/aarch64-cuda/spack.yaml",
-      "crusher/22.08/PrgEnv-gnu/spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda-ppc64le/spack.yaml",
-      "_archived/cori/21.05/PrgEnv-intel/spack.yaml",
-      "crusher/22.08/mvapich2/failures/spack.yaml",
-      "uo-containers/22.11/components/gpu-rocm/spack.yaml",
-      "uo-containers/22.08/components/gpu-rocm/spack.yaml",
-      "crusher/22.11/PrgEnv-amd/rocm-rocmcc/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml",
-      "uo-containers/22.11/cuda.spack.yaml",
-      "uo-containers/22.08/_archive/prep/oneapi/spack.yaml",
-      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml",
-      "arcticus/22.11/failures/spack.yaml",
-      "uo-containers/22.08/components/gpu-cuda/spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda-noex/spack.yaml",
-      "uo-containers/22.11/components/oneapi-public-release/spack.yaml",
-      "crusher/22.11/mvapich2/failures/spack.yaml",
-      "_archived/oci/mvapich2/spack.yaml",
-      "uo-containers/22.11/release/public/oneapi-x86_64/spack.yaml",
-      "perlmutter/22.08/mvapich2-3.0a/ecp-data-vis-sdk/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml",
-      "crusher/22.08/PrgEnv-cray/spack.yaml",
-      "_archived/bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda/spack.yaml",
-      "crusher/22.11/PrgEnv-gnu/spack.yaml",
-      "uo-containers/22.08/release/public/cuda-ppc64le.spack.yaml",
-      "crusher/22.11/PrgEnv-amd/spack.yaml",
-      "perlmutter/22.11/mvapich2/spack.yaml",
-      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/big.spack.yaml",
-      "uo-containers/22.08/_archive/prep/cuda-ppc64le/spack.yaml",
-      "arcticus/22.05/failures/spack.yaml",
-      "uo-containers/22.08/release/public/oneapi.spack.yaml",
-      "uo-containers/22.11/components/cpu/spack.yaml",
-      "uo-containers/22.11/components/gpu-cuda-ppc64le-noex/spack.yaml",
-      "perlmutter/22.11/mvapich2/failures/spack.yaml",
-      "uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-aarch64-noex.spack.yaml",
-      "_archived/frontera/22.05/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml",
-      "uo-containers/22.08/release/public/cpu.spack.yaml",
-      "crusher/22.11/PrgEnv-cray/spack.yaml",
-      "perlmutter/22.11/PrgEnv-gnu/failures/spack.yaml",
-      "perlmutter/22.08/mvapich2-3.0a/failures/spack.yaml",
-      "uo-containers/22.08/components/cpu/spack.yaml",
-      "_archived/aws/paratools/parallelcluster-3.1.4/spack.yaml",
-      "_archived/aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml",
-      "crusher/22.08/PrgEnv-amd/spack.yaml",
-      "uo-containers/22.11/release/containers/ppc64le-cuda/spack.yaml",
-      "crusher/22.11/PrgEnv-amd/failures/spack.yaml",
-      "uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml",
-      "_archived/aws/paratools/e4s-mvapich/spack.yaml",
-      "crusher/22.05/PrgEnv-gnu/failures/spack.yaml",
-      "uo-containers/22.11/components/cpu-ppc64le/spack.yaml",
-      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml",
-      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml",
       "uo-containers/22.11/rocm.spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-rocm-noex.spack.yaml",
-      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-cuda/spack.yaml",
-      "uo-containers/22.08/release/public/rocm.spack.yaml",
-      "crusher/22.08/PrgEnv-amd/failures/spack.yaml",
-      "uo-containers/22.11/release/public/cuda-ppc64le/spack.yaml",
-      "crusher/22.11/mvapich2/spack.yaml",
-      "uo-containers/22.11/release/containers/amd64-oneapi/oneapi.spack.yaml",
-      "uo-containers/22.08/release/_backup/e4s-22.08-cuda-noex.spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.wo-failures.spack.yaml",
+      "_archived/applications/exago/crusher/spack.yaml",
+      "arcticus/22.11/spack.yaml",
+      "uo-containers/22.08/_archive/prep/rocm/spack.yaml",
+      "uo-containers/22.11/components/gpu-rocm/spack.yaml",
+      "crusher/22.08/PrgEnv-gnu/failures/spack.yaml",
+      "arcticus/develop/spack.yaml",
+      "uo-containers/22.11/components/cpu-ppc64le/spack.yaml",
+      "_archived/oci/mvapich2/spack.yaml",
+      "arcticus/22.08/failures/spack.yaml",
+      "uo-containers/22.11/release/public/cuda-aarch64/spack.yaml",
+      "_archived/aws/paratools/parallelcluster-3.1.4/exawind-demo/spack.yaml",
+      "crusher/22.08/mvapich2/failures/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-cuda-ppc64le.spack.yaml",
       "perlmutter/22.11/PrgEnv-gnu/spack.yaml",
+      "uo-containers/22.08/release/public/oneapi.spack.yaml",
+      "uo-containers/22.08/components/gpu-rocm/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-rocm.spack.yaml",
+      "crusher/22.11/PrgEnv-amd/rocm-rocmcc/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-aarch64-noex/spack.yaml",
+      "_archived/cori/21.05/PrgEnv-intel/spack.yaml",
+      "_archived/applications/exago/container/spack.yaml",
+      "crusher/22.11/PrgEnv-gnu/failures/spack.yaml",
+      "crusher/22.11/mvapich2/failures/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-rocm/spack.yaml",
+      "crusher/22.08/PrgEnv-amd/failures/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-cpu.spack.yaml",
+      "crusher/22.08/PrgEnv-amd/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-noex/spack.yaml",
+      "uo-containers/22.08/release/e4s-22.08-cuda.spack.yaml",
+      "arcticus/22.11/failures/spack.yaml",
+      "uo-containers/22.11/release/containers/ppc64le-cuda/spack.yaml",
+      "uo-containers/22.08/release/public/cuda-aarch64.spack.yaml",
+      "arcticus/22.08/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda/spack.yaml",
+      "uo-containers/22.11/components/cpu/spack.yaml",
+      "crusher/22.08/PrgEnv-cray/failures/spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.w-failures.spack.yaml",
+      "perlmutter/22.11/mvapich2/spack.yaml",
+      "perlmutter/22.08/mvapich2-3.0a/failures/spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/separately.wo-failures.spack.yaml",
       "uo-containers/22.11/oneapi.spack.yaml",
-      "uo-containers/22.08/_archive/prep/rocm-noex/spack.yaml",
-      "crusher/22.08/PrgEnv-gnu/failures/spack.yaml"
+      "uo-containers/22.08/_archive/prep/cuda-noex/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-oneapi/oneapi.spack.yaml",
+      "perlmutter/22.08/PrgEnv-gnu/spack.yaml",
+      "uo-containers/22.11/release/public/cuda-ppc64le/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cuda-ppc64le-noex/spack.yaml",
+      "uo-containers/22.08/release/public/rocm.spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-ppc64le/spack.yaml",
+      "uo-containers/22.08/components/cpu/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-cuda/spack.yaml",
+      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/spack.yaml",
+      "uo-containers/22.11/release/public/oneapi-x86_64/spack.yaml",
+      "uo-containers/22.08/components/gpu-cuda-ppc64le-noex/spack.yaml",
+      "perlmutter/22.08/mvapich2-3.0a/ecp-data-vis-sdk/spack.yaml",
+      "uo-containers/22.11/cuda.spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/spack.yaml",
+      "uo-containers/22.11/components/cpu-plus-gpu-oneapi/big.spack.yaml",
+      "_archived/aws/paratools/parallelcluster-3.1.4/spack.yaml",
+      "_archived/oci/adaptive-test-env/spack.yaml",
+      "uo-containers/22.11/components/gpu-cuda-ppc64le/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cpu-ppc64le/spack.yaml",
+      "_archived/oneapi/ubuntu20.04-runner-x86_64-oneapi/breakdowns/together.w-failures.spack.yaml",
+      "perlmutter/22.08/PrgEnv-gnu/failures/spack.yaml",
+      "crusher/22.08/mvapich2/spack.yaml",
+      "uo-containers/22.08/components/gpu-rocm-noex/spack.yaml",
+      "uo-containers/22.11/components/gpu-rocm-noex/spack.yaml",
+      "uo-containers/22.08/_archive/prep/oneapi/spack.yaml",
+      "crusher/22.08/PrgEnv-cray/spack.yaml",
+      "perlmutter/22.08/mvapich2-3.0a/spack.yaml",
+      "uo-containers/22.11/components/gpu-cuda/spack.yaml",
+      "_archived/bridges2/22.05/openmpi-4.1.1-gcc8.3.1/spack.yaml",
+      "perlmutter/22.11/PrgEnv-gnu/failures/spack.yaml",
+      "crusher/22.08/PrgEnv-gnu/spack.yaml",
+      "uo-containers/22.11/components/gpu-cuda-noex/spack.yaml",
+      "perlmutter/22.11/mvapich2/failures/spack.yaml",
+      "uo-containers/22.08/_archive/prep/cpu/spack.yaml",
+      "crusher/22.11/PrgEnv-cray/spack.yaml",
+      "_archived/frontera/22.05/spack.yaml",
+      "_archived/aws/paratools/e4s-mvapich/spack.yaml",
+      "crusher/22.11/PrgEnv-amd/spack.yaml",
+      "perlmutter/22.05/mvapich2-3.0a/spack.yaml",
+      "uo-containers/22.11/release/containers/amd64-oneapi/cpu-gcc.spack.yaml"
     ],
     "full_name": "eugeneswalker/facility-spack",
     "latest_release": null,
@@ -961,10 +997,10 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/ThetaGPU/spack.yaml",
+      "ANL/Polaris/spack.yaml",
       "ANL/Polaris/spack-ucx.yaml",
       "generic/spack.yaml",
-      "ANL/Polaris/spack.yaml"
+      "ANL/ThetaGPU/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -987,21 +1023,6 @@ var data =
     "subscribers_count": 2,
     "topics": [],
     "updated_at": 1668046366.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "gcc-1/spack.yaml",
-      "gcc-2/spack.yaml"
-    ],
-    "full_name": "haampie/spack-intermediate-gcc-example",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-simpler-example-of-dependencies-across-spack-environments\" class=\"anchor\" aria-hidden=\"true\" href=\"#simpler-example-of-dependencies-across-spack-environments\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSimple(r) example of dependencies across spack environments\u003c/h1\u003e\n\u003cp\u003eRun\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emake -j$(nproc)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eto build a compiler in \u003ccode\u003e./store-1\u003c/code\u003e using system compiler, and another compiler\nin \u003ccode\u003e./store-2\u003c/code\u003e using the compiler of \u003ccode\u003e./store-1\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThis is useful if the system compiler can\u0027t directly build the latest GCC.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003emake clean\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eremoves all intermediate files, but does not remove stores.\u003c/p\u003e\n\u003cp\u003eThis \u003ccode\u003eMakefile\u003c/code\u003e is supposed to be somewhat human readable.\u003c/p\u003e\n",
-    "stargazers_count": 1,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1668211431.0
   },
   {
     "data_format": 2,
@@ -1049,15 +1070,28 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "inputs/spack/spack_begin.yaml"
+    ],
+    "full_name": "cinemascienceworkflows/nyx",
+    "latest_release": null,
+    "stargazers_count": 1,
+    "subscribers_count": 6,
+    "topics": [],
+    "updated_at": 1640144761.0
+  },
+  {
+    "data_format": 2,
+    "description": "Python wrapper for Margo. Can be used to prototype Margo services in Python.",
+    "filenames": [
       "spack.yaml"
     ],
-    "full_name": "robertu94/poorjit",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-poorjit\" class=\"anchor\" aria-hidden=\"true\" href=\"#poorjit\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003epoorjit\u003c/h1\u003e\n\u003cp\u003eA poor man\u0027s jit for C++ for when you want to instantiate and call templates at\nruntime. Is there a more efficient way to do this? sure, but this is ~100 lines\nof code I wrote in less than an afternoon. Almost certainly only works on Linux\nand with either clang or g++.\u003c/p\u003e\n\u003cp\u003eSee \u003ccode\u003etest\u003c/code\u003e for a usage example.\u003c/p\u003e\n",
+    "full_name": "mochi-hpc/py-mochi-margo",
+    "latest_release": "v0.5.2",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-py-margo\" class=\"anchor\" aria-hidden=\"true\" href=\"#py-margo\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePy-Margo\u003c/h1\u003e\n\u003cp\u003ePy-Margo provides a Python wrapper on top of \u003ca href=\"https://xgitlab.cels.anl.gov/sds/margo\" rel=\"nofollow\"\u003eMargo\u003c/a\u003e.\nIt enables one to develop Margo-based service in Python.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#dependencies\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDependencies\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003emargo (and its dependencies)\u003c/li\u003e\n\u003cli\u003epython\u003c/li\u003e\n\u003cli\u003epybind11\u003c/li\u003e\n\u003cli\u003epy-pkgconfig\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003cp\u003eThe easiest way to install Py-Margo is to use \u003ca href=\"https://spack.io/\" rel=\"nofollow\"\u003espack\u003c/a\u003e.\nFollow the instructions \u003ca href=\"https://xgitlab.cels.anl.gov/sds/sds-repo\" rel=\"nofollow\"\u003ehere\u003c/a\u003e\nto add the \u003ccode\u003esds\u003c/code\u003e namespace and its packages (instal spack first, if needed).\nThen type:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003espack install py-margo\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce installed, you need the py-margo package (and its dependencies) to\nbe loaded to use it.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#examples\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExamples\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-basic-example\" class=\"anchor\" aria-hidden=\"true\" href=\"#basic-example\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBasic example\u003c/h3\u003e\n\u003cp\u003eThe following is an example of provider programmed in Python.\nLet\u0027s put is in a file \u003ccode\u003eserver.py\u003c/code\u003e.\nThe provider listens to an address on a given multiple id (here 42).\nWhenever it receives an RPC, it prints \"Hello from\" and the name sent\nby the client, then sends the \"Hi \"+name+\"!\" string back to the client,\nand finally terminates.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecore\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e, \u003cspan class=\"pl-v\"\u003eProvider\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eHelloProvider\u003c/span\u003e(\u003cspan class=\"pl-v\"\u003eProvider\u003c/span\u003e):\n\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003e__init__\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-en\"\u003esuper\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eregister\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"say_hello\"\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\"hello\"\u003c/span\u003e)\n\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ehello\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Hello from \"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"RPC id is \"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eget_id\u003c/span\u003e()))\n\t\t\u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003erespond\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Hi \"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\"!\"\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eget_engine\u003c/span\u003e().\u003cspan class=\"pl-en\"\u003efinalize\u003c/span\u003e()\n\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWhenFinalize\u003c/span\u003e():\n\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Finalize was called\"\u003c/span\u003e)\n\n\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027tcp\u0027\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e42\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Server running at address \"\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eaddr\u003c/span\u003e()) \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\" with provider_id \"\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e \u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e))\n\n\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eon_finalize\u003c/span\u003e(\u003cspan class=\"pl-v\"\u003eWhenFinalize\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003eprovider\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eHelloProvider\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e)\n\n\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003ewait_for_finalize\u003c/span\u003e()\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThe following code is the corresponding client code (\u003ccode\u003eclient.py\u003c/code\u003e).\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecore\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecall_rpc_on\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eaddr_str\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e):\n\t\u003cspan class=\"pl-s1\"\u003eaddr\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003elookup\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eaddr_str\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003ecreate_handle\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eaddr\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e)\n\t\u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eforward\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ename\u003c/span\u003e)\n\n\u003cspan class=\"pl-k\"\u003ewith\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027tcp\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003emode\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eclient\u003c/span\u003e) \u003cspan class=\"pl-k\"\u003eas\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e:\n\t\u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eregister\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"say_hello\"\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003eret\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecall_rpc_on\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eargv\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e], \u003cspan class=\"pl-en\"\u003eint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eargv\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e2\u003c/span\u003e]), \u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eargv\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e3\u003c/span\u003e]))\n\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eret\u003c/span\u003e))\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eFirst, run the server on a new terminal:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython server.py\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis will output something like\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eServer running at address ofi+sockets://10.0.2.15:39151 with provider_id=42\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen run the client on a new terminal:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython client.py ofi+sockets://10.0.2.15:39151 42 Matthieu\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\u003ca id=\"user-content-sendingreceiving-python-objects\" class=\"anchor\" aria-hidden=\"true\" href=\"#sendingreceiving-python-objects\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSending/receiving Python objects\u003c/h3\u003e\n\u003cp\u003eThe example above shows the basic principles of Py-Margo.\nPy-Margo\u0027s RPC always use a string as input and respond with a string.\nYet this is sufficient to cover any use-cases you may have: Python\nindeed comes with a serialization package, \u003ccode\u003epickle\u003c/code\u003e, that can take\ncare of converting almost any Python object from/to a string.\u003c/p\u003e\n\u003cp\u003eLet us assume we have a file named \u003ccode\u003emymaths.py\u003c/code\u003e which contains the\nfollowing definition of a point in 3D.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e():\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003e__init__\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003e__str__\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u0027Point (\u0027\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e)\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027,\u0027\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e)\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027,\u0027\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e)\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\u0027)\u0027\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen here is a server that can compute a cross product on two points sent by\na client.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecore\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecore\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eProvider\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003emymaths\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003eclass\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eVectorMathProvider\u003c/span\u003e(\u003cspan class=\"pl-v\"\u003eProvider\u003c/span\u003e):\n\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003e__init__\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-en\"\u003esuper\u003c/span\u003e().\u003cspan class=\"pl-en\"\u003e__init__\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eregister\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"cross_product\"\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\"cross_product\"\u003c/span\u003e)\n\n\t\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecross_product\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eargs\u003c/span\u003e):\n\t\t\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eloads\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eargs\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Received: \"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e))\n\t\t\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e-\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e\n\t\t\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e-\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e\n\t\t\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e-\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epoints\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e].\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e\n\t\t\u003cspan class=\"pl-s1\"\u003eres\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003ex\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ey\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ez\u003c/span\u003e)\n\t\t\u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003erespond\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003edumps\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eres\u003c/span\u003e))\n\t\t\u003cspan class=\"pl-s1\"\u003eself\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eget_engine\u003c/span\u003e().\u003cspan class=\"pl-en\"\u003efinalize\u003c/span\u003e()\n\n\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027tcp\u0027\u003c/span\u003e)\n\u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e42\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"Server running at address \"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003emid\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eaddr\u003c/span\u003e())\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-s\"\u003e\"with provider_id=\"\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e+\u003c/span\u003e\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e))\n\n\u003cspan class=\"pl-s1\"\u003eprovider\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eVectorMathProvider\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e)\n\n\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003ewait_for_finalize\u003c/span\u003e()\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eAnd here is a client.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003emymaths\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecore\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecall_rpc_on\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eaddr_str\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ep1\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ep2\u003c/span\u003e):\n\t\u003cspan class=\"pl-s1\"\u003eaddr\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003elookup\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eaddr_str\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003ecreate_handle\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eaddr\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003eprovider_id\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003eargs\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003edumps\u003c/span\u003e([\u003cspan class=\"pl-s1\"\u003ep1\u003c/span\u003e,\u003cspan class=\"pl-s1\"\u003ep2\u003c/span\u003e])\n\t\u003cspan class=\"pl-s1\"\u003eres\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ehandle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eforward\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eargs\u003c/span\u003e)\n\t\u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003epickle\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eloads\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eres\u003c/span\u003e)\n\n\u003cspan class=\"pl-k\"\u003ewith\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eEngine\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u0027tcp\u0027\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003emode\u003c/span\u003e\u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e\u003cspan class=\"pl-s1\"\u003epymargo\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eclient\u003c/span\u003e) \u003cspan class=\"pl-k\"\u003eas\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eengine\u003c/span\u003e:\n\t\u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003emid\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eregister\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"cross_product\"\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003ep1\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e,\u003cspan class=\"pl-c1\"\u003e2\u003c/span\u003e,\u003cspan class=\"pl-c1\"\u003e3\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003ep2\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003ePoint\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003e4\u003c/span\u003e,\u003cspan class=\"pl-c1\"\u003e5\u003c/span\u003e,\u003cspan class=\"pl-c1\"\u003e6\u003c/span\u003e)\n\t\u003cspan class=\"pl-s1\"\u003eret\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecall_rpc_on\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003emid\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003erpc_id\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eargv\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e], \u003cspan class=\"pl-en\"\u003eint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003esys\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eargv\u003c/span\u003e[\u003cspan class=\"pl-c1\"\u003e2\u003c/span\u003e]), \u003cspan class=\"pl-s1\"\u003ep1\u003c/span\u003e, \u003cspan class=\"pl-s1\"\u003ep2\u003c/span\u003e)\n\t\u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-en\"\u003estr\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eret\u003c/span\u003e))\u003c/pre\u003e\u003c/div\u003e\n",
     "stargazers_count": 2,
-    "subscribers_count": 1,
+    "subscribers_count": 5,
     "topics": [],
-    "updated_at": 1668715291.0
+    "updated_at": 1669630272.0
   },
   {
     "data_format": 2,
@@ -1145,13 +1179,27 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Documentations and tutorials for Margo, Thallium, Argobots, Mercury, and other Mochi libraries.",
+    "filenames": [
+      "code/spack.yaml"
+    ],
+    "full_name": "mochi-hpc/mochi-doc",
+    "latest_release": null,
+    "readme": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/mochi-hpc/mochi-doc/actions/workflows/build.yml/badge.svg\"\u003e\u003cimg src=\"https://github.com/mochi-hpc/mochi-doc/actions/workflows/build.yml/badge.svg\" alt=\"build\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-mochi-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#mochi-documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMochi documentation\u003c/h1\u003e\n\u003cp\u003eThis repository contains a Sphinx-based documentation\nfor the Mochi libraries: Margo, Thallium, Argobots, Mercury,\nABT-IO, and SSG, as well as corresponding code examples.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building-the-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the documentation\u003c/h2\u003e\n\u003cp\u003eTo build and/or contribute to this documentation, you must have a Sphinx and\na few related extensions installed.  These can be installed as follows using\nPython\u0027s \u003ccode\u003epip\u003c/code\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epip install sphinx\npip install sphinx_rtd_theme\npip install sphinx_copybutton\npip install recommonmark\npip install breathe\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou must also install the \u003ccode\u003edoxygen\u003c/code\u003e documentation system.  This is likely\navailable in your platform\u0027s primary package manager.  For example on Ubuntu:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003esudo apt install doxygen\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce you have these dependencies installed, clone this\nrepository and cd into it. You can change the documentation\nby editing the files in the source subdirectory (these files\nuse the .rst format). You can build the documentation\nusing the following command.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecd docs\nmake html\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAnd check the result by opening the \u003ccode\u003ebuild/html/index.html\u003c/code\u003e page\nthat has been created in the docs directory.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building-the-code-examples\" class=\"anchor\" aria-hidden=\"true\" href=\"#building-the-code-examples\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding the code examples\u003c/h2\u003e\n\u003cp\u003eTo build the code, you will need spack and the\n\u003ca href=\"https://github.com/mochi-hpc/mochi-spack-packages\"\u003emochi repo\u003c/a\u003e setup.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ecd code\nspack env create mochi-doc-env spack.yaml\nspack env activate mochi-doc-env\nspack install\nmkdir build\ncd build\ncmake .. -DCMAKE_CXX_COMPILER=mpicxx -DCMAKE_C_COMPILER=mpicc\nmake\n\u003c/code\u003e\u003c/pre\u003e\n",
+    "stargazers_count": 4,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1668505847.0
+  },
+  {
+    "data_format": 2,
     "description": "Bash shell script for installing xSDK and other IDEAS packages",
     "filenames": [
       "platformFiles/crusher/PrgEnv-cray/spack.yaml",
-      "platformFiles/polaris/gcc-11.2.0/spack.yaml",
       "platformFiles/summit/spack.yaml",
-      "platformFiles/crusher/PrgEnv-gnu/spack.yaml",
-      "platformFiles/lassen/spack.yaml"
+      "platformFiles/polaris/gcc-11.2.0/spack.yaml",
+      "platformFiles/lassen/spack.yaml",
+      "platformFiles/crusher/PrgEnv-gnu/spack.yaml"
     ],
     "full_name": "xsdk-project/installxSDK",
     "latest_release": "v0.1.1",
@@ -1165,8 +1213,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "buildspecs/apps/e4s/22.05/spack.yaml",
-      "buildspecs/apps/e4s/22.02/spack.yaml"
+      "buildspecs/apps/e4s/22.02/spack.yaml",
+      "buildspecs/apps/e4s/22.05/spack.yaml"
     ],
     "full_name": "buildtesters/buildtest-nersc",
     "latest_release": null,
@@ -1180,18 +1228,33 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Nonlinear CG methods for wave-function optimization in DFT",
+    "filenames": [
+      "spack-envs/q-e-sirius-cpu-only/spack.yaml",
+      "spack-envs/q-e-sirius-lumi/spack.yaml",
+      "spack-envs/q-e-sirius-cuda/spack.yaml"
+    ],
+    "full_name": "simonpintarelli/nlcglib",
+    "latest_release": "v0.9.1",
+    "stargazers_count": 6,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1671059412.0
+  },
+  {
+    "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
+      "spack-environments/dial3/compute-node/spack.yaml",
+      "spack-environments/tesseract/compute-node/spack.yaml",
+      "spack-environments/csd3-skylake/compute-node/spack.yaml",
+      "spack-environments/isambard-cascadelake/compute-node/spack.yaml",
       "spack-environments/myriad/compute-node/spack.yaml",
       "spack-environments/tursa/cpu/spack.yaml",
       "spack-environments/github-actions/default/spack.yaml",
-      "spack-environments/dial3/compute-node/spack.yaml",
       "spack-environments/cosma8/compute-node/spack.yaml",
-      "spack-environments/archer2/compute-node/spack.yaml",
-      "spack-environments/tesseract/compute-node/spack.yaml",
       "spack-environments/csd3-icelake/compute-node/spack.yaml",
-      "spack-environments/csd3-skylake/compute-node/spack.yaml",
-      "spack-environments/isambard-cascadelake/compute-node/spack.yaml",
+      "spack-environments/archer2/compute-node/spack.yaml",
       "spack-environments/isambard-a64fx/compute-node/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
@@ -1208,14 +1271,18 @@ var data =
     "filenames": [
       "spack-configs/cori-e4s-20.10/spack.yaml",
       "spack-configs/perlmutter-e4s-21.11/ci/spack.yaml",
-      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/ci/spack.yaml",
-      "spack-configs/perlmutter-e4s-21.11/spack.yaml",
-      "spack-configs/perlmutter-user-spack/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/decomposed/spack-gcc.yaml",
+      "spack-configs/perlmutter-e4s-22.05/decomposed/spack-gcc-cuda.yaml",
       "spack-configs/cori-e4s-22.02/ci/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/decomposed/spack-cce.yaml",
+      "spack-configs/perlmutter-e4s-21.11/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/ci/spack.yaml",
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/cori-e4s-21.05/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-user-spack/spack.yaml",
+      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
       "docs/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
@@ -1245,8 +1312,8 @@ var data =
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
       "environments/key4hep-nightlies-rootmod/spack.yaml",
-      "environments/key4hep-release-user/spack.yaml",
-      "environments/key4hep-nightlies/spack.yaml"
+      "environments/key4hep-nightlies/spack.yaml",
+      "environments/key4hep-release-user/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1258,17 +1325,41 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "ImpactX: an s-based beam dynamics code including space charge effects",
+    "filenames": [
+      "docs/spack.yaml"
+    ],
+    "full_name": "ECP-WarpX/impactx",
+    "latest_release": "22.12",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-impactx\" class=\"anchor\" aria-hidden=\"true\" href=\"#impactx\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eImpactX\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ECP-WarpX/impactx/actions/workflows/ubuntu.yml\"\u003e\u003cimg src=\"https://github.com/ECP-WarpX/impactx/actions/workflows/ubuntu.yml/badge.svg\" alt=\"CI Status\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://impactx.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/1090ab96071a0b6311590a818911f8b10c5d65e31760367fbaed373f8d727e03/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f696d70616374782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/impactx/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spdx.org/licenses/BSD-3-Clause-LBNL.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667\" alt=\"License ImpactX\" data-canonical-src=\"https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://impactx.readthedocs.io/en/latest/install/users.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/114e64f6c29b3e409c6de5b19ee4074ec3053396d43319fe4876231f1480e0d1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d732d6c696e75782532302537432532306f737825323025374325323077696e2d626c7565\" alt=\"Supported Platforms\" data-canonical-src=\"https://img.shields.io/badge/platforms-linux%20%7C%20osx%20%7C%20win-blue\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.6954922\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/baf88cee0be27d736412a9f20b5bbbcf3474dd6522e2c3aed8acb112ef750bd8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f4925323028736f75726365292d31302e353238312f7a656e6f646f2e363935343932322d626c75652e737667\" alt=\"DOI (source)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(source)-10.5281/zenodo.6954922-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.48550/arXiv.2208.02382\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/0ce1f03bff8ee943abcb746f0129abb1a359bb5e010f3a5d95f5bda86b7fff59/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f49253230287061706572292d31302e34383535302f61725869762e323230382e30323338322d626c75652e737667\" alt=\"DOI (paper)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(paper)-10.48550/arXiv.2208.02382-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/Software_release_life_cycle\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8d8c054b6da1ff81634c84041dfe111aec24b166c8ea31edb0ade140ea2c9015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646576656c6f706d656e742532307374617475732d626574612d6f72616e67652e737667\" alt=\"Development Status\" data-canonical-src=\"https://img.shields.io/badge/development%20status-beta-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://isocpp.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/5d59fff46d59a1783cc24942cb4eb374014513db99f991164bd051bcd94aa598/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4325324225324231372d6f72616e67652e737667\" alt=\"Language: C++17\" data-canonical-src=\"https://img.shields.io/badge/language-C%2B%2B17-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://python.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9cf7ec75b074af6953db1304db75950ab917ecd8a1aecb41f0d1191d10872298/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e2d6f72616e67652e737667\" alt=\"Language: Python\" data-canonical-src=\"https://img.shields.io/badge/language-Python-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eImpactX: an s-based beam dynamics code including space charge effects.\nThis is the next generation of the \u003ca href=\"https://github.com/impact-lbl/IMPACT-Z\"\u003eIMPACT-Z\u003c/a\u003e code.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eIn order to learn how to install and run the code, please see the online documentation:\n\u003ca href=\"https://impactx.readthedocs.io\" rel=\"nofollow\"\u003ehttps://impactx.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eImpactX Doxygen: \u003ca href=\"https://impactx.readthedocs.io/en/latest/_static/doxyhtml\" rel=\"nofollow\"\u003ehttps://impactx.readthedocs.io/en/latest/_static/doxyhtml\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eAMReX Doxygen: \u003ca href=\"https://amrex-codes.github.io/amrex/doxygen\" rel=\"nofollow\"\u003ehttps://amrex-codes.github.io/amrex/doxygen\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eWarpX Doxygen: \u003ca href=\"https://warpx.readthedocs.io/en/latest/_static/doxyhtml\" rel=\"nofollow\"\u003ehttps://warpx.readthedocs.io/en/latest/_static/doxyhtml\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://amrex-codes.github.io/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7053679f4412132d376afadf481432a9d435336f8127e7c8650808bc66d019b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232414d52655825323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"AMReX\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22AMReX%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOur workflow is described in \u003ca href=\"CONTRIBUTING.rst\"\u003eCONTRIBUTING.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-developer-environment\" class=\"anchor\" aria-hidden=\"true\" href=\"#developer-environment\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDeveloper Environment\u003c/h2\u003e\n\u003cp\u003ePlease prepare you local development environment as follows.\nPick \u003cem\u003eone\u003c/em\u003e of the methods below:\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-perlmutter-nersc\" class=\"anchor\" aria-hidden=\"true\" href=\"#perlmutter-nersc\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePerlmutter (NERSC)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003essh perlmutter-p1.nersc.gov\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNow \u003ccode\u003ecd\u003c/code\u003e to your ImpactX source directory.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003emodule load cmake/3.22.0\nmodule swap PrgEnv-nvidia PrgEnv-gnu\nmodule load cudatoolkit\nmodule load cray-hdf5-parallel/1.12.1.1\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e Python\u003c/span\u003e\nmodule load cray-python/3.9.7.1\n\u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e [ \u003cspan class=\"pl-k\"\u003e-d\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/perlmutter/venvs/impactx\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e ]\n\u003cspan class=\"pl-k\"\u003ethen\u003c/span\u003e\n  \u003cspan class=\"pl-c1\"\u003esource\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/perlmutter/venvs/impactx/bin/activate\n\u003cspan class=\"pl-k\"\u003eelse\u003c/span\u003e\n  python3 -m pip install --user --upgrade pip\n  python3 -m pip install --user virtualenv\n  python3 -m venv \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/perlmutter/venvs/impactx\n  \u003cspan class=\"pl-c1\"\u003esource\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/perlmutter/venvs/impactx/bin/activate\n\n  python3 -m pip install --upgrade pip\n  MPICC=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ecc -target-accel=nvidia80 -shared\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e python3 -m pip install -U --no-cache-dir -v mpi4py\n  python3 -m pip install -r requirements.txt\n\u003cspan class=\"pl-k\"\u003efi\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e GPU-aware MPI\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e MPICH_GPU_SUPPORT_ENABLED=1\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e necessary to use CUDA-Aware MPI and run a job\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CRAY_ACCEL_TARGET=nvidia80\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optimize CUDA compilation for A100\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e AMREX_CUDA_ARCH=8.0\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compiler environment hints\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CC=cc\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CXX=CC\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e FC=ftn\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CUDACXX=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003ewhich nvcc\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CUDAHOSTCXX=CC\u003c/pre\u003e\u003c/div\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e configure\u003c/span\u003e\ncmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build_perlmutter -DImpactX_COMPUTE=CUDA\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compile\u003c/span\u003e\ncmake --build build_perlmutter -j 10\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e test\u003c/span\u003e\nsrun -N 1 --ntasks-per-gpu=1 -t 0:10:00 -C gpu -c 32 -G 4 --qos=debug -A m3906_g ctest --test-dir build_perlmutter --output-on-failure\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e run\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e build_perlmutter/bin\nsrun -N 1 --ntasks-per-gpu=1 -t 0:10:00 -C gpu -c 32 -G 4 --qos=debug -A m3906_g ./impactx ../../examples/fodo/input_fodo.in\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-cori-knl-nersc\" class=\"anchor\" aria-hidden=\"true\" href=\"#cori-knl-nersc\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCori KNL (NERSC)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003essh cori.nersc.gov\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNow \u003ccode\u003ecd\u003c/code\u003e to your ImpactX source directory.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003emodule swap craype-haswell craype-mic-knl\nmodule swap PrgEnv-intel PrgEnv-gnu\nmodule load cmake/3.22.1\nmodule load cray-hdf5-parallel/1.10.5.2\nmodule load cray-fftw/3.3.8.10\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e Python\u003c/span\u003e\nmodule load cray-python/3.9.7.1\n\u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e [ \u003cspan class=\"pl-k\"\u003e-d\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/knl/venvs/impactx\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e ]\n\u003cspan class=\"pl-k\"\u003ethen\u003c/span\u003e\n  \u003cspan class=\"pl-c1\"\u003esource\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/knl/venvs/impactx/bin/activate\n\u003cspan class=\"pl-k\"\u003eelse\u003c/span\u003e\n  python3 -m pip install --user --upgrade pip\n  python3 -m pip install --user virtualenv\n  python3 -m venv \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/knl/venvs/impactx\n  \u003cspan class=\"pl-c1\"\u003esource\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$HOME\u003c/span\u003e/sw/knl/venvs/impactx/bin/activate\n\n  python3 -m pip install --upgrade pip\n  MPICC=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ecc -shared\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e python3 -m pip install -U --no-cache-dir -v mpi4py\n  python3 -m pip install -r requirements.txt\n\u003cspan class=\"pl-k\"\u003efi\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e tune exactly for KNL sub-architecture\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CXXFLAGS=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e-march=knl\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e CFLAGS=\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e-march=knl\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e configure\u003c/span\u003e\ncmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build_knl\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compile\u003c/span\u003e\ncmake --build build_knl -j 8\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e test\u003c/span\u003e\nsrun -C knl -N 1 -t 30 -q debug ctest --test-dir build_knl --output-on-failure\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e run\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e build_knl/bin\nsrun -C knl -N 1 -t 30 -q debug ./impactx ../../examples/fodo/input_fodo.in\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-homebrew-macos\" class=\"anchor\" aria-hidden=\"true\" href=\"#homebrew-macos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHomebrew (macOS)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ebrew update\nbrew install adios2      \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for openPMD\u003c/span\u003e\nbrew install ccache\nbrew install cmake\nbrew install fftw\nbrew install git\nbrew install hdf5-mpi    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for openPMD\u003c/span\u003e\nbrew install libomp      \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for OpenMP\u003c/span\u003e\nbrew install pkg-config  \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for fftw\u003c/span\u003e\nbrew install open-mpi\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-apt-debianubuntu\" class=\"anchor\" aria-hidden=\"true\" href=\"#apt-debianubuntu\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eApt (Debian/Ubuntu)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo apt update\nsudo apt install build-essential ccache cmake g++ git libfftw3-mpi-dev libfftw3-dev libhdf5-openmpi-dev libopenmpi-dev pkg-config python3 python3-matplotlib python3-numpy python3-scipy\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-spack-linux\" class=\"anchor\" aria-hidden=\"true\" href=\"#spack-linux\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpack (Linux)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003espack env create impactx-dev\nspack env activate impactx-dev\nspack add adios2        \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for openPMD\u003c/span\u003e\nspack add ccache\nspack add cmake\nspack add fftw\nspack add hdf5          \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for openPMD\u003c/span\u003e\nspack add mpi\nspack add pkgconfig     \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e for fftw\u003c/span\u003e\nspack add python\nspack add py-pip\nspack add py-setuptools\nspack add py-wheel\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e OpenMP support on macOS\u003c/span\u003e\n[[ \u003cspan class=\"pl-smi\"\u003e$OSTYPE\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e==\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003edarwin\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e*\u003c/span\u003e ]] \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e spack add llvm-openmp\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e optional: Linux only\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003espack add cuda\u003c/span\u003e\n\nspack install\npython3 -m pip install matplotlib numpy openpmd-api pandas pytest scipy\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIn new terminals, re-activate the environment with \u003ccode\u003espack env activate impactx-dev\u003c/code\u003e again.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-conda-linuxmacoswindows\" class=\"anchor\" aria-hidden=\"true\" href=\"#conda-linuxmacoswindows\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eConda (Linux/macOS/Windows)\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003econda create -n impactx-dev -c conda-forge adios2 ccache cmake compilers git hdf5 fftw matplotlib ninja numpy pandas pytest scipy\nconda activate impactx-dev\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compile with -DImpactX_MPI=OFF\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-get-the-source-code\" class=\"anchor\" aria-hidden=\"true\" href=\"#get-the-source-code\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGet the Source Code\u003c/h2\u003e\n\u003cp\u003eBefore you start, you will need a copy of the ImpactX source code:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone git@github.com:ECP-WarpX/impactx.git\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e impactx\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-compile\" class=\"anchor\" aria-hidden=\"true\" href=\"#compile\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCompile\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e find dependencies \u0026amp; configure\u003c/span\u003e\ncmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compile\u003c/span\u003e\ncmake --build build -j 4\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThat\u0027s all!\nImpactX binaries are now in \u003ccode\u003ebuild/bin/\u003c/code\u003e.\nMost people execute these binaries directly or copy them out.\u003c/p\u003e\n\u003cp\u003eYou can inspect and modify build options after running \u003ccode\u003ecmake -S . -B\u003c/code\u003e build with either\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003eccmake build\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eor by adding arguments with \u003ccode\u003e-D\u0026lt;OPTION\u0026gt;=\u0026lt;VALUE\u0026gt;\u003c/code\u003e to the first CMake call, e.g.:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build -DImpactX_COMPUTE=CUDA -DImpactX_MPI=OFF\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-python-compile\" class=\"anchor\" aria-hidden=\"true\" href=\"#python-compile\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePython Compile\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e find dependencies \u0026amp; configure\u003c/span\u003e\ncmake -S \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e -B build -DImpactX_PYTHON=ON\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e compile \u0026amp; install\u003c/span\u003e\ncmake --build build -j 4 --target pip_install\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-run\" class=\"anchor\" aria-hidden=\"true\" href=\"#run\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRun\u003c/h2\u003e\n\u003cp\u003eAn executable ImpactX binary with the current compile-time options encoded in its file name will be created in \u003ccode\u003ebuild/bin/\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eAdditionally, a symbolic link named \u003ccode\u003eimpactx\u003c/code\u003e can be found in that directory, which points to the last built ImpactX executable.\u003c/p\u003e\n\u003cp\u003eThe command-line syntax for this executable is:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003eUsage: impactx \u0026lt;inputs-file\u0026gt; [some.overwritten.option=value]...\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003eMandatory arguments (remove the \u0026lt;\u0026gt;):\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  inputs-file     the path to an input file; can be relative to the current\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e                  working directory or absolute.\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e                  Example: input_fodo.in\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003eOptional arguments (remove the []):\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  options         this can overwrite any line in an inputs-file\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e                  Example: quad1.ds=0.5 sbend1.rc=1.5\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003eExamples:\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  In the current working directory, there is a file \"input_fodo.in\" and the\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  \"impactx\" executable.\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  The line to execute would look like this:\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e    ./impactx input_fodo.in\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003e  In the current working directory, there is a file \"input_fodo.in\" and the\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  executable \"impactx\" is in a directory that is listed in the \"PATH\"\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  environment variable.\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  The line to execute would look like this:\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e    impactx input_fodo.in\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003e  In the current working directory, there is a file \"input_fodo.in\" and the\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  \"impactx\" executable. We want to voerwrite the segment length of the beamline\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  element \"quad1\" that is already defined in it. We also want to change the\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  radius of curvature of the bending magnet \"sbend1\" to a different value than\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  in the file \"input_fodo.in\".\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e  The line to execute would look like this:\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e    ./impactx input_fodo.in quad1.ds=0.5 sbend1.rc=1.5\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-test\" class=\"anchor\" aria-hidden=\"true\" href=\"#test\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTest\u003c/h2\u003e\n\u003cp\u003eIn order to run our tests, you need to have a few Python packages installed:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003epython3 -m pip install -U pip setuptools wheel pytest\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003epython3 -m pip install -r examples/requirements.txt\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou can run all our tests with:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ectest --test-dir build --output-on-failure\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eFurther options:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ehelp: \u003ccode\u003ectest --test-dir build --help\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003elist all tests: \u003ccode\u003ectest --test-dir build -N\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eonly run tests that have \"FODO\" in their name: \u003ccode\u003ectest --test-dir build -R FODO\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgements\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgements\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgements\u003c/h2\u003e\n\u003cp\u003eThis work was supported by the Laboratory Directed Research and Development Program of Lawrence Berkeley National Laboratory under U.S. Department of Energy Contract No. DE-AC02-05CH11231.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-copyright-notice\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright-notice\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright Notice\u003c/h2\u003e\n\u003cp\u003eCopyright (c) 2022, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy).\nAll rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software, please contact Berkeley Lab\u0027s Intellectual Property Office at \u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE. This Software was developed under funding from the U.S. Department of Energy and the U.S. Government consequently retains certain rights.  As such, the U.S. Government has been granted for itself and others acting on its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the Software to reproduce, distribute copies to the public, prepare derivative works, and perform publicly and display publicly, and to permit others to do so.\u003c/p\u003e\n\u003cp\u003ePlease see the full license agreement in \u003ca href=\"LICENSE.txt\"\u003eLICENSE.txt\u003c/a\u003e, which is the \u003ccode\u003eBSD-3-Clause-LBNL\u003c/code\u003e license.\u003c/p\u003e\n",
+    "stargazers_count": 11,
+    "subscribers_count": 7,
+    "topics": [
+      "simulation",
+      "beam-dynamics",
+      "particle-in-cell",
+      "gpu",
+      "physics",
+      "pic",
+      "particle",
+      "accelerator",
+      "research"
+    ],
+    "updated_at": 1671085032.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
+      "configs/templates/hpc-dev-v1/spack.yaml",
+      "configs/templates/ufs-weather-model-static/spack.yaml",
+      "configs/templates/skylab-dev/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
       "configs/templates/skylab-no-python-dev/spack.yaml",
       "configs/templates/hpc-stack-dev/spack.yaml",
-      "configs/templates/hpc-dev-v1/spack.yaml",
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
-      "configs/templates/ufs-srw-dev/spack.yaml",
-      "configs/templates/skylab-dev/spack.yaml",
       "configs/templates/jedi-ufs-all/spack.yaml",
-      "configs/templates/gfs-v16.2/spack.yaml",
-      "configs/templates/ufs-weather-model-static/spack.yaml"
+      "configs/templates/ufs-srw-dev/spack.yaml",
+      "configs/templates/gfs-v16.2/spack.yaml"
     ],
     "full_name": "NOAA-EMC/spack-stack",
     "latest_release": "spack-stack-1.2.0",
@@ -1313,10 +1404,17 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/22.11/cuda-ppc64le/spack.yaml",
-      "environments/22.11/rocm-x86_64/spack.yaml",
-      "environments/22.11/oneapi-x86_64/spack.yaml",
+      "environments/22.08/cuda-ppc64le.spack.yaml",
       "environments/22.11/cuda-x86_64/spack.yaml",
+      "environments/22.11/oneapi-x86_64/spack.yaml",
+      "environments/22.11/rocm-x86_64/spack.yaml",
+      "environments/22.02/spack-ppc64le.yaml",
+      "environments/22.08/cuda-aarch64.spack.yaml",
+      "environments/22.08/cuda-x86_64.spack.yaml",
+      "environments/22.08/oneapi.spack.yaml",
+      "environments/22.11/cuda-ppc64le/spack.yaml",
+      "environments/22.02/spack-x86_64.yaml",
+      "environments/22.08/rocm.spack.yaml",
       "environments/22.11/cuda-aarch64/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
@@ -1326,6 +1424,31 @@ var data =
     "subscribers_count": 9,
     "topics": [],
     "updated_at": 1663940188.0
+  },
+  {
+    "data_format": 2,
+    "description": "Training materials for setting up and using a research infrastructure based on Jupyter notebooks: https://cusy.io/en/seminars",
+    "filenames": [
+      "spackenvs/python-38/spack.yaml"
+    ],
+    "full_name": "veit/jupyter-tutorial",
+    "latest_release": "0.8.0",
+    "stargazers_count": 16,
+    "subscribers_count": 5,
+    "topics": [
+      "jupyter",
+      "jupyter-notebooks",
+      "jupyter-kernels",
+      "ipython",
+      "ipywidgets",
+      "ipython-widget",
+      "spack",
+      "pipenv",
+      "dvc",
+      "data-science",
+      "pandas"
+    ],
+    "updated_at": 1671059015.0
   },
   {
     "data_format": 2,
@@ -1345,21 +1468,23 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
+      "docker-recipes/runner/rhel8-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu18.04-x86_64/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/rhel8-aarch64/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-x86_64/spack.yaml",
-      "docker-recipes/minimal/ubuntu20.04-aarch64/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-x86_64/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu18.04-x86_64/spack.yaml",
       "docker-recipes/runner/rhel8-x86_64/spack.yaml",
-      "docker-recipes/runner/rhel8-aarch64/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
       "docker-recipes/runner/ubuntu20.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml",
-      "docker-recipes/runner/rhel8-ppc64le/spack.yaml"
+      "docker-recipes/runner/ubuntu20.04-x86_64-oneapi/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-aarch64/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-aarch64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1382,6 +1507,25 @@ var data =
     "subscribers_count": 14,
     "topics": [],
     "updated_at": 1671130889.0
+  },
+  {
+    "data_format": 2,
+    "description": "ForTrilinos provides portable object-oriented Fortran interfaces to Trilinos C++ packages.",
+    "filenames": [
+      "scripts/spack.yaml"
+    ],
+    "full_name": "trilinos/ForTrilinos",
+    "latest_release": "v2.1.0",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-fortrilinos\" class=\"anchor\" aria-hidden=\"true\" href=\"#fortrilinos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eForTrilinos\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://cloud.cees.ornl.gov/jenkins-ci/job/ForTrilinos-master-continuous\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/857fffb6b672ed62abe998b01a81c3932111fcba10541918cb2f938f414440e6/68747470733a2f2f636c6f75642e636565732e6f726e6c2e676f762f6a656e6b696e732d63692f6275696c645374617475732f69636f6e3f6a6f623d466f725472696c696e6f732d6d61737465722d636f6e74696e756f7573\" alt=\"Build Status\" data-canonical-src=\"https://cloud.cees.ornl.gov/jenkins-ci/buildStatus/icon?job=ForTrilinos-master-continuous\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://fortrilinos.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/e261f09cffcfcbf7e647f541614bf7912e3018ccd3a085f035a1219a854f5867/687474703a2f2f72656164746865646f63732e6f72672f70726f6a656374732f666f727472696c696e6f732f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"http://readthedocs.org/projects/fortrilinos/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/trilinos/ForTrilinos/branch/develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fbeea009914f87218441791dba76a1a512b7c287749f94ff47d7b76f49902d23/68747470733a2f2f636f6465636f762e696f2f67682f7472696c696e6f732f466f725472696c696e6f732f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/trilinos/ForTrilinos/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://trilinos.org/packages/fortrilinos\" rel=\"nofollow\"\u003eForTrilinos\u003c/a\u003e is a part of the \u003ca href=\"http://trilinos.org\" rel=\"nofollow\"\u003eTrilinos\u003c/a\u003e project and provides object-oriented Fortran interfaces to Trilinos C++ packages.\u003c/p\u003e\n\u003cp\u003eThis is the new effort to provide Fortran interfaces to Trilinos through\nautomatic code generation using SWIG. The previous effort (ca. 2008-2012) can\nbe obtained by downloading Trilinos releases prior to 12.12. See \u003ca href=\"https://fortrilinos.readthedocs.io/en/latest/install.html#version-compatibility\" rel=\"nofollow\"\u003ethe\ndocumentation\u003c/a\u003e for details on version compatibility.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-provided-functionality\" class=\"anchor\" aria-hidden=\"true\" href=\"#provided-functionality\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProvided functionality\u003c/h2\u003e\n\u003cp\u003eForTrilinos provides Fortran interfaces for the following capabilities:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eParameter lists and XML parsers (through Teuchos);\u003c/li\u003e\n\u003cli\u003eDistributed linear algebra object including sparse graphs, sparse matrices, and dense vectors (through Tpetra);\u003c/li\u003e\n\u003cli\u003eLinear solvers and preconditioners (through Stratimikos, Ifpack2, Belos, MueLu);\u003c/li\u003e\n\u003cli\u003eEigen solvers (through Anasazi).\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://fortrilinos.readthedocs.org\" rel=\"nofollow\"\u003eDocumentation\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://trilinos.github.io/ForTrilinos/\" rel=\"nofollow\"\u003eSummary\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing-fortrilinos\" class=\"anchor\" aria-hidden=\"true\" href=\"#installing-fortrilinos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling ForTrilinos\u003c/h2\u003e\n\u003cp\u003ePlease consult the documentation available \u003ca href=\"https://fortrilinos.readthedocs.io/en/latest/install.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-questions-bug-reporting-and-issue-tracking\" class=\"anchor\" aria-hidden=\"true\" href=\"#questions-bug-reporting-and-issue-tracking\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eQuestions, Bug Reporting, and Issue Tracking\u003c/h2\u003e\n\u003cp\u003eQuestions, bug reporting and issue tracking are provided by GitHub. Please\nreport all bugs by creating a new issue with the bug tag. You can ask\nquestions by creating a new issue with the question tag.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eWe encourage you to contribute to ForTrilinos! Please check out the\n\u003ca href=\"CONTRIBUTING.md\"\u003eguidelines\u003c/a\u003e about how to proceed.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eForTrilinos is licensed under a BSD license.\u003c/p\u003e\n",
+    "stargazers_count": 24,
+    "subscribers_count": 10,
+    "topics": [
+      "trilinos",
+      "fortran",
+      "swig",
+      "scientific-computing"
+    ],
+    "updated_at": 1654781824.0
   },
   {
     "data_format": 2,
@@ -1414,7 +1558,7 @@ var data =
     ],
     "full_name": "celeritas-project/celeritas",
     "latest_release": "v0.1.3",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-celeritas\" class=\"anchor\" aria-hidden=\"true\" href=\"#celeritas\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCeleritas\u003c/h1\u003e\n\u003cp\u003eThe Celeritas project implements HEP detector physics on GPU accelerator\nhardware with the ultimate goal of supporting the massive computational\nrequirements of the \u003ca href=\"https://home.cern/science/accelerators/high-luminosity-lhc\" rel=\"nofollow\"\u003eHL-LHC upgrade\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-installation-for-developers\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation-for-developers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation for developers\u003c/h1\u003e\n\u003cp\u003eSince Celeritas is still under heavy development and is not yet full-featured\nfor downstream integration, you are likely installing it for development\npurposes. The \u003ca href=\"doc/infrastructure.rst\"\u003einfrastructure documentation\u003c/a\u003e has a\ncomplete description of the code\u0027s dependencies and installation process for\ndevelopment.\u003c/p\u003e\n\u003cp\u003eAs an example, if you have the \u003ca href=\"https://github.com/spack/spack\"\u003eSpack\u003c/a\u003e package manager\ninstalled and want to do development on a CUDA system with Volta-class graphics\ncards, execute the following steps:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e# \u003cspan class=\"pl-s1\"\u003eSet up CUDA (optional)\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack external find cuda\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack config add packages:all:variants:\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e+cuda cuda_arch=70\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003eInstall celeritas dependencies\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack env create celeritas scripts/spack.yaml\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack env activate celeritas\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack install\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003eConfigure, build, and \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003e./build.sh base\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you don\u0027t use Spack but have all the dependencies you want (Geant4,\ngoogletest, VecGeom, etc.) in your \u003ccode\u003eCMAKE_PREFIX_PATH\u003c/code\u003e, you can configure and\nbuild Celeritas as you would any other project:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003emkdir build \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e build\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003ecmake ..\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003emake \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e ctest\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch1\u003e\u003ca id=\"user-content-installation-for-applications\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation-for-applications\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation for applications\u003c/h1\u003e\n\u003cp\u003eThe easiest way to install Celeritas as a library/app is with Spack:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFollow the first two steps above to install \u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e and set up its CUDA usage.\u003c/li\u003e\n\u003cli\u003eInstall Celeritas with \u003ccode\u003espack install celeritas\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUse \u003ccode\u003espack load celeritas\u003c/code\u003e to add the installation to your \u003ccode\u003ePATH\u003c/code\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThen see the \"Downstream usage as a library\" section of the \u003ca href=\"doc/infrastructure.rst\"\u003einfrastructure\ndocumentation\u003c/a\u003e for how to use Celeritas in your application or framework.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-development\" class=\"anchor\" aria-hidden=\"true\" href=\"#development\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopment\u003c/h1\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.rst\"\u003econtribution guide\u003c/a\u003e for the contribution process,\n\u003ca href=\"doc/appendices/development.rst\"\u003ethe development guidelines\u003c/a\u003e for further\ndetails on coding in Celeritas, and \u003ca href=\"doc/appendices/administration.rst\"\u003ethe administration guidelines\u003c/a\u003e for community standards and roles.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eThe full code documentation (including API descriptions) is available by\nsetting the \u003ccode\u003eCELERITAS_BUILD_DOCS=ON\u003c/code\u003e configuration option. A mostly complete\nversion of the \u003ca href=\"https://celeritas.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003eCeleritas documentation\u003c/a\u003e is hosted on \u003ccode\u003ereadthedocs.io\u003c/code\u003e.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-citing-celeritas\" class=\"anchor\" aria-hidden=\"true\" href=\"#citing-celeritas\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Celeritas\u003c/h1\u003e\n\u003cp\u003eIf using Celeritas in your work, we ask that you cite the code using its\n\u003ca href=\"https://www.osti.gov/doecode/biblio/94866\" rel=\"nofollow\"\u003eDOECode\u003c/a\u003e registration:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eJohnson, Seth R., Amanda Lund, Soon Yung Jun, Stefano Tognini, Guilherme Lima, Paul Romano, Philippe Canal, Ben Morgan, and Tom Evans. \u201cCeleritas,\u201d July 2022. \u003ca href=\"https://doi.org/10.11578/dc.20221011.1\" rel=\"nofollow\"\u003ehttps://doi.org/10.11578/dc.20221011.1\u003c/a\u003e.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eAdditional references for code implementation details, benchmark problem\nresults, etc., can be found in our continually evolving \u003ca href=\"doc/_static/celeritas.bib\"\u003ecitation\nfile\u003c/a\u003e.\u003c/p\u003e\n",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-celeritas\" class=\"anchor\" aria-hidden=\"true\" href=\"#celeritas\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCeleritas\u003c/h1\u003e\n\u003cp\u003eThe Celeritas project implements HEP detector physics on GPU accelerator\nhardware with the ultimate goal of supporting the massive computational\nrequirements of the \u003ca href=\"https://home.cern/science/accelerators/high-luminosity-lhc\" rel=\"nofollow\"\u003eHL-LHC upgrade\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-installation-for-developers\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation-for-developers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation for developers\u003c/h1\u003e\n\u003cp\u003eSince Celeritas is still under heavy development and is not yet full-featured\nfor downstream integration, you are likely installing it for development\npurposes. The \u003ca href=\"doc/infrastructure.rst\"\u003einfrastructure documentation\u003c/a\u003e has a\ncomplete description of the code\u0027s dependencies and installation process for\ndevelopment.\u003c/p\u003e\n\u003cp\u003eAs an example, if you have the \u003ca href=\"https://github.com/spack/spack\"\u003eSpack\u003c/a\u003e package manager\ninstalled and want to do development on a CUDA system with Volta-class graphics\ncards, execute the following steps:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e# \u003cspan class=\"pl-s1\"\u003eSet up CUDA (optional)\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack external find cuda\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack config add packages:all:variants:\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e+cuda cuda_arch=70\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003eInstall celeritas dependencies\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack env create celeritas scripts/spack.yaml\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack env activate celeritas\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003espack install\u003c/span\u003e\n# \u003cspan class=\"pl-s1\"\u003eConfigure, build, and \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003e./build.sh base\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf you don\u0027t use Spack but have all the dependencies you want (Geant4,\ngoogletest, VecGeom, etc.) in your \u003ccode\u003eCMAKE_PREFIX_PATH\u003c/code\u003e, you can configure and\nbuild Celeritas as you would any other project:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003emkdir build \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e build\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003ecmake ..\u003c/span\u003e\n$ \u003cspan class=\"pl-s1\"\u003emake \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e ctest\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eCeleritas guarantees full compatibility and correctness only on the\ncombinations of compilers and dependencies tested under continuous integration.\nCurrently supported compilers are GCC 11.2 + NVCC 11.8, and HIP-Clang 15.0, but\nsince we compile with extra warning flags and avoid non-portable code, most\nother compilers \u003cem\u003eshould\u003c/em\u003e work.\nCurrently Geant4 11.0 and VecGeom 1.2 are the only versions that are guaranteed\nto work, but older versions might be OK.\nThe full set of configurations is viewable on \u003ca href=\"https://cloud.cees.ornl.gov/jenkins-ci/blue/organizations/jenkins/Celeritas/activity?branch=master\" rel=\"nofollow\"\u003ethe CI web site\u003c/a\u003e.\nCompatibility fixes that do not cause newer versions to fail are welcome.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-installation-for-applications\" class=\"anchor\" aria-hidden=\"true\" href=\"#installation-for-applications\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation for applications\u003c/h1\u003e\n\u003cp\u003eThe easiest way to install Celeritas as a library/app is with Spack:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFollow the first two steps above to install \u003ca href=\"https://spack.readthedocs.io/en/latest/getting_started.html\" rel=\"nofollow\"\u003eSpack\u003c/a\u003e and set up its CUDA usage.\u003c/li\u003e\n\u003cli\u003eInstall Celeritas with \u003ccode\u003espack install celeritas\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eUse \u003ccode\u003espack load celeritas\u003c/code\u003e to add the installation to your \u003ccode\u003ePATH\u003c/code\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThen see the \"Downstream usage as a library\" section of the \u003ca href=\"doc/infrastructure.rst\"\u003einfrastructure\ndocumentation\u003c/a\u003e for how to use Celeritas in your application or framework.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-development\" class=\"anchor\" aria-hidden=\"true\" href=\"#development\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopment\u003c/h1\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.rst\"\u003econtribution guide\u003c/a\u003e for the contribution process,\n\u003ca href=\"doc/appendices/development.rst\"\u003ethe development guidelines\u003c/a\u003e for further\ndetails on coding in Celeritas, and \u003ca href=\"doc/appendices/administration.rst\"\u003ethe administration guidelines\u003c/a\u003e for community standards and roles.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eThe full code documentation (including API descriptions) is available by\nsetting the \u003ccode\u003eCELERITAS_BUILD_DOCS=ON\u003c/code\u003e configuration option. A mostly complete\nversion of the \u003ca href=\"https://celeritas.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003eCeleritas documentation\u003c/a\u003e is hosted on \u003ccode\u003ereadthedocs.io\u003c/code\u003e.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-citing-celeritas\" class=\"anchor\" aria-hidden=\"true\" href=\"#citing-celeritas\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Celeritas\u003c/h1\u003e\n\u003cp\u003eIf using Celeritas in your work, we ask that you cite the code using its\n\u003ca href=\"https://www.osti.gov/doecode/biblio/94866\" rel=\"nofollow\"\u003eDOECode\u003c/a\u003e registration:\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eJohnson, Seth R., Amanda Lund, Soon Yung Jun, Stefano Tognini, Guilherme Lima, Paul Romano, Philippe Canal, Ben Morgan, and Tom Evans. \u201cCeleritas,\u201d July 2022. \u003ca href=\"https://doi.org/10.11578/dc.20221011.1\" rel=\"nofollow\"\u003ehttps://doi.org/10.11578/dc.20221011.1\u003c/a\u003e.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eAdditional references for code implementation details, benchmark problem\nresults, etc., can be found in our continually evolving \u003ca href=\"doc/_static/celeritas.bib\"\u003ecitation\nfile\u003c/a\u003e.\u003c/p\u003e\n",
     "stargazers_count": 27,
     "subscribers_count": 9,
     "topics": [
@@ -1429,8 +1573,8 @@ var data =
     "data_format": 2,
     "description": "Spectral Element Library in Fortran",
     "filenames": [
-      "env/oram/spack.yaml",
-      "env/moog/spack.yaml"
+      "env/moog/spack.yaml",
+      "env/oram/spack.yaml"
     ],
     "full_name": "FluidNumerics/SELF",
     "latest_release": null,
@@ -1483,13 +1627,10 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
       "NERSC/perlmutter/e4s-22.05/ci/spack.yaml",
       "NERSC/perlmutter/e4s-21.11/ci/spack.yaml",
-      "NERSC/perlmutter/e4s-21.11/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml"
+      "NERSC/perlmutter/e4s-22.05/spack.yaml",
+      "NERSC/perlmutter/e4s-21.11/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1589,9 +1730,29 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "File utilities designed for scalability and performance.",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "hpc/mpifileutils",
+    "latest_release": "v0.11.1",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-mpifileutils\" class=\"anchor\" aria-hidden=\"true\" href=\"#mpifileutils\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003empiFileUtils\u003c/h1\u003e\n\u003cp\u003empiFileUtils provides both a library called \u003ca href=\"src/common/README.md\"\u003elibmfu\u003c/a\u003e and a suite of MPI-based tools to manage large datasets, which may vary from large directory trees to large files. High-performance computing users often generate large datasets with parallel applications that run with many processes (millions in some cases). However those users are then stuck with single-process tools like cp and rm to manage their datasets. This suite provides MPI-based tools to handle typical jobs like copy, remove, and compare for such datasets, providing speedups of up to 20-30x.  It also provides a library that simplifies the creation of new tools or can be used in applications.\u003c/p\u003e\n\u003cp\u003eDocumentation is available on \u003ca href=\"http://mpifileutils.readthedocs.io\" rel=\"nofollow\"\u003eReadTheDocs\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-daos-support\" class=\"anchor\" aria-hidden=\"true\" href=\"#daos-support\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDAOS Support\u003c/h2\u003e\n\u003cp\u003empiFileUtils supports a DAOS backend for dcp, dsync, and dcmp. Custom serialization and deserialization for DAOS containers to and from a POSIX filesystem is provided with daos-serialize and daos-deserialize. Details and usage examples are provided in \u003ca href=\"DAOS-Support.md\"\u003eDAOS Support\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributors\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributors\u003c/h2\u003e\n\u003cp\u003eWe welcome contributions to the project.  For details on how to help, see our \u003ca href=\"CONTRIBUTING.md\"\u003eContributor Guide\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-copyrights\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyrights\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyrights\u003c/h3\u003e\n\u003cp\u003eCopyright (c) 2013-2015, Lawrence Livermore National Security, LLC.\nProduced at the Lawrence Livermore National Laboratory\nCODE-673838\u003c/p\u003e\n\u003cp\u003eCopyright (c) 2006-2007,2011-2015, Los Alamos National Security, LLC.\n(LA-CC-06-077, LA-CC-10-066, LA-CC-14-046)\u003c/p\u003e\n\u003cp\u003eCopyright (2013-2015) UT-Battelle, LLC under Contract No.\nDE-AC05-00OR22725 with the Department of Energy.\u003c/p\u003e\n\u003cp\u003eCopyright (c) 2015, DataDirect Networks, Inc.\u003c/p\u003e\n\u003cp\u003eAll rights reserved.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-build-status\" class=\"anchor\" aria-hidden=\"true\" href=\"#build-status\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild Status\u003c/h2\u003e\n\u003cp\u003eThe current status of the mpiFileUtils master branch is \u003ca href=\"https://travis-ci.org/hpc/mpifileutils\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/76717f664d99534173ac7e9fb8e904b0e4bd14fbd51ac6969a88de2e6e86a94f/68747470733a2f2f7472617669732d63692e6f72672f6870632f6d706966696c657574696c732e706e673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/hpc/mpifileutils.png?branch=master\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e.\u003c/p\u003e\n",
+    "stargazers_count": 132,
+    "subscribers_count": 25,
+    "topics": [],
+    "updated_at": 1670426258.0
+  },
+  {
+    "data_format": 2,
     "description": "WarpX is an advanced, time-based electromagnetic \u0026 electrostatic Particle-In-Cell code.",
     "filenames": [
-      "Tools/machines/desktop/spack-ubuntu-cuda.yaml"
+      "Tools/machines/desktop/spack-ubuntu-openmp.yaml",
+      "Docs/spack.yaml",
+      "Tools/machines/desktop/spack-ubuntu-rocm.yaml",
+      "Tools/machines/desktop/spack-macos-openmp.yaml",
+      "Tools/machines/desktop/spack-debian-rocm.yaml",
+      "Tools/machines/desktop/spack-debian-cuda.yaml",
+      "Tools/machines/desktop/spack-debian-openmp.yaml"
     ],
     "full_name": "ECP-WarpX/WarpX",
     "latest_release": "22.12",
@@ -1612,10 +1773,43 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "HPC solver for nonlinear optimization problems",
+    "filenames": [
+      "scripts/platforms/summit/spack.yaml"
+    ],
+    "full_name": "LLNL/hiop",
+    "latest_release": "v0.7.1",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-hiop---hpc-solver-for-optimization\" class=\"anchor\" aria-hidden=\"true\" href=\"#hiop---hpc-solver-for-optimization\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHiOp - HPC solver for optimization\u003c/h1\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/LLNL/hiop/workflows/tests/badge.svg\"\u003e\u003cimg src=\"https://github.com/LLNL/hiop/workflows/tests/badge.svg\" alt=\"tests\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eHiOp is an optimization solver for solving certain mathematical optimization problems expressed as nonlinear programming problems. HiOp is a lightweight HPC solver that leverages application\u0027s existing data parallelism to parallelize the optimization iterations by using specialized parallel linear algebra kernels.\u003c/p\u003e\n\u003cp\u003ePlease cite the user manual whenever HiOp is used:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@TECHREPORT{hiop_techrep,\n  title={{HiOp} -- {U}ser {G}uide},\n  author={Petra, Cosmin G. and Chiang, NaiYuan and Jingyi Wang},\n  year={2018},\n  institution = {Center for Applied Scientific Computing, Lawrence Livermore National Laboratory},\n  number = {LLNL-SM-743591}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn addition, when using the quasi-Newton solver please cite:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@ARTICLE{Petra_18_hiopdecomp,\ntitle = {A memory-distributed quasi-Newton solver for nonlinear programming problems with a small number of general constraints},\njournal = {Journal of Parallel and Distributed Computing},\nvolume = {133},\npages = {337-348},\nyear = {2019},\nissn = {0743-7315},\ndoi = {https://doi.org/10.1016/j.jpdc.2018.10.009},\nurl = {https://www.sciencedirect.com/science/article/pii/S0743731518307731},\nauthor = {Cosmin G. Petra},\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand when using the the PriDec solver please cite:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@article{wang2022,\n  archivePrefix = {arXiv},\n  eprint = {arXiv:2204.09631},\n  author = {J. Wang and C. G. Petra},\n  title = {An optimization algorithm for nonsmooth nonconvex problems with upper-$C^2$ objective},\n  publisher = {arXiv},\n  year = {2022},\n  journal={ (submitted) },\n}\n@INPROCEEDINGS{wang2021,\n  author={Wang, Jingyi and Chiang, Nai-Yuan and Petra, Cosmin G.},\n  booktitle={2021 20th International Symposium on Parallel and Distributed Computing (ISPDC)}, \n  title={An asynchronous distributed-memory optimization solver for two-stage stochastic programming problems}, \n  year={2021},\n  volume={},\n  number={},\n  pages={33-40},\n  doi={10.1109/ISPDC52870.2021.9521613}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-buildinstall-instructions\" class=\"anchor\" aria-hidden=\"true\" href=\"#buildinstall-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuild/install instructions\u003c/h2\u003e\n\u003cp\u003eHiOp uses a CMake-based build system. A standard build can be done by invoking in the \u0027build\u0027 directory the following\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake ..\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThis sequence will build HiOp, run integrity and correctness tests, and install the headers and the library in the directory \u0027_dist-default-build\u0027 in HiOp\u0027s root directory.\u003c/p\u003e\n\u003cp\u003eCommand \u003ccode\u003emake test\u003c/code\u003e runs extensive tests of the various modules of HiOp to check integrity and correctness. The tests suite range from unit testing to solving concrete optimization problems and checking the performance of HiOp solvers on these problems against known solutions. By default \u003ccode\u003emake test\u003c/code\u003e runs \u003ccode\u003empirun\u003c/code\u003e locally, which may not work on some HPC machines. For these HiOp allows using \u003ccode\u003ebsub\u003c/code\u003e to schedule \u003ccode\u003emake test\u003c/code\u003e on the compute nodes; to enable this, the use should use \u003cem\u003e-DHIOP_TEST_WITH_BSUB=ON\u003c/em\u003e with cmake when building and run \u003ccode\u003emake test\u003c/code\u003e in a bsub shell session, for example,\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003ebsub -P your_proj_name -nnodes 1 -W 30\nmake test\nCTRL+D\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe installation can be customized using the standard CMake options. For example, one can provide an alternative installation directory for HiOp by using\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DCMAKE_INSTALL_PREFIX=/usr/lib/hiop ..\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\u0027\u003c/span\u003e\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-selected-hiop-specific-build-options\" class=\"anchor\" aria-hidden=\"true\" href=\"#selected-hiop-specific-build-options\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSelected HiOp-specific build options\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eEnable/disable MPI: \u003cem\u003e-DHIOP_USE_MPI=[ON/OFF]\u003c/em\u003e (by default ON)\u003c/li\u003e\n\u003cli\u003eGPU support: \u003cem\u003e-DHIOP_USE_GPU=ON\u003c/em\u003e. MPI can be either off or on. For more build system options related to GPUs, see \"Dependencies\" section below.\u003c/li\u003e\n\u003cli\u003eEnable/disable \"developer mode\" build that enforces more restrictive compiler rules and guidelines: \u003cem\u003e-DHIOP_DEVELOPER_MODE=ON\u003c/em\u003e. This option is by default off.\u003c/li\u003e\n\u003cli\u003eAdditional checks and self-diagnostics inside HiOp meant to detect abnormalities and help to detect bugs and/or troubleshoot problematic instances: \u003cem\u003e-DHIOP_DEEPCHECKS=[ON/OFF]\u003c/em\u003e (by default ON). Disabling HIOP_DEEPCHECKS usually provides 30-40% execution speedup in HiOp. For full strength, it is recommended to use HIOP_DEEPCHECKS with debug builds. With non-debug builds, in particular the ones that disable the assert macro, HIOP_DEEPCHECKS does not perform all checks and, thus, may overlook potential issues.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_MPI=ON -DHIOP_DEEPCHECKS=ON ..\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make \u003cspan class=\"pl-c1\"\u003etest\u003c/span\u003e\n$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-other-useful-options-to-use-with-cmake\" class=\"anchor\" aria-hidden=\"true\" href=\"#other-useful-options-to-use-with-cmake\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOther useful options to use with CMake\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cem\u003e-DCMAKE_BUILD_TYPE=Release\u003c/em\u003e will build the code with the optimization flags on\u003c/li\u003e\n\u003cli\u003e\n\u003cem\u003e-DCMAKE_CXX_FLAGS=\"-O3\"\u003c/em\u003e will enable a high level of compiler code optimization\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-dependencies\" class=\"anchor\" aria-hidden=\"true\" href=\"#dependencies\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDependencies\u003c/h3\u003e\n\u003cp\u003eA complete list of dependencies is maintained \u003ca href=\"https://github.com/spack/spack/blob/develop/var/spack/repos/builtin/packages/hiop/package.py\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eFor a minimal build, HiOp requires LAPACK and BLAS. These dependencies are automatically detected by the build system. MPI is optional and by default enabled. To disable use cmake option \u0027-DHIOP_USE_MPI=OFF\u0027.\u003c/p\u003e\n\u003cp\u003eHiOp has support for NVIDIA \u003cstrong\u003eGPU-based computations\u003c/strong\u003e via CUDA and Magma. To enable the use of GPUs, use cmake with \u0027-DHIOP_USE_GPU=ON\u0027. The build system will automatically search for CUDA Toolkit. For non-standard CUDA Toolkit installations, use \u0027-DHIOP_CUDA_LIB_DIR=/path\u0027 and \u0027-DHIOP_CUDA_INCLUDE_DIR=/path\u0027. For \"very\" non-standard CUDA Toolkit installations, one can specify the directory of cuBlas libraries as well with \u0027-DHIOP_CUBLAS_LIB_DIR=/path\u0027.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-using-raja-and-umpire-portability-libraries\" class=\"anchor\" aria-hidden=\"true\" href=\"#using-raja-and-umpire-portability-libraries\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsing RAJA and Umpire portability libraries\u003c/h3\u003e\n\u003cp\u003ePortability libraries allow running HiOp\u0027s linear algebra either on host (CPU) or a device (GPU). RAJA and Umpire are disabled by default. You can turn them on together by passing \u003ccode\u003e-DHIOP_USE_RAJA=ON\u003c/code\u003e to CMake. If the two libraries are not automatically found, specify their installation directories like this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_RAJA=ON -DRAJA_DIR=/path/to/raja/dir -Dumpire_DIR=/path/to/umpire/dir\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIf the GPU support is enabled, RAJA will run all HiOp linear algebra kernels on GPU, otherwise RAJA will run the kernels on CPU using an OpenMP execution policy.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-support-for-gpu-computations\" class=\"anchor\" aria-hidden=\"true\" href=\"#support-for-gpu-computations\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupport for GPU computations\u003c/h3\u003e\n\u003cp\u003eWhen GPU support is on, HiOp requires Magma linear solver library and CUDA Toolkit. Both are detected automatically in most cases. The typical cmake command to enable GPU support in HiOp is\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_GPU=ON ..\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eWhen Magma is not detected, one can specify its location by passing \u003ccode\u003e-DHIOP_MAGMA_DIR=/path/to/magma/dir\u003c/code\u003e to cmake.\u003c/p\u003e\n\u003cp\u003eFor custom CUDA Toolkit installations, the locations to the (missing/not found) CUDA libraries can be specified to cmake via \u003ccode\u003e-DNAME=/path/cuda/directory/lib\u003c/code\u003e, where \u003ccode\u003eNAME\u003c/code\u003e can be any of\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eCUDA_cublas_LIBRARY\nCUDA_CUDART_LIBRARY\nCUDA_cudadevrt_LIBRARY\nCUDA_cusparse_LIBRARY\nCUDA_cublasLt_LIBRARY\nCUDA_nvblas_LIBRARY\nCUDA_culibos_LIBRARY\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBelow is an example for specifiying \u003ccode\u003ecuBlas\u003c/code\u003e, \u003ccode\u003ecuBlasLt\u003c/code\u003e, and \u003ccode\u003envblas\u003c/code\u003e libraries, which were \u003ccode\u003eNOT_FOUND\u003c/code\u003e because of a non-standard CUDA Toolkit instalation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e cmake -DHIOP_USE_GPU=ON -DCUDA_cublas_LIBRARY=/usr/local/cuda-10.2/targets/x86_64-linux/lib/lib64 -DCUDA_cublasLt_LIBRARY=/export/home/petra1/work/installs/cuda10.2.89/targets/x86_64-linux/lib/ -DCUDA_nvblas_LIBRARY=/export/home/petra1/work/installs/cuda10.2.89/targets/x86_64-linux/lib/ .. \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make -j \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eA detailed example on how to compile HiOp straight of the box on \u003ccode\u003esummit.olcf.ornl.gov\u003c/code\u003e is available \u003ca href=\"README_summit.md\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eRAJA and UMPIRE dependencies are usually detected by HiOp\u0027s cmake build system.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-kron-reduction\" class=\"anchor\" aria-hidden=\"true\" href=\"#kron-reduction\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eKron reduction\u003c/h3\u003e\n\u003cp\u003eKron reduction functionality of HiOp is disabled by default. One can enable it by using\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e rm -rf \u003cspan class=\"pl-k\"\u003e*\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e cmake -DHIOP_WITH_KRON_REDUCTION=ON -DUMFPACK_DIR=/Users/petra1/work/installs/SuiteSparse-5.7.1 -DMETIS_DIR=/Users/petra1/work/installs/metis-4.0.3 .. \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make -j \u003cspan class=\"pl-k\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e make install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eMetis is usually detected automatically and needs not be specified under normal circumstances.\u003c/p\u003e\n\u003cp\u003eUMFPACK (part of SuiteSparse) and METIS need to be provided as shown above.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-interfacing-with-hiop\" class=\"anchor\" aria-hidden=\"true\" href=\"#interfacing-with-hiop\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInterfacing with HiOp\u003c/h1\u003e\n\u003cp\u003eHiOp supports three types of optimization problems, each with a separate input formats in the form of the C++ interfaces \u003ccode\u003ehiopInterfaceDenseConstraints\u003c/code\u003e,\u003ccode\u003ehiopInterfaceSparse\u003c/code\u003e and \u003ccode\u003ehiopInterfaceMDS\u003c/code\u003e. These interfaces are specified in \u003ca href=\"src/Interface/hiopInterface.hpp\"\u003ehiopInterface.hpp\u003c/a\u003e and documented and discussed as well in the \u003ca href=\"doc/hiop_usermanual.pdf\"\u003euser manual\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceDenseConstraints\u003c/code\u003e interface\u003c/em\u003e supports NLPs with \u003cstrong\u003ebillions\u003c/strong\u003e of variables with and without bounds but only limited number (\u0026lt;100) of general, equality and inequality constraints. The underlying algorithm is a limited-memory quasi-Newton interior-point method and generally scales well computationally (but it may not algorithmically) on thousands of cores. This interface uses MPI for parallelization\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceSparse\u003c/code\u003e interface\u003c/em\u003e supports general sparse and large-scale NLPs. This functionality is similar to that of the state-of-the-art \u003ca href=\"https://github.com/coin-or/Ipopt\"\u003eIpopt\u003c/a\u003e (without being as robust and flexible as Ipopt is). Acceleration for this class of problems can be achieved via OpenMP or CUDA, however, this is work in progress and you are encouraged to contact HiOp\u0027s developers for up-to-date information.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003ccode\u003ehiopInterfaceMDS\u003c/code\u003e interface\u003c/em\u003e supports mixed dense-sparse NLPs and achives parallelization using GPUs and RAJA portability abstraction layer.\u003c/p\u003e\n\u003cp\u003eMore information on the HiOp interfaces are \u003ca href=\"src/Interface/README.md\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-running-hiop-tests-and-applications\" class=\"anchor\" aria-hidden=\"true\" href=\"#running-hiop-tests-and-applications\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning HiOp tests and applications\u003c/h2\u003e\n\u003cp\u003eHiOp is using NVBlas library when built with CUDA support. If you don\u0027t specify\nlocation of the \u003ccode\u003envblas.conf\u003c/code\u003e configuration file, you may get an annoying\nwarnings. HiOp provides default \u003ccode\u003envblas.conf\u003c/code\u003e file and installs it at the same\nlocation as HiOp libraries. To use it, set environment variable as\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-k\"\u003eexport\u003c/span\u003e NVBLAS_CONFIG_FILE=\u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003ehiop install dir\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e/lib/nvblas.conf\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eor, if you are using C-shell, as\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ setenv NVBLAS_CONFIG_FILE \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003ehiop install dir\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e/lib/nvblas.conf\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-existing-issues\" class=\"anchor\" aria-hidden=\"true\" href=\"#existing-issues\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExisting issues\u003c/h2\u003e\n\u003cp\u003eUsers are highly encouraged to report any issues they found from using HiOp.\nOne known issue is that there is some minor inconsistence between HiOp and linear package STRUMPACK.\nWhen STRUMPACK is compiled with MPI (and Scalapack), user must set flag \u003ccode\u003eHIOP_USE_MPI\u003c/code\u003e to \u003ccode\u003eON\u003c/code\u003e when compiling HiOp.\nOtherwise HiOp won\u0027t load MPI module and will return an error when links to STRUMPACK, since the later one requires a valid MPI module.\nSimilarly, if both Magma and STRUMPACK are linked to HiOp, user must guarantee the all the packages are compiled by the same CUDA compiler.\nUser can check other issues and their existing status from \u003ca href=\"https://github.com/LLNL/hiop\"\u003ehttps://github.com/LLNL/hiop\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgments\" class=\"anchor\" aria-hidden=\"true\" href=\"#acknowledgments\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n\u003cp\u003eHiOp has been developed under the financial support of:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eDepartment of Energy, Office of Advanced Scientific Computing Research (ASCR): Exascale Computing Program (ECP) and Applied Math Program.\u003c/li\u003e\n\u003cli\u003eDepartment of Energy, Advanced Research Projects Agency-Energy (ARPA\u2011E)\u003c/li\u003e\n\u003cli\u003eLawrence Livermore National Laboratory Institutional Scientific Capability Portfolio (ISCP)\u003c/li\u003e\n\u003cli\u003eLawrence Livermore National Laboratory, through the LDRD program\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\u003ca id=\"user-content-contributors\" class=\"anchor\" aria-hidden=\"true\" href=\"#contributors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributors\u003c/h1\u003e\n\u003cp\u003eHiOp is written by Cosmin G. Petra (\u003ca href=\"mailto:petra1@llnl.gov\"\u003epetra1@llnl.gov\u003c/a\u003e), Nai-Yuan Chiang (\u003ca href=\"mailto:chiang7@llnl.gov\"\u003echiang7@llnl.gov\u003c/a\u003e), and Jingyi \"Frank\" Wang (\u003ca href=\"mailto:wang125@llnl.gov\"\u003ewang125@llnl.gov\u003c/a\u003e) from LLNL and has received important contributions from Asher Mancinelli (PNNL), Slaven Peles (ORNL), Cameron Rutherford (PNNL), Jake K. Ryan (PNNL), and Michel Schanen (ANL).\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" href=\"#copyright\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright\u003c/h1\u003e\n\u003cp\u003eCopyright (c) 2017-2021, Lawrence Livermore National Security, LLC. All rights reserved. Produced at the Lawrence Livermore National Laboratory. LLNL-CODE-742473. HiOp is free software; you can modify it and/or redistribute it under the terms of the BSD 3-clause license. See \u003ca href=\"/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e and \u003ca href=\"/LICENSE\"\u003eLICENSE\u003c/a\u003e for complete copyright and license information.\u003c/p\u003e\n",
+    "stargazers_count": 168,
+    "subscribers_count": 14,
+    "topics": [
+      "hpc",
+      "nonlinear-optimization",
+      "nonlinear-programming",
+      "nonlinear-optimization-algorithms",
+      "nonlinear-programming-algorithms",
+      "interior-point-method",
+      "parallel-programming",
+      "mpi",
+      "bfgs",
+      "quasi-newton",
+      "constrained-optimization",
+      "solver",
+      "optimization",
+      "acopf",
+      "gpu-support",
+      "cuda",
+      "math-physics",
+      "radiuss"
+    ],
+    "updated_at": 1672659171.0
+  },
+  {
+    "data_format": 2,
     "description": "WAVEWATCH III",
     "filenames": [
-      "model/ci/spack_gnu.yaml",
-      "model/ci/spack_intel.yaml"
+      "model/ci/spack_intel.yaml",
+      "model/ci/spack_gnu.yaml"
     ],
     "full_name": "NOAA-EMC/WW3",
     "latest_release": "6.07.1",
@@ -1629,12 +1823,12 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int32-single/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.5.0",
