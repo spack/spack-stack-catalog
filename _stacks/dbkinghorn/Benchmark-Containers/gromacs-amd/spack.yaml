@@ -1,0 +1,14 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [gromacs@2022.2%aocc@3.2.0+blas+lapack~mpi+openmp build_type=Release arch=linux-None-zen3
+      ^amdblis@3.2 threads=openmp ^amdfftw@3.2 ^amdlibflame@3.2]
+  view: true
+  concretizer:
+    unify: true
+  config:
+    install_tree:
+      padded_length: 128

@@ -1,0 +1,19 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [quantum-espresso@7.1%gcc+elpa+openmp hdf5=parallel arch=linux-None-zen3
+      ^amdblis@3.2 threads=openmp ^amdfftw@3.2 ^amdlibflame@3.2 ^amdscalapack@3.2
+      ^elpa@2019.11.001 ^openmpi, quantum-espresso@7.1%aocc@3.2.0+openmp hdf5=parallel
+      arch=linux-None-zen3 ^amdblis@3.2 threads=openmp ^amdfftw@3.2 ^amdlibflame@3.2
+      ^amdscalapack@3.2 ^openmpi, quantum-espresso@7.1%gcc+openmp hdf5=parallel arch=linux-None-zen3
+      ^amdblis@3.2%gcc threads=openmp ^amdfftw@3.2%gcc ^amdlibflame@3.2%gcc ^amdscalapack@3.2%gcc
+      ^openmpi]
+  view: true
+  concretizer:
+    unify: true
+  config:
+    install_tree:
+      padded_length: 128

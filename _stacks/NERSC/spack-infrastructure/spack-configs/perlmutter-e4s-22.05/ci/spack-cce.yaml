@@ -2,8 +2,7 @@ spack:
   view:
     default:
       root: views/default
-      select: ['%gcc']
-      exclude: ['~cuda', 'py-warpx']
+      select: ['%cce']      
       link_type: symlink
       link: roots
       projections:
@@ -26,7 +25,7 @@ spack:
     project: Spack
     site: NERSC - Perlmutter E4S-22.05 
   mirrors:       
-    perlmutter-e4s-22.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-22.05
+    perlmutter-e4s-22.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-22.05-v1
     source_mirror: file:///global/cfs/cdirs/m3503/mirrors/source_mirror    
   gitlab-ci:
     enable-artifacts-buildcache: false
@@ -64,6 +63,12 @@ spack:
       runner-attributes:
         tags: [perlmutter-e4s]
   specs:
-  - matrix:
-    - [$cce_specs]
-    - [$cce_compilers]
+    - python
+  #- matrix:
+  #  - [$cce_specs]
+  #  - [$cce_compilers]
+  #- matrix:
+  #  - [$utilities]
+  #  - [$gcc_compilers]
+    
+
