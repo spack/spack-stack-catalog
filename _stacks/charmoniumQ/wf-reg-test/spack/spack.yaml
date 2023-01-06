@@ -20,9 +20,6 @@ spack:
   - py-pandas
   # - py-slacker
   # - py-peppy
-  # Snakemake --use-conda needs a frontend.
-  # I will use micrommaba
-  - micromamba
   - python@3.10
   # Next are python dependencies
   - py-pygithub@1

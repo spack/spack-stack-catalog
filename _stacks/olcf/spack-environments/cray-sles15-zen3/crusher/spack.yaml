@@ -14,8 +14,8 @@ spack:
       modules:
         lmod: /sw/crusher/spack-envs/base/modules
   mirrors:
-    facility_builds: /sw/crusher/spack-env/mirrors/builds
-    source_mirror: /sw/sources/facility-spack/source_mirror
+    facility_builds: file:///sw/crusher/spack-env/mirrors/builds
+    source_mirror: file:///sw/sources/facility-spack/source_mirror
   repos: [] # Add any custom packages here
   config:
     install_tree:
