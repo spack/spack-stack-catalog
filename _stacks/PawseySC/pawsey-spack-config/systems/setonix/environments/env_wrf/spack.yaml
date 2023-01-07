@@ -1,0 +1,13 @@
+# separate yaml file for wrf
+# wrf users will want to build their own version, so only install dependencies
+# use "--only dependencies" option with spack install
+spack:
+  definitions:
+  - packages:
+    - wrf@4.2 # charris: manual build for em_real okay in Nov sprint, using --only dependencies and option 47
+  specs:
+  - matrix:
+    - [$packages]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  view: false

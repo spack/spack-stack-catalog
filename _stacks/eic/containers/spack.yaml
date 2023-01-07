@@ -1,6 +1,6 @@
 spack:
   specs:
-    - acts@20.3.0 +dd4hep +identification +json +tgeo +ipo +examples +fatras +geant4 +python
+    - acts@21.1.0 +dd4hep +identification +json +tgeo +examples +fatras +geant4 +python
     - actsvg@0.4.26 +examples
     - afterburner@0.1.2 +root +zlib
     - cairo@1.16.0 +fc+ft+X+pdf+gobject
@@ -11,9 +11,9 @@ spack:
     - cppcoro@git.10bbcdbf2be3ad3aa56febcf4c7662d771460a99
     - dawn@3_91a
     - dawncut@1_54a
-    - dd4hep@1.23 +ddg4 +ddcad +hepmc3 +ipo +lcio
-    - edm4eic@1.2.1 cxxstd=17 -ipo
-    - edm4hep@0.7 cxxstd=17 -ipo
+    - dd4hep@1.23 +ddg4 +ddcad +hepmc3 +lcio
+    - edm4eic@1.2.1 cxxstd=17
+    - edm4hep@0.7 cxxstd=17
     - eic-smear@1.1.10
     - eicrecon@0.4.0
     - eigen@3.4.0
@@ -44,7 +44,7 @@ spack:
     - py-toml@0.10.2
     - qt@5.15.5 +opengl
     - root@6.26.06 cxxstd=17 
-          +fftw +fortran +gdml +http +mlp +pythia8 
+          +fftw +fortran +gdml +http -ipo +mlp +pythia8 
           +root7 +tmva +vc -webgui +xrootd +ssl 
     - spdlog@1.10.0 +fmt_external
     - stow@2.3.1
@@ -56,5 +56,5 @@ spack:
     all:
       compiler: [gcc]
       variants:
-        build_type=Release
+        +ipo build_type=Release
   view: /usr/local

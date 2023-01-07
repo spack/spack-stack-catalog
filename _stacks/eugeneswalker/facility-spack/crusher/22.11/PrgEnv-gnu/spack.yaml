@@ -438,6 +438,7 @@ spack:
   - ginkgo +rocm amdgpu_target=gfx90a
   - heffte +rocm amdgpu_target=gfx90a
   - hpx max_cpu_count=512 +rocm amdgpu_target=gfx90a
+  - hypre +rocm amdgpu_target=gfx90a
   - kokkos +rocm amdgpu_target=gfx90a
   - magma ~cuda +rocm amdgpu_target=gfx90a
   - mfem +rocm amdgpu_target=gfx90a  # required adding explicit depends_on for rocsparse

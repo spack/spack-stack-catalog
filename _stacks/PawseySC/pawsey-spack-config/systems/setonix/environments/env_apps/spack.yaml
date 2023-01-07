@@ -1,0 +1,60 @@
+spack:
+  packages:
+    'blas:':
+      buildable: true
+    'lapack:':
+      buildable: true
+    'fftw-api:':
+      buildable: true
+  definitions:
+  - packages-with-python:
+    - amber@20 +openmp ^hdf@4.2.15 +external-xdr
+    - cp2k@8.2 +plumed ^plumed@2.7.2
+    - gromacs@2020.4 +double +lapack +plumed build_type=Release ^plumed@2.6.6
+    - gromacs@2021.4 +double +lapack +plumed build_type=Release ^plumed@2.7.2
+    - lammps@20210929.3 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk
+      +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole
+      +dpd-basic +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump
+      +extra-fix +extra-molecule +extra-pair +fep +ffmpeg +granular +h5md +interlayer
+      +jpeg +kim +kokkos +kspace +latboltz +latte +machdyn +manifold +manybody +mc
+      +meam +mesont +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio
+      +netcdf +openmp-package +opt +orient +peri +phonon +plugin +plumed +png +poems
+      +ptm +python +qeq +qtb +reaction +reaxff +replica +rigid +shock +smtbq +sph
+      +spin +srd +tally +uef +voronoi +yaff build_type=Release ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning
+      cxxstd=14 build_type=Release ^plumed@2.7.2 ^adios2@2.8.3
+    - namd@2.14 interface=python fftw=3 +plumed ^charmpp@6.10.2 backend=ofi
+    - nwchem@7.0.2
+
+    
+# Failing:    - openfoam-org@8 #Alexis still working on it
+# Current alternative:
+    - openfoam@2206
+  - packages:
+    - cpmd@4.3 +mpi +omp
+    - ansys-fluids@2022R1
+    
+#lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 )
+# look into this file nektar/cmake/FindNativeBlasLapack.cmake
+# Custom Pawsey recipe, that builds all dependencies internally - OK
+    - nektar@5.0.2 build_type=Release
+    - quantum-espresso@6.8 +epw +openmp hdf5=parallel
+
+  - vasp_packages:
+    - vasp@5.4.4 +scalapack
+    - vasp@6.2.1 +scalapack
+    - vasp@6.3.0 +scalapack
+  specs:
+  - matrix:
+    - [$packages-with-python]
+    - [^python@3.9.15 +optimizations+zlib]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  - matrix:
+    - [$packages]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  - matrix:
+    - [$vasp_packages]
+    - ['%gcc@12.1.0']
+    - [target=zen3]
+  view: false

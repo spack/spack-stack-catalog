@@ -1,0 +1,40 @@
+spack:
+# note: preferred versions are set in packages.yaml
+  definitions:
+  - packages:
+    
+# py-pip and py-setuptools: installed in env_langs
+# snakemake: docs recommend to install with conda
+    - ffmpeg@4.4 +avresample
+    - gnuplot@5.4.2 +X  ^python@3.9.15 +optimizations+zlib
+    - llvm@14.0.0 ~omp_as_runtime ~polly ~gold
+    - nextflow@22.04.3
+    - parallel@20210922
+    - reframe@3.10.1 ^python@3.9.15 +optimizations+zlib
+    - reframe@3.4 ^python@3.9.15 +optimizations+zlib
+    - singularity@3.8.6
+    - mpifileutils@0.11+lustre
+
+# utilities for Nextflow Tower
+    - tower-agent@0.4.5
+    - tower-cli@0.7.0
+    
+# add nano here for now
+    - nano@6.3
+  - licensed:
+    - matlab@R2021a key=$MATLAB_INSTALL_KEY mode=automated
+  specs:
+  - matrix:
+    - [cmake@3.21.4]
+    - ['%gcc@12.1.0', '%cce@14.0.3', '%aocc@3.2.0']
+    - [target=zen3, target=zen2]
+  - matrix:
+    - [$packages]
+    - ['%gcc@12.1.0']
+    - [target=zen3, target=zen2]
+# TODO: build licensed software
+  # - matrix:
+  #   - [$licensed]
+  #   - ['%gcc@12.1.0']
+  #   - [target=zen3]
+  view: false
