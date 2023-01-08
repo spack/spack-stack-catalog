@@ -5,7 +5,7 @@ spack:
   - ./
   definitions:
   - oneapi: ['%oneapi@2022.1.2']
-  - gnu: ['%gcc@10.2.0']
+  - gnu: ['%gcc@12.1.0']
   - ompi: [openmpi]
   - ompi_gnu: [m4, autoconf, automake, libtool]
   specs:

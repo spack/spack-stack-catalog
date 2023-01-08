@@ -58,38 +58,38 @@ spack:
     cray-libsci:
       buildable: false
       externals:
-      - spec: cray-libsci@21.08.1.2
+      - spec: cray-libsci@22.11.1.2
         modules:
-        - cray-libsci/21.08.1.2
+        - cray-libsci/22.11.1.2
     cray-mpich:
       buildable: false
       externals:
-      - spec: cray-mpich@8.1.17 %gcc
-        prefix: /opt/cray/pe/mpich/8.1.17/ofi/gnu/9.1
+      - spec: cray-mpich@8.1.22 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.22/ofi/gnu/9.1
         modules:
-        - cray-mpich/8.1.17
+        - cray-mpich/8.1.22
     libfabric:
       buildable: false
       variants: fabrics=sockets,tcp,udp,rxm
       externals:
-      - spec: libfabric@1.15.0.0
-        prefix: /opt/cray/libfabric/1.15.0.0
+      - spec: libfabric@1.15.2.0
+        prefix: /opt/cray/libfabric/1.15.2.0
         modules:
-        - libfabric
+        - libfabric/1.15.2.0
     openssl:
       buildable: false
       externals:
-      - spec: openssl@1.1.1d
-        prefix: /usr
+      - spec: openssl@1.1.1s
+        prefix: /global/common/software/nersc/pm-2022q4/sw/evp-patch
     openssh:
       buildable: false
       externals:
       - spec: openssh@8.4p1
-        prefix: /usr
+        prefix: /global/common/software/nersc/pm-2022q4/sw/evp-patch
     slurm:
       buildable: false
       externals:
-      - spec: slurm@22.05.5
+      - spec: slurm@22.05.6
         prefix: /usr
 
     # SITE VARIANT/VERSION PREFERENCES

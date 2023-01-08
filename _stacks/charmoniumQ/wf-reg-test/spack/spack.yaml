@@ -4,7 +4,9 @@ spack:
   #- util-linux
   - time
   - nextflow
-  - apptainer
+  # Nextflwo 22.10.4 support apptainer yet, although newer versions do.
+  # https://github.com/nextflow-io/nextflow/issues/2970
+  - singularityce~suid
   # Note that many Snakemake repositories require snakemake@7.5:
   # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
   - snakemake@7.18.2+s3+http+ftp+reports
@@ -41,6 +43,9 @@ spack:
   # - py-azure-cli
   - py-pip
   - py-domonic
+  # These are needed to mount stuff inside Singularity.
+  - squashfuse
+  - e2fsprogs
   view: true
   concretizer:
     unify: when_possible

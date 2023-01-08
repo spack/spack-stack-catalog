@@ -2,6 +2,7 @@ spack:
   specs:
     - acts@21.1.0 +dd4hep +identification +json +tgeo +examples +fatras +geant4 +python
     - actsvg@0.4.26 +examples
+    - acts-dd4hep@1.0.1
     - afterburner@0.1.2 +root +zlib
     - cairo@1.16.0 +fc+ft+X+pdf+gobject
     - clhep@2.4.6.0 cxxstd=17
@@ -28,7 +29,7 @@ spack:
     - imagemagick@7.0.8-7
     - intel-tbb@2020.3
     - irt@1.0.0
-    - jana2@2.0.8 +root +zmq
+    - jana2@2.0.8 -ipo +root +zmq
     - madx@5.08.01
     - mesa@22.1.2 +glx -llvm +opengl +opengles +osmesa
     - nlohmann-json@3.11.2
