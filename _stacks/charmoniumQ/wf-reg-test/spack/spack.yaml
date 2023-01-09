@@ -1,15 +1,27 @@
 spack:
   specs:
+  # hwloc to profile the current system
   - hwloc
+
+  # Time/profiling commands
   #- util-linux
   - time
+
+  # Nextflow
   - nextflow
-  # Nextflwo 22.10.4 support apptainer yet, although newer versions do.
+
+  # Nextflow 22.10.4 support apptainer yet, although newer versions do.
   # https://github.com/nextflow-io/nextflow/issues/2970
   - singularityce~suid
+
+  # These are needed to mount stuff inside Singularity.
+  - squashfuse
+  - e2fsprogs
+
   # Note that many Snakemake repositories require snakemake@7.5:
   # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
   - snakemake@7.18.2+s3+http+ftp+reports
+
   # Many users use the bioconda package for Snakemake.
   # However, the bioconda package for Snakemake pulls in several dependencies that are not true dependencies of Snakemake.
   # To be compatible with users who assume bioconda Snakemake, I must also pull in those packages.
@@ -22,8 +34,17 @@ spack:
   - py-pandas
   # - py-slacker
   # - py-peppy
+
+  # Snakemake --use-conda calls conda
+  - miniconda3
+
+  # And conda requires pyopenssl
+  # https://stackoverflow.com/questions/73830524/attributeerror-module-lib-has-no-attribute-x509-v-flag-cb-issuer-check
+  - py-pyopenssl
+
   - python@3.10
-  # Next are python dependencies
+  # Next are python dependencies of htis repository
+
   - py-pygithub@1
   - py-gitpython@3
   - py-xxhash
@@ -38,14 +59,12 @@ spack:
   - py-click@8
   - py-azure-identity
   - py-tqdm
+  - py-pip
+  - py-domonic
   # py-azure-cli in Spack is too old to be usable.
   # If you need this, try `pip install azure-cli`
   # - py-azure-cli
-  - py-pip
-  - py-domonic
-  # These are needed to mount stuff inside Singularity.
-  - squashfuse
-  - e2fsprogs
+
   view: true
   concretizer:
     unify: when_possible
