@@ -1,0 +1,43 @@
+spack:
+  definitions:
+  - packages:
+    - assimp +ipo
+    - acts@8.03.0 +dd4hep +digitization +examples +fatras +identification +json
+      +tgeo +ipo
+    - clhep cxxstd=17
+    - dd4hep +geant4 +hepmc3 +lcio +ipo
+    - eigen
+    - gaudi@36.0 +ipo
+    - geant4 +ipo -qt -opengl -python +vecgeom cxxstd=17
+    - genfit +ipo
+    - hepmc3 +interfaces +python +rootio
+    - lcio +ipo
+    - opencascade +ipo +tbb -vtk
+    - podio +ipo
+    - pythia8 +fastjet
+    - root cxxstd=17 +fftw +fortran +gdml +mlp +pythia8 +root7 +tmva +vc +xrootd +ssl
+    - xrootd cxxstd=17 +python
+    - npdet@master
+    - juggler@master
+  - when: os=='rhel7' or os=='centos7' or os=='centos8' or os=='ubuntu18.04' or os=='ubuntu20.04'
+    compilers: [gcc@9.3.0]
+  - when: os=='ubuntu20.10'
+    compilers: [gcc@10.2.0]
+  - speclist:
+    - matrix:
+      - [$packages]
+      - [$%compilers]
+  specs:
+  - $speclist
+  concretization: together
+  config:
+    install_missing_compilers: true
+  packages:
+    all:
+      target:
+      - x86_64
+  view:
+    default:
+      root: /cvmfs/eic.opensciencegrid.org/views/athena
+      projections:
+        all: '{os}/{compiler.name}-{compiler.version}'

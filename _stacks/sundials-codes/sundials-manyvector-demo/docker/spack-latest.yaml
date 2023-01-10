@@ -1,0 +1,22 @@
+# This is a Spack Environment file.
+#
+spack:
+  packages:
+    all:
+      providers:
+        target:
+        - x86_64
+        blas:
+        - openblas
+        mpi:
+        - openmpi
+  specs:
+  - cmake arch=x86_64
+  - sundials@6.2.0 +openmp +mpi +logging-mpi +klu ^suite-sparse@5.8.1 arch=x86_64
+  - raja@0.13.0 arch=x86_64
+  - hdf5@1.10.7 +hl +mpi arch=x86_64
+  view: /opt/view
+  concretizer:
+    unify: true
+  config:
+    install_tree: /opt/software

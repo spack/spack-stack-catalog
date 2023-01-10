@@ -2,10 +2,10 @@
 #
 spack:
   specs:
-  - sundials@6.2.0 +openmp +mpi +klu +magma +raja +cuda cuda_arch=70 ^cuda@11.4.2 ^suite-sparse@5.8.1
+  - sundials@6.2.0 +openmp +mpi +logging-mpi +klu +magma +raja +cuda cuda_arch=70 ^cuda@11.4.2 ^suite-sparse@5.8.1
     ^magma@2.6.1 +cuda cuda_arch==70 ^raja@0.13.0 +cuda cuda_arch==70
   - hdf5@1.10.7 +hl +mpi
-  view: true
+  view: ~/views/sundials-demo
   concretizer:
     unify: when_possible
   compilers:
