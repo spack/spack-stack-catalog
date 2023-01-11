@@ -17,5 +17,5 @@ spack:
   - cudnn@8.4.0
   - openmpi@4.1.2
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury@2.2.0 ~boostsys ~checksum +ofi ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
+  - mochi-thallium@main ^argobots ^mercury@2.2.0 ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
   view: /opt/view

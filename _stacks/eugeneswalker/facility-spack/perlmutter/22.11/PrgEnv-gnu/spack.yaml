@@ -104,7 +104,7 @@ spack:
       'enable:': [lmod]
       lmod:
         defaults:
-        - cray-mpich@8.1.17
+        - cray-mpich@8.1.22
         core_compilers: [gcc@11.2.0]
         verbose: true
         hash_length: 0
