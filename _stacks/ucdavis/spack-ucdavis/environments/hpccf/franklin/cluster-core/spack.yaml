@@ -38,8 +38,13 @@ spack:
       version:
       - 3.2
       variants: +openmp
-  include:
-  - $spack/../environments/cluster-core/exports.yaml
+    intel-oneapi-mkl:
+      version:
+      - 2022.2.1
+    fftw:
+      version:
+      - 3.3.10
+      variants: +openmp
   specs:
   - lmod@8.7.14
   - slurm
@@ -50,6 +55,11 @@ spack:
   - openmpi
   - cuda
   - amdfftw target=zen2
+  - intel-oneapi-mkl
+  - fftw
+  #- singularity
+  #-singularity-hpc
+  #- parallel
   view: /share/apps/spack/environments/cluster-core/view
   modules:
     default:
@@ -66,6 +76,8 @@ spack:
         - openmpi
         - cuda
         - amdfftw
+        - fftw
+        - intel-oneapi-mkl
   concretizer:
     reuse: true
     unify: when_possible

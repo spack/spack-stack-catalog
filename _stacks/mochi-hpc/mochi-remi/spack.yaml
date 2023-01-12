@@ -4,7 +4,8 @@ spack:
   - cmake
   - nlohmann-json
   - mochi-thallium
-  - mochi-bedrock@master
-  - libuuid
+  - mochi-bedrock
+  - util-linux-uuid
   - mochi-abt-io
-  concretization: together
+  concretizer:
+    unify: true

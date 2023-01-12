@@ -1,0 +1,150 @@
+spack:
+  include:
+  - $spack/../environments/cluster-core/exports.yaml
+  definitions:
+  - programs:
+    - abyss
+    - augustus
+    - blast-plus
+    - blast2go
+    - aragorn
+    - bedtools2
+    - bcftools +libgsl +perl-filters
+    - blat
+    - bowtie
+    - bowtie2
+    - braker
+    - bwa
+    - bwtool
+    - canu
+    - cap3
+    - corset
+    - clustal-omega
+    - clustalw
+    - cufflinks
+    - diamond
+    - ea-utils
+    - emboss
+    - exonerate
+    - exonerate-gff3
+    - fastqc
+    - freebayes
+    - gatk@3.8.1
+    - gatk@4.2.6.1
+    - genrich
+    - glimmer
+    - hisat2
+    - hmmer
+    - homer
+    - htslib
+    - igv
+    - infernal
+    - interproscan
+    - iq-tree
+    - iqtree2
+    - jellyfish
+    - kalign
+    - kallisto
+    - kmergenie
+    - kraken
+    - kraken2
+    - krakenuniq
+    - last
+    - mash
+    - mcl
+    - masurca
+    - meme@5.3.0
+    - metabat
+    - metaeuk
+    - minced
+    - miniasm
+    - minimap2
+    - mirdeep2
+    - mmseqs2
+    - mothur
+    - mummer
+    - mummer4
+    - muscle
+    - ncbi-rmblastn
+    - ncbi-toolkit
+    - ncbi-vdb
+    - nextflow
+    - orthofinder
+    - orthomcl
+    - phylip
+    - phyluce
+    - picard
+    - pilon
+    - plink
+    - prokka
+    - raxml
+    - raxml-ng
+    - ray
+    - recon
+    - repeatmasker
+    - repeatmodeler ^repeatmasker@4.0.9
+    - repeatscout
+    - rnaquast
+    - rsem
+    - sabre
+    - salmon
+    - samtools
+    - satsuma2
+    - scallop
+    - seqprep
+    - seqtk
+    - shoremap
+    - sickle
+    - smartdenovo
+    - soapdenovo-trans
+    - soapdenovo2
+    - sortmerna
+    - spades
+  - arches:
+    - target=zen2
+  specs:
+  - matrix:
+    - [$programs]
+    - [$arches]
+  - plink-ng %gcc@9.5.0
+  - sailfish %gcc@4.9.4
+  - sga %gcc@4.9.4
+  - megahit %gcc@4.9.4
+  
+  #- bridger target=x86_64
+  - allpaths-lg %gcc@4.9.4
+  #- signalp
+  #- pharokka
+  #- mira
+  #    - miranda
+  #- maker
+  #-pbbam
+  view: false
+  modules:
+    default:
+      lmod:
+        exclude_implicits: true
+        all:
+          conflict:
+          - '{name}'
+  concretizer:
+    reuse: true
+    unify: when_possible
+  mirrors:
+    manual-mirror:
+      fetch:
+        url: file:///share/apps/spack/manual-mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///share/apps/spack/manual-mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
