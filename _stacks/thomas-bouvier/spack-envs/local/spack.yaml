@@ -1,0 +1,13 @@
+spack:
+  repos:
+  - ~/Dev/mochi-spack-packages
+  packages:
+    py-torch:
+      variants: [+distributed]
+  specs:
+  - python
+  - py-pip
+  - openmpi@4.1.2
+  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
+  - mochi-thallium@main ^argobots ^mercury@2.2.0 ~boostsys ~checksum +ofi +debug ^mochi.libfabric fabrics=tcp,rxm,verbs
+  view: /opt/view

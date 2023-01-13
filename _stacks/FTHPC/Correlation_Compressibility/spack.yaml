@@ -5,7 +5,7 @@ spack:
       - x86_64
   specs:
   - libpressio+libdistributed+hdf5+mgard+python+sz+sz3+zfp+mpi+bitgrooming+digitrounding+fpzip
-    ^sz@master+stats ^mgard@2021-11-12+cuda cuda_arch=70 ^libstdcompat+boost ^libdistributed@0.4.1
+    ^sz@master+stats ^mgard@2021-11-12+cuda cuda_arch=70 ^libstdcompat+boost ^libdistributed@0.4.2
   - libpressio-tthresh
   - libpressio-tools+opt+tthresh+mpi
   - py-h5py
