@@ -1,7 +1,6 @@
 spack:
   specs:
   - mochi-margo%gcc@9.3.0
-  concretization: together
   compilers:
   - compiler:
       paths:

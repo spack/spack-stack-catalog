@@ -1,7 +1,6 @@
 spack:
   specs:
   - mochi-margo
-  concretization: together
   compilers:
   - compiler:
       environment: {unset: []}

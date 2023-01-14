@@ -4,8 +4,8 @@ spack:
   include:
   - ./
   definitions:
-  - oneapi: ['%oneapi@2022.1.2']
-  - gnu: ['%gcc@10.2.0']
+  - oneapi: ['%oneapi@2023.1.0']
+  - gnu: ['%gcc@12.1.0']
   - ompi: [openmpi]
   - ompi_gnu: [m4, autoconf, automake, libtool]
   specs:
@@ -20,5 +20,3 @@ spack:
     unify: true
   upstreams: {}
   mirrors: {}
-  packages: {}
-  repos: []

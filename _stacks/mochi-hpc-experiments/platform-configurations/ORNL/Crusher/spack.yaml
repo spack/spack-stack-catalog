@@ -1,7 +1,6 @@
 spack:
   specs:
   - mochi-margo
-  concretization: together
   repos:
   - /path/to/mochi-spack-packages
   modules:
