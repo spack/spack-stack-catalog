@@ -67,9 +67,9 @@ spack:
   - netlib-scalapack %gcc@11.2.0 ^mpich@4.0.2
   - netcdf-c +parallel-netcdf %gcc@11.2.0
   - netcdf-fortran %gcc@11.2.0
-  - esmf@8.4.0 %gcc@11.2.0
   - $pumi
   - $pumiSim18.0-220930beta
+  - esmf@8.4.0 +parallelio %gcc@11.2.0
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
