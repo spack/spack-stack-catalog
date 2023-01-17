@@ -16,7 +16,7 @@ spack:
     - edm4eic@1.2.2 cxxstd=17
     - edm4hep@0.7.2 cxxstd=17
     - eic-smear@1.1.10
-    - eicrecon@0.4.0
+    - eicrecon@0.4.1
     - eigen@3.4.0
     - emacs
     - fastjet@3.4.0
@@ -25,7 +25,6 @@ spack:
     - geant4@11.1.0 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
     - hepmc3@3.2.5 +python +rootio
     - heppdt@2.06.01
-    - igprof@5.9.16
     - imagemagick@7.0.8-7
     - intel-tbb@2020.3
     - irt@1.0.0
