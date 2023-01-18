@@ -53,7 +53,7 @@ spack:
   - py-charmonium-freeze
   - py-universal-pathlib
   - py-toolz
-  - py-parsl
+  - py-parsl+monitoring
   - py-fasteners@0.18:0
   - py-adlfs@2022
   - py-click@8

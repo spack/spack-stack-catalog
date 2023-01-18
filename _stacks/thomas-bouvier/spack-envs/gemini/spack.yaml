@@ -1,4 +1,7 @@
 spack:
+  config:
+    install_tree: /mnt/spack
+    build_stage: /tmp/spack-stage
   repos:
   - /root/mochi-spack-packages
   packages:
@@ -19,4 +22,4 @@ spack:
   - py-torch@1.13.1 ~gloo
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
   - mochi-thallium@main ^argobots ^mercury@2.2.0 ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
-  view: /opt/view
+  view: /mnt/view/gemini
