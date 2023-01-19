@@ -4,8 +4,10 @@ spack:
   - cmake
   - nlohmann-json
   - mochi-thallium
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - mochi-bedrock
   - util-linux-uuid
   - mochi-abt-io
   concretizer:
     unify: true
+    reuse: false
