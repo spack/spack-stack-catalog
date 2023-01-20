@@ -1,5 +1,8 @@
 spack:
   specs:
+  - git
+  - ncdu
+
   # hwloc to profile the current system
   - hwloc
 
@@ -50,10 +53,10 @@ spack:
   - py-xxhash
   - py-pyyaml@6
   - py-charmonium-time-block@0.3:0
-  - py-charmonium-freeze
+  - py-charmonium-freeze@0.7:0
   - py-universal-pathlib
   - py-toolz
-  - py-parsl+monitoring
+  - py-parsl
   - py-fasteners@0.18:0
   - py-adlfs@2022
   - py-click@8
@@ -67,5 +70,5 @@ spack:
 
   view: true
   concretizer:
-    unify: when_possible
+    unify: true
 

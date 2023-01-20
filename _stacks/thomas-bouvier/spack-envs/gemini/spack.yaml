@@ -14,12 +14,20 @@ spack:
     py-torch:
       variants: [+cuda cuda_arch=70 +nccl +cudnn +magma +distributed]
   specs:
-  - python
-  - py-pip
   - cuda@11.8
   - cudnn@8.4.0
   - openmpi@4.1.2
+  - python
+  - py-pip
+  - py-ruamel-yaml
+  - py-filelock
+  - py-wandb
+  - py-continuum
   - py-torch@1.13.1 ~gloo
+  - py-torchvision
+  - py-torchsummary
+  - py-bokeh
+  - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
   - mochi-thallium@main ^argobots ^mercury@2.2.0 ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
   view: /mnt/view/gemini

@@ -1,0 +1,173 @@
+spack:
+  include:
+  - /appl/lumi/spack/etc/22.08/0.19.0/config.yaml
+  - /appl/lumi/spack/etc/22.08/0.19.0/packages.yaml
+  - /appl/lumi/spack/etc/22.08/0.19.0/compilers.yaml
+  definitions:
+  - core_compiler:
+    - '%gcc@7.5.0'
+  - gcc_compilers:
+    - '%gcc@11.2.0'
+  - cray_compilers:
+    - '%cce@14.0.2'
+  - core_packages:
+    - vim features=huge
+    - emacs
+    - nano
+    - tmux
+    - htop
+    - subversion
+    - mercurial
+    - gnupg
+    - meson
+    - xterm
+    - mc
+    - git-lfs
+    - ccache
+    - gnuplot +X
+    - grace ^hdf5~mpi ^fftw@2.1.5~mpi
+  - gcc_packages:
+    - hpl+openmp
+    - hpl+openmp ^cray-libsci
+    - openblas@0.3.21 threads=none
+    - openblas@0.3.21 threads=openmp
+    - netlib-scalapack ^openblas
+    - lammps+class2+colloid+compress+coreshell+dipole+granular+kspace+manybody+mc+misc+molecule+mpi+mpiio+openmp+peri+poems+python+qeq+replica+rigid+shock+snap+spin+srd+voronoi
+    - quantum-espresso+epw+libxc+mpi+openmp+scalapack hdf5=serial ^openblas ^netlib-scalapack
+    - hip
+    - rocblas amdgpu_target==gfx90a
+    - rocsolver amdgpu_target==gfx90a
+    - rocfft amdgpu_target==gfx90a amdgpu_target_sram_ecc=gfx90a
+    - hipblas ^rocsolver amdgpu_target==gfx90a ^rocsolver amdgpu_target==gfx90a
+    - hipfft ^rocfft amdgpu_target==gfx90a amdgpu_target_sram_ecc=gfx90a
+    - rocprim amdgpu_target=gfx90a
+    - rocthrust amdgpu_target=gfx90a ^rocprim amdgpu_target=gfx90a
+    - rocsparse amdgpu_target=gfx90a ^rocprim amdgpu_target=gfx90a
+    - hipcub ^rocprim amdgpu_target=gfx90a
+    - rccl amdgpu_target==gfx90a
+    - hipfort
+    - hip-rocclr
+    - hipify-clang
+    - hipsparse ^rocsparse amdgpu_target=gfx90a
+    - rocm-smi-lib
+    - rocm-clang-ocl
+    - rocm-device-libs
+    - rocm-gdb
+    - rocm-opencl
+    - rocprofiler-dev
+    - roctracer-dev
+    - rocm-bandwidth-test
+    - rocm-debug-agent
+    - kokkos +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - kokkos ~rocm~cuda~wrapper+openmp
+    - kokkos-kernels+openmp
+    - magma +rocm~cuda amdgpu_target==gfx90a
+    - eigen
+    - cdo
+    - nco
+    - cmor
+    - eccodes+aec+fortran+memfs+netcdf+openmp+python+tools samples=none
+    - darshan-runtime
+    - darshan-util
+    - trilinos ~cuda~wrapper ^superlu-dist+rocm amdgpu_target==gfx90a
+    - trilinos ~cuda~wrapper
+    - fortrilinos
+    - parmetis
+    - petsc~rocm ^superlu-dist ~rocm
+    - rust
+    - ripgrep
+    - exa
+    - hyperfine
+    - go
+    - googletest
+    - hpctoolkit+rocm
+    - scorep
+    - scalasca
+    - cp2k+cosma+plumed+spglib+elpa ^elpa~rocm
+    - elpa
+    - octave+fftw+hdf5+zlib ^cray-mpich
+    - jasper
+    - hpl~openmp ^openblas
+    - rocrand amdgpu_target==gfx90a
+    - wannier90
+  - cray_packages:
+    - hpl+openmp
+    - chai@2.4.0 ~benchmarks~examples~tests+rocm~cuda amdgpu_target=gfx90a
+    - umpire@6.0.0 +shared+rocm~cuda amdgpu_target=gfx90a
+    - raja ~exercises~examples~tests+rocm~cuda~openmp amdgpu_target=gfx90a
+    - kokkos +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+  - core_specs:
+    - matrix:
+      - - $core_packages
+      - - $core_compiler
+      - - arch=linux-sles15-zen
+  - gcc_specs:
+    - matrix:
+      - - $gcc_packages
+      - - $gcc_compilers
+      - - arch=linux-sles15-zen2
+  - cray_specs:
+    - matrix:
+      - - $cray_packages
+      - - $cray_compilers
+      - - arch=linux-sles15-zen2
+  specs:
+  - $core_specs
+  - $gcc_specs
+  - $cray_specs
+  view: false
+  concretizer:
+    unify: false
+  modules:
+    default:
+      enable:
+      - tcl
+      tcl:
+        hash_length: 2
+        projections:
+          all: '{name}/{version}-{compiler.name}'
+        all:
+          environment:
+            set:
+              ${PACKAGE}_INSTALL_ROOT: ${PREFIX}
+        blacklist:
+        - cray-mpich
+        - cray-libsci
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+            openblas threads=none: serial
+        hpl:
+          suffixes:
+            hpl ^openblas: openblas
+        zstd:
+          suffixes:
+            zstd ~programs: nobin
+        binutils:
+          suffixes:
+            binutils +gold: gold
+        xz:
+          suffixes:
+            xz +pic: pic
+        elfutils:
+          suffixes:
+            elfutils +bzip2: compress
+        trilinos:
+          suffixes:
+            trilinos +rocm: gpu
+        kokkos:
+          suffixes:
+            kokkos +rocm: gpu
+        chai:
+          suffixes:
+            chai +rocm: gpu
+        raja:
+          suffixes:
+            raja +rocm: gpu
+        umpire:
+          suffixes:
+            umpire +rocm: gpu
+        gromacs:
+          suffixes:
+            gromacs +plumed: plumed
