@@ -1,26 +1,31 @@
 spack:
   view: false
   specs:
-  - 'clingo-bootstrap@spack +optimized'
-  - 'curl'
-  - 'file'
-  - 'git'
-  - 'gmake@4.4:'
-  - 'gnupg'
-  - 'gzip'
-  - 'lz4'
-  - 'lzo'
-  - 'patch'
-  - 'patchelf'
-  - 'py-boto3'
+  - 'binutils %gcc +ld +gas +gold'
+  - 'clingo-bootstrap@spack %clang +optimized'
+  - 'curl %clang'
+  - 'file %clang'
+  - 'gcc %gcc languages=c,c++,fortran +profiled build_type=Release +strip'
+  - 'git %clang'
+  - 'gmake@4.4: %clang'
+  - 'gnupg %clang'
+  - 'gzip %clang'
+  - 'lz4 %clang'
+  - 'lzo %clang'
+  - 'patch %clang'
+  - 'patchelf %clang'
+  - 'py-boto3 %clang'
   - 'python@3.11 %clang +optimizations'
-  - 'tar'
-  - 'unzip'
-  - 'vim'
-  - 'xz'
-  - 'zstd'
+  - 'tar %clang'
+  - 'unzip %clang'
+  - 'vim %clang'
+  - 'xz %clang'
+  - 'zstd %clang'
   config:
     install_tree:
       root: /opt/spack/store
   concretizer:
     unify: true
+  packages:
+    all:
+      variants: ~nls

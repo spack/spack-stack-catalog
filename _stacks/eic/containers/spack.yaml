@@ -39,6 +39,7 @@ spack:
     - prmon@3.0.2 +plot
     - pythia8@8.306 +fastjet
     - python@3.10.8
+    - py-boto3@1.18.12
     - py-numpy@1.23.4
     - py-pip@22.2.2
     - py-toml@0.10.2
