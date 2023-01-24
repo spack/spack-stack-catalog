@@ -1,71 +1,95 @@
 spack:
-  packages:
-    slurm:
-      version:
-      - 22-05-6-1
-      variants: +pmix +mariadb +hwloc +restd sysconfdir=/etc/slurm
-    hwloc:
-      version:
-      - 2.8.0
-      variants: +netloc +pci +libxml2 +libudev +cairo +nvml
-    cairo:
-      require: +X +ft +fc +pdf +png +gobject
-    python:
-      require: ~libxml2
-    libxml2:
-      require: '@2.10.2: +python'
-    libevent:
-      version:
-      - 2.1.12
-    pmix:
-      version:
-      - 4.1.2
-    ucx:
-      version:
-      - 1.13.1
-      variants: +thread_multiple
-    openmpi:
-      version:
-      - 4.1.4
-      variants: fabrics=ucx schedulers=slurm +cuda
-    lmod:
-      version:
-      - 8.7.14
-      variants: modulepath_root=/share/apps/spack/modulefiles/
-    cuda:
-      variants: cuda_arch=75
-    amdfftw:
-      version:
-      - 3.2
-      variants: +openmp
-    intel-oneapi-mkl:
-      version:
-      - 2022.2.1
-    fftw:
-      version:
-      - 3.3.10
-      variants: +openmp
+  #  packages:
+  #    slurm:
+  #      version:
+  #      - 22-05-6-1
+  #      variants: +pmix +mariadb +hwloc +restd sysconfdir=/etc/slurm
+  #    hwloc:
+  #      version:
+  #      - 2.8.0
+  #      variants: +netloc +pci +libxml2 +libudev +cairo +nvml
+  #    cairo:
+  #      require: +X +ft +fc +pdf +png +gobject
+  #    python:
+  #      require: ~libxml2
+  #    libxml2:
+  #      require: '@2.10.2: +python'
+  #    libevent:
+  #      version:
+  #      - 2.1.12
+  #    pmix:
+  #      version:
+  #      - 4.1.2
+  #    ucx:
+  #      version:
+  #      - 1.13.1
+  #      variants: +thread_multiple
+  #    openmpi:
+  #      version:
+  #      - 4.1.4
+  #      variants: fabrics=ucx schedulers=slurm +cuda
+  #    lmod:
+  #      version:
+  #      - 8.7.14
+  #      variants: modulepath_root=/share/apps/spack/modulefiles/
+  #    cuda:
+  #      variants: cuda_arch=75
+  #    amdfftw:
+  #      version:
+  #      - 3.2
+  #      variants: +openmp
+  #    intel-oneapi-mkl:
+  #      version:
+  #      - 2022.2.1
+  #    fftw:
+  #      version:
+  #      - 3.3.10
+  #      variants: +openmp
   specs:
   - lmod@8.7.14
+  - openmpi
   - slurm
   - hwloc
   - libevent
   - pmix
   - ucx
-  - openmpi
   - cuda
   - amdfftw target=zen2
   - intel-oneapi-mkl
   - fftw
+  - parallel
+  - gcc@7.5.0
+  - gcc@5.5.0 %gcc@9.5.0
+  - gcc@4.9.4 %gcc@9.5.0
   #- singularity
   #-singularity-hpc
-  #- parallel
-  view: /share/apps/spack/environments/cluster-core/view
+  view:
+    generic:
+      root: /share/apps/spack/environments/cluster-core/view
+      select:
+      - lmod
+      - openmpi
+      - slurm
+      - hwloc
+      - libevent
+      - pmix
+      - ucx
+      - cuda
+      - amdfftw target=zen2
+      - intel-oneapi-mkl
+      - fftw
+      - parallel
+      exclude:
+      - gcc
+      link_type: symlink
+    amd:
+      root: /share/apps/spack/environments/cluster-core/view_amd
+      select:
+      - target=zen2
+      link_type: symlink
   modules:
     default:
       lmod:
-        hierarchy:
-        - mpi
         exclude:
         - lmod
         - mariadb
@@ -78,6 +102,7 @@ spack:
         - amdfftw
         - fftw
         - intel-oneapi-mkl
+        - gcc@7.5.0
+        - gcc@5.5.0
   concretizer:
-    reuse: true
     unify: when_possible

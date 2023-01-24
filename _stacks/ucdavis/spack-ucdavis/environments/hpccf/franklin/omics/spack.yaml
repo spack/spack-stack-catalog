@@ -1,6 +1,4 @@
 spack:
-  include:
-  - $spack/../environments/cluster-core/exports.yaml
   definitions:
   - programs:
     - abyss
@@ -101,7 +99,7 @@ spack:
     - sortmerna
     - spades
   - arches:
-    - target=zen2
+    - target=x86_64_v3
   specs:
   - matrix:
     - [$programs]
@@ -110,6 +108,9 @@ spack:
   - sailfish %gcc@4.9.4
   - sga %gcc@4.9.4
   - megahit %gcc@4.9.4
+
+
+
   
   #- bridger target=x86_64
   - allpaths-lg %gcc@4.9.4

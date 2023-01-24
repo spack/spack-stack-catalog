@@ -1,16 +1,21 @@
 spack:
-  include:
-  - $spack/../environments/cluster-core/exports.yaml
   specs:
-  - relion@4.0.0 +gui +cuda cuda_arch=75 +amdfftw purpose=cluster target=zen2
-  - relion@4.0-beta +gui +cuda cuda_arch=75 +amdfftw purpose=cluster target=zen2
-  - relion@3.1.3 +gui +cuda cuda_arch=75 +amdfftw purpose=cluster target=zen2
-  - relion@4.0.0 +gui ~cuda +altcpu +amdfftw purpose=cluster target=zen2
-  - relion@4.0-beta +gui ~cuda +altcpu +amdfftw purpose=cluster target=zen2
-  - relion@3.1.3 +gui ~cuda +altcpu +amdfftw purpose=cluster target=zen2
   - gctf
   - motioncor2@1.5.0
   - ghostscript
+  - relion@4.0.0 +gui +cuda cuda_arch=75 purpose=cluster target=zen2 ^amdfftw target=zen2
+    ^ctffind+openmp target=zen2
+  - relion@3.1.3 +gui +cuda cuda_arch=75 purpose=cluster target=zen2 ^amdfftw target=zen2
+    ^ctffind+openmp target=zen2
+  - relion@4.0.0 +gui ~cuda +altcpu purpose=cluster target=zen2 ^amdfftw target=zen2
+    ^ctffind+openmp target=zen2
+  - relion@3.1.3 +gui ~cuda +altcpu purpose=cluster target=zen2 ^amdfftw target=zen2
+    ^ctffind+openmp target=zen2
+  - relion@4.0.0 +gui +cuda +mklfft cuda_arch=75 purpose=cluster ^intel-oneapi-mkl
+    ^ctffind+openmp^intel-oneapi-mkl@2022.2.1
+  - relion@3.1.3 +gui +cuda +mklfft cuda_arch=75 purpose=cluster ^intel-oneapi-mkl
+    ^ctffind+openmp^intel-oneapi-mkl@2022.2.1
+  - py-relion-helper
   view: false
   modules:
     default:
@@ -23,8 +28,14 @@ spack:
         - motioncor2
         - ghostscript
         projections:
-          relion+cuda: relion/gpu/{version}
-          relion~cuda: relion/cpu/{version}
+          relion+cuda target=zen2: relion/gpu/{version}+amd
+          relion+cuda target=x86_64_v3: relion/gpu/{version}+intel
+          relion~cuda: relion/cpu/{version}+amd
+          ctffind^intel-oneapi-mkl: ctffind/{version}+intel
+          ctffind^amdfftw: ctffind/{version}+amd
+          py-relion-helper: relion-helper/{version}
+        defaults:
+        - target=zen2
         all:
           conflict:
           - '{name}'
@@ -32,12 +43,11 @@ spack:
           template: hpccf/franklin/relion.gpu.lua
           environment:
             set:
-              RELION_QSUB_TEMPLATE: /share/apps/spack/templates/hpccf/franklin/relion.{version}.gpu.slurm.template.sh
+              RELION_QSUB_TEMPLATE: /share/apps/spack/templates/hpccf/franklin/relion.{version}.gpu.{target}.slurm.template.sh
         relion~cuda:
           template: hpccf/franklin/relion.cpu.lua
           environment:
             set:
               RELION_QSUB_TEMPLATE: /share/apps/spack/templates/hpccf/franklin/relion.{version}.cpu.slurm.template.sh
   concretizer:
-    reuse: true
     unify: false

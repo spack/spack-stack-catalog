@@ -23,12 +23,12 @@ spack:
   - py-filelock
   - py-wandb@0.13.9
   - py-continuum
-  - py-nvidia-dali
+  - py-nvidia-dali@1.22.0-cuda110
   - py-torch@1.13.1 ~gloo
   - py-torchvision
   - py-torchsummary
   - py-bokeh
   - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury@git.ae324b8 ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
+  - mochi-thallium@main ^argobots ^mercury@git.ae324b8ac331e5d7fdcc061859b8f62a0bc87ccf ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
   view: /mnt/view/chifflot
