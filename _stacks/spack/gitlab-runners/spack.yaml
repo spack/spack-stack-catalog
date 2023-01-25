@@ -1,0 +1,26 @@
+spack:
+  view: false
+  specs:
+  - 'clingo-bootstrap@spack +optimized'
+  - 'curl'
+  - 'file'
+  - 'git'
+  - 'gmake@4.4:'
+  - 'gnupg'
+  - 'gzip'
+  - 'lz4'
+  - 'lzo'
+  - 'patch'
+  - 'patchelf'
+  - 'py-boto3'
+  - 'python@3.11 %clang +optimizations'
+  - 'tar'
+  - 'unzip'
+  - 'vim'
+  - 'xz'
+  - 'zstd'
+  config:
+    install_tree:
+      root: /opt/spack/store
+  concretizer:
+    unify: true

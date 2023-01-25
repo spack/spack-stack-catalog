@@ -19,4 +19,7 @@ spack:
     - [hpctoolkit ~papi +viewer +rocm]
     - - '@2022.10.01 ~mpi ^hip@5.1.0 ^hsa-rocr-dev@5.1.0 ^roctracer-dev@5.1.0 ^rocprofiler-dev@5.1.0'
       - '@2022.10.01 ~mpi ^hip@5.2.0 ^hsa-rocr-dev@5.2.0 ^roctracer-dev@5.2.0 ^rocprofiler-dev@5.2.0'
-      - '@develop +mpi ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'
+      - '@develop +cray ^hip@5.1.0 ^hsa-rocr-dev@5.1.0 ^roctracer-dev@5.1.0 ^rocprofiler-dev@5.1.0'
+      - '@develop +cray ^hip@5.2.0 ^hsa-rocr-dev@5.2.0 ^roctracer-dev@5.2.0 ^rocprofiler-dev@5.2.0'
+      - '@develop +cray ^hip@5.3.0 ^hsa-rocr-dev@5.3.0 ^roctracer-dev@5.3.0 ^rocprofiler-dev@5.3.0'
+      - '@develop +cray ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'

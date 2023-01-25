@@ -6,20 +6,21 @@ spack:
   - uuid
   - nlohmann-json
   - tclap
+  - lua-sol2
   - leveldb@1.22
   - berkeley-db+cxx+stl
   - tkrzw
   - gdbm
   - lmdb
   - unqlite@master
-  - lua-sol2
   - py-pybind11
-  - mochi-margo@main
-  - mercury@2.1.0 ~boostsys ^libfabric fabrics=tcp,rxm
+  - mochi-margo
+  - mercury ~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
   - mochi-bedrock
   - ycsb-cpp-interface
   - rocksdb+rtti
+  - mochi-remi@main
   concretizer:
     unify: true
     reuse: false
