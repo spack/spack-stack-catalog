@@ -62,6 +62,7 @@ spack:
   - py-click@8
   - py-azure-identity
   - py-tqdm
+  - py-matploglib
   - py-pip
   - py-domonic
   # py-azure-cli in Spack is too old to be usable.

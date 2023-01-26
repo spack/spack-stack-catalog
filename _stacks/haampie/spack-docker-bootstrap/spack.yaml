@@ -1,6 +1,7 @@
 spack:
   view: false
   specs:
+  - 'awscli'
   - 'binutils %gcc +ld +gas +gold'
   - 'clingo-bootstrap@spack %clang +optimized'
   - 'curl %clang'
@@ -29,3 +30,7 @@ spack:
   packages:
     all:
       variants: ~nls
+    binutils:
+      variants: libs=static
+    zlib:
+      variants: ~shared
