@@ -16,7 +16,7 @@ spack:
   - 'patch %clang'
   - 'patchelf %clang'
   - 'py-boto3 %clang'
-  - 'python@3.11 %clang +optimizations'
+  - 'python@3.11 %clang +optimizations +zlib_ng'
   - 'tar %clang'
   - 'unzip %clang'
   - 'vim %clang'

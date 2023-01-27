@@ -1,9 +1,7 @@
 spack:
   specs:
   - cowsay
-  - nano
-  # otherwise the docker build fails
-  - ncurses abi=5
+  - nano ^ncurses abi=5 # otherwise the docker build fails
 
   concretizer:
     unify: true
