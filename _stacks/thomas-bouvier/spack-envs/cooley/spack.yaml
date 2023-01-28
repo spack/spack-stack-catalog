@@ -1,7 +1,8 @@
 spack:
   config:
+    install_tree: /lus/theta-fs0/projects/VeloC/tbouvier/spack/cooley
     upstreams:
-    - /lus/theta-fs0/projects/VeloC/runderwood/spack/cooley
+    - /lus/theta-fs0/projects/VeloC/runderwood/spack/cooley/opt/spack
   repos:
   - /home/tbouvier/git/mochi-spack-packages
   packages:
@@ -14,14 +15,14 @@ spack:
     py-torch:
       variants: [+cuda cuda_arch=70 +nccl +cudnn +magma +distributed]
   specs:
-  - cuda@11.8
+  - cuda@11
   - cudnn@8.4.0
   - openmpi@4.1.2
   - python
   - py-pip
   - py-ruamel-yaml
   - py-filelock
-  - py-wandb@0.13.9
+  - py-wandb
   - py-continuum
   - py-nvidia-dali@1.22.0-cuda110
   - py-torch@1.13.1 ~gloo
@@ -30,5 +31,5 @@ spack:
   - py-bokeh
   - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury@git.ae324b8ac331e5d7fdcc061859b8f62a0bc87ccf ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda fabrics=tcp,rxm,verbs
+  - mochi-thallium@main ^argobots ^mercury@git.d34cec49a18621c64b2be2bfce69d5b3e988ceab ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm,verbs
   view: /home/tbouvier/view/cooley

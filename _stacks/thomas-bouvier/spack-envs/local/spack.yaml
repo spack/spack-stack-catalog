@@ -10,7 +10,7 @@ spack:
   - py-pip
   - py-ruamel-yaml
   - py-filelock
-  - py-wandb@0.13.9
+  - py-wandb
   - py-continuum
   - py-torch@1.13.1 ~gloo
   - py-torchvision
@@ -18,6 +18,6 @@ spack:
   - py-bokeh
   - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury@git.ae324b8ac331e5d7fdcc061859b8f62a0bc87ccf
-    ~boostsys ~checksum +ofi +debug ^mochi.libfabric fabrics=tcp,rxm,verbs
+  - mochi-thallium@main ^argobots ^mercury@git.d34cec49a18621c64b2be2bfce69d5b3e988ceab
+    ~boostsys ~checksum +ofi +debug ^mochi.libfabric +debug fabrics=tcp,rxm,verbs
   view: true

@@ -1,23 +1,37 @@
 spack:
   view: false
-
   concretizer:
     unify: false
     reuse: false
-
   packages:
     all:
       target: [x86_64]
       require: '%oneapi@2023.0.0'
     mpi:
       require: intel-oneapi-mpi
-    autoconf:
+    binutils:
       require: '%gcc'
-    m4:
+      variants: +ld +gold +headers +libiberty ~nls
+    bison:
       require: '%gcc'
     krb5:
       require: '%gcc'
-
+    llvm:
+      require: '%gcc'
+    m4:
+      require: '%gcc'
+    openssh:
+      require: '%gcc'
+    papi:
+      require: '%gcc'
+    py-scipy:
+      require: '%gcc'
+    ruby:
+      require: '%gcc'
+    rust:
+      require: '%gcc'
+    unzip:
+      require: '%gcc'
   compilers:
   - compiler:
       spec: oneapi@2023.0.0
@@ -58,7 +72,6 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-
   specs:
   - bacio@2.4.1
   - bison@3.8.2

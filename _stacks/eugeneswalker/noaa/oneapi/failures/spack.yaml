@@ -1,23 +1,37 @@
 spack:
   view: false
-
   concretizer:
     unify: false
     reuse: false
-
   packages:
     all:
       target: [x86_64]
       require: '%oneapi@2023.0.0'
     mpi:
       require: intel-oneapi-mpi
-    autoconf:
+    binutils:
       require: '%gcc'
-    m4:
+      variants: +ld +gold +headers +libiberty ~nls
+    bison:
       require: '%gcc'
     krb5:
       require: '%gcc'
-
+    llvm:
+      require: '%gcc'
+    m4:
+      require: '%gcc'
+    openssh:
+      require: '%gcc'
+    papi:
+      require: '%gcc'
+    py-scipy:
+      require: '%gcc'
+    ruby:
+      require: '%gcc'
+    rust:
+      require: '%gcc'
+    unzip:
+      require: '%gcc'
   compilers:
   - compiler:
       spec: oneapi@2023.0.0
@@ -58,8 +72,8 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-
   specs:
+  
   # ERRORS
   - ecflow@5.8.3                            # ecflow
   - eckit@1.19.0                            # eckit@1.19.0
@@ -84,3 +98,21 @@ spack:
   # py-scipy: icx: error: unknown argument: '-mavx5124vnniw'
   # py-setuptools-scm: error: metadata-generation-failed
   # w3nco: error: call to undeclared function 'times'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+
+  # NEED TO ADD VERSION
+  # - crtm@v2.3-jedi.4                      # add version: private?
+  # - fms@release-jcsda                     # add version: private?
+  # - netcdf-cxx@4.3.1                      # add version: deprecated? use new package?
+
+  # NEED TO ADD PACKAGE
+  # - ecmwf-atlas@0.29.0                    # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - ectrans@1.0.0                         # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - ewok@0.0.1                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - fckit@0.9.5                           # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - fiat@1.0.0                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - jedi-cmake@1.3.0                      # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - mapl@2.22.0                           # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - r2d2@0.0.1                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - shumlib@macos_clang_linux_intel_port  # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - solo@1.0.0                            # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)
+  # - yafyaml@0.5.1                         # add pkg: https://github.com/noaa-emc/spack/ (jcsda_emc_spack_stack branch)

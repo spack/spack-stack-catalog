@@ -1,19 +1,16 @@
 spack:
   view: false
-
   concretizer:
     unify: false
     reuse: false
-
   packages:
     all:
       target: [x86_64]
-      require: '%clang@15.0.6'
+      require: '%clang@15.0.7'
     mpi:
       require: mpich
     mpich:
       require: ~wrapperrpath
-
   compilers:
   - compiler:
       spec: gcc@11.1.0
@@ -29,7 +26,7 @@ spack:
       environment: {}
       extra_rpaths: []
   - compiler:
-      spec: clang@15.0.6
+      spec: clang@15.0.7
       paths:
         cc: /usr/bin/clang
         cxx: /usr/bin/clang++
@@ -41,7 +38,6 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-
   specs:
   - bacio@2.4.1
   - bison@3.8.2

@@ -1,5 +1,7 @@
 spack:
-  specs: [cowsay, nano ^ncurses abi=5]
+  specs:
+  - cowsay
+  - nano ^ncurses abi=5
 
   view: true
   concretizer:

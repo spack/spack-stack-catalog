@@ -1,10 +1,8 @@
 spack:
   view: false
-
   concretizer:
     unify: false
     reuse: false
-
   packages:
     all:
       target: [x86_64]
@@ -13,7 +11,6 @@ spack:
       require: mpich
     mpich:
       require: ~wrapperrpath
-
   compilers:
   - compiler:
       spec: gcc@11.1.0
@@ -28,7 +25,6 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-
   specs:
   - bacio@2.4.1
   - bison@3.8.2
