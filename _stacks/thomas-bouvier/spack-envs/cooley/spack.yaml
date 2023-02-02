@@ -18,7 +18,7 @@ spack:
   - cuda@11
   - cudnn@8.4.0
   - openmpi@4.1.2
-  - python
+  - python@3.10
   - py-pip
   - py-ruamel-yaml
   - py-filelock

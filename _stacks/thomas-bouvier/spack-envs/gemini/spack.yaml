@@ -15,9 +15,10 @@ spack:
       variants: [+cuda cuda_arch=70 +nccl +cudnn +magma +distributed]
   specs:
   - cuda@11.8
+  - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
   - cudnn@8.4.0
   - openmpi@4.1.2
-  - python
+  - python@3.10
   - py-pip
   - py-ruamel-yaml
   - py-filelock

@@ -6,7 +6,7 @@ spack:
       variants: [+distributed]
   specs:
   - openmpi@4.1.2
-  - python
+  - python@3.10
   - py-pip
   - py-ruamel-yaml
   - py-filelock
@@ -17,7 +17,7 @@ spack:
   - py-torchsummary
   - py-bokeh
   - py-matplotlib
-  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
+  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch tensor_ops=mpi
   - mochi-thallium@main ^argobots ^mercury@git.d34cec49a18621c64b2be2bfce69d5b3e988ceab
     ~boostsys ~checksum +ofi +debug ^mochi.libfabric +debug fabrics=tcp,rxm,verbs
   view: true
