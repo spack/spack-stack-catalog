@@ -32,3 +32,5 @@ spack:
       spec: neso@working
     nektar:
       spec: nektar@5.3.0-2e0fb8
+    neso-particles:
+      spec: neso-particles@working
