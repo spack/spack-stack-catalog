@@ -4,7 +4,7 @@
 # configuration settings.
 spack:
   # add package specs to the `specs` list
-  specs: [node-js, python, py-pip, py-setuptools]
+  specs: [node-js, python, py-pip, py-setuptools, npm]
   view: true
   concretizer:
     unify: true
