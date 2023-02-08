@@ -30,6 +30,17 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/gust/22.12/envs/build/templates/modules
   packages:
+    cudnn:
+      externals:
+      - spec: cudnn@8.5.0.96-11.7
+        prefix: /glade/u/apps/common/22.12/spack/opt/spack/cudnn/8.5.0.96-11.7
+      buildable: false
+    cuda:
+      externals:
+      - spec: cuda@11.7.99
+        prefix: /glade/u/apps/common/22.12/spack/opt/spack/cuda/11.7.1
+      buildable: false
+      require: +allow-unsupported-compilers
     gawk:
       externals:
       - spec: gawk@4.2.1
@@ -270,8 +281,6 @@ spack:
         modules:
         - cray-libsci/22.11.1.2
       buildable: false
-    cuda:
-      require: +allow-unsupported-compilers
     openmpi:
       variants: [+cuda]
       require: fabrics=cma,ofi schedulers=tm +gpfs +lustre
@@ -779,6 +788,10 @@ spack:
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib64:{prefix}/nvvm/lib64:{prefix}/extras/CUPTI/lib64:{prefix}/extras/Debugger/lib64'
               CRAY_LD_LIBRARY_PATH: '{prefix}/lib64'
+        cudnn:
+          environment:
+            set:
+              LD_LIBRARY_PATH: '{prefix}/lib'
         openmpi:
           environment:
             set:
@@ -1066,3 +1079,5 @@ spack:
   - charliecloud ^libfuse@3.11
   - podman
   - slirp4netns
+  - peak-memusage
+  - pigz
