@@ -365,6 +365,7 @@ spack:
       - libtool
       - autoconf@2.71
       - automake
+      - pigz
       link_type: symlink
       link: roots
   compilers:
@@ -641,6 +642,7 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
+        - pigz
         - slirp4netns
         - libtree
         - tree
@@ -1081,3 +1083,5 @@ spack:
   - slirp4netns
   - peak-memusage
   - pigz
+  - hdf@4.2.15%nvhpc@23.1
+  - hdf@4.2.15%cce@15.0.0
