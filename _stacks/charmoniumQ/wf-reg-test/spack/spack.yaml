@@ -4,6 +4,7 @@ spack:
   - tar
   - xz
   - ncdu
+  - file
 
   # hwloc to profile the current system
   - hwloc
@@ -26,6 +27,11 @@ spack:
   # Note that many Snakemake repositories require snakemake@7.5:
   # E.g., https://github.com/friendsofstrandseq/mosaicatcher-pipeline/
   - snakemake@7.18.2+s3+http+ftp+reports
+
+  # Peppy is a generic way of reshaping data
+  # It is so generic that I feel ok including it here.
+  # required by: https://github.com/IKIM-Essen/uncovar
+  - py-peppy
 
   # Many users use the bioconda package for Snakemake.
   # However, the bioconda package for Snakemake pulls in several dependencies that are not true dependencies of Snakemake.
@@ -64,7 +70,7 @@ spack:
   - py-click@8
   - py-azure-identity
   - py-tqdm
-  - py-matploglib
+  - py-matplotlib
   - py-pip
   - py-domonic
   # py-azure-cli in Spack is too old to be usable.

@@ -10,4 +10,10 @@ spack:
   - cppunit
   - tclap
   - mochi-bedrock
-  concretization: together
+  concretizer:
+    unify: true
+    reuse: false
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
