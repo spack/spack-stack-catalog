@@ -12,7 +12,7 @@ spack:
     - cppcoro@git.10bbcdbf2be3ad3aa56febcf4c7662d771460a99
     - dawn@3_91a
     - dawncut@1_54a
-    - dd4hep@1.23 +ddg4 +ddcad +hepmc3 +lcio
+    - dd4hep@1.24 +ddg4 +ddcad -frames +hepmc3 +lcio
     - edm4eic@1.2.2 cxxstd=17
     - edm4hep@0.7 cxxstd=17
     - eic-smear@1.1.10
@@ -33,15 +33,34 @@ spack:
     - nlohmann-json@3.11.2
     - npsim@1.1.0 +geocad +http
     - opencascade@7.6.3
+    - osg-ca-certs@1.109.igtf.1.117
     - pkg-config@0.29.2
-    - podio@0.15
+    - podio@0.16
     - prmon@3.0.2 +plot
     - pythia8@8.306 +fastjet
     - python@3.10.8
+    - py-awkward@1.9.0
     - py-boto3@1.18.12
+    - py-ipython@8.5.0
+    - py-jinja2@3.1.2
+    - py-jinja2-cli@0.8.2
+    - py-jupyter@1.0.0
+    - py-jupyterlab@3.2.9
+    - py-lmfit@1.0.2
+    - py-lxml@4.9.1
+    - py-matplotlib@3.6.2
+    - py-mplhep@0.3.26
+    - py-htgettoken@1.16-33-g3788bb4
     - py-numpy@1.23.4
+    - py-pandas@1.5.1
     - py-pip@22.2.2
+    - py-pycairo@1.20.0
+    - py-pyyaml@6.0
+    - py-scipy@1.9.3
+    - py-seaborn@0.12.0
     - py-toml@0.10.2
+    - py-uproot@4.3.5
+    - py-yapf@0.30.0
     - qt@5.15.5 +opengl
     - root@6.26.06 cxxstd=17 
           +fftw +fortran +gdml +http -ipo +mlp +pythia8 
