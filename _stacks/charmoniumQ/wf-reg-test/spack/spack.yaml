@@ -18,7 +18,9 @@ spack:
 
   # Nextflow 22.10.4 support apptainer yet, although newer versions do.
   # https://github.com/nextflow-io/nextflow/issues/2970
-  - singularityce~suid
+  # Note that "features are severely limited" with singularityce~suid
+  # https://docs.sylabs.io/guides/2.6/admin-guide/security.html#how-does-singularity-do-it
+  - singularityce+suid
 
   # These are needed to mount stuff inside Singularity.
   - squashfuse

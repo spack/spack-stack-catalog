@@ -1,7 +1,7 @@
 spack:
   packages:
     all:
-      target: [x86_64]
+      target: [x86_64_v2]
   definitions:
   - baselibs: []
   - compiler: []
@@ -13,7 +13,7 @@ spack:
   specs:
   - matrix:
     - ['$%compiler']
-    - ['target=x86_64']
+    - ['target=x86_64_v2']
     - 
       - '$compilerpkg'
       - '$baselibs'
