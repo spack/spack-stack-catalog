@@ -33,6 +33,7 @@ spack:
   # Peppy is a generic way of reshaping data
   # It is so generic that I feel ok including it here.
   # required by: https://github.com/IKIM-Essen/uncovar
+  # https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#configuring-scientific-experiments-via-peps
   - py-peppy
 
   # Many users use the bioconda package for Snakemake.

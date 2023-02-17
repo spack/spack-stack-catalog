@@ -1,0 +1,120 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - mochi-margo ^libfabric@1.11.0.4.125
+  view: true
+  repos:
+  - /path/to/mochi-spack-packages
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - libfabric
+      - cudatoolkit-standalone
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      providers:
+        mpi: [ cray-mpich ]
+      compiler:
+      - gcc@11.2.0
+      target:
+      - zen3
+      version: []
+      buildable: true
+    cray-mpich:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cray-mpich@8.1.16
+        modules:
+        - cray-mpich/8.1.16
+    mercury:
+      variants: ~boostsys ~checksum
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    libfabric:
+      externals:
+      - spec: libfabric@1.11.0.4.125
+        modules:
+        - libfabric/1.11.0.4.125
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      compiler: []
+    autoconf:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: automake@1.15.1
+        prefix: /usr
+    cmake:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: cmake@3.23.2
+        modules:
+        - cmake/3.23.2
+    libtool:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    openssl:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr

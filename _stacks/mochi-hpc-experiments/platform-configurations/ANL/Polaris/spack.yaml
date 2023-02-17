@@ -5,7 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - mochi-margo ^libfabric@1.11.0.4.125
+  - mochi-margo ^libfabric@1.17.0
   view: true
   repos:
   - /path/to/mochi-spack-packages
@@ -118,3 +118,19 @@ spack:
       externals:
       - spec: m4@1.4.18
         prefix: /usr
+    libfabric:
+      variants: fabrics=verbs,rxm +cuda
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    rdma-core:
+      externals:
+      - spec: rdma-core@20
+        prefix: /usr
+    cuda:
+      externals:
+      - spec: cuda@11.8.0
+        modules:
+        - cudatoolkit-standalone/11.8.0

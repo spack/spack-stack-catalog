@@ -1186,3 +1186,31 @@ spack:
   - proj@8.2.1%cce@15.0.1
   - geos@3.9.1%cce@15.0.1
   - hdf@4.2.15%cce@15.0.1
+  - parallel-netcdf@1.12.3%gcc@12.1.0 ^cray-mpich@8.1.24%gcc@12.1.0
+  - parallel-netcdf@1.12.3%gcc@11.2.0 ^cray-mpich@8.1.24%gcc@11.2.0
+  - parallel-netcdf@1.12.3%nvhpc@22.11 ^cray-mpich@8.1.24%nvhpc@22.11
+  - parallel-netcdf@1.12.3%nvhpc@23.1 ^cray-mpich@8.1.24%nvhpc@23.1
+  - parallel-netcdf@1.12.3%intel@2021.7.1 ^cray-mpich@8.1.24%intel@2021.7.1
+  - parallel-netcdf@1.12.3%oneapi@2023.0.0 ^cray-mpich@8.1.24%oneapi@2023.0.0
+  - parallel-netcdf@1.12.3%cce@15.0.1 ^cray-mpich@8.1.24%cce@15.0.1
+  - hdf5@1.12.2%gcc@12.1.0+mpi ^cray-mpich@8.1.24%gcc@12.1.0
+  - hdf5@1.12.2%gcc@11.2.0+mpi ^cray-mpich@8.1.24%gcc@11.2.0
+  - hdf5@1.12.2%nvhpc@22.11+mpi ^cray-mpich@8.1.24%nvhpc@22.11
+  - hdf5@1.12.2%nvhpc@23.1+mpi ^cray-mpich@8.1.24%nvhpc@23.1
+  - hdf5@1.12.2%intel@2021.7.1+mpi ^cray-mpich@8.1.24%intel@2021.7.1
+  - hdf5@1.12.2%oneapi@2023.0.0+mpi ^cray-mpich@8.1.24%oneapi@2023.0.0
+  - hdf5@1.12.2%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
+  - netcdf@4.9.1%gcc@12.1.0+mpi ^cray-mpich@8.1.24%gcc@12.1.0
+  - netcdf@4.9.1%gcc@11.2.0+mpi ^cray-mpich@8.1.24%gcc@11.2.0
+  - netcdf@4.9.1%nvhpc@22.11+mpi ^cray-mpich@8.1.24%nvhpc@22.11
+  - netcdf@4.9.1%nvhpc@23.1+mpi ^cray-mpich@8.1.24%nvhpc@23.1
+  - netcdf@4.9.1%intel@2021.7.1+mpi ^cray-mpich@8.1.24%intel@2021.7.1
+  - netcdf@4.9.1%oneapi@2023.0.0+mpi ^cray-mpich@8.1.24%oneapi@2023.0.0
+  - netcdf@4.9.1%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
+  - fftw@3.3.10%gcc@12.1.0+mpi ^cray-mpich@8.1.24%gcc@12.1.0
+  - fftw@3.3.10%gcc@11.2.0+mpi ^cray-mpich@8.1.24%gcc@11.2.0
+  - fftw@3.3.10%nvhpc@22.11+mpi ^cray-mpich@8.1.24%nvhpc@22.11
+  - fftw@3.3.10%nvhpc@23.1+mpi ^cray-mpich@8.1.24%nvhpc@23.1
+  - fftw@3.3.10%intel@2021.7.1+mpi ^cray-mpich@8.1.24%intel@2021.7.1
+  - fftw@3.3.10%oneapi@2023.0.0+mpi ^cray-mpich@8.1.24%oneapi@2023.0.0
+  - fftw@3.3.10%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
