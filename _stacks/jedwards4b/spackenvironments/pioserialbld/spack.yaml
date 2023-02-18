@@ -7,14 +7,16 @@ spack:
   include:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
   definitions:
   
 #  - packages: [parallelio ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c/fx7cobjw5 ^netcdf-fortran/gpkun4e2m,
 #      parallelio ~mpi -pnetcdf ^netcdf-c/fx7cobjw5 ^netcdf-fortran/gpkun4e2m]
-  - packages: [parallelio ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c@4.9.0+dap+zstd,
-      parallelio ~mpi -pnetcdf ^netcdf-c@4.9.0+dap+zstd]
-  - compilers: ['%gcc@12.1.0', '%oneapi', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
-#  - compilers: ['%gcc@12.1.0']
+  - packages: [parallelio@2.5.10 ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c@4.9.1+dap+zstd,
+      parallelio@2.5.10 ~mpi -pnetcdf ^netcdf-c@4.9.1+dap+zstd]
+  
+#  - compilers: ['%gcc@12.1.0', '%oneapi', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
+  - compilers: ['%cce@15.0.1']
   specs:
   - matrix:
     - [$packages]

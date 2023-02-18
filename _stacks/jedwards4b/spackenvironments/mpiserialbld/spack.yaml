@@ -7,11 +7,13 @@ spack:
   include:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
   #  - /glade/u/apps/gust/22.12/config/modules.yaml
   definitions:
-  - packages: [mpi-serial cppflags="-fPIC "]
-  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
-#  - compilers: ['%cce@15.0.0']
+  - packages: [mpi-serial]
+  
+#  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
+  - compilers: ['%cce@15.0.1']
   specs:
   - matrix:
     - [$packages]

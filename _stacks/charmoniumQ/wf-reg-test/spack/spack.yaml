@@ -34,7 +34,6 @@ spack:
   # It is so generic that I feel ok including it here.
   # required by: https://github.com/IKIM-Essen/uncovar
   # https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#configuring-scientific-experiments-via-peps
-  - py-peppy
 
   # Many users use the bioconda package for Snakemake.
   # However, the bioconda package for Snakemake pulls in several dependencies that are not true dependencies of Snakemake.
@@ -47,7 +46,7 @@ spack:
   # - py-aioeasywebdav
   - py-pandas
   # - py-slacker
-  # - py-peppy
+  - py-peppy
 
   # Snakemake --use-conda calls conda
   - miniconda3
@@ -63,14 +62,15 @@ spack:
   - py-gitpython@3
   - py-xxhash
   - py-pyyaml@6
-  - py-charmonium-time-block@0.3:0
-  - py-charmonium-freeze@0.7:0
+  - "py-charmonium-time-block@0.3.1:"
+  - "py-charmonium-freeze@0.7:"
   - py-universal-pathlib
   - py-toolz
   - py-parsl
-  - py-fasteners@0.18:0
+  - "py-fasteners@0.18:"
   - py-adlfs@2022
   - py-click@8
+  - py-lazy-object-proxy
   - py-azure-identity
   - py-tqdm
   - py-matplotlib

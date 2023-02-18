@@ -1,0 +1,106 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+  - ../../../includes/hdf5.yaml
+
+  view: false
+  'config:':
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  packages:
+
+    cmake:
+      version: 
+      - 3.23.1
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /usr
+        buildable: false
+
+    slurm:
+      version:
+      - 21.08.8-2
+      externals:
+      - spec: slurm@21.08.8-2
+        prefix: /usr
+        buildable: false
+
+    zstd::
+      version:
+      - 1.5.0
+      variants:
+      - +programs
+
+    autoconf:
+      version:
+      - 2.71
+      externals:
+      - spec: autoconf@2.71
+        prefix: /lfs/software/spack/opt/spack/linux-rocky8-broadwell/gcc-12.1.0/autoconf-2.71-4xm5lmpainkboegkvbxqlwphs3bo3hbm
+      buildable: False
+
+    # ncl package doesn't interpret version range correctly so need to force it to think it's getting HDF5@1.10
+    hdf5:
+      version:
+      - 1.10.7
+      externals:
+      - spec: "hdf5@1.10.7+mpi+shared%gcc^mpich"
+        prefix: /lfs/software/opt/linux-rocky8-x86_64/gcc-12.1.0/hdf5-1.12.2-e7j3xrg5imwffjidgcvt3nzdrleaqq6d
+      buildable: False
+
+    cairo:
+      version:
+      - 1.17.4
+      externals:
+#      - spec: cairo@1.17.4%gcc@12.1.0+X~fc+ft~gobject+pdf~png~svg patches=7c4da77 arch=linux-rocky8-broadwell
+      - spec: cairo@1.17.4%gcc@12.1.0
+        prefix: /lfs/software/opt/linux-rocky8-broadwell/gcc-12.1.0/cairo-1.17.4-w3wx3yfiohsnhet45j42xu2suursdcyw
+      buildable: False
+
+  specs:
+
+#      - ^openmpi
+#      - '%intel'
+#
+  - matrix:
+    - - ncl@6.6.2
+    - - ^mpich
+    - - '%gcc'
+    - - target=broadwell
+  concretizer:
+    unify: false
+
+  modules::
+    default:
+      roots:
+        lmod: /software/modules
+#        lmod: /lfs/software/modules
+      arch_folder: false
+      enable:
+      - lmod
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+#        blacklist:
+#        - gcc@8.5.0
+        blacklist_implicits: true
+#        core_compilers:
+#        - gcc@8.5.0
+#        # Core specs appear in the TLD and are built with the core compiler
+        core_specs:
+        - gcc
+        - intel
+        hierarchy:
+        - compiler
+        - mpi

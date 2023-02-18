@@ -1,0 +1,96 @@
+spack:
+
+# Abandonded this in favor of the following:
+# Neither the spack package nor the underlying autotools build system would build ncview correctly from source, both failing to locate the X athena toolkit headers, which are installed to a standard location, even after specifying them explicitly to autotools. I was able to install a binary via DNF but it was not relocatable. Since we are trying to keep additional software out of the node image, I am attempting to relocate this binary manually to the shared filesystem by building out dependencies for netcdf-c, hdf5, udunits, by hand and copying the libXaw.so.7 dependency by hand to the shared drive, thereby resolving all outstanding link errors, and am asking the user to test now. 
+
+
+  include:
+  - ../../../includes/system_packages.yaml
+#  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+#  - ../../../includes/hdf5.yaml
+
+  view: false
+  'config:':
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  packages:
+
+    cmake:
+      version: 
+      - 3.23.1
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /usr
+        buildable: false
+
+    slurm:
+      version:
+      - 21.08.8-2
+      externals:
+      - spec: slurm@21.08.8-2
+        prefix: /usr
+        buildable: false
+
+    zstd::
+      version:
+      - 1.5.0
+      variants:
+      - +programs
+
+    autoconf:
+      version:
+      - 2.71
+      externals:
+      - spec: autoconf@2.71
+        prefix: /lfs/software/spack/opt/spack/linux-rocky8-broadwell/gcc-12.1.0/autoconf-2.71-4xm5lmpainkboegkvbxqlwphs3bo3hbm
+      buildable: False
+
+  specs:
+
+  - hdf5~mpi%gcc
+  - netcdf-c~mpi%gcc
+  - ncview@2.1.8%gcc
+#      - ^openmpi
+#      - '%intel'
+#
+#  - matrix:
+#    - - ncl@6.6.2
+#    - - ^mpich
+#    - - '%gcc'
+#    - - target=broadwell
+  concretizer:
+#    unify: false
+    unify: true
+
+  modules::
+    default:
+      roots:
+        lmod: /software/modules
+#        lmod: /lfs/software/modules
+      arch_folder: false
+      enable:
+      - lmod
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+#        blacklist:
+#        - gcc@8.5.0
+        blacklist_implicits: true
+#        core_compilers:
+#        - gcc@8.5.0
+#        # Core specs appear in the TLD and are built with the core compiler
+        core_specs:
+        - gcc
+        - intel
+        hierarchy:
+        - compiler
+        - mpi

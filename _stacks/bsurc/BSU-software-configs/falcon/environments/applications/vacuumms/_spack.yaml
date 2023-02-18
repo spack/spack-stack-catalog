@@ -1,0 +1,48 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/compilers.yaml
+
+  view: false
+  'config:':
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  specs:
+
+  - matrix:
+    - - 'vacuumms@master~cuda+tiff'
+      - 'vacuumms@1.1.2~cuda+tiff'
+    - - '%gcc@12.1.0'
+      - '%intel'
+#      - '%oneapi'
+    - - ^libtiff@3.9.7
+    - - target=x86_64
+
+  concretizer:
+    unify: false
+
+  modules::
+    default:
+      roots:
+        lmod: /tmp/lmod
+        tcl: /tmp/modules
+      arch_folder: false
+      enable:
+      - lmod
+      - tcl
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+        blacklist_implicits: true
+
+  mirrors:
+    falcon: file:///lfs/software/falcon-mirror

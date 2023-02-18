@@ -7,16 +7,17 @@ spack:
   include:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
 #  - /glade/u/apps/gust/22.12/config/modules.yaml
   definitions:
-  - packages: [esmf@8.4.0 ~mpi ~debug ~xerces +parallelio +external-lapack ^netcdf-c~mpi+dap
-        ^parallelio~mpi~pnetcdf ^cray-libsci, esmf@8.4.0 +debug ~mpi ~xerces +parallelio
-        +external-lapack ^netcdf-c~mpi+dap ^parallelio~mpi~pnetcdf build_type=Debug
-        ^cray-libsci]
+  - packages: [esmf@8.5.0b16 esmf_os=Unicos  ~mpi ~debug ~xerces +parallelio +external-lapack
+        ^netcdf-c~mpi+dap ^parallelio@2.5.10~mpi~pnetcdf ^cray-libsci, esmf@8.5.0b16
+        esmf_os=Unicos +debug ~mpi ~xerces +parallelio +external-lapack ^netcdf-c~mpi+dap
+        ^parallelio@2.5.10~mpi~pnetcdf build_type=Debug ^cray-libsci]
   
 #  - compilers: ['%gcc@12.1.0', '%oneapi', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
-  - compilers: ['%gcc@12.1.0', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
-#  - compilers: ['%cce@15.0.0']
+#  - compilers: ['%gcc@12.1.0', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
+  - compilers: ['%cce@15.0.1']
   specs:
   - matrix:
     - [$packages]

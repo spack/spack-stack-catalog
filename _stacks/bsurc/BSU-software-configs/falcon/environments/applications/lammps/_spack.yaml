@@ -1,0 +1,72 @@
+spack:
+
+  include:
+  - ../../includes/system_packages.yaml
+  - ../../includes/mpi.yaml
+  - ../../includes/compilers.yaml
+
+  view: false
+  'config:':
+    concretizer: clingo
+    install_tree:
+      root: /lfs/software/opt
+      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+    build_stage: $tempdir/user/spack-stage
+
+  packages:
+
+    cmake:
+      version: 
+      - 3.23.1
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /usr
+        buildable: false
+
+    slurm:
+      version:
+      - 21.08.8-2
+      externals:
+      - spec: slurm@21.08.8-2
+        prefix: /usr
+        buildable: false
+
+  specs:
+  - matrix:
+    - - lammps
+    - - ^mpich
+      - ^openmpi
+    - - '%gcc'
+      - '%intel'
+    - - target=broadwell
+  concretizer:
+    unify: false
+
+  modules::
+    default:
+      roots:
+        lmod: /lfs/software/modules
+        tcl: /tmp
+      arch_folder: false
+      enable:
+      - lmod
+      - tcl
+      lmod:
+        hash_length: 0
+        whitelist:
+        - gcc
+        - intel
+#        - oneapi
+#        blacklist:
+#        - gcc@8.5.0
+        blacklist_implicits: true
+#        core_compilers:
+#        - gcc@8.5.0
+#        # Core specs appear in the TLD and are built with the core compiler
+#        core_specs:
+#        - gcc@12.1.0
+#        - intel-oneapi-compilers@2021.4.0
+        hierarchy:
+        - mpi
