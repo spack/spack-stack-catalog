@@ -1,0 +1,35 @@
+spack:
+  config:
+    install_tree: /mnt/spack
+    build_stage: /tmp/spack-stage
+  repos:
+  - /root/mochi-spack-packages
+  packages:
+    magma:
+      variants: [+cuda cuda_arch=60]
+    nccl:
+      variants: [+cuda cuda_arch=60]
+    py-horovod:
+      variants: [+cuda cuda_arch=60 tensor_ops=nccl]
+    py-torch:
+      variants: [+cuda cuda_arch=60 +nccl +cudnn +magma +distributed]
+  specs:
+  - cuda@11.8
+  - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
+  - cudnn@8.4.0
+  - openmpi@4.1.2
+  - python@3.10
+  - py-pip
+  - py-ruamel-yaml
+  - py-filelock
+  - py-wandb
+  - py-continuum
+  - py-nvidia-dali@1.22.0-cuda110
+  - py-torch@1.13.1 ~gloo
+  - py-torchvision
+  - py-torchsummary
+  - py-bokeh
+  - py-matplotlib
+  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
+  - mochi-thallium@main ^argobots ^mercury@git.d34cec49a18621c64b2be2bfce69d5b3e988ceab ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  view: /mnt/view/chifflot/p100
