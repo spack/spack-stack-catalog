@@ -32,4 +32,4 @@ spack:
   - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
   - mochi-thallium@main ^argobots ^mercury@git.d34cec49a18621c64b2be2bfce69d5b3e988ceab ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm,verbs
-  view: /mnt/view/chifflot/v100
+  view: /mnt/view/chifflot-v100

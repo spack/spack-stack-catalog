@@ -50,6 +50,7 @@ spack:
   - octave %gcc@7.4.0
   - py-pandas %gcc@7.4.0
   - py-scipy %gcc@7.4.0
+  - py-progressbar2 %gcc@7.4.0
   - anaconda3 %gcc@7.4.0
   - subversion %gcc@7.4.0
 
