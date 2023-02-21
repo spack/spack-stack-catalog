@@ -3,6 +3,5 @@ spack:
   - cowsay
   - nano ^ncurses abi=5
 
-  view: true
   concretizer:
     unify: true

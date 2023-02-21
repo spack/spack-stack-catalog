@@ -1,0 +1,31 @@
+# Copyright 2022-2023 UT-Battelle
+# See LICENSE.txt in the root of the source distribution for license info.
+spack:
+  definitions:
+  - compilers: [clang@15.0.7]
+  - packages:
+    - spirv-tools
+    - spirv-llvm-translator@15+tools
+    - chip-spv@main +interop backend=level_zero
+  specs:
+  - intel-oneapi-compilers
+  - intel-oneapi-mkl ^intel-oneapi-tbb
+  - llvm@15.0.7
+  - matrix:
+    - [$packages]
+    - [$%compilers]
+  view: true
+  concretizer:
+    unify: true
+    reuse: true
+  packages:
+    opencl-headers:
+      require: '%clang'
+    opencl-clhpp:
+      require: '%clang'
+    oneapi-level-zero:
+      require: '%clang'
+    intel-oneapi-compilers:
+      require: '%gcc'
+  repos:
+  - ../../Repo

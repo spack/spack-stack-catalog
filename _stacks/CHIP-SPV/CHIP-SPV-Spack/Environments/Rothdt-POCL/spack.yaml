@@ -1,0 +1,29 @@
+# Copyright 2022-2023 UT-Battelle
+# See LICENSE.txt in the root of the source distribution for license info.
+spack:
+  definitions:
+  - compilers: [clang@14.0.6]
+  - packages:
+    - spirv-tools
+    - spirv-llvm-translator@14+tools
+    - pocl@3.1 +icd +spirv +cuda
+    - ocl-icd +headers
+  specs:
+  - matrix:
+    - [$packages]
+    - [$%compilers]
+  - llvm@14 +flang +cuda cuda_arch=61 targets=nvptx,x86
+  - python@3.11
+  view: false
+  concretizer:
+    unify: true
+    reuse: true
+  packages:
+    cmake:
+      require: '%gcc'
+    opencl-headers:
+      require: '%clang'
+    opencl-clhpp:
+      require: '%clang'
+  repos:
+  - ../../Repo
