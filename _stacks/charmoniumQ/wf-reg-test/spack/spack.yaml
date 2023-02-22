@@ -73,9 +73,7 @@ spack:
   - py-lazy-object-proxy
   - py-azure-identity
   - py-tqdm
-  - py-matplotlib
   - py-pip
-  - py-domonic
   # py-azure-cli in Spack is too old to be usable.
   # If you need this, try `pip install azure-cli`
   # - py-azure-cli
