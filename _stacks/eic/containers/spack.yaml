@@ -17,7 +17,7 @@ spack:
     - edm4hep@0.7 cxxstd=17
     - eic-smear@1.1.10
     - eigen@3.4.0
-    - emacs
+    - emacs@28.2
     - fastjet@3.4.0
     - fmt@8.1.1 +shared cxxstd=17
     - gaudi@36.7 +aida

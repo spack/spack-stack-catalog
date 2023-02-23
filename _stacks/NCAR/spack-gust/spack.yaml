@@ -427,6 +427,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: oneapi@2022.1.0
       paths:
@@ -440,6 +442,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/intel-oneapi-compilers/2022.1.0/gcc/7.5.0/compiler/latest/linux/compiler/lib/intel64
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: intel@2021.7.1
       paths:
@@ -453,6 +457,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/intel-oneapi-compilers/2022.2.1/compiler/latest/linux/compiler/lib/intel64
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: oneapi@2022.2.1
       paths:
@@ -466,6 +472,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/intel-oneapi-compilers/2022.2.1/compiler/latest/linux/compiler/lib/intel64
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: oneapi@2023.0.0
       paths:
@@ -479,6 +487,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@21.3
       paths:
@@ -492,6 +502,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/21.3/gcc/7.5.0/Linux_x86_64/21.3/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@22.2
       paths:
@@ -505,6 +517,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.2/gcc/7.5.0/Linux_x86_64/22.2/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@22.7
       paths:
@@ -518,6 +532,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.08/spack/opt/spack/nvhpc/22.7/gcc/7.5.0/Linux_x86_64/22.7/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@22.9
       paths:
@@ -531,6 +547,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/nvhpc/22.9/Linux_x86_64/22.9/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@22.11
       paths:
@@ -544,6 +562,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/nvhpc/22.11/Linux_x86_64/22.11/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: nvhpc@23.1
       paths:
@@ -557,6 +577,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/22.12/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: cce@14.0.2
       paths:
@@ -572,6 +594,8 @@ spack:
       environment:
         set:
           PE_ENV: CRAY
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: cce@14.0.3
       paths:
@@ -587,6 +611,8 @@ spack:
       environment:
         set:
           PE_ENV: CRAY
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: cce@15.0.0
       paths:
@@ -602,6 +628,8 @@ spack:
       environment:
         set:
           PE_ENV: CRAY
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: cce@15.0.1
       paths:
@@ -617,6 +645,8 @@ spack:
       environment:
         set:
           PE_ENV: CRAY
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: gcc@10.3.0
       paths:
@@ -632,6 +662,8 @@ spack:
       environment:
         set:
           PE_ENV: GNU
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: gcc@11.2.0
       paths:
@@ -647,6 +679,8 @@ spack:
       environment:
         set:
           PE_ENV: GNU
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   - compiler:
       spec: gcc@12.1.0
       paths:
@@ -662,6 +696,8 @@ spack:
       environment:
         set:
           PE_ENV: GNU
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.0.0/lib64
   modules:
     'default:':
       roots:
