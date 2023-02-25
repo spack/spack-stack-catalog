@@ -21,7 +21,7 @@ spack:
     - fastjet@3.4.0
     - fmt@8.1.1 +shared cxxstd=17
     - gaudi@36.7 +aida
-    - geant4@11.1.0 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
+    - geant4@11.1.1 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
     - hepmc3@3.2.5 +python +rootio
     - heppdt@2.06.01
     - imagemagick@7.0.8-7
@@ -35,7 +35,7 @@ spack:
     - opencascade@7.6.3
     - osg-ca-certs@1.109.igtf.1.117
     - pkg-config@0.29.2
-    - podio@0.16
+    - podio@0.16.2
     - prmon@3.0.2 +plot
     - pythia8@8.306 +fastjet
     - python@3.10.8

@@ -1,0 +1,11 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - gcc@8.4.0%gcc@7.5.0
+  view: false
+  concretizer:
+    unify: true
