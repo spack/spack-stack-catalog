@@ -27,6 +27,7 @@ spack:
     - py-healpy
     - py-imot-tools@dev
     - py-pip
+    - py-plotly
     - py-pyproj
     - py-scikit-build
     - py-tqdm

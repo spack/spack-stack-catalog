@@ -917,10 +917,14 @@ spack:
           environment:
             prepend_path:
               PATH: '{^squashfs.prefix}/bin'
+          filter:
+            exclude_env_vars: [GOPATH]
         singularityce:
           environment:
             prepend_path:
               PATH: '{^squashfs.prefix}/bin'
+          filter:
+            exclude_env_vars: [GOPATH]
         ncarenv:
           template: ncar_env.lua
         netcdf~mpi:

@@ -1,0 +1,115 @@
+spack:
+  definitions:
+  - gcc_stable_compiler: [gcc@9.3.0]
+  - gcc_stable_blas_parallel: [openblas@0.3.21 threads=pthreads +locking]
+  - gcc_stable_python3: [python@3.10.4 +tkinter +optimizations ~debug +ssl ~libxml2]
+  - core_compiler: [gcc@4.8.5]
+  - core_packages:
+    - autoconf
+    - automake
+    - cmake
+    - git
+    - git-lfs
+    - lmod
+    - m4
+    - tar
+  - serial_packages:
+    - cuda@11.1.1
+    - cufinufft
+    - fftw +openmp
+    - finufft
+    - googletest
+    - umpire
+    - vc
+  - serial_packages_python:
+    - gdb +tui +source-highlight +lto +xz ^boost ~mpi +program_options +regex~serialization
+      +system
+    - py-astropy@5.2.1
+    - py-healpy
+    - py-imot-tools@dev
+    - py-pip
+    - py-plotly
+    - py-pyproj
+    - py-scikit-build
+    - py-tqdm
+    - py-wheel
+    - python +tkinter +optimizations ~debug +ssl ~libxml2
+  - serial_packages_python_blas:
+    - casacore +openmp
+    - py-matplotlib
+    - py-numpy
+    - py-pandas
+    - py-xarray
+    - py-scikit-learn ^py-setuptools@:59
+    - py-scipy
+    - wsclean@3.2 ^cuda ^cfitsio@:3 ^boost ~mpi
+  include:
+  - /work/ska/soft/spack/blackhole/v1/etc/spack/repos.yaml
+
+  specs:
+  - matrix:
+    - [$gcc_stable_compiler]
+    - [$%core_compiler]
+  - matrix:
+    - [$core_packages]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python]
+    - [$^gcc_stable_python3]
+    - [$%gcc_stable_compiler]
+  - matrix:
+    - [$serial_packages_python_blas]
+    - [$^gcc_stable_python3]
+    - [$^gcc_stable_blas_parallel]
+    - [$%gcc_stable_compiler]
+  concretizer:
+    unify: true
+    targets:
+      host_compatible: false
+  config:
+    install_tree:
+      root: /work/ska/soft/spack/blackhole/v1/opt/spack
+    build_stage:
+    - $tempdir/$user/spack-stage
+
+  modules:
+    prefix_inspections:
+      ./bin:
+      - PATH
+      ./man:
+      - MANPATH
+      ./share/man:
+      - MANPATH
+      ./share/aclocal:
+      - ACLOCAL_PATH
+      ./lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      ./lib64/pkgconfig:
+      - PKG_CONFIG_PATH
+      ./share/pkgconfig:
+      - PKG_CONFIG_PATH
+      ./:
+      - CMAKE_PREFIX_PATH
+      ./lib64:
+      - LD_LIBRARY_PATH
+      ./lib:
+      - LD_LIBRARY_PATH
+
+    default:
+      roots:
+        lmod: /work/ska/soft/spack/blackhole/v1/share/spack/lmod/izar
+        tcl: /work/ska/soft/spack/blackhole/v1/share/spack/modules/izar
+      enable:
+      - lmod
+      - tcl
+      lmod:
+        core_compilers:
+        - gcc@4.8.5
+  view: /work/ska/soft/spack/blackhole/v1/opt/view_izar
+  packages:
+    all:
+      target: []
+
