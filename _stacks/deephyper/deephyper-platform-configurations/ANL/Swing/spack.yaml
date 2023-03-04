@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [llvm]
+  packages:
+    py-tensorflow:
+      require: '@2.10.1'
+  view: true
+  concretizer:
+    unify: true
+  repos:
+  - /gpfs/fs1/home/yixuan.sun/deephyper-spack-packages

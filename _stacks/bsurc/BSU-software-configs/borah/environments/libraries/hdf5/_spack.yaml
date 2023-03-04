@@ -1,16 +1,16 @@
 spack:
 
   include:
-  - ../../includes/system_packages.yaml
-  - ../../includes/mpi.yaml
-  - ../../includes/compilers.yaml
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
 
-  view: false
+#  view: false
   'config:':
-    concretizer: clingo
-    install_tree:
-      root: /lfs/software/opt
-      padded_length: 0
+#    concretizer: clingo
+#    install_tree:
+#      root: /lfs/software/opt
+#      padded_length: 0
 #      root: /software/opt
 #      padded_length: 128
     build_stage: $tempdir/user/spack-stage
@@ -20,24 +20,24 @@ spack:
     - - hdf5@1.12.2+cxx+fortran+hl~ipo+java+mpi+shared~szip~threadsafe+tools
     - - ^mpich
       - ^openmpi
-    - - '%gcc'
-      - '%intel'
-    - - target=x86_64
+#    - - '%gcc'
+    - - '%intel'
+    - - target=skylake
 
   concretizer:
     unify: false
 
-  modules::
-    default:
-      arch_folder: false
-      roots:
-        lmod: /tmp/modules
-      enable:
-      - lmod
-      lmod:
-        hash_length: 0
-        blacklist_implicits: true
-        core_compilers:
-        - gcc@8.5.0
-        hierarchy:
-        - mpi
+#  modules::
+#    default:
+#      arch_folder: false
+#      roots:
+#        lmod: /tmp/modules
+#      enable:
+#      - lmod
+#      lmod:
+#        hash_length: 0
+#        blacklist_implicits: true
+#        core_compilers:
+#        - gcc@8.5.0
+#        hierarchy:
+#        - mpi

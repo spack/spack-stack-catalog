@@ -1,0 +1,78 @@
+spack:
+
+  include:
+  - ../../../includes/system_packages.yaml
+  - ../../../includes/mpi.yaml
+  - ../../../includes/compilers.yaml
+  - ../../../includes/hdf5.yaml
+  - ../../../includes/netcdf.yaml
+
+#  view: false
+#  'config:':
+#    concretizer: clingo
+#    install_tree:
+#      root: /lfs/software/opt
+#      padded_length: 0
+#      root: /software/opt
+#      padded_length: 128
+#    build_stage: $tempdir/user/spack-stage
+
+#  packages:
+
+#    cmake:
+#      version: 
+#      - 3.23.1
+#      externals:
+#      - spec: cmake@3.23.1
+#        prefix: /usr
+#        buildable: false
+#
+#    slurm:
+#      version:
+#      - 21.08.8-2
+#      externals:
+#      - spec: slurm@21.08.8-2
+#        prefix: /usr
+#        buildable: false
+
+  specs:
+  - matrix:
+    - - wrf@4.3.3
+    - - ^mpich
+#    - - ^openmpi
+    - - '%intel'
+#    - - target=skylake
+#  concretizer:
+#    unify: false
+
+#  modules::
+#    default:
+#      roots:
+# Do NOT enable this, it will stomp all over all the modifications
+#        lmod: /lfs/software/modules
+#        lmod: /tmp/lmod
+#        tcl: /tmp/modules
+#      arch_folder: false
+#      enable:
+#      - lmod
+#      - tcl
+#      lmod:
+#        hash_length: 0
+#        whitelist:
+#        - gcc
+#        - intel
+#        blacklist_implicits: true
+#        hierarchy:
+#        - mpi
+      # Generate the tcl mods because they have useful information
+      # used to build the LMOD modules by hand
+#      tcl:
+#        hash_length: 0
+#        all:
+#          suffixes:
+#            ^mpich: 'mpich'
+#            ^openmpi: 'openmpi'
+#        blacklist_implicits: true
+#
+#  mirrors:
+#    falcon: file:///lfs/software/falcon-mirror

@@ -1,0 +1,28 @@
+# spack/develop
+# b17113b63dd656fd16872f64af99554c4a0148f8
+# Fri Mar 3 19:46:29 2023 +0100
+
+spack:
+  view: false
+  concretizer:
+    unify: false
+    reuse: false
+  packages:
+    all:
+      require: '%gcc'
+      target: [x86_64]
+    mpi:
+      require: mpich
+    blas:
+      require: openblas
+    cuda:
+      require: '@11.4.4'
+    mpich:
+      require: ~wrapperrpath
+  specs:
+  - qmcpack@develop +timers ~afqmc ~complex ~mixed +mpi ~cuda               # real
+  - qmcpack@develop +timers ~afqmc ~complex ~mixed ~mpi +cuda cuda_arch=80  # real-offload
+  - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi ~cuda               # mixed
+  - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi +cuda cuda_arch=80  # mixed-offload
+  - qmcpack@develop +timers ~afqmc +complex +mpi ~cuda                      # complex
+  - qmcpack@develop +timers ~afqmc +complex ~mpi +cuda cuda_arch=80         # complex-offload

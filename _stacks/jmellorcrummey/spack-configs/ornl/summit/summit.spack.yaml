@@ -1,0 +1,34 @@
+# -------------------------------------------------------------------------
+# This is the Spack environment file customized for
+# Summit (OLCF).
+# Last updated: Mar 3, 2023 (WYP)
+# -------------------------------------------------------------------------
+spack:
+#  repos:
+#  - /sw/summit/spack-envs/base/opt
+#  upstreams:
+#    olcf:
+#      install_tree: /sw/summit/spack-envs/base/opt
+#      modules:
+#        lmod: /sw/summit/spack-envs/base/modules/site
+  include:
+  - /gpfs/alpine/csc322/world-shared/.install/spack-configs/ornl/summit/summit.packages-cuda.yaml
+  'compilers:':
+  - compiler:
+      spec: gcc@9.1.0
+      paths:
+        cc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gcc
+        cxx: /sw/summit/gcc/9.1.0-alpha+20190716/bin/g++
+        f77: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+        fc: /sw/summit/gcc/9.1.0-alpha+20190716/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: ppc64le
+      modules: [gcc/9.1.0]
+  concretizer:
+    unify: when_possible
+  view: false
+  specs:
+  - matrix:
+    - [hpctoolkit +mpi ~papi +viewer +cuda]
+    - - '@2023.03.01 ^cuda@11.5.2'
