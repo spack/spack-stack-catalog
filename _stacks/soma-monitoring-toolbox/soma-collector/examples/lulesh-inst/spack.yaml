@@ -1,0 +1,22 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - uuid
+  - mochi-thallium ^libfabric fabrics=verbs,rxm
+  - mochi-abt-io
+  - nlohmann-json
+  - spdlog
+  - cppunit
+  - tclap
+  - conduit@develop
+  - mochi-bedrock
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  repos:
+  - /users/dewiy/mochi-spack-packages
