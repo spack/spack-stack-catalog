@@ -3,7 +3,7 @@ spack:
   - cmake
   - pkg-config
   - uuid
-  - mochi-margo
+  - mochi-margo ^mercury~boostsys
   - mochi-abt-io
   - json-c
   - mochi-bedrock
