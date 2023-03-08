@@ -27,7 +27,7 @@ spack:
     - imagemagick@7.0.8-7
     - intel-tbb@2020.3
     - irt@1.0.0
-    - jana2@2.0.9 -ipo +root +zmq
+    - jana2@2.0.8 -ipo +root +zmq
     - lcov@1.15
     - madx@5.08.01
     - mesa@22.1.2 +glx -llvm +opengl +opengles +osmesa
@@ -63,7 +63,7 @@ spack:
     - py-uproot@4.3.5
     - py-yapf@0.30.0
     - qt@5.15.5 +opengl
-    - root@6.26.06 cxxstd=17 
+    - root@6.26.10 cxxstd=17 
           +fftw +fortran +gdml +http -ipo +mlp +pythia8 
           +root7 +tmva +vc -webgui +xrootd +ssl 
     - spdlog@1.10.0 +fmt_external

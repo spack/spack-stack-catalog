@@ -21,14 +21,17 @@ spack:
       require: '@11.4.4'
     mpich:
       require: ~wrapperrpath
+    hdf5:
+      require: "@1.12.1"
+
   specs:
   - qmcpack@develop +timers ~afqmc ~complex ~mixed +mpi ~cuda               # real
-  # - qmcpack@develop +timers ~afqmc ~complex ~mixed ~mpi +cuda cuda_arch=80  # real-offload
-  # - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi ~cuda               # mixed
-  # - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi +cuda cuda_arch=80  # mixed-offload
-  # - qmcpack@develop +timers ~afqmc +complex +mpi ~cuda                      # complex
-  # - qmcpack@develop +timers ~afqmc +complex ~mpi +cuda cuda_arch=80         # complex-offload
+  - qmcpack@develop +timers ~afqmc ~complex ~mixed ~mpi +cuda cuda_arch=80  # real-offload
+  - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi ~cuda               # mixed
+  - qmcpack@develop +timers ~afqmc ~complex +mixed +mpi +cuda cuda_arch=80  # mixed-offload
+  - qmcpack@develop +timers ~afqmc +complex +mpi ~cuda                      # complex
+  - qmcpack@develop +timers ~afqmc +complex ~mpi +cuda cuda_arch=80         # complex-offload
 
-  develop:
-    qmcpack:
-      spec: qmcpack@develop +timers ~afqmc ~complex ~mixed +mpi ~cuda       # real
+  # develop:
+  #   qmcpack:
+  #     spec: qmcpack@develop +timers ~afqmc ~complex ~mixed +mpi ~cuda       # real

@@ -3,11 +3,10 @@ spack:
   - cmake
   - pkg-config
   - uuid
-  - mochi-thallium
+  - mochi-thallium ^mercury~boostsys
   - mochi-abt-io
   - nlohmann-json
   - spdlog
-  - cppunit
   - tclap
   - mochi-bedrock
   concretizer:

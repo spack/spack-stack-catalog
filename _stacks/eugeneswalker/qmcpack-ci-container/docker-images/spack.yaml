@@ -1,0 +1,54 @@
+# spack/develop
+# b17113b63dd656fd16872f64af99554c4a0148f8
+# Fri Mar 3 19:46:29 2023 +0100
+
+spack:
+  view: /opt/qmcpack-ci/view
+
+  concretizer:
+    unify: false
+    reuse: false
+
+  mirrors:
+    qmcpack-ci: https://cache.e4s.io/qmcpack-ci/256
+
+  packages:
+    all:
+      require: '%gcc@11.1.0'
+      target: [x86_64]
+    mpi:
+      require: mpich
+    blas:
+      require: openblas
+    cuda:
+      require: '@11.4.4'
+    mpich:
+      require: ~wrapperrpath
+    hdf5:
+      require: '@1.12.1'
+
+  specs:
+  - cuda@11.4.4~allow-unsupported-compilers~dev build_system=generic
+  - boost@1.80.0~atomic~chrono~clanglibcpp~container~context~contract~coroutine~date_time~debug+exception~fiber~filesystem~graph~graph_parallel~icu~iostreams~json~locale~log~math~mpi+multithreaded~nowide~numpy~pic~program_options~python+random~regex+serialization+shared~signals~singlethreaded~stacktrace~system~taggedlayout~test~thread~timer~type_erasure~versionedlayout~wave build_system=generic cxxstd=98 patches=a440f96 visibility=hidden
+  - cmake@3.25.2~doc+ncurses+ownlibs~qt build_system=generic build_type=Release
+  - fftw@3.3.10+mpi~openmp~pfft_patches build_system=autotools precision=double,float
+  - hdf5@1.12.1~cxx~fortran~hl~ipo~java~mpi+shared~szip~threadsafe+tools api=default build_system=cmake build_type=RelWithDebInfo patches=ee351eb
+  - libxml2@2.10.3~python build_system=autotools
+  - mpich@4.1~argobots~cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~vci~verbs~wrapperrpath build_system=autotools datatype-engine=auto device=ch4 netmod=ofi pmi=pmi
+  - openblas@0.3.21~bignuma~consistent_fpcsr+fortran~ilp64+locking+pic+shared build_system=makefile patches=114f95f,d3d9b15 symbol_suffix=none threads=openmp
+  - python@3.10.8+bz2+crypt+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tkinter+uuid+zlib build_system=generic patches=0d98e93,7d40923,f2fd060
+
+  compilers:
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
