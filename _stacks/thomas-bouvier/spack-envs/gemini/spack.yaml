@@ -13,6 +13,13 @@ spack:
       variants: [+cuda cuda_arch=70 tensor_ops=nccl]
     py-torch:
       variants: [+cuda cuda_arch=70 +nccl +cudnn +magma +distributed]
+    # IB/Verbs using a system-provided rdma-core/OFED library ##########
+    mercury:
+       variants: ~boostsys ~checksum +ofi
+    rdma-core:
+      externals:
+      - spec: rdma-core@41.0
+        prefix: /usr
   specs:
   - cuda@11.8
   - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
