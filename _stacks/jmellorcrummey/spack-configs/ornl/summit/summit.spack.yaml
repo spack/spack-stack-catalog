@@ -4,9 +4,6 @@
 # Last updated: Mar 3, 2023 (WYP)
 # -------------------------------------------------------------------------
 spack:
-#  repos:
-#  - /sw/summit/spack-envs/base/opt
-#  upstreams:
 #    olcf:
 #      install_tree: /sw/summit/spack-envs/base/opt
 #      modules:

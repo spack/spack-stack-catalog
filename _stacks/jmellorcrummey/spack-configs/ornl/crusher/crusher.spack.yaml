@@ -1,4 +1,11 @@
 spack:
+  upstreams:
+    olcf:
+      install_tree: /sw/crusher/spack-envs/base/opt
+      modules:
+        lmod: /sw/crusher/spack-envs/base/modules
+  include:
+  - /gpfs/alpine/csc322/world-shared/.install/spack-configs/ornl/crusher/crusher.packages-rocm.yaml
   'compilers:':
   - compiler:
       spec: gcc@11.2.0
@@ -10,16 +17,11 @@ spack:
       flags: {}
       operating_system: sles15
       target: x86_64
-      modules: [PrgEnv-gnu, gcc/11.2.0]
+      modules: [craype, PrgEnv-gnu, gcc/11.2.0]
   concretizer:
     unify: when_possible
   view: false
   specs:
   - matrix:
-    - [hpctoolkit ~papi +viewer +rocm]
-    - - '@2022.10.01 ~mpi ^hip@5.1.0 ^hsa-rocr-dev@5.1.0 ^roctracer-dev@5.1.0 ^rocprofiler-dev@5.1.0'
-      - '@2022.10.01 ~mpi ^hip@5.2.0 ^hsa-rocr-dev@5.2.0 ^roctracer-dev@5.2.0 ^rocprofiler-dev@5.2.0'
-      - '@develop +cray ^hip@5.1.0 ^hsa-rocr-dev@5.1.0 ^roctracer-dev@5.1.0 ^rocprofiler-dev@5.1.0'
-      - '@develop +cray ^hip@5.2.0 ^hsa-rocr-dev@5.2.0 ^roctracer-dev@5.2.0 ^rocprofiler-dev@5.2.0'
-      - '@develop +cray ^hip@5.3.0 ^hsa-rocr-dev@5.3.0 ^roctracer-dev@5.3.0 ^rocprofiler-dev@5.3.0'
-      - '@develop +cray ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'
+    - [hpctoolkit +mpi ~papi +viewer +rocm]
+    - - '@2023.03.01 ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'
