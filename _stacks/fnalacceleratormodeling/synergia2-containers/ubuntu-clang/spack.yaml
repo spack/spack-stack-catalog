@@ -37,7 +37,7 @@ spack:
   specs:
   - mpich@develop~fortran device=ch4 netmod=ofi  
   - petsc@main~fortran+debug
-  - hdf5@1.12.2+hl+mpi
+  - hdf5@1.12.2+hl+mpi~fortran
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd

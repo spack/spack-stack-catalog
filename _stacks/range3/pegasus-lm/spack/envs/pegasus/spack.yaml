@@ -1,0 +1,174 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - sentencepiece ~gperftools
+  repos:
+  - ../../repos/pegasus-lm
+  view: true
+  concretizer:
+    unify: true
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    cmake:
+      externals:
+      - spec: cmake@3.16.3
+        prefix: /usr
+    pmemkv:
+      externals:
+      - spec: pmemkv@1.1-1
+        prefix: /usr
+      buildable: false
+    pmdk:
+      externals:
+      - spec: pmdk@1.8-1ubuntu1
+        prefix: /usr
+      buildable: false
+    libpmemobj-cpp:
+      externals:
+      - spec: libpmemobj-cpp@1.9-1
+        prefix: /usr
+      buildable: false
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.9
+        prefix: /usr
+      - spec: libfuse@3.9.0
+        prefix: /usr
+      buildable: false
+    perl:
+      externals:
+      - spec: perl@5.30.0~cpanm+open+shared+threads
+        prefix: /usr
+      buildable: false
+    python:
+      externals:
+      - spec: python@3.9.13+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /system/apps/ubuntu/20.04-202210/oneapi/2022.3.1/intelpython/latest
+      - spec: python@2.7.18+bz2+crypt+ctypes+dbm~lzma+nis+pyexpat~pythoncmd+readline+sqlite3+ssl~tkinter+uuid+zlib
+        prefix: /usr
+      - spec: python@3.8.10+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat~pythoncmd+readline+sqlite3+ssl~tkinter+uuid+zlib
+        prefix: /usr
+      buildable: false
+    rdma-core:
+      externals:
+      - spec: rdma-core@56mlnx40-1.57102
+        prefix: /usr
+      buildable: false
+    cuda:
+      externals:
+      - spec: cuda@11.8.89
+        prefix: /system/apps/ubuntu/cuda/11.8.0
+      buildable: false
+    ucx:
+      externals:
+      - spec: ucx@1.13.1
+        prefix: /system/apps/ubuntu/ucx/1.13.1/gcc9.4.0-cuda11.8.0
+      buildable: false
+    binutils:
+      externals:
+      - spec: binutils@2.34
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.1
+        prefix: /usr
+      buildable: false
+    git-lfs:
+      externals:
+      - spec: git-lfs@2.9.2
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.6.4+lex
+        prefix: /usr
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@5.0.1
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.7.0
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.7
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@8.2p1
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.25.1~tcltk
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+    coreutils:
+      externals:
+      - spec: coreutils@8.30
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.1.1q
+        prefix: /system/apps/ubuntu/20.04-202210/oneapi/2022.3.1/intelpython/latest
+      - spec: openssl@1.1.1f
+        prefix: /usr
+    groff:
+      externals:
+      - spec: groff@1.22.4
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.5.1
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.1
+        prefix: /usr
+    swig:
+      externals:
+      - spec: swig@4.0.1
+        prefix: /usr
+    curl:
+      externals:
+      - spec: curl@7.68.0+gssapi+ldap+nghttp2
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@6.7
+        prefix: /usr

@@ -1,0 +1,169 @@
+spack:
+  specs:
+  - mochi-margo
+  repos:
+  - /home/tbouvier/git/mochi-spack-packages
+  - /home/tbouvier/git/robertu94-spack-packages
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules:
+      - openmpi/openmpi-4.0.5
+      environment: {}
+      extra_rpaths: []
+  packages:
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.1
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@5.0.1
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.6.4+lex
+        prefix: /usr
+    groff:
+      externals:
+      - spec: groff@1.22.4
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+    cmake:
+      externals:
+      - spec: cmake@3.16.3
+        prefix: /usr
+    autoconf:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    binutils:
+      externals:
+      - spec: binutils@2.34
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.1.1f
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@8.2p1
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.25.1~tcltk
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.1
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@6.7
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.5.1
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.7.0
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.7
+        prefix: /usr
+    all:
+      providers:
+        mpi: [openmpi]
+      compiler:
+      - gcc@9.4.0
+    openmpi:
+      buildable: false
+      version: []
+      target: []
+      compiler: []
+      providers: {}
+      externals:
+      - spec: openmpi@4.0.5
+        prefix: /lus/theta-fs0/software/thetagpu/openmpi-4.0.5
+        modules:
+        - openmpi/openmpi-4.0.5
+    mercury:
+      variants: ~boostsys ~checksum
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    libfabric:
+      variants: fabrics=verbs,rxm +cuda
+      version: []
+      target: []
+      compiler: []
+      buildable: true
+      providers: {}
+    rdma-core:
+      externals:
+      - spec: rdma-core@39.1
+        prefix: /usr
+    cuda:
+      externals:
+      - spec: cuda@11.4.152
+        prefix: /usr/local/cuda
+    magma:
+      variants: [+cuda cuda_arch=80]
+    nccl:
+      variants: [+cuda cuda_arch=80]
+    py-horovod:
+      variants: [+cuda cuda_arch=80 tensor_ops=nccl]
+    py-torch:
+      variants: [+cuda cuda_arch=80 +nccl +cudnn +magma +distributed]
+  specs:
+  - cuda@11
+  - cudnn@8.4.0
+  - mpi
+  - mpigdb ^elfutils ~debuginfod
+  - python@3.10
+  - py-pip
+  - py-ruamel-yaml
+  - py-filelock
+  - py-wandb
+  - py-continuum
+  - py-nvidia-dali@1.22.0-cuda110
+  - py-torch@1.13.1 ~gloo
+  - py-torchvision
+  - py-torchsummary
+  - py-bokeh
+  - py-matplotlib
+  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
+  - mochi-thallium@main ^argobots ^mercury ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  view: /home/tbouvier/view/thetagpu

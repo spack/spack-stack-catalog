@@ -15,7 +15,8 @@ spack:
         lapack:
         - openblas
   specs:
-  - hdf5@1.12.1+hl+mpi
+  - hdf5@1.12.1+hl+mpi~fortran
+  - mpich@develop~fortran device=ch4 netmod=ofi  
   - petsc@main~fortran+debug
   - fftw+mpi+openmp
   - gsl

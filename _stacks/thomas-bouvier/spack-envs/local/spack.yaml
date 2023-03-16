@@ -18,6 +18,5 @@ spack:
   - py-bokeh
   - py-matplotlib
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch tensor_ops=mpi
-  - mochi-thallium@main ^argobots ^mercury@git.1e6c3c393157bed363ff1c3b793031ac7f5494f2
-    ~boostsys ~checksum +ofi +debug ^mochi.libfabric +debug fabrics=tcp,rxm
+  - mochi-thallium@main ^argobots ^mercury ~boostsys ~checksum +ofi +debug ^mochi.libfabric +debug fabrics=tcp,rxm
   view: true

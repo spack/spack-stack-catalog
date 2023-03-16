@@ -5,7 +5,179 @@ spack:
     - /lus/theta-fs0/projects/VeloC/runderwood/spack/cooley/opt/spack
   repos:
   - /home/tbouvier/git/mochi-spack-packages
+  - /home/tbouvier/git/robertu94-spack-packages
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /bin/gcc
+        cxx: /bin/g++
+        f77: /bin/gfortran
+        fc: /bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.2.0
+      paths:
+        cc: /soft/compilers/gcc/8.2.0/bin/gcc
+        cxx: /soft/compilers/gcc/8.2.0/bin/g++
+        f77: /soft/compilers/gcc/8.2.0/bin/gfortran
+        fc: /soft/compilers/gcc/8.2.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
   packages:
+    all:
+      providers: 
+        blas: [intel-mkl]
+        lapack: [intel-mkl]
+        fftw-api: [intel-mkl]
+        scalapack: [intel-mkl]
+        mkl: [intel-mkl]
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /soft/buildtools/autotools/feb2016
+    automake:
+      externals:
+      - spec: automake@1.15
+        prefix: /soft/buildtools/autotools/feb2016
+      - spec: automake@1.13.4
+        prefix: /usr
+    bash:
+      externals:
+      - spec: bash@4.2.46
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    bzip2:
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    cmake:
+      externals:
+      - spec: cmake@3.20.4
+        prefix: /soft/buildtools/cmake/3.20.4
+    cpio:
+      externals:
+      - spec: cpio@2.11
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.3
+        prefix: /usr
+    doxygen:
+      externals:
+      - spec: doxygen@1.8.5+graphviz~mscgen
+        prefix: /usr
+    file:
+      externals:
+      - spec: file@5.11
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.5.11
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.5.37+lex
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@4.0.2
+        prefix: /usr
+    ghostscript:
+      externals:
+      - spec: ghostscript@9.25
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.17.1+tcltk
+        prefix: /usr
+    git-lfs:
+      externals:
+      - spec: git-lfs@2.10.0
+        prefix: /usr
+    gmake:
+      externals:
+      - spec: gmake@3.82
+        prefix: /usr
+    groff:
+      externals:
+      - spec: groff@1.22.2
+        prefix: /usr
+    openjdk:
+      externals:
+      - spec: openjdk@1.8.0_302-b08
+        prefix: /usr
+    krb5:
+      externals:
+      - spec: krb5@1.15.1
+        prefix: /usr
+    libfuse:
+      externals:
+      - spec: libfuse@2.9.2
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.2
+        prefix: /usr
+    lustre:
+      externals:
+      - spec: lustre@2.12.4.4_cray_20_ga223e11_dirty
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.16
+        prefix: /usr
+    ncurses:
+      externals:
+      - spec: ncurses@5.9.20130511+termlib abi=5
+        prefix: /usr
+    opengl:
+      externals:
+      - spec: opengl@2.1
+        prefix: /usr
+    openssh:
+      externals:
+      - spec: openssh@7.4p1
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.0.2k-fips
+        prefix: /usr
+    perl:
+      externals:
+      - spec: perl@5.16.3~cpanm+shared+threads
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.27.1
+        prefix: /usr
+    cuda:
+      externals:
+      - spec: cuda@11.0.194
+        prefix: /soft/visualization/cuda-11.0.2
+      buildable: false
+    mvapich2:
+      externals:
+      - spec: mvapich2@2.2~cuda~debug~regcache~wrapperrpath
+        prefix: /soft/libraries/mpi/mvapich2/gcc
+      buildable: false
+    rdma-core:
+      externals:
+      - spec: rdma-core@22.4
+        prefix: /usr
+      buildable: false
     magma:
       variants: [+cuda cuda_arch=37]
     nccl:
@@ -18,6 +190,7 @@ spack:
   - cuda@11
   - cudnn@8.4.0
   - mpi
+  - mpigdb ^elfutils ~debuginfod
   - python@3.10
   - py-pip
   - py-ruamel-yaml
