@@ -21,6 +21,7 @@ spack:
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd
+  - py-pyparsing  
   - py-numpy
   - py-mpi4py
   - py-h5py+mpi

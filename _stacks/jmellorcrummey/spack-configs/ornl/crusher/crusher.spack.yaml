@@ -24,4 +24,4 @@ spack:
   specs:
   - matrix:
     - [hpctoolkit +mpi ~papi +viewer +rocm]
-    - - '@2023.03.01 ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'
+    - - '@2023.03.stable ^hip@5.4.0 ^hsa-rocr-dev@5.4.0 ^roctracer-dev@5.4.0 ^rocprofiler-dev@5.4.0'

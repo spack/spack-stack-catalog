@@ -182,6 +182,8 @@ spack:
       variants: [+cuda cuda_arch=37]
     nccl:
       variants: [+cuda cuda_arch=37]
+    nccl-tests:
+      variants: [+cuda cuda_arch=37]
     py-horovod:
       variants: [+cuda cuda_arch=37 tensor_ops=nccl]
     py-torch:
@@ -191,6 +193,8 @@ spack:
   - cudnn@8.4.0
   - mpi
   - mpigdb ^elfutils ~debuginfod
+  - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
+  - nccl-tests
   - python@3.10
   - py-pip
   - py-ruamel-yaml
