@@ -19,6 +19,7 @@ spack:
     - eigen@3.4.0
     - emacs@28.2
     - fastjet@3.4.0
+    - fjcontrib@1.045
     - fmt@8.1.1 +shared cxxstd=17
     - gaudi@36.7 +aida
     - geant4@11.1.1 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
