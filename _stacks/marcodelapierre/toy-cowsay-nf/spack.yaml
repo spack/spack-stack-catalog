@@ -5,3 +5,4 @@ spack:
 
   concretizer:
     unify: true
+    reuse: false
