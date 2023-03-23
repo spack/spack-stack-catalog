@@ -1,0 +1,40 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  view: false
+  concretizer:
+    unify: when_possible
+  config:
+    build_language: en_US.utf8
+    build_stage:
+      - /tmp/scibuilder/stage/spack/spack_example_ubuntu22.04
+    install_tree:
+      root: /tmp/scibuilder/appl/spack/spack_example_ubuntu22.04/software
+    source_cache: /tmp/scibuilder/cache/spack/global/source_cache
+  modules:
+    default:
+      roots:
+        lmod: /tmp/scibuilder/appl/spack/spack_example_ubuntu22.04/lmod
+      enable:
+        - lmod
+      lmod:
+        core_compilers:
+        - gcc@11.3.0
+  definitions:
+  - compilers: [gcc@11.3.0]
+  - mpis: [openmpi@4.1.4]
+  - mpipackages: [hdf5+mpi]
+  specs:
+  - cmake@3.24.3
+  - matrix:
+    - [$mpis]
+    - [$%compilers]
+  - matrix:
+    - [$mpipackages]
+    - [$^mpis]
+    - [$%compilers]
+  packages:
+    openmpi:
+      variants: +static

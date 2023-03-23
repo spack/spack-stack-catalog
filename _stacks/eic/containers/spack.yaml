@@ -36,6 +36,7 @@ spack:
     - npsim@1.1.0 +geocad +http
     - opencascade@7.6.3
     - osg-ca-certs@1.109.igtf.1.117
+    - phonebook-cli@1.0.0
     - pkg-config@0.29.2
     - podio@0.16.2
     - prmon@3.0.2 +plot
