@@ -22,12 +22,12 @@ spack:
     - fjcontrib@1.045
     - fmt@8.1.1 +shared cxxstd=17
     - gaudi@36.7 +aida
-    - geant4@11.1.1 cxxstd=17 +opengl +vecgeom +x11 +qt +threads
+    - geant4@11.1.1 cxxstd=17 +opengl -vecgeom +x11 +qt +threads
     - hepmc3@3.2.5 +python +rootio
     - heppdt@2.06.01
     - imagemagick@7.0.8-7
     - intel-tbb@2020.3
-    - irt@1.0.0
+    - irt@1.0.5
     - jana2@2.0.8 -ipo +root +zmq
     - lcov@1.15
     - madx@5.08.01
