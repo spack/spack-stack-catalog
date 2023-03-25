@@ -12,7 +12,7 @@ spack:
     - netcdf-fortran@4.5.3
     - scorpio+hdf5
     - lowfive@master
-    - henson+mpi-wrappers
+    - henson+python+mpi-wrappers
 
   view: true
 
