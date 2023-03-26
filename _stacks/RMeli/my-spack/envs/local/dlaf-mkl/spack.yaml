@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - dla-future@develop ~cuda +miniapps ^amdblis ^amblibm ^openmpi
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+  repos:
+  - ~/git/DLA-Future/spack # Path to DLA-Future Spack repo
+  concretizer:
+    unify: true

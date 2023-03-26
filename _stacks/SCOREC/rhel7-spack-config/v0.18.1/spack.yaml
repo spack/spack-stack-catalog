@@ -34,6 +34,9 @@ spack:
   - pumiSim2023.0-230303dev:
     - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.0-230303dev
+  - sim2023.0-230317dev:
+    - simmetrix-simmodsuite@2023.0-230317dev %gcc@11.2.0 +abstract +acis +adv +advmodel
+      +discrete +granite +import +paralleladapt +parallelmesh +parasolid ^mpich@4.0.2
   specs:
   - gcc@7.4.0 %gcc@4.8.5_rhel7 # Step 1
   
@@ -59,21 +62,6 @@ spack:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   #packages built with gcc 11 # Step 3
   - mpich %gcc@11.2.0
@@ -91,6 +79,7 @@ spack:
   - $pumi
   - $pumiSim18.0-220930beta
   - $pumiSim2023.0-230303dev
+  - $sim2023.0-230317dev
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
