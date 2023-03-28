@@ -501,13 +501,7 @@ spack:
               NCAR_SPACK_HASH_{name}: '{hash}'
           template: ncar_default.lua
         mpi:
-          template: ncar_wrapper_mpi.lua
-          environment:
-            set:
-              NCAR_ID_MPI: '{name}-{version}'
-              NCAR_BUILD_ENV_MPI: casper-{compiler.name}-{compiler.version}-{name}-{version}
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}/{compiler.name}/{compiler.version}
+          template: ncar_math.lua
         gcc:
           environment:
             set:

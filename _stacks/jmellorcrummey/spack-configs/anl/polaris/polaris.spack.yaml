@@ -19,4 +19,4 @@ spack:
   specs:
   - matrix:
     - [hpctoolkit +mpi ~papi +viewer +cuda]
-    - - '@2023.03.stable ^cuda@12.0.0'
+    - - '@2023.03.stable ^cuda@11.8.0'
