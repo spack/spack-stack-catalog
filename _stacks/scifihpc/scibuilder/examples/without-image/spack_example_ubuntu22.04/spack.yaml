@@ -24,17 +24,8 @@ spack:
         - gcc@11.3.0
   definitions:
   - compilers: [gcc@11.3.0]
-  - mpis: [openmpi@4.1.4]
-  - mpipackages: [hdf5+mpi]
   specs:
   - cmake@3.24.3
-  - matrix:
-    - [$mpis]
-    - [$%compilers]
-  - matrix:
-    - [$mpipackages]
-    - [$^mpis]
-    - [$%compilers]
   packages:
     openmpi:
       variants: +static
