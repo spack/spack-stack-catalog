@@ -153,13 +153,6 @@ spack:
       externals:
       - spec: groff@1.22.4
         prefix: /usr
-    libfuse:
-      externals:
-      - spec: libfuse@2.9.7
-        prefix: /usr
-      - spec: libfuse@3.10.5
-        prefix: /usr
-      require: ~utils
     openssh:
       externals:
       - spec: openssh@8.4p1
@@ -285,6 +278,8 @@ spack:
       variants: [+hl, +szip, +fortran, +cxx, ~mpi]
     netcdf-cxx4:
       variants: [~doxygen]
+    parallelio:
+      variants: [+pnetcdf]
     fftw:
       variants: [~mpi]
     eccodes:
@@ -318,6 +313,7 @@ spack:
     baseenv:
       root: /glade/u/apps/derecho/23.03/opt
       select:
+      - squashfuse
       - slirp4netns
       - libtree
       - tree
@@ -487,6 +483,7 @@ spack:
         exclude_implicits: true
         exclude:
         - gcc@10.4.0
+        - squashfuse
         - slirp4netns
         - libtree
         - tree
@@ -808,3 +805,66 @@ spack:
   - intel-oneapi-compilers-classic@2021.8.0
   - ncl ^esmf@8.0.0 ^hdf5~mpi
   - intel-oneapi-mkl@2023.0.0%oneapi@2023.0.0
+  - squashfuse
+  - cray-libsci@23.02.1.1%gcc@12.2.0
+  - cray-libsci@23.02.1.1%cce@15.0.1
+  - ncarcompilers@0.8.0%gcc@12.2.0
+  - ncarcompilers@0.8.0%nvhpc@23.1
+  - ncarcompilers@0.8.0%oneapi@2023.0.0
+  - ncarcompilers@0.8.0%cce@15.0.1
+  - fftw@3.3.10%gcc@12.2.0~mpi
+  - fftw@3.3.10%nvhpc@23.1~mpi
+  - fftw@3.3.10%oneapi@2023.0.0~mpi
+  - fftw@3.3.10%cce@15.0.1~mpi
+  - udunits@2.2.28%gcc@12.2.0
+  - udunits@2.2.28%nvhpc@23.1
+  - udunits@2.2.28%oneapi@2023.0.0
+  - udunits@2.2.28%cce@15.0.1
+  - hdf5@1.12.2%gcc@12.2.0~mpi
+  - hdf5@1.12.2%nvhpc@23.1~mpi
+  - hdf5@1.12.2%oneapi@2023.0.0~mpi
+  - hdf5@1.12.2%cce@15.0.1~mpi
+  - netcdf@4.9.1%gcc@12.2.0~mpi
+  - netcdf@4.9.1%nvhpc@23.1~mpi
+  - netcdf@4.9.1%oneapi@2023.0.0~mpi
+  - netcdf@4.9.1%cce@15.0.1~mpi
+  - proj@8.2.1%gcc@12.2.0
+  - proj@8.2.1%nvhpc@23.1
+  - proj@8.2.1%oneapi@2023.0.0
+  - proj@8.2.1%cce@15.0.1
+  - geos@3.9.1%gcc@12.2.0
+  - geos@3.9.1%nvhpc@23.1
+  - geos@3.9.1%oneapi@2023.0.0
+  - geos@3.9.1%cce@15.0.1
+  - hdf@4.2.15%gcc@12.2.0
+  - hdf@4.2.15%nvhpc@23.1
+  - hdf@4.2.15%oneapi@2023.0.0 cflags="-std=c90 -Wno-error=int-conversion"
+  - hdf@4.2.15%cce@15.0.1
+  - eccodes@2.25.0%gcc@12.2.0
+  - eccodes@2.25.0%nvhpc@23.1
+  - eccodes@2.25.0%oneapi@2023.0.0
+  - gdal@3.6.0%gcc@12.2.0 ^hdf5~mpi
+  - gdal@3.6.0%cce@15.0.1 ^hdf5~mpi
+  - parallel-netcdf@1.12.3%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallel-netcdf@1.12.3%nvhpc@23.1 ^cray-mpich@8.1.25%nvhpc@23.1
+  - parallel-netcdf@1.12.3%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallel-netcdf@1.12.3%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
+  - hdf5@1.12.2%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - hdf5@1.12.2%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
+  - hdf5@1.12.2%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - hdf5@1.12.2%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
+  - netcdf@4.9.1%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - netcdf@4.9.1%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
+  - netcdf@4.9.1%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - netcdf@4.9.1%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
+  - fftw@3.3.10%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - fftw@3.3.10%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
+  - fftw@3.3.10%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - fftw@3.3.10%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
+  - nco@5.1.4%gcc@12.2.0
+  - cdo@2.1.1%gcc@12.2.0
+  - ncview@2.1.8%gcc@12.2.0
+  - parallelio@2.5.10%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.5.10%nvhpc@23.1 ^cray-mpich@8.1.25%nvhpc@23.1
+  - parallelio@2.5.10%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallelio@2.5.10%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1

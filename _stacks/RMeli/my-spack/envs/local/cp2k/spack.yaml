@@ -1,0 +1,6 @@
+spack:
+  specs:
+  - cp2k@develop ~cuda ~mpi +libint +libxc +spglib ^fftw ^dbcsr ~mpi +openmp
+  view: false
+  concretizer:
+    unify: true
