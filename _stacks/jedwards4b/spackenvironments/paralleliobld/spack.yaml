@@ -9,14 +9,18 @@ spack:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/modules.yaml
+  view: false
   definitions:
   - packages: [parallelio@2.5.10+pnetcdf ^parallel-netcdf@1.12.3 ^netcdf-c@4.9.1,
       parallelio@2.5.10+pnetcdf +logging build_type=Debug ^netcdf-c@4.9.1 ^parallel-netcdf@1.12.3]
   
+#  - packages: [parallelio@2.5.10+pnetcdf build_type=RelWithDebInfo ^parallel-netcdf@1.12.3
+#        ^netcdf-c@4.9.1]
         #  - packages: [parallelio@2.5.9+pnetcdf+logging build_type=Debug, esmf@8.4.0b15 +debug
         #        -xerces +parallelio ^parallelio+pnetcdf+logging build_type=Debug ^libxml2@2.9.13]
-        #  - packages: [parallelio@2.5.9+pnetcdf, esmf@8.4.0b15 -xerces +parallelio ^parallelio+pnetcdf]
-#  - compilers: ['%intel@2021.7.1', '%oneapi', '%cce@15.0.0', '%gcc@12.1.0', '%nvhpc']
+        #  - packages: [parallelio@2.5.10+pnetcdf, esmf@8.4.0b15 -xerces +parallelio ^parallelio+pnetcdf]
+#  - compilers: ['%oneapi@2023.0.0', '%cce@15.0.1', '%gcc@12.2.0', '%nvhpc@23.1']
   - compilers: ['%cce@15.0.1']
   
 #  - mpilibs: [^cray-mpich@8.1.21, ^openmpi@4.1.4]
@@ -29,3 +33,12 @@ spack:
   concretizer:
     unify: false
     reuse: true
+  modules:
+    default:
+      roots:
+        lmod: /glade/u/apps/cseg/modules/$NCAR_ENV_VERSION
+      lmod:
+        defaults:
+        - parallelio@2.5.10
+        projections:
+          parallelio build_type=Debug: parallelio/{version}-debug

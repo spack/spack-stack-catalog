@@ -8,12 +8,12 @@ spack:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/packages.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/compilers.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
+  - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/modules.yaml
   #  - /glade/u/apps/gust/22.12/config/modules.yaml
   definitions:
   - packages: [mpi-serial]
-  
-#  - compilers: ['%gcc', '%oneapi', '%cce', '%intel', '%nvhpc']
-  - compilers: ['%cce@15.0.1']
+  - compilers: ['%gcc@12.2.0', '%oneapi@2023.0.0', '%cce@15.0.1', '%nvhpc@23.1']
+#  - compilers: ['%gcc@12.1.0']
   specs:
   - matrix:
     - [$packages]
