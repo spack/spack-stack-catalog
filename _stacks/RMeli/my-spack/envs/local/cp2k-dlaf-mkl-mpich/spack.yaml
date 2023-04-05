@@ -1,0 +1,18 @@
+spack:
+  specs:
+  
+  # MPI is needed for ScaLAPACK, needed for BLACS (used in DLAF+CP2K)
+  # MKL dependency propagatest to DLA-Future: spack spec --cover edges
+  # DBCSR fails to compile with MPICH 
+  - cp2k@master +dlaf +mpi +libint +libxc +spglib ^fftw ^dbcsr ^intel-mkl ^mpich
+    device=ch3 netmod=tcp
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+      - ~openmp # TODO: Test with OpenMP
+  repos:
+  - ~/git/DLA-Future/spack # Path to DLA-Future Spack repo
+  concretizer:
+    unify: true
