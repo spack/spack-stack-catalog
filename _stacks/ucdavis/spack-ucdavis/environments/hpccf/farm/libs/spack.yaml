@@ -1,0 +1,27 @@
+spack:
+  specs:
+  - amdfftw target=zen
+  - boost
+  - cgal
+  - eigen
+  - fftw
+  - gmp
+  - gsl
+  - intel-oneapi-mkl
+  - libszip
+  - mpfr
+  - netcdf-c
+  - netcdf-cxx4
+  - netcdf-fortran
+  - nlohmann-json
+  - zlib
+  view:
+    generic:
+      root: /share/apps/22.04/spack/environments/libs/view
+      link_type: symlink
+  modules:
+    default:
+      roots:
+        tcl: $spack/../../modulefiles/spack/libs/
+  concretizer:
+    unify: when_possible

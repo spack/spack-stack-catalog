@@ -1,10 +1,17 @@
-# This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
   specs:
+  - aspera-cli
+  - cdo
+  - cmake
+  - gdl
+  - gromacs
+  - jags
+  - nco
+  - parallel
+  - rclone
   - rstudio@2022.12.0+server
+  - stata
+  - yasm
   modules:
     default:
       tcl:
@@ -20,5 +27,5 @@ spack:
           - '{name}'
   concretizer:
     reuse: true
-    unify: false
+    unify: when_possible
   view: false

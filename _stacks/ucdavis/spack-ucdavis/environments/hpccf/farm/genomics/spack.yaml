@@ -1,0 +1,160 @@
+spack:
+  specs:
+  - abyss
+  - angsd
+  - augustus
+  - blast-plus
+  - blast2go
+  - aragorn
+  - bbmap
+  - beagle
+  - bedops
+  - bedtools2
+  - bcftools +libgsl +perl-filters
+  - blat
+  - bowtie
+  - bowtie2
+  - braker
+  - busco
+  - bwa
+  - bwa-mem2 %intel target=x86_64
+  - bwtool
+  - canu
+  - cap3
+  - cdhit
+  - circos
+  - corset
+  - clustal-omega
+  - clustalw
+  - cufflinks
+  - diamond
+  - ea-utils
+  - emboss
+  - exonerate
+  - exonerate-gff3
+  - fastme
+  - fastqc
+  - fastq-screen
+  - fasttree
+  - fastx-toolkit
+  - freebayes
+  - gatk@3.8.1
+  - gatk@4.2.6.1
+  - gemma
+  - genometools
+  - genrich
+  - glimmer
+  - hisat2
+  - hmmer
+  - homer
+  - htslib
+  - igv
+  - infernal
+  - interproscan
+  - iq-tree
+  - iqtree2
+  - jellyfish
+  - kalign
+  - kallisto
+  - kmergenie
+  - kraken
+  - kraken2
+  - krakenuniq
+  - last
+  - mash
+  - mcl
+  - mafft
+  - masurca
+  - meme@5.3.0
+  - metabat
+  - metaeuk
+  - minced
+  - miniasm
+  - minimap2
+  - mirdeep2
+  - mmseqs2
+  - maker
+  - maven
+  - mothur
+  - mummer
+  - mummer4
+  - muscle
+  - ncbi-rmblastn
+  - ncbi-toolkit
+  - ncbi-vdb
+  - nextflow
+  - ont-guppy
+  - orthofinder
+  - orthomcl
+  - phylip
+  - phyluce
+  - picard
+  - pilon
+  - plink
+  - plink-ng
+  - py-checkm-genome
+  - py-cutadapt
+  - py-deeptools
+  - py-htseq
+  - py-multiqc
+  - py-quast
+  - py-vcf-kit
+  - prokka
+  - qualimap
+  - raxml
+  - raxml-ng
+  - ray
+  - recon
+  - repeatmasker
+  - repeatmodeler ^repeatmasker@4.0.9
+  - repeatscout
+  - rnaquast
+  - rsem
+  - sabre
+  - salmon
+  - samtools
+  - satsuma2
+  - scallop
+  - seqprep
+  - seqtk
+  - shoremap %gcc@11.3.0
+  - sickle
+  - smartdenovo
+  - snap-korf
+  - sortmerna
+  - spades
+  - sratoolkit
+  - star
+  - stringtie
+  - tabix
+  - tassel
+  - trimgalore
+  - trimmomatic
+  - trinity
+  - usearch
+  - vcftools
+  - velvet
+  - velvetoptimiser
+  - vsearch
+  #- sailfish %gcc@4.9.4
+  #- sga %gcc@4.9.4
+  #- megahit %gcc@4.9.4
+  #- signalp
+  #- pharokka
+  #- mira
+  #- miranda
+  #-pbbam
+  #- soapdenovo-trans
+  #- soapdenovo2
+  view: false
+  modules:
+    default:
+      tcl:
+        exclude_implicits: true
+        exclude:
+        - parallel
+        - zlib
+        - cmake
+  concretizer:
+    reuse: true
+    unify: when_possible

@@ -1,0 +1,5 @@
+spack:
+  specs:
+  - libinttest
+  concretizer:
+    unify: true

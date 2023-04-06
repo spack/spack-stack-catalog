@@ -1,0 +1,50 @@
+spack:
+  specs:
+  - environment-modules@5.2.0
+  - openmpi
+  - slurm@22-05-8
+  - hwloc
+  - libevent
+  - pmix
+  - ucx
+  - cuda@11.7
+  - gcc@7.5.0
+  - gcc@5.5.0 %gcc@9.5.0
+  - gcc@4.9.4 %gcc@9.5.0
+  - intel-oneapi-compilers@2022.2.1
+  - nvhpc@23.1
+  - jdk@14_36
+  #- julia@1.8.5  
+  view:
+    generic:
+      root: /share/apps/22.04/spack/environments/core/view
+      select:
+      - environment-modules
+      exclude:
+      - gcc
+      link_type: symlink
+  modules:
+    default:
+      roots:
+        tcl: $spack/../../modulefiles/spack/core/
+      tcl:
+        exclude:
+        - environment-modules
+        - zlib
+        - gmp
+        include:
+        - slurm
+        - pmix
+        - ucx
+        - openmpi
+        - cuda
+        - gcc@7.5.0
+        - gcc@5.5.0
+        - gcc@4.9.4
+        - intel-oneapi-compilers@2022.2.1
+        - nvhpc
+        - jdk
+        projections:
+          slurm: slurm/22.05.8
+  concretizer:
+    unify: when_possible

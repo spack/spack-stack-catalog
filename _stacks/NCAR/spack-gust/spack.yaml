@@ -321,6 +321,8 @@ spack:
     baseenv:
       root: /glade/u/apps/gust/23.03/opt
       select:
+      - git
+      - git-lfs
       - squashfuse
       - slirp4netns
       - libtree
@@ -490,6 +492,8 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
+        - git
+        - git-lfs
         - gcc@10.4.0
         - squashfuse
         - slirp4netns
@@ -532,8 +536,6 @@ spack:
         - cray-mpich
         - cray-libsci
         - cray-fftw
-        include:
-        - git
         all:
           environment:
             set:
@@ -548,8 +550,6 @@ spack:
               NCAR_BUILD_ENV_MPI: gust-{compiler.name}-{compiler.version}-{name}-{version}
             append_path:
               MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}/{compiler.name}/{compiler.version}
-        blas:
-          template: ncar_math.lua
         gcc:
           environment:
             set:
@@ -611,6 +611,7 @@ spack:
             append_path:
               MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{^intel-oneapi-compilers.version}
         intel-oneapi-mkl:
+          template: ncar_math.lua
           filter:
             exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_MKL, NCAR_LDFLAGS_INTEL_ONEAPI_MKL,
               NCAR_SPACK_HASH_INTEL_ONEAPI_MKL]
@@ -879,3 +880,4 @@ spack:
   - hdf5@1.12.2%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
   - netcdf@4.9.1%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
   - fftw@3.3.10%cce@15.0.1+mpi ^cray-mpich@8.1.24%cce@15.0.1
+  - git-lfs

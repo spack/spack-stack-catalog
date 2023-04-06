@@ -11,4 +11,9 @@ spack:
   - mochi-remi
   - mpi
   - pmdk
-  concretization: together
+  concretizer:
+    unify: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
