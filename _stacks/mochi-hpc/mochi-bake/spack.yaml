@@ -9,8 +9,9 @@ spack:
   - jsoncpp
   - libtool
   - mochi-remi
-  - mpi
   - pmdk
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
+  - mpich
   concretizer:
     unify: true
   modules:

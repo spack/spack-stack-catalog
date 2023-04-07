@@ -1,0 +1,18 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+    - mpich@4.0.2
+    - parallel-netcdf
+    - hdf5@1.12.1+hl+mpi
+    - netcdf-c@4.8.1+mpi
+    - netcdf-fortran@4.5.3
+    - mpas-o-scorpio+hdf5
+
+  view: true
+
+  concretizer:
+    unify: true

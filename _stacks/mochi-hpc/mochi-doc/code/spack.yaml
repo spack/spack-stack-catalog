@@ -1,18 +1,18 @@
 spack:
   specs:
   - cmake
-  - mercury~boostsys
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
   - mochi-thallium
   - mochi-margo
   - mochi-ssg
   - mochi-abt-io
   - mochi-bedrock
+  - mochi-bake
   - mpich
   - argobots
   - mochi-yokan+bedrock+python+lua
   concretizer:
     unify: true
-    reuse: false
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
