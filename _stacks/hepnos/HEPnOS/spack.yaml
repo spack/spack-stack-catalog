@@ -12,5 +12,10 @@ spack:
   - mochi-bedrock@main+mpi
   - mochi-yokan@main+bedrock
   - py-hepnos-wizard
+  - mercury~boostsys ^libfabric fabrics=tcp,rxm
   concretizer:
     unify: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
