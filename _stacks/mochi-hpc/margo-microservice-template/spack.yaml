@@ -3,10 +3,9 @@ spack:
   - cmake
   - pkg-config
   - uuid
-  - mochi-margo ^mercury~boostsys
-  - mochi-abt-io
+  - mochi-margo ^mercury~boostsys ~checksum
   - json-c
-  - mochi-bedrock
+  - mochi-bedrock ~abtio ~ssg
   concretizer:
     unify: true
     reuse: false
