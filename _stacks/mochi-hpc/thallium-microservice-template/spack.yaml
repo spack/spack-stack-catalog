@@ -3,7 +3,7 @@ spack:
   - cmake
   - pkg-config
   - uuid
-  - mochi-thallium ^mercury~boostsys~checksum
+  - mochi-thallium ^mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
   - nlohmann-json
   - spdlog
   - tclap

@@ -3,7 +3,7 @@ spack:
   - cmake
   - pkg-config
   - uuid
-  - mochi-margo ^mercury~boostsys ~checksum
+  - mochi-margo ^mercury~boostsys ~checksum ^libfabric fabrics=tcp,rxm
   - json-c
   - mochi-bedrock ~abtio ~ssg
   concretizer:
