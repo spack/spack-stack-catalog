@@ -549,7 +549,7 @@ spack:
               NCAR_ID_MPI: '{name}-{version}'
               NCAR_BUILD_ENV_MPI: gust-{compiler.name}-{compiler.version}-{name}-{version}
             append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}/{compiler.name}/{compiler.version}
+              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}/{compiler.name}/{compiler.version}:"..os.getenv("NCAR_USER_MODULEROOT").."/{name}/{version}/{compiler.name}/{compiler.version}
         gcc:
           environment:
             set:
@@ -557,7 +557,7 @@ spack:
               NCAR_BUILD_ENV_COMPILER: gust-{name}-{version}
               NCAR_BUILD_ENV: gust-{name}-{version}
             append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}
+              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}:"..os.getenv("NCAR_USER_MODULEROOT").."/{name}/{version}
         intel-oneapi-compilers:
           filter:
             exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_COMPILERS, NCAR_SPACK_HASH_INTEL_ONEAPI_COMPILERS]
@@ -582,7 +582,7 @@ spack:
               I_MPI_F90: ifx
               I_MPI_F77: ifx
             append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{version}
+              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{version}:"..os.getenv("NCAR_USER_MODULEROOT").."/oneapi/{version}
         intel-oneapi-compilers-classic:
           autoload: none
           filter:
@@ -609,7 +609,7 @@ spack:
               I_MPI_F90: ifort
               I_MPI_F77: ifort
             append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{^intel-oneapi-compilers.version}
+              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{^intel-oneapi-compilers.version}:"..os.getenv("NCAR_USER_MODULEROOT").."/oneapi/{^intel-oneapi-compilers.version}
         intel-oneapi-mkl:
           template: ncar_math.lua
           filter:
@@ -640,7 +640,7 @@ spack:
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
             append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}
+              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}:"..os.getenv("NCAR_USER_MODULEROOT").."/{name}/{version}
         ncarcompilers:
           environment:
             set:
