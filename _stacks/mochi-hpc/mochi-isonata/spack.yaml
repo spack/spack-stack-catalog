@@ -1,0 +1,16 @@
+spack:
+  specs:
+  - cmake
+  - nlohmann-json
+  - mochi-margo
+  - mochi-thallium
+  - mochi-sonata@0.6.3
+  - mochi-bedrock~ssg~abtio
+  - mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
+  concretizer:
+    unify: true
+    reuse: false
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
