@@ -1,6 +1,7 @@
 spack:
   specs:
-  - cp2k@develop +dlaf ~libxc +libint build_system=cmake ^intel-mkl ^cray-mpich
+  - cp2k@develop +dlaf +libxc +libint +spglib build_system=cmake ^intel-mkl ^cray-mpich
+    ^fftw
   view: false
   packages:
     all:
@@ -9,5 +10,9 @@ spack:
       - ~openmp
   repos:
   - /scratch/e1000/rmeli/git/DLA-Future/spack # Path to DLA-Future Spack repo
+  develop:
+    dla-future:
+      path: /scratch/e1000/rmeli/git/DLA-Future
+      spec: dla-future@master
   concretizer:
     unify: true
