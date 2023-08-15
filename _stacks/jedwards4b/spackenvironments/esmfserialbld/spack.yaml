@@ -10,14 +10,14 @@ spack:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/repos.yaml
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/modules.yaml
   definitions:
-  - packages: [esmf@8.5.0b18 esmf_os=Unicos  ~mpi ~debug ~xerces +parallelio +external-lapack
-        ^netcdf-c~mpi+dap ^parallelio@2.5.10~mpi~pnetcdf, esmf@8.5.0b18 esmf_os=Unicos
-        +debug ~mpi ~xerces +parallelio +external-lapack ^netcdf-c~mpi+dap ^parallelio@2.5.10~mpi~pnetcdf
-        build_type=Debug]
+  - packages: [esmf@8.5.0b21 esmf_os=Unicos  ~mpi ~debug ~xerces +external-parallelio
+        +external-lapack ^netcdf-c~mpi+dap ^parallelio@2.5.10~mpi~pnetcdf, esmf@8.5.0b21
+        esmf_os=Unicos +debug ~mpi ~xerces +external-parallelio +external-lapack ^netcdf-c~mpi+dap
+        ^parallelio@2.5.10~mpi~pnetcdf build_type=Debug]
   - compilers: ['%gcc@12.2.0', '%oneapi@2023.0.0^intel-oneapi-mkl', '%cce@15.0.1',
       '%nvhpc@23.1']
 #  - compilers: ['%gcc@12.1.0', '%cce@15.0.0', '%intel@2021.7.1', '%nvhpc']
-#  - compilers: ['%cce@15.0.1']
+#  - compilers: ['%oneapi@2023.0.0^intel-oneapi-mkl']
   specs:
   - matrix:
     - [$packages]
@@ -28,6 +28,11 @@ spack:
     reuse: true
   modules:
     default:
+      roots:
+        lmod: /glade/u/apps/cseg/modules/$NCAR_ENV_VERSION
       lmod:
         defaults:
         - esmf@8.4.1~debug
+        projections:
+          esmf+debug: esmf/{version}-debug
+          parallelio build_type=Debug: parallelio/{version}-debug

@@ -1,0 +1,6 @@
+spack:
+  specs:
+  - sirius +scalapack +tests ~memory_pool +wannier90 ^cray-mpich
+  view: false
+  concretizer:
+    unify: true

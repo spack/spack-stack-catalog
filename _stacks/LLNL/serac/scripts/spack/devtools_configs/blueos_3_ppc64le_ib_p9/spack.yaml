@@ -81,11 +81,6 @@ spack:
       externals:
       - spec: diffutils@3.3
         prefix: /usr
-    epoxy:
-      buildable: false
-      externals:
-      - spec: epoxy@0.0.0
-        prefix: /usr
     findutils:
       buildable: false
       externals:
@@ -105,6 +100,11 @@ spack:
       buildable: false
       externals:
       - spec: groff@1.22.2
+        prefix: /usr
+    libepoxy:
+      buildable: false
+      externals:
+      - spec: libepoxy@1.5.2
         prefix: /usr
     libtool:
       buildable: false
@@ -139,10 +139,11 @@ spack:
 
     # Lock in versions of Devtools
     cmake:
-      externals:
-      - spec: cmake@3.18.0
-        prefix: /usr/tce/packages/cmake/cmake-3.18.0
+      version: [3.23.1]
       buildable: false
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /usr/tce/packages/cmake/cmake-3.23.1
     llvm:
       version: [10.0.0]
       buildable: false

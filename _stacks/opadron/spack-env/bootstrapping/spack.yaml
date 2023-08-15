@@ -1,0 +1,71 @@
+spack:
+  definitions:
+  - bootstrap:
+    - matrix:
+      - ["gcc@5.5.0"]
+      - ["os=centos7", "os=ubuntu18.04"]
+  - packages:
+    - "python@2.7.15"
+    - "python@2.7.16"
+    - "python@3.7.3"
+  - compilers:
+    - "%gcc@5.5.0"
+  - oses:
+    - "os=centos7"
+    - "os=ubuntu18.04"
+
+  specs:
+  - matrix:
+    - [$packages]
+    - [$compilers]
+    - [$oses]
+
+      # specs: ["readline@7.0 %gcc@5.5.0 os=centos7"]
+  mirrors: { "mirror": "file:///mirror" }
+
+  gitlab-ci:
+    bootstrap:
+      - name: bootstrap
+        compiler-agnostic: true
+    mappings:
+      - match: ["os=centos7"]
+        runner-attributes:
+          image: { "name": "spack/centos:7", "entrypoint": [""] }
+          tags: ["docker"]
+      - match: ["os=ubuntu18.04"]
+        runner-attributes:
+          image: { "name": "spack/ubuntu-bionic", "entrypoint": [""] }
+          tags: ["docker"]
+
+  cdash:
+    build-group: Release Testing (Bootstrapping)
+    url: http://cdash
+    project: spack
+    site: Spack Docker-Compose Workflow
+
+  compilers:
+    - compiler:
+        spec: gcc@5.5.0
+        target: x86_64
+        operating_system: centos7
+        paths: { "cc": "", "cxx": "", "f77": "", "fc": "" }
+        environment: {}
+        extra_rpaths: []
+        flags: {}
+        modules: []
+    - compiler:
+        spec: gcc@5.5.0
+        target: x86_64
+        operating_system: ubuntu18.04
+        paths: { "cc": "", "cxx": "", "f77": "", "fc": "" }
+        environment: {}
+        extra_rpaths: []
+        flags: {}
+        modules: []
+
+  repos: []
+  upstreams: {}
+  modules:
+    enable: []
+  packages: {}
+  config: {}

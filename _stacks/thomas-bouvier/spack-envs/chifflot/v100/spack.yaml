@@ -1,10 +1,15 @@
 spack:
   config:
-    install_tree: /mnt/spack
+    install_tree: /my-spack/spack
     build_stage: /tmp/spack-stage
   repos:
-  - /root/mochi-spack-packages
+  - /home/tbouvier/spack-lille/mochi-spack-packages
   packages:
+    all:
+      providers:
+        mpi: [openmpi]
+      compiler:
+      - gcc@10.4.0
     magma:
       variants: [+cuda cuda_arch=70]
     nccl:
@@ -15,24 +20,61 @@ spack:
       variants: [+cuda cuda_arch=70 tensor_ops=nccl]
     py-torch:
       variants: [+cuda cuda_arch=70 +nccl +cudnn +magma +distributed]
+    # https://github.com/horovod/horovod/issues/3949
+    #openmpi:
+    #  externals:
+    #  - spec: openmpi@4.1.5
+    #    prefix: /grid5000/spack/v1/opt/spack/linux-debian11-x86_64_v2/gcc-10.4.0/openmpi-4.1.5-34kj6dkmk4pg3e3nqniaidqj7l2rkkww
+    #    modules:
+    #    - openmpi/4.1.5_gcc-10.4.0
+    #rdma-core:
+    #  externals:
+    #  - spec: rdma-core@41.0
+    #    modules:
+    #    - rdma-core/41.0_gcc-10.4.0
+    cuda:
+      externals:
+      - spec: cuda@11.7.1
+        modules:
+        - cuda/11.7.1_gcc-10.4.0
   specs:
-  - cuda@11.8
-  - cudnn@8.4.0
-  - openmpi@4.1.2
-  - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
+  # Precedence is important. These packages will be picked up in the mochi repo.
+  - mochi-thallium ^argobots ^mercury +boostsys +ofi +debug ^libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  - cuda
+  - cudnn@8.4
+  - mpi
+  - nccl
   - nccl-tests
   - python@3.10
+  - nvtx +python
   - py-pip
+  - py-pybind11
   - py-ruamel-yaml
   - py-filelock
   - py-wandb
   - py-continuum
-  - py-nvidia-dali@1.22.0-cuda110
-  - py-torch@1.13.1 ~gloo
-  - py-torchvision
+  - py-timm
+  - py-nvidia-dali@1.27.0-cuda110
+  - py-torch@2.0.1 ~gloo
   - py-torchsummary
   - py-bokeh
   - py-matplotlib
-  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm
-  view: /mnt/view/chifflot-v100
+  - py-horovod@0.28 controllers=mpi frameworks=pytorch
+  - nano
+  concretizer:
+    unify: true
+  view: /my-spack/view/chifflot-v100
+  compilers:
+  - compiler:
+      spec: gcc@=10.4.0
+      paths:
+        cc: /grid5000/spack/v1/opt/spack/linux-debian11-x86_64_v2/gcc-10.4.0/gcc-10.4.0-oo2korcm4gxzmlowrmwl4fp2rtq4dsv5/bin/gcc
+        cxx: /grid5000/spack/v1/opt/spack/linux-debian11-x86_64_v2/gcc-10.4.0/gcc-10.4.0-oo2korcm4gxzmlowrmwl4fp2rtq4dsv5/bin/g++
+        f77: /grid5000/spack/v1/opt/spack/linux-debian11-x86_64_v2/gcc-10.4.0/gcc-10.4.0-oo2korcm4gxzmlowrmwl4fp2rtq4dsv5/bin/gfortran
+        fc: /grid5000/spack/v1/opt/spack/linux-debian11-x86_64_v2/gcc-10.4.0/gcc-10.4.0-oo2korcm4gxzmlowrmwl4fp2rtq4dsv5/bin/gfortran
+      flags: {}
+      operating_system: debian11
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

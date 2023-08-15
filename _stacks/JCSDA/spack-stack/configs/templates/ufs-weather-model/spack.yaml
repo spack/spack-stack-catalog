@@ -1,0 +1,18 @@
+spack:
+  concretizer:
+    unify: when_possible
+
+  config:
+    install_tree:
+      root: $env/install
+  modules:
+    default:
+      roots:
+        lmod: $env/install/modulefiles
+        tcl: $env/install/modulefiles
+
+  view: false
+  include: []
+
+  specs:
+    - ufs-weather-model-env~debug

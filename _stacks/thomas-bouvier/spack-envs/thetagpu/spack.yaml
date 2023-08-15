@@ -1,9 +1,6 @@
 spack:
-  specs:
-  - mochi-margo
   repos:
   - /home/tbouvier/git/mochi-spack-packages
-  - /home/tbouvier/git/robertu94-spack-packages
   compilers:
   - compiler:
       spec: gcc@9.4.0
@@ -101,11 +98,6 @@ spack:
       externals:
       - spec: diffutils@3.7
         prefix: /usr
-    all:
-      providers:
-        mpi: [openmpi]
-      compiler:
-      - gcc@9.4.0
     openmpi:
       buildable: false
       version: []
@@ -149,25 +141,34 @@ spack:
       variants: [+cuda cuda_arch=80 tensor_ops=nccl]
     py-torch:
       variants: [+cuda cuda_arch=80 +nccl +cudnn +magma +distributed]
+    all:
+      providers:
+        mpi: [openmpi]
+      compiler:
+      - gcc@9.4.0
   specs:
+  # Precedence is important. These packages will be picked up in the mochi repo.
+  - mochi-thallium ^argobots ^mercury +boostsys +ofi +debug ^libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  - cmake
   - cuda@11
   - cudnn@8.4.0
   - mpi
-  - mpigdb ^elfutils ~debuginfod
   - nccl@2.11.4-1 # https://github.com/horovod/horovod/issues/3831
   - nccl-tests
   - python@3.10
+  - nvtx +python
   - py-pip
   - py-ruamel-yaml
   - py-filelock
   - py-wandb
-  - py-continuum
-  - py-nvidia-dali@1.22.0-cuda110
-  - py-torch@1.13.1 ~gloo
-  - py-torchvision
-  - py-torchsummary
   - py-bokeh
   - py-matplotlib
+  - py-torch@1.13.1 ~gloo
+  - py-torchvision
+  - py-continuum
+  - py-timm
+  - py-nvidia-dali@1.27.0-cuda110
+  - py-torchsummary
   - py-horovod@0.26.1 controllers=mpi frameworks=pytorch
-  - mochi-thallium@main ^argobots ^mercury ~boostsys ~checksum +ofi +debug ^mochi.libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  - nano
   view: /home/tbouvier/view/thetagpu

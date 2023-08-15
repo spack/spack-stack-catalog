@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - dla-future@develop +miniapps ^intel-oneapi-mkl +cluster threads=openmp ^cray-mpich
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+  repos:
+  - /scratch/e1000/rmeli/git/DLA-Future/spack
+  concretizer:
+    unify: true

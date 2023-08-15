@@ -45,7 +45,7 @@ spack:
   - blaze@3.8
   - 'boost@1.60:+math+program_options'
   - brigand@master
-  - 'catch2@2.8:2'
+  - 'catch2@3.0.0:3'
   # Charm++:
   # - The 'multicore' backend runs with shared memory on a single node. On
   #   clusters you should choose one of the multi-node backends instead.
@@ -58,18 +58,8 @@ spack:
   - libsharp -mpi -openmp
   - 'libxsmm@1.16.1:'
   - openblas
-  - 'python@3.7:'
-  - py-click
-  - py-h5py -mpi
-  - py-humanize
-  - py-nbconvert
-  - py-numpy
-  - py-matplotlib
-  - py-pandas
+  - 'python@3.8:'
   - 'py-pybind11@2.6:'
-  - py-pyyaml
-  - py-rich
-  - py-scipy
   - yaml-cpp@0.6.3
   concretizer:
     unify: true

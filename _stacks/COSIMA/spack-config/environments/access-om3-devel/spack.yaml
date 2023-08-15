@@ -1,0 +1,51 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - compilers:
+    - intel@2021.6.0
+  - mpis:
+    - openmpi@4.1.4
+  - packages:
+    - esmf@8.3.1+external-parallelio cxxflags='-fp-model=precise' fflags='-fp-model=precise'
+    - parallelio@2.5.10
+    - netcdf-fortran@4.6.0
+    - netcdf-c@4.9.2
+    - fms@2023.01 precision=64
+  specs:
+  - matrix:
+    - [$mpis]
+    - [$%compilers]
+  - matrix:
+    - [$packages]
+    - [$^mpis]
+    - [$%compilers]
+  view: true
+  concretizer:
+    unify: true
+  modules:
+    default:
+      roots:
+        tcl: $spack/..//modules/access-om3/devel
+      tcl:
+        hash_length: 7
+  mirrors:
+    sources:
+      fetch:
+        url: file:///g/data/ik11/spack/0.20.1/sources
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///g/data/ik11/spack/0.20.1/sources
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

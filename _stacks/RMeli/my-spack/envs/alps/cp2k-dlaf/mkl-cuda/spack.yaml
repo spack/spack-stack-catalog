@@ -1,0 +1,16 @@
+spack:
+  specs:
+  - cp2k@master +dlaf +cuda cuda_arch=80 +libxc +libint +spglib build_system=cmake ^intel-mkl@2020.4.304 threads=openmp ^fftw ^cray-mpich ^dbcsr+cuda cuda_arch=70
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+  repos:
+  - /scratch/e1000/rmeli/git/DLA-Future/spack
+  develop:
+    dla-future:
+      path: /scratch/e1000/rmeli/git/DLA-Future
+      spec: dla-future@develop
+  concretizer:
+    unify: true

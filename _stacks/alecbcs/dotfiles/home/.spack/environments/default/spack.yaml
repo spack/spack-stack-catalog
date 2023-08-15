@@ -1,0 +1,27 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - bfs
+  - direnv
+  - emacs
+  - fzf
+  - gh
+  - go
+  - jq
+  - ncdu
+  - py-black
+  - py-flake8
+  - py-isort
+  - py-pip
+  - py-pylint
+  - py-python-lsp-server
+  - python
+  - rclone
+  - restic
+  view: true
+  concretizer:
+    unify: true

@@ -1,0 +1,17 @@
+# Copyright 2022-2023 UT-Battelle
+# See LICENSE.txt in the root of the source distribution for license info.
+spack:
+  specs:
+  - h4i-exttest@develop +rocm amdgpu_target=gfx90a build_type=Debug
+  view: true
+  concretizer:
+    unify: true
+    reuse: true
+  repos:
+  - ../../Repo
+  packages:
+    h4i-exttest:
+      require: '%cce'
+  develop:
+    h4i-exttest:
+      spec: h4i-exttest@=develop

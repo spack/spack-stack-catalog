@@ -1,0 +1,29 @@
+# Copyright 2022-2023 UT-Battelle
+# See LICENSE.txt in the root of the source distribution for license info.
+spack:
+  specs:
+  - chipstar@main build_type=Debug
+  - h4i-mklshim@develop.fix_context build_type=Debug
+  - h4i-hiputils@develop build_type=Debug
+  - h4i-hipblas@develop.fix_context build_type=Debug
+  - h4i-hipsolver@develop.fix_context build_type=Debug
+  - h4i-exttest@develop build_type=Debug
+  view: true
+  concretizer:
+    unify: true
+    reuse: true
+  repos:
+  - ../../Repo
+  packages:
+    chipstar:
+      require: '+interop backend=level_zero'
+    spirv-tools:
+      require: cxxstd=17
+    spirv-llvm-translator:
+      require: +tools
+    intel-oneapi-compilers:
+      require: '%gcc'
+    intel-oneapi-mkl:
+      require: 'threads=tbb ^intel-oneapi-tbb'
+    h4i-mklshim:
+      require: mkl-threading=tbb_thread

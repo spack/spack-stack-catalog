@@ -1,0 +1,14 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [domain-tools, netcdf-c, hdf5, fre-nctools, netcdf-c+mpi, cmake]
+  view: true
+  concretizer:
+    unify: true
+  modules:
+    default:
+      roots:
+        tcl: $spack/../modules/common_tools_and_libraries

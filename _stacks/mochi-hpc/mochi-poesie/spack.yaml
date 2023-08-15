@@ -2,10 +2,16 @@ spack:
   specs:
   - cmake
   - mochi-margo
+  - mercury
   - mochi-bedrock
   - lua
   - python
   - json-c
-  - py-mochi-margo@main
+  - quickjs
+  - py-mochi-margo
   concretizer:
     unify: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]

@@ -1,0 +1,12 @@
+spack:
+  config:
+    install_tree: /opt/software
+  packages:
+    all:
+      target: [x86_64]
+  specs:
+  - hdf5~mpi
+  - szip
+  view:
+    default:
+      root: /opt/view

@@ -1,14 +1,14 @@
 spack:
   specs:
   - cmake
-  - pkg-config
+  - pkgconfig
   - uuid
   - mochi-margo ^mercury~boostsys ~checksum ^libfabric fabrics=tcp,rxm
   - json-c
   - mochi-bedrock ~abtio ~ssg
   concretizer:
     unify: true
-    reuse: false
+    reuse: true
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]

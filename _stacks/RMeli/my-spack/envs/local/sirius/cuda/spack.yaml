@@ -1,0 +1,15 @@
+spack:
+  specs:
+  - intel-oneapi-mkl +cluster
+  - libxc ~cuda
+  - sirius@develop +scalapack +elpa +apps +tests ^intel-oneapi-mkl
+  packages:
+    all:
+      variants:
+        - +cuda
+        - cuda_arch=89
+  repos:
+    - ~/git/SIRIUS/ci/github-ci/spack
+  view: false
+  concretizer:
+    unify: true

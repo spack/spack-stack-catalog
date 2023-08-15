@@ -1,0 +1,6 @@
+spack:
+        specs:
+                - compss
+                - py-pillow
+                - grace
+                - gromacs +blas +lapack

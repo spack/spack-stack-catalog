@@ -5,12 +5,17 @@ spack:
   - mochi-margo
   - mochi-thallium
   - mochi-abt-io
-  - mochi-ssg ^mpich
+  - mochi-ssg+mpi
   - mochi-mona
   - nlohmann-json
-  - spdlog
+  - spdlog+fmt_external
   - fmt
   - tclap
-  - mercury~boostsys ^libfabric fabrics=tcp,rxm
+  - mercury
   concretizer:
     unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]

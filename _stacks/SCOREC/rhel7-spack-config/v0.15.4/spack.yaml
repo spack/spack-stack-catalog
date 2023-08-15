@@ -152,6 +152,9 @@ spack:
   - pumiSim18.0-220930beta:
     - pumi@develop %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@18.0-220930beta
+  - pumiSim2023.1-230428dev:
+    - pumi@develop %gcc@10.1.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230428dev
   specs:
   - llvm %gcc@6.5.0
   - gcc@10.1.0 %gcc@6.5.0
@@ -191,6 +194,7 @@ spack:
   - $pumiSim18.0-220822dev
   - $pumiSim18.0-220913dev
   - $pumiSim18.0-220930beta
+  - $pumiSim2023.1-230428dev
   - unzip
   compilers:
   - compiler:

@@ -11,15 +11,15 @@ spack:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/modules.yaml
   view: false
   definitions:
-  - packages: [esmf@8.5.0b18 +external-lapack +mpi -xerces +parallelio ^parallelio@2.5.10+pnetcdf
-        ^netcdf-c+dap+mpi  ^parallel-netcdf@1.12.3 ^cray-mpich@8.1.24, esmf@8.5.0b18
-        +external-lapack +debug +mpi -xerces +parallelio ^parallelio@2.5.10+pnetcdf+logging
-        build_type=Debug ^netcdf-c+dap+mpi ^parallel-netcdf@1.12.3 ^cray-mpich@8.1.24]
+  - packages: [esmf@8.5.0b21 +external-lapack +mpi -xerces +external-parallelio ^parallelio@2.5.10+pnetcdf
+        ^netcdf-c+dap+mpi  ^parallel-netcdf@1.12.3, esmf@8.5.0b21 +external-lapack
+        +debug +mpi -xerces +external-parallelio ^parallelio@2.5.10+pnetcdf+logging
+        build_type=Debug ^netcdf-c+dap+mpi ^parallel-netcdf@1.12.3]
   
   # intel compilers should use mkl not cray-libsci
-#  - compilers: ['%oneapi@2023.0.0 ^intel-oneapi-mkl', '%gcc@12.2.0', '%nvhpc@23.1',
-#      '%cce@15.0.1']
-  - compilers: ['%cce@15.0.1']
+  - compilers: ['%oneapi@2023.0.0 ^intel-oneapi-mkl', '%gcc@12.2.0^cray-mpich@8.1.25',
+      '%nvhpc@23.1 ^nvhpc', '%cce@15.0.1^cray-mpich@8.1.25']
+#  - compilers: ['%cce@15.0.1']
   specs:
   - matrix:
     - [$packages]
@@ -36,3 +36,4 @@ spack:
         - esmf@8.4.1~debug
         projections:
           esmf+debug: esmf/{version}-debug
+          parallelio build_type=Debug: parallelio/{version}-debug

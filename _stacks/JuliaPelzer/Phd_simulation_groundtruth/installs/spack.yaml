@@ -1,0 +1,56 @@
+spack:
+  specs:
+  - cmake
+  - petsc@3.16.2 ^hdf5+fortran+hl+mpi
+  - pflotran
+  packages:
+    all:
+      compiler: [gcc@8.5.0]
+      version: []
+      target: []
+      buildable: true
+      providers: {}
+  view:
+    geokw:
+      root: /home/pelzerja/pelzerja/test_nn/installs/view
+      link_type: symlink
+  compilers:
+  - compiler:
+      spec: clang@10.0.0
+      paths:
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.4.0
+      paths:
+        cc: /usr/bin/gcc-8
+        cxx: /usr/bin/g++-8
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

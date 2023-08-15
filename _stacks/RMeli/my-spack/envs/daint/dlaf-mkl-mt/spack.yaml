@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - dla-future@master +miniapps ^intel-mkl threads=openmp
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+  repos:
+  - ~/git/DLA-Future/spack
+  concretizer:
+    unify: true

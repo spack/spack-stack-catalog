@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - dla-future@master +miniapps ~cuda +scalapack ^intel-mkl threads=openmp ^mpich device=ch3 netmod=tcp ^umpire~cuda~device_alloc ^pika@main+mpi+cuda~mmap
+  view: false
+  repos:
+  - ~/git/DLA-Future/spack
+  - ~/git/my-spack/repos/pika
+  concretizer:
+    unify: true

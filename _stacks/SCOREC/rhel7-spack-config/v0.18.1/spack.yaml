@@ -59,6 +59,7 @@ spack:
   - py-progressbar2 %gcc@7.4.0
   - anaconda3 %gcc@7.4.0
   - subversion %gcc@7.4.0
+  - googletest %gcc@7.4.0
 
 
 

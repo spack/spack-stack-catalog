@@ -1,6 +1,10 @@
 spack:
-  view: false
+  view:
+    default:
+      root: /opt/spack/view
+      link: run
   specs:
+  - 'awscli'
   - 'clingo-bootstrap@spack +optimized'
   - 'curl'
   - 'file'

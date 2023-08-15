@@ -1,0 +1,6 @@
+spack:
+  specs:
+  - dla-future@master +cuda cuda_arch=80 +miniapps ^intel-mkl ^cray-mpich
+  view: false
+  concretizer:
+    unify: true

@@ -17,13 +17,13 @@ spack:
   - mochi-margo
   - mercury ~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
-  - mochi-bedrock
-  - ycsb-cpp-interface
+  - mochi-bedrock ^mpich
+  - ycsb-cpp-interface ^ycsb@master
   - rocksdb+rtti
-  - mochi-remi@main
+  - mochi-remi@0.3.3:+bedrock
   concretizer:
     unify: true
-    reuse: false
+    reuse: true
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]

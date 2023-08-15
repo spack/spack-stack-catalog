@@ -1,0 +1,9 @@
+spack:
+        specs:
+                - compss
+                - py-scipy
+                - py-numpy
+                - py-matplotlib
+                - py-pyproj
+                - py-obspy # from pip  
+                - nloc # cmake

@@ -1,0 +1,17 @@
+spack:
+    specs:
+        - fcm
+        - netcdf-fortran
+        - hdf5
+        - libpng
+        - openjpeg
+        - zlib
+        - xios@2.5
+        #Optional dependencies not currently in spack:
+        # - drhook
+        # - grib-api
+    packages:
+        all:
+            require: "%intel"
+        mpi:
+            require: "openmpi"

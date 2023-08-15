@@ -4,6 +4,6 @@ spack:
   - mpi
   - argobots
   - libfabric
-  - mercury@2.1.0
+  - mercury
   concretizer:
     unify: true
