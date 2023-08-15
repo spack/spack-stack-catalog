@@ -4,7 +4,6 @@ import logging
 import tempfile
 import os
 from pathlib import Path
-import json
 import calendar
 import time
 import shutil
@@ -117,7 +116,6 @@ def combine_results(code_search):
     """
     byrepo = {}
     lookup = {}
-    files = {}
 
     for i, filename in enumerate(code_search):
 
@@ -158,7 +156,7 @@ def validate_spackyaml(filename):
             if "env" not in data and "spack" not in data:
                 return False
             return True
-    except yaml.YAMLError as exc:
+    except yaml.YAMLError:
         return False
 
 
@@ -169,7 +167,7 @@ def main():
     skips = set(l.strip() for l in open("skips.txt", "r"))
 
     # Don't parse the vsoch/spack-changes repository!
-    code_search = g.search_code("spack filename:spack.yaml+-user:vsoch", sort="indexed")
+    code_search = g.search_code("spack filename:spack.yaml -user:vsoch", sort="indexed")
 
     # Create a directory structure with spack.yaml files
     data_dir = os.path.join(here, "_stacks")
@@ -177,6 +175,10 @@ def main():
     # Consolidate filenames by repository
     byrepo, lookup = combine_results(code_search)
     total_count = len(byrepo)
+
+    # This should not happen
+    if total_count == 0:
+        raise ValueError("No matches found! This likely should not happen.")
 
     for i, reponame in enumerate(byrepo):
 
@@ -211,7 +213,6 @@ def main():
             # For each spack yaml, validate
             for filename in files:
                 spackyaml = tmp / filename
-                spackyamldir = os.path.dirname(spackyaml)
                 if not spackyaml.exists():
                     continue
 

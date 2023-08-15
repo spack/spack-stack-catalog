@@ -5,13 +5,12 @@
 # the spack.yaml files come in so many different flavors. If you have an idea
 # for how to clean this up, please submit a PR! It will be greatly appreciated!
 
-from sklearn import datasets, preprocessing, manifold
+from sklearn import manifold
 import pandas
 import logging
 import fnmatch
 import numpy
 import os
-from pathlib import Path
 import yaml
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
