@@ -1,0 +1,195 @@
+################################################################################
+## Copyright 2019-2023 Lawrence Livermore National Security, LLC and other
+## DiHydrogen Project Developers. See the top-level LICENSE file for details.
+##
+## SPDX-License-Identifier: Apache-2.0
+################################################################################
+
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: []
+  view: true
+  concretizer:
+    unify: true
+  compilers:
+  - compiler:
+      spec: clang@=13.0.1-gcc-8.3.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-13.0.1-gcc-8.3.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-13.0.1-gcc-8.3.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=8.3.1
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-8.3.1/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  packages:
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.13.4
+        prefix: /usr
+    binutils:
+      externals:
+      - spec: binutils@2.27.44
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    cmake:
+      externals:
+      - spec: cmake@3.23.1
+        prefix: /usr/tce/packages/cmake/cmake-3.23.1
+    coreutils:
+      externals:
+      - spec: coreutils@8.22
+        prefix: /usr
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@12.0.0
+        prefix: /usr/tce/packages/cuda/cuda-12.0.0
+      - spec: cuda@11.8.0
+        prefix: /usr/tce/packages/cuda/cuda-11.8.0
+      - spec: cuda@11.7.0
+        prefix: /usr/tce/packages/cuda/cuda-11.7.0
+    cudnn:
+      externals:
+      - spec: cudnn@8.9.1
+        prefix: /usr/workspace/brain/cudnn/cudnn-8.9.1/cuda-11_ppc64le
+      - spec: cudnn@8.9.0
+        prefix: /usr/workspace/brain/cudnn/cudnn-8.9.0/cuda-11_ppc64le
+      - spec: cudnn@8.7.0
+        prefix: /usr/workspace/brain/cudnn/cudnn-8.7.0/cuda-11_ppc64le
+      - spec: cudnn@8.5.0
+        prefix: /usr/workspace/brain/cudnn/cudnn-8.5.0/cuda-11_ppc64le
+    curl:
+      externals:
+      - spec: curl@7.29.0+ldap
+        prefix: /usr
+    cvs:
+      externals:
+      - spec: cvs@1.11.23
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.3
+        prefix: /usr
+    doxygen:
+      externals:
+      - spec: doxygen@1.8.5+graphviz~mscgen
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.5.11
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.5.37+lex
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@4.0.2
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@1.8.3.1+tcltk
+        prefix: /usr
+      - spec: git@2.29.1+tcltk
+        prefix: /usr/tcetmp
+    git-lfs:
+      externals:
+      - spec: git-lfs@2.12.0
+        prefix: /usr/tcetmp
+    gmake:
+      externals:
+      - spec: gmake@3.82
+        prefix: /usr
+      - spec: gmake@4.2.1
+        prefix: /usr/tcetmp
+    groff:
+      externals:
+      - spec: groff@1.22.2
+        prefix: /usr
+    hwloc:
+      externals:
+      - spec: hwloc@1.11.8
+        prefix: /usr
+    libtool:
+      externals:
+      - spec: libtool@2.4.2
+        prefix: /usr
+    m4:
+      externals:
+      - spec: m4@1.4.16
+        prefix: /usr
+    meson:
+      externals:
+      - spec: meson@0.49.1
+        prefix: /usr/tce/packages/python/python-3.8.2
+    openssh:
+      externals:
+      - spec: openssh@7.4p1
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.0.2k-fips
+        prefix: /usr
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.27.1
+        prefix: /usr
+    python:
+      externals:
+      - spec: python@3.8.2+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat~pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /usr/tce/packages/python/python-3.8.2
+    rdma-core:
+      externals:
+      - spec: rdma-core@unknown_ver
+        prefix: /usr
+    spectrum-mpi:
+      buildable: false
+      externals:
+      - spec: spectrum-mpi@10.3.1.03rtm0%gcc@=8.3.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-gcc-8.3.1
+      - spec: spectrum-mpi@10.3.1.03rtm0%clang@=13.0.1-gcc-8.3.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-13.0.1-gcc-8.3.1
+    subversion:
+      externals:
+      - spec: subversion@1.7.14
+        prefix: /usr
+    swig:
+      externals:
+      - spec: swig@2.0.10
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.26
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@5.1
+        prefix: /usr

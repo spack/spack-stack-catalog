@@ -1,0 +1,11 @@
+spack:
+    specs:
+        - met
+        - metplus
+        - bom-ngm.hdf5@1.12.2 # Must match mamba
+    packages:
+        g2c:
+            require: "^jasper@2"
+        hdf:
+            require: "+external-xdr ^libtirpc"
+

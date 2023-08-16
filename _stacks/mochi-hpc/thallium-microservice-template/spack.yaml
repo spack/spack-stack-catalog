@@ -1,7 +1,7 @@
 spack:
   specs:
   - cmake
-  - pkg-config
+  - pkgconfig
   - uuid
   - mochi-thallium ^mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
   - nlohmann-json
@@ -10,7 +10,7 @@ spack:
   - mochi-bedrock ~ssg ~abtio
   concretizer:
     unify: true
-    reuse: false
+    reuse: true
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]

@@ -1,0 +1,58 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+# Commenting as already in packages.yaml ; leaving for reference
+#  packages:
+#    hdf:
+#      variants: ~external-xdr
+  definitions:
+  - hdf5-set:
+    - hdf5@1.12.2
+    - hdf5@1.10.7
+  - adios-set:
+    - adios2@2.9.0
+  - netcdf-set:
+    - netcdf-c@4.9.0 +hdf4 +parallel-netcdf ^hdf+shared
+    - netcdf-cxx@4.2
+    - netcdf-cxx4@4.3.1 ^python@3.10.10 +optimizations+zlib
+    - netcdf-fortran@4.6.0
+    - parallel-netcdf@1.12.3
+  # currently netcdf has issues because packages require
+  # very specific versions of certain dependencies which 
+  # are typically have buildable = false 
+  # example is netcdf-c@4.8.1   
+  # spec is 'netcdf-c@4.8.1+hdf4+parallel-netcdf ^berkeley-db ^bison ^bzip2 ^cmake@3.12
+  #   ^diffutils ^findutils ^flex ^gdbm@1.19 ^hdf~netcdf 
+  #   ^hdf5@1.8.9 +hl ^iconv ^jpeg ^m4 ^mpi ^ncurses ^parallel-netcdf ^perl ^pkgconfig ^readline 
+  #   ^zlib@1.2.5'
+  # and zlib is ususually does not require a specific version, same for cmake 
+  # need to think about the approach. 
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$hdf5-set]
+    - ['%gcc@12.2.0']
+    - [api=v110, api=v18, api=v16]
+    - [+mpi, ~mpi+cxx]
+    - [+hl +fortran +szip build_type=Release]
+  - matrix:
+    - [hdf5@1.12.2]
+    - ['%gcc@12.2.0']
+    - [api=v112]
+    - [+mpi, ~mpi+cxx]
+    - [+hl +fortran +szip build_type=Release]
+  - matrix:
+    - [$adios-set]
+    - ['%gcc@12.2.0']
+    - [+python ^python@3.10.10 +optimizations+zlib, ~python]
+    - [+hdf5]
+    - [^hdf5@1.12.2 +hl +fortran +szip api=v112 build_type=Release]
+    #- [^hdf5@1.12.1 +hl +fortran +szip api=v112 build_type=Release, ^hdf5@1.12.1 +hl +fortran +szip api=v110 build_type=Release,
+    #  ^hdf5@1.12.1 +hl +fortran +szip api=v18 build_type=Release]
+  - matrix:
+    - [$netcdf-set]
+    - ['%gcc@12.2.0']
+    - [target=zen3]
+  view: false
