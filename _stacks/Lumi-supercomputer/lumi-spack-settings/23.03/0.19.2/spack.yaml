@@ -134,7 +134,7 @@ spack:
       enable:
       - tcl
       tcl:
-        hash_length: 2
+        hash_length: 3
         projections:
           all: '{name}/{version}-{compiler.name}'
         all:

@@ -6,149 +6,46 @@ spack:
   config:
     install_tree:
       projections:
-        gcc: '{name}/{version}'
-        hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
-        netcdf-c^hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
-        eccodes^hdf5+threadsafe: '{name}/{version}-safe/{compiler.name}/{compiler.version}'
-        netcdf-c^mpi: netcdf/{version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
-        netcdf-fortran^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
-        netcdf-cxx4^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}
-        netcdf-c: netcdf/{version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
-        netcdf-fortran: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
-        netcdf-cxx4: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}
-        all: '{name}/{version}/{compiler.name}/{compiler.version}'
-        ^mpi: '{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}'
-    build_jobs: 8
-    test_stage: /glade/derecho/scratch/$user/temp/spack/derecho/23.03/tests
+        gcc: '{name}/{version}/{hash:4}'
+        netcdf-c^mpi: netcdf/{version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}/{hash:4}
+        netcdf-fortran^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}/{hash:4}
+        netcdf-cxx4^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}/{hash:4}
+        netcdf-c: netcdf/{version}/packages/{name}/{version}/{compiler.name}/{compiler.version}/{hash:4}
+        netcdf-fortran: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}/{hash:4}
+        netcdf-cxx4: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}/{hash:4}
+        all: '{name}/{version}/{compiler.name}/{compiler.version}/{hash:4}'
+        ^mpi: '{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}/{hash:4}'
+    build_jobs: 4
+    test_stage: /glade/derecho/scratch/$user/temp/spack/derecho/23.06/tests
     source_cache: /glade/derecho/scratch/$user/temp/spack/cache
-    misc_cache: /glade/derecho/scratch/$user/temp/spack/derecho/23.03/misc
+    misc_cache: /glade/derecho/scratch/$user/temp/spack/derecho/23.06/misc
     build_stage:
-    - /glade/derecho/scratch/$user/temp/spack/derecho/23.03/builds
+    - /glade/derecho/scratch/$user/temp/spack/derecho/23.06/builds
     shared_linking:
       type: rpath
       bind: false
     template_dirs:
-    - /glade/derecho/scratch/csgteam/spack-deployments/derecho/23.03/envs/build/templates/modules
+    - /glade/work/csgteam/spack-deployments/derecho/23.06/envs/build/templates/modules
   packages:
-    cairo:
-      require: '%gcc@10.4.0'
-    libxcb:
-      require: '%gcc@10.4.0'
-    fontconfig:
-      require: '%gcc@10.4.0'
-    libxaw:
-      require: '%gcc@10.4.0'
-    libx11:
-      require: '%gcc@10.4.0'
-    snappy:
-      require: '%gcc@10.4.0'
-    qhull:
-      require: '%gcc@10.4.0'
-    giflib:
-      require: '%gcc@10.4.0'
-    json-c:
-      require: '%gcc@10.4.0'
-    libdeflate:
-      require: '%gcc@10.4.0'
-    lz4:
-      require: '%gcc@10.4.0'
-    ninja:
-      require: '%gcc@10.4.0'
-    pmix:
-      require: '%gcc@10.4.0'
-    numactl:
-      require: '%gcc@10.4.0'
-    readline:
-      require: '%gcc@10.4.0'
-    pcre2:
-      require: '%gcc@10.4.0'
-    icu4c:
-      require: '%gcc@10.4.0'
-    openjdk:
-      require: '%gcc@10.4.0'
-    which:
-      require: '%gcc@10.4.0'
-    xz:
-      require: '%gcc@10.4.0'
-    texinfo:
-      require: '%gcc@10.4.0'
-    util-linux-uuid:
-      require: '%gcc@10.4.0'
-    perl:
-      require: '%gcc@10.4.0'
-    libjpeg-turbo:
-      require: '%gcc@10.4.0'
-    flex:
-      require: '%gcc@10.4.0'
-    bison:
-      require: '%gcc@10.4.0'
-    sqlite:
-      require: '%gcc@10.4.0'
-    googletest:
-      require: '%gcc@10.4.0'
-    libtiff:
-      require: '%gcc@10.4.0'
-    antlr:
-      require: '%gcc@10.4.0'
-    libpng:
-      require: '%gcc@10.4.0'
-    jasper:
-      require: '%gcc@10.4.0'
-    libxml2:
-      require: '%gcc@10.4.0'
-    cmake:
-      require: '%gcc@10.4.0'
-    zlib:
-      require: '%gcc@10.4.0'
-    libszip:
-      require: '%gcc@10.4.0'
-    expat:
-      require: '%gcc@10.4.0'
-    cudnn:
+    intel-oneapi-vtune:
       externals:
-      - spec: cudnn@8.5.0.96-11.7
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/cudnn/8.5.0.96-11.7
-      buildable: false
-    nvhpc:
-      externals:
-      - spec: nvhpc@23.1
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1
-      buildable: false
-    arm-forge:
-      externals:
-      - spec: arm-forge@22.1.3
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/arm-forge/22.1.3
-      buildable: false
-    intel-oneapi-compilers:
-      externals:
-      - spec: intel-oneapi-compilers@2023.0.0
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0
-      buildable: false
-    gcc:
-      externals:
-      - spec: gcc@10.4.0 languages=c,c++,fortran
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0
-        extra_attributes:
-          compilers:
-            c: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/gcc
-            cxx: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/g++
-            fortran: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/gfortran
-      - spec: gcc@7.5.0 languages=c,c++
-        prefix: /usr
-        extra_attributes:
-          compilers:
-            c: /usr/bin/gcc-7
-            cxx: /usr/bin/g++-7
-      variants: [+piclibs, 'languages=c,c++,fortran,go']
-    libfabric:
-      externals:
-      - spec: libfabric@1.15.2 fabrics=tcp,udp
-        prefix: /opt/cray/libfabric/1.15.2.0
+      - spec: intel-oneapi-vtune@2023.0.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-vtune/2023.0.0
       buildable: false
     gawk:
       externals:
       - spec: gawk@4.2.1
         prefix: /usr
+    gcc:
+      externals:
+      - spec: gcc@7.5.0 languages=c,c++,fortran
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc-7
+            cxx: /usr/bin/g++-7
+            fortran: /usr/bin/gfortran-7
+      variants: [+piclibs, 'languages=c,c++,fortran,go']
     groff:
       externals:
       - spec: groff@1.22.4
@@ -161,6 +58,12 @@ spack:
       externals:
       - spec: rsync@3.2.3
         prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.34
+        prefix: /usr
+      buildable: false
+      require: '%gcc@7.5.0'
     bash:
       externals:
       - spec: bash@4.4.23
@@ -186,6 +89,7 @@ spack:
       - spec: gmake@4.2.1
         prefix: /usr
       buildable: false
+      require: '%gcc@7.5.0'
     lustre:
       externals:
       - spec: lustre@2.15.0.7_rc2_cray_3_g412d1c5
@@ -201,18 +105,148 @@ spack:
       - spec: pkg-config@0.29.2
         prefix: /usr
       buildable: false
-    tar:
-      externals:
-      - spec: tar@1.34
-        prefix: /usr
-      buildable: false
+      require: '%gcc@7.5.0'
     ghostscript:
       externals:
       - spec: ghostscript@9.52
         prefix: /usr
       buildable: false
+    openssl:
+      externals:
+      - spec: openssl@1.1.1l
+        prefix: /usr
+      buildable: false
+    idl:
+      externals:
+      - spec: idl@8.9.0
+        prefix: /glade/u/apps/opt/idl/8.9.0
+      buildable: false
+    matlab:
+      externals:
+      - spec: matlab@R2023a
+        prefix: /glade/u/apps/opt/matlab/R2023a
+      buildable: false
+    libtool:
+      require: '%gcc@7.5.0'
+    automake:
+      require: '%gcc@7.5.0'
+    autoconf:
+      require: '%gcc@7.5.0'
+    cutensor:
+      externals:
+      - spec: cutensor@1.7.0.1
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/cutensor/1.7.0.1
+      buildable: false
+    linaro-forge:
+      externals:
+      - spec: linaro-forge@23.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/linaro-forge/23.0
+      buildable: false
+    bzip2:
+      require: '%gcc@7.5.0'
+    libxcb:
+      require: '%gcc@7.5.0'
+    fontconfig:
+      require: '%gcc@7.5.0'
+    libxaw:
+      require: '%gcc@7.5.0'
+    libx11:
+      require: '%gcc@7.5.0'
+    snappy:
+      require: '%gcc@7.5.0'
+    qhull:
+      require: '%gcc@7.5.0'
+    giflib:
+      require: '%gcc@7.5.0'
+    json-c:
+      require: '%gcc@7.5.0'
+    libdeflate:
+      require: '%gcc@7.5.0'
+    lz4:
+      require: '%gcc@7.5.0'
+    ninja:
+      require: '%gcc@7.5.0'
+    pmix:
+      require: '%gcc@7.5.0'
+    numactl:
+      require: '%gcc@7.5.0'
+    readline:
+      require: '%gcc@7.5.0'
+    pcre2:
+      require: '%gcc@7.5.0'
+    icu4c:
+      require: '%gcc@7.5.0'
+    which:
+      require: '%gcc@7.5.0'
+    xz:
+      require: '%gcc@7.5.0'
+    texinfo:
+      require: '%gcc@7.5.0'
+    util-linux-uuid:
+      require: '%gcc@7.5.0'
+    perl:
+      require: '%gcc@7.5.0'
+    libjpeg-turbo:
+      require: '%gcc@7.5.0'
+    flex:
+      require: '%gcc@7.5.0'
+    bison:
+      require: '%gcc@7.5.0'
+    sqlite:
+      require: '%gcc@7.5.0'
+    googletest:
+      require: '%gcc@7.5.0'
+    libtiff:
+      require: '%gcc@7.5.0'
+    antlr:
+      require: '%gcc@7.5.0'
+    libpng:
+      require: '%gcc@7.5.0'
+    libxml2:
+      require: '%gcc@7.5.0'
+    zlib:
+      require: '%gcc@7.5.0'
+    libszip:
+      require: '%gcc@7.5.0'
+    expat:
+      require: '%gcc@7.5.0'
+    cudnn:
+      externals:
+      - spec: cudnn@8.5.0.96-11.7
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/cudnn/8.5.0.96-11.7
+      buildable: false
+    nvhpc:
+      externals:
+      - spec: nvhpc@23.5
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5
+      - spec: nvhpc@23.3
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3
+      - spec: nvhpc@23.1
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1
+      - spec: nvhpc@21.3
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3
+      buildable: false
+    arm-forge:
+      externals:
+      - spec: arm-forge@22.1.3
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/arm-forge/22.1.3
+      buildable: false
+    intel-oneapi-compilers:
+      externals:
+      - spec: intel-oneapi-compilers@2023.1.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0
+      - spec: intel-oneapi-compilers@2023.0.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0
+      buildable: false
+    libfabric:
+      externals:
+      - spec: libfabric@1.15.2 fabrics=tcp,udp
+        prefix: /opt/cray/libfabric/1.15.2.0
+      buildable: false
+    openjdk:
+      require: '%gcc@7.5.0'
     all:
-      'compiler:': [gcc@10.4.0, gcc, cce, nvhpc, oneapi, intel]
+      'compiler:': [gcc@7.5.0, gcc, cce, nvhpc, oneapi, intel]
       providers:
         'mpi:': [cray-mpich, openmpi]
         'szip:': [libszip]
@@ -222,7 +256,9 @@ spack:
       permissions:
         read: world
         write: user
-      target: [zen3]
+      target: [x86_64_v3]
+    libfuse:
+      require: ~utils
     openpbs:
       externals:
       - spec: openpbs@2021.1.3
@@ -235,6 +271,14 @@ spack:
       buildable: false
     cray-mpich:
       externals:
+      - spec: cray-mpich@8.1.26 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.26/ofi/gnu/9.1
+      - spec: cray-mpich@8.1.26 %cce
+        prefix: /opt/cray/pe/mpich/8.1.26/ofi/cray/14.0
+      - spec: cray-mpich@8.1.26 %nvhpc
+        prefix: /opt/cray/pe/mpich/8.1.26/ofi/nvidia/20.7
+      - spec: cray-mpich@8.1.26 %oneapi
+        prefix: /opt/cray/pe/mpich/8.1.26/ofi/intel/2022.1
       - spec: cray-mpich@8.1.25 %gcc
         prefix: /opt/cray/pe/mpich/8.1.25/ofi/gnu/9.1
       - spec: cray-mpich@8.1.25 %cce
@@ -246,6 +290,9 @@ spack:
       buildable: false
     cray-libsci:
       externals:
+      - spec: cray-libsci@23.05.1.4
+        modules:
+        - cray-libsci/23.05.1.4
       - spec: cray-libsci@23.02.1.1
         modules:
         - cray-libsci/23.02.1.1
@@ -253,17 +300,17 @@ spack:
     cuda:
       externals:
       - spec: cuda@11.7.1
-        prefix: /glade/u/apps/common/23.03/spack/opt/spack/cuda/11.7.1
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/cuda/11.7.1
       buildable: false
       require: +allow-unsupported-compilers
     hwloc:
-      require: '%gcc@10.4.0'
+      require: '%gcc@7.5.0'
       variants: [+cuda]
     openmpi:
-      variants: [+cuda]
-      require: fabrics=cma,ofi schedulers=tm +gpfs +lustre
+      variants: [~cuda]
+      require: fabrics=cma,ofi,knem schedulers=tm +gpfs +lustre
     zstd:
-      require: '%gcc@10.4.0'
+      require: '%gcc@7.5.0'
       variants: [+programs]
     git:
       variants: [+svn]
@@ -278,8 +325,8 @@ spack:
       variants: [+hl, +szip, +fortran, +cxx, ~mpi]
     netcdf-cxx4:
       variants: [~doxygen]
-    parallelio:
-      variants: [+pnetcdf]
+    jasper:
+      require: '%gcc@7.5.0 @:2'
     fftw:
       variants: [~mpi]
     eccodes:
@@ -290,30 +337,87 @@ spack:
       variants: [~suid]
     apptainer:
       variants: [~suid]
+    charliecloud:
+      variants: [+squashfuse]
+    parallelio:
+      variants: [+pnetcdf, ~logging, +ncint]
+    parallelio1:
+      variants: [+pnetcdf]
     esmf:
-      variants: [~mpi]
+      variants: [~mpi, ~xerces, +external-lapack, +parallelio, ~pnetcdf]
     ncl:
       variants: [+gdal, +hdf4]
     intel-oneapi-mpi:
-      variants: [+external-libfabric, +ilp64]
-    intel-oneapi-mkl:
-      variants: [+ilp64]
+      variants: [+external-libfabric, +generic-names]
     gdb:
       variants: [+gold, +ld, +lto, +tui, ~python, ~debuginfod]
     curl:
-      require: '%gcc@10.4.0'
-      variants: [+libidn2]
+      require: '%gcc@7.5.0'
+      variants: [+libidn2, +nghttp2]
     gdal:
       variants: [+blosc, +curl, +deflate, +expat, +geos, +gif, +grass, +grib, +hdf5,
         +iconv, +jasper, +jpeg, +libcsf, +liblzma, +lz4, +netcdf, +pcidsk, +png, +qhull,
         +sqlite3, +zstd]
     arpack-ng:
       variants: [~mpi]
+    cmake:
+      require: '%gcc@7.5.0'
+      variants: [~ownlibs]
+    libarchive:
+      require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+    cairo:
+      require: '%gcc@7.5.0'
+      variants: [+fc, +gobject, +X, +ft, +pdf]
+    pango:
+      variants: [+X]
+    imagemagick:
+      variants: [+ghostscript]
+    libffi:
+      require: '@:3.3'
+    wgrib2:
+      variants: [+netcdf4, ~netcdf3, +mysql, +udf, +proj4]
+    gnuplot:
+      variants: [+X, +wx, +qt]
+    qt:
+      variants: [+gtk, +opengl, +examples]
+    gtkplus:
+      variants: [+cups]
+    octave:
+      variants: [+arpack, +curl, +fftw, +fltk, +fontconfig, +freetype, +gl2ps, +glpk,
+        +gnuplot, +llvm, +magick, +opengl, +qhull, +qrupdate, +qscintilla, +qt, +suitesparse,
+        +zlib]
+    paraview:
+      variants: [+adios2, +examples, +eyedomelighting, +fortran, +hdf5, +libcatalyst,
+        +openpmd, +osmesa, +pagosa, +python, +qt, +visitbridge]
+    adios2:
+      variants: [+hdf5, +python]
+    harfbuzz:
+      variants: [+graphite2]
+    wxwidgets:
+      variants: [+opengl]
+    gptl:
+      variants: [+papi, +pmpi]
+    libunwind:
+      require: '%gcc@7.5.0'
+      variants: ['components=setjump,ptrace,coredump', +pic, +xz, +debug_frame, +zlib,
+        +cxx_exceptions]
+    darshan-runtime:
+      variants: [scheduler=pbs, +parallel-netcdf]
+    darshan-util:
+      variants: [+bzip2]
+    julia:
+      require: ^llvm~clang~gold~polly ^openblas threads=openmp
   view:
     baseenv:
-      root: /glade/u/apps/derecho/23.03/opt
+      root: /glade/u/apps/derecho/23.06/opt
       select:
-      - squashfuse
+      - xxdiff
+      - gnuplot
+      - qt
+      - imagemagick
+      - nano
+      - git-lfs
+      - git
       - slirp4netns
       - libtree
       - tree
@@ -324,8 +428,9 @@ spack:
       - python
       - zstd
       - antlr
+      - squashfuse
       - squashfs
-      - flex
+      - flex@2.6.4
       - tcl
       - ruby
       - bison
@@ -343,66 +448,65 @@ spack:
       - libszip
       - unzip
       - curl
+      - openssl
       - libtool
       - autoconf@2.71
       - automake
       - tmux
+      - nghttp2
       link_type: symlink
       link: roots
   compilers:
   - compiler:
+      spec: gcc@7.5.0
       paths:
         cc: /usr/bin/gcc
         cxx: /usr/bin/g++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       operating_system: sles15
-      target: x86_64
-      spec: gcc@7.5.0
       modules: []
+      environment: {}
   - compiler:
-      spec: intel@2021.8.0
+      spec: nvhpc@21.3
       paths:
-        cc: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/icc
-        cxx: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/icpc
-        f77: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/ifort
-        fc: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/ifort
+        cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvfortran
       operating_system: sles15
-      target: x86_64
       modules: []
       environment:
         prepend_path:
-          LD_LIBRARY_PATH: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
-        append_path:
-          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
-  - compiler:
-      spec: oneapi@2023.0.0
-      paths:
-        cc: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/icx
-        cxx: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/icpx
-        f77: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/ifx
-        fc: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/ifx
-      operating_system: sles15
-      target: x86_64
-      modules: []
-      environment:
-        prepend_path:
-          LD_LIBRARY_PATH: /glade/u/apps/common/23.03/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/lib
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   - compiler:
       spec: nvhpc@23.1
       paths:
-        cc: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvc
-        cxx: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvc++
-        f77: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvfortran
-        fc: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvfortran
+        cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/bin/nvfortran
       operating_system: sles15
-      target: x86_64
       modules: []
       environment:
         prepend_path:
-          LD_LIBRARY_PATH: /glade/u/apps/common/23.03/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/lib
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+  - compiler:
+      spec: oneapi@2023.0.0
+      paths:
+        cc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/icx
+        cxx: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/icpx
+        f77: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/ifort
+        fc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/bin/intel64/ifort
+      operating_system: sles15
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   - compiler:
@@ -413,7 +517,6 @@ spack:
         f77: ftn
         fc: ftn
       operating_system: sles15
-      target: any
       modules:
       - craype
       - cce/15.0.1
@@ -430,7 +533,6 @@ spack:
         f77: ftn
         fc: ftn
       operating_system: sles15
-      target: any
       modules:
       - craype
       - gcc/12.2.0
@@ -440,22 +542,39 @@ spack:
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   - compiler:
-      spec: gcc@10.4.0
+      spec: nvhpc@23.5
       paths:
-        cc: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/gcc
-        cxx: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/g++
-        f77: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/gfortran
-        fc: /glade/u/apps/common/23.03/spack/opt/spack/gcc/10.4.0/bin/gfortran
-      flags: {}
+        cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvfortran
       operating_system: sles15
-      target: x86_64
       modules: []
-      environment: {}
-      extra_rpaths: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/lib
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+  - compiler:
+      spec: cce@16.0.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: sles15
+      modules:
+      - craype
+      - cce/16.0.0
+      environment:
+        set:
+          PE_ENV: CRAY
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   modules:
     'default:':
       roots:
-        lmod: /glade/u/apps/derecho/modules/23.03
+        lmod: /glade/u/apps/derecho/modules/23.06
       arch_folder: false
       'enable:':
       - lmod
@@ -482,21 +601,28 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
-        - gcc@10.4.0
-        - squashfuse
+        - xxdiff
+        - openjdk
+        - gnuplot
+        - qt
+        - nghttp2
+        - imagemagick
+        - nano
+        - git-lfs
+        - git
         - slirp4netns
         - libtree
         - tree
         - gdb
         - emacs
         - tmux
-        - openjdk
         - meson
         - python
         - zstd
         - antlr
+        - squashfuse
         - squashfs
-        - flex
+        - flex@2.6.4
         - tcl
         - ruby
         - bison
@@ -514,9 +640,11 @@ spack:
         - libszip
         - unzip
         - curl
+        - openssl
         - libtool
         - autoconf@2.71
         - automake
+        - libfabric
         - lmod
         - netcdf-c
         - netcdf-fortran
@@ -524,8 +652,6 @@ spack:
         - cray-mpich
         - cray-libsci
         - cray-fftw
-        include:
-        - git
         all:
           environment:
             set:
@@ -538,17 +664,14 @@ spack:
             set:
               NCAR_ID_MPI: '{name}-{version}'
               NCAR_BUILD_ENV_MPI: derecho-{compiler.name}-{compiler.version}-{name}-{version}
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}/{compiler.name}/{compiler.version}
         gcc:
           environment:
             set:
               NCAR_ID_COMPILER: '{name}-{version}'
               NCAR_BUILD_ENV_COMPILER: derecho-{name}-{version}
               NCAR_BUILD_ENV: derecho-{name}-{version}
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}
         intel-oneapi-compilers:
+          template: ncar_intel.lua
           filter:
             exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_COMPILERS, NCAR_SPACK_HASH_INTEL_ONEAPI_COMPILERS]
           environment:
@@ -571,9 +694,8 @@ spack:
               I_MPI_FC: ifx
               I_MPI_F90: ifx
               I_MPI_F77: ifx
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{version}
         intel-oneapi-compilers-classic:
+          template: ncar_intel.lua
           autoload: none
           filter:
             exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_COMPILERS_CLASSIC, CMAKE_PREFIX_PATH,
@@ -598,9 +720,8 @@ spack:
               I_MPI_FC: ifort
               I_MPI_F90: ifort
               I_MPI_F77: ifort
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/oneapi/{^intel-oneapi-compilers.version}
         intel-oneapi-mkl:
+          template: ncar_math.lua
           filter:
             exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_MKL, NCAR_LDFLAGS_INTEL_ONEAPI_MKL,
               NCAR_SPACK_HASH_INTEL_ONEAPI_MKL]
@@ -616,6 +737,18 @@ spack:
             set:
               NCAR_ROOT_IMPI: '{prefix}'
               NCAR_SPACK_HASH_IMPI: '{hash}'
+              FI_PROVIDER_PATH: /opt/cray/libfabric/1.15.2.0
+              I_MPI_HYDRA_BOOTSTRAP_EXEC: pbs_tmrsh
+              I_MPI_HYDRA_BOOTSTRAP: rsh
+            prepend_path:
+              LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        intel-oneapi-vtune:
+          filter:
+            exclude_env_vars: [NCAR_ROOT_INTEL_ONEAPI_VTUNE, NCAR_SPACK_HASH_INTEL_ONEAPI_VTUNE]
+          environment:
+            set:
+              NCAR_ROOT_VTUNE: '{prefix}'
+              NCAR_SPACK_HASH_VTUNE: '{hash}'
         nvhpc:
           environment:
             set:
@@ -628,8 +761,10 @@ spack:
               NCAR_BUILD_ENV: derecho-{name}-{version}
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/Linux_x86_64/{version}/compilers/lib'
-            append_path:
-              MODULEPATH: /glade/u/apps/cseg/modules/23.03/{name}/{version}
+        nvhpc@21.3:
+          environment:
+            set:
+              CRAY_CPU_TARGET: x86-rome
         ncarcompilers:
           environment:
             set:
@@ -645,6 +780,7 @@ spack:
               NCAR_ROOT_PNETCDF: '{prefix}'
               PNETCDF: '{prefix}'
         cuda:
+          template: ncar_cuda.lua
           environment:
             set:
               NVHPC_CUDA_HOME: '{prefix}'
@@ -657,6 +793,7 @@ spack:
               CRAY_CUDATOOLKIT_DIR: '{prefix}'
               CUDATOOLKIT_HOME: '{prefix}'
               NCAR_LIBS_CRAYGTL: -lstdc++
+              CUDA_VERSION: '{version}'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib64:{prefix}/nvvm/lib64:{prefix}/extras/CUPTI/lib64:{prefix}/extras/Debugger/lib64'
               CRAY_LD_LIBRARY_PATH: '{prefix}/lib64'
@@ -664,22 +801,29 @@ spack:
           environment:
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
+        cutensor:
+          template: ncar_requires_cuda.lua
+          filter:
+            exclude_env_vars: [NCAR_LDFLAGS_CUTENSOR]
+          environment:
+            set:
+              NCAR_LDFLAGS_CUTENSOR_CUDA: '{prefix}/lib/" .. os.getenv("CUDA_MAJOR_VERSION")
+                .."'
         openmpi:
           environment:
             set:
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
+              OMPI_MCA_smsc: ^knem
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
         miniconda3:
           filter:
             exclude_env_vars: [PATH, LD_LIBRARY_PATH, NCAR_LDFLAGS_MINICONDA3, NCAR_INC_MINICONDA3,
               NCAR_ROOT_MINICONDA3, ACLOCAL_PATH, PKG_CONFIG_PATH, CMAKE_PREFIX_PATH,
-              CONDA_SHLVL, _CE_CONDA, _CE_M, MANPATH]
+              CONDA_SHLVL, _CE_CONDA, _CE_M, MANPATH, CONDA_EXE, CONDA_PYTHON_EXE]
           environment:
             set:
               NCAR_ROOT_CONDA: '{prefix}'
-              CONDA_ROOT: '{prefix}'
-              CONDA_EXE: '{prefix}/bin/conda'
           template: conda.lua
         apptainer:
           environment:
@@ -693,8 +837,30 @@ spack:
               PATH: '{^squashfs.prefix}/bin'
           filter:
             exclude_env_vars: [GOPATH]
-        ncarenv:
-          template: ncar_env.lua
+        parallelio:
+          environment:
+            set:
+              PIO: '{prefix}'
+        parallelio1:
+          filter:
+            exclude_env_vars: [NCAR_LDFLAGS_PARALLELIO1, NCAR_INC_PARALLELIO1, NCAR_ROOT_PARALLELIO1,
+              NCAR_SPACK_HASH_PARALLELIO1]
+          environment:
+            set:
+              PIO: '{prefix}'
+              NCAR_LDFLAGS_PARALLELIO: '{prefix}/lib'
+              NCAR_INC_PARALLELIO: '{prefix}/include'
+              NCAR_ROOT_PARALLELIO: '{prefix}'
+              NCAR_SPACK_HASH_PARALLELIO: '{hash}'
+        darshan-runtime:
+          autoload: none
+          environment:
+            set:
+              DARSHAN_LOG_DIR_PATH: /glade/u/home/"..os.getenv("USER").."
+              DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
+              DARSHAN_MOD_DISABLE: LUSTRE
+        esmf:
+          autoload: none
         netcdf~mpi:
           template: conflict-serial.lua
         netcdf+mpi:
@@ -707,10 +873,6 @@ spack:
           template: conflict-serial.lua
         fftw+mpi:
           template: conflict-mpi.lua
-        esmf~mpi:
-          template: conflict-serial.lua
-        esmf+mpi:
-          template: conflict-mpi.lua
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
@@ -719,17 +881,17 @@ spack:
           netcdf: netcdf/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
-          intel-oneapi-mpi: impi/{version}
+          intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
+          intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
-          esmf+mpi: esmf-mpi/{version}
+          parallelio1: parallelio/{version}
         core_compilers:
-        - gcc@10.4.0
+        - gcc@7.5.0
         core_specs:
         - cuda
         - r
         - cmake
-        - git
         - nco
         - cdo
         - wgrib2
@@ -738,26 +900,30 @@ spack:
         - netcdf@4.9.1
         - parallel-netcdf@1.12.3
         - fftw@3.3.10
-        - openmpi@4.1.5
+        - openmpi@4.1.4
         - nvhpc@23.1
+        - parallelio+mpi
+        - esmf+mpi
   concretizer:
     unify: false
   mirrors:
-    ncar_mirror_global: /glade/u/apps/mirror
+    ncar_mirror_global: /glade/u/apps/derecho/mirror
   repos:
-  - /glade/derecho/scratch/csgteam/spack-deployments/derecho/23.03/envs/build/repos/ncar.hpcd
-  - /glade/derecho/scratch/csgteam/spack-deployments/derecho/23.03/envs/build/repos/future
+  - /glade/work/csgteam/spack-deployments/derecho/23.06/envs/build/repos/ncar.hpcd
   specs:
-  - gcc@10.4.0
+  - libfabric
+  - nvhpc@21.3
   - nvhpc@23.1
   - intel-oneapi-compilers@2023.0.0
   - cray-mpich@8.1.25%gcc@12.2.0
+  - cray-mpich@8.1.25%nvhpc@21.3
   - cray-mpich@8.1.25%nvhpc@23.1
   - cray-mpich@8.1.25%oneapi@2023.0.0
   - cray-mpich@8.1.25%cce@15.0.1
   - automake
   - autoconf@2.71
   - libtool
+  - openssl
   - curl
   - unzip
   - libszip
@@ -775,25 +941,28 @@ spack:
   - bison
   - ruby
   - tcl
-  - flex
+  - flex@2.6.4
   - squashfs
+  - squashfuse
   - antlr
   - zstd
   - python
   - meson
-  - openjdk
   - tmux
   - emacs
   - gdb
   - tree
   - libtree
   - slirp4netns
+  - git
+  - git-lfs
+  - nano
+  - imagemagick
   - lmod
   - cmake
   - miniconda3
   - arm-forge@22.1.3
-  - git
-  - go@1.19.6
+  - go
   - apptainer
   - perl
   - pcre
@@ -803,68 +972,178 @@ spack:
   - cuda@11.7.1
   - cudnn@8.5.0.96-11.7
   - intel-oneapi-compilers-classic@2021.8.0
-  - ncl ^esmf@8.0.0 ^hdf5~mpi
+  - ncl ^esmf@8.0.1~external-lapack ^hdf5~mpi
   - intel-oneapi-mkl@2023.0.0%oneapi@2023.0.0
-  - squashfuse
   - cray-libsci@23.02.1.1%gcc@12.2.0
   - cray-libsci@23.02.1.1%cce@15.0.1
-  - ncarcompilers@0.8.0%gcc@12.2.0
-  - ncarcompilers@0.8.0%nvhpc@23.1
-  - ncarcompilers@0.8.0%oneapi@2023.0.0
-  - ncarcompilers@0.8.0%cce@15.0.1
+  - ncarcompilers@1.0.0%gcc@12.2.0
+  - ncarcompilers@1.0.0%nvhpc@21.3
+  - ncarcompilers@1.0.0%nvhpc@23.1
+  - ncarcompilers@1.0.0%oneapi@2023.0.0
+  - ncarcompilers@1.0.0%cce@15.0.1
   - fftw@3.3.10%gcc@12.2.0~mpi
+  - fftw@3.3.10%nvhpc@21.3~mpi
   - fftw@3.3.10%nvhpc@23.1~mpi
   - fftw@3.3.10%oneapi@2023.0.0~mpi
   - fftw@3.3.10%cce@15.0.1~mpi
   - udunits@2.2.28%gcc@12.2.0
+  - udunits@2.2.28%nvhpc@21.3
   - udunits@2.2.28%nvhpc@23.1
   - udunits@2.2.28%oneapi@2023.0.0
   - udunits@2.2.28%cce@15.0.1
   - hdf5@1.12.2%gcc@12.2.0~mpi
+  - hdf5@1.12.2%nvhpc@21.3~mpi
   - hdf5@1.12.2%nvhpc@23.1~mpi
   - hdf5@1.12.2%oneapi@2023.0.0~mpi
   - hdf5@1.12.2%cce@15.0.1~mpi
-  - netcdf@4.9.1%gcc@12.2.0~mpi
-  - netcdf@4.9.1%nvhpc@23.1~mpi
-  - netcdf@4.9.1%oneapi@2023.0.0~mpi
-  - netcdf@4.9.1%cce@15.0.1~mpi
+  - netcdf@4.9.2%gcc@12.2.0~mpi
+  - netcdf@4.9.2%nvhpc@21.3~mpi
+  - netcdf@4.9.2%nvhpc@23.1~mpi
+  - netcdf@4.9.2%oneapi@2023.0.0~mpi
+  - netcdf@4.9.2%cce@15.0.1~mpi
   - proj@8.2.1%gcc@12.2.0
+  - proj@8.2.1%nvhpc@21.3
   - proj@8.2.1%nvhpc@23.1
   - proj@8.2.1%oneapi@2023.0.0
   - proj@8.2.1%cce@15.0.1
   - geos@3.9.1%gcc@12.2.0
+  - geos@3.9.1%nvhpc@21.3
   - geos@3.9.1%nvhpc@23.1
   - geos@3.9.1%oneapi@2023.0.0
   - geos@3.9.1%cce@15.0.1
   - hdf@4.2.15%gcc@12.2.0
+  - hdf@4.2.15%nvhpc@21.3
   - hdf@4.2.15%nvhpc@23.1
   - hdf@4.2.15%oneapi@2023.0.0 cflags="-std=c90 -Wno-error=int-conversion"
   - hdf@4.2.15%cce@15.0.1
+  - mpi-serial@2.3.0%gcc@12.2.0
+  - mpi-serial@2.3.0%nvhpc@21.3
+  - mpi-serial@2.3.0%nvhpc@23.1
+  - mpi-serial@2.3.0%oneapi@2023.0.0
+  - mpi-serial@2.3.0%cce@15.0.1
+  - parallelio@2.5.10%gcc@12.2.0~mpi~pnetcdf
+  - parallelio@2.5.10%nvhpc@21.3~mpi~pnetcdf
+  - parallelio@2.5.10%nvhpc@23.1~mpi~pnetcdf
+  - parallelio@2.5.10%oneapi@2023.0.0~mpi~pnetcdf
+  - parallelio@2.5.10%cce@15.0.1~mpi~pnetcdf
+  - esmf@8.4.2%gcc@12.2.0~mpi ^parallelio~mpi
+  - esmf@8.4.2%nvhpc@21.3~mpi ^nvhpc ^parallelio~mpi
+  - esmf@8.4.2%nvhpc@23.1~mpi ^nvhpc ^parallelio~mpi
+  - esmf@8.4.2%oneapi@2023.0.0~mpi esmf_os=Unicos ^intel-oneapi-mkl ^parallelio~mpi
+  - esmf@8.4.2%cce@15.0.1~mpi ^parallelio~mpi
   - eccodes@2.25.0%gcc@12.2.0
+  - eccodes@2.25.0%nvhpc@21.3
   - eccodes@2.25.0%nvhpc@23.1
   - eccodes@2.25.0%oneapi@2023.0.0
-  - gdal@3.6.0%gcc@12.2.0 ^hdf5~mpi
-  - gdal@3.6.0%cce@15.0.1 ^hdf5~mpi
+  - gdal@3.6.4%gcc@12.2.0 ^hdf5~mpi
+  - gdal@3.6.4%cce@15.0.1 ^hdf5~mpi
   - parallel-netcdf@1.12.3%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallel-netcdf@1.12.3%nvhpc@21.3 ^cray-mpich@8.1.25%nvhpc@21.3
   - parallel-netcdf@1.12.3%nvhpc@23.1 ^cray-mpich@8.1.25%nvhpc@23.1
   - parallel-netcdf@1.12.3%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
   - parallel-netcdf@1.12.3%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
   - hdf5@1.12.2%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - hdf5@1.12.2%nvhpc@21.3+mpi ^cray-mpich@8.1.25%nvhpc@21.3
   - hdf5@1.12.2%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
   - hdf5@1.12.2%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
   - hdf5@1.12.2%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
-  - netcdf@4.9.1%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
-  - netcdf@4.9.1%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
-  - netcdf@4.9.1%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
-  - netcdf@4.9.1%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
+  - netcdf@4.9.2%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - netcdf@4.9.2%nvhpc@21.3+mpi ^cray-mpich@8.1.25%nvhpc@21.3
+  - netcdf@4.9.2%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
+  - netcdf@4.9.2%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - netcdf@4.9.2%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
   - fftw@3.3.10%gcc@12.2.0+mpi ^cray-mpich@8.1.25%gcc@12.2.0
+  - fftw@3.3.10%nvhpc@21.3+mpi ^cray-mpich@8.1.25%nvhpc@21.3
   - fftw@3.3.10%nvhpc@23.1+mpi ^cray-mpich@8.1.25%nvhpc@23.1
   - fftw@3.3.10%oneapi@2023.0.0+mpi ^cray-mpich@8.1.25%oneapi@2023.0.0
   - fftw@3.3.10%cce@15.0.1+mpi ^cray-mpich@8.1.25%cce@15.0.1
-  - nco@5.1.4%gcc@12.2.0
-  - cdo@2.1.1%gcc@12.2.0
-  - ncview@2.1.8%gcc@12.2.0
   - parallelio@2.5.10%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.5.10%nvhpc@21.3 ^cray-mpich@8.1.25%nvhpc@21.3
   - parallelio@2.5.10%nvhpc@23.1 ^cray-mpich@8.1.25%nvhpc@23.1
   - parallelio@2.5.10%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
   - parallelio@2.5.10%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
+  - esmf@8.4.2%gcc@12.2.0+mpi+pnetcdf ^cray-mpich@8.1.25%gcc@12.2.0
+  - esmf@8.4.2%nvhpc@21.3+mpi+pnetcdf ^cray-mpich@8.1.25%nvhpc@21.3 ^nvhpc
+  - esmf@8.4.2%nvhpc@23.1+mpi+pnetcdf ^cray-mpich@8.1.25%nvhpc@23.1 ^nvhpc
+  - esmf@8.4.2%oneapi@2023.0.0+mpi+pnetcdf ^cray-mpich@8.1.25%oneapi@2023.0.0 ^intel-oneapi-mkl
+  - esmf@8.4.2%cce@15.0.1+mpi+pnetcdf ^cray-mpich@8.1.25%cce@15.0.1
+  - nco@5.1.4%gcc@12.2.0
+  - cdo@2.1.1%gcc@12.2.0
+  - ncview@2.1.8%gcc@12.2.0
+  - nccmp@1.9.0.1%gcc@12.2.0
+  - parallelio@2.6.0%gcc@12.2.0~mpi~pnetcdf
+  - parallelio@2.6.0%nvhpc@21.3~mpi~pnetcdf
+  - parallelio@2.6.0%nvhpc@23.1~mpi~pnetcdf
+  - parallelio@2.6.0%oneapi@2023.0.0~mpi~pnetcdf
+  - parallelio@2.6.0%cce@15.0.1~mpi~pnetcdf
+  - parallelio@2.6.0%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.6.0%nvhpc@21.3 ^cray-mpich@8.1.25%nvhpc@21.3
+  - parallelio@2.6.0%nvhpc@23.1 ^cray-mpich@8.1.25%nvhpc@23.1
+  - parallelio@2.6.0%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallelio@2.6.0%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
+  - nghttp2
+  - ncvis
+  - intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - parallel-netcdf@1.12.3%oneapi@2023.0.0 ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - hdf5@1.12.2%oneapi@2023.0.0+mpi ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - netcdf@4.9.2%oneapi@2023.0.0+mpi ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - fftw@3.3.10%oneapi@2023.0.0+mpi ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - parallelio@2.6.0%oneapi@2023.0.0 ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - esmf@8.4.2%oneapi@2023.0.0+mpi+pnetcdf ^intel-oneapi-mkl ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - linaro-forge@23.0
+  - nvhpc@23.5
+  - cray-mpich@8.1.25%nvhpc@23.5
+  - ncarcompilers@1.0.0%nvhpc@23.5
+  - fftw@3.3.10%nvhpc@23.5~mpi
+  - udunits@2.2.28%nvhpc@23.5
+  - hdf5@1.12.2%nvhpc@23.5~mpi
+  - netcdf@4.9.2%nvhpc@23.5~mpi
+  - proj@8.2.1%nvhpc@23.5
+  - geos@3.9.1%nvhpc@23.5
+  - hdf@4.2.15%nvhpc@23.5
+  - mpi-serial@2.3.0%nvhpc@23.5
+  - parallelio@2.6.0%nvhpc@23.5~mpi~pnetcdf
+  - esmf@8.4.2%nvhpc@23.5~mpi ^nvhpc ^parallelio~mpi
+  - eccodes@2.25.0%nvhpc@23.5
+  - parallel-netcdf@1.12.3%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - hdf5@1.12.2%nvhpc@23.5+mpi ^cray-mpich@8.1.25%nvhpc@23.5
+  - netcdf@4.9.2%nvhpc@23.5+mpi ^cray-mpich@8.1.25%nvhpc@23.5
+  - fftw@3.3.10%nvhpc@23.5+mpi ^cray-mpich@8.1.25%nvhpc@23.5
+  - parallelio@2.6.0%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - esmf@8.4.2%nvhpc@23.5+mpi+pnetcdf ^cray-mpich@8.1.25%nvhpc@23.5 ^nvhpc
+  - cutensor@1.7.0.1
+  - gptl@8.1.1%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - gptl@8.1.1%nvhpc@21.3 ^cray-mpich@8.1.25%nvhpc@21.3
+  - gptl@8.1.1%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - gptl@8.1.1%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - gptl@8.1.1%oneapi@2023.0.0 ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - darshan-util@3.4.2
+  - qt
+  - gnuplot
+  - texlive
+  - esmf@8.5.0%gcc@12.2.0~mpi ^parallelio~mpi
+  - esmf@8.5.0%nvhpc@23.5~mpi ^nvhpc ^parallelio~mpi
+  - esmf@8.5.0%oneapi@2023.0.0~mpi ^intel-oneapi-mkl ^parallelio~mpi
+  - esmf@8.5.0%cce@15.0.1~mpi ^parallelio~mpi
+  - esmf@8.5.0%gcc@12.2.0+mpi+pnetcdf ^cray-mpich@8.1.25%gcc@12.2.0
+  - esmf@8.5.0%nvhpc@23.5+mpi+pnetcdf ^cray-mpich@8.1.25%nvhpc@23.5 ^nvhpc
+  - esmf@8.5.0%oneapi@2023.0.0+mpi+pnetcdf ^cray-mpich@8.1.25%oneapi@2023.0.0 ^intel-oneapi-mkl
+  - esmf@8.5.0%oneapi@2023.0.0+mpi+pnetcdf ^intel-oneapi-mkl ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - esmf@8.5.0%cce@15.0.1+mpi+pnetcdf ^cray-mpich@8.1.25%cce@15.0.1
+  - darshan-runtime@3.4.2%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - darshan-runtime@3.4.2%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - darshan-runtime@3.4.2%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - darshan-runtime@3.4.2%oneapi@2023.0.0 ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - darshan-runtime@3.4.2%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
+  - openjdk
+  - parallelio1@1.10.1%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio1@1.10.1%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - parallelio1@1.10.1%oneapi@2023.0.0 ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallelio1@1.10.1%oneapi@2023.0.0 ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - parallelio1@1.10.1%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
+  - openmpi@main%oneapi cppflags="-g"
+  - parallel-netcdf@1.12.3%oneapi@2023.0.0 cppflags="-g" ^openmpi
+  - matlab@R2023a
+  - idl@8.9.0
+  - xxdiff
+  - intel-oneapi-vtune@2023.0.0
