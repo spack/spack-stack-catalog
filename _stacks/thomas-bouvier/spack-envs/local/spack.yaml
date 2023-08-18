@@ -1,22 +1,41 @@
 spack:
   repos:
-  - ~/Dev/mochi-spack-packages
+  - /home/tbouvier/Dev/mochi-spack-packages
   packages:
     py-torch:
       variants: [+distributed]
   specs:
+  - mochi-thallium@0.11.1 ^argobots ^mercury ~boostsys ~checksum +ofi +debug
+    ^libfabric +debug fabrics=tcp,rxm
   - openmpi@4.1.2
-  - python@3.10
-  - py-pip
+  #- python@3.10 # py-jupyter-server can't concretize with anything above Python 3.8
+  - nvtx
+  - py-pre-commit
   - py-ruamel-yaml
   - py-filelock
   - py-wandb
   - py-continuum
-  - py-torch@1.13.1 ~gloo
-  - py-torchvision
+  - py-timm
+  - py-torch@2.0.1 ~gloo ~fbgemm ~kineto
   - py-torchsummary
   - py-bokeh
   - py-matplotlib
-  - py-horovod@0.26.1 controllers=mpi frameworks=pytorch tensor_ops=mpi
-  - mochi-thallium@main ^argobots ^mercury ~boostsys ~checksum +ofi +debug ^mochi.libfabric +debug fabrics=tcp,rxm
+  - py-horovod@master controllers=mpi frameworks=pytorch tensor_ops=mpi
+  - py-jupyter
+  concretizer:
+    unify: true
   view: true
+  compilers:
+  - compiler:
+      spec: gcc@=13.1.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: fedora38
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
