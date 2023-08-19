@@ -1,3 +1,4 @@
 spack:
         specs:
+                - compss@3.1
                 - fesom2@eflows4hpc
