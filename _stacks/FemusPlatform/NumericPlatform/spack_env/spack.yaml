@@ -1,0 +1,15 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - hdf5@1.10.3~mpi
+  - salome-med@4.1.0
+  - salome-medcoupling@9.9.0
+  - openmpi@4.1.5
+  - petsc@3.19.2~hdf5+hypre+mpi+mumps
+  view: true
+  concretizer:
+    unify: true

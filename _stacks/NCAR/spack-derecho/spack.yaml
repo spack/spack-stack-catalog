@@ -397,6 +397,8 @@ spack:
       variants: [+opengl]
     gptl:
       variants: [+papi, +pmpi]
+    mpifileutils:
+      variants: [+gpfs, +lustre, +xattr]
     libunwind:
       require: '%gcc@7.5.0'
       variants: ['components=setjump,ptrace,coredump', +pic, +xz, +debug_frame, +zlib,
@@ -749,6 +751,8 @@ spack:
             set:
               NCAR_ROOT_VTUNE: '{prefix}'
               NCAR_SPACK_HASH_VTUNE: '{hash}'
+            append_path:
+              LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
         nvhpc:
           environment:
             set:
@@ -889,6 +893,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - nccmp
         - cuda
         - r
         - cmake
@@ -1147,3 +1152,13 @@ spack:
   - idl@8.9.0
   - xxdiff
   - intel-oneapi-vtune@2023.0.0
+  - parallelio@2.6.1%gcc@12.2.0~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.1%nvhpc@23.5~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.1%oneapi@2023.0.0~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.1%cce@15.0.1~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.1%gcc@12.2.0 ^cmake~ownlibs ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.6.1%nvhpc@23.5 ^cmake~ownlibs ^cray-mpich@8.1.25%nvhpc@23.5
+  - parallelio@2.6.1%oneapi@2023.0.0 ^cmake~ownlibs ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallelio@2.6.1%oneapi@2023.0.0 ^cmake~ownlibs ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - parallelio@2.6.1%cce@15.0.1 ^cmake~ownlibs ^cray-mpich@8.1.25%cce@15.0.1
+  - mpifileutils@0.11.1%gcc@12.2.0 ^cmake~ownlibs ^cray-mpich@8.1.25%gcc@12.2.0
