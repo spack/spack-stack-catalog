@@ -5,6 +5,7 @@ spack:
   - xz
   - ncdu
   - file
+  - openjdk
 
   # hwloc to profile the current system
   - hwloc

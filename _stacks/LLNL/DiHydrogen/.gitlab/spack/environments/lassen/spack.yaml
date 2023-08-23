@@ -102,6 +102,24 @@ spack:
       externals:
       - spec: doxygen@1.8.5+graphviz~mscgen
         prefix: /usr
+    essl:
+      buildable: false
+      externals:
+      - spec: essl@6.3.0.2+lapackforessl~ilp64~cuda threads=none
+        prefix: /usr/tcetmp/packages/essl/essl-6.3.0.2
+        modules: [essl/6.3.0.2]
+      - spec: essl@6.3.0.2+lapackforessl+ilp64~cuda threads=none
+        prefix: /usr/tcetmp/packages/essl/essl-6.3.0.2
+        modules: [essl/6.3.0.2]
+      - spec: essl@6.3.0.2+lapackforessl~ilp64~cuda threads=openmp
+        prefix: /usr/tcetmp/packages/essl/essl-6.3.0.2
+        modules: [essl/6.3.0.2]
+      - spec: essl@6.3.0.2+lapackforessl+ilp64~cuda threads=openmp
+        prefix: /usr/tcetmp/packages/essl/essl-6.3.0.2
+        modules: [essl/6.3.0.2]
+      - spec: essl@6.3.0.2+lapackforessl~ilp64+cuda threads=openmp
+        prefix: /usr/tcetmp/packages/essl/essl-6.3.0.2
+        modules: [essl/6.3.0.2]
     findutils:
       externals:
       - spec: findutils@4.5.11
@@ -150,6 +168,10 @@ spack:
       externals:
       - spec: meson@0.49.1
         prefix: /usr/tce/packages/python/python-3.8.2
+    netlib-lapack:
+      externals:
+      - spec: netlib-lapack@3.4.2
+        prefix: /usr
     openssh:
       externals:
       - spec: openssh@7.4p1
@@ -157,6 +179,10 @@ spack:
     openssl:
       externals:
       - spec: openssl@1.0.2k-fips
+        prefix: /usr
+    perl:
+      externals:
+      - spec: perl@5.16.3+cpanm+opcode+open+shared+threads
         prefix: /usr
     pkg-config:
       externals:
@@ -193,3 +219,8 @@ spack:
       externals:
       - spec: texinfo@5.1
         prefix: /usr
+    all:
+      providers:
+        blas: [essl, netlib-lapack]
+        lapack: [essl, netlib-lapack]
+        mpi: [spectrum-mpi]
