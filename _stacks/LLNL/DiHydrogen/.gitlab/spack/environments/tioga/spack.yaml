@@ -1,0 +1,263 @@
+################################################################################
+## Copyright 2019-2023 Lawrence Livermore National Security, LLC and other
+## DiHydrogen Project Developers. See the top-level LICENSE file for details.
+##
+## SPDX-License-Identifier: Apache-2.0
+################################################################################
+
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: []
+  view: true
+  concretizer:
+    unify: true
+  compilers:
+  # - compiler:
+  #     spec: cce@=amd-5.6.0
+  #     paths:
+  #       cc: cc
+  #       cxx: CC
+  #       f77: ftn
+  #       fc: ftn
+  #     flags: {}
+  #     operating_system: rhel8
+  #     target: x86_64
+  #     modules: [PrgEnv-amd/8.4.0, amd/5.6.0]
+  #     environment: {}
+  #     extra_rpaths: []
+  - compiler:
+      spec: rocmcc@=5.6.0
+      paths:
+        cc: /opt/rocm-5.6.0/bin/amdclang
+        cxx: /opt/rocm-5.6.0/bin/amdclang++
+        f77: /opt/rocm-5.6.0/bin/amdflang
+        fc: /opt/rocm-5.6.0/bin/amdflang
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: [PrgEnv-amd/8.4.0, amd/5.6.0]
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: rocmcc@=5.5.1
+      paths:
+        cc: /opt/rocm-5.5.1/bin/amdclang
+        cxx: /opt/rocm-5.5.1/bin/amdclang++
+        f77: /opt/rocm-5.5.1/bin/amdflang
+        fc: /opt/rocm-5.5.1/bin/amdflang
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: [PrgEnv-amd/8.4.0, amd/5.5.1]
+      environment: {}
+      extra_rpaths: []
+  packages:
+    autoconf:
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      externals:
+      - spec: automake@1.16.1
+        prefix: /usr
+    binutils:
+      externals:
+      - spec: binutils@2.30.117
+        prefix: /usr
+    bison:
+      externals:
+      - spec: bison@3.0.4
+        prefix: /usr
+    ccache:
+      externals:
+      - spec: ccache@3.7.7
+        prefix: /usr
+    cmake:
+      externals:
+      - spec: cmake@3.20.2
+        prefix: /usr
+      - spec: cmake@3.24.2
+        prefix: /usr/tce
+    coreutils:
+      externals:
+      - spec: coreutils@8.30
+        prefix: /usr
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@23.05.1.4 %rocmcc@5.5.1
+        modules: [PrgEnv-amd/8.4.0 amd5.5.1 cray-libsci/23.05.1.4]
+      - spec: cray-libsci@23.05.1.4 %rocmcc@5.6.0
+        modules: [PrgEnv-amd/8.4.0 amd5.6.0 cray-libsci/23.05.1.4]
+      - spec: cray-libsci@23.05.1.4 %rocmcc@5.5.1 +openmp
+        modules: [PrgEnv-amd/8.4.0 amd5.5.1 cray-libsci/23.05.1.4]
+      - spec: cray-libsci@23.05.1.4 %rocmcc@5.6.0 +openmp
+        modules: [PrgEnv-amd/8.4.0 amd5.6.0 cray-libsci/23.05.1.4]
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.26 %rocmcc@5.5.1
+        modules: [PrgEnv-amd/8.4.0 amd5.5.1 cray-mpich/8.1.26]
+      - spec: cray-mpich@8.1.26 %rocmcc@5.6.0
+        modules: [PrgEnv-amd/8.4.0 amd5.6.0 cray-mpich/8.1.26]
+    curl:
+      externals:
+      - spec: curl@7.61.1+gssapi+ldap+nghttp2
+        prefix: /usr
+    cvs:
+      externals:
+      - spec: cvs@1.11.23
+        prefix: /usr
+    diffutils:
+      externals:
+      - spec: diffutils@3.6
+        prefix: /usr
+    doxygen:
+      externals:
+      - spec: doxygen@1.8.14+graphviz~mscgen
+        prefix: /usr
+    findutils:
+      externals:
+      - spec: findutils@4.6.0
+        prefix: /usr
+    flex:
+      externals:
+      - spec: flex@2.6.1+lex
+        prefix: /usr
+    gawk:
+      externals:
+      - spec: gawk@4.2.1
+        prefix: /usr
+    git:
+      externals:
+      - spec: git@2.31.1+tcltk
+        prefix: /usr
+      - spec: git@2.29.1+tcltk
+        prefix: /usr/tce
+    git-lfs:
+      externals:
+      - spec: git-lfs@2.11.0
+        prefix: /usr/tce
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+    groff:
+      externals:
+      - spec: groff@1.22.3
+        prefix: /usr
+    hip:
+      buildable: false
+      externals:
+      - spec: hip@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: hip@5.6.0
+        prefix: /opt/rocm-5.6.0
+    hipcub:
+      buildable: false
+      externals:
+      - spec: hipcub@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: hipcub@5.6.0
+        prefix: /opt/rocm-5.6.0
+    hsa-rocr-dev:
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: hsa-rocr-dev@5.6.0
+        prefix: /opt/rocm-5.6.0
+    hwloc:
+      externals:
+      - spec: hwloc@2.9.0
+        prefix: /usr
+    libfabric:
+      externals:
+      - spec: libfabric@2.0 fabrics=cxi,opx,psm2,psm3,shm,sockets,tcp,udp,usnic
+        prefix: /opt/cray/libfabric/2.0
+    libtool:
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    libxml2:
+      externals:
+      - spec: libxml2@2.9.7
+        prefix: /usr
+    libxslt:
+      externals:
+      - spec: libxslt@1.1.32
+        prefix: /usr
+    llvm-amdgpu:
+      externals:
+      - spec: llvm-amdgpu@5.5.1
+        prefix: /opt/rocm-5.5.1/llvm
+      - spec: llvm-amdgpu@5.6.0
+        prefix: /opt/rocm-5.6.0/llvm
+    m4:
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    miopen-hip:
+      buildable: false
+      externals:
+      - spec: miopen-hip@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: miopen-hip@5.6.0
+        prefix: /opt/rocm-5.6.0
+    openssh:
+      externals:
+      - spec: openssh@8.0p1
+        prefix: /usr
+    openssl:
+      externals:
+      - spec: openssl@1.1.1k
+        prefix: /usr
+    pkgconf:
+      externals:
+      - spec: pkgconf@1.4.2
+        prefix: /usr
+    python:
+      externals:
+      - spec: python@3.10.8+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /usr/tce/packages/python/python-3.10.8
+      - spec: python@3.9.13+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /opt/cray/pe/python/3.9.13.1
+      - spec: python@3.9.12+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+        prefix: /usr/tce/packages/python/python-3.9.12
+    rccl:
+      externals:
+      - spec: rccl@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: rccl@5.6.0
+        prefix: /opt/rocm-5.6.0
+    roctracer-dev:
+      externals:
+      - spec: roctracer-dev@5.5.1
+        prefix: /opt/rocm-5.5.1
+      - spec: roctracer-dev@5.6.0
+        prefix: /opt/rocm-5.6.0
+    subversion:
+      externals:
+      - spec: subversion@1.10.2
+        prefix: /usr
+    swig:
+      externals:
+      - spec: swig@3.0.12
+        prefix: /usr
+    tar:
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    texinfo:
+      externals:
+      - spec: texinfo@6.5
+        prefix: /usr
+    all:
+      providers:
+        blas: [cray-libsci]
+        lapack: [cray-libsci]
+        mpi: [cray-mpich]

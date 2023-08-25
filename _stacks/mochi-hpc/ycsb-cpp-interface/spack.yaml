@@ -2,7 +2,7 @@ spack:
   specs:
   - cmake
   - openjdk
-  - ycsb@0.17.0
+  - ycsb@master
   concretizer:
     unify: true
     reuse: false
