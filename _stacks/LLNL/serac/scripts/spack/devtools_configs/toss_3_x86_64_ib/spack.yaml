@@ -91,11 +91,6 @@ spack:
       externals:
       - spec: diffutils@3.3
         prefix: /usr
-    epoxy:
-      buildable: false
-      externals:
-      - spec: epoxy@1.5.2
-        prefix: /usr
     findutils:
       buildable: false
       externals:
@@ -120,6 +115,11 @@ spack:
       buildable: false
       externals:
       - spec: graphviz@2.30.1
+        prefix: /usr
+    libepoxy:
+      buildable: false
+      externals:
+      - spec: libepoxy@1.5.2
         prefix: /usr
     libtool:
       buildable: false
@@ -169,11 +169,11 @@ spack:
 
     # Packages we may want to build in the future with specific versions
     cmake:
-      version: [3.14.5]
+      version: [3.23.1]
       buildable: false
       externals:
-      - spec: cmake@3.14.5
-        prefix: /usr/tce/packages/cmake/cmake-3.14.5
+      - spec: cmake@3.23.1
+        prefix: /usr/tce/packages/cmake/cmake-3.23.1
     llvm:
       version: [10.0.0]
       buildable: false
