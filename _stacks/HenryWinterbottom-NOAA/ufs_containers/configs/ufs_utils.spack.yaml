@@ -1,0 +1,38 @@
+spack:
+  concretizer:
+    unify: when_possible
+  container:
+    format: docker
+  specs:
+  - cmake@3.20.1     
+  - bacio@2.4.1
+  - g2@3.4.3
+  - ip@4.0.0
+  - nemsio@2.5.2
+  - sp@2.3.3
+  - w3emc@2.9.2
+  - sigio@2.3.2
+  - sfcio@1.4.1
+  - zlib@1.2.11
+  - hdf5@1.10.6
+  - jpeg@9.1.0
+  - netcdf-c@4.7.4
+  - netcdf-fortran@4.5.3
+  - netcdf-cxx@4.3.1
+  - esmf@8.3.0b09
+  - nco@5.0.6
+  - pnetcdf@1.12.1
+  - nccmp@1.9.1.0
+  - libpng@1.6.37
+  - prod-util@1.2.2
+  - jasper@2.0.25
+  - bufr@11.7.0
+  - wrf-io
+  - ncio
+  - landsfcutil
+  - wgrib2
+  - parallelio@2.5.3
+  view: /opt/view
+  packages:
+    esmf:
+      variant: -pnetcdf

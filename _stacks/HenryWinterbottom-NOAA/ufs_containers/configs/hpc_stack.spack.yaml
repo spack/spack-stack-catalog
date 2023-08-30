@@ -1,0 +1,28 @@
+---
+spack:
+  concretizer:
+    unify: when_possible
+  container:
+    format: docker
+  specs:
+  - cmake@3.20.2
+  - jpeg@9.1.0
+  - zlib@1.2.11
+  - libpng@1.6.37
+  - szip@2.1.1
+  - jasper@2.0.25
+  - udunits@2.2.28
+  - hdf5@1.10.6
+  - parallel-netcdf@1.12.1
+  - netcdf-c@4.7.4
+  - netcdf-fortran@4.5.3
+  - netcdf-cxx
+  - netcdf-cxx4@4.3.1
+  - nccmp@1.8.9.0
+  - nco@5.0.6
+  - cdo@1.9.8
+  - parallelio@2.5.3
+  - esmf@8_0_1
+  config:
+    install_tree: /opt/software
+  view: /opt/view
