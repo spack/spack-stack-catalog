@@ -27,11 +27,6 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/derecho/23.06/envs/build/templates/modules
   packages:
-    intel-oneapi-vtune:
-      externals:
-      - spec: intel-oneapi-vtune@2023.0.0
-        prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-vtune/2023.0.0
-      buildable: false
     gawk:
       externals:
       - spec: gawk@4.2.1
@@ -115,6 +110,11 @@ spack:
       externals:
       - spec: openssl@1.1.1l
         prefix: /usr
+      buildable: false
+    intel-oneapi-vtune:
+      externals:
+      - spec: intel-oneapi-vtune@2023.0.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-vtune/2023.0.0
       buildable: false
     idl:
       externals:
@@ -212,11 +212,15 @@ spack:
       require: '%gcc@7.5.0'
     cudnn:
       externals:
+      - spec: cudnn@8.7.0.84-11.8
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/cudnn/8.7.0.84-11.8
       - spec: cudnn@8.5.0.96-11.7
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/cudnn/8.5.0.96-11.7
       buildable: false
     nvhpc:
       externals:
+      - spec: nvhpc@23.7
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
       - spec: nvhpc@23.5
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5
       - spec: nvhpc@23.3
@@ -233,6 +237,8 @@ spack:
       buildable: false
     intel-oneapi-compilers:
       externals:
+      - spec: intel-oneapi-compilers@2023.2.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1
       - spec: intel-oneapi-compilers@2023.1.0
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0
       - spec: intel-oneapi-compilers@2023.0.0
@@ -299,6 +305,8 @@ spack:
       buildable: false
     cuda:
       externals:
+      - spec: cuda@11.8.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/cuda/11.8.0
       - spec: cuda@11.7.1
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/cuda/11.7.1
       buildable: false
@@ -911,6 +919,20 @@ spack:
         - esmf+mpi
   concretizer:
     unify: false
+  bootstrap:
+    enable: true
+    root: /glade/work/csgteam/spack-deployments/bootstrap/23.06
+    sources:
+    - name: github-actions-v0.4
+      metadata: $spack/share/spack/bootstrap/github-actions-v0.4
+    - name: github-actions-v0.3
+      metadata: $spack/share/spack/bootstrap/github-actions-v0.3
+    - name: spack-install
+      metadata: $spack/share/spack/bootstrap/spack-install
+    trusted:
+      github-actions-v0.4: true
+      github-actions-v0.3: true
+      spack-install: true
   mirrors:
     ncar_mirror_global: /glade/u/apps/derecho/mirror
   repos:
@@ -1162,3 +1184,11 @@ spack:
   - parallelio@2.6.1%oneapi@2023.0.0 ^cmake~ownlibs ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
   - parallelio@2.6.1%cce@15.0.1 ^cmake~ownlibs ^cray-mpich@8.1.25%cce@15.0.1
   - mpifileutils@0.11.1%gcc@12.2.0 ^cmake~ownlibs ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.2%nvhpc@23.5~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.2%oneapi@2023.0.0~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.2%cce@15.0.1~mpi~pnetcdf ^cmake~ownlibs
+  - parallelio@2.6.2%gcc@12.2.0 ^cmake~ownlibs ^cray-mpich@8.1.25%gcc@12.2.0
+  - parallelio@2.6.2%nvhpc@23.5 ^cmake~ownlibs ^cray-mpich@8.1.25%nvhpc@23.5
+  - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^cray-mpich@8.1.25%oneapi@2023.0.0
+  - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0

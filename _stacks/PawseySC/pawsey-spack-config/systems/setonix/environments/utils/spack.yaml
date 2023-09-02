@@ -8,7 +8,8 @@ spack:
     - ffmpeg@4.4 +avresample
     - gnuplot@5.4.2 +X  ^python@3.10.10 +optimizations+zlib
     - llvm@15.0.4 ~omp_as_runtime ~polly ~gold
-    - nextflow@22.10.0
+    - nextflow@22.10.0 #supports DSL-1
+    - nextflow@23.04.3 #supports DSL-2
     - parallel@20220522
     - reframe@3.12.0 ^python@3.10.10 +optimizations+zlib
     - reframe@3.10.1 ^python@3.10.10 +optimizations+zlib
