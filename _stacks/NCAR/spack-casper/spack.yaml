@@ -292,7 +292,9 @@ spack:
     freetype:
       # Newer version leads to concretization issues for Python packages
       # This setting avoids multiple builds of many packages
-      require: '@:2.10.2'
+      require:
+      - '@:2.10.2'
+      - '%gcc@7.5.0'
     gawk:
       require:
       - '%gcc@7.5.0'
@@ -707,6 +709,9 @@ spack:
       - +hdf5
       - +mpi
       - +netcdf
+      - ~vtkm
+      - ~mfem
+      - ~conduit
       require:
       - any_of:
         - '^adios2@2.9: %gcc@11:'
@@ -718,7 +723,9 @@ spack:
         - '^conduit %gcc@11:'
         when: +conduit
     vtk:
-      require: '^netcdf-cxx %gcc@11:'
+      require:
+      - '^netcdf-cxx %gcc@11:'
+      - '%gcc@7.5.0'
     vtk-m:
       require: '%gcc@7.5.0'
     wget:
@@ -750,6 +757,18 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +programs
+    glew:
+      require:
+      - '%gcc@7.5.0'
+    gl2ps:
+      require:
+      - '%gcc@7.5.0'
+    osmesa:
+      require:
+      - '%gcc@7.5.0'
+    mesa-glu:
+      require:
+      - '%gcc@7.5.0'
   view:
     baseenv:
       root: /glade/u/apps/casper/23.09/opt/view
@@ -891,13 +910,13 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - visit
         - paraview
         - octave
         - nccmp
         - ncview
         - cdo
         - nco
-        - visit
         - cuda
         - r
         - cmake
@@ -1285,7 +1304,6 @@ spack:
   - cuda@11.8.0
   - cudnn@8.7.0.84-11.8
   - intel-oneapi-compilers-classic@2021.10.0
-  - ncl
   - ucx
   - ncvis
   - grads
@@ -1365,3 +1383,5 @@ spack:
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - pocl@3.0
+  - ncl
+  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
