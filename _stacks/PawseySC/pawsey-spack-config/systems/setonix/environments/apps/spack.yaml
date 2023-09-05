@@ -36,10 +36,12 @@ spack:
 
     - namd@2.14 interface=python fftw=3 +plumed ^charmpp@7.0.0 backend=ofi
     - namd@2.15a2 interface=python fftw=3  ^charmpp@7.0.0 backend=ofi
+    - namd@2.15a2 +rocm amdgpu_target=gfx90a ^charmpp@7.0.0 backend=mpi ^ncurses@6.3+symlinks
+    - amdgromacs@2023 amdgpu_target=gfx90a +rocm
 # Failing:    - openfoam-org@8 #Alexis still working on it
 # Current alternative:
     - openfoam@2206
-
+    - ncl@6.6.2 ^esmf ~mpi
   - packages-with-oldpython:
     - nwchem@7.2.0 +fftw3 +openmp ^python@3.9.15
 

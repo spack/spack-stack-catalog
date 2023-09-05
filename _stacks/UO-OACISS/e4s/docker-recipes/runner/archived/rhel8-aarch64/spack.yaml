@@ -1,0 +1,20 @@
+ spack:
+  view: /bootstrap/runner/view
+  
+  config:
+    install_tree:
+      root: /bootstrap/runner/install
+
+  concretizer:
+    reuse: false
+    unify: false
+
+  packages:
+    all:
+      compiler: [gcc]
+      target: [aarch64]
+
+  specs:
+  - libtree
+  - lmod
+  - patchelf
