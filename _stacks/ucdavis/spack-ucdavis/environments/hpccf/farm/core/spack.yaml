@@ -13,8 +13,13 @@ spack:
   - gcc@4.9.4 %gcc@9.5.0
   - intel-oneapi-compilers@2022.2.1
   - nvhpc@23.1
-  - jdk@14_36
-  #- julia@1.8.5  
+  - jdk@17.0.1
+  - openjdk@16.0.2
+  - openjdk@11.0.17_8
+  - julia@1.8.5
+  - julia@1.9.0
+  - julia@1.9.2
+  - julia@1.9.3
   view:
     generic:
       root: /share/apps/22.04/spack/environments/core/view
@@ -24,6 +29,9 @@ spack:
       - gcc
       link_type: symlink
   modules:
+    prefix_inspections:
+      lib64: [LD_LIBRARY_PATH]
+      lib: [LD_LIBRARY_PATH]
     default:
       roots:
         tcl: $spack/../../modulefiles/spack/core/
@@ -32,6 +40,7 @@ spack:
         - environment-modules
         - zlib
         - gmp
+        - perl
         include:
         - slurm
         - pmix
@@ -44,7 +53,11 @@ spack:
         - intel-oneapi-compilers@2022.2.1
         - nvhpc
         - jdk
+        - openjdk
+        - julia
         projections:
           slurm: slurm/22.05.8
+        slurm:
+          template: hpccf/slurm.tcl
   concretizer:
     unify: when_possible
