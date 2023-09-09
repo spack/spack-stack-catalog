@@ -1192,3 +1192,4 @@ spack:
   - parallelio@2.6.2%nvhpc@23.5 ^cmake~ownlibs ^cray-mpich@8.1.25%nvhpc@23.5
   - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^cray-mpich@8.1.25%oneapi@2023.0.0
   - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
+  - grads ^cmake~ownlibs
