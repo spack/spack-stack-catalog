@@ -341,6 +341,11 @@ spack:
       - ~python
     giflib:
       require: '%gcc@7.5.0'
+    gimp:
+      # Turning docs on adds the dependency to itstool, which breaks a lot of reuse
+      # because of libxml2+python requirement
+      variants:
+      - ~doc
     git:
       variants:
       - +svn
@@ -910,8 +915,8 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
-        - visit
         - paraview
+        - visit
         - octave
         - nccmp
         - ncview
@@ -960,6 +965,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - openblas
         - nghttp2
         - ffmpeg
         - pandoc
@@ -1383,5 +1389,6 @@ spack:
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - pocl@3.0
-  - ncl
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - openblas
+  - ncl
