@@ -15,7 +15,7 @@ spack:
         lapack:
         - openblas
   specs:
-  - hdf5@1.12.2+hl+mpi~fortran
+  - hdf5+hl+mpi~fortran
   - mpich~fortran device=ch4 netmod=ofi
   - petsc@main~fortran+debug+cuda
   - gsl
@@ -32,7 +32,7 @@ spack:
   container:
     format: docker
     images:
-      os: nvidia/cuda:11.2.1
+      os: nvidia/cuda:11.2.2
       spack: develop
     os_packages:
       build:

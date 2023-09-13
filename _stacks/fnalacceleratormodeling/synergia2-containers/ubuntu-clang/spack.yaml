@@ -14,11 +14,9 @@ spack:
       flags:
         cxxflags: -stdlib=libc++
       operating_system: ubuntu22.04
-      target: x86_64
       modules: []
       environment: {}
-      extra_rpaths:
-      - /lib/gcc/x86_64-linux-gnu/11/libgfortran.so
+      extra_rpaths: []
   packages:
     all:
       target:
@@ -38,7 +36,7 @@ spack:
   - mpich~fortran device=ch4 netmod=ofi
   - openblas@develop~fortran  
   - petsc@main~fortran+debug
-  - hdf5@1.12.2+hl+mpi~fortran
+  - hdf5+hl+mpi~fortran
   - fftw+mpi+openmp
   - cmake  
   - gsl

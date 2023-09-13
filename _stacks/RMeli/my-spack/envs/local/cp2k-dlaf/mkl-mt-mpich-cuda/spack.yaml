@@ -1,0 +1,19 @@
+spack:
+  specs:
+  - cp2k@master +libxc +libint +cosma +spglib +dlaf build_system=cmake ^dbcsr@develop ^cosma+scalapack+shared ^intel-mkl threads=openmp ^mpich@4.0.1 device=ch3 netmod=tcp
+  packages:
+    all:
+      variants:
+      - +mpi
+      - +cuda
+      - cuda_arch=89
+  repos:
+  - ~/git/my-spack/repos/cp2k-dlaf/
+  - ~/git/DLA-Future/spack/
+  develop:
+    dla-future:
+      path: ~/git/DLA-Future
+      spec: dla-future@master +scalapack +cuda build_type=Debug
+  view: false
+  concretizer:
+    unify: true

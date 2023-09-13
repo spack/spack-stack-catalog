@@ -1,0 +1,14 @@
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - c-raft
+  - mochi-margo ^mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
+  - mochi-abt-io
+  - json-c
+  - mochi-ssg
+  - mochi-thallium
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
