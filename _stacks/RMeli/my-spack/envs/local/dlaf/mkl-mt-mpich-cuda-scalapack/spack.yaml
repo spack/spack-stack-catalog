@@ -1,0 +1,12 @@
+spack:
+  specs:
+  - dla-future@master +miniapps +cuda cuda_arch=89 +scalapack +hdf5 ^intel-mkl threads=openmp ^mpich device=ch3 netmod=tcp ^pika@0.18
+  view: false
+  packages:
+    all:
+      variants:
+      - cxxstd=17
+  repos:
+  - ~/git/DLA-Future/spack
+  concretizer:
+    unify: true

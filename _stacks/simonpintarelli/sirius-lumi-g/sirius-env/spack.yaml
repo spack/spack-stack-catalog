@@ -1,0 +1,20 @@
+spack:
+  view: true
+  specs:
+  - sirius@develop+rocm+magma+apps+fortran build_type=Release target=zen3
+  - openblas threads=openmp
+  - cray-mpich@8.1.23
+  develop:
+    sirius:
+      spec: sirius@develop
+      path: ./SIRIUS
+  packages:
+    all:
+      variants: amdgpu_target=gfx90a amdgpu_target_sram_ecc=gfx90a
+      target: [zen3]
+  repos:
+  - ./repo
+  concretizer:
+    targets:
+      host_compatible: false
+    unify: true
