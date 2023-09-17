@@ -1,83 +1,81 @@
 spack:
-  include: 
+  include:
   - ../concretizer.yaml
   - ../packages.yaml
   specs:
-    - acts@21.1.0 +dd4hep +identification +json +tgeo +examples +fatras +geant4 +python
-    - actsvg@0.4.26 +examples
-    - acts-dd4hep@1.0.1
-    - afterburner@0.1.2 +root +zlib
-    - cairo@1.16.0 +fc+ft+X+pdf+gobject
-    - clhep@2.4.6.0 cxxstd=17
-    - cli11@2.1.1
-    - cmake@3.24.3
-    - cnpy@master
-    - cppcoro@git.10bbcdbf2be3ad3aa56febcf4c7662d771460a99
-    - dawn@3_91a
-    - dawncut@1_54a
-    - dd4hep@1.24 +ddg4 +ddcad -frames +hepmc3 +lcio
-    - edm4eic@1.2.2 cxxstd=17
-    - edm4hep@0.7 cxxstd=17
-    - eic-smear@1.1.10
-    - eigen@3.4.0
-    - emacs@28.2
-    - fastjet@3.4.0
-    - fjcontrib@1.045
-    - fmt@8.1.1 +shared cxxstd=17
-    - gaudi@36.7 +aida
-    - geant4@11.1.1 cxxstd=17 +opengl -vecgeom +x11 +qt +threads
-    - hepmc3@3.2.5 +python +rootio
-    - heppdt@2.06.01
-    - imagemagick@7.0.8-7
-    - intel-tbb@2020.3
-    - irt@1.0.6
-    - jana2@2.1.0 -ipo +podio +root +zmq
-    - lcov@1.15
-    - madx@5.08.01
-    - mesa@22.1.2 +glx -llvm +opengl +opengles +osmesa
-    - nlohmann-json@3.11.2
-    - npsim@1.1.0 +geocad +http
-    - onnx@1.12.0
-    - opencascade@7.6.3
-    - osg-ca-certs@1.109.igtf.1.117
-    - phonebook-cli@1.0.0
-    - pkg-config@0.29.2
-    - podio@0.16.3
-    - prmon@3.0.2 +plot
-    - pythia8@8.306 +fastjet
-    - python@3.10.8
-    - py-awkward@1.9.0
-    - py-boto3@1.18.12
-    - py-ipython@8.5.0
-    - py-jinja2@3.1.2
-    - py-jinja2-cli@0.8.2
-    - py-jupyter@1.0.0
-    - py-jupyterlab@3.2.9
-    - py-lmfit@1.0.2
-    - py-lxml@4.9.1
-    - py-matplotlib@3.6.2
-    - py-mplhep@0.3.26
-    - py-htgettoken@1.16-33-g3788bb4
-    - py-numpy@1.23.4
-    - py-pandas@1.5.1
-    - py-pip@22.2.2
-    - py-pycairo@1.20.0
-    - py-pyyaml@6.0
-    - py-scipy@1.9.3
-    - py-seaborn@0.12.0
-    - py-toml@0.10.2
-    - py-uproot@4.3.5
-    - py-yapf@0.30.0
-    - qt@5.15.5 +opengl
-    - root@6.26.10 cxxstd=17 
-          +fftw +fortran +gdml +http -ipo +mlp +pythia8 
-          +root7 +tmva +vc -webgui +xrootd +ssl 
-    - spdlog@1.10.0 +fmt_external
-    - stow@2.3.1
-    - tensorflow-lite@2.8.0 -xnnpack
-    - xrootd@5.5.1 cxxstd=17 +python +scitokens-cpp
-  view:
-    default:
-      root: /usr/local
-      link: all
-      link_type: symlink
+    - acts
+    - actsvg
+    - acts-dd4hep
+    - afterburner
+    - algorithms
+    - cairo
+    - catch2
+    - cernlib
+    - cli11
+    - cmake
+    - cnpy
+    - cppcoro
+    - dawn
+    - dawncut
+    - dd4hep
+    - dpmjet
+    - east
+    - edm4eic
+    - edm4hep
+    - eic-smear
+    - eigen
+    - emacs
+    - fastjet
+    - fjcontrib
+    - fmt
+    - gaudi
+    - gdb
+    - geant4
+    - graphviz
+    - hepmc3
+    - heppdt
+    - imagemagick
+    - irt
+    - jana2
+    - lcov
+    - lhapdf
+    - madx
+    - npsim
+    - onnx
+    - opencascade
+    - osg-ca-certs
+    - phonebook-cli
+    - prmon
+    - pythia8
+    - py-awkward
+    - py-boto3
+    - py-dask
+    - py-deepdiff
+    - py-ipython
+    - py-jinja2
+    - py-jinja2-cli
+    - py-jupyter-console
+    - py-jupyterlab
+    - py-lmfit
+    - py-lxml
+    - py-matplotlib
+    - py-mplhep
+    - py-htgettoken
+    - py-numpy
+    - py-pandas
+    - py-pip
+    - py-pre-commit
+    - py-pycairo
+    - py-pyyaml
+    - py-scipy
+    - py-seaborn
+    - py-toml
+    - py-uproot
+    - py-wurlitzer
+    - py-yapf
+    - root
+    - spdlog
+    - stow
+    - tensorflow-lite
+    - xrootd
+  view: false
