@@ -1,15 +1,31 @@
-# This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
   specs:
+  - rclone @1.59.1
   - rstudio@2022.12.0+server
+  - openldap@2.4.49
+  - hdf5 +cxx +fortran
+  - amdfftw target=zen2
+  - intel-oneapi-mkl
+  - fftw
+  - parallel
+  - jdk @17.0.1
+  - numactl @2.0.14
+  - openjdk @16.0.2
+  - openjdk @11.0.17_8
   modules:
     default:
       lmod:
         include:
         - rstudio
+        - openldap
+        - hdf5
+        - rclone
+        - intel-oneapi-mkl
+        - fftw
+        - parallel
+        - jdk @17.0.1
+        - openjdk @16.0.2
+        - openjdk @11.0.17_8
         projections:
           rstudio: rstudio-server/{version}
         rstudio:
@@ -18,3 +34,7 @@ spack:
     reuse: true
     unify: false
   view: false
+  #  default:
+  #    root: /share/apps/spack/environments/general/view
+  #    exclude:
+  #      - rstudio

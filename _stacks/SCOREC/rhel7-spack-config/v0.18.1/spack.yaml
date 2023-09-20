@@ -3,13 +3,13 @@ spack:
   config:
     target: x86_64
     install_tree:
-      root: /opt/scorec/spack/v0181_1/install
+      root: /opt/scorec/spack/v0181_2/install
     modules:
       roots:
-        lmod: /opt/scorec/spack/v0181_1/lmod
-    misc_cache: /opt/scorec/spack/v0181_1/misc_cache
+        lmod: /opt/scorec/spack/v0181_2/lmod
+    misc_cache: /opt/scorec/spack/v0181_2/misc_cache
     build_stage:
-    - /space/cwsmith/spack/v0181_1/build_stage
+    - /space/cwsmith/spack/v0181_2/build_stage
     allow_sgid: false
   packages:
     all:
@@ -25,7 +25,7 @@ spack:
   view: false
   definitions:
   - pumiClang:
-    - pumi@master %clang@15.0.2 +zoltan ^zoltan+parmetis~fortran
+    - pumi@master %clang@14.0.1 +zoltan ^zoltan+parmetis~fortran
   - pumi:
     - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran
   - pumiSim18.0-220930beta:
@@ -37,12 +37,18 @@ spack:
   - sim2023.0-230317dev:
     - simmetrix-simmodsuite@2023.0-230317dev %gcc@11.2.0 +abstract +acis +adv +advmodel
       +discrete +granite +import +paralleladapt +parallelmesh +parasolid ^mpich@4.0.2
+  - pumiSim2023.1-230428dev:
+    - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230428dev
+  - pumiSim2023.1-230907dev:
+    - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev ^/prf5im2
   specs:
-  - gcc@7.4.0 %gcc@4.8.5_rhel7 # Step 1
+  - gcc@7.4.0%gcc@4.8.5_rhel7+binutils
+  - gcc@11.2.0%gcc@7.4.0
+
   
   #core packages # Step 2
-  - llvm %gcc@7.4.0
-  - gcc@11.2.0 %gcc@7.4.0
   - octave %gcc@7.4.0
   - py-pandas %gcc@7.4.0
   - vim %gcc@7.4.0
@@ -60,13 +66,12 @@ spack:
   - anaconda3 %gcc@7.4.0
   - subversion %gcc@7.4.0
   - googletest %gcc@7.4.0
-
-
+  - py-gcovr %gcc@7.4.0
+  - lcov %gcc@7.4.0
+  - mpich %gcc@11.2.0
 
   
   #packages built with gcc 11 # Step 3
-  - mpich %gcc@11.2.0
-  - mpich ~fortran %clang@15.0.2
   - openmpi +cuda %gcc@11.2.0
   - hypre %gcc@11.2.0
   - fftw %gcc@11.2.0 ^mpich@4.0.2
@@ -76,11 +81,11 @@ spack:
   - netlib-scalapack %gcc@11.2.0 ^mpich@4.0.2
   - netcdf-c +parallel-netcdf %gcc@11.2.0
   - netcdf-fortran %gcc@11.2.0
-  - $pumiClang
+
+  
+  #- $pumiClang
   - $pumi
-  - $pumiSim18.0-220930beta
-  - $pumiSim2023.0-230303dev
-  - $sim2023.0-230317dev
+  - $pumiSim2023.1-230907dev
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
@@ -98,10 +103,10 @@ spack:
   - compiler:
       spec: gcc@7.4.0
       paths:
-        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gcc
-        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/g++
-        f77: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gfortran
-        fc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-zjui4jzf6eqzxpcy5suebo6iuy65nyga/bin/gfortran
+        cc: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-klm2g7qvjyypxuoln3hfjzaoqwx6c4oe/bin/gcc
+        cxx: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-klm2g7qvjyypxuoln3hfjzaoqwx6c4oe/bin/g++
+        f77: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-klm2g7qvjyypxuoln3hfjzaoqwx6c4oe/bin/gfortran
+        fc: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-klm2g7qvjyypxuoln3hfjzaoqwx6c4oe/bin/gfortran
       flags: {}
       operating_system: rhel7
       target: x86_64
@@ -111,44 +116,13 @@ spack:
   - compiler:
       spec: gcc@11.2.0
       paths:
-        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gcc
-        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/g++
-        f77: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gfortran
-        fc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-sfi7a357rj7j6me7cqh6y7kxxhlzknu6/bin/gfortran
+        cc: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-v6c3k3cvza34ox7w3f4ckyusfuiodnhb/bin/gcc
+        cxx: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-v6c3k3cvza34ox7w3f4ckyusfuiodnhb/bin/g++
+        f77: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-v6c3k3cvza34ox7w3f4ckyusfuiodnhb/bin/gfortran
+        fc: /opt/scorec/spack/v0181_2/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-v6c3k3cvza34ox7w3f4ckyusfuiodnhb/bin/gfortran
       flags: {}
       operating_system: rhel7
       target: x86_64
       modules: []
       environment: {}
       extra_rpaths: []
-  - compiler:
-      spec: clang@15.0.2
-      paths:
-        cc: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/llvm-15.0.2-i3phr252dy5qcwtkeovfy34bqbjxknsw/bin/clang
-        cxx: /opt/scorec/spack/v0181_1/install/linux-rhel7-x86_64/gcc-7.4.0/llvm-15.0.2-i3phr252dy5qcwtkeovfy34bqbjxknsw/bin/clang++
-        f77: null
-        fc: null
-      flags: {}
-      operating_system: rhel7
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
-  mirrors:
-    E4S:
-      fetch:
-        url: https://cache.e4s.io
-        access_pair:
-        - null
-        - null
-        access_token: null
-        profile: null
-        endpoint_url: null
-      push:
-        url: https://cache.e4s.io
-        access_pair:
-        - null
-        - null
-        access_token: null
-        profile: null
-        endpoint_url: null

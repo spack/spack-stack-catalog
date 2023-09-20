@@ -7,11 +7,7 @@ spack:
   - libevent
   - pmix
   - ucx
-  - cuda
-  - amdfftw target=zen2
-  - intel-oneapi-mkl
-  - fftw
-  - parallel
+  - cuda@11.7
   - gcc@7.5.0
   - gcc@5.5.0 %gcc@9.5.0
   - gcc@4.9.4 %gcc@9.5.0
@@ -30,10 +26,6 @@ spack:
       - pmix
       - ucx
       - cuda
-      - amdfftw target=zen2
-      - intel-oneapi-mkl
-      - fftw
-      - parallel
       - intel-oneapi-compilers
       exclude:
       - gcc
@@ -46,6 +38,8 @@ spack:
   modules:
     default:
       lmod:
+        defaults:
+          - cuda@11.7
         exclude:
         - lmod
         - mariadb
