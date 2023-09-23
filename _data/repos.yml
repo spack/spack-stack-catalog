@@ -1,3 +1,103 @@
+AMReX-Codes/ExaEpi:
+  data_format: 2
+  description: An agent-based epidemiological simulation code using AMReX
+  filenames:
+  - docs/spack.yaml
+  full_name: AMReX-Codes/ExaEpi
+  latest_release: null
+  readme: '<p>This is a demo for an Agent-based epidemiology code built using the
+    AMReX framework.</p>
+
+    <p>For more information about AMReX:
+
+    website: <a href="https://amrex-codes.github.io/" rel="nofollow">https://amrex-codes.github.io/</a>
+
+    documentation: <a href="https://amrex-codes.github.io/amrex/docs_html/" rel="nofollow">https://amrex-codes.github.io/amrex/docs_html/</a>
+
+    source code: <a href="https://github.com/AMReX-Codes/amrex">https://github.com/AMReX-Codes/amrex</a></p>
+
+    <h2 id="user-content-building-the-code"><a class="heading-link" href="#building-the-code">Building
+    the code<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+
+    <p>This demo uses CMake version 3.14 or higher. To build it:
+
+    mkdir build
+
+    cd build
+
+    cmake ..
+
+    make -j8</p>
+
+    <p>To build with GPU support, use the <code>-DAMReX_GPU_BACKEND=CUDA</code> CMake
+    option.</p>
+
+    <p>For convenience, a script for setting up the module environment for Perlmutter
+    is
+
+    provided in etc/perlmutter_environment.sh. To use it, do:</p>
+
+    <pre><code>source etc/perlmutter_environment.sh
+
+    </code></pre>
+
+    <h2 id="user-content-running-the-code"><a class="heading-link" href="#running-the-code">Running
+    the code<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+
+    <p>Navigate to build/bin and run the executable using one of the "inputs" files
+    in "examples".</p>
+
+    <p>For example:
+
+    cd build/bin
+
+    ./agent ../../examples/inputs</p>
+
+    <h2 id="user-content-looking-at-the-output"><a class="heading-link" href="#looking-at-the-output">Looking
+    at the output<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+
+    <p>Running the code succesfully will create a number of "plt?????" files. You
+    can visualize
+
+    these using the script at etc/plot.py. This will require the "yt" package to be
+    installed:</p>
+
+    <pre><code>https://yt-project.org/
+
+    </code></pre>
+
+    <h2 id="user-content-copyright-notice"><a class="heading-link" href="#copyright-notice">Copyright
+    Notice<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+
+    <p>ExaEpi Copyright (c) 2022, The Regents of the University of California,
+
+    through Lawrence Berkeley National Laboratory (subject to receipt of
+
+    any required approvals from the U.S. Dept. of Energy). All rights reserved.</p>
+
+    <p>If you have questions about your rights to use or distribute this software,
+
+    please contact Berkeley Lab''s Intellectual Property Office at
+
+    <a href="mailto:IPO@lbl.gov">IPO@lbl.gov</a>.</p>
+
+    <p>NOTICE.  This Software was developed under funding from the U.S. Department
+
+    of Energy and the U.S. Government consequently retains certain rights.  As
+
+    such, the U.S. Government has been granted for itself and others acting on
+
+    its behalf a paid-up, nonexclusive, irrevocable, worldwide license in the
+
+    Software to reproduce, distribute copies to the public, prepare derivative
+
+    works, and perform publicly and display publicly, and to permit others to do so.</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 6
+  topics: []
+  updated_at: 1689181940.0
 AMReX-Codes/pyamrex:
   data_format: 2
   description: '[Experimental] AMReX Python Bindings'
@@ -863,10 +963,28 @@ AMReX-Microelectronics/artemis_bakup:
   subscribers_count: 1
   topics: []
   updated_at: 1688585950.0
+Alpine-DAV/spack_configs:
+  data_format: 2
+  description: spack envs
+  filenames:
+  - _experimental/envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml
+  full_name: Alpine-DAV/spack_configs
+  latest_release: null
+  readme: '<h1 id="user-content-spack_configs"><a class="heading-link" href="#spack_configs">spack_configs<span
+    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
+
+    <p>shared spack configs repo</p>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 4
+  topics: []
+  updated_at: 1639176281.0
 C2SM/spack-c2sm:
   data_format: 2
   description: Repository for c2sm spack config and repo files
   filenames:
+  - upstreams/daint/base/spack.yaml
   - upstreams/daint/icon-dsl/spack.yaml
   full_name: C2SM/spack-c2sm
   latest_release: v0.20.1.0
@@ -1557,211 +1675,6 @@ COSIMA/spack-config:
   subscribers_count: 6
   topics: []
   updated_at: 1692145219.0
-CUP-ECS/ExaCLAMR:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: CUP-ECS/ExaCLAMR
-  latest_release: null
-  readme: '<h1 id="user-content-exaclamr"><a class="heading-link" href="#exaclamr">ExaCLAMR<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>Re-Implementation of the Shallow Water Solver LANL/CLAMR using Kokkos, Cabana,
-    and Cajita.</p>
-
-    <h2 id="user-content-current-status"><a class="heading-link" href="#current-status">Current
-    Status<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <ul>
-
-    <li>Properly functions using
-
-    <ul>
-
-    <li>Serial</li>
-
-    <li>OpenMP</li>
-
-    <li>Cuda</li>
-
-    <li>Serial + MPI</li>
-
-    <li>OpenMP + MPI</li>
-
-    <li>Cuda + MPI</li>
-
-    </ul>
-
-    </li>
-
-    <li>Able to write to Silo files using PMPIO (Tested on Mac in Serial, OpenMP,
-    Serial + MPI, OpenMP + MPI)</li>
-
-    <li>Can Visualize results using VisIt</li>
-
-    </ul>
-
-    <h2 id="user-content-future-directions-and-tasks"><a class="heading-link" href="#future-directions-and-tasks">Future
-    Directions and Tasks<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <ul>
-
-    <li>[x] Fix Cuda MPI issue in use of Cajita Halo gather (currently functioning
-    with a work around using CudaUVM and a custom halo exchange). It might be an issue
-    with how ExaCLAMR is using the Cajita gather?</li>
-
-    <li>[x] Get Silo to build on Wheeler and Xena and get it working with the CudaUVM
-    case</li>
-
-    <li>[x] Template the mesh and problem manager classes for regular grids, AMR grids</li>
-
-    <li>[ ] Investigate using Cabana AoSoA</li>
-
-    <li>[ ] Add particle physics</li>
-
-    </ul>
-
-    <h2 id="user-content-building-exaclamr"><a class="heading-link" href="#building-exaclamr">Building
-    ExaCLAMR<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>ExaCLAKMR is built and installed using cmake, and relies on variety of packages
-    and
-
-    libraries:</p>
-
-    <ul>
-
-    <li>Kokkos - Programming system for accelerated and threaded architectures</li>
-
-    <li>Cabana/Cajita - Framework for regular mesh and particle oprogramming in Kokkos</li>
-
-    <li>Silo - Parallel I/O library for reading in restarts and writing output for
-
-    visualization using VisIt or Paraview</li>
-
-    <li>HeFFTE - GPU-accelerated high-speed fast fourier transform library (Note:
-    not
-
-    needed by ExaCLAMR but we''ll want it for the z-model implementation)</li>
-
-    </ul>
-
-    <h3 id="user-content-building-with-a-spack-environment"><a class="heading-link"
-    href="#building-with-a-spack-environment">Building with a Spack environment<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <p>Generally, the easiest way to build ExaCLAMR is to use <a href="http://spack.io"
-    rel="nofollow">Spack</a> to
-
-    either install and load the prerequisites or to create a dedicated environment
-
-    for building and running AppName. The spack specification (etc/spack.yaml) is
-
-    included to create a spack environment in which the build and run AppName. Note,
-    however
-
-    //that there are important caveats at the top of this file you''ll ened to pay
-    attention to
-
-    to use it//. In particular, to use it to build a CUDA environment you''ll need
-    to patch your
-
-    cabana/packages.py spec and set teh cuda architecture kokkos uses. Alternatively,
-    you
-
-    can just remove the cuda specifiers from the spack.yaml file.</p>
-
-    <p>To create a spack environment for compiling and running ExaCLAMR in a build
-    directory:</p>
-
-    <pre><code>prompt&gt; mkdir build; cd build
-
-    prompt&gt; spack env create -d . /path/to/ExaCLAMR/etc/spack.yaml
-
-    prompt&gt; spack env activate .
-
-    prompt&gt; spack concretize
-
-    prompt&gt; spack install
-
-    </code></pre>
-
-    <p>Once all ExaCLAMR dependencies are installed either manually or via a
-
-    Spack environment, use cmake to build it from the chosen build
-
-    directory:</p>
-
-    <pre><code>cmake /path/to/ExaCLAMR
-
-    </code></pre>
-
-    <h3 id="user-content-building-on-unm-carc-wheeler"><a class="heading-link" href="#building-on-unm-carc-wheeler">Building
-    on UNM CARC Wheeler<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <div class="highlight highlight-source-shell"><pre>git clone https://github.com/CUP-ECS/ExaCLAMR.git
-
-    <span class="pl-c1">cd</span> ExaCLAMR
-
-    bash scripts/build_wheeler.sh -a
-
-    mkdir -p data
-
-    mkdir -p data/raw</pre></div>
-
-    <h3 id="user-content-running-on-unm-carc-wheeler---example-on-2-ranks-serial-mpiopenmp"><a
-    class="heading-link" href="#running-on-unm-carc-wheeler---example-on-2-ranks-serial-mpiopenmp">Running
-    on UNM CARC Wheeler - Example on 2 Ranks (Serial, MPI+OpenMP)<span aria-hidden="true"
-    class="octicon octicon-link"></span></a></h3>
-
-    <div class="highlight highlight-source-shell"><pre>module load cmake-3.15.4-gcc-8.3.0-rmxifnl
-
-    module load openmpi-3.1.4-gcc-8.3.0-w3pkrvv
-
-    module load gcc-8.3.0-gcc-4.8.5-wwpinbr
-
-    module load hypre-2.14.0-gcc-7.3.0-openmpi-mkl-zndhsgh
-
-    mpirun -np 2 --display-map --map-by ppr:1:node --bind-to none -machinefile <span
-    class="pl-smi">$PBS_NODEFILE</span> -x PATH -x LD_LIBRARY_PATH ./build/examples/DamBreak
-
-    mpirun -np 2 --display-map --map-by ppr:1:node --bind-to none -machinefile <span
-    class="pl-smi">$PBS_NODEFILE</span> -x PATH -x LD_LIBRARY_PATH ./build/examples/DamBreak
-    -mopenmp</pre></div>
-
-    <h3 id="user-content-building-on-unm-carc-xena"><a class="heading-link" href="#building-on-unm-carc-xena">Building
-    on UNM CARC Xena<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <ul>
-
-    <li>Note: You have to build on a compute node with a GPU</li>
-
-    </ul>
-
-    <div class="highlight highlight-source-shell"><pre>git clone https://github.com/CUP-ECS/ExaCLAMR.git
-
-    <span class="pl-c1">cd</span> ExaCLAMR
-
-    bash scripts/build_xena.sh -a
-
-    mkdir -p data
-
-    mkdir -p data/raw</pre></div>
-
-    <h3 id="user-content-running-on-unm-carc-xena"><a class="heading-link" href="#running-on-unm-carc-xena">Running
-    on UNM CARC Xena<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <div class="highlight highlight-source-shell"><pre>sbatch scripts/xena_run.sh</pre></div>
-
-    <h2 id="user-content-performance"><a class="heading-link" href="#performance">Performance<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 5
-  topics: []
-  updated_at: 1632120250.0
 CUP-ECS/beatnik:
   data_format: 2
   description: Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark
@@ -2291,19 +2204,20 @@ E4S-Project/e4s:
   data_format: 2
   description: E4S for Spack
   filenames:
+  - environments/23.02/cuda-x86_64/spack.yaml
+  - environments/22.05/cuda-x86_64.spack.yaml
+  - environments/23.08/oneapi-x86_64/spack.yaml
+  - environments/21.08/spack.yaml
+  - environments/22.08/cuda-x86_64.spack.yaml
+  - environments/22.08/cuda-ppc64le.spack.yaml
+  - environments/23.05/cuda-x86_64/spack.yaml
+  - environments/23.08/cuda-aarch64/spack.yaml
+  - environments/23.02/cuda-ppc64le/spack.yaml
   - environments/23.05/rocm-x86_64/spack.yaml
   - environments/21.05/spack.yaml
-  - environments/22.08/cuda-x86_64.spack.yaml
-  - environments/23.08/cuda-aarch64/spack.yaml
-  - environments/23.08/cuda-x86_64/spack.yaml
-  - environments/23.02/cuda-x86_64/spack.yaml
-  - environments/23.05/cuda-x86_64/spack.yaml
-  - environments/22.05/rocm.spack.yaml
-  - environments/21.08/spack.yaml
-  - environments/23.02/cuda-ppc64le/spack.yaml
-  - environments/23.08/oneapi-x86_64/spack.yaml
-  - environments/22.05/cuda-x86_64.spack.yaml
   - environments/22.08/cuda-aarch64.spack.yaml
+  - environments/23.08/cuda-x86_64/spack.yaml
+  - environments/22.05/rocm.spack.yaml
   full_name: E4S-Project/e4s
   latest_release: v23.08
   readme: "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/E4S-Project/e4s/blob/master/logos/E4S-dark-green.png\"\
@@ -2375,156 +2289,6 @@ E4S-Project/e4s:
   subscribers_count: 10
   topics: []
   updated_at: 1690987779.0
-E4S-Project/e4s-alc:
-  data_format: 2
-  description: "E4S \xE0 la carte is a tool that allows a user to customize a container\
-    \ image by adding packages to it. These can be system packages and Spack packages. "
-  filenames:
-  - examples/ubuntu/light_spack.yaml
-  full_name: E4S-Project/e4s-alc
-  latest_release: v1.0.0
-  readme: "<h1 id=\"user-content-e4s-\xE0-la-carte\"><a class=\"heading-link\" href=\"\
-    #e4s-\xE0-la-carte\">E4S \xE0 la Carte<span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a></h1>\n<h2 id=\"user-content-description\"><a class=\"\
-    heading-link\" href=\"#description\">Description<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<p>E4S \xE0 la Carte is a practical tool\
-    \ designed to facilitate the generation of Dockerfiles infused with OS packages,\
-    \ Spack packages, as well as custom commands. In the simplifying the process,\
-    \ this tool targets the elimination of manual Dockerfile scripting, enabling users\
-    \ to concentrate on critical aspects such as application-specific resources and\
-    \ configurations.</p>\n<h2 id=\"user-content-table-of-contents\"><a class=\"heading-link\"\
-    \ href=\"#table-of-contents\">Table of Contents<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<ul>\n<li><a href=\"##Overview\">Overview</a></li>\n\
-    <li><a href=\"#Installation\">Installation</a></li>\n<li><a href=\"#Usage\">Usage</a></li>\n\
-    <li>\n<a href=\"#Crafting-a-YAML-file\">Crafting a YAML file</a>\n<ul>\n<li><a\
-    \ href=\"#The-Base-Group\">The Base Group</a></li>\n<li><a href=\"#The-System-Group\"\
-    >The System Group</a></li>\n<li><a href=\"#The-Spack-Group\">The Spack Group</a></li>\n\
-    <li><a href=\"#Template\">Template</a></li>\n<li><a href=\"#Example-YAML-file\"\
-    >Example YAML file</a></li>\n</ul>\n</li>\n</ul>\n<h2 id=\"user-content-overview\"\
-    ><a class=\"heading-link\" href=\"#overview\">Overview<span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a></h2>\n<p>The <code>e4s-alc</code>\
-    \ tool is designed to facilitate the process of crafting Dockerfiles. This tool\
-    \ leverages <code>.yaml</code> files as input to generate Dockerfiles.</p>\n<h2\
-    \ id=\"user-content-installation\"><a class=\"heading-link\" href=\"#installation\"\
-    >Installation<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n\
-    <p>Installing <code>e4s-alc</code> is simple.</p>\n<p>Clone the project:</p>\n\
-    <pre><code>git clone https://github.com/E4S-Project/e4s-alc.git\n</code></pre>\n\
-    <p>Run <code>make</code>:</p>\n<pre><code>cd e4s-alc &amp;&amp; make\n</code></pre>\n\
-    <h2 id=\"user-content-usage\"><a class=\"heading-link\" href=\"#usage\">Usage<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n<p><code>e4s-alc</code>\
-    \ has 2 basic commands:</p>\n<ul>\n<li>\n<code>create</code> - Used to create\
-    \ a Dockerfile</li>\n<li>\n<code>template</code> - Used to generate a template\
-    \ <code>.yaml</code> file</li>\n</ul>\n<p>While you are able to use <code>e4s-alc\
-    \ create</code> as a command line tool, it is recommended that you use a <code>.yaml</code>\
-    \ file.</p>\n<p>To create a Dockerfile, run:</p>\n<pre><code>e4s-alc create -f\
-    \ example.yaml\n</code></pre>\n<p>This will place a Dockerfile and <code>conf</code>\
-    \ directory in the current working directory. Do not remove the <code>conf</code>\
-    \ directory because this plays a role in the build of the container.</p>\n<p>To\
-    \ create a template <code>.yaml</code> file to work off, run:</p>\n<pre><code>e4s-alc\
-    \ template\n</code></pre>\n<p>This will print a template <code>.yaml</code> file\
-    \ using <code>e4s-alc</code> syntax.</p>\n<h3 id=\"user-content-crafting-a-yaml-file\"\
-    ><a class=\"heading-link\" href=\"#crafting-a-yaml-file\">Crafting a YAML file<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>The\
-    \ <code>.yaml</code> file, which serves as the input, is segmented into three\
-    \ categories:</p>\n<ul>\n<li>Base group</li>\n<li>System group</li>\n<li>Spack\
-    \ group</li>\n</ul>\n<p>Each of these groups manages resource allocation, variables,\
-    \ executables, files, and packages related to their group.</p>\n<hr>\n<h4 id=\"\
-    user-content-the-base-group\"><a class=\"heading-link\" href=\"#the-base-group\"\
-    >The Base Group<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h4>\n\
-    <p>Parameters of the base group define the setup of the image and consist of the\
-    \ following:</p>\n<ul>\n<li>\n<code>backend</code> - Represents the container\
-    \ backend utilized to obtain and analyze image particulars for further configurations.\
-    \ Docker and Podman are examples of backends.</li>\n<li>\n<code>registry</code>\
-    \ - Specifies the registry that hosts the fundamental image you're building on.</li>\n\
-    <li>\n<code>image</code> - Represents the name of the base image sourced from\
-    \ the <code>registry</code>.</li>\n<li>\n<code>initial-commands</code> - A set\
-    \ of commands that execute at the commencement of the Dockerfile build.</li>\n\
-    <li>\n<code>env-variables</code> - Defines environment variables that are set\
-    \ within the Dockerfile.</li>\n<li>\n<code>add-files</code> - Specifies the local\
-    \ files to be added in the image.</li>\n<li>\n<code>post-base-stage-commands</code>\
-    \ - Includes a set of commands executed at the end of the Base Stage of the Dockerfile\
-    \ build.</li>\n</ul>\n<hr>\n<h4 id=\"user-content-the-system-group\"><a class=\"\
-    heading-link\" href=\"#the-system-group\">The System Group<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h4>\n<p>The system group gathers\
-    \ crucial binaries required for Spack as well as user-specific projects.</p>\n\
-    <ul>\n<li>\n<code>pre-system-stage-commands</code> - A set of commands executed\
-    \ at the start of the System Stage of the Dockerfile build.</li>\n<li>\n<code>os-packages</code>\
-    \ - A set of OS packages to be included in the image. Note: <code>e4s-alc</code>\
-    \ auto-includes some OS packages for Spack's usability.</li>\n<li>\n<code>certificates</code>\
-    \ - Includes <code>.pem</code>/<code>.cer</code> certificates required by your\
-    \ organization to download OS packages and for added security purposes.</li>\n\
-    <li>\n<code>add-repos</code> - A set of GitHub repositories to be cloned into\
-    \ the image.</li>\n<li>\n<code>post-system-stage-commands</code> - A set of commands\
-    \ executed at the end of the System Stage of the Dockerfile build.</li>\n</ul>\n\
-    <hr>\n<h4 id=\"user-content-the-spack-group\"><a class=\"heading-link\" href=\"\
-    #the-spack-group\">The Spack Group<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h4>\n<p>Spack group parameters deal with Spack installation and\
-    \ package inclusion for your image.</p>\n<ul>\n<li>\n<code>spack</code> - A boolean\
-    \ to decide if Spack should be included in the image. If set to <code>False</code>,\
-    \ the Spack Stage is bypassed. Default is <code>True</code>.</li>\n<li>\n<code>pre-spack-stage-commands</code>\
-    \ - A set of commands that execute at the start of the Spack Stage of the Dockerfile\
-    \ build.</li>\n<li>\n<code>spack-version</code> - Specifies the version of Spack\
-    \ to install in the <code>X.Y.Z</code> format representing major, minor, and point\
-    \ release versions. Default is the latest Spack version.</li>\n<li>\n<code>spack-mirrors</code>\
-    \ - A set of Spack mirrors that will be used to build Spack packages.</li>\n<li>\n\
-    <code>spack-check-signatures</code> - A boolean to decide if Spack should check\
-    \ for signatures when installing Spack packages. Default is <code>True</code>.</li>\n\
-    <li>\n<code>modules-env-file</code> - The local <code>modules.yaml</code> file\
-    \ used to configure environment modules.</li>\n<li>\n<code>post-spack-install-commands</code>\
-    \ - A set of commands that execute after Spack installation.</li>\n<li>\n<code>spack-env-file</code>\
-    \ - The local <code>spack.yaml</code> file used to build out Spack environments.</li>\n\
-    <li>\n<code>spack-compiler</code> - The Spack compiler to be installed for building\
-    \ the specified Spack packages.</li>\n<li>\n<code>spack-packages</code> - A set\
-    \ of Spack packages to be installed into the image.</li>\n<li>\n<code>post-spack-stage-commands</code>\
-    \ - A set of commands that execute towards the end of the Spack Stage of the Dockerfile\
-    \ build.</li>\n</ul>\n<hr>\n<h4 id=\"user-content-template\"><a class=\"heading-link\"\
-    \ href=\"#template\">Template<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h4>\n<p>A template <code>.yaml</code> can be generated with the\
-    \ command:</p>\n<pre><code>e4s-alc template\n</code></pre>\n<p>The template is\
-    \ also described here:</p>\n<details>\n  <summary>Template</summary>\n<pre><code>########\
-    \ Base group ########\nbackend:\nregistry:\nimage:\n\ninitial-commands:\n  -\n\
-    \nenv-variables: \n  -\n\nadd-files: \n  -\n\npost-base-stage-commands:\n  -\n\
-    \n######## System group ########\npre-system-stage-commands: \n  -\n\ncertificates:\n\
-    \  -\n\nos-packages: \n  -\n\npost-system-stage-commands: \n  -\n\n####### Spack\
-    \ group #######\nspack: True\n\npre-spack-stage-commands:\n  -\n\nspack-version:\n\
-    spack-mirrors:\n  -\n\nspack-check-signature: True\nmodules-env-file:\npost-spack-install-commands:\
-    \ \n  -\n\nspack-env-file:\nspack-compiler:\nspack-packages: \n  -\n\npost-spack-stage-commands:\
-    \ \n  -\n</code></pre>\n</details>\n<hr>\n<h4 id=\"user-content-example-yaml-file\"\
-    ><a class=\"heading-link\" href=\"#example-yaml-file\">Example YAML file<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h4>\n<p>Here\
-    \ is an example <code>.yaml</code> file. This input file creates a Dockerfile\
-    \ using a Rhel8 base image. It installs gcc@11.2 and installs kokkos using gcc@11.2.\
-    \ Notice how I've chosen to exclude parameters to fit my build. This is one of\
-    \ the example <code>.yaml</code> files in the <code>examples</code> directory.</p>\n\
-    <pre><code># rhel8-gcc11.2-kokkos.yaml\n\n######## Base group ########\nbackend:\
-    \ podman\nregistry: registry.access.redhat.com\nimage: ubi8/ubi\n\n####### Spack\
-    \ group #######\nspack-version: latest\nspack-compiler: gcc@11.2\nspack-packages:\n\
-    \  - kokkos\n</code></pre>\n<p>I build the Dockerfile and image with:</p>\n<pre><code>e4s-alc\
-    \ create -f rhel8-gcc11.2-kokkos.yaml\npodman build .\n</code></pre>\n<p>Then,\
-    \ I run the image in interactive mode and inspect the install:</p>\n<pre><code>[root@c5ad0d45ba1d\
-    \ /]# module avail\n----------------------------- /modulefiles/linux-rhel8-power9le\
-    \ -----------------------------------\ngcc/11.2.0  kokkos/4.0.01  \n[root@c5ad0d45ba1d\
-    \ /]# module load gcc\n[root@c5ad0d45ba1d /]# module load kokkos\n</code></pre>\n\
-    <h4 id=\"user-content-example-yaml-file-with-matrix-feature\"><a class=\"heading-link\"\
-    \ href=\"#example-yaml-file-with-matrix-feature\">Example YAML file with matrix\
-    \ feature<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h4>\n\
-    <p>Here is an example <code>.yaml</code> file that creates multiple Dockerfiles\
-    \ using a single <code>.yaml</code> file. Notice that for each <code>registry-image-matrix</code>\
-    \ item that we specify, we build out a Dockerfile using each <code>spack-compiler-matrix</code>\
-    \ item. This feature could be powerful for testing Spack packages across different\
-    \ operating systems and compilers.</p>\n<pre><code>backend: podman\nregistry-image-matrix:\n\
-    \  - registry.access.redhat.com/ubi8/ubi\n  - ubuntu:20.04\n\n####### Spack group\
-    \ #######\nspack: True\nspack-version: latest\n\nspack-compiler-matrix:\n  - gcc@8.5.0\
-    \ \n  - gcc@11.2.0 \n  - gcc@12.0\n  - gcc@12.3.0\n\nspack-packages: \n  - kokkos\n\
-    </code></pre>\n<p>This <code>.yaml</code> file would create a directory named\
-    \ <code>dockerfiles</code> that contains the following Dockerfiles:</p>\n<pre><code>Dockerfile.rhel8.8-gcc@8.5.0\n\
-    Dockerfile.rhel8.8-gcc@11.5.0\nDockerfile.rhel8.8-gcc@12.0\nDockerfile.rhel8.8-gcc@12.3.0\n\
-    Dockerfile.ubuntu20.04-gcc@8.5.0\nDockerfile.ubuntu20.04-gcc@11.5.0\nDockerfile.ubuntu20.04-gcc@12.0\n\
-    Dockerfile.ubuntu20.04-gcc@12.3.0\n</code></pre>\n"
-  stargazers_count: 2
-  subscribers_count: 4
-  topics: []
-  updated_at: 1690403173.0
 ECP-WarpX/WarpX:
   data_format: 2
   description: WarpX is an advanced, time-based electromagnetic & electrostatic Particle-In-Cell
@@ -2702,7 +2466,7 @@ ECP-WarpX/WarpX:
     The SPDX license identifier is <code>BSD-3-Clause-LBNL</code>.</p>
 
     '
-  stargazers_count: 209
+  stargazers_count: 210
   subscribers_count: 15
   topics:
   - laser
@@ -2713,7 +2477,7 @@ ECP-WarpX/WarpX:
   - particle-in-cell
   - pic
   - research
-  updated_at: 1695331488.0
+  updated_at: 1695417002.0
 EnzymeAD/CMake-Template:
   data_format: 2
   description: "\U0001F528 A template for using Enzyme with CMake"
@@ -2749,8 +2513,8 @@ Exawind/exawind-builder:
   data_format: 2
   description: Scripts to help building Exawind codes on various systems
   filenames:
-  - etc/spack/nrel-eagle/spack.yaml
   - etc/spack/spack/spack.yaml
+  - etc/spack/nrel-eagle/spack.yaml
   full_name: Exawind/exawind-builder
   latest_release: v0.1.0
   readme: '<h1 id="user-content-exawind-code-builder"><a class="heading-link" href="#exawind-code-builder">ExaWind
@@ -3666,7 +3430,7 @@ FairRootGroup/FairSoft:
     by FairRoot
   filenames:
   - test/env/fairmq/spack.yaml
-  - test/env/dds/spack.yaml
+  - test/env/jun19_fairroot_18_4/spack.yaml
   full_name: FairRootGroup/FairSoft
   latest_release: nov22p1
   readme: "<h1 id=\"user-content-fairsoft\"><a class=\"heading-link\" href=\"#fairsoft\"\
@@ -3969,11 +3733,11 @@ JCSDA/spack-stack:
   data_format: 2
   description: null
   filenames:
-  - configs/templates/skylab-dev/spack.yaml
-  - configs/templates/unified-dev/spack.yaml
-  - configs/templates/ufs-weather-model-static/spack.yaml
-  - configs/templates/ufs-srw-public-v2/spack.yaml
   - configs/templates/ufs-weather-model/spack.yaml
+  - configs/templates/ufs-weather-model-static/spack.yaml
+  - configs/templates/unified-dev/spack.yaml
+  - configs/templates/ufs-srw-public-v2/spack.yaml
+  - configs/templates/skylab-dev/spack.yaml
   full_name: JCSDA/spack-stack
   latest_release: 1.4.1
   readme: '<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/8006981/234488735-45b2c5fa-1de6-47ad-ae3b-4a6829ae49b9.png"><img
@@ -4315,10 +4079,9 @@ LLNL/DiHydrogen:
   data_format: 2
   description: null
   filenames:
-  - .gitlab/spack/environments/quartz/spack.yaml
   - .gitlab/spack/environments/pascal/spack.yaml
+  - .gitlab/spack/environments/quartz/spack.yaml
   - .gitlab/spack/environments/corona/spack.yaml
-  - .gitlab/spack/environments/lassen/spack.yaml
   full_name: LLNL/DiHydrogen
   latest_release: v0.2.1
   readme: '<h1 id="user-content-dihydrogen"><a class="heading-link" href="#dihydrogen">DiHydrogen<span
@@ -4528,8 +4291,8 @@ LLNL/UnifyFS:
   data_format: 2
   description: 'UnifyFS: A file system for burst buffers'
   filenames:
-  - .spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml
   - .spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml
+  - .spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml
   full_name: LLNL/UnifyFS
   latest_release: v1.1
   readme: "<h1 id=\"user-content-unifyfs-a-distributed-burst-buffer-file-system\"\
@@ -4574,23 +4337,23 @@ LLNL/UnifyFS:
     >Contribute and Develop<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
     ></span></a></h2>\n<p>If you would like to help, please see our <a href=\"https://unifyfs.readthedocs.io/en/dev/contribute-ways.html\"\
     \ rel=\"nofollow\">contributing guidelines</a>.</p>\n"
-  stargazers_count: 90
+  stargazers_count: 91
   subscribers_count: 20
   topics:
   - system-software
   - burst-buffers
   - file-system
-  updated_at: 1693949530.0
+  updated_at: 1695373972.0
 LLNL/axom:
   data_format: 2
   description: CS infrastructure components for HPC applications
   filenames:
+  - scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml
+  - scripts/spack/configs/linux_ubuntu_20/spack.yaml
+  - scripts/spack/configs/toss_4_x86_64_ib/spack.yaml
   - scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml
   - scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml
-  - scripts/spack/configs/linux_ubuntu_20/spack.yaml
   - scripts/spack/configs/toss_3_x86_64_ib/spack.yaml
-  - scripts/spack/configs/toss_4_x86_64_ib/spack.yaml
-  - scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml
   full_name: LLNL/axom
   latest_release: v0.8.1
   readme: '<h1 id=""><a class="heading-link" href="#"><img src="/share/axom/logo/axom_logo.png?raw=true"
@@ -4773,9 +4536,9 @@ LLNL/hiop:
   data_format: 2
   description: HPC solver for nonlinear optimization problems
   filenames:
+  - scripts/platforms/summit/spack.yaml
   - scripts/platforms/newell/spack.yaml
   - scripts/platforms/marianas/spack.yaml
-  - scripts/platforms/summit/spack.yaml
   full_name: LLNL/hiop
   latest_release: v1.0.0
   readme: "<h1 id=\"user-content-hiop---hpc-solver-for-optimization\"><a class=\"\
@@ -5099,10 +4862,12 @@ LLNL/serac:
   description: Serac is a high order nonlinear thermomechanical simulation code
   filenames:
   - scripts/spack/configs/linux_ubuntu_22/spack.yaml
-  - scripts/spack/configs/darwin/spack.yaml
-  - scripts/spack/configs/docker/ubuntu20/spack.yaml
-  - scripts/spack/configs/toss_4_x86_64_ib/spack.yaml
   - scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml
+  - scripts/spack/configs/linux_ubuntu_20/spack.yaml
+  - scripts/spack/configs/toss_4_x86_64_ib/spack.yaml
+  - scripts/spack/configs/docker/ubuntu20/spack.yaml
+  - scripts/spack/configs/darwin/spack.yaml
+  - scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml
   full_name: LLNL/serac
   latest_release: null
   readme: '<h1 id=""><a class="heading-link" href="#"><img src="/share/serac/logo/serac-logo-blue.png?raw=true"
@@ -5252,10 +5017,10 @@ LLNL/sundials:
     and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug
     fixes and minor changes.
   filenames:
-  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
-  - docker/sundials-ci/e4s-quarterly/int32-double/spack.yaml
+  - docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml
   - docker/sundials-ci/spack-nightly/int64-double/spack.yaml
   - docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml
+  - docker/sundials-ci/spack-nightly/int32-double/spack.yaml
   full_name: LLNL/sundials
   latest_release: v6.6.1
   readme: '<h1 id="user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers"><a
@@ -5600,9 +5365,9 @@ MuonColliderSoft/mucoll-spack:
   data_format: 2
   description: Muon Collider software repository for Spack
   filenames:
+  - environments/mucoll-common/spack.yaml
   - environments/mucoll-release-debug/spack.yaml
   - environments/mucoll-release/spack.yaml
-  - environments/mucoll-common/spack.yaml
   full_name: MuonColliderSoft/mucoll-spack
   latest_release: v2.8
   readme: "<h1 id=\"user-content-spack-package-repository-for-muon-collider-software-stack\"\
@@ -5683,239 +5448,6 @@ MuonColliderSoft/mucoll-spack:
   subscribers_count: 4
   topics: []
   updated_at: 1679435634.0
-NCAR/ncar-spack:
-  data_format: 2
-  description: NCAR supercomputer user software installed and maintained using Spack
-  filenames:
-  - clusters/gust/spack.yaml
-  full_name: NCAR/ncar-spack
-  latest_release: null
-  readme: "<h1 id=\"user-content-ncar-spack\"><a class=\"heading-link\" href=\"#ncar-spack\"\
-    >ncar-spack<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h1>\n\
-    <h2 id=\"user-content-what-is-ncar-spack\"><a class=\"heading-link\" href=\"#what-is-ncar-spack\"\
-    >What is ncar-spack?<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<p>This repository contains cluster configurations for NCAR\
-    \ HPC software stacks, a deployment script, and helper scripts that get installed\
-    \ into a cluster deployment to facilitate reproducible and consistent package\
-    \ management across the consulting team.</p>\n<p>It is also important to note\
-    \ what this repository is <strong>not</strong>. It is not a fork of Spack itself\
-    \ - though a cluster <em>should</em> use the CSG Spack fork. It is also not for\
-    \ tracking a production cluster deployment. Rather, this repository contains the\
-    \ recipe and the tools for starting a deployment, which is then tracked in its\
-    \ own repo!</p>\n<h2 id=\"user-content-getting-started\"><a class=\"heading-link\"\
-    \ href=\"#getting-started\">Getting started<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<p>The following instructions describe\
-    \ cloning this repository and starting a new cluster deployment. If you want to\
-    \ know how to install a package into an existing deployment, create a new cluster\
-    \ recipe, or update a cluster recipe in this repository from changes made in production,\
-    \ see the appropriate section below.</p>\n<p>To get started, simply clone this\
-    \ repository either as yourself or as <em>csgteam</em>. If you plan to produce\
-    \ a public production cluster deployment, you will need to run as <em>csgteam</em>.</p>\n\
-    <pre><code>git clone git@github.com:NCAR/ncar-spack.git\n</code></pre>\n<p><em>The\
-    \ clone command above assumes SSH-key usage!</em></p>\n<h4 id=\"user-content-vim-users-yaml-configuration\"\
-    ><a class=\"heading-link\" href=\"#vim-users-yaml-configuration\">Vim users: YAML\
-    \ configuration<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h4>\n\
-    <p>Since Spack will output YAML lines with two-space indentation, the following\
-    \ Vim settings are recommended:</p>\n<pre><code>$ cat ~/.vim/after/ftplugin/yaml.vim\n\
-    setlocal shiftwidth=2\nsetlocal tabstop=2\n</code></pre>\n<h2 id=\"user-content-deploying-a-cluster-from-scratch\"\
-    ><a class=\"heading-link\" href=\"#deploying-a-cluster-from-scratch\">Deploying\
-    \ a cluster from scratch<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<p>Cluster definitions are contained in the <code>clusters</code>\
-    \ subdirectory and typically contain the following components:</p>\n<pre><code>clusters/\n\
-    \u251C\u2500\u2500 casper\n\u2502   \u251C\u2500\u2500 constraints.cfg - external\
-    \ packages, and packages required to use the system GCC\n\u2502   \u251C\u2500\
-    \u2500 main.cfg        - top-level path, name, and version settings for the cluster\
-    \ deployment\n\u2502   \u251C\u2500\u2500 packages.cfg    - an inventory of packages\
-    \ to be built upon deployment (and beyond)\n\u2502   \u251C\u2500\u2500 postprocess\
-    \     - a bash script that runs last and does cluster prep that Spack cannot\n\
-    \u2502   \u251C\u2500\u2500 repos.cfg       - any custom package repositories\
-    \ to include (i.e. ncar.hpcd recipes)\n\u2502   \u2514\u2500\u2500 spack.yaml\
-    \      - the Spack environment template that will become the cluster stack\n...\n\
-    </code></pre>\n<p>Remember, these are simply templates! To generate a cluster\
-    \ deployment from one of these recipes, simply run the <code>deploy</code> script\
-    \ in the top-level directory. For example:</p>\n<pre><code>./deploy [--production]\
-    \ [--no-pkgs] casper\n</code></pre>\n<p>This command will clone csg-spack-fork\
-    \ and check out the branch specified in the cluster's <strong>main.cfg</strong>\
-    \ (or use the <code>ncar-mods</code> branch if left blank), copy the cluster recipe\
-    \ template and replace placeholders with proper paths and settings, set up a build\
-    \ cache mirror if one does not already exist, and (<em>if <code>--no-pkgs</code>\
-    \ is not set</em>) will build the packages specified in <strong>packages.cfg</strong>.</p>\n\
-    <p>The <code>--production</code> flag can only be specified when running as <em>csgteam</em>.\
-    \ Without this flag, a <em>test</em> deployment will be created at the location\
-    \ configured in the cluster definition (probably your scratch directory). Doing\
-    \ a test deployment can be a good way to learn how this all works without breaking\
-    \ things, and is recommended! \U0001F44D</p>\n<blockquote>\n<p><em>Keep in mind\
-    \ that changes made after you deploy a cluster will cause divergence from the\
-    \ recipe contained in this repo. This is expected, but if you wish to propagate\
-    \ those changes to a new version of the deployment, you should merge them into\
-    \ the recipe and push the changes to ncar-spack (see below)!</em></p>\n</blockquote>\n\
-    <h2 id=\"user-content-installing-a-new-package\"><a class=\"heading-link\" href=\"\
-    #installing-a-new-package\">Installing a new package<span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a></h2>\n<p>As new versions of popular\
-    \ libraries (e.g., <em>netcdf</em>) are released, and users request new packages,\
-    \ consultants will need to augment cluster deployments. All of the tools to do\
-    \ this robustly are provided in a cluster deployment. Here, we will run through\
-    \ an example for a production install, and so these steps assume working as <em>csgteam</em>.</p>\n\
-    <p>First, a word about how the deployment is structured. There should exist one\
-    \ Spack clone, and two Spack environments: a <em>build</em> environment and a\
-    \ <em>public</em> environment. The build environment is what you will interact\
-    \ with. Packages are build from source in the <em>build</em> environment, and\
-    \ any changes should not be visible to users. Only when you are happy with your\
-    \ changes in the <em>build</em> environment should you <code>publish</code> them\
-    \ into the <em>public</em> environment.</p>\n<h3 id=\"user-content-environment-prep-clean_bash-and-spacktivate\"\
-    ><a class=\"heading-link\" href=\"#environment-prep-clean_bash-and-spacktivate\"\
-    >Environment prep: <code>clean_bash</code> and <code>spacktivate</code>\n<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>Before\
-    \ doing anything with a cluster deployment, you should first launch a clean bash\
-    \ shell that has been scrubbed of personal settings and modules. Since this step\
-    \ is fundamental to using <em>ncar-spack</em>, a script called <code>clean_bash</code>\
-    \ is provided in the csg-spack-fork to do this for you. The script will also initialize\
-    \ Spack to run in your environment, and change your directory to the <em>build</em>\
-    \ environment.</p>\n<p>The script can be found in the <code>bin</code> directory\
-    \ of the clone Spack, and it is also typically configured to run as a shell function\
-    \ when you are <em>csgteam</em> (via <strong>.bashrc</strong> settings).</p>\n\
-    <p>Once you are in a sanitized bash shell, you can \"activate\" the <em>build</em>\
-    \ environment. This step is important, because otherwise Spack will make decisions\
-    \ based on the configuration in the Spack clone settings directory, rather than\
-    \ our environment settings contained in <strong>spack.yaml</strong>.</p>\n<p><strong>For\
-    \ example:</strong></p>\n<pre><code>clean_bash\nspacktivate -p .\n</code></pre>\n\
-    <p>Since <code>clean_bash</code> places you in the <em>build</em> directory, you\
-    \ can use <code>.</code> to indicate the environment path. The <code>-p</code>\
-    \ option provides a nice prompt decorator indicating the build environment is\
-    \ active.</p>\n<h3 id=\"user-content-updating-the-builtin-repo-to-get-new-package-versions\"\
-    ><a class=\"heading-link\" href=\"#updating-the-builtin-repo-to-get-new-package-versions\"\
-    >Updating the <em>builtin</em> repo to get new package versions<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>Unfortunately, some\
-    \ terminology is overloaded here. In addition to Spack itself being a Git repository,\
-    \ Spack stores its package recipes in a package repository. The default repo is\
-    \ called <em>builtin</em>, and is contained with Spack itself in the Spack Git\
-    \ repo. The problem is that checking out a newer version of Spack or its <em>builtin</em>\
-    \ repo will update many things - including the package API and package recipes.\
-    \ This can cause packages to concretize differently and reduce reproducibility,\
-    \ and in some cases can even break the whole deployment.</p>\n<p>\U0001F6A8 <strong>Updating\
-    \ the entire Spack clone should be avoided - consider this a scenario for creating\
-    \ a new deployment!</strong> \U0001F6A8</p>\n<p>So let's say a user wants the\
-    \ latest and greatest version of a package, and the version you see provided by\
-    \ our Spack clone is older (use <code>spack info &lt;package&gt;</code> to check\
-    \ versions). In this scenario, aim for the least invasive changes possible. Typically,\
-    \ this means checking out only the desired package from the main Spack upstream.\
-    \ The <code>deploy</code> script will configure the cloned Spack to have an upstream\
-    \ remote to the main Spack repo.</p>\n<h4 id=\"user-content-example-installing-the-latest-esmf\"\
-    ><a class=\"heading-link\" href=\"#example-installing-the-latest-esmf\">Example:\
-    \ Installing the latest ESMF<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h4>\n<p>A user wants ESMF 8.6.0, but the deployed Spack clone only\
-    \ provides up to 8.5.2. Here is how you would obtain a newer version:</p>\n<pre><code>cd\
-    \ $SPACK_ROOT/var/spack/repos/builtin/packages\ngit fetch upstream develop\ngit\
-    \ checkout upstream/develop -- esmf\ncd $SPACK_ENV\n</code></pre>\n<p>These commands\
-    \ will only check out the updated ESMF package recipe (including the <strong>package.py</strong>\
-    \ and any new/modified patches). Note that sometimes you will need to update dependencies\
-    \ too if your package has changes that are incompatible with the current dependency\
-    \ recipe. But aim for the least number of changes possible to get a successful\
-    \ build. And if the version the user wants is provided already (or they don't\
-    \ care which version), then great, skip this section!</p>\n<h3 id=\"user-content-configuring-an-optimal-package-build\"\
-    ><a class=\"heading-link\" href=\"#configuring-an-optimal-package-build\">Configuring\
-    \ an optimal package build<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h3>\n<p>Before installing any package, you should always run these\
-    \ two commands:</p>\n<ol>\n<li>\n<code>spack info &lt;spec&gt;</code> - tells\
-    \ you which versions are availabe and which variants can be used to modify how\
-    \ the package will be built</li>\n<li>\n<code>spack spec -I -l &lt;spec&gt;</code>\
-    \ - shows you exactly how the package will be built as currently configured, including\
-    \ the dependencies Spack will use; the <code>-I</code> flag will decorate the\
-    \ output with an indicator telling you whether the package is currently installed\
-    \ <code>[+]</code>, an external <code>[e]</code>, or needs to be installed <code>[-]</code>.</li>\n\
-    </ol>\n<p>First, think about which variants you will need to configure to meet\
-    \ the user's request. Also, consider whether the package should use the system\
-    \ compiler or be built with our <em>module-loadable</em> compilers. It typically\
-    \ makes sense to use the system compiler for lower level packages that get used\
-    \ as dependencies often like <em>python</em> and <em>qt</em>. On the other hand,\
-    \ if a package depends on MPI you will almost certainly want to built it using\
-    \ the module compilers.</p>\n<p>The package build can be configured either in\
-    \ the <em>spec</em> or specifying preferences and requirements in the <strong>spack.yaml</strong>.\
-    \ I prefer the latter, when possible, as these settings will often influence how\
-    \ the package gets used as dependencies, and will also help narrow the behavior\
-    \ if a user wants to use our deployment as a Spack <em>upstream</em>.</p>\n<p>If\
-    \ you wish to constrain any uninstalled dependencies of your package to use the\
-    \ system compiler, add them to the <strong>constraints.cfg</strong> file in the\
-    \ <em>build</em> environment and then run <code>bin/add_constraints</code>.</p>\n\
-    <h3 id=\"user-content-building-the-package\"><a class=\"heading-link\" href=\"\
-    #building-the-package\">Building the package<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h3>\n<p>Once you are happy with the build\
-    \ configuration and have implemented any desired constraints/preferences/requirements,\
-    \ you can install the package into the build environment. You <em>could</em> do\
-    \ this with the following Spack command:</p>\n<pre><code>spack install --add &lt;spec&gt;\n\
-    </code></pre>\n<p>However, this method will not span multiple compilers/MPIs and\
-    \ also does not log who performed the install. Instead, a helper script is provided\
-    \ to make complex installs easier (and put logs in an easy to find location).</p>\n\
-    <p>To install the package, add the <code>&lt;spec&gt;</code> into the <strong>packages.cfg</strong>\
-    \ file in an appropriate subsection - packages can be one of the following:</p>\n\
-    <ul>\n<li>\n<strong>singleton</strong> - only a single configuration of this package\
-    \ is installed</li>\n<li>\n<strong>cdep</strong> - the package will be installed\
-    \ for every non-system compiler defined in <strong>packages.cfg</strong>\n</li>\n\
-    <li>\n<strong>mdep</strong> - the package will be installed for the matrix of\
-    \ compilers and MPIs defined in this file</li>\n</ul>\n<p>Eventual user access\
-    \ to the package can be configured via the <code>access</code> tag. By default,\
-    \ a new package will produce an environment module that can be loaded. However,\
-    \ you can configure the package to appear in the <em>view</em> instead using <code>access=view</code>.\
-    \ Any package in the <em>view</em> will be in the user environment by default\
-    \ when the <strong>ncarenv</strong> module is loaded, as if it were a system package\
-    \ installed using zypper/yum/apt-get.</p>\n<p>There are many additional specifications\
-    \ that can be set on sections and individual packages in this configuration file.\
-    \ See existing listings for inspiration (<em>full documentation TBD</em>).</p>\n\
-    <blockquote>\n<p><em>Note that compilers and MPIs installed into the <strong>spack.yaml</strong>\
-    \ but not listed in <strong>packages.cfg</strong> will NOT be used for cdep and\
-    \ mdep  sections. This is another useful feature of using <strong>packages.cfg</strong>\
-    \ - think of it a record of the \"actively updated\" compiler and MPI stacks,\
-    \ while <strong>spack.yaml</strong> contains both active and inactive/deprecated\
-    \ versions.</em></p>\n</blockquote>\n<p>Once you have added the package <code>&lt;spec&gt;</code>\
-    \ to <strong>packages.cfg</strong>, you can begin the source builds by running\
-    \ <code>bin/install_packages</code>. If all goes well, this should install the\
-    \ package(s) and any necessary dependencies into the <em>build</em> environment.\
-    \ If something goes wrong, ask colleagues in <strong>#spack</strong> on the <strong>hpc-ucar</strong>\
-    \ Slack. \U0001F4AC</p>\n<h3 id=\"user-content-testing-the-package\"><a class=\"\
-    heading-link\" href=\"#testing-the-package\">Testing the package<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>Once you have successfully\
-    \ built the package, you should run the following additional steps to prepare\
-    \ the build environment for testing:</p>\n<pre><code>spack module lmod refresh\
-    \ -y\nbin/postprocess\n</code></pre>\n<p>Even if your package does not produce\
-    \ a new environment module, it is good to run these commands to get a sense of\
-    \ how the production environment will look to users. Once this is ready, you can\
-    \ use a helper script to switch your environment from the default (production\
-    \ <em>public</em>) to the build stack:</p>\n<pre><code>bin/use_modules[.csh]\n\
-    </code></pre>\n<p>You should see your package binaries/libraries/headers either\
-    \ in the default environment (if set to exist in the <em>view</em>) or in the\
-    \ module listing from <code>module avail</code>. At this point, do whatever testing\
-    \ you need to do to ensure the package seems robust. <strong>You can also ask\
-    \ the user to run <code>use_modules</code> and they can provide you feedback,\
-    \ before you ever make the package available to other users!</strong></p>\n<h3\
-    \ id=\"user-content-publishing-the-package\"><a class=\"heading-link\" href=\"\
-    #publishing-the-package\">Publishing the package<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h3>\n<p>Finally, assuming all goes well to\
-    \ this point and testing was a success, you can publish the changes from the <em>build</em>\
-    \ environment to the <em>public</em> environment. A helper script should handle\
-    \ all of this for you.</p>\n<p>\U0001F6A8 <strong>You should rarely, if ever,\
-    \ need to manually make changes to the public environment!</strong> \U0001F6A8\
-    </p>\n<p>All published changes get committed and pushed to a GitHub repo (if this\
-    \ is a production deployment) called <code>spack-&lt;cluster&gt;</code> . This\
-    \ repo is publicly visible and can be used by the community to report bugs and\
-    \ request new packages. Thus, the publish script expects one argument - a commit\
-    \ message.</p>\n<pre><code>bin/publish \"Installed latest emacs for benkirk in\
-    \ #4\"\n</code></pre>\n<p>The <code>publish</code> script will describe all of\
-    \ the changes it makes, including package installs, <strong>spack.yaml</strong>\
-    \ changes,  refreshing the module tree, and postprocessing.</p>\n<h4 id=\"user-content-what-if-something-went-wrong\"\
-    ><a class=\"heading-link\" href=\"#what-if-something-went-wrong\">What if something\
-    \ went wrong?<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h4>\n\
-    <p>Spack is finnicky and it is rather easy to get in a pickle, but <em>most</em>\
-    \ situations are recoverable if addressed early. If you are unsure about what\
-    \ to do, please ask for help in our <strong>hpc-ucar #spack</strong> Slack channel!</p>\n\
-    <h2 id=\"user-content-updating-a-cluster-definition-with-production-changes\"\
-    ><a class=\"heading-link\" href=\"#updating-a-cluster-definition-with-production-changes\"\
-    >Updating a cluster definition with production changes<span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a></h2>\n<p>TODO: document when and\
-    \ how to do this</p>\n"
-  stargazers_count: 1
-  subscribers_count: 8
-  topics: []
-  updated_at: 1695146659.0
 NCAR/spack-derecho:
   data_format: 2
   description: Spack production user software stack on the Derecho system
@@ -6100,23 +5632,25 @@ NERSC/spack-infrastructure:
   data_format: 2
   description: null
   filenames:
-  - spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml
-  - spack-configs/perlmutter-e4s-22.11/prod/cuda/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml
-  - spack-configs/perlmutter-spack-develop/spack.yaml
-  - spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml
-  - spack-configs/cori-e4s-20.10/prod/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml
-  - spack-configs/cori-e4s-21.02/prod/spack.yaml
   - spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml
-  - spack-configs/cori-e4s-20.10/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/data/spack.yaml
-  - spack-configs/cori-e4s-22.02/spack.yaml
+  - spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml
+  - spack-configs/perlmutter-e4s-22.11/prod/cce/spack.yaml
+  - spack-configs/cori-e4s-20.10/prod/spack.yaml
   - spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/prod/cce/spack.yaml
+  - spack-configs/cori-e4s-20.10/spack.yaml
+  - spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml
+  - spack-configs/cori-e4s-22.02/spack.yaml
   - spack-configs/perlmutter-user-spack/spack.yaml
-  - spack-configs/perlmutter-e4s-23.05/cce/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml
+  - spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml
+  - spack-configs/perlmutter-e4s-23.05/data/spack.yaml
+  - spack-configs/cori-e4s-21.02/prod/spack.yaml
+  - spack-configs/perlmutter-spack-develop/spack.yaml
+  - spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml
   full_name: NERSC/spack-infrastructure
   latest_release: null
   readme: "<h1 id=\"user-content-spack-infrastructure\"><a class=\"heading-link\"\
@@ -7007,10 +6541,11 @@ PawseySC/pawsey-spack-config:
   description: Automated deployment system for the scientific software stack in use
     at Pawsey
   filenames:
+  - systems/setonix/environments/astro/spack.yaml
+  - systems/setonix/environments/io_libs/spack.yaml
+  - systems/setonix/environments/bench/spack.yaml
   - systems/setonix/environments/wrf/spack.yaml
   - systems/setonix/environments/utils/spack.yaml
-  - systems/setonix/environments/bench/spack.yaml
-  - systems/setonix/environments/astro/spack.yaml
   full_name: PawseySC/pawsey-spack-config
   latest_release: null
   readme: '<h1 id="user-content-pawsey-spack-configuration"><a class="heading-link"
@@ -7307,10 +6842,11 @@ RMeli/my-spack:
   data_format: 2
   description: Spack environments
   filenames:
-  - envs/alps/sirius/cuda/spack.yaml
-  - envs/alps/cp2k-dlaf/mkl-cuda/spack.yaml
-  - envs/alps/dlaf/oneapi-mt/spack.yaml
+  - envs/alps/dlaf/mkl-mt/spack.yaml
   - envs/local/cp2k-dlaf/mkl-mt-mpich-cuda/spack.yaml
+  - envs/alps/dlaf/oneapi-mt/spack.yaml
+  - envs/local/dlaf/mkl-mt-mpich-cuda-scalapack/spack.yaml
+  - envs/local/dlaf/openblas-mt-mpich-cuda/spack.yaml
   full_name: RMeli/my-spack
   latest_release: null
   readme: '<h1 id="user-content-my-spack"><a class="heading-link" href="#my-spack">My
@@ -7479,8 +7015,8 @@ SCOREC/dcs-spack-config:
   data_format: 2
   description: Spack config for CCI DCS (AiMOS) system
   filenames:
-  - spack.yaml
   - rhel8NvhpcWdmapp/spack.yaml
+  - spack.yaml
   full_name: SCOREC/dcs-spack-config
   latest_release: null
   readme: '<h1 id="user-content-dcs-spack-config"><a class="heading-link" href="#dcs-spack-config">dcs-spack-config<span
@@ -7593,6 +7129,7 @@ SCOREC/rhel7-spack-config:
   description: rhel7 spack configuration and scripts
   filenames:
   - v0.20.1/v1/spack.yaml
+  - v0.13.2/spack.yaml
   - v0.18.1/spack.yaml
   full_name: SCOREC/rhel7-spack-config
   latest_release: null
@@ -7737,16 +7274,19 @@ UO-OACISS/e4s:
   data_format: 2
   description: E4S Spack environments and container recipes
   filenames:
-  - docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml
-  - docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml
-  - docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml
   - docker-recipes/archived/rhel7-runner-x86_64/spack.yaml
+  - docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml
+  - docker-recipes/archived/rhel7-runner-ppc64le/spack.yaml
+  - docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml
+  - docker-recipes/archived/special/superlu-sc/spack.yaml
+  - docker-recipes/runner/ubuntu20.04-ppc64le-gcc-11.4/spack.yaml
   - docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml
   - docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml
   - spack-sdk-environments/xsdk/spack.yaml
-  - docker-recipes/archived/special/superlu-sc/spack.yaml
   - docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml
   - docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml
+  - docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml
+  - docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml
   full_name: UO-OACISS/e4s
   latest_release: null
   readme: '<p>This is a collection of configurations for building ECP SDK
@@ -7819,10 +7359,9 @@ alexpacheco/spackenv:
   data_format: 2
   description: 'Spack Environments '
   filenames:
-  - cent7/bioinformatics_default/spack.yaml
-  - cent8/envs/avx/rproject/spack.yaml
-  - cent7/python_376/spack.yaml
   - compilers/envs/compilers/spack.yaml
+  - cent7/bioinformatics_default/spack.yaml
+  - cent7/python_376/spack.yaml
   full_name: alexpacheco/spackenv
   latest_release: null
   readme: '<h1 id="user-content-spack-environments"><a class="heading-link" href="#spack-environments">SPACK
@@ -7988,8 +7527,8 @@ boutproject/BOUT-configs:
   data_format: 2
   description: Configuration scripts for BOUT++
   filenames:
-  - lassen/spack_env/bout/spack.yaml
   - lassen/spack_env/bout_petsc_with_hypre/spack.yaml
+  - lassen/spack_env/bout/spack.yaml
   full_name: boutproject/BOUT-configs
   latest_release: null
   readme: '<h1 id="user-content-configuration-scripts"><a class="heading-link" href="#configuration-scripts">Configuration
@@ -8203,17 +7742,6 @@ celeritas-project/celeritas:
   - computational-physics
   - monte-carlo
   updated_at: 1694315157.0
-cinemascienceworkflows/2021-04_Nyx-Ascent:
-  data_format: 2
-  description: null
-  filenames:
-  - inputs/spack/spack.yaml
-  full_name: cinemascienceworkflows/2021-04_Nyx-Ascent
-  latest_release: null
-  stargazers_count: 2
-  subscribers_count: 7
-  topics: []
-  updated_at: 1627938870.0
 d-SEAMS/seams-core:
   data_format: 2
   description: The d-SEAMS C++ core engine
@@ -8500,8 +8028,8 @@ dbkinghorn/Benchmark-Containers:
   description: Dockerfile and Spack spec files for hardware optimized benchmark containers
   filenames:
   - quantum-espresso-amd/spack.yaml
-  - hmmer-amd/spack.yaml
   - hpcg-amd/spack.yaml
+  - hmmer-amd/spack.yaml
   full_name: dbkinghorn/Benchmark-Containers
   latest_release: null
   readme: '<h1 id="user-content-benchmark-containers"><a class="heading-link" href="#benchmark-containers">Benchmark
@@ -8545,9 +8073,9 @@ eflows4hpc/workflow-registry:
   data_format: 2
   description: Registry to store workflow descriptions
   filenames:
-  - minimal_workflow/wordcount/spack.yaml
   - kaust/exageostat/spack.yaml
   - tutorial/lysozyme/spack.yaml
+  - minimal_workflow/wordcount/spack.yaml
   full_name: eflows4hpc/workflow-registry
   latest_release: 2nd_stack_release
   readme: "<h1 id=\"user-content-workflow-registry\"><a class=\"heading-link\" href=\"\
@@ -8577,23 +8105,24 @@ eflows4hpc/workflow-registry:
   subscribers_count: 10
   topics: []
   updated_at: 1675113861.0
-epfl-radio-astro/ska-spack-env:
+eic/containers:
   data_format: 2
-  description: SKA Spack environments related files
+  description: Container building infrastructure (mirror of https://eicweb.phy.anl.gov/containers/eic_container)
   filenames:
-  - env-bipp-izar/spack.yaml
-  full_name: epfl-radio-astro/ska-spack-env
+  - spack-environment/dev/spack.yaml
+  full_name: eic/containers
   latest_release: null
-  readme: '<h1 id="user-content-ska-spack-env"><a class="heading-link" href="#ska-spack-env">ska-spack-env<span
+  readme: '<h1 id="user-content-eic-software-environment-container"><a class="heading-link"
+    href="#eic-software-environment-container">EIC software environment container<span
     aria-hidden="true" class="octicon octicon-link"></span></a></h1>
 
-    <p>SKA Spack environments related files</p>
+    <p>For installation instructions of <code>eic-shell</code>, see <a href="https://github.com/eic/eic-shell">https://github.com/eic/eic-shell</a>.</p>
 
     '
   stargazers_count: 0
-  subscribers_count: 1
+  subscribers_count: 5
   topics: []
-  updated_at: 1674857920.0
+  updated_at: 1693159888.0
 epfl-scitas/spack-sdploy:
   data_format: 2
   description: Toolset to deploy software stacks
@@ -8699,8 +8228,6 @@ eth-cscs/spack-batteries-included:
   description: Installing spack without system dependencies
   filenames:
   - build/3_more_tools/spack.yaml
-  - build/2_compiler/spack.yaml
-  - build/5_runtime/spack.yaml
   full_name: eth-cscs/spack-batteries-included
   latest_release: develop
   readme: "<p><a href=\"https://github.com/eth-cscs/spack-batteries-included/actions/workflows/update-spack.yaml\"\
@@ -8813,9 +8340,9 @@ eth-cscs/spack-stack:
   data_format: 2
   description: fast spack builds on slow filesystem
   filenames:
+  - packages/nvhpc/spack.yaml
   - compilers/3-llvm/spack.yaml
   - recipe/nvhpc.spack.yaml
-  - packages/nvhpc/spack.yaml
   full_name: eth-cscs/spack-stack
   latest_release: null
   stargazers_count: 2
@@ -8826,8 +8353,8 @@ eugeneswalker/llvm-containers:
   data_format: 2
   description: null
   filenames:
-  - x86_64/spack.yaml
   - ppc64le/spack.yaml
+  - x86_64/spack.yaml
   full_name: eugeneswalker/llvm-containers
   latest_release: null
   stargazers_count: 1
@@ -8838,8 +8365,9 @@ eugeneswalker/noaa:
   data_format: 2
   description: null
   filenames:
-  - oneapi/failures/spack.yaml
   - gnu/spack.yaml
+  - oneapi/spack.yaml
+  - oneapi/failures/spack.yaml
   full_name: eugeneswalker/noaa
   latest_release: null
   stargazers_count: 0
@@ -9280,70 +8808,6 @@ giordano/julia-on-fugaku:
   subscribers_count: 3
   topics: []
   updated_at: 1690337110.0
-haampie/spack-oci-buildcache-example:
-  data_format: 2
-  description: Example of how to use Spack + OCI buildcache with Github Actions
-  filenames:
-  - spack.yaml
-  full_name: haampie/spack-oci-buildcache-example
-  latest_release: null
-  readme: '<h1 id="user-content-oci-registry-as-spack-buildcache"><a class="heading-link"
-    href="#oci-registry-as-spack-buildcache">OCI registry as Spack buildcache<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>This repo builds an <a href="spack.yaml">environment</a> in a <a href=".github/workflows/example.yml">GitHub
-    Action</a>, and pushes
-
-    the binaries to the OCI registry that is <a href="https://github.com/haampie/spack-oci-buildcache-example/pkgs/container/spack-oci-buildcache-example">Github
-    Packages</a>.</p>
-
-    <p>The registry serves as a buildcache for the next time that the Github Action
-
-    runs. That means that <code>spack concretize</code> will take available packages
-    into
-
-    account for reuse, and <code>spack install</code> will install from binaries when
-    it can.</p>
-
-    <p>On top of that, Spack creates a basic runnable Docker images for every package,
-
-    so that you can easily use the binaries without Spack too:</p>
-
-    <div class="highlight highlight-text-shell-session"><pre>$ <span class="pl-s1">docker
-    run --rm -it ghcr.io/haampie/spack-oci-buildcache-example:py-ipython-8.14.0-nkmp6acu66iclxcnzhjg6mczcqmfn2cq.spack
-    ipython</span>
-
-    <span class="pl-c1">Python 3.11.4 (main, Aug  4 2023, 09:48:20) [GCC 12.1.0]</span>
-
-    <span class="pl-c1">Type ''copyright'', ''credits'' or ''license'' for more information</span>
-
-    <span class="pl-c1">IPython 8.14.0 -- An enhanced Interactive Python. Type ''?''
-    for help.</span>
-
-
-    <span class="pl-c1">In [1]: 1+2</span>
-
-    <span class="pl-c1">Out[1]: 3</span></pre></div>
-
-    <p>Note, this builds on top of <a href="https://github.com/spack/spack/pull/38358">https://github.com/spack/spack/pull/38358</a>
-    which is not merged to Spack develop yet.</p>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 2
-  topics: []
-  updated_at: 1688047832.0
-hepnos/HEPnOS-PEP-Benchmark:
-  data_format: 2
-  description: Benchmark exercizing the ParallelEventProcessor feature of HEPnOS.
-  filenames:
-  - spack.yaml
-  full_name: hepnos/HEPnOS-PEP-Benchmark
-  latest_release: v0.6
-  stargazers_count: 0
-  subscribers_count: 2
-  topics: []
-  updated_at: 1643644897.0
 hepnos/HEPnOS-Wizard:
   data_format: 2
   description: Python utilities to generate HEPnOS configurations
@@ -9589,8 +9053,8 @@ jaykalinani/AsterX:
   data_format: 2
   description: AsterX is a GPU-accelerated GRMHD code for dynamical spacetimes
   filenames:
-  - Docs/compile-notes/frontera-github/CPU/spack.yaml
   - Docs/compile-notes/frontera-github/GPU/spack.yaml
+  - Docs/compile-notes/frontera-github/CPU/spack.yaml
   full_name: jaykalinani/AsterX
   latest_release: null
   readme: '<p><a target="_blank" rel="noopener noreferrer" href="Docs/figures/asterx.png"><img
@@ -9720,6 +9184,7 @@ jedwards4b/spackenvironments:
   description: my spack environments for software builds
   filenames:
   - esmfserialbld/spack.yaml
+  - esmfbld/spack.yaml
   full_name: jedwards4b/spackenvironments
   latest_release: null
   stargazers_count: 0
@@ -9786,10 +9251,11 @@ key4hep/key4hep-spack:
   data_format: 2
   description: A Spack recipe repository of Key4hep software.
   filenames:
-  - environments/key4hep-release/spack.yaml
+  - environments/key4hep-nightly/spack.yaml
   - environments/key4hep-ci/spack.yaml
   - environments/key4hep-nightly-debug/spack.yaml
-  - environments/key4hep-nightly/spack.yaml
+  - environments/key4hep-release/spack.yaml
+  - environments/key4hep-nightly-clang/spack.yaml
   full_name: key4hep/key4hep-spack
   latest_release: '2021-10-29'
   readme: '<h1 id="user-content-spack-package-repo-for-key4hep-software-packaging"><a
@@ -9905,9 +9371,9 @@ lanl/CELLAR:
     adaptive mesh refinement data structures and execution for parallel computing
     architectures.
   filenames:
+  - spack/ci/spack.yaml
   - spack/darwin-power9/spack.yaml
   - spack/snow/spack.yaml
-  - spack/ci/spack.yaml
   full_name: lanl/CELLAR
   latest_release: null
   readme: '<h1 id="user-content-cellar-----eap-core"><a class="heading-link" href="#cellar-----eap-core">CELLAR  -  EAP
@@ -10627,8 +10093,8 @@ lezzidan/spack:
   data_format: 2
   description: Spack clone
   filenames:
+  - share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml
-  - share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml
   full_name: lezzidan/spack
   latest_release: null
   readme: "<h1 id=\"user-content--spack\"><a class=\"heading-link\" href=\"#-spack\"\
@@ -10809,7 +10275,7 @@ lfortran/lfortran:
     \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7e19634671b985a40376628d5d76d76ef6baf79368e0c4b6a409523464e705b7/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6c666f727472616e2f6c666f727472616e26747970653d44617465\"\
     \ alt=\"Star History Chart\" data-canonical-src=\"https://api.star-history.com/svg?repos=lfortran/lfortran&amp;type=Date\"\
     \ style=\"max-width: 100%;\"></a></p>\n"
-  stargazers_count: 723
+  stargazers_count: 724
   subscribers_count: 19
   topics:
   - fortran
@@ -10820,57 +10286,7 @@ lfortran/lfortran:
   - jupyter
   - jupyter-notebook
   - jupyter-kernels
-  updated_at: 1695347371.0
-m-s-will/nyx:
-  data_format: 2
-  description: null
-  filenames:
-  - nyx/inputs/spack/spack.yaml
-  full_name: m-s-will/nyx
-  latest_release: null
-  readme: '<h1 id="user-content-nyx-with-ascent-in-container"><a class="heading-link"
-    href="#nyx-with-ascent-in-container">Nyx with Ascent in Container<span aria-hidden="true"
-    class="octicon octicon-link"></span></a></h1>
-
-    <p>This project contains a Dockerfile and all necessary components to create a
-    Docker container for Nyx.
-
-    The container is available on <a href="https://hub.docker.com/repository/docker/mswill/elwe_nyx"
-    rel="nofollow">Dockerhub</a>, however these versions may not always be up to date.</p>
-
-    <h2 id="user-content-building-the-container"><a class="heading-link" href="#building-the-container">Building
-    the container<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>The Ascent actions can be changed by editing <a href="https://github.com/m-s-will/nyx/blob/main/nyx/inputs/ascent/ascent_actions.yaml">ascent_actions.yaml</a>.
-
-    When finished with the customization, the container can be rebuilt by navigating
-    into the source directory and executing:</p>
-
-    <pre><code>$ docker build -t &lt;mytag&gt; .
-
-    </code></pre>
-
-    <p>The Nyx simulation is being run during container creation and provides a Cinema
-    database.</p>
-
-    <h2 id="user-content-running-the-container"><a class="heading-link" href="#running-the-container">Running
-    the container<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>After either pulling or building the container, it can be run by calling:</p>
-
-    <pre><code>$ docker run -p 80:80 &lt;mytag&gt;.
-
-    </code></pre>
-
-    <p><code>-p 80:80</code> makes port 80 available on the outside which is needed
-    for the Cinema viewer. We can then connect to it by visiting <code>localhost:80</code>
-    in our browser.</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1619455896.0
+  updated_at: 1695395552.0
 mfem/mfem:
   data_format: 2
   description: Lightweight, general, scalable C++ library for finite element methods
@@ -10957,9 +10373,9 @@ mochi-hpc-experiments/platform-configurations:
   description: This repository provides a set of configuration files and example scripts
     for running Mochi experiments on various platforms.
   filenames:
-  - ORNL/Summit/spack.yaml
   - ORNL/Frontier/spack.yaml
   - NERSC/Perlmutter/ss11/spack.yaml
+  - NERSC/Perlmutter/ss10/spack.yaml
   - ANL/Sunspot/spack.yaml
   - ANL/Theta/spack.yaml
   - ANL/Polaris/spack.yaml
@@ -11775,97 +11191,13 @@ mochi-hpc/py-mochi-sonata:
   subscribers_count: 4
   topics: []
   updated_at: 1633975502.0
-mochi-hpc/ycsb-cpp-interface:
-  data_format: 2
-  description: Mochi-based DB backends for the YCSB benchmark
-  filenames:
-  - spack.yaml
-  full_name: mochi-hpc/ycsb-cpp-interface
-  latest_release: null
-  readme: "<h1 id=\"user-content-ycsb-c-interface\"><a class=\"heading-link\" href=\"\
-    #ycsb-c-interface\">YCSB C++ Interface<span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a></h1>\n<p><a href=\"https://github.com/brianfrankcooper/YCSB\"\
-    >YCSB</a> is one of the most popular Cloud\nstorage benchmark. However it is written\
-    \ in Java, forcing databases implemented\nin other languages to provide a Java\
-    \ wrapper. While <a href=\"https://github.com/ls4154/YCSB-cpp\">YCSC-cpp</a>\n\
-    provides a reimplementation of YCSB in C++, to date it only supports three backends,\
-    \ as\nopposed to 45 for the original YCSB.</p>\n<p><a href=\"https://github.com/mochi-hpc/ycsb-cpp-interface\"\
-    >ycsb-cpp-interface</a>\ntakes a different approach from YCSB-cpp, providing a\
-    \ Java/C++ library\nthat enables the use of C++ to write DB backends for YCSB.</p>\n\
-    <p>ycsb-cpp-inteface works in a modular way, dynamically loading your C++ database\n\
-    implementation from a library using a factory pattern.</p>\n<h2 id=\"user-content-installing\"\
-    ><a class=\"heading-link\" href=\"#installing\">Installing<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h2>\n<h3 id=\"user-content-building-manually\"\
-    ><a class=\"heading-link\" href=\"#building-manually\">Building manually<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>To\
-    \ build this repository from source, you will first need to have\nits dependencies\
-    \ installed and findable by CMake. These dependencies\ninclude:</p>\n<ul>\n<li>Java\
-    \ Development Kit (e.g., OpenJDK)</li>\n<li>YCSB</li>\n<li>cmake</li>\n</ul>\n\
-    <p>Make sure to set the <code>JAVA_HOME</code> environment variable\nto point\
-    \ to where your JDK is installed so that CMake can find it.\nIt is recommended\
-    \ to install a distribution of YCSB, rather than\nthe source.</p>\n<p>You can\
-    \ then build the source contained in this repository as follows.</p>\n<pre><code>$\
-    \ mkdir build\n$ cd build\n$ cmake .. -DYCSB_ROOT=&lt;path/to/where/ycsb/is/installed&gt;\
-    \ \\\n           -DCMAKE_INSTALL_PREFIX=&lt;install/prefix&gt;\n$ make\n</code></pre>\n\
-    <h3 id=\"user-content-installing-using-spack\"><a class=\"heading-link\" href=\"\
-    #installing-using-spack\">Installing using Spack<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h3>\n<p>You can install this library using\
-    \ <a href=\"https://spack.io/\" rel=\"nofollow\">Spack</a>.\nThe <code>ycsb-cpp-interface</code>\
-    \ Spack package is available via the\n<a href=\"https://github.com/mochi-hpc/mochi-spack-packages\"\
-    >Mochi repository</a>,\nwhich can be added to Spack as follows.</p>\n<pre><code>$\
-    \ git clone https://github.com/mochi-hpc/mochi-spack-packages.git\n$ spack repo\
-    \ add mochi-spack-packages\n</code></pre>\n<p>Once the <code>mochi-spack-packages</code>\
-    \ repository has been made available to Spack,\nyou can install <code>ycsb-cpp-interface</code>\
-    \ as follows.</p>\n<pre><code>$ spack install ycsb-cpp-interface\n</code></pre>\n\
-    <h2 id=\"user-content-testing\"><a class=\"heading-link\" href=\"#testing\">Testing<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n<p>If\
-    \ you have installed ycsb-cpp-interface with Spack, make sure that\nthe package\
-    \ is loaded (<code>spack load ycsb-cpp-interface</code>), then you\ncan start\
-    \ the CLI for testing, as follows.</p>\n<pre><code>ycsb-cpp-cli\n</code></pre>\n\
-    <p>When building from source, the CLI is located in the <code>bin</code> subdirectory\n\
-    of your build folder.</p>\n<p>You will end up in YCBS's CLI, with the YcsbDBClient\
-    \ loaded as the\nDB backend, itself using a test implementation of an in-memory\
-    \ database\nwith which you can interact (type <code>help</code> to see a list\
-    \ of available commands).</p>\n<h2 id=\"user-content-writing-your-own-c-db-backend\"\
-    ><a class=\"heading-link\" href=\"#writing-your-own-c-db-backend\">Writing your\
-    \ own C++ DB backend<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<p>ycsb-cpp-interface provides a header file, <code>YCSBCppInterface.hpp</code>,\
-    \ with\na <code>ycsb::DB</code> abstract class. To implement your own C++ backend\
-    \ database,\nyou simply need to implement a child class of the <code>ycsb::DB</code>\
-    \ class that\nimplements the required virtual functions. You may look at <a href=\"\
-    src/TestDB.cpp\"></a>\nas an example of such an implementation. Note the use of\
-    \ the\n<code>YCSB_CPP_REGISTER_DB_TYPE</code> macro after the class definition.\
-    \ This macro\nmust be called in a .cpp file to associate the name of your backend\n\
-    (e.g. <code>myawesomedb</code>) with the class name to use (e.g., <code>MyAwesomeDB</code>).</p>\n\
-    <p>Once your database class is ready, compile it into a shared library\n(e.g.,\
-    \ <code>libmyawesomedb.so</code>). Make sure the <code>LD_LIBRARY_PATH</code>\
-    \ environment\nvariable contains the path to your dynamic library. You may then\
-    \ test\nyour backend with the CLI as follows.</p>\n<pre><code>$ ycsb-cpp-cli -p\
-    \ ycsb.cpp.library=libmyawesomedb.so -p ycsb.cpp.backend=myawesomedb\n</code></pre>\n\
-    <p>The <code>ycsb.cpp.library</code> and <code>ycsb.cpp.backend</code> properties\
-    \ are the only properties\nneeded by ycsb-cpp-interface. Any other properties\
-    \ provided will be propagated\nto your database implementation in the form of\
-    \ an <code>std::unordered_map&lt;std::string, std::string&gt;</code>.\nNote that\
-    \ <code>ycsb.cpp.library</code> may accept a full path to your dynamic library,\n\
-    if you don't want to change the <code>LD_LIBRARY_PATH</code> environment variable.</p>\n\
-    <h2 id=\"user-content-running-ycsb-with-your-c-db-backend\"><a class=\"heading-link\"\
-    \ href=\"#running-ycsb-with-your-c-db-backend\">Running YCSB with your C++ DB\
-    \ backend<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n\
-    <p>ycsb-cpp-interface provides a convenience script, <code>ycsb-cpp</code>, to\
-    \ run YCSB\nwith your own backend. It can be used in a way similar to the original\
-    \ ycsb script,\nas follows.</p>\n<pre><code>$ ycsb-cpp load -p ycsb.cpp.library=libmyawesomedb.so\
-    \ -p ycsb.cpp.backend=myawesomedb -P workloadfile\n$ ycsb-cpp run -p ycsb.cpp.library=libmyawesomedb.so\
-    \ -p ycsb.cpp.backend=myawesomedb -P workloadfile\n</code></pre>\n"
-  stargazers_count: 0
-  subscribers_count: 7
-  topics: []
-  updated_at: 1661162651.0
 mpbelhorn/olcf-spack:
   data_format: 2
   description: Spack fork used on OLCF resources
   filenames:
-  - share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml
   - share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml
+  - share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml
   full_name: mpbelhorn/olcf-spack
   latest_release: null
   readme: "<h1 id=\"user-content--spack\"><a class=\"heading-link\" href=\"#-spack\"\
@@ -11987,12 +11319,12 @@ mpbelhorn/olcf-spack-environments:
   data_format: 2
   description: Spack environments for OLCF resources.
   filenames:
-  - hosts/ascent/envs/base/spack.yaml
-  - hosts/peak/envs/base/spack.yaml
-  - hosts/borg/envs/base/spack.yaml
-  - hosts/summit/envs/base/spack.yaml
-  - hosts/ascent/envs/base-rh7/spack.yaml
   - hosts/frontier/envs/base/spack.yaml
+  - hosts/summit/envs/base/spack.yaml
+  - hosts/ascent/envs/base/spack.yaml
+  - hosts/borg/envs/base/spack.yaml
+  - hosts/peak/envs/base/spack.yaml
+  - hosts/ascent/envs/base-rh7/spack.yaml
   full_name: mpbelhorn/olcf-spack-environments
   latest_release: null
   readme: '<h1 id="user-content-olcf-spack-environments"><a class="heading-link" href="#olcf-spack-environments">OLCF
@@ -12249,9 +11581,9 @@ olcf/spack-environments:
   data_format: 2
   description: Spack Environments Templates for OLCF resources
   filenames:
-  - linux-rhel8-ppc64le/summit/spack.yaml
-  - linux-centos7-broadwell/or-slurm/spack.yaml
   - linux-sles15-zen2/spock/spack.yaml
+  - linux-centos7-broadwell/or-slurm/spack.yaml
+  - linux-rhel8-ppc64le/summit/spack.yaml
   full_name: olcf/spack-environments
   latest_release: null
   readme: '<p>OLCF Spack Environments Templates</p>
@@ -12819,8 +12151,8 @@ pnnl/ExaGO:
     and multi-period ACOPF problems.
   filenames:
   - buildsystem/spack/incline/spack.yaml
-  - buildsystem/container/spack.yaml
   - buildsystem/spack/crusher/spack.yaml
+  - buildsystem/container/spack.yaml
   - buildsystem/spack/deception/spack.yaml
   full_name: pnnl/ExaGO
   latest_release: null
@@ -12937,10 +12269,10 @@ pnnl/ExaGO:
     \ by the United States Government or any agency thereof, or Battelle Memorial\
     \ Institute. The views and opinions of authors expressed herein do not necessarily\
     \ state or reflect those of the United States Government or any agency thereof.</p>\n"
-  stargazers_count: 10
+  stargazers_count: 11
   subscribers_count: 10
   topics: []
-  updated_at: 1695229703.0
+  updated_at: 1695404265.0
 robertu94/libpressio:
   data_format: 2
   description: A library to abstract between different lossless and lossy compressors
@@ -13102,10 +12434,10 @@ robertu94/libpressio:
     \ Sheng and Cappello, Franck},\n  booktitle={2021 7th International Workshop on\
     \ Data Analysis and Reduction for Big Scientific Data (DRBSD-7)},\n  pages={1--10},\n\
     \  year={2021},\n  organization={IEEE}\n}\n</code></pre>\n"
-  stargazers_count: 20
+  stargazers_count: 21
   subscribers_count: 5
   topics: []
-  updated_at: 1692900104.0
+  updated_at: 1695425179.0
 robertu94/libpressio-sperr:
   data_format: 2
   description: null
@@ -13263,326 +12595,14 @@ robertu94/libpressio_opt:
     \ class=\"pl-pds\">{</span>2020<span class=\"pl-pds\">}</span></span>,\n  <span\
     \ class=\"pl-s\">organization</span>=<span class=\"pl-s\"><span class=\"pl-pds\"\
     >{</span>IEEE<span class=\"pl-pds\">}</span></span>\n}\n</pre></div>\n"
-  stargazers_count: 0
+  stargazers_count: 1
   subscribers_count: 4
   topics: []
-  updated_at: 1636674438.0
-robertu94/mpigdb:
-  data_format: 2
-  description: A wrapper arround mpiexec, gdbserver, and gdb that makes debugging
-    MPI programs eaiser with a moderate number of processes.
-  filenames:
-  - spack.yaml
-  full_name: robertu94/mpigdb
-  latest_release: null
-  readme: '<h1 id="user-content-mpigdb"><a class="heading-link" href="#mpigdb">MPIGDB<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>A wrapper around mpiexec, gdbserver, and gdb that makes debugging MPI programs
-    easier with a moderate number of processes.</p>
-
-    <h2 id="user-content-example-usage"><a class="heading-link" href="#example-usage">Example
-    Usage<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/robertu94/mpigdb/blob/main/docs/demo.gif"><img
-    src="https://github.com/robertu94/mpigdb/raw/main/docs/demo.gif" alt="demo" style="max-width:
-    100%;"></a></p>
-
-    <h2 id="user-content-gdb-extensions-and-useful-commands"><a class="heading-link"
-    href="#gdb-extensions-and-useful-commands">GDB Extensions and Useful commands<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>This wrapper defines several GDB extension commands that should help make things
-    easier too.</p>
-
-    <p><code>mpic</code> continue, but all processes</p>
-
-    <p><code>mpict</code> continue this thread, and switch to the next one that is
-    stopped if there is one</p>
-
-    <p><code>mpip</code> print on all or a subset of threads using <code>-t $tid</code></p>
-
-    <p><code>mpib</code> break on all or a subset of threads using <code>-t $tid</code></p>
-
-    <p><code>mpiw</code> preform a command when all processes have exited</p>
-
-    <p>You also should probably know about the following buildin commands</p>
-
-    <p><code>thread apply all</code> applies a command to all threads</p>
-
-    <p><code>continue &amp;</code> in GDB any command ending in <code>&amp;</code>
-    runs a command "in the background" allowing the user to continue to interact with
-    GDB.  In this case continue this thread in the background</p>
-
-    <p><code>info threads</code> get a list of threads and their status</p>
-
-    <p><code>interupt</code> if the current thread is running stop it.</p>
-
-    <p><code>thread $tid</code> switch to thread id</p>
-
-    <h2 id="user-content-cli-arguments"><a class="heading-link" href="#cli-arguments">CLI
-    Arguments<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <ul>
-
-    <li>
-
-    <code>--mpigdb_frontend</code> debugging frontend to use defaults to <code>gdb</code>.  Also
-    accepts <code>vscode</code> to support writing launch.json files for VSCode</li>
-
-    <li>
-
-    <code>--mpigdb_dbg_arg</code> pass a argument to GDB</li>
-
-    <li>
-
-    <code>--mpigdb_helper</code> path to the MPI GDB helper on the worker nodes</li>
-
-    <li>
-
-    <code>--mpigdb_gdbserver</code> path to the gdbserver helper on the worker nodes.
-    default "gdbserve"</li>
-
-    <li>
-
-    <code>--mpigdb_gdb</code> path to the gdb executable. default: "gdb"</li>
-
-    <li>
-
-    <code>--mpigdb_port</code> port to connect on the master process. default "8000"</li>
-
-    <li>
-
-    <code>--mpigdb_mpi_flag</code> flags to pass to mpigdb</li>
-
-    <li>
-
-    <code>--mpigdb_dryrun</code> print out the command, but do not launch mpidgb</li>
-
-    </ul>
-
-    <p>The flags <code>--interpreter=mi</code> and <code>--tty=</code> are forwarded
-    to GDB hopefully enable usage from VSCode in the future.</p>
-
-    <h2 id="user-content-examples"><a class="heading-link" href="#examples">Examples<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p><code>mpigdb -np 8 -- ./play/build/heatdist</code></p>
-
-    <p>launch heatdist with 8 processes.</p>
-
-    <p><code>mpigdb -np 8 --mpigdb_dbg_flag -x --mpigdb_dbg_flag /tmp/debug.dbg --
-    ./play/build/heatdist</code></p>
-
-    <p>launch heat dist with 8 processes using the script /tmp/debug.dbg</p>
-
-    <p><code>mpigdb --mpigdb_gdb cuda-gdb  --mpigdb_gdbserver cuda-gdbserver -np 8
-    -- ./play/build/heatdist</code></p>
-
-    <p>same, but use cuda-gdb to debug GPU programs</p>
-
-    <h2 id="user-content-building-and-installation"><a class="heading-link" href="#building-and-installation">Building
-    and Installation<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Dependencies:</p>
-
-    <ul>
-
-    <li>
-
-    <code>gdb</code> 12.1 or later with <code>gdbserver</code> which is sometimes
-    packaged separately and python support which may be disabled if compiled from
-    source</li>
-
-    <li>a MPI installation including mpiexec <code>mpiexec</code>
-
-    </li>
-
-    <li>python 3.8 or later</li>
-
-    <li>Rust+Cargo 1.65 or later</li>
-
-    </ul>
-
-    <p>Earlier versions may work, but are not tested</p>
-
-    <h2 id="user-content-limitations-and-known-bugs"><a class="heading-link" href="#limitations-and-known-bugs">Limitations
-    and Known Bugs<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>For HPC systems with meaningful scale, we should probably integrate with PMIx,
-    but we currently do not.</p>
-
-    <p>Does not currently work with LLDB which is required for MacOS -- PRs are accepted.</p>
-
-    <p>Has limited support for VSCode. <a href="https://github.com/microsoft/vscode-cpptools/issues/1723">See
-    issue for some of the issues with a fuller implementation</a>.</p>
-
-    <h2 id="user-content-acknowledgments"><a class="heading-link" href="#acknowledgments">Acknowledgments<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Credit to @mystery-e204 and his <a href="https://github.com/mystery-e204/mpidb"><code>mpidb</code></a>
-    tool for an example of how to produce a file that can be used with VSCode.
-
-    This approach is limited in that the debugger instances in vscode are seperate
-    and can''t easily be controlled together.</p>
-
-    '
-  stargazers_count: 5
-  subscribers_count: 2
-  topics: []
-  updated_at: 1695258167.0
-roblatham00/cashersize:
-  data_format: 2
-  description: Exercise caching in the mochi context
-  filenames:
-  - spack.yaml
-  full_name: roblatham00/cashersize
-  latest_release: null
-  readme: '<p>Your project "cachersize" has been setup!
-
-    Enjoy programming with Mochi!</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1652377734.0
-roblatham00/phonebook:
-  data_format: 2
-  description: null
-  filenames:
-  - spack.yaml
-  full_name: roblatham00/phonebook
-  latest_release: null
-  readme: '<p>Your project "YP" has been setup!
-
-    Enjoy programming with Mochi!</p>
-
-    '
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1682697472.0
-rohankumardubey/libtree:
-  data_format: 2
-  description: null
-  filenames:
-  - ci/spack.yaml
-  full_name: rohankumardubey/libtree
-  latest_release: null
-  readme: "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\"\
-    ><img src=\"https://github.com/haampie/libtree/workflows/Test/badge.svg?branch=master\"\
-    \ alt=\"Test\" style=\"max-width: 100%;\"></a>\n<a href=\"https://aur.archlinux.org/packages/libtree/\"\
-    \ rel=\"nofollow\"><img src=\"https://camo.githubusercontent.com/7e7cc860b359b4e8c852178856fed7ba2f3ceb557ab7e2c021ab84d695412362/68747470733a2f2f696d672e736869656c64732e696f2f6175722f76657273696f6e2f6c6962747265653f6c6f676f3d417263682d4c696e7578\"\
-    \ alt=\"AUR version\" data-canonical-src=\"https://img.shields.io/aur/version/libtree?logo=Arch-Linux\"\
-    \ style=\"max-width: 100%;\"></a></p>\n<h1 id=\"user-content-libtree\"><a class=\"\
-    heading-link\" href=\"#libtree\">libtree<span aria-hidden=\"true\" class=\"octicon\
-    \ octicon-link\"></span></a></h1>\n<p>A tool that:</p>\n<ul>\n<li>\U0001F333 turns\
-    \ <code>ldd</code> into a tree</li>\n<li>\u261D\uFE0F explains why shared libraries\
-    \ are found and why not</li>\n<li>\U0001F4E6 optionally deploys executables and\
-    \ dependencies into a single directory</li>\n</ul>\n<p><a target=\"_blank\" rel=\"\
-    noopener noreferrer\" href=\"doc/screenshot.png\"><img src=\"doc/screenshot.png\"\
-    \ alt=\"example\" style=\"max-width: 100%;\"></a></p>\n<h2 id=\"user-content-installation\"\
-    ><a class=\"heading-link\" href=\"#installation\">Installation<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h2>\n<p>Download the <a href=\"\
-    https://github.com/haampie/libtree/releases\"><strong>latest release</strong></a>\
-    \ from Github.</p>\n<p><strong>Static executable</strong></p>\n<div class=\"highlight\
-    \ highlight-source-shell\"><pre>wget -qO libtree https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64\n\
-    chmod +x libtree\n./libtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which\
-    \ man<span class=\"pl-pds\">)</span></span></pre></div>\n<p><strong>Static executable\
-    \ + optional dependencies</strong></p>\n<div class=\"highlight highlight-source-shell\"\
-    ><pre>wget -qO libtree.tar.gz https://github.com/haampie/libtree/releases/download/v2.0.0/libtree_x86_64.tar.gz\n\
-    mkdir libtree\ntar -xf libtree.tar.gz -C libtree\n<span class=\"pl-k\">export</span>\
-    \ PATH=<span class=\"pl-s\"><span class=\"pl-pds\">\"</span><span class=\"pl-smi\"\
-    >$PWD</span>/libtree:<span class=\"pl-smi\">$PATH</span><span class=\"pl-pds\"\
-    >\"</span></span>\nlibtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which\
-    \ man<span class=\"pl-pds\">)</span></span></pre></div>\n<h2 id=\"user-content-deploying-binaries--dependencies-into-a-folder\"\
-    ><a class=\"heading-link\" href=\"#deploying-binaries--dependencies-into-a-folder\"\
-    >Deploying binaries + dependencies into a folder<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<div class=\"highlight highlight-source-shell\"\
-    ><pre>$ libtree <span class=\"pl-s\"><span class=\"pl-pds\">$(</span>which man<span\
-    \ class=\"pl-pds\">)</span></span> -d man.bundle --chrpath --strip\nman\n\u251C\
-    \u2500\u2500 libmandb-2.9.1.so [runpath]\n\u2502   \u251C\u2500\u2500 libman-2.9.1.so\
-    \ [runpath]\n\u2502   \u2502   \u251C\u2500\u2500 libpipeline.so.1 [ld.so.conf]\n\
-    \u2502   \u2502   \u2514\u2500\u2500 libseccomp.so.2 [ld.so.conf]\n\u2502   \u2514\
-    \u2500\u2500 libgdbm.so.6 [ld.so.conf]\n\u251C\u2500\u2500 libman-2.9.1.so (collapsed)\
-    \ [runpath]\n\u2514\u2500\u2500 libpipeline.so.1 (collapsed) [ld.so.conf]\n\n\
-    Deploying to <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr<span\
-    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
-    >\"</span>/usr/bin/man<span class=\"pl-pds\">\"</span></span> =<span class=\"\
-    pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/bin/man<span\
-    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
-    >\"</span>/usr/lib/man-db/libmandb-2.9.1.so<span class=\"pl-pds\">\"</span></span>\
-    \ =<span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span class=\"pl-pds\"\
-    >\"</span>man.bundle/usr/lib/libmandb-2.9.1.so<span class=\"pl-pds\">\"</span></span>\n\
-    <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/man-db/libman-2.9.1.so<span\
-    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
-    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libman-2.9.1.so<span\
-    \ class=\"pl-pds\">\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\"\
-    >\"</span>/usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.2<span class=\"pl-pds\"\
-    >\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"pl-s\"><span\
-    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libpipeline.so.1.5.2<span class=\"\
-    pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span class=\"\
-    pl-pds\">\"</span>man.bundle/usr/lib/libpipeline.so.1<span class=\"pl-pds\">\"\
-    </span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.1<span\
-    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
-    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libseccomp.so.2.5.1<span\
-    \ class=\"pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span\
-    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libseccomp.so.2<span class=\"pl-pds\"\
-    >\"</span></span>\n<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>/usr/lib/x86_64-linux-gnu/libgdbm.so.6.0.0<span\
-    \ class=\"pl-pds\">\"</span></span> =<span class=\"pl-k\">&gt;</span> <span class=\"\
-    pl-s\"><span class=\"pl-pds\">\"</span>man.bundle/usr/lib/libgdbm.so.6.0.0<span\
-    \ class=\"pl-pds\">\"</span></span>\n  creating symlink <span class=\"pl-s\"><span\
-    \ class=\"pl-pds\">\"</span>man.bundle/usr/lib/libgdbm.so.6<span class=\"pl-pds\"\
-    >\"</span></span>\n\n$ tree man.bundle/\nman.bundle/\n\u2514\u2500\u2500 usr\n\
-    \    \u251C\u2500\u2500 bin\n    \u2502\_\_ \u2514\u2500\u2500 man\n    \u2514\
-    \u2500\u2500 lib\n        \u251C\u2500\u2500 libgdbm.so.6 -<span class=\"pl-k\"\
-    >&gt;</span> libgdbm.so.6.0.0\n        \u251C\u2500\u2500 libgdbm.so.6.0.0\n \
-    \       \u251C\u2500\u2500 libman-2.9.1.so\n        \u251C\u2500\u2500 libmandb-2.9.1.so\n\
-    \        \u251C\u2500\u2500 libpipeline.so.1 -<span class=\"pl-k\">&gt;</span>\
-    \ libpipeline.so.1.5.2\n        \u251C\u2500\u2500 libpipeline.so.1.5.2\n    \
-    \    \u251C\u2500\u2500 libseccomp.so.2 -<span class=\"pl-k\">&gt;</span> libseccomp.so.2.5.1\n\
-    \        \u2514\u2500\u2500 libseccomp.so.2.5.1\n\n3 directories, 9 files</pre></div>\n\
-    <h2 id=\"user-content-verbose-output\"><a class=\"heading-link\" href=\"#verbose-output\"\
-    >Verbose output<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n\
-    <p>By default certain standard depenendencies are not shown. For more verbose\
-    \ output use</p>\n<ul>\n<li>\n<code>libtree -v $(which man)</code> to show skipped\
-    \ libraries without their children</li>\n<li>\n<code>libtree -a $(which apt-get)</code>\
-    \ to show the full recursive list of libraries</li>\n</ul>\n<p>Use the <code>--path</code>\
-    \ or <code>-p</code> flags to show paths rather than sonames:</p>\n<ul>\n<li><code>libtree\
-    \ -p $(which tar)</code></li>\n</ul>\n<h2 id=\"user-content-changing-search-paths\"\
-    ><a class=\"heading-link\" href=\"#changing-search-paths\">Changing search paths<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h2>\n<p><code>libtree</code>\
-    \ follows the rules of <code>ld.so</code> to locate libraries, but does not use\
-    \ <code>ldconfig</code>'s\ncache. Instead it parses <code>/etc/ld.so.conf</code>\
-    \ at runtime. In fact you can change the search\npath config by setting <code>--ldconf\
-    \ mylibs.conf</code>. Search paths can be added as well via\n<code>LD_LIBRARY_PATH=\"\
-    path1:path2:$LD_LIBRARY_PATH\" libtree ...</code>.</p>\n<h2 id=\"user-content-building\"\
-    ><a class=\"heading-link\" href=\"#building\">Building<span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a></h2>\n<ul>\n<li>\n<strong>From source</strong>:\n\
-    <div class=\"highlight highlight-source-shell\"><pre>git clone https://github.com/haampie/libtree.git\n\
-    <span class=\"pl-c1\">cd</span> libtree\nmkdir build\n<span class=\"pl-c1\">cd</span>\
-    \ build\ncmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=<span class=\"pl-s\"\
-    ><span class=\"pl-pds\">\"</span>/path/to/cxxopts;/path/to/elfio;/path/to/termcolor<span\
-    \ class=\"pl-pds\">\"</span></span> ..\nmake -j\nmake install</pre></div>\n</li>\n\
-    <li>\n<strong>Using <a href=\"https://github.com/spack/spack\">spack</a></strong>:\n\
-    <pre><code>spack install libtree +chrpath +strip\nspack load libtree\n</code></pre>\n\
-    </li>\n</ul>\n<h2 id=\"user-content-known-issues\"><a class=\"heading-link\" href=\"\
-    #known-issues\">Known issues<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<ul>\n<li>When deploying libs with <code>libtree app -d folder.bundle\
-    \ --chrpath</code>, the runpaths are only\nchanged when the binaries already have\
-    \ an an rpath or runpath. This is a limitation of\n<code>chrpath</code>. Another\
-    \ option is to use <code>patchelf</code> instead, but this tool is known to break\n\
-    binaries sometimes.</li>\n</ul>\n"
-  stargazers_count: 0
-  subscribers_count: 1
-  topics: []
-  updated_at: 1664232270.0
+  updated_at: 1695425113.0
 salotz/snailpacks:
   data_format: 2
   description: Spack repo for multimedia development
   filenames:
-  - examples/c-embed-chibi/spack.yaml
   - examples/c-embed-python/spack.yaml
   full_name: salotz/snailpacks
   latest_release: null
@@ -13798,46 +12818,45 @@ spack/spack-configs:
   data_format: 2
   description: Share Spack configuration files with other HPC sites
   filenames:
-  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/data/spack.yaml
-  - NREL/configs/eagle/compilers/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
-  - OLCF/spock/spack.yaml
-  - NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.11/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml
-  - OLCF/andes/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-22.08/spack.yaml
-  - OLCF/frontier/spack.yaml
-  - OLCF/summit/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/cce/spack.yaml
   - BOISESTATE/borah/environments/b4s/_spack.yaml
-  - NREL/configs/eagle/utilities/spack.yaml
-  - NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml
-  - NREL/configs/rhodes/compilers/spack.yaml
-  - NREL/configs/eagle/base/spack.yaml
-  - BOISESTATE/borah/environments/base/_spack.yaml
-  - NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml
-  - OLCF/crusher/spack.yaml
   - BOISESTATE/borah/applications/gromacs/_spack.yaml
-  - NERSC/perlmutter/e4s-22.05/cuda/spack.yaml
+  - OLCF/andes/spack.yaml
+  - OLCF/crusher/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/data/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.11/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-22.08/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.05/spack.yaml
+  - UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml
+  - NREL/configs/eagle/base/spack.yaml
+  - NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml
+  - NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml
   - ANL/JLSE/Arcticus/E4S-22.05/spack.yaml
+  - NERSC/cori/e4s-20.10/prod/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml
+  - NREL/configs/eagle/software/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml
+  - NREL/configs/rhodes/compilers/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/cuda/spack.yaml
+  - BOISESTATE/borah/environments/base/_spack.yaml
+  - NERSC/perlmutter/e4s-22.11/cuda/spack.yaml
+  - OLCF/spock/spack.yaml
+  - NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml
   - NERSC/cori/e4s-21.02/prod/spack.yaml
   - NERSC/perlmutter/e4s-23.05/gcc/spack.yaml
-  - NREL/configs/rhodes/utilities/spack.yaml
-  - NERSC/perlmutter/e4s-22.11/gcc/spack.yaml
-  - ANL/JLSE/Arcticus/E4S-22.02/spack.yaml
-  - NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml
-  - NERSC/perlmutter/e4s-22.11/cuda/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/cce/spack.yaml
-  - NREL/configs/eagle/software/spack.yaml
-  - NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml
   - NERSC/perlmutter/e4s-22.11/prod/nvhpc/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/cuda/spack.yaml
-  - UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml
-  - NERSC/cori/e4s-20.10/prod/spack.yaml
-  - NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml
+  - OLCF/summit/spack.yaml
+  - NREL/configs/eagle/utilities/spack.yaml
+  - NERSC/perlmutter/e4s-22.05/cuda/spack.yaml
+  - ANL/JLSE/Arcticus/E4S-22.02/spack.yaml
+  - NREL/configs/eagle/compilers/spack.yaml
+  - NERSC/perlmutter/e4s-22.11/gcc/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml
+  - NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml
+  - OLCF/frontier/spack.yaml
+  - NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml
+  - NREL/configs/rhodes/utilities/spack.yaml
   full_name: spack/spack-configs
   latest_release: null
   readme: '<h1 id="user-content-spack-configs"><a class="heading-link" href="#spack-configs">Spack
@@ -13973,11 +12992,11 @@ spack/spack-tutorial:
     <p>LLNL-CODE-811652</p>
 
     '
-  stargazers_count: 30
+  stargazers_count: 31
   subscribers_count: 34
   topics:
   - tutorial
-  updated_at: 1693518190.0
+  updated_at: 1695414036.0
 spack/spack-tutorial-container:
   data_format: 2
   description: Dockerfile and artifacts (minus build cache) to create Spack tutorial
@@ -14128,503 +13147,6 @@ supercontainers/ecp-tutorial:
   subscribers_count: 7
   topics: []
   updated_at: 1650325690.0
-supercontainers/ecp2020-tutorial:
-  data_format: 2
-  description: ECP 2020 Tuturial
-  filenames:
-  - examples/spack/spack.yaml
-  full_name: supercontainers/ecp2020-tutorial
-  latest_release: null
-  readme: "<h1 id=\"user-content-getting-started-with-containers-on-hpc\"><a class=\"\
-    heading-link\" href=\"#getting-started-with-containers-on-hpc\">Getting Started\
-    \ with Containers on HPC<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h1>\n<p>View this on <a href=\"https://supercontainers.github.io/ecp2020-tutorial/\"\
-    \ rel=\"nofollow\">GitHub Pages</a>.</p>\n<h2 id=\"user-content-ecp-supercontainers-tutorial-session\"\
-    ><a class=\"heading-link\" href=\"#ecp-supercontainers-tutorial-session\">ECP\
-    \ Supercontainers Tutorial Session<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<div><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"\
-    images/ecp.jpg\"><img src=\"images/ecp.jpg\" width=\"250\" style=\"max-width:\
-    \ 100%;\"></a></div>\n<h2 id=\"user-content-details\"><a class=\"heading-link\"\
-    \ href=\"#details\">Details<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<p>Half-day Tutorial Session</p>\n<p>Venue: ECP Annual Meeting\
-    \ 2020</p>\n<p>Date: Wednesday, February 5th 2019  2:30pm - 6pm CST</p>\n<p>Room:\
-    \ Champions I &amp; II</p>\n<p>Location: Houston, TX, USA</p>\n<p>Topic Area:\
-    \ Programming Models &amp; Systems Software</p>\n<p>Keywords: Containerized HPC,\
-    \ System Software and Runtime Systems, Scientific Software Development, DevOps</p>\n\
-    <h2 id=\"user-content-tutorial-login-details\"><a class=\"heading-link\" href=\"\
-    #tutorial-login-details\">Tutorial Login details<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<p>Appropriate login details to our EC2\
-    \ VM instances and a training account to the Cori supercomputer will all be provided\
-    \ to you at the start of the tutorial session. Please completed the necessary\
-    \ forms and  replace XX with the values provided on your sheet.</p>\n<h3 id=\"\
-    user-content-ec2-login\"><a class=\"heading-link\" href=\"#ec2-login\">EC2 Login<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>hostname:\
-    \ tutXX.supercontainers.org</p>\n<p>user: tutorial</p>\n<p>password: HPCLinux12!</p>\n\
-    <h3 id=\"user-content-nersc-login\"><a class=\"heading-link\" href=\"#nersc-login\"\
-    >NERSC Login<span aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n\
-    <p>hostname: cori.nesrc.gov</p>\n<p>user: trainXX</p>\n<p>password: [provided\
-    \ in person]</p>\n<h2 id=\"user-content-abstract\"><a class=\"heading-link\" href=\"\
-    #abstract\">Abstract<span aria-hidden=\"true\" class=\"octicon octicon-link\"\
-    ></span></a></h2>\n<p>Container computing has revolutionized the way applications\
-    \ are developed and delivered. It offers opportunities that never existed before\
-    \ for significantly improving efficiency of scientific workflows and easily moving\
-    \ these workflows from the laptop to the supercomputer. Tools like Docker, Shifter,\
-    \ Singularity and Charliecloud enable a new paradigm for scientific and technical\
-    \ computing. However, to fully unlock its potential, users and administrators\
-    \ need to understand how to utilize these new approaches. This tutorial will introduce\
-    \ attendees to the basics of creating container images, explain best practices,\
-    \ and cover more advanced topics such as creating images to be run on HPC platforms\
-    \ using various container runtimes. The tutorial will also explain how research\
-    \ scientists can utilize container-based computing to accelerate their research\
-    \ and how these tools can boost the impact of their research by enabling better\
-    \ reproducibility and sharing of their scientific process without compromising\
-    \ security.</p>\n<p>This is an updated version of the highly successful tutorial\
-    \ presented at SC16, SC17, SC18. It was attended by more than 100 people each\
-    \ year. The 2018 tutorial was very highly rated with 2.8 / 3 stars for \u201C\
-    would recommend\u201D and 4.3 / 5 stars for overall quality.</p>\n<h2 id=\"user-content-prerequisites\"\
-    ><a class=\"heading-link\" href=\"#prerequisites\">Prerequisites<span aria-hidden=\"\
-    true\" class=\"octicon octicon-link\"></span></a></h2>\n<p>This is a hands-on\
-    \ tutorial. Participants should bring a laptop and load or pre-install a terminal\
-    \ and/or ssh client in advance to make best use of time during the tutorial. \
-    \ We will be providing training user accounts to both pre-configured EC2 instances\
-    \ as well as the Cori Supercomputer at NERSC.</p>\n<div><a target=\"_blank\" rel=\"\
-    noopener noreferrer\" href=\"images/AWS_logo.png\"><img src=\"images/AWS_logo.png\"\
-    \ width=\"250\" style=\"max-width: 100%;\"></a></div>\n<p>This tutorial is supported\
-    \ by the Amazon AWS Machine Learning Research Awards. EC2 images and temporary\
-    \ login credentials will be distributed onsite at the tutorial.</p>\n<p>After\
-    \ the tutorial, you can boot our tutorial image yourself on Amazon EC2 to run\
-    \ through the tutorial again. We recommend you use your own EC2 key and change\
-    \ the password.</p>\n<p>US-West-Oregon: ami-09bd35c8089302e0d</p>\n<h3 id=\"user-content-optional-prerequisites\"\
-    ><a class=\"heading-link\" href=\"#optional-prerequisites\">Optional Prerequisites<span\
-    \ aria-hidden=\"true\" class=\"octicon octicon-link\"></span></a></h3>\n<p>Users\
-    \ can also install Docker and Singularity prior to attending the tutorial session.\
-    \ Here, it may be beneficial to create a docker and sylabs (singularity) account\
-    \ in advance at <a href=\"https://cloud.docker.com/\" rel=\"nofollow\">https://cloud.docker.com/</a>\
-    \ and <a href=\"https://cloud.sylabs.io/\" rel=\"nofollow\">https://cloud.sylabs.io/</a>\
-    \ This accounts will be needed to create images on docker cloud/dockerhub and\
-    \ sylabs cloud.</p>\n<p><a href=\"https://sylabs.io/guides/3.3/user-guide/\" rel=\"\
-    nofollow\">Install Singularity on Linux</a></p>\n<p><a href=\"https://repo.sylabs.io/desktop/\"\
-    \ rel=\"nofollow\">Install Singualrity on Mac</a> (Alpha)</p>\n<p><a href=\"https://www.docker.com/products/docker-desktop\"\
-    \ rel=\"nofollow\">Install Docker for Desktop</a></p>\n<h2 id=\"user-content-questions\"\
-    ><a class=\"heading-link\" href=\"#questions\">Questions<span aria-hidden=\"true\"\
-    \ class=\"octicon octicon-link\"></span></a></h2>\n<p>You can ask questions verbally\
-    \ or with this <a href=\"https://docs.google.com/document/d/11gMZ-T7iA5XiRWPLYIqX7Gqv7RMb-NF9kzGYHrnOi04/edit?usp=sharing\"\
-    \ rel=\"nofollow\">Google Doc</a>.\nPlease append your question below the others\
-    \ in the document.</p>\n<p>We have also created a Slack Team for this.  The invitation\
-    \ link is <a href=\"https://join.slack.com/t/hpc-containers/shared_invite/enQtODI3NzY1NDU4OTk5LTUxOTgyOWJmYjIwOWI5YWU2MzBhZDI3Zjc1YmZmMjAxZjgzYzk4ZWEwNmFlNzlkOWI0MGNlZDNlMTBhYTBlOWY\"\
-    \ rel=\"nofollow\">here</a>.</p>\n<h2 id=\"user-content-schedule\"><a class=\"\
-    heading-link\" href=\"#schedule\">Schedule<span aria-hidden=\"true\" class=\"\
-    octicon octicon-link\"></span></a></h2>\n<p>14:00 \u2013 14:30 <a href=\"https://drive.google.com/file/d/11eb0_RsUbSTDOvRejtg72MRh1gkW_q0h/view?usp=sharing\"\
-    \ rel=\"nofollow\">Introduction to Containers in HPC</a> (Younge)</p>\n<p>14:30\u2013\
-    \ 15:00 <a href=\"/01-hands-on.md\">How to build your first Docker container</a>\
-    \ (Canon)</p>\n<p>15:00 \u2013 15:30 <a href=\"/02-hands-on.md\">How to deploy\
-    \ a container on a supercomputer</a> (Canon)</p>\n<p>15:30 \u2013 15:45 <a href=\"\
-    https://drive.google.com/file/d/11lTiiSavEZNFXkWoFu1WJvZiT89Y46ey/view?usp=sharing\"\
-    \ rel=\"nofollow\">Best Practices</a> (Canon)</p>\n<p>16:00 \u2013 16:30     \
-    \         -- Break \u2013</p>\n<p>16:30 \u2013 17:00 <a href=\"https://drive.google.com/file/d/11pjnazGSfh-ruF9_h0m7jxxckASSG3BP/view?usp=sharing\"\
-    \ rel=\"nofollow\">Running an HPC app on the E4S container</a> (Shende)</p>\n\
-    <p>17:00 - 17:30 <a href=\"/03-hands-on.md\">How to build a Singularity container\
-    \ image</a> (Younge)</p>\n<p>17:30 - 18:00 <a href=\"https://drive.google.com/file/d/11nRhVfTvS_pDLJZEqwbhEDxQArqTxlot/view?usp=sharing\"\
-    \ rel=\"nofollow\">Success Stories &amp; Summary</a> (Canon)</p>\n"
-  stargazers_count: 1
-  subscribers_count: 6
-  topics: []
-  updated_at: 1585724818.0
-supercontainers/isc-tutorial:
-  data_format: 2
-  description: ISC 2023 -- Getting Started with Containers on HPC
-  filenames:
-  - files/spack_containerize/spack.yaml
-  - exercises/spack_containerize/spack.yaml
-  full_name: supercontainers/isc-tutorial
-  latest_release: null
-  readme: '<h1 id="user-content-getting-started-with-containers-on-hpc"><a class="heading-link"
-    href="#getting-started-with-containers-on-hpc">Getting Started with Containers
-    on HPC<span aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>View this on the <a href="https://supercontainers.github.io/isc-tutorial/"
-    rel="nofollow">Tutorial Homepage</a>.</p>
-
-    <h2 id="user-content-ecp-supercontainers-tutorial-session"><a class="heading-link"
-    href="#ecp-supercontainers-tutorial-session">ECP Supercontainers Tutorial Session<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p><a target="_blank" rel="noopener noreferrer" href="fig/ecp.jpg"><img src="fig/ecp.jpg"
-    width="250" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer"
-    href="fig/pawsey.jpeg"><img src="fig/pawsey.jpeg" width="250" style="max-width:
-    100%;"></a></p>
-
-    <h2 id="user-content-details"><a class="heading-link" href="#details">Details<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Half-day Tutorial Session</p>
-
-    <p>Venue: International Supercomputing Conference (ISC 2023)</p>
-
-    <p>Date: 21 May 2023 2:00pm - 6:00pm, Central European Summer Time CEST (GMT+2)</p>
-
-    <p>Location: Hamburg, Germany</p>
-
-    <p>Link: <a href="https://app.swapcard.com/event/isc-high-performance-2023/planning/UGxhbm5pbmdfMTIyMDgwMA=="
-    rel="nofollow">ISC 2023 Schedule</a></p>
-
-    <p>Keywords: Containerized HPC, System Software and Runtime Systems, Scientific
-    Software Development, DevOps</p>
-
-    <h2 id="user-content-ec2-login"><a class="heading-link" href="#ec2-login">EC2
-    Login<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>These will be provided the day of the tutorial.</p>
-
-    <h2 id="user-content-abstract"><a class="heading-link" href="#abstract">Abstract<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Container computing has revolutionized the way applications are developed and
-    delivered.  It offers opportunities that never existed before for significantly
-    improving efficiency of scientific workflows and easily moving these workflows
-    from the laptop to the supercomputer.  Tools like Docker, Shifter, Singularity,
-    Charliecloud and Podman enable a new paradigm for scientific and technical computing.  However,
-    to fully unlock its potential, users and administrators need to understand how
-    to utilize these new approaches.  This tutorial will introduce attendees to the
-    basics of creating container images, explain best practices, and cover more advanced
-    topics such as creating images to be run on HPC platforms using various container
-    runtimes.  The tutorial will also explain how research scientists can utilize
-    container-based computing to accelerate their research and how these tools can
-    boost the impact of their research by enabling better reproducibility and sharing
-    of their scientific process without compromising security.</p>
-
-    <p>This is an updated version of the highly successful tutorial presented at SC16-21
-    and ISC19-22.</p>
-
-    <h2 id="user-content-prerequisites"><a class="heading-link" href="#prerequisites">Prerequisites<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>This is a hands-on tutorial.  Participants should bring a laptop and load or
-    pre-install a terminal and/or ssh client in advance to make best use of time during
-    the tutorial.  We will be providing training user accounts to both pre-configured
-    EC2 instances.</p>
-
-    <div><a target="_blank" rel="noopener noreferrer" href="fig/AWS_logo.png"><img
-    src="fig/AWS_logo.png" width="250" style="max-width: 100%;"></a></div>
-
-    <p>This tutorial is supported by the Amazon AWS Machine Learning Research Awards.  EC2
-    images and temporary login credentials will be distributed onsite at the tutorial.</p>
-
-    <p>After the tutorial, you can boot our tutorial image yourself on Amazon EC2
-    to run through the tutorial again. We recommend you use your own EC2 key and change
-    the password.</p>
-
-    <p>US-West-2 Oregon: ami-08ab931791269deeb</p>
-
-    <h3 id="user-content-optional-prerequisites"><a class="heading-link" href="#optional-prerequisites">Optional
-    Prerequisites<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <p>Users can also install Docker and Singularity prior to attending the tutorial
-    session.  Here, it may be beneficial to create Docker and Sylabs (Singularity)
-    accounts in advance at <a href="https://cloud.docker.com/" rel="nofollow">https://cloud.docker.com/</a>
-    and <a href="https://cloud.sylabs.io/" rel="nofollow">https://cloud.sylabs.io/</a>.  These
-    accounts will be needed to create images on Docker Cloud/Dockerhub and Sylabs
-    Cloud.</p>
-
-    <p><a href="https://sylabs.io/guides/3.7/user-guide/" rel="nofollow">Install Singularity
-    on Linux</a></p>
-
-    <p><a href="https://repo.sylabs.io/desktop/" rel="nofollow">Install Singularity
-    on Mac</a> (Alpha)</p>
-
-    <p><a href="https://www.docker.com/products/docker-desktop" rel="nofollow">Install
-    Docker for Desktop</a></p>
-
-    <h2 id="user-content-questions"><a class="heading-link" href="#questions">Questions<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>You can ask questions verbally or with this <a href="https://docs.google.com/document/d/1zrWRGeDEbokQq03hAHxZzXpNzBSp4YSKJhHiNtjSe1Y/edit?usp=sharing"
-    rel="nofollow">Google Doc</a>.
-
-    Please append your question below the others in the document.</p>
-
-    <p>We have also created a Slack Team for this.  The invitation link is in the
-    Google Doc.</p>
-
-    <h2 id="user-content-schedule-see-the-git-pages-site-for-the-autogenerated-version"><a
-    class="heading-link" href="#schedule-see-the-git-pages-site-for-the-autogenerated-version">Schedule
-    (See the git pages site for the autogenerated version)<span aria-hidden="true"
-    class="octicon octicon-link"></span></a></h2>
-
-    <p>14:00 - 14:15 Introduction to containers in HPC (Shane)<br>
-
-    Including defining jargon (containers, images, registries/repos,..)</p>
-
-    <p>14:15 - 14:55 Build and run your first container (Eduardo)<br>
-
-    Basic of containers and understanding the OCI Image Spec</p>
-
-    <p>14:55 - 15:30 Deploy containers on a supercomputer (Marco)</p>
-
-    <p>15:30 - 16:00 High-performance containers (Marco)</p>
-
-    <p>16:00 - 16:30 BREAK</p>
-
-    <p>16:30 - 17:05 Best practices (Shane)</p>
-
-    <p>17:05 - 17:35 E4S containers initiative (Sameer)</p>
-
-    <p>17:35 - 17:55 Advanced container builds (Eduardo)</p>
-
-    <p>17:55 - 18:00 Wrap-up and final Q&amp;A</p>
-
-    '
-  stargazers_count: 6
-  subscribers_count: 8
-  topics:
-  - hpc
-  - containers
-  - singularity-container
-  - singularity
-  - shifter
-  - docker
-  - tutorial
-  - supercomputer
-  updated_at: 1684672326.0
-supercontainers/sc-tutorials:
-  data_format: 2
-  description: SC Tutorials
-  filenames:
-  - exercises/spack_containerize/spack.yaml
-  full_name: supercontainers/sc-tutorials
-  latest_release: null
-  readme: '<h1 id="user-content-getting-started-with-containers-on-hpc"><a class="heading-link"
-    href="#getting-started-with-containers-on-hpc">Getting Started with Containers
-    on HPC<span aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>View this on the <a href="https://supercontainers.github.io/sc-tutorials/"
-    rel="nofollow">Tutorial Homepage</a>.</p>
-
-    <h2 id="user-content-hpc-containers-tutorial-session"><a class="heading-link"
-    href="#hpc-containers-tutorial-session">HPC Containers Tutorial Session<span aria-hidden="true"
-    class="octicon octicon-link"></span></a></h2>
-
-    <p><a target="_blank" rel="noopener noreferrer" href="fig/ecp.jpg"><img src="fig/ecp.jpg"
-    width="200" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer"
-    href="fig/pawsey.png"><img src="fig/pawsey.png" width="200" style="max-width:
-    100%;"></a><a target="_blank" rel="noopener noreferrer" href="fig/nvidia.png"><img
-    src="fig/nvidia.png" width="200" style="max-width: 100%;"></a></p>
-
-    <h2 id="user-content-details"><a class="heading-link" href="#details">Details<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Full-day Tutorial Session</p>
-
-    <p>Venue: Supercomputing Conference (SC 23)</p>
-
-    <p>Date: Sunday November 12, 2023 8:30am - 5pm Mountain Standard Time (GMT -7)</p>
-
-    <p>Location: Denver CO, USA</p>
-
-    <p>Link: <a href="https://sc23.supercomputing.org/presentation/?id=tut108&amp;sess=sess220"
-    rel="nofollow">SC 2023 Tutorial Details</a></p>
-
-    <p>Keywords: Containerized HPC, System Software and Runtime Systems, Scientific
-    Software Development, DevOps</p>
-
-    <h2 id="user-content-abstract"><a class="heading-link" href="#abstract">Abstract<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Within just the past few years, the use of containers has revolutionized the
-    way in which industries and enterprises have developed and deployed computational
-    software and distributed systems. The containerization model has gained traction
-    within the HPC community as well with the promise of improved reliability, reproducibility,
-    portability, and levels of customization that were previously not possible on
-    supercomputers. This adoption has been enabled by a number of HPC Container runtimes
-    that have emerged including Singularity, Shifter, Enroot, Charliecloud and others.</p>
-
-    <p>This hands-on tutorial looks to train users on the usability of containers
-    on HPC resources. We will provide a detailed background on Linux containers, along
-    with introductory hands-on experience building a container image, sharing the
-    container and running it on a HPC cluster. Furthermore, the tutorial will provide
-    more advanced information on how to run MPI-based and GPU-enabled HPC applications,
-    how to optimize I/O intensive workflows, and how to setup GUI enabled interactive
-    sessions. Cutting-edge examples will include machine learning and bioinformatics.
-    Users will leave the tutorial with a solid foundational understanding of how to
-    utilize containers with HPC resources through Shifter and Singularity, as well
-    as an in-depth knowledge to deploy custom containers on their own resources.</p>
-
-    <h2 id="user-content-prerequisites"><a class="heading-link" href="#prerequisites">Prerequisites<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Please consult the website for prerequisites and recommended setup steps.</p>
-
-    <h2 id="user-content-questions"><a class="heading-link" href="#questions">Questions<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>You can ask questions verbally or with this <a href="https://docs.google.com/document/d/11gMZ-T7iA5XiRWPLYIqX7Gqv7RMb-NF9kzGYHrnOi04/edit?usp=sharing"
-    rel="nofollow">Google Doc</a>.
-
-    Please append your question below the others in the document.</p>
-
-    <p>We have also created a Slack Team for this.  The invitation link is <a href="https://join.slack.com/t/hpc-containers/shared_invite/enQtODI3NzY1NDU4OTk5LTUxOTgyOWJmYjIwOWI5YWU2MzBhZDI3Zjc1YmZmMjAxZjgzYzk4ZWEwNmFlNzlkOWI0MGNlZDNlMTBhYTBlOWY"
-    rel="nofollow">here</a>.</p>
-
-    <h2 id="user-content-schedule---autogenerated-from-the-metadata"><a class="heading-link"
-    href="#schedule---autogenerated-from-the-metadata">Schedule - Autogenerated from
-    the metadata<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    '
-  stargazers_count: 1
-  subscribers_count: 8
-  topics: []
-  updated_at: 1649669614.0
-supercontainers/sc20-tutorial:
-  data_format: 2
-  description: HPC Container Tutorial at SC20
-  filenames:
-  - files/spack_contenerize/spack.yaml
-  - exercises/spack_contenerize/spack.yaml
-  full_name: supercontainers/sc20-tutorial
-  latest_release: null
-  readme: '<h1 id="user-content-using-containers-to-accelerate-hpc"><a class="heading-link"
-    href="#using-containers-to-accelerate-hpc">Using Containers to Accelerate HPC<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
-
-    <p>View this on <a href="https://supercontainers.github.io/sc20-tutorial/" rel="nofollow">GitHub
-    Pages</a>.</p>
-
-    <h2 id="user-content-ecp-supercontainers-tutorial-session"><a class="heading-link"
-    href="#ecp-supercontainers-tutorial-session">ECP Supercontainers Tutorial Session<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p><a target="_blank" rel="noopener noreferrer" href="fig/ecp.jpg"><img src="fig/ecp.jpg"
-    width="250" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer"
-    href="fig/pawsey.jpeg"><img src="fig/pawsey.jpeg" width="250" style="max-width:
-    100%;"></a></p>
-
-    <h2 id="user-content-details"><a class="heading-link" href="#details">Details<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Half-day Tutorial Session</p>
-
-    <p>Venue: Supercomputing Conference 2020 (SC20'')</p>
-
-    <p>Date: Tuesday, 10 November 2020 2:30pm - 6:30pm (Eastern Standard Time)</p>
-
-    <p>Location: Virtual (Atlanta, GA, USA)</p>
-
-    <p>Link: <a href="https://sc20.supercomputing.org/presentation/?id=tut129&amp;sess=sess271"
-    rel="nofollow">Container Computing for HPC and Scientific Workflows @ SC20</a></p>
-
-    <p>Topic Area: Programming Models &amp; Systems Software</p>
-
-    <p>Keywords: Containerized HPC, System Software and Runtime Systems, Scientific
-    Software Development, DevOps</p>
-
-    <h2 id="user-content-ec2-login"><a class="heading-link" href="#ec2-login">EC2
-    Login<span aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>These will be provided the day of the tutorial.</p>
-
-    <h2 id="user-content-abstract"><a class="heading-link" href="#abstract">Abstract<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>Container computing has revolutionized the way applications are developed and
-    delivered. It offers opportunities that never existed before for significantly
-    improving efficiency of scientific workflows and easily moving these workflows
-    from the laptop to the supercomputer. Tools like Docker, Shifter, Singularity
-    and Charliecloud enable a new paradigm for scientific and technical computing.
-    However, to fully unlock its potential, users and administrators need to understand
-    how to utilize these new approaches. This tutorial will introduce attendees to
-    the basics of creating container images, explain best practices, and cover more
-    advanced topics such as creating images to be run on HPC platforms using various
-    container runtimes. The tutorial will also explain how research scientists can
-    utilize container-based computing to accelerate their research and how these tools
-    can boost the impact of their research by enabling better reproducibility and
-    sharing of their scientific process without compromising security.</p>
-
-    <p>This is an updated version of the highly successful tutorial presented at SC16,
-    SC17, SC18 and SC19.</p>
-
-    <h2 id="user-content-prerequisites"><a class="heading-link" href="#prerequisites">Prerequisites<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>This is a hands-on tutorial. Participants should bring a laptop and load or
-    pre-install a terminal and/or ssh client in advance to make best use of time during
-    the tutorial.  We will be providing training user accounts to both pre-configured
-    EC2 instances.</p>
-
-    <div><a target="_blank" rel="noopener noreferrer" href="fig/AWS_logo.png"><img
-    src="fig/AWS_logo.png" width="250" style="max-width: 100%;"></a></div>
-
-    <p>This tutorial is supported by the Amazon AWS Machine Learning Research Awards.
-    EC2 images and temporary login credentials will be distributed onsite at the tutorial.</p>
-
-    <p>After the tutorial, you can boot our tutorial image yourself on Amazon EC2
-    to run through the tutorial again. We recommend you use your own EC2 key and change
-    the password.</p>
-
-    <p>US-West-Oregon: ami-0fe12765123c6a840</p>
-
-    <h3 id="user-content-optional-prerequisites"><a class="heading-link" href="#optional-prerequisites">Optional
-    Prerequisites<span aria-hidden="true" class="octicon octicon-link"></span></a></h3>
-
-    <p>Users can also install Docker and Singularity prior to attending the tutorial
-    session. Here, it may be beneficial to create a docker and sylabs (singularity)
-    account in advance at <a href="https://cloud.docker.com/" rel="nofollow">https://cloud.docker.com/</a>
-    and <a href="https://cloud.sylabs.io/" rel="nofollow">https://cloud.sylabs.io/</a>
-    This accounts will be needed to create images on docker cloud/dockerhub and sylabs
-    cloud.</p>
-
-    <p><a href="https://sylabs.io/guides/3.3/user-guide/" rel="nofollow">Install Singularity
-    on Linux</a></p>
-
-    <p><a href="https://repo.sylabs.io/desktop/" rel="nofollow">Install Singualrity
-    on Mac</a> (Alpha)</p>
-
-    <p><a href="https://www.docker.com/products/docker-desktop" rel="nofollow">Install
-    Docker for Desktop</a></p>
-
-    <h2 id="user-content-questions"><a class="heading-link" href="#questions">Questions<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>You can ask questions verbally or with this <a href="https://docs.google.com/document/d/11gMZ-T7iA5XiRWPLYIqX7Gqv7RMb-NF9kzGYHrnOi04/edit?usp=sharing"
-    rel="nofollow">Google Doc</a>.
-
-    Please append your question below the others in the document.</p>
-
-    <p>We have also created a Slack Team for this.  The invitation link is <a href="https://join.slack.com/t/hpc-containers/shared_invite/enQtODI3NzY1NDU4OTk5LTUxOTgyOWJmYjIwOWI5YWU2MzBhZDI3Zjc1YmZmMjAxZjgzYzk4ZWEwNmFlNzlkOWI0MGNlZDNlMTBhYTBlOWY"
-    rel="nofollow">here</a>.</p>
-
-    <h2 id="user-content-schedule"><a class="heading-link" href="#schedule">Schedule<span
-    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
-
-    <p>14:30 - 14:45 Introduction to containers in HPC (Shane)<br>
-
-    Including defining jargon (containers, images, registries/repos,..)</p>
-
-    <p>14:45 - 15:25 Build and run your first Docker container (Shane)<br>
-
-    Including also minimal pull and run examples, to define these concepts</p>
-
-    <p>15:25 - 15:40 BREAK</p>
-
-    <p>15:40 - 16:15 Deploy containers on a supercomputer (Marco)</p>
-
-    <p>16:15 - 16:40 High-performance containers (Marco)</p>
-
-    <p>16:40 - 16:55 BREAK</p>
-
-    <p>16:55 - 17:15 Best practices (Shane)</p>
-
-    <p>17:15 - 17:35 E4S containers initiative (Sameer)</p>
-
-    <p>17:35 - 17:55 Advanced container builds (Eduardo)</p>
-
-    <p>17:55 - 18:00 Wrap-up and final Q&amp;A</p>
-
-
-    '
-  stargazers_count: 4
-  subscribers_count: 6
-  topics: []
-  updated_at: 1653465626.0
 sxs-collaboration/spectre:
   data_format: 2
   description: SpECTRE is a code for multi-scale, multi-physics problems in astrophysics
@@ -14711,6 +13233,67 @@ sxs-collaboration/spectre:
   subscribers_count: 15
   topics: []
   updated_at: 1694817717.0
+thomas-bouvier/spack-envs:
+  data_format: 2
+  description: My Spack environments
+  filenames:
+  - thetagpu/spack.yaml
+  full_name: thomas-bouvier/spack-envs
+  latest_release: null
+  readme: '<h1 id="user-content-spack-envs"><a class="heading-link" href="#spack-envs">spack-envs<span
+    aria-hidden="true" class="octicon octicon-link"></span></a></h1>
+
+    <pre><code>git clone -c feature.manyFiles=true https://github.com/spack/spack.git
+    ~/spack
+
+    git clone https://github.com/mochi-hpc/mochi-spack-packages.git ~/mochi-spack-packages
+
+    git clone https://github.com/thomas-bouvier/spack-envs.git ~/spack-envs
+
+    </code></pre>
+
+    <h2 id="user-content-locally"><a class="heading-link" href="#locally">Locally<span
+    aria-hidden="true" class="octicon octicon-link"></span></a></h2>
+
+    <div class="highlight highlight-text-shell-session"><pre><span class="pl-c1">spack
+    config --scope defaults edit config</span>
+
+    <span class="pl-c1">install_tree: $spack/opt/spack</span>
+
+    <span class="pl-c1">build_stage: $spack/var/spack/stage</span>
+
+
+    <span class="pl-c1">spack env activate ~/Dev/spack-envs/local</span>
+
+    <span class="pl-c1">spack install</span></pre></div>
+
+    <h2 id="user-content-g5k"><a class="heading-link" href="#g5k">G5k<span aria-hidden="true"
+    class="octicon octicon-link"></span></a></h2>
+
+    <div class="highlight highlight-text-shell-session"><pre><span class="pl-c1">spack
+    config --scope defaults edit config</span>
+
+    <span class="pl-c1">install_tree: /my-spack/spack</span>
+
+    <span class="pl-c1">build_stage: /tmp/spack-stage</span></pre></div>
+
+    <h2 id="user-content-anl"><a class="heading-link" href="#anl">ANL<span aria-hidden="true"
+    class="octicon octicon-link"></span></a></h2>
+
+    <h3 id="user-content-cooley"><a class="heading-link" href="#cooley">Cooley<span
+    aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+
+    <p>Before using Spack to compile stuff on Cooley, we recommend to run <code>use_build_cooley</code>
+    to get access to newer gcc, cmake, and mvapich versions.</p>
+
+    <h3 id="user-content-thetagpu"><a class="heading-link" href="#thetagpu">ThetaGPU<span
+    aria-hidden="true" class="octicon octicon-link"></span></a></h3>
+
+    '
+  stargazers_count: 0
+  subscribers_count: 2
+  topics: []
+  updated_at: 1678891926.0
 toxa81/se:
   data_format: 2
   description: Software environments
@@ -14756,6 +13339,8 @@ tvandera/spack-repos:
   data_format: 2
   description: null
   filenames:
+  - var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml
+  - var/spack/environments/intelmpi/bpmf-gpi/spack.yaml
   - var/spack/environments/karolina/bpmf-argo/spack.yaml
   full_name: tvandera/spack-repos
   latest_release: null
@@ -15166,14 +13751,15 @@ ukri-excalibur/excalibur-tests:
   data_format: 2
   description: Performance benchmarks and regression tests for the ExCALIBUR project
   filenames:
-  - benchmarks/spack/isambard-a64fx/compute-node/spack.yaml
-  - benchmarks/spack/isambard-macs/volta/spack.yaml
   - benchmarks/spack/isambard-phase3/ampere/spack.yaml
+  - benchmarks/spack/myriad/v100/spack.yaml
+  - benchmarks/spack/github-actions/default/spack.yaml
+  - benchmarks/spack/dial2/compute-node/spack.yaml
+  - benchmarks/spack/isambard-macs/rome/spack.yaml
+  - benchmarks/spack/isambard-a64fx/compute-node/spack.yaml
   - benchmarks/spack/archer2/compute-node/spack.yaml
   - benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml
-  - benchmarks/spack/github-actions/default/spack.yaml
-  - benchmarks/spack/isambard-macs/rome/spack.yaml
-  - benchmarks/spack/myriad/v100/spack.yaml
+  - benchmarks/spack/isambard-macs/volta/spack.yaml
   full_name: ukri-excalibur/excalibur-tests
   latest_release: null
   readme: "<h1 id=\"user-content-excalibur-tests\"><a class=\"heading-link\" href=\"\
@@ -15377,8 +13963,6 @@ xsdk-project/installxSDK:
   description: Bash shell script for installing xSDK and other IDEAS packages
   filenames:
   - platformFiles/lassen/spack.yaml
-  - platformFiles/polaris/gcc-11.2.0/spack.yaml
-  - platformFiles/crusher/PrgEnv-gnu/spack.yaml
   - platformFiles/crusher/PrgEnv-cray/spack.yaml
   full_name: xsdk-project/installxSDK
   latest_release: v0.1.1
