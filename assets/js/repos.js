@@ -32,8 +32,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.20.1/v1/spack.yaml",
       "v0.13.2/spack.yaml",
+      "v0.20.1/v1/spack.yaml",
       "v0.18.1/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
@@ -93,11 +93,11 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
-      "systems/setonix/environments/astro/spack.yaml",
+      "systems/setonix/environments/utils/spack.yaml",
       "systems/setonix/environments/io_libs/spack.yaml",
-      "systems/setonix/environments/bench/spack.yaml",
+      "systems/setonix/environments/astro/spack.yaml",
       "systems/setonix/environments/wrf/spack.yaml",
-      "systems/setonix/environments/utils/spack.yaml"
+      "systems/setonix/environments/bench/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -139,8 +139,8 @@ var data =
     "data_format": 2,
     "description": "Support for building chipStar and related libraries via Spack",
     "filenames": [
-      "Environments/LevelZero/spack.yaml",
-      "Environments/ROCm/spack.yaml"
+      "Environments/ROCm/spack.yaml",
+      "Environments/LevelZero/spack.yaml"
     ],
     "full_name": "CHIP-SPV/chipStar-Spack",
     "latest_release": null,
@@ -180,11 +180,25 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "My Spack environments",
+    "filenames": [
+      "thetagpu/spack.yaml"
+    ],
+    "full_name": "thomas-bouvier/spack-envs",
+    "latest_release": null,
+    "readme": "\u003ch1 id=\"user-content-spack-envs\"\u003e\u003ca class=\"heading-link\" href=\"#spack-envs\"\u003espack-envs\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003egit clone -c feature.manyFiles=true https://github.com/spack/spack.git ~/spack\ngit clone https://github.com/mochi-hpc/mochi-spack-packages.git ~/mochi-spack-packages\ngit clone https://github.com/thomas-bouvier/spack-envs.git ~/spack-envs\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"user-content-locally\"\u003e\u003ca class=\"heading-link\" href=\"#locally\"\u003eLocally\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003espack config --scope defaults edit config\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003einstall_tree: $spack/opt/spack\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ebuild_stage: $spack/var/spack/stage\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003espack env activate ~/Dev/spack-envs/local\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003espack install\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2 id=\"user-content-g5k\"\u003e\u003ca class=\"heading-link\" href=\"#g5k\"\u003eG5k\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003espack config --scope defaults edit config\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003einstall_tree: /my-spack/spack\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ebuild_stage: /tmp/spack-stage\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2 id=\"user-content-anl\"\u003e\u003ca class=\"heading-link\" href=\"#anl\"\u003eANL\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003ch3 id=\"user-content-cooley\"\u003e\u003ca class=\"heading-link\" href=\"#cooley\"\u003eCooley\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eBefore using Spack to compile stuff on Cooley, we recommend to run \u003ccode\u003euse_build_cooley\u003c/code\u003e to get access to newer gcc, cmake, and mvapich versions.\u003c/p\u003e\n\u003ch3 id=\"user-content-thetagpu\"\u003e\u003ca class=\"heading-link\" href=\"#thetagpu\"\u003eThetaGPU\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1678891926.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/hpccf/franklin/general/spack.yaml",
       "environments/hpccf/franklin/cluster-core/spack.yaml",
-      "environments/hpccf/farm/r-stack/spack.yaml"
+      "environments/hpccf/farm/r-stack/spack.yaml",
+      "environments/hpccf/franklin/general/spack.yaml"
     ],
     "full_name": "ucdavis/spack-ucdavis",
     "latest_release": null,
@@ -226,9 +240,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "gnu/spack.yaml",
       "oneapi/spack.yaml",
-      "oneapi/failures/spack.yaml"
+      "oneapi/failures/spack.yaml",
+      "gnu/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
     "latest_release": null,
@@ -269,9 +283,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/python_376/spack.yaml",
       "compilers/envs/compilers/spack.yaml",
-      "cent7/bioinformatics_default/spack.yaml",
-      "cent7/python_376/spack.yaml"
+      "cent7/bioinformatics_default/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -285,10 +300,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
+      "envs/alps/cp2k-dlaf/mkl-cuda/spack.yaml",
       "envs/alps/dlaf/mkl-mt/spack.yaml",
+      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack/spack.yaml",
       "envs/local/cp2k-dlaf/mkl-mt-mpich-cuda/spack.yaml",
       "envs/alps/dlaf/oneapi-mt/spack.yaml",
-      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack/spack.yaml",
       "envs/local/dlaf/openblas-mt-mpich-cuda/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
@@ -301,11 +317,24 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "SKA Spack environments related files",
+    "filenames": [
+      "env-bipp-izar/spack.yaml"
+    ],
+    "full_name": "epfl-radio-astro/ska-spack-env",
+    "latest_release": null,
+    "readme": "\u003ch1 id=\"user-content-ska-spack-env\"\u003e\u003ca class=\"heading-link\" href=\"#ska-spack-env\"\u003eska-spack-env\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eSKA Spack environments related files\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1674857920.0
+  },
+  {
+    "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
-      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
-      "var/spack/environments/karolina/bpmf-argo/spack.yaml"
+      "var/spack/environments/karolina/bpmf-argo/spack.yaml",
+      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -332,9 +361,9 @@ var data =
     "data_format": 2,
     "description": "Spack fork used on OLCF resources",
     "filenames": [
+      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack",
     "latest_release": null,
@@ -348,8 +377,8 @@ var data =
     "data_format": 2,
     "description": "Spack clone",
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml"
     ],
     "full_name": "lezzidan/spack",
     "latest_release": null,
@@ -391,8 +420,8 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "rhel8NvhpcWdmapp/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "rhel8NvhpcWdmapp/spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -447,9 +476,9 @@ var data =
     "data_format": 2,
     "description": "Muon Collider software repository for Spack",
     "filenames": [
+      "environments/mucoll-release/spack.yaml",
       "environments/mucoll-common/spack.yaml",
-      "environments/mucoll-release-debug/spack.yaml",
-      "environments/mucoll-release/spack.yaml"
+      "environments/mucoll-release-debug/spack.yaml"
     ],
     "full_name": "MuonColliderSoft/mucoll-spack",
     "latest_release": "v2.8",
@@ -631,20 +660,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "My Spack environments",
-    "filenames": [
-      "thetagpu/spack.yaml"
-    ],
-    "full_name": "thomas-bouvier/spack-envs",
-    "latest_release": null,
-    "readme": "\u003ch1 id=\"user-content-spack-envs\"\u003e\u003ca class=\"heading-link\" href=\"#spack-envs\"\u003espack-envs\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cpre\u003e\u003ccode\u003egit clone -c feature.manyFiles=true https://github.com/spack/spack.git ~/spack\ngit clone https://github.com/mochi-hpc/mochi-spack-packages.git ~/mochi-spack-packages\ngit clone https://github.com/thomas-bouvier/spack-envs.git ~/spack-envs\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"user-content-locally\"\u003e\u003ca class=\"heading-link\" href=\"#locally\"\u003eLocally\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003espack config --scope defaults edit config\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003einstall_tree: $spack/opt/spack\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ebuild_stage: $spack/var/spack/stage\u003c/span\u003e\n\n\u003cspan class=\"pl-c1\"\u003espack env activate ~/Dev/spack-envs/local\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003espack install\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2 id=\"user-content-g5k\"\u003e\u003ca class=\"heading-link\" href=\"#g5k\"\u003eG5k\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003espack config --scope defaults edit config\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003einstall_tree: /my-spack/spack\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003ebuild_stage: /tmp/spack-stage\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch2 id=\"user-content-anl\"\u003e\u003ca class=\"heading-link\" href=\"#anl\"\u003eANL\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003ch3 id=\"user-content-cooley\"\u003e\u003ca class=\"heading-link\" href=\"#cooley\"\u003eCooley\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eBefore using Spack to compile stuff on Cooley, we recommend to run \u003ccode\u003euse_build_cooley\u003c/code\u003e to get access to newer gcc, cmake, and mvapich versions.\u003c/p\u003e\n\u003ch3 id=\"user-content-thetagpu\"\u003e\u003ca class=\"heading-link\" href=\"#thetagpu\"\u003eThetaGPU\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1678891926.0
-  },
-  {
-    "data_format": 2,
     "description": "Spack configuration installed at /g/data/ik11/spack/ to provide ACCESS-OM3 dependencies",
     "filenames": [
       "environments/cesm-0_x_0/spack.yaml"
@@ -703,8 +718,8 @@ var data =
     "data_format": 2,
     "description": "Mochi messaging over NA",
     "filenames": [
-      "benchmark/cori/spack.yaml",
-      "spack.yaml"
+      "spack.yaml",
+      "benchmark/cori/spack.yaml"
     ],
     "full_name": "mochi-hpc/mochi-mona",
     "latest_release": "v0.3.0",
@@ -788,9 +803,9 @@ var data =
     "data_format": 2,
     "description": "Dockerfile and Spack spec files for hardware optimized benchmark containers",
     "filenames": [
+      "hmmer-amd/spack.yaml",
       "quantum-espresso-amd/spack.yaml",
-      "hpcg-amd/spack.yaml",
-      "hmmer-amd/spack.yaml"
+      "hpcg-amd/spack.yaml"
     ],
     "full_name": "dbkinghorn/Benchmark-Containers",
     "latest_release": null,
@@ -804,8 +819,8 @@ var data =
     "data_format": 2,
     "description": "Configuration scripts for BOUT++",
     "filenames": [
-      "lassen/spack_env/bout_petsc_with_hypre/spack.yaml",
-      "lassen/spack_env/bout/spack.yaml"
+      "lassen/spack_env/bout/spack.yaml",
+      "lassen/spack_env/bout_petsc_with_hypre/spack.yaml"
     ],
     "full_name": "boutproject/BOUT-configs",
     "latest_release": null,
@@ -970,9 +985,9 @@ var data =
     "data_format": 2,
     "description": "fast spack builds on slow filesystem",
     "filenames": [
-      "packages/nvhpc/spack.yaml",
+      "recipe/nvhpc.spack.yaml",
       "compilers/3-llvm/spack.yaml",
-      "recipe/nvhpc.spack.yaml"
+      "packages/nvhpc/spack.yaml"
     ],
     "full_name": "eth-cscs/spack-stack",
     "latest_release": null,
@@ -1041,8 +1056,8 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
-      "etc/spack/spack/spack.yaml",
-      "etc/spack/nrel-eagle/spack.yaml"
+      "etc/spack/nrel-eagle/spack.yaml",
+      "etc/spack/spack/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1076,9 +1091,9 @@ var data =
     "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
-      "spack/ci/spack.yaml",
+      "spack/snow/spack.yaml",
       "spack/darwin-power9/spack.yaml",
-      "spack/snow/spack.yaml"
+      "spack/ci/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1140,12 +1155,12 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ORNL/Frontier/spack.yaml",
-      "NERSC/Perlmutter/ss11/spack.yaml",
+      "ANL/Theta/spack.yaml",
+      "ANL/Polaris/spack.yaml",
       "NERSC/Perlmutter/ss10/spack.yaml",
       "ANL/Sunspot/spack.yaml",
-      "ANL/Theta/spack.yaml",
-      "ANL/Polaris/spack.yaml"
+      "ORNL/Frontier/spack.yaml",
+      "NERSC/Perlmutter/ss11/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1159,11 +1174,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/frontier/envs/base/spack.yaml",
       "hosts/summit/envs/base/spack.yaml",
+      "hosts/frontier/envs/base/spack.yaml",
+      "hosts/peak/envs/base/spack.yaml",
       "hosts/ascent/envs/base/spack.yaml",
       "hosts/borg/envs/base/spack.yaml",
-      "hosts/peak/envs/base/spack.yaml",
       "hosts/ascent/envs/base-rh7/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
@@ -1178,8 +1193,8 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-sles15-zen2/spock/spack.yaml",
       "linux-centos7-broadwell/or-slurm/spack.yaml",
+      "linux-sles15-zen2/spock/spack.yaml",
       "linux-rhel8-ppc64le/summit/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
@@ -1194,8 +1209,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      ".gitlab/spack/environments/pascal/spack.yaml",
       ".gitlab/spack/environments/quartz/spack.yaml",
+      ".gitlab/spack/environments/pascal/spack.yaml",
       ".gitlab/spack/environments/corona/spack.yaml"
     ],
     "full_name": "LLNL/DiHydrogen",
@@ -1299,11 +1314,11 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
-      "environments/key4hep-nightly/spack.yaml",
-      "environments/key4hep-ci/spack.yaml",
       "environments/key4hep-nightly-debug/spack.yaml",
+      "environments/key4hep-nightly/spack.yaml",
       "environments/key4hep-release/spack.yaml",
-      "environments/key4hep-nightly-clang/spack.yaml"
+      "environments/key4hep-nightly-clang/spack.yaml",
+      "environments/key4hep-ci/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1317,25 +1332,25 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/prod/cce/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/cce/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
-      "spack-configs/perlmutter-user-spack/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml",
       "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml"
+      "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-user-spack/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/cce/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/prod/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1349,8 +1364,8 @@ var data =
     "data_format": 2,
     "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronics.",
     "filenames": [
-      "Tools/machines/lxplus-cern/spack.yaml",
-      "Docs/spack.yaml"
+      "Docs/spack.yaml",
+      "Tools/machines/lxplus-cern/spack.yaml"
     ],
     "full_name": "AMReX-Microelectronics/artemis",
     "latest_release": null,
@@ -1364,15 +1379,15 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "benchmarks/spack/isambard-phase3/ampere/spack.yaml",
-      "benchmarks/spack/myriad/v100/spack.yaml",
-      "benchmarks/spack/github-actions/default/spack.yaml",
-      "benchmarks/spack/dial2/compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/rome/spack.yaml",
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
-      "benchmarks/spack/archer2/compute-node/spack.yaml",
       "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/volta/spack.yaml"
+      "benchmarks/spack/isambard-macs/volta/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
+      "benchmarks/spack/isambard-phase3/ampere/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
+      "benchmarks/spack/dial2/compute-node/spack.yaml",
+      "benchmarks/spack/archer2/compute-node/spack.yaml",
+      "benchmarks/spack/myriad/v100/spack.yaml",
+      "benchmarks/spack/github-actions/default/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1414,9 +1429,9 @@ var data =
     "data_format": 2,
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
+      "buildsystem/container/spack.yaml",
       "buildsystem/spack/incline/spack.yaml",
       "buildsystem/spack/crusher/spack.yaml",
-      "buildsystem/container/spack.yaml",
       "buildsystem/spack/deception/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
@@ -1463,8 +1478,8 @@ var data =
     "filenames": [
       "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/ufs-weather-model-static/spack.yaml",
-      "configs/templates/unified-dev/spack.yaml",
       "configs/templates/ufs-srw-public-v2/spack.yaml",
+      "configs/templates/unified-dev/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
@@ -1479,20 +1494,20 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/23.02/cuda-x86_64/spack.yaml",
       "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
-      "environments/21.08/spack.yaml",
-      "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/22.08/cuda-ppc64le.spack.yaml",
-      "environments/23.05/cuda-x86_64/spack.yaml",
+      "environments/23.02/cuda-x86_64/spack.yaml",
+      "environments/22.08/cuda-aarch64.spack.yaml",
+      "environments/21.05/spack.yaml",
       "environments/23.08/cuda-aarch64/spack.yaml",
       "environments/23.02/cuda-ppc64le/spack.yaml",
+      "environments/22.05/rocm.spack.yaml",
       "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/21.05/spack.yaml",
-      "environments/22.08/cuda-aarch64.spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
       "environments/23.08/cuda-x86_64/spack.yaml",
-      "environments/22.05/rocm.spack.yaml"
+      "environments/21.08/spack.yaml",
+      "environments/22.08/cuda-ppc64le.spack.yaml",
+      "environments/22.08/cuda-x86_64.spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v23.08",
@@ -1524,19 +1539,19 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-ppc64le/spack.yaml",
-      "docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml",
-      "docker-recipes/archived/special/superlu-sc/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-ppc64le-gcc-11.4/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
-      "spack-sdk-environments/xsdk/spack.yaml",
       "docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
       "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
       "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml"
+      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-ppc64le/spack.yaml",
+      "docker-recipes/minimal/ubuntu20.04-x86_64/spack.yaml",
+      "spack-sdk-environments/xsdk/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-ppc64le-gcc-11.4/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1631,23 +1646,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Automates using spack to build and deploy software",
-    "filenames": [
-      ".ci/test-project/spack_configs/toss_4_x86_64_ib/spack.yaml"
-    ],
-    "full_name": "LLNL/uberenv",
-    "latest_release": "v1.0.0",
-    "readme": "\u003ch1 id=\"user-content-uberenv\"\u003e\u003ca class=\"heading-link\" href=\"#uberenv\"\u003euberenv\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eAutomates using a package manager to build and deploy software.\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://uberenv.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/02247bd3961daeb4d17d6d1d8f821df0c991efeb0c5f0411fed0a94bd9fa3ebe/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f75626572656e762f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Read the Docs\" data-canonical-src=\"https://readthedocs.org/projects/uberenv/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUberenv is a python script that helps automate building\nthird-party dependencies for development and deployment.\u003c/p\u003e\n\u003cp\u003eUberenv uses Spack (\u003ca href=\"https://www.spack.io/\" rel=\"nofollow\"\u003ehttps://www.spack.io/\u003c/a\u003e) on Unix-based systems (e.g. Linux and macOS)\nand Vcpkg (\u003ca href=\"https://github.com/microsoft/vcpkg\"\u003ehttps://github.com/microsoft/vcpkg\u003c/a\u003e) on Windows systems.\u003c/p\u003e\n\u003cp\u003eUberenv was released as part of the Conduit project (\u003ca href=\"https://github.com/LLNL/conduit/\"\u003ehttps://github.com/LLNL/conduit/\u003c/a\u003e).\nIt is included in-source in several projects, this repo is used to hold the latest reference version.\u003c/p\u003e\n\u003cp\u003eFor more details, see Uberenv\u0027s documention:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://uberenv.readthedocs.io\" rel=\"nofollow\"\u003ehttps://uberenv.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou can also find details about how it is used in Conduit\u0027s documentation:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://llnl-conduit.readthedocs.io/en/latest/building.html#building-conduit-and-third-party-dependencies\" rel=\"nofollow\"\u003ehttps://llnl-conduit.readthedocs.io/en/latest/building.html#building-conduit-and-third-party-dependencies\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eConduit\u0027s source repo also serves as an example for uberenv and spack configuration files, etc:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LLNL/conduit/tree/master/scripts/uberenv\"\u003ehttps://github.com/LLNL/conduit/tree/master/scripts/uberenv\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 22,
-    "subscribers_count": 9,
-    "topics": [
-      "shell",
-      "build-tools"
-    ],
-    "updated_at": 1690624532.0
-  },
-  {
-    "data_format": 2,
     "description": "Simplified Interface to Complex Memory",
     "filenames": [
       "spack.yaml"
@@ -1655,10 +1653,10 @@ var data =
     "full_name": "lanl/SICM",
     "latest_release": null,
     "readme": "\u003ch1 id=\"user-content-sicm\"\u003e\u003ca class=\"heading-link\" href=\"#sicm\"\u003eSICM\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eSimplified Interface to Complex Memory\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lanl/SICM/actions\"\u003e\u003cimg src=\"https://github.com/lanl/SICM/actions/workflows/sicm.yml/badge.svg\" alt=\"GitHub Actions\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2 id=\"user-content-introduction\"\u003e\u003ca class=\"heading-link\" href=\"#introduction\"\u003eIntroduction\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThis project is split into two interfaces: \u003ccode\u003elow\u003c/code\u003e and \u003ccode\u003ehigh\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003elow\u003c/code\u003e interface provides a minimal interface for application wanting to\nmanage their own memory on heterogeneous memory tiers. It also provides an\narena allocator that application developers can use to create \u003ccode\u003ejemalloc\u003c/code\u003e arenas\non different memory tiers and allocate to those tiers.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003ehigh\u003c/code\u003e interface attempts to automatically manage the memory tiers for the\napplication. It provides an LLVM compiler pass (and compiler wrappers) to\nautomatically transform applications to make the appropriate \u003ccode\u003ehigh\u003c/code\u003e interface\ncalls, as well as a runtime library which provides profiling for the\napplication.  The profiling is currently meant to be used offline; that is,\nafter enabling the profiling for an application run, the results are printed\nout at the end of the run, and that information must be fed into a second run\nto make use of it. An online approach is planned.\u003c/p\u003e\n\u003ch2 id=\"user-content-dependencies\"\u003e\u003ca class=\"heading-link\" href=\"#dependencies\"\u003eDependencies\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe only dependencies that you will need for the low-level interface\nare \u003ccode\u003elibnuma\u003c/code\u003e and \u003ccode\u003ejemalloc\u003c/code\u003e. We require that \u003ccode\u003ejemalloc\u003c/code\u003e be\nconfigured with the \u003ccode\u003eje_\u003c/code\u003e prefix (using the \u003ccode\u003e--with-jemalloc-prefix\u003c/code\u003e flag).\n\u003ccode\u003eCMake\u003c/code\u003e will use \u003ccode\u003epkg-config\u003c/code\u003e to find \u003ccode\u003ejemalloc\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFor the high-level interface, you need an installation of LLVM. LLVM 4.0 and\nlater have been tested, although 3.9 may possibly work. For the profiling, you\nwill also need an installation of \u003ccode\u003elibpfm\u003c/code\u003e, which is a small helper library for\n\u003ccode\u003eperf\u003c/code\u003e that is available on most distributions.\u003c/p\u003e\n\u003cp\u003eAdditionally, several other packages are required, and can be installed through a package manager:\u003c/p\u003e\n\u003ch3 id=\"user-content-binaries\"\u003e\u003ca class=\"heading-link\" href=\"#binaries\"\u003eBinaries\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eA modern C compiler\u003c/li\u003e\n\u003cli\u003eA modern C++ compiler\u003c/li\u003e\n\u003cli\u003eA modern Fortran compiler\u003c/li\u003e\n\u003cli\u003eCMake 3.0+\u003c/li\u003e\n\u003cli\u003eMake\u003c/li\u003e\n\u003cli\u003enumactl\u003c/li\u003e\n\u003cli\u003eautomake + friends (if jemalloc needs to be built)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"user-content-development-libraries\"\u003e\u003ca class=\"heading-link\" href=\"#development-libraries\"\u003eDevelopment Libraries\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eThese packages are usually named \u003ccode\u003elib*-dev\u003c/code\u003e or \u003ccode\u003elib*-devel\u003c/code\u003e:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003enuma\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAdditional packages are required for the high level interface:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ehwloc\u003c/li\u003e\n\u003cli\u003ellvm\u003c/li\u003e\n\u003cli\u003eomp (if OpenMP is not available by default on your compilers)\u003c/li\u003e\n\u003cli\u003epfm4\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-compilation\"\u003e\u003ca class=\"heading-link\" href=\"#compilation\"\u003eCompilation\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003eexport PKG_CONFIG_PATH=\u0026lt;jemalloc prefix\u0026gt;/lib/pkgconfig:$PKG_CONFIG_PATH\nmkdir build\ncd build\ncmake .. -DCMAKE_INSTALL_PREFIX=\u0026lt;prefix\u0026gt;\nmake\nmake install\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"user-content-low-level-api\"\u003e\u003ca class=\"heading-link\" href=\"#low-level-api\"\u003eLow-Level API\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eFunction Name\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_init\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eDetects all memory devices on system, returns a list of them.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_fini\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eFrees up a device list and associated SICM data structures.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_find_device\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturn the first device that matches a given type and page size.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_device_alloc\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eAllocates to a given device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_device_free\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eFrees memory on a device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_can_place_exact\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns whether or not a device supports exact placement.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_device_alloc_exact\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eAllocate memory on a device with an exact base address.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_numa_id\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns the NUMA ID that a device is on.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_device_page_size\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns the page size of a given device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_device_eq\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns if two devices are equal or not.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_move\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMoves memory from one device to another.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_pin\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ePin the current process to a device\u0027s memory.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_capacity\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns the capacity of a given device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_avail\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns the amount of memory available on a given device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_model_distance\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns the distance of a given memory device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_is_near\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns whether or not a given memory device is nearby the current NUMA node.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_latency\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMeasures the latency of a memory device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_bandwidth_linear2\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMeasures a memory device\u0027s linear access bandwidth.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_bandwidth_random2\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMeasures random access bandwidth of a memory device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_bandwidth_linear3\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMeasures the linear bandwidth of a memory device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_bandwidth_random3\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eMeasures the random access bandwidth of a memory device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"user-content-arena-allocator-api\"\u003e\u003ca class=\"heading-link\" href=\"#arena-allocator-api\"\u003eArena Allocator API\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eFunction Name\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arenas_list\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eList all arenas created in the arena allocator.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_create\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eCreate a new arena on the given device.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_destroy\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eFrees up an arena, deleting all associated data structures.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_set_default\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eSets an arena as the default for the current thread.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_get_default\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eGets the default arena for the current thread.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_get_device\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eGets the device for a given arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_set_device\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eSets the memory device for a given arena. Moves all allocated memory already allocated to the arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_size\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eGets the size of memory allocated to the given arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_alloc\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eAllocate to a given arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_alloc_aligned\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eAllocate aligned memory to a given arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_realloc\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eResize allocated memory to a given arena.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003esicm_arena_lookup\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eReturns which arena a given pointer belongs to.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"user-content-high-level-interface\"\u003e\u003ca class=\"heading-link\" href=\"#high-level-interface\"\u003eHigh-Level Interface\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe high-level interface is normally used with the compiler wrappers located in\n\u003ccode\u003ebin/\u003c/code\u003e. Users should use these wrappers to compile their applications, and a\ncompiler pass will automatically transform the code so that it calls the\nhigh-level interface with the appropriate arguments, including initialization,\ndestruction, and the proper allocation functions. Assuming the high-level\ninterface is linked to the application as a shared library, it automatically\ninitializes itself.  All heap allocation routines are replaced by calls to\n\u003ccode\u003evoid* sh_alloc(int id, size_t sz)\u003c/code\u003e, which associates an ID with a given\nallocation and allocates the memory into an arena with other allocations of\nthat ID.\u003c/p\u003e\n\u003ch2 id=\"user-content-programming-practices\"\u003e\u003ca class=\"heading-link\" href=\"#programming-practices\"\u003eProgramming Practices\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eAll blocks use curly braces\n\u003cul\u003e\n\u003cli\u003eEven one-line blocks\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eConstants on the left side of \u003ccode\u003e==\u003c/code\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eif(NULL == foo) { ...\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eFunctions with no arguments are \u003ccode\u003e(void)\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eNo C++-style comments in C code\u003c/li\u003e\n\u003cli\u003eNo GCC extensions except in GCC-only code\u003c/li\u003e\n\u003cli\u003eNo C++ code in libraries\n\u003cul\u003e\n\u003cli\u003eDiscouraged in components\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eAlways define preprocessor macros\n\u003cul\u003e\n\u003cli\u003eDefine logicals to 0 or 1 (vs. define or not define)\u003c/li\u003e\n\u003cli\u003eUse \u003ccode\u003e#if FOO\u003c/code\u003e, not \u003ccode\u003e#ifdef FOO\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n",
-    "stargazers_count": 23,
+    "stargazers_count": 24,
     "subscribers_count": 23,
     "topics": [],
-    "updated_at": 1694898046.0
+    "updated_at": 1695529123.0
   },
   {
     "data_format": 2,
@@ -1755,45 +1753,45 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "BOISESTATE/borah/environments/b4s/_spack.yaml",
-      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
-      "OLCF/andes/spack.yaml",
-      "OLCF/crusher/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
       "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "BOISESTATE/borah/environments/base/_spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
-      "OLCF/spock/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
       "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/nvhpc/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "OLCF/frontier/spack.yaml",
       "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml"
+      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/nvhpc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
+      "BOISESTATE/borah/environments/base/_spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "OLCF/spock/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "OLCF/crusher/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
+      "OLCF/frontier/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "OLCF/andes/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
+      "BOISESTATE/borah/environments/b4s/_spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1812,7 +1810,7 @@ var data =
     "full_name": "FairRootGroup/FairMQ",
     "latest_release": "v1.8.0",
     "readme": "\n\u003ch1 id=\"user-content-fairmq\"\u003e\u003ca class=\"heading-link\" href=\"#fairmq\"\u003eFairMQ\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"COPYRIGHT\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c137674b017e381c618ebcabdecb42821c3cd3671e32cee8d1ed60ccc192a1dd/68747470733a2f2f616c66612d63692e6773692e64652f736869656c64732f62616467652f6c6963656e73652d4c47504c2d2d332e302d6f72616e67652e737667\" alt=\"license\" data-canonical-src=\"https://alfa-ci.gsi.de/shields/badge/license-LGPL--3.0-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.1689985\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/ae672eef12e67029da460aa41e43e31ddfca7b5256fe67b40b40650a68a24b2e/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e313638393938352e737667\" alt=\"DOI\" data-canonical-src=\"https://zenodo.org/badge/DOI/10.5281/zenodo.1689985.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://bestpractices.coreinfrastructure.org/projects/6915\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/ebabb62e89af2e9bcd77f32d83b953d214f7205c40c56a27e7380ec178b9470d/68747470733a2f2f626573747072616374696365732e636f7265696e6672617374727563747572652e6f72672f70726f6a656374732f363931352f6261646765\" alt=\"OpenSSF Best Practices\" data-canonical-src=\"https://bestpractices.coreinfrastructure.org/projects/6915/badge\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/FairRootGroup/FairMQ/actions/workflows/fair-software.yml\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/1993428095da072cadfe3cade519c683f681bc22e2ef72ffd4fe215e2ce083d0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666169722d2d736f6674776172652e65752d2545322539372538462532302532302545322539372538462532302532302545322539372538422532302532302545322539372538462532302532302545322539372538462d79656c6c6f77\" alt=\"fair-software.eu\" data-canonical-src=\"https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8F%20%20%E2%97%8F-yellow\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://repology.org/project/fairmq/versions\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f8657b44c2c7ad0eaf3d60e9c29f3c79b98340e31ebc957e0a2371cbe7a7a2a6/68747470733a2f2f7265706f6c6f67792e6f72672f62616467652f76657273696f6e2d666f722d7265706f2f737061636b2f666169726d712e737667\" alt=\"Spack package\" data-canonical-src=\"https://repology.org/badge/version-for-repo/spack/fairmq.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eC++ Message Queuing Library and Framework\u003c/p\u003e\n\u003cp\u003eDocs: \u003ca href=\"https://github.com/FairRootGroup/FairMQ/blob/dev/README.md#documentation\"\u003eBook\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eFind all FairMQ releases \u003ca href=\"https://github.com/FairRootGroup/FairMQ/releases\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"user-content-introduction\"\u003e\u003ca class=\"heading-link\" href=\"#introduction\"\u003eIntroduction\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eFairMQ is designed to help implementing large-scale data processing workflows needed in next-generation Particle Physics experiments. FairMQ is written in C++ and aims to\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eprovide \u003cstrong\u003ean asynchronous message passing abstraction\u003c/strong\u003e of different data transport technologies,\u003c/li\u003e\n\u003cli\u003eprovide a reasonably \u003cstrong\u003eefficient data transport\u003c/strong\u003e service (zero-copy, high throughput),\u003c/li\u003e\n\u003cli\u003ebe \u003cstrong\u003edata format agnostic\u003c/strong\u003e, and\u003c/li\u003e\n\u003cli\u003eprovide \u003cstrong\u003ebasic building blocks\u003c/strong\u003e that can be used to implement higher level data processing workflows.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe core of FairMQ provides an abstract asynchronous message passing API with scalability protocols\ninspired by \u003ca href=\"https://github.com/zeromq/libzmq\"\u003eZeroMQ\u003c/a\u003e (e.g. PUSH/PULL, PUB/SUB).\nFairMQ provides multiple implementations for its API (so-called \"transports\",\ne.g. \u003ccode\u003ezeromq\u003c/code\u003e and \u003ccode\u003eshmem\u003c/code\u003e (latest release of the \u003ccode\u003eofi\u003c/code\u003e transport in v1.4.56, removed since v1.5+)) to cover\na variety of use cases\n(e.g. inter-thread, inter-process, inter-node communication) and machines (e.g. Ethernet, Infiniband).\nIn addition to this core functionality FairMQ provides a framework for creating \"devices\" - actors which\nare communicating through message passing. FairMQ does not only allow the user to use different transport\nbut also to mix them; i.e: A Device can communicate using different transport on different channels at the\nsame time. Device execution is modelled as a simple state machine that shapes the integration points for\nthe user task. Devices also incorporate a plugin system for runtime configuration and control.\nNext to the provided \u003ca href=\"https://github.com/FairRootGroup/FairMQ/tree/master/fairmq/devices\"\u003edevices\u003c/a\u003e and\n\u003ca href=\"https://github.com/FairRootGroup/FairMQ/tree/master/fairmq/plugins\"\u003eplugins\u003c/a\u003e the user can extend FairMQ\nby developing his own plugins to integrate his devices with external configuration and control services.\u003c/p\u003e\n\u003cp\u003eFairMQ has been developed in the context of its mother project \u003ca href=\"https://github.com/FairRootGroup/FairRoot\"\u003eFairRoot\u003c/a\u003e -\na simulation, reconstruction and analysis framework.\u003c/p\u003e\n\u003ch2 id=\"user-content-installation-from-source\"\u003e\u003ca class=\"heading-link\" href=\"#installation-from-source\"\u003eInstallation from Source\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eRecommended:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone https://github.com/FairRootGroup/FairMQ fairmq_source\ncmake -S fairmq_source -B fairmq_build -GNinja -DCMAKE_BUILD_TYPE=Release\ncmake --build fairmq_build\nctest --test-dir fairmq_build --output-on-failure --schedule-random -j\u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003encpus\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\ncmake --install fairmq_build --prefix \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e$(\u003c/span\u003epwd\u003cspan class=\"pl-pds\"\u003e)\u003c/span\u003e\u003c/span\u003e/fairmq_install\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ePlease consult the \u003ca href=\"https://cmake.org/cmake/help/latest/manual/cmake.1.html\" rel=\"nofollow\"\u003emanpages of your CMake version\u003c/a\u003e for more options.\u003c/p\u003e\n\u003cp\u003eIf dependencies are not installed in standard system directories, you can hint the installation location via\n\u003ccode\u003e-DCMAKE_PREFIX_PATH=...\u003c/code\u003e or per dependency via \u003ccode\u003e-D{DEPENDENCY}_ROOT=...\u003c/code\u003e (\u003ccode\u003e*_ROOT\u003c/code\u003e variables can also be environment variables).\u003c/p\u003e\n\u003ch2 id=\"user-content-usage\"\u003e\u003ca class=\"heading-link\" href=\"#usage\"\u003eUsage\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eFairMQ ships as a CMake package, so in your \u003ccode\u003eCMakeLists.txt\u003c/code\u003e you can discover it like this:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-cmake\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003efind_package\u003c/span\u003e(FairCMakeModules 1.0 \u003cspan class=\"pl-k\"\u003eREQUIRED\u003c/span\u003e)\n\u003cspan class=\"pl-c1\"\u003einclude\u003c/span\u003e(FairFindPackage2)\nfind_package2(FairMQ)\nfind_package2_implicit_dependencies()\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThe \u003ca href=\"https://fairrootgroup.github.io/FairCMakeModules/latest/module/FairFindPackage2.html\" rel=\"nofollow\"\u003e\u003ccode\u003eFairFindPackage2\u003c/code\u003e module\u003c/a\u003e is part of the \u003ca href=\"https://fairrootgroup.github.io/FairCMakeModules\" rel=\"nofollow\"\u003e\u003ccode\u003eFairCMakeModules\u003c/code\u003e package\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIf FairMQ is not installed in system directories, you can hint the installation:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-cmake\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003elist\u003c/span\u003e(PREPEND CMAKE_PREFIX_PATH /path/to/fairmq_install)\u003c/pre\u003e\u003c/div\u003e\n\u003ch2 id=\"user-content-dependencies\"\u003e\u003ca class=\"heading-link\" href=\"#dependencies\"\u003eDependencies\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.boost.org/\" rel=\"nofollow\"\u003eBoost\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://cmake.org/\" rel=\"nofollow\"\u003eCMake\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://www.doxygen.org/\" rel=\"nofollow\"\u003eDoxygen\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/FairRootGroup/FairCMakeModules\"\u003eFairCMakeModules\u003c/a\u003e (optionally bundled)\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/FairRootGroup/FairLogger\"\u003eFairLogger\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/google/googletest\"\u003eGTest\u003c/a\u003e (optionally bundled)\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"http://zeromq.org/\" rel=\"nofollow\"\u003eZeroMQ\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWhich dependencies are required depends on which components are built.\u003c/p\u003e\n\u003cp\u003eSupported platform is Linux. macOS is supported on a best-effort basis.\u003c/p\u003e\n\u003ch2 id=\"user-content-cmake-options\"\u003e\u003ca class=\"heading-link\" href=\"#cmake-options\"\u003eCMake options\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eOn command line:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-DDISABLE_COLOR=ON\u003c/code\u003e disables coloured console output.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-DBUILD_TESTING=OFF\u003c/code\u003e disables building of tests.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-DBUILD_EXAMPLES=OFF\u003c/code\u003e disables building of examples.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-DBUILD_DOCS=ON\u003c/code\u003e enables building of API docs.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-DFAIRMQ_CHANNEL_DEFAULT_AUTOBIND=OFF\u003c/code\u003e disable channel \u003ccode\u003eautoBind\u003c/code\u003e by default\u003c/li\u003e\n\u003cli\u003eYou can hint non-system installations for dependent packages, see the #installation-from-source section above\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAfter the \u003ccode\u003efind_package(FairMQ)\u003c/code\u003e call the following CMake variables are defined:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eVariable\u003c/th\u003e\n\u003cth\u003eInfo\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_PACKAGE_DEPENDENCIES}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe list of public package dependencies\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_\u0026lt;dep\u0026gt;_VERSION}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe minimum \u003ccode\u003e\u0026lt;dep\u0026gt;\u003c/code\u003e version FairMQ requires\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_\u0026lt;dep\u0026gt;_COMPONENTS}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe list of \u003ccode\u003e\u0026lt;dep\u0026gt;\u003c/code\u003e components FairMQ depends on\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_PACKAGE_COMPONENTS}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe list of components FairMQ consists of\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_#COMPONENT#_FOUND}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003e\n\u003ccode\u003eTRUE\u003c/code\u003e if this component was built\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_VERSION}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe version in format \u003ccode\u003eMAJOR.MINOR.PATCH\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_GIT_VERSION}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe version in the format returned by \u003ccode\u003egit describe --tags --dirty --match \"v*\"\u003c/code\u003e\n\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_PREFIX}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe actual installation prefix\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_BINDIR}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe installation bin directory\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_INCDIR}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe installation include directory\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_LIBDIR}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe installation lib directory\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_DATADIR}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe installation data directory (\u003ccode\u003e../share/fairmq\u003c/code\u003e)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_CMAKEMODDIR}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe installation directory of shipped CMake find modules\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_BUILD_TYPE}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe value of \u003ccode\u003eCMAKE_BUILD_TYPE\u003c/code\u003e at build-time\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003ccode\u003e${FairMQ_CXX_FLAGS}\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe values of \u003ccode\u003eCMAKE_CXX_FLAGS\u003c/code\u003e and \u003ccode\u003eCMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}\u003c/code\u003e at build-time\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"user-content-documentation\"\u003e\u003ca class=\"heading-link\" href=\"#documentation\"\u003eDocumentation\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Device.md#1-device\"\u003eDevice\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Device.md#11-topology\"\u003eTopology\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Device.md#12-communication-patterns\"\u003eCommunication Patterns\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Device.md#13-state-machine\"\u003eState Machine\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Device.md#15-multiple-devices-in-the-same-process\"\u003eMultiple devices in the same process\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Transport.md#2-transport-interface\"\u003eTransport Interface\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Transport.md#21-message\"\u003eMessage\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Transport.md#211-ownership\"\u003eOwnership\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Transport.md#22-channel\"\u003eChannel\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Transport.md#23-poller\"\u003ePoller\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Configuration.md#3-configuration\"\u003eConfiguration\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Configuration.md#31-device-configuration\"\u003eDevice Configuration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Configuration.md#32-communication-channels-configuration\"\u003eCommunication Channels Configuration\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Configuration.md#321-json-parser\"\u003eJSON Parser\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Configuration.md#322-suboptparser\"\u003eSuboptParser\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Configuration.md#33-introspection\"\u003eIntrospection\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Development.md#4-development\"\u003eDevelopment\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Development.md#41-testing\"\u003eTesting\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Development.md#42-static-analysis\"\u003eStatic Analysis\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Development.md#421-cmake-integration\"\u003eCMake Integration\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Development.md#422-extra-compiler-arguments\"\u003eExtra Compiler Arguments\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Logging.md#5-logging\"\u003eLogging\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Logging.md#51-log-severity\"\u003eLog severity\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Logging.md#52-log-verbosity\"\u003eLog verbosity\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Logging.md#53-color\"\u003eColor for console output\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Logging.md#54-file-output\"\u003eFile output\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Logging.md#55-custom-sinks\"\u003eCustom sinks\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Examples.md#6-examples\"\u003eExamples\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Plugins.md#7-plugins\"\u003ePlugins\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Plugins.md#71-usage\"\u003eUsage\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/Plugins.md#72-development\"\u003eDevelopment\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/Plugins.md#73-provided-plugins\"\u003eProvided Plugins\u003c/a\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"docs/Plugins.md#731-pmix\"\u003ePMIx\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n",
-    "stargazers_count": 72,
+    "stargazers_count": 73,
     "subscribers_count": 10,
     "topics": [
       "fairroot",
@@ -1821,14 +1819,14 @@ var data =
       "shmem",
       "c-plus-plus"
     ],
-    "updated_at": 1694194748.0
+    "updated_at": 1695501604.0
   },
   {
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml"
+      ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml",
+      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v1.1",
@@ -1846,12 +1844,12 @@ var data =
     "data_format": 2,
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
-      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml"
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
+      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml"
     ],
     "full_name": "LLNL/axom",
     "latest_release": "v0.8.1",
@@ -1902,12 +1900,12 @@ var data =
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
       "scripts/spack/configs/linux_ubuntu_22/spack.yaml",
-      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml",
-      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml"
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
+      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/darwin/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1941,9 +1939,9 @@ var data =
     "data_format": 2,
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
-      "scripts/platforms/summit/spack.yaml",
+      "scripts/platforms/marianas/spack.yaml",
       "scripts/platforms/newell/spack.yaml",
-      "scripts/platforms/marianas/spack.yaml"
+      "scripts/platforms/summit/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.0",
@@ -2057,15 +2055,15 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.6.1",
     "readme": "\u003ch1 id=\"user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\"\u003e\u003ca class=\"heading-link\" href=\"#sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\"\u003eSUNDIALS: SUite of Nonlinear and DIfferential/ALgebraic equation Solvers\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003ch3 id=\"user-content-version-661-sep-2023\"\u003e\u003ca class=\"heading-link\" href=\"#version-661-sep-2023\"\u003eVersion 6.6.1 (Sep 2023)\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eCenter for Applied Scientific Computing, Lawrence Livermore National Laboratory\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSUNDIALS is a family of software packages providing robust and efficient time\nintegrators and nonlinear solvers that can easily be incorporated into existing\nsimulation codes. The packages are designed to require minimal information from\nthe user, allow users to supply their own data structures underneath the\npackages, and enable interfacing with user-supplied or third-party algebraic\nsolvers and preconditioners.\u003c/p\u003e\n\u003cp\u003eThe SUNDIALS suite consists of the following packages for ordinary differential\nequation (ODE) systems, differential-algebraic equation (DAE) systems, and\nnonlinear algebraic systems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eARKODE - for integrating stiff, nonstiff, and multirate ODEs of the form\n$$M(t) \\, y\u0027 = f_1(t,y) + f_2(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODE - for integrating stiff and nonstiff ODEs of the form\n$$y\u0027 = f(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODES - for integrating and sensitivity analysis (forward and adjoint) of\nODEs of the form\n$$y\u0027 = f(t,y,p), \\quad y(t_0) = y_0(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDA - for integrating DAEs of the form\n$$F(t,y,y\u0027) = 0, \\quad y(t_0) = y_0, \\quad y\u0027(t_0) = y_0\u0027$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDAS - for integrating and sensitivity analysis (forward and adjoint) of DAEs\nof the form\n$$F(t,y,y\u0027,p) = 0, \\quad y(t_0) = y_0(p), \\quad y\u0027(t_0) = y_0\u0027(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKINSOL - for solving nonlinear algebraic systems of the form\n$$F(u) = 0 \\quad \\text{or} \\quad G(u) = u$$\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-installation\"\u003e\u003ca class=\"heading-link\" href=\"#installation\"\u003eInstallation\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eFor installation directions see the \u003ca href=\"https://sundials.readthedocs.io/en/latest/Install_link.html\" rel=\"nofollow\"\u003eonline install guide\u003c/a\u003e,\nthe installation chapter in any of the package user guides, or INSTALL_GUIDE.pdf.\u003c/p\u003e\n\u003cp\u003eWarning to users who receive more than one of the individual packages at\ndifferent times: Mixing old and new versions of SUNDIALS may fail. To avoid\nsuch failures, obtain all desired package at the same time.\u003c/p\u003e\n\u003ch2 id=\"user-content-support\"\u003e\u003ca class=\"heading-link\" href=\"#support\"\u003eSupport\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eFull user guides for all of the SUNDIALS packages are available \u003ca href=\"https://sundials.readthedocs.io\" rel=\"nofollow\"\u003eonline\u003c/a\u003e\nand in the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory. Additionally, the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory\ncontains documentation for the package example programs.\u003c/p\u003e\n\u003cp\u003eFor information on recent changes to SUNDIALS see the \u003ca href=\"./CHANGELOG.md\"\u003eCHANGELOG\u003c/a\u003e\nor the introduction chapter of any package user guide.\u003c/p\u003e\n\u003cp\u003eA list of Frequently Asked Questions on build and installation procedures as\nwell as common usage issues is available on the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/faq\" rel=\"nofollow\"\u003eFAQ\u003c/a\u003e.\nFor dealing with systems with unphysical solutions or discontinuities see the\nSUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/usage-notes\" rel=\"nofollow\"\u003eusage notes\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIf you have a question not covered in the FAQ or usage notes, please submit\nyour question to the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/mailing-list\" rel=\"nofollow\"\u003emailing list\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"user-content-contributing\"\u003e\u003ca class=\"heading-link\" href=\"#contributing\"\u003eContributing\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eBug fixes or minor changes are preferred via a pull request to the\n\u003ca href=\"https://github.com/LLNL/sundials\"\u003eSUNDIALS GitHub repository\u003c/a\u003e. For more\ninformation on contributing see the \u003ca href=\"./CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e file.\u003c/p\u003e\n\u003ch2 id=\"user-content-citing\"\u003e\u003ca class=\"heading-link\" href=\"#citing\"\u003eCiting\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"https://sundials.readthedocs.io/en/latest/index.html#citing\" rel=\"nofollow\"\u003eonline documentation\u003c/a\u003e\nor \u003ca href=\"./CITATIONS.md\"\u003eCITATIONS\u003c/a\u003e file for information on how to cite SUNDIALS in\nany publications reporting work done using SUNDIALS packages.\u003c/p\u003e\n\u003ch2 id=\"user-content-authors\"\u003e\u003ca class=\"heading-link\" href=\"#authors\"\u003eAuthors\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe SUNDIALS library has been developed over many years by a number of\ncontributors. The current SUNDIALS team consists of Cody J. Balos,\nDavid J. Gardner, Alan C. Hindmarsh, Daniel R. Reynolds, and Carol S. Woodward.\nWe thank Radu Serban for significant and critical past contributions.\u003c/p\u003e\n\u003cp\u003eOther contributors to SUNDIALS include: James Almgren-Bell, Lawrence E. Banks,\nPeter N. Brown, George Byrne, Rujeko Chinomona, Scott D. Cohen, Aaron Collier,\nKeith E. Grant, Steven L. Lee, Shelby L. Lockhart, John Loffeld, Daniel McGreer,\nYu Pan, Slaven Peles, Cosmin Petra, Steven B. Roberts, H. Hunter Schwartz,\nJean M. Sexton, Dan Shumaker, Steve G. Smith, Shahbaj Sohal, Allan G. Taylor,\nHilari C. Tiedeman, Chris White, Ting Yan, and Ulrike M. Yang.\u003c/p\u003e\n\u003ch2 id=\"user-content-license\"\u003e\u003ca class=\"heading-link\" href=\"#license\"\u003eLicense\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eSUNDIALS is released under the BSD 3-clause license. See the \u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e\nand \u003ca href=\"./NOTICE\"\u003eNOTICE\u003c/a\u003e files for details. All new contributions must be made\nunder the BSD 3-clause license.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePlease Note\u003c/strong\u003e If you are using SUNDIALS with any third party libraries linked\nin (e.g., LAPACK, KLU, SuperLU_MT, PETSc, or \u003cem\u003ehypre\u003c/em\u003e), be sure to review the\nrespective license of the package as that license may have more restrictive\nterms than the SUNDIALS license.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eSPDX-License-Identifier: BSD-3-Clause\n\nLLNL-CODE-667205  (ARKODE)\nUCRL-CODE-155951  (CVODE)\nUCRL-CODE-155950  (CVODES)\nUCRL-CODE-155952  (IDA)\nUCRL-CODE-237203  (IDAS)\nLLNL-CODE-665877  (KINSOL)\n\u003c/code\u003e\u003c/pre\u003e\n",
-    "stargazers_count": 391,
+    "stargazers_count": 392,
     "subscribers_count": 35,
     "topics": [
       "ode-solver",
@@ -2081,7 +2079,7 @@ var data =
       "solver",
       "high-performance-computing"
     ],
-    "updated_at": 1695115107.0
+    "updated_at": 1695509689.0
   },
   {
     "data_format": 2,
@@ -2092,7 +2090,7 @@ var data =
     "full_name": "lfortran/lfortran",
     "latest_release": "v0.20.3",
     "readme": "\u003ch1 id=\"user-content-lfortran\"\u003e\u003ca class=\"heading-link\" href=\"#lfortran\"\u003eLFortran\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eLFortran is a modern open-source (BSD licensed) interactive Fortran compiler\nbuilt on top of LLVM. It can execute user\u0027s code interactively to allow\nexploratory work (much like Python, MATLAB or Julia) as well as compile to\nbinaries with the goal to run user\u0027s code on modern architectures such as\nmulti-core CPUs and GPUs.\u003c/p\u003e\n\u003cp\u003eWebsite: \u003ca href=\"https://lfortran.org/\" rel=\"nofollow\"\u003ehttps://lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTry online: \u003ca href=\"https://dev.lfortran.org/\" rel=\"nofollow\"\u003ehttps://dev.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003ch1 id=\"user-content-documentation\"\u003e\u003ca class=\"heading-link\" href=\"#documentation\"\u003eDocumentation\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eAll documentation, installation instructions, motivation, design, ... is\navailable at:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://docs.lfortran.org/\" rel=\"nofollow\"\u003ehttps://docs.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWhich is generated using the files in the \u003ccode\u003edoc\u003c/code\u003e directory.\u003c/p\u003e\n\u003ch1 id=\"user-content-development\"\u003e\u003ca class=\"heading-link\" href=\"#development\"\u003eDevelopment\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eWe welcome all contributions.\nThe main development repository is at GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lfortran/lfortran\"\u003ehttps://github.com/lfortran/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease send Pull Requests (PRs) and open issues there.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e document for more information.\u003c/p\u003e\n\u003cp\u003eMain mailinglist:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://groups.io/g/lfortran\" rel=\"nofollow\"\u003ehttps://groups.io/g/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou can also chat with us on Zulip (\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003eNote: We moved to the above GitHub repository from GitLab on July 18, 2022.\u003c/p\u003e\n\u003ch1 id=\"user-content-donations\"\u003e\u003ca class=\"heading-link\" href=\"#donations\"\u003eDonations\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eYou can support LFortran\u0027s development by donating to NumFOCUS or Open\nCollective as well as GitHub Sponsors:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://numfocus.org/donate-to-lfortran\" rel=\"nofollow\"\u003ehttps://numfocus.org/donate-to-lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://opencollective.com/lfortran\" rel=\"nofollow\"\u003ehttps://opencollective.com/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sponsors/lfortran\"\u003ehttps://github.com/sponsors/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAll donations will be used strictly to fund LFortran development, by supporting\ntasks such as paying developers to implement features, sprints, improved\ndocumentation, fixing bugs, etc.\u003c/p\u003e\n\u003cp\u003eThe donations to LFortran are managed by the NumFOCUS foundation. NumFOCUS is a\n501(c)3 non-profit foundation, so if you are subject to US Tax law, your\ncontributions will be tax-deductible.\u003c/p\u003e\n\u003cp\u003eIf you want to discuss another way to fund or help with the development, feel\nfree to contact Ond\u0159ej \u010cert\u00edk (\u003ca href=\"mailto:ondrej@certik.us\"\u003eondrej@certik.us\u003c/a\u003e).\u003c/p\u003e\n\u003ch1 id=\"user-content-star-history\"\u003e\u003ca class=\"heading-link\" href=\"#star-history\"\u003eStar History\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://star-history.com/#lfortran/lfortran\u0026amp;Date\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7e19634671b985a40376628d5d76d76ef6baf79368e0c4b6a409523464e705b7/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6c666f727472616e2f6c666f727472616e26747970653d44617465\" alt=\"Star History Chart\" data-canonical-src=\"https://api.star-history.com/svg?repos=lfortran/lfortran\u0026amp;type=Date\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 724,
+    "stargazers_count": 726,
     "subscribers_count": 19,
     "topics": [
       "fortran",
@@ -2104,7 +2102,7 @@ var data =
       "jupyter-notebook",
       "jupyter-kernels"
     ],
-    "updated_at": 1695395552.0
+    "updated_at": 1695522069.0
   },
   {
     "data_format": 2,
@@ -2115,7 +2113,7 @@ var data =
     "full_name": "mfem/mfem",
     "latest_release": "v4.5.2",
     "readme": "\u003cpre\u003e\u003ccode\u003e                Finite Element Discretization Library\n                               __\n                   _ __ ___   / _|  ___  _ __ ___\n                  | \u0027_ ` _ \\ | |_  / _ \\| \u0027_ ` _ \\\n                  | | | | | ||  _||  __/| | | | | |\n                  |_| |_| |_||_|   \\___||_| |_| |_|\n\n                           https://mfem.org\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://mfem.org\" rel=\"nofollow\"\u003eMFEM\u003c/a\u003e is a modular parallel C++ library for finite element\nmethods. Its goal is to enable high-performance scalable finite element\ndiscretization research and application development on a wide variety of\nplatforms, ranging from laptops to supercomputers.\u003c/p\u003e\n\u003cp\u003eWe welcome contributions and feedback from the community. Please see the file\n\u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for additional details about our development\nprocess.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFor building instructions, see the file \u003ca href=\"INSTALL\"\u003eINSTALL\u003c/a\u003e, or type \"make help\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopyright and licensing information can be found in files \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe best starting point for new users interested in MFEM\u0027s features is to\nreview the examples and miniapps at \u003ca href=\"https://mfem.org/examples\" rel=\"nofollow\"\u003ehttps://mfem.org/examples\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstructions for learning with Docker are in \u003ca href=\"config/docker\"\u003econfig/docker\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eConceptually, MFEM can be viewed as a finite element toolbox that provides the\nbuilding blocks for developing finite element algorithms in a manner similar to\nthat of MATLAB for linear algebra methods. In particular, MFEM provides support\nfor arbitrary high-order H1-conforming, discontinuous (L2), H(div)-conforming,\nH(curl)-conforming and NURBS finite element spaces in 2D and 3D, as well as many\nbilinear, linear and nonlinear forms defined on them. It enables the quick\nprototyping of various finite element discretizations, including Galerkin\nmethods, mixed finite elements, Discontinuous Galerkin (DG), isogeometric\nanalysis, hybridization and Discontinuous Petrov-Galerkin (DPG) approaches.\u003c/p\u003e\n\u003cp\u003eMFEM includes classes for dealing with a wide range of mesh types: triangular,\nquadrilateral, tetrahedral and hexahedral, as well as surface and topologically\nperiodical meshes. It has general support for mesh refinement, including local\nconforming and non-conforming (AMR) adaptive refinement. Arbitrary element\ntransformations, allowing for high-order mesh elements with curved boundaries,\nare also supported.\u003c/p\u003e\n\u003cp\u003eWhen used as a \"finite element to linear algebra translator\", MFEM can take a\nproblem described in terms of finite element-type objects, and produce the\ncorresponding linear algebra vectors and fully or partially assembled operators,\ne.g. in the form of global sparse matrices or matrix-free operators. The library\nincludes simple smoothers and Krylov solvers, such as PCG, MINRES and GMRES, as\nwell as support for sequential sparse direct solvers from the SuiteSparse\nlibrary. Nonlinear solvers (the Newton method), eigensolvers (LOBPCG), and\nseveral explicit and implicit Runge-Kutta time integrators are also available.\u003c/p\u003e\n\u003cp\u003eMFEM supports MPI-based parallelism throughout the library, and can readily be\nused as a scalable unstructured finite element problem generator. Starting with\nversion 4.0, MFEM offers support for GPU acceleration, and programming models,\nsuch as CUDA, HIP, OCCA, RAJA and OpenMP. MFEM-based applications require\nminimal changes to switch from a serial to a highly-performant MPI-parallel\nversion of the code, where they can take advantage of the integrated linear\nsolvers from the hypre library. Comprehensive support for other external\npackages, e.g. PETSc, SUNDIALS and libCEED is also included, giving access to\nadditional linear and nonlinear solvers, preconditioners, time integrators, etc.\u003c/p\u003e\n\u003cp\u003eFor examples of using MFEM, see the \u003ca href=\"examples\"\u003eexamples/\u003c/a\u003e and \u003ca href=\"miniapps\"\u003eminiapps/\u003c/a\u003e\ndirectories, as well as the OpenGL visualization tool GLVis which is available\nat \u003ca href=\"https://glvis.org\" rel=\"nofollow\"\u003ehttps://glvis.org\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"user-content-license\"\u003e\u003ca class=\"heading-link\" href=\"#license\"\u003eLicense\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eMFEM is distributed under the terms of the BSD-3 license. All new contributions\nmust be made under this license. See \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e for\ndetails.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: BSD-3-Clause \u003cbr\u003e\nLLNL Release Number: LLNL-CODE-806117 \u003cbr\u003e\nDOI: 10.11578/dc.20171025.1248\u003c/p\u003e\n",
-    "stargazers_count": 1373,
+    "stargazers_count": 1374,
     "subscribers_count": 120,
     "topics": [
       "finite-elements",
@@ -2130,6 +2128,6 @@ var data =
       "math-physics",
       "radiuss"
     ],
-    "updated_at": 1695214868.0
+    "updated_at": 1695505405.0
   }
 ]

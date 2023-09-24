@@ -105,10 +105,10 @@ spack:
       compiler: []
       providers: {}
       externals:
-      - spec: openmpi@4.0.5
-        prefix: /lus/theta-fs0/software/thetagpu/openmpi-4.0.5
+      - spec: openmpi@4.1.4 +cuda fabrics=ucx
+        prefix: /lus/theta-fs0/software/thetagpu/openmpi/openmpi-4.1.4_ucx-1.14.0_gcc-9.4.0_cuda-11.4
         modules:
-        - openmpi/openmpi-4.0.5
+        - openmpi/openmpi-4.1.4_ucx-1.14.0_gcc-9.4.0_cuda-11.4
     mercury:
       variants: ~boostsys ~checksum
       version: []
