@@ -168,6 +168,12 @@ spack:
       require: '%gcc@7.5.0'
     automake:
       require: '%gcc@7.5.0'
+    binutils:
+      variants:
+      - +libiberty
+      - +ld
+      - +gas
+      - +gold
     bison:
       require: '%gcc@7.5.0'
     bzip2:
@@ -362,6 +368,9 @@ spack:
       variants:
       - +papi
       - +pmpi
+    grads:
+      variants:
+      - +dap
     groff:
       require:
       - '%gcc@7.5.0'
@@ -874,6 +883,24 @@ spack:
       operating_system: opensuse15
       modules: []
       environment: {}
+  - compiler:
+      spec: clang@16.0.6
+      paths:
+        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
+        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
+        f77: None
+        fc: None
+      operating_system: opensuse15
+      modules: []
+  - compiler:
+      spec: clang@14.0.6
+      paths:
+        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
+        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
+        f77: None
+        fc: None
+      operating_system: opensuse15
+      modules: []
   modules:
     'default:':
       roots:
@@ -915,9 +942,9 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
-        - paraview
         - visit
         - octave
+        - paraview
         - nccmp
         - ncview
         - cdo
@@ -965,6 +992,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - openssl
+        - qhull
         - openblas
         - nghttp2
         - ffmpeg
@@ -1008,7 +1037,6 @@ spack:
         - libszip
         - unzip
         - curl
-        - openssl
         - libtool
         - autoconf@2.71
         - automake
@@ -1121,6 +1149,19 @@ spack:
           environment:
             append_path:
               PATH: '{^llvm.prefix}/bin'
+        llvm+clang:
+          filter:
+            exclude_env_vars:
+            - NCAR_INC_LLVM
+            - NCAR_LDFLAGS_LLVM
+            - NCAR_ROOT_LLVM
+            - NCAR_SPACK_HASH_LLVM
+          environment:
+            set:
+              NCAR_INC_CLANG: '{prefix}/include'
+              NCAR_LDFLAGS_CLANG: '{prefix}/lib'
+              NCAR_ROOT_CLANG: '{prefix}'
+              NCAR_SPACK_HASH_CLANG: '{hash}'
         miniconda3:
           filter:
             exclude_env_vars:
@@ -1203,6 +1244,8 @@ spack:
               NCAR_ROOT_PARALLELIO: '{prefix}'
               NCAR_SPACK_HASH_PARALLELIO: '{hash}'
               PIO: '{prefix}'
+        visit:
+          autoload: none
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
@@ -1216,6 +1259,7 @@ spack:
           intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          llvm+clang: clang/{version}
         singularityce:
           environment:
             prepend_path:
@@ -1312,7 +1356,6 @@ spack:
   - intel-oneapi-compilers-classic@2021.10.0
   - ucx
   - ncvis
-  - grads
   - wgrib2
   - grib-util
   - linaro-forge@23.0
@@ -1357,12 +1400,10 @@ spack:
   - esmf@8.5.0%gcc@12.2.0~mpi
   - esmf@8.5.0%nvhpc@23.7~mpi ^nvhpc@23.7
   - esmf@8.5.0%oneapi@2023.2.1~mpi
-  - gdal@3.7.1%gcc@12.2.0
   - nco@5.1.6%gcc@12.2.0
   - cdo@2.2.2%gcc@12.2.0
   - ncview@2.1.9%gcc@12.2.0
   - nccmp@1.9.1.0%gcc@12.2.0
-  - octave@8.2.0%gcc@12.2.0
   - openmpi@4.1.5%gcc@12.2.0
   - openmpi@4.1.5%nvhpc@23.7
   - openmpi@4.1.5%oneapi@2023.2.1
@@ -1389,6 +1430,15 @@ spack:
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - pocl@3.0
-  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - openblas
   - ncl
+  - qhull
+  - gdal@3.7.1%gcc@12.2.0
+  - octave@8.2.0%gcc@12.2.0
+  - grads
+  - xxdiff
+  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - vexcl@1.4.3 ^boost@1.81.0
+  - llvm@16.0.6+clang+mlir+z3+zstd
+  - intel-oneapi-vtune@2023.2.0
+  - vapor@3.9.0
