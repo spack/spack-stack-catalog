@@ -2,11 +2,12 @@ spack:
   specs:
   - mochi-margo
   - mochi-bedrock
-  - libuuid
+  - uuid
   - mochi-abt-io
   - autoconf
   - automake
   - jsoncpp
+  - json-c
   - libtool
   - mochi-remi
   - pmdk
