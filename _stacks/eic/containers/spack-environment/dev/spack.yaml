@@ -48,6 +48,7 @@ spack:
     - prmon
     - pythia8
     - py-awkward
+    - py-bokeh
     - py-boto3
     - py-dask
     - py-deepdiff
