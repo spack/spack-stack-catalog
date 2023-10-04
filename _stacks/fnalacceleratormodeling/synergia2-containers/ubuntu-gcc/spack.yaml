@@ -17,20 +17,17 @@ spack:
   specs:
   - hdf5+hl+mpi~fortran
   - mpich~fortran device=ch4 netmod=ofi
-  - petsc@main~fortran+debug
+  - petsc@3.20.0~fortran+debug
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd
   - py-pyparsing
-  - py-cython@3.0.0
   - py-numpy
-  - py-mpi4py@master
-  - py-h5py@3.8.0+mpi
+  - py-mpi4py
+  - py-h5py+mpi
   - py-pytest
   - ninja
   concretizer:
-    duplicates: 
-      strategy: "full"
     unify: true
   view: true
   container:
@@ -47,6 +44,7 @@ spack:
       - gfortran
       - wget
       - tar
+      - curl  
       final:
       - build-essential
       - bash
@@ -54,4 +52,5 @@ spack:
       - cmake  
       - wget
       - gfortran
-      - tar  
+      - tar
+      - curl  

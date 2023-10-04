@@ -11,10 +11,9 @@ spack:
   - /glade/u/apps/gust/$NCAR_ENV_VERSION/config/modules.yaml
   definitions:
   
-#  - packages: [parallelio ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c/fx7cobjw5 ^netcdf-fortran/gpkun4e2m,
-#      parallelio ~mpi -pnetcdf ^netcdf-c/fx7cobjw5 ^netcdf-fortran/gpkun4e2m]
-  - packages: [parallelio@2.5.10 ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c@4.9.1+dap+zstd,
-      parallelio@2.5.10 ~mpi -pnetcdf ^netcdf-c@4.9.1+dap+zstd]
+#  - packages: [parallelio ~mpi +ncint +logging -pnetcdf build_type=Debug ^netcdf-c@4.9.2
+#        ^netcdf-fortran, parallelio ~mpi +ncint -pnetcdf ^netcdf-c@4.9.2 ^netcdf-fortran]
+  - packages: [parallelio@2.6.0 +ncint ~mpi +logging -pnetcdf build_type=Debug ^netcdf-c@4.9.2]
   - compilers: ['%gcc@12.2.0', '%oneapi@2023.0.0', '%cce@15.0.1', '%nvhpc@23.1']
 #  - compilers: ['%gcc@12.1.0']
   specs:
@@ -31,6 +30,6 @@ spack:
         lmod: /glade/u/apps/cseg/modules/$NCAR_ENV_VERSION
       lmod:
         defaults:
-        - parallelio@2.5.10
+        - parallelio@2.6.0
         projections:
           parallelio build_type=Debug: parallelio/{version}-debug
