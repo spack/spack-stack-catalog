@@ -1,6 +1,6 @@
 spack:
   specs:
-  - dla-future@master +miniapps ^intel-mkl threads=openmp
+  - dla-future@master +miniapps +scalapack +hdf5 ^intel-mkl threads=openmp
   view: false
   packages:
     all:

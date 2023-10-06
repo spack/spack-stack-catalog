@@ -1442,3 +1442,10 @@ spack:
   - llvm@16.0.6+clang+mlir+z3+zstd
   - intel-oneapi-vtune@2023.2.0
   - vapor@3.9.0
+  - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf
+  - parallelio@2.6.2%nvhpc@23.7~mpi~pnetcdf
+  - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf
+  - parallelio@2.6.2%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
+  - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
+  - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
