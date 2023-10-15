@@ -18,9 +18,9 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files for LUMI",
     "filenames": [
-      "22.08/0.19.0/spack.yaml",
+      "22.08/0.18.1/spack.yaml",
       "23.03/0.20.0/spack.yaml",
-      "22.08/0.18.1/spack.yaml"
+      "22.08/0.19.0/spack.yaml"
     ],
     "full_name": "Lumi-supercomputer/lumi-spack-settings",
     "latest_release": null,
@@ -93,8 +93,8 @@ var data =
     "data_format": 2,
     "description": "Support for building chipStar and related libraries via Spack",
     "filenames": [
-      "Environments/ROCm/spack.yaml",
-      "Environments/LevelZero/spack.yaml"
+      "Environments/LevelZero/spack.yaml",
+      "Environments/ROCm/spack.yaml"
     ],
     "full_name": "CHIP-SPV/chipStar-Spack",
     "latest_release": null,
@@ -197,8 +197,8 @@ var data =
     "data_format": 2,
     "description": "My Spack environments",
     "filenames": [
-      "thetagpu/spack.yaml",
-      "chifflot/v100/spack.yaml"
+      "chifflot/v100/spack.yaml",
+      "thetagpu/spack.yaml"
     ],
     "full_name": "thomas-bouvier/spack-envs",
     "latest_release": null,
@@ -240,10 +240,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx/rproject/spack.yaml",
       "cent7/python_376/spack.yaml",
       "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml"
+      "cent8/envs/avx512/rproject/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -258,9 +258,9 @@ var data =
     "description": "Spack environments",
     "filenames": [
       "envs/alps/cp2k-dlaf/mkl-cuda/spack.yaml",
+      "envs/alps/sirius/cpu/spack.yaml",
       "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack/spack.yaml",
-      "envs/alps/dlaf/oneapi-mt/spack.yaml",
-      "envs/alps/sirius/cpu/spack.yaml"
+      "envs/alps/dlaf/oneapi-mt/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
     "latest_release": null,
@@ -274,9 +274,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
       "var/spack/environments/karolina/bpmf-argo/spack.yaml",
-      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml"
+      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
+      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -304,9 +304,9 @@ var data =
     "data_format": 2,
     "description": "Spack clone",
     "filenames": [
+      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml"
     ],
     "full_name": "lezzidan/spack",
     "latest_release": null,
@@ -601,8 +601,8 @@ var data =
     "data_format": 2,
     "description": "Spack fork used on OLCF resources",
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack",
     "latest_release": null,
@@ -822,9 +822,9 @@ var data =
     "data_format": 2,
     "description": "Registry to store workflow descriptions",
     "filenames": [
-      "tutorial/lysozyme/spack.yaml",
+      "minimal_workflow/wordcount/spack.yaml",
       "kaust/exageostat/spack.yaml",
-      "minimal_workflow/wordcount/spack.yaml"
+      "tutorial/lysozyme/spack.yaml"
     ],
     "full_name": "eflows4hpc/workflow-registry",
     "latest_release": "2nd_stack_release",
@@ -881,8 +881,8 @@ var data =
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
       "spack/darwin-power9/spack.yaml",
-      "spack/agaspar/spack.yaml",
       "spack/ci/spack.yaml",
+      "spack/agaspar/spack.yaml",
       "spack/snow/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
@@ -990,11 +990,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/ascent/envs/base/spack.yaml",
-      "hosts/peak/envs/base/spack.yaml",
       "hosts/ascent/envs/base-rh7/spack.yaml",
-      "hosts/frontier/envs/base/spack.yaml",
       "hosts/summit/envs/base/spack.yaml",
+      "hosts/ascent/envs/base/spack.yaml",
+      "hosts/frontier/envs/base/spack.yaml",
+      "hosts/peak/envs/base/spack.yaml",
       "hosts/borg/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
@@ -1009,9 +1009,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      ".gitlab/spack/environments/quartz/spack.yaml",
       ".gitlab/spack/environments/pascal/spack.yaml",
-      ".gitlab/spack/environments/corona/spack.yaml"
+      ".gitlab/spack/environments/corona/spack.yaml",
+      ".gitlab/spack/environments/quartz/spack.yaml"
     ],
     "full_name": "LLNL/DiHydrogen",
     "latest_release": "v0.2.1",
@@ -1048,11 +1048,11 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/Polaris/spack.yaml",
-      "ANL/Sunspot/spack.yaml",
       "ORNL/Frontier/spack.yaml",
+      "ANL/Theta/spack.yaml",
       "NERSC/Perlmutter/ss11/spack.yaml",
-      "ANL/Theta/spack.yaml"
+      "ANL/Sunspot/spack.yaml",
+      "ANL/Polaris/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1094,8 +1094,8 @@ var data =
     "data_format": 2,
     "description": "Bash shell script for installing xSDK and other IDEAS packages",
     "filenames": [
-      "platformFiles/crusher/PrgEnv-cray/spack.yaml",
-      "platformFiles/lassen/spack.yaml"
+      "platformFiles/lassen/spack.yaml",
+      "platformFiles/crusher/PrgEnv-cray/spack.yaml"
     ],
     "full_name": "xsdk-project/installxSDK",
     "latest_release": "v0.1.1",
@@ -1179,24 +1179,24 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml",
       "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
-      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
-      "docs/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/tools/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "docs/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
+      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml"
+      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1210,11 +1210,11 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
+      "environments/key4hep-ci/spack.yaml",
       "environments/key4hep-nightly-debug/spack.yaml",
-      "environments/key4hep-nightly/spack.yaml",
       "environments/key4hep-release/spack.yaml",
       "environments/key4hep-release-user/spack.yaml",
-      "environments/key4hep-ci/spack.yaml"
+      "environments/key4hep-nightly/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1228,21 +1228,21 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
+      "benchmarks/spack/isambard-macs/volta/spack.yaml",
+      "benchmarks/spack/myriad/v100/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
+      "benchmarks/spack/github-actions/default/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
+      "benchmarks/spack/archer2/compute-node/spack.yaml",
+      "benchmarks/spack/isambard-phase3/milan/spack.yaml",
+      "benchmarks/spack/myriad/p100/spack.yaml",
+      "benchmarks/spack/myriad/cpu/spack.yaml",
       "benchmarks/spack/myriad/a100/spack.yaml",
       "benchmarks/spack/csd3-cascadelake/compute-node/spack.yaml",
-      "benchmarks/spack/github-actions/default/spack.yaml",
-      "benchmarks/spack/archer2/compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/volta/spack.yaml",
-      "benchmarks/spack/isambard-phase3/instinct/spack.yaml",
-      "benchmarks/spack/isambard-phase3/milan/spack.yaml",
-      "benchmarks/spack/isambard-macs/rome/spack.yaml",
-      "benchmarks/spack/myriad/v100/spack.yaml",
-      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
       "benchmarks/spack/isambard-phase3/ampere/spack.yaml",
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
-      "benchmarks/spack/myriad/cpu/spack.yaml",
+      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
       "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
-      "benchmarks/spack/myriad/p100/spack.yaml"
+      "benchmarks/spack/isambard-phase3/instinct/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1300,8 +1300,8 @@ var data =
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
       "buildsystem/container/spack.yaml",
-      "buildsystem/spack/incline/spack.yaml",
-      "buildsystem/spack/deception/spack.yaml"
+      "buildsystem/spack/deception/spack.yaml",
+      "buildsystem/spack/incline/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
     "latest_release": null,
@@ -1329,8 +1329,8 @@ var data =
     "data_format": 2,
     "description": "AsterX is a GPU-accelerated GRMHD code for dynamical spacetimes",
     "filenames": [
-      "Docs/compile-notes/frontera-github/GPU/spack.yaml",
       "Docs/compile-notes/frontera-bitbucket/CPU/spack.yaml",
+      "Docs/compile-notes/frontera-github/GPU/spack.yaml",
       "Docs/compile-notes/frontera-github/CPU/spack.yaml"
     ],
     "full_name": "jaykalinani/AsterX",
@@ -1345,13 +1345,13 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/ufs-srw-dev/spack.yaml",
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
-      "configs/templates/unified-dev/spack.yaml",
+      "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml",
-      "configs/templates/gfs-v16.2/spack.yaml",
       "configs/templates/ufs-weather-model-static/spack.yaml",
-      "configs/templates/ufs-weather-model/spack.yaml"
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
+      "configs/templates/gfs-v16.2/spack.yaml",
+      "configs/templates/ufs-srw-dev/spack.yaml",
+      "configs/templates/unified-dev/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
     "latest_release": "1.5.0",
@@ -1365,19 +1365,19 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/23.02/cuda-ppc64le/spack.yaml",
-      "environments/23.02/cuda-x86_64/spack.yaml",
       "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/21.08/spack.yaml",
-      "environments/23.05/cuda-x86_64/spack.yaml",
-      "environments/23.08/cuda-aarch64/spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
-      "environments/22.05/rocm.spack.yaml",
+      "environments/23.02/cuda-ppc64le/spack.yaml",
       "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/23.08/cuda-x86_64/spack.yaml",
+      "environments/23.02/cuda-x86_64/spack.yaml",
       "environments/21.05/spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/23.08/cuda-aarch64/spack.yaml",
+      "environments/22.05/rocm.spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
+      "environments/21.08/spack.yaml",
       "environments/22.08/cuda-ppc64le.spack.yaml",
-      "environments/23.05/rocm-x86_64/spack.yaml"
+      "environments/23.05/rocm-x86_64/spack.yaml",
+      "environments/23.08/cuda-x86_64/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v23.08",
@@ -1409,17 +1409,17 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-gcc-11.4/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
-      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
+      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/archived/special/superlu-sc/spack.yaml",
-      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml"
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
+      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1635,45 +1635,45 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NREL/configs/eagle/utilities/spack.yaml",
+      "BOISESTATE/borah/environments/b4s/_spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
       "OLCF/andes/spack.yaml",
       "NREL/configs/eagle/base/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
+      "BOISESTATE/borah/environments/base/_spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "OLCF/spock/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
+      "OLCF/frontier/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "OLCF/crusher/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
       "BOISESTATE/borah/applications/gromacs/_spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
-      "BOISESTATE/borah/environments/base/_spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
-      "OLCF/crusher/spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
-      "OLCF/frontier/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
       "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "OLCF/spock/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "BOISESTATE/borah/environments/b4s/_spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
+      "OLCF/summit/spack.yaml",
       "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "OLCF/summit/spack.yaml"
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1707,9 +1707,9 @@ var data =
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
+      ".spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml",
       ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-slurm-gcc10_2_1/spack.yaml"
+      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v1.1",
@@ -1727,12 +1727,12 @@ var data =
     "data_format": 2,
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
-      "scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
+      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml"
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
+      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml"
     ],
     "full_name": "LLNL/axom",
     "latest_release": "v0.8.1",
@@ -1782,12 +1782,12 @@ var data =
     "data_format": 2,
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
+      "scripts/spack/configs/docker/ubuntu20/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
       "scripts/spack/configs/darwin/spack.yaml",
       "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_22/spack.yaml",
-      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml"
+      "scripts/spack/configs/linux_ubuntu_22/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1821,9 +1821,9 @@ var data =
     "data_format": 2,
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
+      "scripts/platforms/newell/spack.yaml",
       "scripts/platforms/summit/spack.yaml",
-      "scripts/platforms/marianas/spack.yaml",
-      "scripts/platforms/newell/spack.yaml"
+      "scripts/platforms/marianas/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.1",
@@ -1875,14 +1875,14 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1696922279.0
+    "updated_at": 1697268344.0
   },
   {
     "data_format": 2,
     "description": "An application-focused API for memory management on NUMA \u0026 GPU architectures",
     "filenames": [
-      ".spack_env/darwin/spack.yaml",
-      ".spack_env/llnl/spack.yaml"
+      ".spack_env/llnl/spack.yaml",
+      ".spack_env/darwin/spack.yaml"
     ],
     "full_name": "LLNL/Umpire",
     "latest_release": "v2023.06.0",
@@ -1960,9 +1960,9 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
+      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.6.1",
@@ -1994,7 +1994,7 @@ var data =
     "full_name": "lfortran/lfortran",
     "latest_release": "v0.22.0",
     "readme": "\u003ch1 id=\"user-content-lfortran\"\u003e\u003ca class=\"heading-link\" href=\"#lfortran\"\u003eLFortran\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eLFortran is a modern open-source (BSD licensed) interactive Fortran compiler\nbuilt on top of LLVM. It can execute user\u0027s code interactively to allow\nexploratory work (much like Python, MATLAB or Julia) as well as compile to\nbinaries with the goal to run user\u0027s code on modern architectures such as\nmulti-core CPUs and GPUs.\u003c/p\u003e\n\u003cp\u003eWebsite: \u003ca href=\"https://lfortran.org/\" rel=\"nofollow\"\u003ehttps://lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTry online: \u003ca href=\"https://dev.lfortran.org/\" rel=\"nofollow\"\u003ehttps://dev.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003ch1 id=\"user-content-documentation\"\u003e\u003ca class=\"heading-link\" href=\"#documentation\"\u003eDocumentation\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eAll documentation, installation instructions, motivation, design, ... is\navailable at:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://docs.lfortran.org/\" rel=\"nofollow\"\u003ehttps://docs.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWhich is generated using the files in the \u003ccode\u003edoc\u003c/code\u003e directory.\u003c/p\u003e\n\u003ch1 id=\"user-content-development\"\u003e\u003ca class=\"heading-link\" href=\"#development\"\u003eDevelopment\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eWe welcome all contributions.\nThe main development repository is at GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lfortran/lfortran\"\u003ehttps://github.com/lfortran/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease send Pull Requests (PRs) and open issues there.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e document for more information.\u003c/p\u003e\n\u003cp\u003eMain mailinglist:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://groups.io/g/lfortran\" rel=\"nofollow\"\u003ehttps://groups.io/g/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou can also chat with us on Zulip (\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/11e6556bfe778e7cf7331cac9c44bd0616062722036cc0d9bb0b7909aaae8779/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003eNote: We moved to the above GitHub repository from GitLab on July 18, 2022.\u003c/p\u003e\n\u003ch1 id=\"user-content-donations\"\u003e\u003ca class=\"heading-link\" href=\"#donations\"\u003eDonations\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003eYou can support LFortran\u0027s development by donating to NumFOCUS or Open\nCollective as well as GitHub Sponsors:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://numfocus.org/donate-to-lfortran\" rel=\"nofollow\"\u003ehttps://numfocus.org/donate-to-lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://opencollective.com/lfortran\" rel=\"nofollow\"\u003ehttps://opencollective.com/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sponsors/lfortran\"\u003ehttps://github.com/sponsors/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAll donations will be used strictly to fund LFortran development, by supporting\ntasks such as paying developers to implement features, sprints, improved\ndocumentation, fixing bugs, etc.\u003c/p\u003e\n\u003cp\u003eThe donations to LFortran are managed by the NumFOCUS foundation. NumFOCUS is a\n501(c)3 non-profit foundation, so if you are subject to US Tax law, your\ncontributions will be tax-deductible.\u003c/p\u003e\n\u003cp\u003eIf you want to discuss another way to fund or help with the development, feel\nfree to contact Ond\u0159ej \u010cert\u00edk (\u003ca href=\"mailto:ondrej@certik.us\"\u003eondrej@certik.us\u003c/a\u003e).\u003c/p\u003e\n\u003ch1 id=\"user-content-star-history\"\u003e\u003ca class=\"heading-link\" href=\"#star-history\"\u003eStar History\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://star-history.com/#lfortran/lfortran\u0026amp;Date\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7e19634671b985a40376628d5d76d76ef6baf79368e0c4b6a409523464e705b7/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6c666f727472616e2f6c666f727472616e26747970653d44617465\" alt=\"Star History Chart\" data-canonical-src=\"https://api.star-history.com/svg?repos=lfortran/lfortran\u0026amp;type=Date\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 736,
+    "stargazers_count": 737,
     "subscribers_count": 20,
     "topics": [
       "fortran",
@@ -2006,7 +2006,7 @@ var data =
       "jupyter-notebook",
       "jupyter-kernels"
     ],
-    "updated_at": 1697017810.0
+    "updated_at": 1697265234.0
   },
   {
     "data_format": 2,
@@ -2035,7 +2035,7 @@ var data =
     "full_name": "mfem/mfem",
     "latest_release": "v4.6",
     "readme": "\u003cpre\u003e\u003ccode\u003e                Finite Element Discretization Library\n                               __\n                   _ __ ___   / _|  ___  _ __ ___\n                  | \u0027_ ` _ \\ | |_  / _ \\| \u0027_ ` _ \\\n                  | | | | | ||  _||  __/| | | | | |\n                  |_| |_| |_||_|   \\___||_| |_| |_|\n\n                           https://mfem.org\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://mfem.org\" rel=\"nofollow\"\u003eMFEM\u003c/a\u003e is a modular parallel C++ library for finite element\nmethods. Its goal is to enable high-performance scalable finite element\ndiscretization research and application development on a wide variety of\nplatforms, ranging from laptops to supercomputers.\u003c/p\u003e\n\u003cp\u003eWe welcome contributions and feedback from the community. Please see the file\n\u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for additional details about our development\nprocess.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFor building instructions, see the file \u003ca href=\"INSTALL\"\u003eINSTALL\u003c/a\u003e, or type \"make help\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopyright and licensing information can be found in files \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe best starting point for new users interested in MFEM\u0027s features is to\nreview the examples and miniapps at \u003ca href=\"https://mfem.org/examples\" rel=\"nofollow\"\u003ehttps://mfem.org/examples\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstructions for learning with Docker are in \u003ca href=\"config/docker\"\u003econfig/docker\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eConceptually, MFEM can be viewed as a finite element toolbox that provides the\nbuilding blocks for developing finite element algorithms in a manner similar to\nthat of MATLAB for linear algebra methods. In particular, MFEM provides support\nfor arbitrary high-order H1-conforming, discontinuous (L2), H(div)-conforming,\nH(curl)-conforming and NURBS finite element spaces in 2D and 3D, as well as many\nbilinear, linear and nonlinear forms defined on them. It enables the quick\nprototyping of various finite element discretizations, including Galerkin\nmethods, mixed finite elements, Discontinuous Galerkin (DG), isogeometric\nanalysis, hybridization and Discontinuous Petrov-Galerkin (DPG) approaches.\u003c/p\u003e\n\u003cp\u003eMFEM includes classes for dealing with a wide range of mesh types: triangular,\nquadrilateral, tetrahedral and hexahedral, as well as surface and topologically\nperiodical meshes. It has general support for mesh refinement, including local\nconforming and non-conforming (AMR) adaptive refinement. Arbitrary element\ntransformations, allowing for high-order mesh elements with curved boundaries,\nare also supported.\u003c/p\u003e\n\u003cp\u003eWhen used as a \"finite element to linear algebra translator\", MFEM can take a\nproblem described in terms of finite element-type objects, and produce the\ncorresponding linear algebra vectors and fully or partially assembled operators,\ne.g. in the form of global sparse matrices or matrix-free operators. The library\nincludes simple smoothers and Krylov solvers, such as PCG, MINRES and GMRES, as\nwell as support for sequential sparse direct solvers from the SuiteSparse\nlibrary. Nonlinear solvers (the Newton method), eigensolvers (LOBPCG), and\nseveral explicit and implicit Runge-Kutta time integrators are also available.\u003c/p\u003e\n\u003cp\u003eMFEM supports MPI-based parallelism throughout the library, and can readily be\nused as a scalable unstructured finite element problem generator. Starting with\nversion 4.0, MFEM offers support for GPU acceleration, and programming models,\nsuch as CUDA, HIP, OCCA, RAJA and OpenMP. MFEM-based applications require\nminimal changes to switch from a serial to a highly-performant MPI-parallel\nversion of the code, where they can take advantage of the integrated linear\nsolvers from the hypre library. Comprehensive support for other external\npackages, e.g. PETSc, SUNDIALS and libCEED is also included, giving access to\nadditional linear and nonlinear solvers, preconditioners, time integrators, etc.\u003c/p\u003e\n\u003cp\u003eFor examples of using MFEM, see the \u003ca href=\"examples\"\u003eexamples/\u003c/a\u003e and \u003ca href=\"miniapps\"\u003eminiapps/\u003c/a\u003e\ndirectories, as well as the OpenGL visualization tool GLVis which is available\nat \u003ca href=\"https://glvis.org\" rel=\"nofollow\"\u003ehttps://glvis.org\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"user-content-license\"\u003e\u003ca class=\"heading-link\" href=\"#license\"\u003eLicense\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eMFEM is distributed under the terms of the BSD-3 license. All new contributions\nmust be made under this license. See \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e for\ndetails.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: BSD-3-Clause \u003cbr\u003e\nLLNL Release Number: LLNL-CODE-806117 \u003cbr\u003e\nDOI: 10.11578/dc.20171025.1248\u003c/p\u003e\n",
-    "stargazers_count": 1381,
+    "stargazers_count": 1382,
     "subscribers_count": 119,
     "topics": [
       "finite-elements",
@@ -2050,6 +2050,6 @@ var data =
       "math-physics",
       "radiuss"
     ],
-    "updated_at": 1697061826.0
+    "updated_at": 1697277952.0
   }
 ]
