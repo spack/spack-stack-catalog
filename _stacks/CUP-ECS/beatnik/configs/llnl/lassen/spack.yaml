@@ -1,0 +1,220 @@
+spack:
+  packages:
+    all:
+      compiler: [xl, gcc, clang]
+      providers:
+        mpi: [spectrum-mpi]
+        blas: [essl]
+        lapack: [netlib-lapack]
+    essl:
+      variants: threads=none
+      version: [6.2.1]
+      buildable: false
+      externals:
+      - spec: essl@6.2.1
+        prefix: /usr/tcetmp/packages/essl/essl-6.2.1
+    veclibfort:
+      buildable: false
+    intel-parallel-studio:
+      buildable: false
+    intel-mkl:
+      buildable: false
+    atlas:
+      buildable: false
+    openblas:    # OpenBLAS can be built only with gcc
+      buildable: false
+    libflame:
+      buildable: false
+    cray-libsci:
+      buildable: false
+    netlib-lapack:   # prefer netlib-lapack with '+external-blas' and '~lapacke' variant
+      variants: +external-blas~lapacke
+    mvapich2-gdr:
+      buildable: false
+      externals:
+      - spec: mvapich2-gdr@rolling-release%gcc@7.3.1
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2021.05.28-cuda-11.6.1-gcc-7.3.1/
+    spectrum-mpi:
+      buildable: false
+      externals:
+      - spec: spectrum-mpi@rolling-release%xl@16.1.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-xl-2022.08.19-cuda-11.7.0
+      - spec: spectrum-mpi@rolling-release%gcc@4.9.3
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-gcc-4.9.3
+      - spec: spectrum-mpi@rolling-release%gcc@7.3.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-gcc-7.3.1
+      - spec: spectrum-mpi@rolling-release%gcc@8.3.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-gcc-8.3.1
+      - spec: spectrum-mpi@rolling-release%clang@11.0.0
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-ibm-11.0.0
+      - spec: spectrum-mpi@rolling-release%clang@12.0.1
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-12.0.1
+      - spec: spectrum-mpi@rolling-release%clang@13.0.0
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-13.0.0
+      - spec: spectrum-mpi@rolling-release%clang@14.0.5
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-14.0.5
+      - spec: spectrum-mpi@rolling-release%clang@15.0.6
+        prefix: /usr/tce/packages/spectrum-mpi/spectrum-mpi-rolling-release-clang-15.0.6
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.18.0
+        prefix: /usr/tce/packages/cmake/cmake-3.18.0
+      - spec: cmake@3.23.1
+        prefix: /usr/tce/packages/cmake/cmake-3.23.1
+    cuda:
+  #    buildable: false
+      externals:
+      - spec: cuda@11.1.1
+        prefix: /usr/tce/packages/cuda/cuda-11.1.1
+      - spec: cuda@11.2.0
+        prefix: /usr/tce/packages/cuda/cuda-11.2.0
+      - spec: cuda@11.6.1
+        prefix: /usr/tce/packages/cuda/cuda-11.6.1
+      - spec: cuda@11.6.2
+        prefix: /usr/tce/packages/cuda/cuda-11.6.2
+      - spec: cuda@11.7.0
+        prefix: /usr/tce/packages/cuda/cuda-11.7.0
+    rdma-core:
+      buildable: false
+      externals:
+      - spec: rdma-core@system
+        prefix: /usr
+    libx11:
+      version: [system]
+      buildable: false
+      externals:
+      - spec: libx11@system
+        prefix: /usr
+    libxt:
+      version: [system]
+      buildable: false
+      externals:
+      - spec: libxt@system
+        prefix: /usr
+    xproto:
+      version: [7.0.31]
+      buildable: false
+      externals:
+      - spec: xproto@7.0.31
+        prefix: /usr
+    ncurses:
+      version: [5.9]
+      buildable: false
+      externals:
+      - spec: ncurses@5.9
+        prefix: /usr
+    perl:
+      version: [5.16.3]
+      buildable: false
+      externals:
+      - spec: perl@5.16.3
+        prefix: /usr
+    hwloc: 
+      version: [5.7.5]
+      buildable: false
+      externals:
+      - spec: hwloc@5.7.5
+        prefix: /usr
+    numactl: 
+      version: [system]
+      buildable: false
+      externals:
+      - spec: numactl@system
+        prefix: /usr
+  compilers:
+  - compiler:
+      spec: clang@12.0.1
+      paths:
+        cc: /usr/tcetmp/bin/clang
+        cxx: /usr/tcetmp/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@4.9.3
+      paths:
+        cc: /usr/tcetmp/bin/gcc
+        cxx: /usr/tcetmp/bin/g++
+        f77: /usr/tcetmp/bin/gfortran
+        fc: /usr/tcetmp/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: xl@16.1
+      paths:
+        cc: /usr/tce/packages/xl/xl-2022.08.19/bin/xlc
+        cxx: /usr/tce/packages/xl/xl-2022.08.19/bin/xlC
+        f77: null
+        fc: null
+      flags:
+        fflags: -qzerosize
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: xl_r@16.1
+      paths:
+        cc: /usr/tce/packages/xl/xl-2022.08.19/bin/xlc_r
+        cxx: /usr/tce/packages/xl/xl-2022.08.19/bin/xlC_r
+        f77: null
+        fc: null
+      flags:
+        fflags: -qzerosize
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.3.1
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-8.3.1/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@=15.0.6
+      paths:
+        cc: /usr/tce/packages/clang/clang-15.0.6/bin/clang
+        cxx: /usr/tce/packages/clang/clang-15.0.6/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel7
+      target: ppc64le
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  specs:
+  - beatnik @develop +cuda cuda_arch=70 %gcc@8.3.1
