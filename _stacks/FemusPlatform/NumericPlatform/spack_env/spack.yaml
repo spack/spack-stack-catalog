@@ -5,28 +5,33 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  # this version is compatible with salome-9.3.0
-  - hdf5@1.10.3~mpi
-
-  # med and medcoupling versions are linked together, check salome release notes
-  - salome-med@4.0.0
-  - salome-medcoupling@9.3.0~python
-
-  - openmpi@4.1.5
+  - cln@1.3.6
 
   - eigen@3.4.0
 
-  # petsc and libvmesh version are linked together, the libmesh version must always be
-  # newer (date-based)
-  - petsc@3.13.6~hdf5+hypre+mpi+mumps+metis
-  - libmesh@1.5.3+petsc+eigen+mpi+exodusii
+  # this version is compatible with salome-9.3.0
+  - hdf5@1.10.3+mpi
 
   # petsc from spack requires an external and unique blas/lapack library set
   - openblas@0.3.23
+
+  - openmpi@4.1.5
+
+  - petsc@3.13.6~hdf5+hypre+metis+mpi+mumps
+
+  # med and medcoupling versions are linked together, check salome release notes
+  - salome-med@4.0.0
+  - salome-medcoupling@9.3.0~int64+mpi
+
+  # slepc minor version must be the same as petsc
+  - slepc@3.13.4
+
+  # the libmesh version must always be newer (date-based) than petsc
+  - libmesh@1.5.3+petsc+eigen+mpi+exodusii
 
   view: true
   concretizer:
     unify: true
   packages:
     all:
-      compiler: ['gcc@=10.4.0']
+      compiler: [gcc@=10.4.0]
