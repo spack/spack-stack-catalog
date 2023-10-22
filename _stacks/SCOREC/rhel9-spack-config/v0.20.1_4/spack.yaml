@@ -1,0 +1,43 @@
+#comment
+spack:
+  concretizer:
+    unify: false
+    reuse: false
+  config:
+    target: x86_64
+    install_tree:
+      root: /opt/scorec/spack/rhel9/v0201_4/install
+    misc_cache: /opt/scorec/spack/rhel9/v0201_4/misc_cache
+    build_stage:
+    - /space/cwsmith/spack/rhel9/v0201_4/build_stage
+    allow_sgid: false
+  modules:
+    default:
+      roots:
+        lmod: /opt/scorec/spack/rhel9/v0201_4/lmod
+      lmod:
+        core_compilers:
+        - gcc@=7.4.0
+  packages:
+    all:
+      compiler: [gcc@13.1.0]
+      providers:
+        mpi: [mpich]
+      target: [x86_64]
+      version: []
+      buildable: true
+  view: false
+  compilers:
+  - compiler:
+      spec: gcc@11.3.1_rhel9
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
