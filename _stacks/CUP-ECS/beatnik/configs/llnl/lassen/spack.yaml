@@ -217,4 +217,4 @@ spack:
       environment: {}
       extra_rpaths: []
   specs:
-  - beatnik @develop +cuda cuda_arch=70 %gcc@8.3.1
+  - beatnik +cuda cuda_arch=70 %gcc@8.3.1
