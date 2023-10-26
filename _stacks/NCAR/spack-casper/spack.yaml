@@ -211,6 +211,8 @@ spack:
       externals:
       - spec: cuda@11.8.0
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/cuda/11.8.0
+      - spec: cuda@12.2.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/cuda/12.2.1
       buildable: false
     cudnn:
       require: '%gcc@7.5.0'
@@ -783,6 +785,23 @@ spack:
     mesa-glu:
       require:
       - '%gcc@7.5.0'
+    rstudio:
+      externals:
+      - spec: rstudio@2023.09.0
+        prefix: /glade/u/apps/opt/rstudio/2023.09.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    ospray:
+      externals:
+      - spec: ospray@2.12.0
+        prefix: /glade/u/apps/opt/ospray/2.12.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    vapor:
+      variants:
+      - +ospray
   view:
     baseenv:
       root: /glade/u/apps/casper/23.09/opt/view
@@ -873,6 +892,8 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1/compiler/latest/linux/compiler/lib/intel64
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: gcc@12.2.0
       paths:
@@ -882,7 +903,9 @@ spack:
         fc: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/gfortran
       operating_system: opensuse15
       modules: []
-      environment: {}
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: clang@16.0.6
       paths:
@@ -1222,6 +1245,7 @@ spack:
           environment:
             set:
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
+              OMPI_MCA_oob_tcp_if_exclude: mgt
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
         parallel-netcdf:
@@ -1246,6 +1270,8 @@ spack:
               NCAR_ROOT_PARALLELIO: '{prefix}'
               NCAR_SPACK_HASH_PARALLELIO: '{hash}'
               PIO: '{prefix}'
+        paraview:
+          autoload: none
         visit:
           autoload: none
         projections:
@@ -1269,11 +1295,18 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        rstudio:
+          filter:
+            exclude_env_vars:
+            - CMAKE_PREFIX_PATH
+          environment:
+            prepend_path:
+              PATH: '{prefix}'
   concretizer:
     unify: false
   bootstrap:
     enable: true
-    root: /glade/work/csgteam/spack-deployments/bootstrap/23.09
+    root: /glade/u/apps/casper/23.09/opt/view
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
@@ -1443,7 +1476,6 @@ spack:
   - vexcl@1.4.3 ^boost@1.81.0
   - llvm@16.0.6+clang+mlir+z3+zstd
   - intel-oneapi-vtune@2023.2.0
-  - vapor@3.9.0
   - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf
   - parallelio@2.6.2%nvhpc@23.7~mpi~pnetcdf
   - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf
@@ -1451,3 +1483,10 @@ spack:
   - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
   - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
+  - eigen@3.4.0
+  - vapor@3.9.0
+  - matlab@R2023a
+  - idl@8.9.0
+  - rstudio@2023.09.0
+  - osu-micro-benchmarks%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - osu-micro-benchmarks%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
