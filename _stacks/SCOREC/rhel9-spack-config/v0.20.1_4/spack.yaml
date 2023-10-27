@@ -41,3 +41,96 @@ spack:
       modules: []
       environment: {unset: []}
       extra_rpaths: []
+  - compiler:
+      spec: gcc@=7.4.0
+      paths:
+        cc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/gfortran
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=13.1.0
+      paths:
+        cc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-13.1.0-wesnjbovvlz6b7hsnb6ep4ux3evjz5z5/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-13.1.0-wesnjbovvlz6b7hsnb6ep4ux3evjz5z5/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-13.1.0-wesnjbovvlz6b7hsnb6ep4ux3evjz5z5/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-13.1.0-wesnjbovvlz6b7hsnb6ep4ux3evjz5z5/bin/gfortran
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@=16.0.2
+      paths:
+        cc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/llvm-16.0.2-s2prjubu2nuelilemzze3lc7v6pcncq5/bin/clang
+        cxx: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/llvm-16.0.2-s2prjubu2nuelilemzze3lc7v6pcncq5/bin/clang++
+        f77: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-11.3.1_rhel9/gcc-7.4.0-ncrxqwiiyv3p4jau3xajip7y5b6ufw34/bin/gfortran
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=12.3.0
+      paths:
+        cc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-12.3.0-iil3lnovyknyxf7pec36wljem3fntjd5/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-12.3.0-iil3lnovyknyxf7pec36wljem3fntjd5/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-12.3.0-iil3lnovyknyxf7pec36wljem3fntjd5/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-12.3.0-iil3lnovyknyxf7pec36wljem3fntjd5/bin/gfortran
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=10.4.0
+      paths:
+        cc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-10.4.0-dyzwyfhei6kik6irbecqjbldlwioxgdh/bin/gcc
+        cxx: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-10.4.0-dyzwyfhei6kik6irbecqjbldlwioxgdh/bin/g++
+        f77: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-10.4.0-dyzwyfhei6kik6irbecqjbldlwioxgdh/bin/gfortran
+        fc: /opt/scorec/spack/rhel9/v0201_4/install/linux-rhel9-x86_64/gcc-7.4.0/gcc-10.4.0-dyzwyfhei6kik6irbecqjbldlwioxgdh/bin/gfortran
+      flags: {}
+      operating_system: rhel9
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  definitions:
+  - pumiSim2023.1-230907dev:
+    - pumi@master %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev
+  - simFull2023.1-230907dev:
+    - simmetrix-simmodsuite@2023.1-230907dev
+      +base+parasolid+acis+discrete+abstract+adv+advmodel+import+paralleladapt+parallelmesh
+
+  specs:
+  - gcc@7.4.0%gcc@11.3.1_rhel9+binutils
+  - gcc@13.1.0%gcc@7.4.0
+  - llvm@16.0.2%gcc@7.4.0+clang
+  - mpich%gcc@13.1.0
+  - openmpi%clang@16.0.2
+  - cuda@12.1.1
+  - gcc@12.3.0%gcc@7.4.0
+  - mpich%gcc@12.3.0
+  - cuda@12.1.1%gcc@12.3.0
+  - gcc@10.4.0%gcc@7.4.0
+  - cuda@11.2.2%gcc@10.4.0
+  - cuda@11.1.1%gcc@10.4.0
+  - cuda@11.3.1%gcc@10.4.0
+  - cuda@11.8.0%gcc@10.4.0
+  - cuda@11.4.4%gcc@10.4.0
+  - cuda@11.5.2%gcc@10.4.0
+  - cuda@11.6.2%gcc@10.4.0
+  - cuda@11.7.1%gcc@10.4.0
+  - $simFull2023.1-230907dev
