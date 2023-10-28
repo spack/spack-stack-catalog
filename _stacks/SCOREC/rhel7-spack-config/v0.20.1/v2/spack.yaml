@@ -17,7 +17,7 @@ spack:
     all:
       compiler: [gcc@11.2.0]
       providers:
-        mpi: [mpich]
+        mpi: [mpich@4.0.2]
       target: [x86_64]
       version: []
       buildable: true
@@ -28,19 +28,18 @@ spack:
   definitions:
   - pumi:
     - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran
-  - pumiSim18.0-220930beta:
+  - pumiOpenmpi:
+    - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran ^openmpi
+  - pumiSim2023.1-230907dev:
     - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
-      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@18.0-220930beta
-  - pumiSim2023.0-230303dev:
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev ^mpich@4.0.2
+  - pumiSim2024.0-231017dev:
     - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
-      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.0-230303dev
-  - sim2023.0-230317dev:
-    - simmetrix-simmodsuite@2023.0-230317dev %gcc@11.2.0 +abstract +acis +adv +advmodel
-      +discrete +granite +import +paralleladapt +parallelmesh +parasolid ^mpich@4.0.2
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-231017dev ^mpich@4.0.2
   specs:
   #packages installed via the initialSetup.sh script # Step 1
-  #- gcc@7.4.0%gcc@4.8.5_rhel7
-  #- gcc@11.2.0%gcc@7.4.0
+  #- gcc@7.4.0%gcc@4.8.5_rhel7 +binutils
+  - gcc@11.2.0%gcc@7.4.0
   #packages built with gcc 7.4 and 11 # Step 2
   - octave %gcc@7.4.0
   - py-pandas %gcc@7.4.0
@@ -49,7 +48,7 @@ spack:
   - graphviz   +libgd %gcc@7.4.0
   - git %gcc@7.4.0
   - tmux %gcc@7.4.0
-  - gdb %gcc@7.4.0
+  - gdb@13.1 %gcc@7.4.0
   - cmake %gcc@7.4.0
   - valgrind -mpi %gcc@7.4.0
   - octave %gcc@7.4.0
@@ -71,9 +70,8 @@ spack:
   - netcdf-c +parallel-netcdf %gcc@11.2.0
   - netcdf-fortran %gcc@11.2.0
   - $pumi
-  #- $pumiSim18.0-220930beta
-  #- $pumiSim2023.0-230303dev
-  #- $sim2023.0-230317dev
+  - $pumiOpenmpi
+  - $pumiSim2024.0-231017dev
   compilers:
   - compiler:
       spec: gcc@4.8.5_rhel7
