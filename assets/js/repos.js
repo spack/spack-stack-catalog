@@ -75,9 +75,9 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
+      "v0.20.1/v1/spack.yaml",
       "v0.18.1/spack.yaml",
-      "v0.20.1/v2/spack.yaml",
-      "v0.20.1/v1/spack.yaml"
+      "v0.20.1/v2/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -91,10 +91,10 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
-      "systems/setonix/environments/utils/spack.yaml",
-      "systems/setonix/environments/bench/spack.yaml",
       "systems/setonix/environments/wrf/spack.yaml",
-      "systems/setonix/environments/astro/spack.yaml"
+      "systems/setonix/environments/astro/spack.yaml",
+      "systems/setonix/environments/bench/spack.yaml",
+      "systems/setonix/environments/utils/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -108,8 +108,8 @@ var data =
     "data_format": 2,
     "description": "Support for building chipStar and related libraries via Spack",
     "filenames": [
-      "Environments/ROCm/spack.yaml",
-      "Environments/LevelZero/spack.yaml"
+      "Environments/LevelZero/spack.yaml",
+      "Environments/ROCm/spack.yaml"
     ],
     "full_name": "CHIP-SPV/chipStar-Spack",
     "latest_release": null,
@@ -183,8 +183,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "gnu/spack.yaml",
-      "oneapi/failures/spack.yaml"
+      "oneapi/failures/spack.yaml",
+      "gnu/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
     "latest_release": null,
@@ -225,8 +225,8 @@ var data =
     "data_format": 2,
     "description": "my spack environments for software builds",
     "filenames": [
-      "esmfbld/spack.yaml",
-      "esmfserialbld/spack.yaml"
+      "esmfserialbld/spack.yaml",
+      "esmfbld/spack.yaml"
     ],
     "full_name": "jedwards4b/spackenvironments",
     "latest_release": null,
@@ -253,11 +253,11 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent7/library/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/python_376/spack.yaml",
       "compilers/envs/compilers/spack.yaml",
       "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent7/python_376/spack.yaml"
+      "cent7/library/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -271,8 +271,8 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
-      "envs/local/dlaf/openblas-mt-mpich-cuda/spack.yaml",
       "envs/alps/dlaf/mkl-mt/spack.yaml",
+      "envs/local/dlaf/openblas-mt-mpich-cuda/spack.yaml",
       "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
       "envs/alps/cp2k-dlaf/mkl-cuda/spack.yaml",
       "envs/alps/dlaf/oneapi-mt/spack.yaml"
@@ -303,8 +303,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml"
+      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
+      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -344,9 +344,9 @@ var data =
     "data_format": 2,
     "description": "Spack fork used on OLCF resources",
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack",
     "latest_release": null,
@@ -431,8 +431,8 @@ var data =
     "data_format": 2,
     "description": "Spack clone",
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss-aws-aarch64/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/radiuss/spack.yaml"
     ],
     "full_name": "lezzidan/spack",
     "latest_release": null,
@@ -684,8 +684,8 @@ var data =
     "data_format": 2,
     "description": "Muon Collider software repository for Spack",
     "filenames": [
-      "environments/mucoll-common/spack.yaml",
-      "environments/mucoll-release/spack.yaml"
+      "environments/mucoll-release/spack.yaml",
+      "environments/mucoll-common/spack.yaml"
     ],
     "full_name": "MuonColliderSoft/mucoll-spack",
     "latest_release": "v2.8",
@@ -979,8 +979,8 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
-      "etc/spack/nrel-eagle/spack.yaml",
-      "etc/spack/spack/spack.yaml"
+      "etc/spack/spack/spack.yaml",
+      "etc/spack/nrel-eagle/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1015,11 +1015,11 @@ var data =
     "description": "Spack environments for OLCF resources.",
     "filenames": [
       "hosts/frontier/envs/base/spack.yaml",
-      "hosts/ascent/envs/base-rh7/spack.yaml",
+      "hosts/summit/envs/base/spack.yaml",
       "hosts/borg/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
-      "hosts/summit/envs/base/spack.yaml",
-      "hosts/ascent/envs/base/spack.yaml"
+      "hosts/ascent/envs/base/spack.yaml",
+      "hosts/ascent/envs/base-rh7/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1033,9 +1033,9 @@ var data =
     "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
-      "spack/darwin-power9/spack.yaml",
+      "spack/ci/spack.yaml",
       "spack/snow/spack.yaml",
-      "spack/ci/spack.yaml"
+      "spack/darwin-power9/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1077,9 +1077,9 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-rhel8-zen2/cirrus/spack.yaml",
       "linux-sles15-zen2/spock/spack.yaml",
       "linux-rhel8-ppc64le/summit/spack.yaml",
+      "linux-rhel8-zen2/cirrus/spack.yaml",
       "linux-centos7-broadwell/or-slurm/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
@@ -1108,8 +1108,8 @@ var data =
     "data_format": 2,
     "description": "Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark for evaluating the performance of algorithms requiring global communication. Beatnik is also a precursor to potential later a High Performance Parallel Interface solver.",
     "filenames": [
-      "configs/llnl/quartz/spack.yaml",
       "configs/llnl/lassen/spack.yaml",
+      "configs/llnl/quartz/spack.yaml",
       "configs/llnl/tioga/spack.yaml"
     ],
     "full_name": "CUP-ECS/beatnik",
@@ -1163,9 +1163,9 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
+      "ORNL/Frontier/spack.yaml",
       "NERSC/Perlmutter/ss11/spack.yaml",
-      "ANL/Theta/spack.yaml",
-      "ORNL/Frontier/spack.yaml"
+      "ANL/Theta/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1179,8 +1179,8 @@ var data =
     "data_format": 2,
     "description": "Bash shell script for installing xSDK and other IDEAS packages",
     "filenames": [
-      "platformFiles/crusher/PrgEnv-cray/spack.yaml",
-      "platformFiles/lassen/spack.yaml"
+      "platformFiles/lassen/spack.yaml",
+      "platformFiles/crusher/PrgEnv-cray/spack.yaml"
     ],
     "full_name": "xsdk-project/installxSDK",
     "latest_release": "v0.1.1",
@@ -1279,25 +1279,25 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/tools/spack.yaml",
       "spack-configs/cori-e4s-22.02/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-22.11/cce/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/tools/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml",
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
       "spack-configs/cori-e4s-21.02/prod/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
@@ -1312,11 +1312,11 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
-      "environments/key4hep-nightly/spack.yaml",
-      "environments/key4hep-release/spack.yaml",
-      "environments/key4hep-release-user/spack.yaml",
+      "environments/key4hep-nightly-debug/spack.yaml",
       "environments/key4hep-ci/spack.yaml",
-      "environments/key4hep-nightly-debug/spack.yaml"
+      "environments/key4hep-release/spack.yaml",
+      "environments/key4hep-nightly/spack.yaml",
+      "environments/key4hep-release-user/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1360,19 +1360,19 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "benchmarks/spack/isambard-phase3/milan/spack.yaml",
-      "benchmarks/spack/csd3-cascadelake/compute-node/spack.yaml",
-      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
+      "benchmarks/spack/myriad/cpu/spack.yaml",
+      "benchmarks/spack/github-actions/default/spack.yaml",
+      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
       "benchmarks/spack/isambard-phase3/ampere/spack.yaml",
       "benchmarks/spack/isambard-macs/rome/spack.yaml",
-      "benchmarks/spack/isambard-phase3/instinct/spack.yaml",
-      "benchmarks/spack/github-actions/default/spack.yaml",
-      "benchmarks/spack/myriad/v100/spack.yaml",
-      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
-      "benchmarks/spack/myriad/p100/spack.yaml",
+      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
       "benchmarks/spack/isambard-macs/volta/spack.yaml",
-      "benchmarks/spack/myriad/cpu/spack.yaml",
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml"
+      "benchmarks/spack/myriad/v100/spack.yaml",
+      "benchmarks/spack/isambard-phase3/instinct/spack.yaml",
+      "benchmarks/spack/isambard-phase3/milan/spack.yaml",
+      "benchmarks/spack/csd3-cascadelake/compute-node/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
+      "benchmarks/spack/myriad/p100/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1386,8 +1386,8 @@ var data =
     "data_format": 2,
     "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronics.",
     "filenames": [
-      "Docs/spack.yaml",
-      "Tools/machines/lxplus-cern/spack.yaml"
+      "Tools/machines/lxplus-cern/spack.yaml",
+      "Docs/spack.yaml"
     ],
     "full_name": "AMReX-Microelectronics/artemis",
     "latest_release": null,
@@ -1443,11 +1443,11 @@ var data =
     "data_format": 2,
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
-      "buildsystem/container/spack.yaml",
-      "buildsystem/spack/deception/spack.yaml",
+      "performance_analysis/spack.yaml",
       "buildsystem/spack/incline/spack.yaml",
       "buildsystem/spack/ascent/spack.yaml",
-      "performance_analysis/spack.yaml"
+      "buildsystem/spack/deception/spack.yaml",
+      "buildsystem/container/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
     "latest_release": "v1.6.0",
@@ -1459,30 +1459,15 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "AsterX is a GPU-accelerated GRMHD code for dynamical spacetimes",
-    "filenames": [
-      "Docs/compile-notes/frontera-github/CPU/spack.yaml",
-      "Docs/compile-notes/frontera-bitbucket/CPU/spack.yaml"
-    ],
-    "full_name": "jaykalinani/AsterX",
-    "latest_release": null,
-    "readme": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"Docs/figures/asterx.png\"\u003e\u003cimg align=\"top\" src=\"Docs/figures/asterx.png\" width=\"140\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAsterX\u003c/strong\u003e is a GPU-accelerated GRMHD code for dynamical spacetimes, written in C++. It is built upon the \u003ca href=\"https://github.com/eschnett/CarpetX\"\u003eCarpetX\u003c/a\u003e driver, which is intended for the \u003ca href=\"https://einsteintoolkit.org/\" rel=\"nofollow\"\u003eEinstein Toolkit\u003c/a\u003e. \u003cstrong\u003eCarpetX\u003c/strong\u003e is based on \u003ca href=\"https://amrex-codes.github.io\" rel=\"nofollow\"\u003eAMReX\u003c/a\u003e, a software framework for block-structured AMR (adaptive mesh refinement).\u003c/p\u003e\n\u003cp\u003eFull documentation will soon be available at \u003ca href=\"https://asterx.readthedocs.io/en/latest/#\" rel=\"nofollow\"\u003easterx.readthedocs.io\u003c/a\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/jaykalinani/AsterX/actions\"\u003e\u003cimg src=\"https://github.com/jaykalinani/AsterX/workflows/CI/badge.svg\" alt=\"GitHub CI\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e  \u003ca href=\"https://asterx.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8257fa34c1c5b6c660b31bf16a6196859c354c9c503b7742e1cdee871fbb96c8/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f6173746572782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/asterx/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://github.com/jaykalinani/AsterX/blob/main/LICENSE.md\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b768fc44ae95216e4b53ff734978771466ba222596e760da27e9e60a0d47d6f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4c47504c5f76332d626c75652e737667\" alt=\"License: LGPL v3\" data-canonical-src=\"https://img.shields.io/badge/License-LGPL_v3-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-overview\"\u003e\u003ca class=\"heading-link\" href=\"#overview\"\u003eOverview\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eHeavily derived from the GRMHD code \u003ca href=\"https://zenodo.org/record/4350072\" rel=\"nofollow\"\u003eSpritz\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eSolves the GRMHD equations in 3D Cartesian coordinates and on dynamical spacetimes using high-resolution shock capturing (HRSC) schemes.\u003c/li\u003e\n\u003cli\u003eBased on the flux-conservative Valencia formulation.\u003c/li\u003e\n\u003cli\u003eDirectly evolves the staggered vector potential.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-available-modules\"\u003e\u003ca class=\"heading-link\" href=\"#available-modules\"\u003eAvailable modules\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eAsterX\u003c/code\u003e - the core GRMHD module\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eAsterSeeds\u003c/code\u003e - initial data module\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eCon2PrimFactory\u003c/code\u003e - module providing different conservative-to-primitive variable recovery routines\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eEOSX\u003c/code\u003e - equation of state driver\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eReconX\u003c/code\u003e - provider of different reconstruction schemes\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eTOVSolverX\u003c/code\u003e - a modified version of the publicly available TOVSolver thorn used within the Einstein Toolkit\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-getting-started\"\u003e\u003ca class=\"heading-link\" href=\"#getting-started\"\u003eGetting started\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eInstructions for downloading and building the Einstein Toolkit including\nCarpetX can be found \u003ca href=\"https://github.com/eschnett/CarpetX\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eDetails for building and running AsterX along with CarpetX will be added to \u003ca href=\"https://asterx.readthedocs.io/en/latest/#\" rel=\"nofollow\"\u003easterx.readthedocs.io\u003c/a\u003e soon..\u003c/p\u003e\n\u003ch2 id=\"user-content-related-talks-and-tutorials\"\u003e\u003ca class=\"heading-link\" href=\"#related-talks-and-tutorials\"\u003eRelated talks and tutorials\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\"\u003ca href=\"http://einsteintoolkit.org/seminars/2021_03_18/index.html\" rel=\"nofollow\"\u003eUsing CarpetX: A Guide for Early Adopters\u003c/a\u003e\".\nRecorded seminar talk by Erik Schnetter, providing an overview of the current capabilities of CarpetX.\u003c/li\u003e\n\u003cli\u003e\"\u003ca href=\"https://einsteintoolkit.github.io/et2022uidaho/lectures/38-Tutorial8/index.html\" rel=\"nofollow\"\u003eTutorial: GPUs and the Einstein Toolkit\u003c/a\u003e\".\nRecorded tutorial by Lorenzo Ennoggi, Jay Kalinani and Federico Lopez Armengol during the North American Einstein Toolkit workshop 2022, presenting a brief overview on AsterX, followed by a hands-on session.\u003c/li\u003e\n\u003cli\u003e\"\u003ca href=\"https://drive.google.com/file/d/1Z4i--W56mxeNIu598LQTpEEowX56FOoD/view?usp=sharing\" rel=\"nofollow\"\u003eAsterX: a new open-source GPU-accelerated GRMHD code for dynamical spacetimes\u003c/a\u003e\".\nSlides based on the talk by Jay Kalinani at the APS April Meeting 2023.\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 16,
-    "subscribers_count": 10,
-    "topics": [],
-    "updated_at": 1694096488.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/gfs-v16.2/spack.yaml",
-      "configs/templates/empty/spack.yaml",
-      "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/ufs-srw-dev/spack.yaml",
-      "configs/templates/ufs-utils/spack.yaml",
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
       "configs/templates/ufs-weather-model-static/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
+      "configs/templates/ufs-weather-model/spack.yaml",
+      "configs/templates/ufs-utils/spack.yaml",
+      "configs/templates/empty/spack.yaml",
+      "configs/templates/gfs-v16.2/spack.yaml",
       "configs/templates/unified-dev/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
@@ -1495,21 +1480,36 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "AsterX is a GPU-accelerated GRMHD code for dynamical spacetimes",
+    "filenames": [
+      "Docs/compile-notes/frontera-github/CPU/spack.yaml",
+      "Docs/compile-notes/frontera-bitbucket/CPU/spack.yaml"
+    ],
+    "full_name": "jaykalinani/AsterX",
+    "latest_release": null,
+    "readme": "\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"Docs/figures/asterx.png\"\u003e\u003cimg align=\"top\" src=\"Docs/figures/asterx.png\" width=\"140\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAsterX\u003c/strong\u003e is a GPU-accelerated GRMHD code for dynamical spacetimes, written in C++. It is built upon the \u003ca href=\"https://github.com/eschnett/CarpetX\"\u003eCarpetX\u003c/a\u003e driver, which is intended for the \u003ca href=\"https://einsteintoolkit.org/\" rel=\"nofollow\"\u003eEinstein Toolkit\u003c/a\u003e. \u003cstrong\u003eCarpetX\u003c/strong\u003e is based on \u003ca href=\"https://amrex-codes.github.io\" rel=\"nofollow\"\u003eAMReX\u003c/a\u003e, a software framework for block-structured AMR (adaptive mesh refinement).\u003c/p\u003e\n\u003cp\u003eFull documentation will soon be available at \u003ca href=\"https://asterx.readthedocs.io/en/latest/#\" rel=\"nofollow\"\u003easterx.readthedocs.io\u003c/a\u003e.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/jaykalinani/AsterX/actions\"\u003e\u003cimg src=\"https://github.com/jaykalinani/AsterX/workflows/CI/badge.svg\" alt=\"GitHub CI\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e  \u003ca href=\"https://asterx.readthedocs.io/en/latest/?badge=latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8257fa34c1c5b6c660b31bf16a6196859c354c9c503b7742e1cdee871fbb96c8/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f6173746572782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/asterx/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://github.com/jaykalinani/AsterX/blob/main/LICENSE.md\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b768fc44ae95216e4b53ff734978771466ba222596e760da27e9e60a0d47d6f7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4c47504c5f76332d626c75652e737667\" alt=\"License: LGPL v3\" data-canonical-src=\"https://img.shields.io/badge/License-LGPL_v3-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-overview\"\u003e\u003ca class=\"heading-link\" href=\"#overview\"\u003eOverview\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eHeavily derived from the GRMHD code \u003ca href=\"https://zenodo.org/record/4350072\" rel=\"nofollow\"\u003eSpritz\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eSolves the GRMHD equations in 3D Cartesian coordinates and on dynamical spacetimes using high-resolution shock capturing (HRSC) schemes.\u003c/li\u003e\n\u003cli\u003eBased on the flux-conservative Valencia formulation.\u003c/li\u003e\n\u003cli\u003eDirectly evolves the staggered vector potential.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-available-modules\"\u003e\u003ca class=\"heading-link\" href=\"#available-modules\"\u003eAvailable modules\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eAsterX\u003c/code\u003e - the core GRMHD module\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eAsterSeeds\u003c/code\u003e - initial data module\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eCon2PrimFactory\u003c/code\u003e - module providing different conservative-to-primitive variable recovery routines\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eEOSX\u003c/code\u003e - equation of state driver\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eReconX\u003c/code\u003e - provider of different reconstruction schemes\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eTOVSolverX\u003c/code\u003e - a modified version of the publicly available TOVSolver thorn used within the Einstein Toolkit\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"user-content-getting-started\"\u003e\u003ca class=\"heading-link\" href=\"#getting-started\"\u003eGetting started\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eInstructions for downloading and building the Einstein Toolkit including\nCarpetX can be found \u003ca href=\"https://github.com/eschnett/CarpetX\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eDetails for building and running AsterX along with CarpetX will be added to \u003ca href=\"https://asterx.readthedocs.io/en/latest/#\" rel=\"nofollow\"\u003easterx.readthedocs.io\u003c/a\u003e soon..\u003c/p\u003e\n\u003ch2 id=\"user-content-related-talks-and-tutorials\"\u003e\u003ca class=\"heading-link\" href=\"#related-talks-and-tutorials\"\u003eRelated talks and tutorials\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\"\u003ca href=\"http://einsteintoolkit.org/seminars/2021_03_18/index.html\" rel=\"nofollow\"\u003eUsing CarpetX: A Guide for Early Adopters\u003c/a\u003e\".\nRecorded seminar talk by Erik Schnetter, providing an overview of the current capabilities of CarpetX.\u003c/li\u003e\n\u003cli\u003e\"\u003ca href=\"https://einsteintoolkit.github.io/et2022uidaho/lectures/38-Tutorial8/index.html\" rel=\"nofollow\"\u003eTutorial: GPUs and the Einstein Toolkit\u003c/a\u003e\".\nRecorded tutorial by Lorenzo Ennoggi, Jay Kalinani and Federico Lopez Armengol during the North American Einstein Toolkit workshop 2022, presenting a brief overview on AsterX, followed by a hands-on session.\u003c/li\u003e\n\u003cli\u003e\"\u003ca href=\"https://drive.google.com/file/d/1Z4i--W56mxeNIu598LQTpEEowX56FOoD/view?usp=sharing\" rel=\"nofollow\"\u003eAsterX: a new open-source GPU-accelerated GRMHD code for dynamical spacetimes\u003c/a\u003e\".\nSlides based on the talk by Jay Kalinani at the APS April Meeting 2023.\u003c/li\u003e\n\u003c/ul\u003e\n",
+    "stargazers_count": 17,
+    "subscribers_count": 10,
+    "topics": [],
+    "updated_at": 1698593900.0
+  },
+  {
+    "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/21.05/spack.yaml",
-      "environments/23.05/cuda-x86_64/spack.yaml",
-      "environments/23.02/cuda-ppc64le/spack.yaml",
-      "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/22.08/cuda-aarch64.spack.yaml",
       "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/23.08/cuda-aarch64/spack.yaml",
       "environments/23.08/cuda-x86_64/spack.yaml",
-      "environments/21.08/spack.yaml",
-      "environments/23.02/cuda-x86_64/spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
       "environments/22.05/rocm.spack.yaml",
-      "environments/23.08/cuda-aarch64/spack.yaml"
+      "environments/23.05/rocm-x86_64/spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
+      "environments/22.08/cuda-aarch64.spack.yaml",
+      "environments/23.02/cuda-x86_64/spack.yaml",
+      "environments/22.08/cuda-x86_64.spack.yaml",
+      "environments/21.05/spack.yaml",
+      "environments/21.08/spack.yaml",
+      "environments/23.02/cuda-ppc64le/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v23.08",
@@ -1541,18 +1541,18 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
-      "spack-sdk-environments/tools_and_technology/spack.yaml",
-      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/archived/special/superlu-sc/spack.yaml",
       "docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-gcc-11.4/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "spack-sdk-environments/tools_and_technology/spack.yaml",
       "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml"
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
+      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1703,7 +1703,7 @@ var data =
     ],
     "full_name": "FZJ-INM1-BDA/siibra-python",
     "latest_release": null,
-    "stargazers_count": 42,
+    "stargazers_count": 43,
     "subscribers_count": 7,
     "topics": [
       "brain",
@@ -1713,7 +1713,7 @@ var data =
       "bigbrainproject",
       "humanbrainproject"
     ],
-    "updated_at": 1697619654.0
+    "updated_at": 1698607206.0
   },
   {
     "data_format": 2,
@@ -1751,44 +1751,44 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NREL/configs/eagle/utilities/spack.yaml",
+      "OLCF/crusher/spack.yaml",
       "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
       "OLCF/frontier/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
+      "OLCF/spock/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
       "OLCF/andes/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
-      "BOISESTATE/borah/environments/b4s/_spack.yaml",
-      "OLCF/crusher/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
-      "OLCF/spock/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
-      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml"
+      "NREL/configs/eagle/software/spack.yaml",
+      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "BOISESTATE/borah/environments/b4s/_spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1822,8 +1822,8 @@ var data =
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml"
+      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
+      ".spack-env/unifyfs-slurm-gcc4_9_3/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v1.1",
@@ -1841,11 +1841,11 @@ var data =
     "data_format": 2,
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
-      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
-      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml"
+      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
+      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml"
     ],
     "full_name": "LLNL/axom",
     "latest_release": "v0.8.1",
@@ -1909,11 +1909,11 @@ var data =
     "data_format": 2,
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
-      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml",
+      "scripts/spack/configs/docker/ubuntu20/spack.yaml",
+      "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/docker/ubuntu20/spack.yaml"
+      "scripts/spack/configs/darwin/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1947,9 +1947,9 @@ var data =
     "data_format": 2,
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
-      "scripts/platforms/summit/spack.yaml",
       "scripts/platforms/newell/spack.yaml",
-      "scripts/platforms/marianas/spack.yaml"
+      "scripts/platforms/marianas/spack.yaml",
+      "scripts/platforms/summit/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.1",
@@ -2063,10 +2063,10 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-double/spack.yaml",
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.6.1",
