@@ -1,0 +1,21 @@
+spack:
+  specs:
+  - matrix:
+    - - cuda@11.7
+      - ucx +ib_hw_tm +gdrcopy
+      - openmpi@4.1.4 +cuda cuda_arch=80 fabrics=ucx
+      - heffte +fftw +cuda cuda_arch=80
+      - kokkos +hwloc +cuda +cuda_lambda +wrapper cuda_arch=80
+      - cabana @master +cajita +heffte +mpi +cuda +arborx cuda_arch=80
+    - ['%gcc@11.2.0']
+  - hdf5 +mpi
+  - silo@4.11 +mpi
+  - blt
+  - cmake
+  concretizer:
+    unify: true
+  view: true
+  
+  upstreams:
+    carc-spack:
+      install_tree: /opt/spack/opt/spack
