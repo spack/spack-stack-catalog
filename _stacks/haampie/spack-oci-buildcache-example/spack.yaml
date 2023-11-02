@@ -1,9 +1,6 @@
 spack:
   specs:
-  - py-ipython ^python@3.8
-  - py-ipython ^python@3.9
-  - py-ipython ^python@3.10
-  - py-ipython ^python@3.11
+  - cp2k build_system=cmake %gcc@12 ^mpich
   view: false
   concretizer:
     unify: false
