@@ -1,0 +1,48 @@
+#comment
+spack:
+  concretizer:
+    unify: false
+    reuse: false
+  modules:
+    default:
+      roots:
+        lmod: /gpfs/u/software/erp-spack-install/v0201_1/lmod
+      lmod:
+        core_compilers:
+        - gcc@=4.8.5
+  config:
+    target: x86_64
+    install_tree:
+      root: /gpfs/u/software/erp-spack-install/v0201_1/
+    misc_cache: /gpfs/u/software/erp-spack-install/v0201_1/misc_cache
+    build_stage:
+    - /gpfs/u/software/erp-spack-install/v0201_1/build_stage
+    allow_sgid: false
+  packages:
+    slurm:
+      externals:
+      - spec: slurm@23.02.5
+        prefix: /usr
+      buildable: false
+    all:
+      compiler: [gcc@13.1.0]
+      providers:
+        mpi: [openmpi]
+      target: [x86_64]
+      version: []
+      buildable: true
+  view: false
+  compilers:
+  - compiler:
+      spec: gcc@=4.8.5
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
