@@ -52,6 +52,7 @@ spack:
     - py-boto3
     - py-dask
     - py-deepdiff
+    - py-epic-capybara
     - py-ipython
     - py-jinja2
     - py-jinja2-cli
@@ -75,6 +76,7 @@ spack:
     - py-wurlitzer
     - py-yapf
     - root
+    - snakemake
     - spdlog
     - stow
     - tensorflow-lite
