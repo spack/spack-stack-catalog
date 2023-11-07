@@ -13,18 +13,18 @@ spack:
         netcdf-fortran: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{compiler.name}/{compiler.version}/{hash:4}
         netcdf-fortran^mpi: netcdf/{^netcdf-c.version}/packages/{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}/{hash:4}
     build_jobs: 4
-    test_stage: /glade/derecho/scratch/$user/temp/spack/casper/23.09/tests
+    test_stage: /glade/derecho/scratch/$user/temp/spack/casper/23.10/tests
     source_cache: /glade/derecho/scratch/$user/temp/spack/cache
-    misc_cache: /glade/derecho/scratch/$user/temp/spack/casper/23.09/misc
+    misc_cache: /glade/derecho/scratch/$user/temp/spack/casper/23.10/misc
     build_stage:
-    - /glade/derecho/scratch/$user/temp/spack/casper/23.09/builds
+    - /glade/derecho/scratch/$user/temp/spack/casper/23.10/builds
     shared_linking:
       # Turning this setting on would be beneficial but vendor compilers do not
       # seem to work with it! Avoid!
       type: rpath
       bind: false
     template_dirs:
-    - /glade/work/csgteam/spack-deployments/casper/23.09/envs/build/templates/modules
+    - /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/templates/modules
   packages:
     bash:
       externals:
@@ -170,10 +170,10 @@ spack:
       require: '%gcc@7.5.0'
     binutils:
       variants:
-      - +libiberty
-      - +ld
       - +gas
       - +gold
+      - +ld
+      - +libiberty
     bison:
       require: '%gcc@7.5.0'
     bzip2:
@@ -255,6 +255,15 @@ spack:
       - jp2k=jasper
     eigen:
       require: '%gcc@7.5.0'
+    emacs:
+      variants:
+      - +X
+      - +json
+      - +treesitter
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +X
     esmf:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
@@ -357,6 +366,12 @@ spack:
     git:
       variants:
       - +svn
+    gl2ps:
+      require:
+      - '%gcc@7.5.0'
+    glew:
+      require:
+      - '%gcc@7.5.0'
     glpk:
       require: '%gcc@7.5.0'
     gnuplot:
@@ -522,6 +537,9 @@ spack:
       require:
       - '@2.28'
       - libs=static,shared
+    mesa-glu:
+      require:
+      - '%gcc@7.5.0'
     mgard:
       require:
       - '%gcc@7.5.0'
@@ -600,7 +618,15 @@ spack:
       require:
       - '%gcc@7.5.0'
     openmpi:
-      require: fabrics=cma,knem,ucx schedulers=tm +gpfs +lustre +internal-pmix
+      require:
+      - fabrics=cma,knem,ucx
+      - schedulers=tm
+      - +gpfs
+      - +lustre
+      - +internal-pmix
+      - any_of:
+        - ^cuda@12
+        when: '@4.1.6 +cuda'
       variants:
       - +cuda
     openpbs:
@@ -613,6 +639,16 @@ spack:
     openssh:
       require:
       - '%gcc@7.5.0'
+    osmesa:
+      require:
+      - '%gcc@7.5.0'
+    ospray:
+      require:
+      - '%gcc@7.5.0'
+      externals:
+      - spec: ospray@2.12.0
+        prefix: /glade/u/apps/opt/ospray/2.12.0
+      buildable: false
     pango:
       variants:
       - +X
@@ -664,6 +700,9 @@ spack:
     pocl:
       variants:
       - +icd
+    postgresql:
+      variants:
+      - +xml
     protobuf:
       require: '%gcc@7.5.0'
     py-setuptools:
@@ -680,6 +719,13 @@ spack:
       - +webkit
     readline:
       require: '%gcc@7.5.0'
+    rstudio:
+      require:
+      - '%gcc@7.5.0'
+      externals:
+      - spec: rstudio@2023.09.0
+        prefix: /glade/u/apps/opt/rstudio/2023.09.0
+      buildable: false
     rsync:
       require:
       - '%gcc@7.5.0'
@@ -720,14 +766,32 @@ spack:
       - +vfs
     util-linux-uuid:
       require: '%gcc@7.5.0'
+    vapor:
+      variants:
+      - +ospray
+    vim:
+      variants:
+      - +cscope
+      - +x
+      - +gui
+      - +gtk
+      - +lua
+      - +perl
+      - +python
+      - +ruby
+      - features=huge
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +gtk
     visit:
       variants:
       - +hdf5
       - +mpi
       - +netcdf
-      - ~vtkm
-      - ~mfem
       - ~conduit
+      - ~mfem
+      - ~vtkm
       require:
       - any_of:
         - '^adios2@2.9: %gcc@11:'
@@ -773,39 +837,19 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +programs
-    glew:
-      require:
-      - '%gcc@7.5.0'
-    gl2ps:
-      require:
-      - '%gcc@7.5.0'
-    osmesa:
-      require:
-      - '%gcc@7.5.0'
-    mesa-glu:
-      require:
-      - '%gcc@7.5.0'
-    rstudio:
-      externals:
-      - spec: rstudio@2023.09.0
-        prefix: /glade/u/apps/opt/rstudio/2023.09.0
-      buildable: false
-      require:
-      - '%gcc@7.5.0'
-    ospray:
-      externals:
-      - spec: ospray@2.12.0
-        prefix: /glade/u/apps/opt/ospray/2.12.0
-      buildable: false
-      require:
-      - '%gcc@7.5.0'
-    vapor:
-      variants:
-      - +ospray
   view:
     baseenv:
-      root: /glade/u/apps/casper/23.09/opt/view
+      root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ncompress
+      - ncftp
+      - ed
+      - vim
+      - mysql@8.0.19
+      - mariadb
+      - mysql@8.0.15
+      - postgresql
+      - xxdiff
       - nghttp2
       - ffmpeg
       - pandoc
@@ -849,9 +893,10 @@ spack:
       - curl
       - openssl
       - libtool
-      - autoconf@2.71
       - automake
+      - autoconf@2.71
       - git
+      - perl
       link_type: symlink
       link: roots
   compilers:
@@ -866,7 +911,9 @@ spack:
       operating_system: opensuse15
       target: x86_64
       modules: []
-      environment: {}
+      environment:
+        set:
+          CARGO_HTTP_CAINFO: /etc/ssl/ca-bundle.pem
       extra_rpaths: []
   - compiler:
       spec: nvhpc@23.7
@@ -878,6 +925,8 @@ spack:
       operating_system: opensuse15
       modules: []
       environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7/Linux_x86_64/23.7/compilers/lib
   - compiler:
@@ -890,17 +939,17 @@ spack:
       operating_system: opensuse15
       modules: []
       environment:
-        prepend_path:
-          LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1/compiler/latest/linux/compiler/lib/intel64
         set:
           NVCCFLAGS: -allow-unsupported-compiler
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1/compiler/latest/linux/compiler/lib/intel64
   - compiler:
       spec: gcc@12.2.0
       paths:
-        cc: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/gcc
-        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/g++
-        f77: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/gfortran
-        fc: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/gfortran
+        cc: /glade/u/apps/casper/23.10/spack/opt/spack//gcc/12.2.0/pucl/bin/gcc
+        cxx: /glade/u/apps/casper/23.10/spack/opt/spack//gcc/12.2.0/pucl/bin/g++
+        f77: /glade/u/apps/casper/23.10/spack/opt/spack//gcc/12.2.0/pucl/bin/gfortran
+        fc: /glade/u/apps/casper/23.10/spack/opt/spack//gcc/12.2.0/pucl/bin/gfortran
       operating_system: opensuse15
       modules: []
       environment:
@@ -909,25 +958,19 @@ spack:
   - compiler:
       spec: clang@16.0.6
       paths:
-        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
-        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
+        cc: /glade/u/apps/casper/23.10/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/v6nd/bin/clang
+        cxx: /glade/u/apps/casper/23.10/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/v6nd/bin/clang
         f77: None
         fc: None
       operating_system: opensuse15
       modules: []
-  - compiler:
-      spec: clang@14.0.6
-      paths:
-        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
-        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
-        f77: None
-        fc: None
-      operating_system: opensuse15
-      modules: []
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   modules:
     'default:':
       roots:
-        lmod: /glade/u/apps/casper/modules/23.09
+        lmod: /glade/u/apps/casper/modules/23.10
       arch_folder: false
       'enable:':
       - lmod
@@ -966,8 +1009,8 @@ spack:
         - gcc@7.5.0
         core_specs:
         - visit
-        - octave
         - paraview
+        - octave
         - nccmp
         - ncview
         - cdo
@@ -1008,16 +1051,27 @@ spack:
         - netcdf@4.9.2
         - parallel-netcdf@1.12.3
         - fftw@3.3.10
-        - openmpi@4.1.5
+        - openmpi@4.1.6
+        - cuda@12.2.1
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
         esmf:
           autoload: none
         exclude:
+        - ncompress
+        - ncftp
+        - emacs
+        - ed
+        - vim
+        - mysql@8.0.19
+        - mariadb
         - openssl
+        - mysql@8.0.15
+        - postgresql
         - qhull
-        - openblas
+        - openblas %gcc@7.5.0
+        - xxdiff
         - nghttp2
         - ffmpeg
         - pandoc
@@ -1033,7 +1087,6 @@ spack:
         - libtree
         - tree
         - gdb
-        - emacs
         - tmux
         - openjdk
         - meson
@@ -1042,7 +1095,6 @@ spack:
         - antlr
         - squashfuse
         - squashfs
-        - flex@2.6.4
         - tcl
         - ruby
         - bison
@@ -1061,9 +1113,11 @@ spack:
         - unzip
         - curl
         - libtool
-        - autoconf@2.71
         - automake
+        - autoconf@2.71
+        - flex@2.6.4
         - lmod
+        - perl
         exclude_implicits: true
         fftw+mpi:
           template: conflict-mpi.lua
@@ -1244,8 +1298,8 @@ spack:
         openmpi:
           environment:
             set:
-              OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
               OMPI_MCA_oob_tcp_if_exclude: mgt
+              OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
         parallel-netcdf:
@@ -1272,8 +1326,6 @@ spack:
               PIO: '{prefix}'
         paraview:
           autoload: none
-        visit:
-          autoload: none
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
@@ -1288,13 +1340,6 @@ spack:
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           llvm+clang: clang/{version}
-        singularityce:
-          environment:
-            prepend_path:
-              PATH: '{^squashfs.prefix}/bin'
-          filter:
-            exclude_env_vars:
-            - GOPATH
         rstudio:
           filter:
             exclude_env_vars:
@@ -1302,11 +1347,20 @@ spack:
           environment:
             prepend_path:
               PATH: '{prefix}'
+        singularityce:
+          environment:
+            prepend_path:
+              PATH: '{^squashfs.prefix}/bin'
+          filter:
+            exclude_env_vars:
+            - GOPATH
+        visit:
+          autoload: none
   concretizer:
     unify: false
   bootstrap:
     enable: true
-    root: /glade/u/apps/casper/23.09/opt/view
+    root: /glade/work/csgteam/spack-deployments/bootstrap/23.10
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
@@ -1324,13 +1378,10 @@ spack:
     ncar_mirror_global: /glade/u/apps/casper/mirror
     ncar_mirror_local: /glade/u/apps/casper/mirror
   repos:
-  - /glade/work/csgteam/spack-deployments/casper/23.09/envs/build/repos/ncar.hpcd
+  - /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/repos/ncar.hpcd
   specs:
-  - nvhpc@23.7
-  - intel-oneapi-compilers@2023.2.1
-  - gcc@12.2.0
-  - automake
   - autoconf@2.71
+  - automake
   - libtool
   - openssl
   - curl
@@ -1359,7 +1410,6 @@ spack:
   - meson
   - openjdk
   - tmux
-  - emacs
   - gdb
   - tree
   - libtree
@@ -1372,10 +1422,12 @@ spack:
   - bbcp
   - qt@5.14.2
   - gnuplot
-  - texlive
   - pandoc
   - ffmpeg
   - nghttp2
+  - xxdiff
+  - openblas
+  - qhull
   - lmod
   - cmake
   - miniconda3
@@ -1387,16 +1439,35 @@ spack:
   - peak-memusage
   - charliecloud
   - cuda@11.8.0
+  - cuda@12.2.1
   - cudnn@8.7.0.84-11.8
-  - intel-oneapi-compilers-classic@2021.10.0
+  - ncl
   - ucx
   - ncvis
+  - grads
   - wgrib2
   - grib-util
   - linaro-forge@23.0
+  - texlive
   - doxygen+graphviz
   - darshan-util@3.4.2
+  - vapor@3.9.0
+  - pocl@3.0
+  - vexcl@1.4.3 ^boost@1.81.0
+  - intel-oneapi-vtune@2023.2.0
+  - eigen@3.4.0
+  - matlab@R2023a
+  - idl@8.9.0
   - julia@1.9.2
+  - rstudio@2023.09.0
+  - nvhpc@23.7
+  - intel-oneapi-compilers@2023.2.1
+  - gcc@12.2.0
+  - intel-oneapi-compilers-classic@2021.10.0
+  - llvm@16.0.6+clang+mlir+z3+zstd
+  - openmpi@4.1.6%gcc@12.2.0
+  - openmpi@4.1.6%nvhpc@23.7
+  - openmpi@4.1.6%oneapi@2023.2.1
   - intel-oneapi-mkl@2023.2.0%oneapi@2023.2.1
   - openblas@0.3.23%gcc@12.2.0
   - ncarcompilers@1.0.0%gcc@12.2.0
@@ -1429,64 +1500,50 @@ spack:
   - mpi-serial@2.3.0%gcc@12.2.0
   - mpi-serial@2.3.0%nvhpc@23.7
   - mpi-serial@2.3.0%oneapi@2023.2.1
-  - parallelio@2.6.1%gcc@12.2.0~mpi~pnetcdf
-  - parallelio@2.6.1%nvhpc@23.7~mpi~pnetcdf
-  - parallelio@2.6.1%oneapi@2023.2.1~mpi~pnetcdf
+  - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf
+  - parallelio@2.6.2%nvhpc@23.7~mpi~pnetcdf
+  - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf
   - esmf@8.5.0%gcc@12.2.0~mpi
   - esmf@8.5.0%nvhpc@23.7~mpi ^nvhpc@23.7
   - esmf@8.5.0%oneapi@2023.2.1~mpi
+  - gdal@3.7.1%gcc@12.2.0
+  - parallel-netcdf@1.12.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - parallel-netcdf@1.12.3%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - parallel-netcdf@1.12.3%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - hdf5@1.12.2%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
+  - hdf5@1.12.2%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
+  - hdf5@1.12.2%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
+  - netcdf@4.9.2%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
+  - netcdf@4.9.2%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
+  - netcdf@4.9.2%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
+  - fftw@3.3.10%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
+  - fftw@3.3.10%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
+  - fftw@3.3.10%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
+  - darshan-runtime@3.4.2%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - darshan-runtime@3.4.2%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - darshan-runtime@3.4.2%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - parallelio@2.6.2%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - esmf@8.5.0%gcc@12.2.0+mpi+pnetcdf ^openmpi@4.1.6%gcc@12.2.0
+  - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - esmf@8.5.0%oneapi@2023.2.1+mpi+pnetcdf ^openmpi@4.1.6%oneapi@2023.2.1
+  - osu-micro-benchmarks%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - osu-micro-benchmarks%nvhpc@23.7+cuda ^openmpi@4.1.6%nvhpc@23.7
+  - osu-micro-benchmarks%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - adios2@2.9.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
   - nco@5.1.6%gcc@12.2.0
   - cdo@2.2.2%gcc@12.2.0
   - ncview@2.1.9%gcc@12.2.0
   - nccmp@1.9.1.0%gcc@12.2.0
-  - openmpi@4.1.5%gcc@12.2.0
-  - openmpi@4.1.5%nvhpc@23.7
-  - openmpi@4.1.5%oneapi@2023.2.1
-  - parallel-netcdf@1.12.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - parallel-netcdf@1.12.3%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
-  - parallel-netcdf@1.12.3%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
-  - hdf5@1.12.2%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
-  - hdf5@1.12.2%nvhpc@23.7+mpi ^openmpi@4.1.5%nvhpc@23.7
-  - hdf5@1.12.2%oneapi@2023.2.1+mpi ^openmpi@4.1.5%oneapi@2023.2.1
-  - netcdf@4.9.2%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
-  - netcdf@4.9.2%nvhpc@23.7+mpi ^openmpi@4.1.5%nvhpc@23.7
-  - netcdf@4.9.2%oneapi@2023.2.1+mpi ^openmpi@4.1.5%oneapi@2023.2.1
-  - fftw@3.3.10%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
-  - fftw@3.3.10%nvhpc@23.7+mpi ^openmpi@4.1.5%nvhpc@23.7
-  - fftw@3.3.10%oneapi@2023.2.1+mpi ^openmpi@4.1.5%oneapi@2023.2.1
-  - darshan-runtime@3.4.2%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - darshan-runtime@3.4.2%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
-  - darshan-runtime@3.4.2%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
-  - parallelio@2.6.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - parallelio@2.6.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
-  - esmf@8.5.0%gcc@12.2.0+mpi+pnetcdf ^openmpi@4.1.5%gcc@12.2.0
-  - esmf@8.5.0%oneapi@2023.2.1+mpi+pnetcdf ^openmpi@4.1.5%oneapi@2023.2.1
-  - adios2@2.9.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
-  - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - pocl@3.0
-  - openblas
-  - ncl
-  - qhull
-  - gdal@3.7.1%gcc@12.2.0
   - octave@8.2.0%gcc@12.2.0
-  - grads
-  - xxdiff
-  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - vexcl@1.4.3 ^boost@1.81.0
-  - llvm@16.0.6+clang+mlir+z3+zstd
-  - intel-oneapi-vtune@2023.2.0
-  - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf
-  - parallelio@2.6.2%nvhpc@23.7~mpi~pnetcdf
-  - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf
-  - parallelio@2.6.2%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
-  - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
-  - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
-  - eigen@3.4.0
-  - vapor@3.9.0
-  - matlab@R2023a
-  - idl@8.9.0
-  - rstudio@2023.09.0
-  - osu-micro-benchmarks%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - osu-micro-benchmarks%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
+  - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - postgresql
+  - mysql@8.0.19
+  - vim
+  - ed
+  - emacs
+  - ncftp
+  - ncompress
