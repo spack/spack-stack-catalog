@@ -49,12 +49,13 @@ spack:
   - py-continuum
   - py-timm
   - py-nvidia-dali@1.27.0-cuda110
-  - py-torch@2.0 ~gloo
+  - py-torch@2.1 ~gloo
   - py-torchsummary
   - py-bokeh
   - py-matplotlib
-  - py-horovod@0.28 controllers=mpi frameworks=pytorch
+  - py-horovod@master controllers=mpi frameworks=pytorch
   - nano
+  - htop
   concretizer:
     unify: true
   view: /my-spack/view/gemini
