@@ -5,12 +5,19 @@
 spack:
   # add package specs to the `specs` list
   specs:
+  - ceres-solver@2.0.0+suitesparse
+
   - cln@1.3.6
 
   - eigen@3.4.0
 
+  - glog@0.4.0
+
   # this version is compatible with salome-9.3.0
   - hdf5@1.10.3+mpi
+
+  # the libmesh version must always be newer (date-based) than petsc
+  - libmesh@1.5.3+petsc+eigen+mpi+exodusii
 
   # petsc from spack requires an external and unique blas/lapack library set
   - openblas@0.3.23
@@ -25,9 +32,6 @@ spack:
 
   # slepc minor version must be the same as petsc
   - slepc@3.13.4
-
-  # the libmesh version must always be newer (date-based) than petsc
-  - libmesh@1.5.3+petsc+eigen+mpi+exodusii
 
   view: true
   concretizer:
