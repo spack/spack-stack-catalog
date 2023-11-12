@@ -16,8 +16,9 @@ spack:
         - openblas
   specs:
   - hdf5+hl+mpi~fortran
-  - mpich~fortran device=ch4 netmod=ofi
-  - petsc@3.20.0~fortran+debug
+  - mpich+fortran device=ch4 netmod=ofi
+  - petsc@3.20.1~fortran+debug
+  - openpmd-api+python  
   - fftw+mpi+openmp
   - gsl
   - python+pythoncmd
