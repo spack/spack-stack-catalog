@@ -15,8 +15,6 @@ spack:
       modules: []
       environment: {}
       extra_rpaths: []
-  repos:
-  - /path/to/mochi-spack-packages
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
@@ -125,10 +123,6 @@ spack:
       - spec: mvapich2@2.2~cuda~debug~regcache~wrapperrpath
         prefix: /soft/libraries/mpi/mvapich2/gcc
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
     ncurses:
       externals:
       - spec: ncurses@5.9.20130511+termlib abi=5
@@ -203,16 +197,8 @@ spack:
       compiler: [gcc@8.2.0]
     libfabric:
       variants: fabrics=verbs,rxm
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
     mercury:
       variants: ~boostsys ~checksum
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
   view: true
