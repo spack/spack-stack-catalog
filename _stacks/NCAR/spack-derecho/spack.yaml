@@ -417,6 +417,9 @@ spack:
       variants: [+bzip2]
     julia:
       require: ^llvm~clang~gold~polly ^openblas threads=openmp
+    osu-micro-benchmarks:
+      variants:
+      - +cuda
   view:
     baseenv:
       root: /glade/u/apps/derecho/23.06/opt
@@ -491,6 +494,8 @@ spack:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/lib
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: nvhpc@23.1
       paths:
@@ -505,6 +510,8 @@ spack:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.1/Linux_x86_64/23.1/compilers/lib
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: oneapi@2023.0.0
       paths:
@@ -519,6 +526,8 @@ spack:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: cce@15.0.1
       paths:
@@ -533,6 +542,7 @@ spack:
       environment:
         set:
           PE_ENV: CRAY
+          NVCCFLAGS: -allow-unsupported-compiler
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   - compiler:
@@ -549,6 +559,7 @@ spack:
       environment:
         set:
           PE_ENV: GNU
+          NVCCFLAGS: -allow-unsupported-compiler
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   - compiler:
@@ -565,6 +576,8 @@ spack:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/lib
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   - compiler:
       spec: cce@16.0.0
       paths:
@@ -761,6 +774,14 @@ spack:
               NCAR_SPACK_HASH_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
+        cdo:
+          autoload: none
+        nco:
+          autoload: none
+        ncview:
+          autoload: none
+        nccmp:
+          autoload: none
         nvhpc:
           environment:
             set:
@@ -921,7 +942,7 @@ spack:
     unify: false
   bootstrap:
     enable: true
-    root: /glade/work/csgteam/spack-deployments/bootstrap/23.06
+    root: /glade/u/apps/derecho/23.06/opt
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
@@ -1193,3 +1214,6 @@ spack:
   - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^cray-mpich@8.1.25%oneapi@2023.0.0
   - parallelio@2.6.2%oneapi@2023.0.0 ^cmake~ownlibs ^intel-oneapi-mpi@2021.8.0%oneapi@2023.0.0
   - grads ^cmake~ownlibs
+  - osu-micro-benchmarks%gcc@12.2.0 ^cray-mpich@8.1.25%gcc@12.2.0
+  - osu-micro-benchmarks%nvhpc@23.5 ^cray-mpich@8.1.25%nvhpc@23.5
+  - osu-micro-benchmarks%cce@15.0.1 ^cray-mpich@8.1.25%cce@15.0.1
