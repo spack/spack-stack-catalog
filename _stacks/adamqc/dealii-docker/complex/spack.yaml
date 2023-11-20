@@ -3,7 +3,7 @@ spack:
   - cmake
   - dealii@master+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples~ginkgo~threads
   - eigen
-  - python
+  - python@3.10
   - mumps+mpi+metis+parmetis
   - mpich datatype-engine=dataloop
   - petsc+mumps+superlu-dist+complex~hdf5
@@ -17,8 +17,6 @@ spack:
       - x86_64
       providers:
         mpi: [mpich]
-    python:
-      version: [3.10.12]
 
   container:
     images:
@@ -27,7 +25,7 @@ spack:
 
     format: docker
 
-    strip: true
+    strip: false
 
     os_packages:
       final:
@@ -42,7 +40,7 @@ spack:
 
     extra_instructions:
       final: |
-        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy scipy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
+        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
         RUN sh -c "$(curl -L https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- -t robbyrussell -p vi-mode
         USER root
         WORKDIR /root
