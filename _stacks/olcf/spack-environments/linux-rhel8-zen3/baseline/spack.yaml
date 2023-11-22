@@ -1,0 +1,154 @@
+## OLCF Baseline Spack Template
+
+# README/NOTE/TODO - this template was tested with Spack v0.20.2 (commit: f8d857f7586bd7731230d76a86c813e57f8b580d)
+
+spack:
+  specs: [] # FIXME - add specs here
+  config:
+    install_tree:
+      # FIXME - Customize where you want the install
+      #         root: /ccs/proj/<PROJID>/... # for persistant installs
+      #         root: /gpfs/alpine/... # for ephemeral installs
+      root: $spack/opt/spack
+  packages:
+    all:
+      buildable: true
+      target: [zen3]
+      providers:
+        mpi: [openmpi]
+        lapack: [openblas]
+        blas: [openblas]
+        scalapack: [netlib-scalapack]
+      compiler: [gcc, intel]
+#  The following are recommendations from testing this template, but are not requirements:
+#    This version of cmake seemed to work better than the later ones that were tested.
+#    cmake:
+#      version: [ 3.25.3 ]
+#    These are installed as modules and serve as an example to users to pull in the pre-installed modules.
+#    openblas: #openblas/0.3.23-omp
+#      buildable: false
+#      version: [ 0.3.23 ]
+#      externals:
+#      - spec: openblas@0.3.23
+#        modules:
+#        - openblas/0.3.23-omp
+#    openmpi: #openmpi/4.0.4
+#      buildable: false
+#      version: [ 4.0.4 ]
+#      externals:
+#      - spec: openmpi@4.0.4
+#        modules:
+#        - openmpi/4.0.4
+    zlib:
+      require: '@1.2.12'
+    gtkplus:
+      buildable: false
+      version:
+      - 3.22.30
+      - 2.24.32
+      externals:
+      - spec: gtkplus@3.22.30
+        prefix: /usr
+      - spec: gtkplus@2.24.32
+        prefix: /usr
+    hcoll: #hcoll-4.8.3220-1.58307.x86_64
+      buildable: false
+      version: [4.8.3220]
+      externals:
+      - spec: hcoll@4.8.3220
+        prefix: /opt/mellanox/hcoll
+    openssl:
+      buildable: false
+      version: [1.1.1k-os]
+      externals:
+      - spec: openssl@1.1.1k-os
+        prefix: /usr
+    rdma-core:
+      buildable: false
+      version: [32.0]
+      externals:
+      - spec: rdma-core@32.0.52mlnx1
+        prefix: /usr
+    slurm: #slurm-23.02.5-1.el8.x86_64
+      buildable: false
+      variants: +pmix
+      version: [23-02-5-1]
+      externals:
+      - spec: slurm@23.02.5-1
+        prefix: /usr
+    ucx: #ucx-1.14.0-1.58307.x86_64
+      buildable: false
+      version: [1.14.0]
+      externals:
+      - spec: ucx@1.14.0 +thread_multiple
+        prefix: /usr
+      variants: +thread_multiple
+  view: false
+  config:
+    install_tree:
+      root: /ccsopen/home/2ff/baseline/projects/user-spack-env/root
+      projections:
+        all: '{architecture}/{compiler.name}-{compiler.versions}/{name}-{version}-{hash}'
+    template_dirs:
+    - $spack/share/spack/templates
+    build_stage:
+    - /ccsopen/home/2ff/baseline/projects/user-spack-env/build-stage
+    - $tempdir/$user/spack-stage
+    - $spack/var/spack/stage
+    source_cache: /ccsopen/home/2ff/baseline/projects/user-spack-env/source_cache
+    misc_cache: /ccsopen/home/2ff/baseline/projects/user-spack-env/misc_cache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 8
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout: null
+    shared_linking: rpath
+    allow_sgid: true
+    locks: true
+    suppress_gpg_warnings: false
+    connect_timeout: 10
+    test_stage: /ccsopen/home/2ff/baseline/projects/user-spack-env/test-stage
+  concretizer::
+    reuse: true
+    unify: false
+  compilers:
+  - compiler:
+      spec: gcc@8.5.0
+      operating_system: rhel8
+      modules: []
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      extra_rpaths: []
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+        unset: []
+  - compiler:
+      spec: gcc@12.2.0
+      operating_system: rhel8
+      paths:
+        cc: /sw/baseline/gcc/12.2.0/bin/gcc
+        cxx: /sw/baseline/gcc/12.2.0/bin/g++
+        f77: /sw/baseline/gcc/12.2.0/bin/gfortran
+        fc: /sw/baseline/gcc/12.2.0/bin/gfortran
+      modules:
+      - gcc/12.2.0
+  - compiler:
+      spec: intel@20.0.4
+      operating_system: rhel8
+      modules: [intel/20.0.4]
+      paths:
+        cc: /sw/baseline/intel/20.0.4/bin/icc
+        cxx: /sw/baseline/intel/20.0.4/bin/icpc
+        f77: /sw/baseline/intel/20.0.4/bin/ifort
+        fc: /sw/baseline/intel/20.0.4/bin/ifort
+      extra_rpaths: [/sw/baseline/intel/20.0.4/lib/intel64]
+      environment: {}
+      flags: {}
