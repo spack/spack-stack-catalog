@@ -2,10 +2,9 @@ spack:
   specs:
   - cmake
   - pkgconfig
-  - uuid
-  - mochi-margo ^mercury~boostsys ~checksum ^libfabric fabrics=tcp,rxm
+  - mochi-margo
   - json-c
-  - mochi-bedrock ~abtio ~ssg
+  - mochi-bedrock
   concretizer:
     unify: true
     reuse: true
