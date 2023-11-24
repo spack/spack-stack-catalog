@@ -6,6 +6,7 @@ spack:
   # add package specs to the `specs` list
   specs:
   - bfs
+  - coreutils
   - direnv
   - emacs
   - fzf

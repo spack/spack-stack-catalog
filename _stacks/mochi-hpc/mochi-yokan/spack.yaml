@@ -3,7 +3,6 @@ spack:
   - cmake
   - pkg-config
   - mpi
-  - uuid
   - nlohmann-json
   - tclap
   - lua-sol2
@@ -15,7 +14,7 @@ spack:
   - unqlite@master
   - py-pybind11
   - mochi-margo
-  - mercury ~boostsys ^libfabric fabrics=tcp,rxm
+  - mercury ~boostsys~checksum ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
   - mochi-bedrock ^mpich
   - ycsb-cpp-interface ^ycsb@master
