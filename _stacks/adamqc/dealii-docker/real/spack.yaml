@@ -1,0 +1,47 @@
+spack:
+  specs:
+  - cmake
+  - dealii@master+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples~ginkgo~threads~vtk
+  - eigen
+  - python@3.10.13
+  - mfem@develop+mpi+petsc+suite-sparse+superlu-dist+shared~static
+  - mumps+mpi+metis+parmetis
+  - mpich datatype-engine=dataloop
+  - petsc+hypre+mumps+superlu-dist~hdf5
+  - tetgen
+  - nanoflann
+  - valgrind
+
+  packages:
+    all:
+      target:
+      - x86_64
+      providers:
+        mpi: [mpich]
+
+  container:
+    images:
+      os: "ubuntu:22.04"
+      spack: develop
+
+    format: docker
+
+    strip: true
+
+    os_packages:
+      final:
+      - build-essential
+      - clangd
+      - clang-format
+      - curl
+      - gfortran
+      - git
+      - libc6-dbg
+      - vim
+
+    extra_instructions:
+      final: |
+        RUN . /opt/spack-environment/activate.sh && python -m ensurepip && python -m pip install autopep8 scipy numpy matplotlib pandas swig -i https://pypi.org/simple && python -m pip install mfem -i https://pypi.org/simple && rm -rf /root/.cache
+        RUN sh -c "$(curl -L https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- -t robbyrussell -p vi-mode
+        USER root
+        WORKDIR /root
