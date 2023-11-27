@@ -8,12 +8,22 @@ spack:
     - intel@2021.6.0
   - mpis:
     - openmpi@4.1.4
+  - serial_packages:
+    - fortranxml@4.1.2
   - packages:
     - esmf@8.4.2+debug
-    - parallelio@2.5.10 +timing build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source -O2 -debug minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99 -O2 -debug minimal'
+    - parallelio@2.5.10 build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert
+      big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source
+      -O2 -debug minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99
+      -O2 -debug minimal'
     - netcdf-c@4.9.2 build_system=cmake build_type=RelWithDebInfo
     - netcdf-fortran@4.6.0
-    - fms@git.2021.03.01 precision=64 +large_file ~gfs_phys ~openmp ~quad_precision build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source -O2 -debug minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99 -O2 -debug minimal'
+    - fms@git.2021.03.01 precision=64 +large_file ~gfs_phys ~openmp ~quad_precision
+      build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert big_endian
+      -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source -O2 -debug
+      minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99 -O2 -debug
+      minimal'
+    - access-om3
   specs:
   - matrix:
     - [$mpis]
@@ -21,6 +31,9 @@ spack:
   - matrix:
     - [$packages]
     - [$^mpis]
+    - [$%compilers]
+  - matrix:
+    - [$serial_packages]
     - [$%compilers]
   view: true
   concretizer:

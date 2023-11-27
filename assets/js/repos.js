@@ -18,9 +18,9 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files for LUMI",
     "filenames": [
-      "23.03/0.19.2/spack.yaml",
       "22.08/0.18.1/spack.yaml",
-      "22.08/0.19.0/spack.yaml"
+      "22.08/0.19.0/spack.yaml",
+      "23.03/0.19.2/spack.yaml"
     ],
     "full_name": "Lumi-supercomputer/lumi-spack-settings",
     "latest_release": null,
@@ -63,12 +63,12 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "envs/exawind/spack.yaml",
       "configs/rhodes/utilities/spack.yaml",
-      "configs/ellis/compilers/spack.yaml",
       "configs/eagle/software/spack.yaml",
+      "configs/ellis/compilers/spack.yaml",
       "configs/eagle/compilers/spack.yaml",
       "configs/rhodes/compilers/spack.yaml",
+      "envs/exawind/spack.yaml",
       "configs/eagle/utilities/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
@@ -83,8 +83,8 @@ var data =
     "data_format": 2,
     "description": "Support for building chipStar and related libraries via Spack",
     "filenames": [
-      "Environments/ROCm/spack.yaml",
-      "Environments/LevelZero/spack.yaml"
+      "Environments/LevelZero/spack.yaml",
+      "Environments/ROCm/spack.yaml"
     ],
     "full_name": "CHIP-SPV/chipStar-Spack",
     "latest_release": null,
@@ -154,10 +154,10 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
-      "systems/setonix/environments/utils/spack.yaml",
       "systems/setonix/environments/wrf/spack.yaml",
       "systems/setonix/environments/astro/spack.yaml",
-      "systems/setonix/environments/bench/spack.yaml"
+      "systems/setonix/environments/bench/spack.yaml",
+      "systems/setonix/environments/utils/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
     "latest_release": null,
@@ -166,6 +166,21 @@ var data =
     "subscribers_count": 11,
     "topics": [],
     "updated_at": 1687655533.0
+  },
+  {
+    "data_format": 2,
+    "description": "Spack configuration installed at /g/data/ik11/spack/ to provide ACCESS-OM3 dependencies",
+    "filenames": [
+      "environments/cesm-0_x_0/spack.yaml",
+      "environments/access-om3-0_x_0/spack.yaml"
+    ],
+    "full_name": "COSIMA/spack-config",
+    "latest_release": "access-om3-v0.2.0",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-cosima-spack-configuration\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#cosima-spack-configuration\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCOSIMA Spack Configuration\u003c/h1\u003e\n\u003cp\u003eThis repository contains the spack configuration and the spack environments used\nby COSIMA to deploy software on gadi.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation-instructions\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installation-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation instructions\u003c/h2\u003e\n\u003cp\u003eClone this repository and its submodules to some appropriate location (e.g.,\n\u003ccode\u003e/g/data/ik11/spack/0.20.1\u003c/code\u003e):\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ git clone --recursive https://github.com/COSIMA/spack-config.git /g/data/ik11/spack/0.20.1\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNext, create the python virtual environment:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e /g/data/ik11/spack/0.20.1\n$ ./bootstrap_venv.sh\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eFinally, to use this spack installation one just needs to activate the python\nenvironment:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$  \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e /g/data/ik11/spack/0.20.1/venv/bin/activate\n$ which spack\n\u003cspan class=\"pl-en\"\u003espack\u003c/span\u003e ()\n{ \n    \u003cspan class=\"pl-c1\"\u003e:\u003c/span\u003e this is a shell \u003cspan class=\"pl-k\"\u003efunction\u003c/span\u003e \u003cspan class=\"pl-en\"\u003efrom:\u003c/span\u003e /g/data/ik11/spack/0.20.1/spack/share/spack/setup-env.sh;\n    \u003cspan class=\"pl-c1\"\u003e:\u003c/span\u003e the real spack script is here: /g/data/ik11/spack/0.20.1/spack/bin/spack\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e\n    _spack_shell_wrapper \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e$@\u003c/span\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$?\u003c/span\u003e\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing-software\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installing-software\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling software\u003c/h2\u003e\n\u003cp\u003eIt is recommended that all software be installed using spack\nenvironments. Currently the following environments are provided (the names\nshould be self-explanatory):\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003ccode\u003eaccess-om3-0_1_0\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eaccess-om3-devel\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecesm-0_1_0\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecommon_tools_and_libraries\u003c/code\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eInstallation of a spack environment is usually quite straightforward, but\nbecause this can be a CPU intensive operation and take quite some time, it is\nbest to do this in parallel and to use an interactive job.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-instructions\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-by-step-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step instructions:\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003eActivate spack environment\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eFirst activate the spack environment\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack env activate \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003eenv\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ewhere \u003ccode\u003e\u0026lt;env\u0026gt;\u003c/code\u003e by the actual name of the environment.\u003c/p\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eDownload the sources\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eAs the compute nodes do not have internet access, one needs to download all the\nnecessary sources from the login node. This is done using a spack mirror.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack mirror create -d sources -a\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eHere \u003ccode\u003esources\u003c/code\u003e is the name of a mirror that has already been configured.\u003c/p\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eSubmit interactive job\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThis should not use more than a single node. Also, make sure to add \u003ccode\u003egdata/ik11\u003c/code\u003e\nand \u003ccode\u003escratch/ik11\u003c/code\u003e to the storage options.\u003c/p\u003e\n\u003col start=\"4\"\u003e\n\u003cli\u003eInstall software\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eOnce the job has started, because it starts a completely new shell session, one\nneeds to activate again both the python and the spack environments:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$  \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e /g/data/ik11/spack/0.20.1/venv/bin/activate\n$ spack env activate \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003eenv\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen one can simply do\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack install \u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIn this case, although each individual build will use some level of parallelism,\nspack will proceed through the installation of the packages sequentially. To\nfully use parallelism one needs to tell spack to create a Makefile and use this\nto install the software:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack env depfile -o Makefile\n$ make -j\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIn the end, all the packages should be available in some subdirectory of\n\u003ccode\u003e/g/data/ik11/spack/0.20.1/opt/\u003c/code\u003e and the corresponding environment modules are\ninstalled under a subdirectory of \u003ccode\u003e/g/data/ik11/spack/0.20.1/modules\u003c/code\u003e. The\nactual subdirectories depend on the selected environement.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1692145219.0
   },
   {
     "data_format": 2,
@@ -189,10 +204,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/deprecated/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/e4s-cray-rhel/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/tutorial/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/deprecated/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/e4s-cray-rhel/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/e4s-power/spack.yaml"
     ],
     "full_name": "WAAutoMaton/spack",
@@ -219,6 +234,20 @@ var data =
   },
   {
     "data_format": 2,
+    "description": null,
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "roblatham00/phonebook",
+    "latest_release": null,
+    "readme": "\u003cp\u003eYour project \"YP\" has been setup!\nEnjoy programming with Mochi!\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1682697472.0
+  },
+  {
+    "data_format": 2,
     "description": "Remote Key/Value storage service for Mochi",
     "filenames": [
       "spack.yaml"
@@ -230,20 +259,6 @@ var data =
     "subscribers_count": 1,
     "topics": [],
     "updated_at": 1641326484.0
-  },
-  {
-    "data_format": 2,
-    "description": "Mochi bootstrapping service.",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/mochi-bedrock",
-    "latest_release": "v0.7.0",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-bedrock\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#bedrock\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBedrock\u003c/h1\u003e\n\u003cp\u003eBedrock is Mochi\u0027s service bootstrapping mechanism.\nFor documentations and tutorials, please see\n\u003ca href=\"https://mochi.readthedocs.io/en/latest/bedrock.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1640527359.0
   },
   {
     "data_format": 2,
@@ -261,6 +276,19 @@ var data =
   },
   {
     "data_format": 2,
+    "description": null,
+    "filenames": [
+      "oneapi/failures/spack.yaml"
+    ],
+    "full_name": "eugeneswalker/noaa",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 2,
+    "topics": [],
+    "updated_at": 1675202595.0
+  },
+  {
+    "data_format": 2,
     "description": "My Spack environments",
     "filenames": [
       "thetagpu/spack.yaml"
@@ -275,10 +303,23 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "my spack environments for software builds",
+    "filenames": [
+      "esmfbld/spack.yaml",
+      "esmfserialbld/spack.yaml"
+    ],
+    "full_name": "jedwards4b/spackenvironments",
+    "latest_release": null,
+    "stargazers_count": 0,
+    "subscribers_count": 1,
+    "topics": [],
+    "updated_at": 1664981968.0
+  },
+  {
+    "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
       "cent7/python_376/spack.yaml",
-      "cent8/envs/avx/rproject/spack.yaml",
       "cent7/library/spack.yaml",
       "compilers/envs/compilers/spack.yaml"
     ],
@@ -294,10 +335,9 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
+      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
       "envs/alps/dlaf/oneapi-mt/spack.yaml",
-      "envs/local/cp2k-dlaf/mkl-mt-mpich-cuda/spack.yaml",
-      "envs/alps/sirius/cuda/spack.yaml",
-      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml"
+      "envs/alps/sirius/cuda/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
     "latest_release": null,
@@ -322,16 +362,17 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
+    "description": "Spack clone",
     "filenames": [
-      "environments/CMSSW_12_6_X/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml"
     ],
-    "full_name": "iarspider/cms-spack-repo",
+    "full_name": "lezzidan/spack",
     "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content--spack\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\" width=\"64\" valign=\"middle\" alt=\"Spack\" data-canonical-src=\"https://cdn.rawgit.com/spack/spack/develop/share/spack/logo/spack-logo.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e Spack\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/spack/spack/actions\"\u003e\u003cimg src=\"https://github.com/spack/spack/workflows/linux%20tests/badge.svg\" alt=\"Unit Tests\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/spack/spack/actions/workflows/bootstrap.yml\"\u003e\u003cimg src=\"https://github.com/spack/spack/actions/workflows/bootstrap.yml/badge.svg\" alt=\"Bootstrapping\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/spack/spack\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4e223725486ecdae463d02d6ebd2b814945366210a908fc6f04b044ada8a7820/68747470733a2f2f636f6465636f762e696f2f67682f737061636b2f737061636b2f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/spack/spack/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/spack/spack/actions/workflows/build-containers.yml\"\u003e\u003cimg src=\"https://github.com/spack/spack/actions/workflows/build-containers.yml/badge.svg\" alt=\"Containers\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spack.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/523aba38ec3f8d2294b874493fe63feed5805b98460c385611397b02be14a51c/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f737061636b2f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Read the Docs\" data-canonical-src=\"https://readthedocs.org/projects/spack/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/psf/black\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d91ed7ac7abbd5a6102cbe988dd8e9ac21bde0a73d97be7603b891ad08ce3479/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d626c61636b2d3030303030302e737667\" alt=\"Code style: black\" data-canonical-src=\"https://img.shields.io/badge/code%20style-black-000000.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://slack.spack.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4bbdc2b44561be6dfffe64e15730e1c5a2bed9c4efe6f9942638091a4ce3ede2/68747470733a2f2f736c61636b2e737061636b2e696f2f62616467652e737667\" alt=\"Slack\" data-canonical-src=\"https://slack.spack.io/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSpack is a multi-platform package manager that builds and installs\nmultiple versions and configurations of software. It works on Linux,\nmacOS, and many supercomputers. Spack is non-destructive: installing a\nnew version of a package does not break existing installations, so many\nconfigurations of the same package can coexist.\u003c/p\u003e\n\u003cp\u003eSpack offers a simple \"spec\" syntax that allows users to specify versions\nand configuration options. Package files are written in pure Python, and\nspecs allow package authors to write a single script for many different\nbuilds of the same package.  With Spack, you can build your software\n\u003cem\u003eall\u003c/em\u003e the ways you want to.\u003c/p\u003e\n\u003cp\u003eSee the\n\u003ca href=\"https://spack.readthedocs.io/en/latest/features.html\" rel=\"nofollow\"\u003eFeature Overview\u003c/a\u003e\nfor examples and highlights.\u003c/p\u003e\n\u003cp\u003eTo install spack and your first package, make sure you have Python.\nThen:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git clone -c feature.manyFiles=true https://github.com/spack/spack.git\n$ cd spack/bin\n$ ./spack install zlib\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://spack.readthedocs.io/\" rel=\"nofollow\"\u003e\u003cstrong\u003eFull documentation\u003c/strong\u003e\u003c/a\u003e is available, or\nrun \u003ccode\u003espack help\u003c/code\u003e or \u003ccode\u003espack help --all\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFor a cheat sheet on Spack syntax, run \u003ccode\u003espack help --spec\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-tutorial\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#tutorial\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTutorial\u003c/h2\u003e\n\u003cp\u003eWe maintain a\n\u003ca href=\"https://spack.readthedocs.io/en/latest/tutorial.html\" rel=\"nofollow\"\u003e\u003cstrong\u003ehands-on tutorial\u003c/strong\u003e\u003c/a\u003e.\nIt covers basic to advanced usage, packaging, developer features, and large HPC\ndeployments.  You can do all of the exercises on your own laptop using a\nDocker container.\u003c/p\u003e\n\u003cp\u003eFeel free to use these materials to teach users at your organization\nabout Spack.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-community\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#community\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCommunity\u003c/h2\u003e\n\u003cp\u003eSpack is an open source project.  Questions, discussion, and\ncontributions are welcome. Contributions can be anything from new\npackages to bugfixes, documentation, or even new core features.\u003c/p\u003e\n\u003cp\u003eResources:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eSlack workspace\u003c/strong\u003e: \u003ca href=\"https://spackpm.slack.com\" rel=\"nofollow\"\u003espackpm.slack.com\u003c/a\u003e.\nTo get an invitation, visit \u003ca href=\"https://slack.spack.io\" rel=\"nofollow\"\u003eslack.spack.io\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/spack/spack/discussions\"\u003e\u003cstrong\u003eGithub Discussions\u003c/strong\u003e\u003c/a\u003e: not just for discussions, also Q\u0026amp;A.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMailing list\u003c/strong\u003e: \u003ca href=\"https://groups.google.com/d/forum/spack\" rel=\"nofollow\"\u003egroups.google.com/d/forum/spack\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTwitter\u003c/strong\u003e: \u003ca href=\"https://twitter.com/spackpm\" rel=\"nofollow\"\u003e@spackpm\u003c/a\u003e. Be sure to\n\u003ccode\u003e@mention\u003c/code\u003e us!\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eContributing to Spack is relatively easy.  Just send us a\n\u003ca href=\"https://help.github.com/articles/using-pull-requests/\"\u003epull request\u003c/a\u003e.\nWhen you send your request, make \u003ccode\u003edevelop\u003c/code\u003e the destination branch on the\n\u003ca href=\"https://github.com/spack/spack\"\u003eSpack repository\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYour PR must pass Spack\u0027s unit tests and documentation tests, and must be\n\u003ca href=\"https://www.python.org/dev/peps/pep-0008/\" rel=\"nofollow\"\u003ePEP 8\u003c/a\u003e compliant.  We enforce\nthese guidelines with our CI process. To run these tests locally, and for\nhelpful tips on git, see our\n\u003ca href=\"https://spack.readthedocs.io/en/latest/contribution_guide.html\" rel=\"nofollow\"\u003eContribution Guide\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSpack\u0027s \u003ccode\u003edevelop\u003c/code\u003e branch has the latest contributions. Pull requests\nshould target \u003ccode\u003edevelop\u003c/code\u003e, and users who want the latest package versions,\nfeatures, etc. can use \u003ccode\u003edevelop\u003c/code\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-releases\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#releases\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReleases\u003c/h2\u003e\n\u003cp\u003eFor multi-user site deployments or other use cases that need very stable\nsoftware installations, we recommend using Spack\u0027s\n\u003ca href=\"https://github.com/spack/spack/releases\"\u003estable releases\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eEach Spack release series also has a corresponding branch, e.g.\n\u003ccode\u003ereleases/v0.14\u003c/code\u003e has \u003ccode\u003e0.14.x\u003c/code\u003e versions of Spack, and \u003ccode\u003ereleases/v0.13\u003c/code\u003e has\n\u003ccode\u003e0.13.x\u003c/code\u003e versions. We backport important bug fixes to these branches but\nwe do not advance the package versions or make other changes that would\nchange the way Spack concretizes dependencies within a release branch.\nSo, you can base your Spack deployment on a release branch and \u003ccode\u003egit pull\u003c/code\u003e\nto get fixes, without the package churn that comes with \u003ccode\u003edevelop\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe latest release is always available with the \u003ccode\u003ereleases/latest\u003c/code\u003e tag.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"https://spack.readthedocs.io/en/latest/developer_guide.html#releases\" rel=\"nofollow\"\u003edocs on releases\u003c/a\u003e\nfor more details.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-code-of-conduct\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#code-of-conduct\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCode of Conduct\u003c/h2\u003e\n\u003cp\u003ePlease note that Spack has a\n\u003ca href=\".github/CODE_OF_CONDUCT.md\"\u003e\u003cstrong\u003eCode of Conduct\u003c/strong\u003e\u003c/a\u003e. By participating in\nthe Spack community, you agree to abide by its rules.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eMany thanks go to Spack\u0027s \u003ca href=\"https://github.com/spack/spack/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSpack was created by Todd Gamblin, \u003ca href=\"mailto:tgamblin@llnl.gov\"\u003etgamblin@llnl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-citing-spack\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#citing-spack\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Spack\u003c/h3\u003e\n\u003cp\u003eIf you are referencing Spack in a publication, please cite the following paper:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTodd Gamblin, Matthew P. LeGendre, Michael R. Collette, Gregory L. Lee,\nAdam Moody, Bronis R. de Supinski, and W. Scott Futral.\n\u003ca href=\"https://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf\" rel=\"nofollow\"\u003e\u003cstrong\u003eThe Spack Package Manager: Bringing Order to HPC Software Chaos\u003c/strong\u003e\u003c/a\u003e.\nIn \u003cem\u003eSupercomputing 2015 (SC\u201915)\u003c/em\u003e, Austin, Texas, November 15-20 2015. LLNL-CONF-669890.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eOn GitHub, you can copy this citation in APA or BibTeX format via the \"Cite this repository\"\nbutton. Or, see the comments in \u003ccode\u003eCITATION.cff\u003c/code\u003e for the raw BibTeX.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the\nApache License (Version 2.0). Users may choose either license, at their\noption.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0\nlicenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack/blob/develop/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 2,
+    "subscribers_count": 1,
     "topics": [],
-    "updated_at": 1699779200.0
+    "updated_at": 1684418839.0
   },
   {
     "data_format": 2,
@@ -351,8 +392,8 @@ var data =
     "data_format": 2,
     "description": "Spack fork used on OLCF resources",
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/data-vis-sdk/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/e4s/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack",
     "latest_release": null,
@@ -378,6 +419,20 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Mochi bootstrapping service.",
+    "filenames": [
+      "spack.yaml"
+    ],
+    "full_name": "mochi-hpc/mochi-bedrock",
+    "latest_release": "v0.7.0",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-bedrock\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#bedrock\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBedrock\u003c/h1\u003e\n\u003cp\u003eBedrock is Mochi\u0027s service bootstrapping mechanism.\nFor documentations and tutorials, please see\n\u003ca href=\"https://mochi.readthedocs.io/en/latest/bedrock.html\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1640527359.0
+  },
+  {
+    "data_format": 2,
     "description": "Python wrapper for BAKE",
     "filenames": [
       "spack.yaml"
@@ -389,33 +444,6 @@ var data =
     "subscribers_count": 5,
     "topics": [],
     "updated_at": 1633975348.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "oneapi/failures/spack.yaml"
-    ],
-    "full_name": "eugeneswalker/noaa",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 2,
-    "topics": [],
-    "updated_at": 1675202595.0
-  },
-  {
-    "data_format": 2,
-    "description": "my spack environments for software builds",
-    "filenames": [
-      "esmfbld/spack.yaml",
-      "esmfserialbld/spack.yaml"
-    ],
-    "full_name": "jedwards4b/spackenvironments",
-    "latest_release": null,
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1664981968.0
   },
   {
     "data_format": 2,
@@ -578,8 +606,8 @@ var data =
     "data_format": 2,
     "description": "Software environments",
     "filenames": [
-      "catalog-config/core/spack.yaml",
-      "catalog-config/libxc-5.2.3/spack.yaml"
+      "catalog-config/libxc-5.2.3/spack.yaml",
+      "catalog-config/core/spack.yaml"
     ],
     "full_name": "toxa81/se",
     "latest_release": null,
@@ -646,20 +674,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Spack configuration installed at /g/data/ik11/spack/ to provide ACCESS-OM3 dependencies",
-    "filenames": [
-      "environments/cesm-0_x_0/spack.yaml"
-    ],
-    "full_name": "COSIMA/spack-config",
-    "latest_release": "access-om3-v0.2.0",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-cosima-spack-configuration\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#cosima-spack-configuration\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCOSIMA Spack Configuration\u003c/h1\u003e\n\u003cp\u003eThis repository contains the spack configuration and the spack environments used\nby COSIMA to deploy software on gadi.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation-instructions\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installation-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation instructions\u003c/h2\u003e\n\u003cp\u003eClone this repository and its submodules to some appropriate location (e.g.,\n\u003ccode\u003e/g/data/ik11/spack/0.20.1\u003c/code\u003e):\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ git clone --recursive https://github.com/COSIMA/spack-config.git /g/data/ik11/spack/0.20.1\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eNext, create the python virtual environment:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e /g/data/ik11/spack/0.20.1\n$ ./bootstrap_venv.sh\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eFinally, to use this spack installation one just needs to activate the python\nenvironment:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$  \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e /g/data/ik11/spack/0.20.1/venv/bin/activate\n$ which spack\n\u003cspan class=\"pl-en\"\u003espack\u003c/span\u003e ()\n{ \n    \u003cspan class=\"pl-c1\"\u003e:\u003c/span\u003e this is a shell \u003cspan class=\"pl-k\"\u003efunction\u003c/span\u003e \u003cspan class=\"pl-en\"\u003efrom:\u003c/span\u003e /g/data/ik11/spack/0.20.1/spack/share/spack/setup-env.sh;\n    \u003cspan class=\"pl-c1\"\u003e:\u003c/span\u003e the real spack script is here: /g/data/ik11/spack/0.20.1/spack/bin/spack\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e\n    _spack_shell_wrapper \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-smi\"\u003e$@\u003c/span\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-smi\"\u003e$?\u003c/span\u003e\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing-software\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installing-software\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling software\u003c/h2\u003e\n\u003cp\u003eIt is recommended that all software be installed using spack\nenvironments. Currently the following environments are provided (the names\nshould be self-explanatory):\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003ccode\u003eaccess-om3-0_1_0\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eaccess-om3-devel\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecesm-0_1_0\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecommon_tools_and_libraries\u003c/code\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eInstallation of a spack environment is usually quite straightforward, but\nbecause this can be a CPU intensive operation and take quite some time, it is\nbest to do this in parallel and to use an interactive job.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-step-by-step-instructions\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-by-step-instructions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep-by-step instructions:\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003eActivate spack environment\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eFirst activate the spack environment\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack env activate \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003eenv\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003ewhere \u003ccode\u003e\u0026lt;env\u0026gt;\u003c/code\u003e by the actual name of the environment.\u003c/p\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003eDownload the sources\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eAs the compute nodes do not have internet access, one needs to download all the\nnecessary sources from the login node. This is done using a spack mirror.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack mirror create -d sources -a\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eHere \u003ccode\u003esources\u003c/code\u003e is the name of a mirror that has already been configured.\u003c/p\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003eSubmit interactive job\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThis should not use more than a single node. Also, make sure to add \u003ccode\u003egdata/ik11\u003c/code\u003e\nand \u003ccode\u003escratch/ik11\u003c/code\u003e to the storage options.\u003c/p\u003e\n\u003col start=\"4\"\u003e\n\u003cli\u003eInstall software\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eOnce the job has started, because it starts a completely new shell session, one\nneeds to activate again both the python and the spack environments:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$  \u003cspan class=\"pl-c1\"\u003e.\u003c/span\u003e /g/data/ik11/spack/0.20.1/venv/bin/activate\n$ spack env activate \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003eenv\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThen one can simply do\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack install \u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIn this case, although each individual build will use some level of parallelism,\nspack will proceed through the installation of the packages sequentially. To\nfully use parallelism one needs to tell spack to create a Makefile and use this\nto install the software:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e$ spack env depfile -o Makefile\n$ make -j\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eIn the end, all the packages should be available in some subdirectory of\n\u003ccode\u003e/g/data/ik11/spack/0.20.1/opt/\u003c/code\u003e and the corresponding environment modules are\ninstalled under a subdirectory of \u003ccode\u003e/g/data/ik11/spack/0.20.1/modules\u003c/code\u003e. The\nactual subdirectories depend on the selected environement.\u003c/p\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 6,
-    "topics": [],
-    "updated_at": 1692145219.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
       "nyx/inputs/spack/spack.yaml"
@@ -702,6 +716,20 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Container building infrastructure (mirror of https://eicweb.phy.anl.gov/containers/eic_container)",
+    "filenames": [
+      "spack-environment/dev/spack.yaml"
+    ],
+    "full_name": "eic/containers",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-eic-software-environment-container\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#eic-software-environment-container\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eEIC software environment container\u003c/h1\u003e\n\u003cp\u003eFor installation instructions of \u003ccode\u003eeic-shell\u003c/code\u003e, see \u003ca href=\"https://github.com/eic/eic-shell\"\u003ehttps://github.com/eic/eic-shell\u003c/a\u003e.\u003c/p\u003e\n",
+    "stargazers_count": 0,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1699619311.0
+  },
+  {
+    "data_format": 2,
     "description": "A mirror of Ristra\u0027s internal gitlab repository. ",
     "filenames": [
       ".gitlab-ci/env/dry-run/spack.yaml"
@@ -713,20 +741,6 @@ var data =
     "subscribers_count": 3,
     "topics": [],
     "updated_at": 1649449003.0
-  },
-  {
-    "data_format": 2,
-    "description": null,
-    "filenames": [
-      "real/spack.yaml"
-    ],
-    "full_name": "adamqc/dealii-docker",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-dealii-docker-images\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#dealii-docker-images\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003edeal.II Docker images\u003c/h1\u003e\n\u003cp\u003eThis repository automatically builds the dealii library every week using GitHub\nActions. The build is done by using spack, and will result in two Docker images:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eadamqc/dealii-real:latest\u003c/code\u003e: build with PETSc real numbers\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003eadamqc/dealii-complex:latest\u003c/code\u003e: build with PETSc complex numbers\u003c/li\u003e\n\u003c/ul\u003e\n",
-    "stargazers_count": 0,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1695213497.0
   },
   {
     "data_format": 2,
@@ -746,8 +760,8 @@ var data =
     "data_format": 2,
     "description": "Configuration scripts for BOUT++",
     "filenames": [
-      "lassen/spack_env/bout_petsc_with_hypre/spack.yaml",
-      "lassen/spack_env/bout/spack.yaml"
+      "lassen/spack_env/bout/spack.yaml",
+      "lassen/spack_env/bout_petsc_with_hypre/spack.yaml"
     ],
     "full_name": "boutproject/BOUT-configs",
     "latest_release": null,
@@ -761,8 +775,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "x86_64/spack.yaml",
-      "ppc64le/spack.yaml"
+      "ppc64le/spack.yaml",
+      "x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/llvm-containers",
     "latest_release": null,
@@ -789,8 +803,8 @@ var data =
     "data_format": 2,
     "description": "Dockerfile and Spack spec files for hardware optimized benchmark containers",
     "filenames": [
-      "hmmer-amd/spack.yaml",
-      "quantum-espresso-amd/spack.yaml"
+      "quantum-espresso-amd/spack.yaml",
+      "hmmer-amd/spack.yaml"
     ],
     "full_name": "dbkinghorn/Benchmark-Containers",
     "latest_release": null,
@@ -802,10 +816,25 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "spack config for erp cluster",
+    "filenames": [
+      "v0201_1/spack.yaml",
+      "openFoam24/spack.yaml",
+      "v0190_gcc910/spack.yaml"
+    ],
+    "full_name": "SCOREC/centos7-spack-config",
+    "latest_release": null,
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-centos7-spack-config\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#centos7-spack-config\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecentos7-spack-config\u003c/h1\u003e\n\u003cp\u003ecentos7 spack configuration and scripts\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contents\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contents\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtents\u003c/h2\u003e\n\u003cp\u003ecompilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package installation commands\nmodules.yaml - hierarchical layout for lua modules\npackages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh - env needed for executing spack commands\u003c/p\u003e\n",
+    "stargazers_count": 1,
+    "subscribers_count": 5,
+    "topics": [],
+    "updated_at": 1696768501.0
+  },
+  {
+    "data_format": 2,
     "description": "Spack repo for multimedia development",
     "filenames": [
-      "examples/c-embed-chibi/spack.yaml",
-      "examples/c-embed-python/spack.yaml"
+      "examples/c-embed-chibi/spack.yaml"
     ],
     "full_name": "salotz/snailpacks",
     "latest_release": null,
@@ -821,22 +850,6 @@ var data =
       "development-environment"
     ],
     "updated_at": 1648089720.0
-  },
-  {
-    "data_format": 2,
-    "description": "spack config for erp cluster",
-    "filenames": [
-      "v0201_1/spack.yaml",
-      "v0190_gcc910/spack.yaml",
-      "openFoam24/spack.yaml"
-    ],
-    "full_name": "SCOREC/centos7-spack-config",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-centos7-spack-config\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#centos7-spack-config\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecentos7-spack-config\u003c/h1\u003e\n\u003cp\u003ecentos7 spack configuration and scripts\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contents\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contents\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003econtents\u003c/h2\u003e\n\u003cp\u003ecompilers.yaml - compiler list\nconfig.yaml - global config\ninstall.sh - package installation commands\nmodules.yaml - hierarchical layout for lua modules\npackages.yaml - system installed packages\nREADME.md - this file\nsetupSpack.sh - env needed for executing spack commands\u003c/p\u003e\n",
-    "stargazers_count": 1,
-    "subscribers_count": 5,
-    "topics": [],
-    "updated_at": 1696768501.0
   },
   {
     "data_format": 2,
@@ -915,8 +928,8 @@ var data =
     "description": "Registry to store workflow descriptions",
     "filenames": [
       "minimal_workflow/wordcount/spack.yaml",
-      "tutorial/lysozyme/spack.yaml",
-      "kaust/exageostat/spack.yaml"
+      "kaust/exageostat/spack.yaml",
+      "tutorial/lysozyme/spack.yaml"
     ],
     "full_name": "eflows4hpc/workflow-registry",
     "latest_release": "2nd_stack_release",
@@ -942,38 +955,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": null,
-    "filenames": [
-      "ubuntu-gcc/spack.yaml"
-    ],
-    "full_name": "fnalacceleratormodeling/synergia2-containers",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-synergia2-containers\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#synergia2-containers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esynergia2-containers\u003c/h1\u003e\n\u003cp\u003eThis repository contains docker recipes for building containers that contain all dependencies for synergia2. These recipes are generated using \u003ca href=\"https://spack.readthedocs.io/en/latest/environments.html\" rel=\"nofollow\"\u003espack environments\u003c/a\u003e via \u003ca href=\"https://spack.readthedocs.io/en/latest/containers.html\" rel=\"nofollow\"\u003e\u003ccode\u003espack containerize\u003c/code\u003e\u003c/a\u003e, with some minor modifications. GithubActions is used to build these containers for \u003ccode\u003ex86_64_v2\u003c/code\u003e ISA and these containers can be pulled from the github container registry. For instructions on how to pull a particular image, visit the page associated with it \u003ca href=\"https://github.com/orgs/fnalacceleratormodeling/packages?repo_name=synergia2-containers\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThese containers are used as test environments for testing synergia2 via GithubActions.\u003c/p\u003e\n",
-    "stargazers_count": 2,
-    "subscribers_count": 1,
-    "topics": [],
-    "updated_at": 1678463172.0
-  },
-  {
-    "data_format": 2,
-    "description": "Storage system for Deep Learning models designed using the Mochi components.",
-    "filenames": [
-      "spack.yaml"
-    ],
-    "full_name": "mochi-hpc/flamestore",
-    "latest_release": null,
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-what-is-flamestore\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#what-is-flamestore\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat is FlameStore?\u003c/h1\u003e\n\u003cp\u003eFlameStore is a Mochi component to access Keras deep learning models\nand store them in various backends (right now: in memory, on a local\nfile system, or on a composition of SDSKV and BAKE providers).\u003c/p\u003e\n\u003cp\u003eFlameStore is developped by Matthieu Dorier (\u003ca href=\"mailto:mdorier@anl.gov\"\u003emdorier@anl.gov\u003c/a\u003e).\nMore information on how to install and use is available\n\u003ca href=\"https://xgitlab.cels.anl.gov/sds/flamestore/wikis/home\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 2,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1700115196.0
-  },
-  {
-    "data_format": 2,
     "description": "fast spack builds on slow filesystem",
     "filenames": [
-      "packages/nvhpc/spack.yaml",
-      "recipe/nvhpc.spack.yaml"
+      "recipe/nvhpc.spack.yaml",
+      "packages/nvhpc/spack.yaml"
     ],
     "full_name": "eth-cscs/spack-stack",
     "latest_release": null,
@@ -1000,8 +985,8 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
-      "etc/spack/nrel-eagle/spack.yaml",
-      "etc/spack/spack/spack.yaml"
+      "etc/spack/spack/spack.yaml",
+      "etc/spack/nrel-eagle/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1049,9 +1034,9 @@ var data =
     "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
+      "spack/ci/spack.yaml",
       "spack/snow/spack.yaml",
-      "spack/darwin-power9/spack.yaml",
-      "spack/ci/spack.yaml"
+      "spack/darwin-power9/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1065,11 +1050,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
+      "hosts/ascent/envs/base-rh7/spack.yaml",
       "hosts/ascent/envs/base/spack.yaml",
+      "hosts/frontier/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
       "hosts/borg/envs/base/spack.yaml",
-      "hosts/ascent/envs/base-rh7/spack.yaml",
-      "hosts/frontier/envs/base/spack.yaml",
       "hosts/summit/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
@@ -1141,9 +1126,9 @@ var data =
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
       "linux-rhel8-ppc64le/summit/spack.yaml",
+      "linux-sles15-zen2/spock/spack.yaml",
       "cray-sles15-zen3/frontier/spack.yaml",
-      "linux-centos7-broadwell/or-slurm/spack.yaml",
-      "linux-sles15-zen2/spock/spack.yaml"
+      "linux-centos7-broadwell/or-slurm/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -1155,27 +1140,11 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark for evaluating the performance of algorithms requiring global communication. Beatnik is also a precursor to potential later a High Performance Parallel Interface solver.",
-    "filenames": [
-      "configs/llnl/quartz/spack.yaml",
-      "configs/llnl/lassen/spack.yaml",
-      "configs/llnl/tioga/spack.yaml"
-    ],
-    "full_name": "CUP-ECS/beatnik",
-    "latest_release": "v1.0.0",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-beatnik---a-prototype-high-performance-parallel-interface-benchmark\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#beatnik---a-prototype-high-performance-parallel-interface-benchmark\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBeatnik - A Prototype High Performance Parallel Interface Benchmark\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-description\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#description\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDescription\u003c/h2\u003e\n\u003cp\u003eBeatnik is a benchmark for global communication based on Pandya and Shkoller\u0027s 3D fluid interace \"Z-Model\" in the Cabana/Cajita mesh framework [1]. The goals\nof Beatnik are to:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eProvide an interesting and meaningful benchmark for numerical methods that require global communication, for example for far-field force calculations. This includes fast fourier transforms, distance sort cutoff-based methods, and (eventually) fast multi-pole methods.\u003c/li\u003e\n\u003cli\u003eUnderstand the performance characteristics of different parallel decompositions of the Z-Model based on both a 2D decomposition based on logical mesh location location and a space-filling curve mesh decomposition.\u003c/li\u003e\n\u003cli\u003eProvide a working prototype parallel implementation of the fluid interface model that other codes can use to create multi-scale models and codes.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eBeatnik uses a simple mesh-based representation of the surface manifold as a Cabana grid 2D mesh in I/J space and a regular block 2D decomposition of this manifold. The physical position of each element in the mesh is stored as a separate vector in the nodes of the mesh. This design results in simple and efficient computation and communication strategies for surface normals, artificial viscosity, and Fourier transforms elements. However, it complicates methods where the data decomposition and communication is based on the spatial location of manifold points, requiring them to either maintain a separate spatial decomposition of the surface or to continually construct a spatial decomposition. A surface mesh that decomposed the mesh by spatial location would be an interesting alternative but would have the opposite issue - communication for surface calculations would be more complex but the (expensive) far force methods that rely on spatial decompositions (e.g. distance sort and spatial tree methods like the fast multi-pole method) would be less expensive.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building-beatnik\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#building-beatnik\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding Beatnik\u003c/h2\u003e\n\u003cp\u003eBeatnik relies on multiple external packages to build, including:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eECP CoPA\u0027s Cabana/Grid particle and mesh framework [2]\u003c/li\u003e\n\u003cli\u003eUT-Knoxville\u0027s HeFFTe fast fourier transform library [3]\u003c/li\u003e\n\u003cli\u003eA high-performance GPU-aware MPI implementation such as OpenMPI, MPICH, or MVAPICH\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo ease building Beatnik, the configs/ directory includes Spack configuration files for building in spack environments on multiple systems and test case run scripts for a variety of systems. In addition, the latest version of Spack includes a package description for directly building Beatnik. More information on building Beatnik can be found in the README.md file in the configs/ directory.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-running-beatnik\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#running-beatnik\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning Beatnik\u003c/h2\u003e\n\u003cp\u003eBy default, Beatnik solves a simple multi-mode rocket rig problem sized for a single serial CPU core with approximately 4GB of memory. It also includes command line options to change initial problem state, I/O frequency, and to weak-scale scale up the initial problem to larger number of processes. It also includes problem-specific command line parameters; setting these parameters accurately generally requires expertise in fluid interface models. However, we provide several useful examples drawn from the ZModel papers that recreate the results in those papers.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-general-command-line-parameters\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#general-command-line-parameters\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGeneral command line parameters\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-x [cuda|threads|serial]\u003c/code\u003e - The node-level parallelism/accelerator backend to use\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-F [write-frequency]\u003c/code\u003e - Interval between timesteps when I/O is written\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-O [solution order]\u003c/code\u003e - Order of solver to use (\u0027high\u0027, \u0027medium\u0027, or \u0027low\u0027). \u0027low\u0027 is the default.\u003c/li\u003e\n\u003cli\u003e`-w [weak scaling factor] - Scale up the problem specification, including the x/y bounding box, to be N times larger\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-problem-specific-command-line-parameters\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#problem-specific-command-line-parameters\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProblem-specific command line parameters\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-n [i/j mesh dimension ]\u003c/code\u003e - Number of points on the interface manifold in the I and J dimensions\u003c/li\u003e\n\u003cli\u003e`-t [timesteps] - number of timesteps to simulate\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-I [interface initialization]\u003c/code\u003e - Function to use for interface initial condition. Currently only \u0027cos\u0027 and \u0027sech2\u0027 are supported.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-m [magnitude]\u003c/code\u003e - The maximum magnitude of the initialization function.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-p [period]\u003c/code\u003e - The number of periods of the interface in the initial bounding box\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-a [atwood]\u003c/code\u003e - Atwood\u0027s constant for the difference in pressure between the two fluids\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-g [gravity]\u003c/code\u003e - Gravitational acceleration in the -Z direction\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-a [atwood]\u003c/code\u003e -  Atwood\u0027s constant for the difference in pressure between the two fluids\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-M [mu]\u003c/code\u003e - Mu, the artificial viscosity constant used in the Z-Model\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-e [epsilon]\u003c/code\u003e - Epsilon, the desingularization constant used in the Z-Model expressed as a fraction of the distance between interface mesh points\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-example-1-periodic-multi-mode-rocket-rig\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#example-1-periodic-multi-mode-rocket-rig\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample 1: Periodic Multi-mode Rocket Rig\u003c/h3\u003e\n\u003cp\u003eThe simplest test case and the one to which the rocketrig example program defaults is an initial interface distributed according to a cosine function. Simple usage examples:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eSerial execution: \u003ccode\u003ebin/rocketrig -x serial\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCuda execution (on systems with GPUs) with a 512x512 mesh: \u003ccode\u003ebin/rocketrig -x cuda -n 512\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCuda execution with a 1024x1024 problem scaled up to be sixteen times as large in terms of bounding box and number of total points with no I/O: bin/rocketrig -x cuda -n 1024 -F 0 -w 16`\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\u003ca id=\"user-content-example-2-non-periodic-single-mode-gaussian-rollup\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#example-2-non-periodic-single-mode-gaussian-rollup\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample 2: Non-periodic Single-mode Gaussian Rollup\u003c/h3\u003e\n\u003cp\u003eAnother test case is a single-mode rollup test where the intitial interface is set according to a hyperbolic secant function. This testcase recreates the the Gaussian perturbation results in Panda and Shkoller\u0027s paper from sections 2.3 and 2.4.  To run this testcase with a high-order model, use the following command line parameters. Note that this works best with a GPU accelerator, as the exact high-order far field force solver is very compute intensive and is generally impractical for non-trivial mesh sizes without GPU acceleration:\n\u003ccode\u003ebin/rocketrig -x cuda -O high -n 64 -I sech2 -m 0.1 -p 9.0 -b free -a 0.15 -M 2 -e 2\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-planned-development-steps\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#planned-development-steps\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePlanned Development Steps\u003c/h2\u003e\n\u003cp\u003eBeatnik is being implemented in multiple distinct steps, with associated planned releases:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eVersion 1.0 Features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eA low-order model implementation that relies on Cabana Grid/HeFFTe Fourier transforms for estimating velocity interface at mesh points.\u003c/li\u003e\n\u003cli\u003eA high-order model implementation based on brute-force exact computation of long-range forces\u003c/li\u003e\n\u003cli\u003eA medium-order model that uses the Fourier transform for estimating interface velocity and the far-field force solver for estimating how the vorticity changes at each interface point.\u003c/li\u003e\n\u003cli\u003eSupport for periodic boundary conditions and free boundary conditions\u003c/li\u003e\n\u003cli\u003eSimple benchmark examples including a single-mode Gaussian roll-up test and the multi-mode rocket rig experiment.\u003c/li\u003e\n\u003cli\u003eDirect support for weak scaling of benchmarks through command line arguments\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVersion 1.X Planned Features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eRearchitecting of the z-model solve into explicitly-coupled surface mesh and spatial mesh solvers\u003c/li\u003e\n\u003cli\u003eA spatial mesh cutoff-based approach for calculating far-field forces using the Cabana particle framework. The goal of this work is to understand the accuracy/performance tradeoffs in the Z-Model, particularly in the medium-order\u003c/li\u003e\n\u003cli\u003eImproved timestep, desingularization, and artificial viscosity parameter handling. The goal of this is to provide good defaults when other input parameters are changed.\u003c/li\u003e\n\u003cli\u003eAdditional interface initialization options, including Gaussian random and file-based interface initialization (also useful for checkpointing)\u003c/li\u003e\n\u003cli\u003eSupport for coupling with other applications through either I/O (e.g. ADIOS) or Communication (e.g. Portage)\u003c/li\u003e\n\u003cli\u003eAdditional test case definitions\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePotential later (e.g. \u0026gt;=2.0) features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eDirect fast multi-pole or P3M solver for scalable, high precision high-order model solves.\u003c/li\u003e\n\u003cli\u003eSupport for multiple interface manifolds in a single simulation.\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgment-contributors-and-copyright-information\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#acknowledgment-contributors-and-copyright-information\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgment, Contributors, and Copyright Information\u003c/h2\u003e\n\u003cp\u003eBeatnik is primarily available as open source under a 3-Clause BSD License. It is being developed at the University of New Mexico, Tennessee Tech University, and the University of Alabama under funding the U.S. Department of Energy\u0027s Predictive Science Academic Alliance Partnership III (PSAAP-III) program. Contributors to Beatnik development include:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ePatrick G. Bridges (\u003ca href=\"mailto:patrickb@unm.edu\"\u003epatrickb@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eThomas Hines (\u003ca href=\"mailto:tmhines3@ua.edu\"\u003etmhines3@ua.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJered Dominguez-Trujillo (\u003ca href=\"mailto:jereddt@unm.edu\"\u003ejereddt@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJacob McCullough (\u003ca href=\"mailto:jmccullough12@unm.edu\"\u003ejmccullough12@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJason Stewart (\u003ca href=\"mailto:jastewart@unm.edu\"\u003ejastewart@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe general structure of Beatnik and the rocketrig examples were taken from the ExaMPM proxy application (\u003ca href=\"https://github.com/ECP-copa/ExaMPM\"\u003ehttps://github.com/ECP-copa/ExaMPM\u003c/a\u003e) developed by the ECP Center for Particle Applications (CoPA), which was also available under a 3-Clause BSD License when used for creating application structure.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-references\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#references\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReferences\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eGavin Pandya and Steve Shkoller. \"3d Interface Models for Raleigh-Taylor Instability.\" Published as arxiv.org preprint \u003ca href=\"https://arxiv.org/abs/2201.04538\" rel=\"nofollow\"\u003ehttps://arxiv.org/abs/2201.04538\u003c/a\u003e, 2022.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ECP-copa/Cabana/\"\u003ehttps://github.com/ECP-copa/Cabana/\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInnovative Computing Laboratory. \"heFFTe.\" URL: \u003ca href=\"https://icl.utk.edu/fft/\" rel=\"nofollow\"\u003ehttps://icl.utk.edu/fft/\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n",
-    "stargazers_count": 4,
-    "subscribers_count": 4,
-    "topics": [],
-    "updated_at": 1696885371.0
-  },
-  {
-    "data_format": 2,
     "description": null,
     "filenames": [
-      ".gitlab/spack/environments/pascal/spack.yaml",
       ".gitlab/spack/environments/corona/spack.yaml",
-      ".gitlab/spack/environments/quartz/spack.yaml"
+      ".gitlab/spack/environments/quartz/spack.yaml",
+      ".gitlab/spack/environments/pascal/spack.yaml"
     ],
     "full_name": "LLNL/DiHydrogen",
     "latest_release": "v0.3.0",
@@ -1190,11 +1159,27 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark for evaluating the performance of algorithms requiring global communication. Beatnik is also a precursor to potential later a High Performance Parallel Interface solver.",
+    "filenames": [
+      "configs/llnl/quartz/spack.yaml",
+      "configs/llnl/tioga/spack.yaml",
+      "configs/llnl/lassen/spack.yaml"
+    ],
+    "full_name": "CUP-ECS/beatnik",
+    "latest_release": "v1.0.0",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-beatnik---a-prototype-high-performance-parallel-interface-benchmark\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#beatnik---a-prototype-high-performance-parallel-interface-benchmark\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBeatnik - A Prototype High Performance Parallel Interface Benchmark\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-description\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#description\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDescription\u003c/h2\u003e\n\u003cp\u003eBeatnik is a benchmark for global communication based on Pandya and Shkoller\u0027s 3D fluid interace \"Z-Model\" in the Cabana/Cajita mesh framework [1]. The goals\nof Beatnik are to:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eProvide an interesting and meaningful benchmark for numerical methods that require global communication, for example for far-field force calculations. This includes fast fourier transforms, distance sort cutoff-based methods, and (eventually) fast multi-pole methods.\u003c/li\u003e\n\u003cli\u003eUnderstand the performance characteristics of different parallel decompositions of the Z-Model based on both a 2D decomposition based on logical mesh location location and a space-filling curve mesh decomposition.\u003c/li\u003e\n\u003cli\u003eProvide a working prototype parallel implementation of the fluid interface model that other codes can use to create multi-scale models and codes.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eBeatnik uses a simple mesh-based representation of the surface manifold as a Cabana grid 2D mesh in I/J space and a regular block 2D decomposition of this manifold. The physical position of each element in the mesh is stored as a separate vector in the nodes of the mesh. This design results in simple and efficient computation and communication strategies for surface normals, artificial viscosity, and Fourier transforms elements. However, it complicates methods where the data decomposition and communication is based on the spatial location of manifold points, requiring them to either maintain a separate spatial decomposition of the surface or to continually construct a spatial decomposition. A surface mesh that decomposed the mesh by spatial location would be an interesting alternative but would have the opposite issue - communication for surface calculations would be more complex but the (expensive) far force methods that rely on spatial decompositions (e.g. distance sort and spatial tree methods like the fast multi-pole method) would be less expensive.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building-beatnik\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#building-beatnik\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding Beatnik\u003c/h2\u003e\n\u003cp\u003eBeatnik relies on multiple external packages to build, including:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eECP CoPA\u0027s Cabana/Grid particle and mesh framework [2]\u003c/li\u003e\n\u003cli\u003eUT-Knoxville\u0027s HeFFTe fast fourier transform library [3]\u003c/li\u003e\n\u003cli\u003eA high-performance GPU-aware MPI implementation such as OpenMPI, MPICH, or MVAPICH\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo ease building Beatnik, the configs/ directory includes Spack configuration files for building in spack environments on multiple systems and test case run scripts for a variety of systems. In addition, the latest version of Spack includes a package description for directly building Beatnik. More information on building Beatnik can be found in the README.md file in the configs/ directory.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-running-beatnik\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#running-beatnik\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRunning Beatnik\u003c/h2\u003e\n\u003cp\u003eBy default, Beatnik solves a simple multi-mode rocket rig problem sized for a single serial CPU core with approximately 4GB of memory. It also includes command line options to change initial problem state, I/O frequency, and to weak-scale scale up the initial problem to larger number of processes. It also includes problem-specific command line parameters; setting these parameters accurately generally requires expertise in fluid interface models. However, we provide several useful examples drawn from the ZModel papers that recreate the results in those papers.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-general-command-line-parameters\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#general-command-line-parameters\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGeneral command line parameters\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-x [cuda|threads|serial]\u003c/code\u003e - The node-level parallelism/accelerator backend to use\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-F [write-frequency]\u003c/code\u003e - Interval between timesteps when I/O is written\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-O [solution order]\u003c/code\u003e - Order of solver to use (\u0027high\u0027, \u0027medium\u0027, or \u0027low\u0027). \u0027low\u0027 is the default.\u003c/li\u003e\n\u003cli\u003e`-w [weak scaling factor] - Scale up the problem specification, including the x/y bounding box, to be N times larger\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-problem-specific-command-line-parameters\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#problem-specific-command-line-parameters\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProblem-specific command line parameters\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003e-n [i/j mesh dimension ]\u003c/code\u003e - Number of points on the interface manifold in the I and J dimensions\u003c/li\u003e\n\u003cli\u003e`-t [timesteps] - number of timesteps to simulate\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-I [interface initialization]\u003c/code\u003e - Function to use for interface initial condition. Currently only \u0027cos\u0027 and \u0027sech2\u0027 are supported.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-m [magnitude]\u003c/code\u003e - The maximum magnitude of the initialization function.\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-p [period]\u003c/code\u003e - The number of periods of the interface in the initial bounding box\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-a [atwood]\u003c/code\u003e - Atwood\u0027s constant for the difference in pressure between the two fluids\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-g [gravity]\u003c/code\u003e - Gravitational acceleration in the -Z direction\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-a [atwood]\u003c/code\u003e -  Atwood\u0027s constant for the difference in pressure between the two fluids\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-M [mu]\u003c/code\u003e - Mu, the artificial viscosity constant used in the Z-Model\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003e-e [epsilon]\u003c/code\u003e - Epsilon, the desingularization constant used in the Z-Model expressed as a fraction of the distance between interface mesh points\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-example-1-periodic-multi-mode-rocket-rig\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#example-1-periodic-multi-mode-rocket-rig\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample 1: Periodic Multi-mode Rocket Rig\u003c/h3\u003e\n\u003cp\u003eThe simplest test case and the one to which the rocketrig example program defaults is an initial interface distributed according to a cosine function. Simple usage examples:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eSerial execution: \u003ccode\u003ebin/rocketrig -x serial\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCuda execution (on systems with GPUs) with a 512x512 mesh: \u003ccode\u003ebin/rocketrig -x cuda -n 512\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCuda execution with a 1024x1024 problem scaled up to be sixteen times as large in terms of bounding box and number of total points with no I/O: bin/rocketrig -x cuda -n 1024 -F 0 -w 16`\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\u003ca id=\"user-content-example-2-non-periodic-single-mode-gaussian-rollup\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#example-2-non-periodic-single-mode-gaussian-rollup\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExample 2: Non-periodic Single-mode Gaussian Rollup\u003c/h3\u003e\n\u003cp\u003eAnother test case is a single-mode rollup test where the intitial interface is set according to a hyperbolic secant function. This testcase recreates the the Gaussian perturbation results in Panda and Shkoller\u0027s paper from sections 2.3 and 2.4.  To run this testcase with a high-order model, use the following command line parameters. Note that this works best with a GPU accelerator, as the exact high-order far field force solver is very compute intensive and is generally impractical for non-trivial mesh sizes without GPU acceleration:\n\u003ccode\u003ebin/rocketrig -x cuda -O high -n 64 -I sech2 -m 0.1 -p 9.0 -b free -a 0.15 -M 2 -e 2\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-planned-development-steps\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#planned-development-steps\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePlanned Development Steps\u003c/h2\u003e\n\u003cp\u003eBeatnik is being implemented in multiple distinct steps, with associated planned releases:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eVersion 1.0 Features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eA low-order model implementation that relies on Cabana Grid/HeFFTe Fourier transforms for estimating velocity interface at mesh points.\u003c/li\u003e\n\u003cli\u003eA high-order model implementation based on brute-force exact computation of long-range forces\u003c/li\u003e\n\u003cli\u003eA medium-order model that uses the Fourier transform for estimating interface velocity and the far-field force solver for estimating how the vorticity changes at each interface point.\u003c/li\u003e\n\u003cli\u003eSupport for periodic boundary conditions and free boundary conditions\u003c/li\u003e\n\u003cli\u003eSimple benchmark examples including a single-mode Gaussian roll-up test and the multi-mode rocket rig experiment.\u003c/li\u003e\n\u003cli\u003eDirect support for weak scaling of benchmarks through command line arguments\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eVersion 1.X Planned Features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eRearchitecting of the z-model solve into explicitly-coupled surface mesh and spatial mesh solvers\u003c/li\u003e\n\u003cli\u003eA spatial mesh cutoff-based approach for calculating far-field forces using the Cabana particle framework. The goal of this work is to understand the accuracy/performance tradeoffs in the Z-Model, particularly in the medium-order\u003c/li\u003e\n\u003cli\u003eImproved timestep, desingularization, and artificial viscosity parameter handling. The goal of this is to provide good defaults when other input parameters are changed.\u003c/li\u003e\n\u003cli\u003eAdditional interface initialization options, including Gaussian random and file-based interface initialization (also useful for checkpointing)\u003c/li\u003e\n\u003cli\u003eSupport for coupling with other applications through either I/O (e.g. ADIOS) or Communication (e.g. Portage)\u003c/li\u003e\n\u003cli\u003eAdditional test case definitions\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003ePotential later (e.g. \u0026gt;=2.0) features\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eDirect fast multi-pole or P3M solver for scalable, high precision high-order model solves.\u003c/li\u003e\n\u003cli\u003eSupport for multiple interface manifolds in a single simulation.\u003c/li\u003e\n\u003c/ol\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgment-contributors-and-copyright-information\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#acknowledgment-contributors-and-copyright-information\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgment, Contributors, and Copyright Information\u003c/h2\u003e\n\u003cp\u003eBeatnik is primarily available as open source under a 3-Clause BSD License. It is being developed at the University of New Mexico, Tennessee Tech University, and the University of Alabama under funding the U.S. Department of Energy\u0027s Predictive Science Academic Alliance Partnership III (PSAAP-III) program. Contributors to Beatnik development include:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ePatrick G. Bridges (\u003ca href=\"mailto:patrickb@unm.edu\"\u003epatrickb@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eThomas Hines (\u003ca href=\"mailto:tmhines3@ua.edu\"\u003etmhines3@ua.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJered Dominguez-Trujillo (\u003ca href=\"mailto:jereddt@unm.edu\"\u003ejereddt@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJacob McCullough (\u003ca href=\"mailto:jmccullough12@unm.edu\"\u003ejmccullough12@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eJason Stewart (\u003ca href=\"mailto:jastewart@unm.edu\"\u003ejastewart@unm.edu\u003c/a\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe general structure of Beatnik and the rocketrig examples were taken from the ExaMPM proxy application (\u003ca href=\"https://github.com/ECP-copa/ExaMPM\"\u003ehttps://github.com/ECP-copa/ExaMPM\u003c/a\u003e) developed by the ECP Center for Particle Applications (CoPA), which was also available under a 3-Clause BSD License when used for creating application structure.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-references\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#references\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReferences\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eGavin Pandya and Steve Shkoller. \"3d Interface Models for Raleigh-Taylor Instability.\" Published as arxiv.org preprint \u003ca href=\"https://arxiv.org/abs/2201.04538\" rel=\"nofollow\"\u003ehttps://arxiv.org/abs/2201.04538\u003c/a\u003e, 2022.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/ECP-copa/Cabana/\"\u003ehttps://github.com/ECP-copa/Cabana/\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInnovative Computing Laboratory. \"heFFTe.\" URL: \u003ca href=\"https://icl.utk.edu/fft/\" rel=\"nofollow\"\u003ehttps://icl.utk.edu/fft/\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n",
+    "stargazers_count": 4,
+    "subscribers_count": 4,
+    "topics": [],
+    "updated_at": 1696885371.0
+  },
+  {
+    "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
+      "ANL/Cooley/spack.yaml",
       "ORNL/Summit/spack.yaml",
-      "ORNL/Crusher/spack.yaml",
-      "ANL/Cooley/spack.yaml"
+      "ORNL/Crusher/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1310,26 +1295,26 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml",
       "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/cuda/spack.yaml",
       "spack-configs/cori-e4s-20.10/prod/spack.yaml",
-      "docs/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-23.08/nvhpc/spack.yaml",
+      "docs/spack.yaml",
       "spack-configs/perlmutter-e4s-22.05/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
+      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
       "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
       "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml"
+      "spack-configs/cori-e4s-22.02/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1343,12 +1328,12 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
-      "environments/key4hep-nightly/spack.yaml",
-      "environments/key4hep-nightly-clang/spack.yaml",
       "environments/key4hep-ci/spack.yaml",
       "environments/geant4-data-share/spack.yaml",
+      "environments/key4hep-nightly-debug/spack.yaml",
+      "environments/key4hep-nightly/spack.yaml",
       "environments/key4hep-release/spack.yaml",
-      "environments/key4hep-nightly-debug/spack.yaml"
+      "environments/key4hep-nightly-clang/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1362,8 +1347,8 @@ var data =
     "data_format": 2,
     "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronics.",
     "filenames": [
-      "Tools/machines/lxplus-cern/spack.yaml",
-      "Docs/spack.yaml"
+      "Docs/spack.yaml",
+      "Tools/machines/lxplus-cern/spack.yaml"
     ],
     "full_name": "AMReX-Microelectronics/artemis",
     "latest_release": null,
@@ -1405,17 +1390,17 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
+      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
       "benchmarks/spack/csd3-cascadelake/compute-node/spack.yaml",
       "benchmarks/spack/isambard-phase3/ampere/spack.yaml",
+      "benchmarks/spack/isambard-macs/volta/spack.yaml",
+      "benchmarks/spack/myriad/a100/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
       "benchmarks/spack/dial2/compute-node/spack.yaml",
       "benchmarks/spack/myriad/v100/spack.yaml",
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
-      "benchmarks/spack/myriad/a100/spack.yaml",
-      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
-      "benchmarks/spack/csd3-icelake/compute-node/spack.yaml",
       "benchmarks/spack/github-actions/default/spack.yaml",
-      "benchmarks/spack/isambard-macs/rome/spack.yaml",
-      "benchmarks/spack/isambard-macs/volta/spack.yaml"
+      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1470,10 +1455,10 @@ var data =
     "description": null,
     "filenames": [
       "configs/templates/unified-dev/spack.yaml",
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
       "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/ufs-weather-model-static/spack.yaml",
-      "configs/templates/skylab-dev/spack.yaml"
+      "configs/templates/skylab-dev/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
     "latest_release": "1.5.1",
@@ -1499,28 +1484,10 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
-    "filenames": [
-      "buildsystem/spack/incline/spack.yaml",
-      "buildsystem/spack/summit/spack.yaml",
-      "buildsystem/container/spack.yaml",
-      "performance_analysis/spack.yaml",
-      "buildsystem/spack/deception/spack.yaml"
-    ],
-    "full_name": "pnnl/ExaGO",
-    "latest_release": "v1.6.0",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-exascale-grid-optimization-toolkit-exagotm-----\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#exascale-grid-optimization-toolkit-exagotm-----\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003cb\u003eExa\u003c/b\u003escale \u003cb\u003eG\u003c/b\u003erid \u003cb\u003eO\u003c/b\u003eptimization toolkit (ExaGO\u003csup\u003eTM\u003c/sup\u003e) \u003ca href=\"https://github.com/pre-commit/pre-commit\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a58d28773559eecad3ca137f4f248ad5604c530a4db52aa3780d3e65b5a4e6f3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7072652d2d636f6d6d69742d656e61626c65642d627269676874677265656e3f6c6f676f3d7072652d636f6d6d6974\" alt=\"pre-commit\" data-canonical-src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\" alt=\"PNNL GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\" alt=\"ORNL Ascent GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\" alt=\"pre-commit GitHub Action\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\" alt=\"Spack CPU Build\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003c/h1\u003e\n\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"viz/images/network_gen_load_us.png\"\u003e\u003cimg src=\"viz/images/network_gen_load_us.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/manual/figures/three_in_one.png\"\u003e\u003cimg src=\"docs/manual/figures/three_in_one.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a package for solving large-scale  power grid optimization problems on parallel and distributed architectures, particularly targeted for exascale machines with heteregenous architectures (GPU). Combinations of stochastic, contingency-constrained, multiperiod ACOPF problems can be solved with ExaGO. The package is written in C/C++ with python bindings available for python-based applications. An overview of the package is given on this page. For extended information, including the modeling details and formulations, see the \u003ca href=\"docs/manual/manual.pdf\"\u003eExaGO manual\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e includes the following applications for solving different power grid optimization problems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e solves an AC optimal power flow either on CPU and GPU\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e solves a multi-period optimal power flow\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e solves a security-constrained (contingency-constrained) optimal power. Both single-period and multi-period problems can be solved.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e solves a stochastic optimal power flow with (optional) security constraints for single and multiple periods.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e applications are interfaced with the following optimization solver packaages:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/coin-or/Ipopt\"\u003eIpopt\u003c/a\u003e is a popular optimization package for solving nonlinear optimization problems that uses an interior-point algorithm.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/LLNL/hiop\"\u003eHiOp\u003c/a\u003e is a HPC package for optimization. ExaGO interfaces with two of its solvers -- a mixed sparse-dense interior-point solver (NewtonMDS) and a sparse interior-point solver (HiOPSparse). NewtonMDS  allows execution of the optimization either on CPU and GPU. The sparse HiOp solver is currently supported on CPU only.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote that not all applications can utilize all solvers yet. The following table lists the solver-application compatibility.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"center\"\u003eSolver\u003c/th\u003e\n\u003cth align=\"center\"\u003eOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eTCOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSCOPLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSOPFLOW\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eIpopt\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eHiOp\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eAdditionally, note that SCOPFLOW and SOPFLOW with HiOp solver use Ipopt to solve a portion of the problem (base problem). So one must also configure with Ipopt when using HiOp solver for these applications.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003cp\u003eDetails installation instructions are given at \u003ca href=\"./INSTALL.md\"\u003eINSTALL.md\u003c/a\u003e for information on acquiring, building and installing ExaGO.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#usage\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003eInstructions for executing the different ExaGO\u003csup\u003eTM\u003c/sup\u003e applications is given below.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/pflow.md\"\u003ePFLOW\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-options\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#options\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOptions\u003c/h3\u003e\n\u003cp\u003eEach application has a different set of options that are described in depth in the usage notes. These options can be passed optionally through an options file (\u003ccode\u003e-optionsfile \u0026lt;option_file\u0026gt;\u003c/code\u003e), or directly on the command line.\u003c/p\u003e\n\u003cp\u003eSince options may be specified in more than one location (on the command line, and through an options file), it is worth noting that the option specified on the command line supersede those in the options file. For example, if \u003ccode\u003eopflowoptions\u003c/code\u003e options file set the network file via the option \u003ccode\u003e-netfile case9mod.m\u003c/code\u003e, the following behavior occurs:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case9mod.m\u003c/span\u003e\n./opflow -optionsfile opflowoptions\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case118.m\u003c/span\u003e\n./opflow -netfile case118.m -options_file opflowoptions\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-visualization-experimental\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#visualization-experimental\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVisualization (experimental)\u003c/h2\u003e\n\u003cp\u003eExaGO has an experimental visualization to display the results of \u003ccode\u003eOPFLOW\u003c/code\u003e application on a map. See the \u003ca href=\"viz/README.md\"\u003evisualization README\u003c/a\u003e for more information.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease see \u003ca href=\"docs/developer_guidelines.md\"\u003ethe developer guidelines\u003c/a\u003e before attempting to contribute.\nFeel free to raise an issue or contact the team if the guidelines are ambiguous or you have a particular question.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eShrirang Abhyankar\u003c/li\u003e\n\u003cli\u003eSlaven Peles\u003c/li\u003e\n\u003cli\u003eAsher Mancinelli\u003c/li\u003e\n\u003cli\u003eCameron Rutherford\u003c/li\u003e\n\u003cli\u003eBruce Palmer\u003c/li\u003e\n\u003cli\u003eJaelyn Litzinger\u003c/li\u003e\n\u003cli\u003eWilliam Perkins\u003c/li\u003e\n\u003cli\u003eSayef Azad Sakin\u003c/li\u003e\n\u003cli\u003eJoseph Macam\u003c/li\u003e\n\u003cli\u003eRyan Danehy\u003c/li\u003e\n\u003cli\u003eNicholson Koukpaizan\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgement\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#acknowledgement\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgement\u003c/h2\u003e\n\u003cp\u003eThis package is developed as a part of \u003ca href=\"https://www.exascaleproject.org/research-project/exasgd/\" rel=\"nofollow\"\u003eExaSGD\u003c/a\u003e project under the \u003ca href=\"https://www.exascaleproject.org/\" rel=\"nofollow\"\u003eExascale computing project\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#copyright\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright\u003c/h2\u003e\n\u003cp\u003eCopyright \u00a9 2020, Battelle Memorial Institute.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a free software distributed under a BSD 2-clause license. You may reuse, modify, and redistribute the software. See the \u003ca href=\"LICENSE\"\u003elicense\u003c/a\u003e file for details.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-disclaimer\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#disclaimer\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDisclaimer\u003c/h2\u003e\n\u003cp\u003eThis material was prepared as an account of work sponsored by an agency of the United States Government.  Neither the United States Government nor the United States Department of Energy, nor Battelle, nor any of their employees, nor any jurisdiction or organization that has cooperated in the development of these materials, makes any warranty, express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness or any information, apparatus, product, software, or process disclosed, or represents that its use would not infringe privately owned rights.\nReference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof, or Battelle Memorial Institute. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States Government or any agency thereof.\u003c/p\u003e\n",
-    "stargazers_count": 18,
-    "subscribers_count": 10,
-    "topics": [],
-    "updated_at": 1700818798.0
-  },
-  {
-    "data_format": 2,
     "description": "An open collaborative repository for cross site benchmarking environments",
     "filenames": [
-      "configs/x86/spack.yaml",
-      "configs/cts1/spack.yaml"
+      "configs/cts1/spack.yaml",
+      "configs/x86/spack.yaml"
     ],
     "full_name": "LLNL/benchpark",
     "latest_release": null,
@@ -1534,20 +1501,38 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
+    "filenames": [
+      "buildsystem/spack/summit/spack.yaml",
+      "buildsystem/spack/incline/spack.yaml",
+      "buildsystem/container/spack.yaml",
+      "buildsystem/spack/deception/spack.yaml",
+      "performance_analysis/spack.yaml"
+    ],
+    "full_name": "pnnl/ExaGO",
+    "latest_release": "v1.6.0",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-exascale-grid-optimization-toolkit-exagotm-----\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#exascale-grid-optimization-toolkit-exagotm-----\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003cb\u003eExa\u003c/b\u003escale \u003cb\u003eG\u003c/b\u003erid \u003cb\u003eO\u003c/b\u003eptimization toolkit (ExaGO\u003csup\u003eTM\u003c/sup\u003e) \u003ca href=\"https://github.com/pre-commit/pre-commit\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a58d28773559eecad3ca137f4f248ad5604c530a4db52aa3780d3e65b5a4e6f3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7072652d2d636f6d6d69742d656e61626c65642d627269676874677265656e3f6c6f676f3d7072652d636f6d6d6974\" alt=\"pre-commit\" data-canonical-src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\" alt=\"PNNL GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\" alt=\"ORNL Ascent GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\" alt=\"pre-commit GitHub Action\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\" alt=\"Spack CPU Build\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003c/h1\u003e\n\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"viz/images/network_gen_load_us.png\"\u003e\u003cimg src=\"viz/images/network_gen_load_us.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/manual/figures/three_in_one.png\"\u003e\u003cimg src=\"docs/manual/figures/three_in_one.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a package for solving large-scale  power grid optimization problems on parallel and distributed architectures, particularly targeted for exascale machines with heteregenous architectures (GPU). Combinations of stochastic, contingency-constrained, multiperiod ACOPF problems can be solved with ExaGO. The package is written in C/C++ with python bindings available for python-based applications. An overview of the package is given on this page. For extended information, including the modeling details and formulations, see the \u003ca href=\"docs/manual/manual.pdf\"\u003eExaGO manual\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e includes the following applications for solving different power grid optimization problems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e solves an AC optimal power flow either on CPU and GPU\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e solves a multi-period optimal power flow\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e solves a security-constrained (contingency-constrained) optimal power. Both single-period and multi-period problems can be solved.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e solves a stochastic optimal power flow with (optional) security constraints for single and multiple periods.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e applications are interfaced with the following optimization solver packaages:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/coin-or/Ipopt\"\u003eIpopt\u003c/a\u003e is a popular optimization package for solving nonlinear optimization problems that uses an interior-point algorithm.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/LLNL/hiop\"\u003eHiOp\u003c/a\u003e is a HPC package for optimization. ExaGO interfaces with two of its solvers -- a mixed sparse-dense interior-point solver (NewtonMDS) and a sparse interior-point solver (HiOPSparse). NewtonMDS  allows execution of the optimization either on CPU and GPU. The sparse HiOp solver is currently supported on CPU only.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote that not all applications can utilize all solvers yet. The following table lists the solver-application compatibility.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"center\"\u003eSolver\u003c/th\u003e\n\u003cth align=\"center\"\u003eOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eTCOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSCOPLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSOPFLOW\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eIpopt\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eHiOp\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eAdditionally, note that SCOPFLOW and SOPFLOW with HiOp solver use Ipopt to solve a portion of the problem (base problem). So one must also configure with Ipopt when using HiOp solver for these applications.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstalling\u003c/h2\u003e\n\u003cp\u003eDetails installation instructions are given at \u003ca href=\"./INSTALL.md\"\u003eINSTALL.md\u003c/a\u003e for information on acquiring, building and installing ExaGO.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-usage\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#usage\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsage\u003c/h2\u003e\n\u003cp\u003eInstructions for executing the different ExaGO\u003csup\u003eTM\u003c/sup\u003e applications is given below.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/pflow.md\"\u003ePFLOW\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-options\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#options\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOptions\u003c/h3\u003e\n\u003cp\u003eEach application has a different set of options that are described in depth in the usage notes. These options can be passed optionally through an options file (\u003ccode\u003e-optionsfile \u0026lt;option_file\u0026gt;\u003c/code\u003e), or directly on the command line.\u003c/p\u003e\n\u003cp\u003eSince options may be specified in more than one location (on the command line, and through an options file), it is worth noting that the option specified on the command line supersede those in the options file. For example, if \u003ccode\u003eopflowoptions\u003c/code\u003e options file set the network file via the option \u003ccode\u003e-netfile case9mod.m\u003c/code\u003e, the following behavior occurs:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case9mod.m\u003c/span\u003e\n./opflow -optionsfile opflowoptions\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case118.m\u003c/span\u003e\n./opflow -netfile case118.m -options_file opflowoptions\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-visualization-experimental\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#visualization-experimental\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVisualization (experimental)\u003c/h2\u003e\n\u003cp\u003eExaGO has an experimental visualization to display the results of \u003ccode\u003eOPFLOW\u003c/code\u003e application on a map. See the \u003ca href=\"viz/README.md\"\u003evisualization README\u003c/a\u003e for more information.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003ePlease see \u003ca href=\"docs/developer_guidelines.md\"\u003ethe developer guidelines\u003c/a\u003e before attempting to contribute.\nFeel free to raise an issue or contact the team if the guidelines are ambiguous or you have a particular question.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eShrirang Abhyankar\u003c/li\u003e\n\u003cli\u003eSlaven Peles\u003c/li\u003e\n\u003cli\u003eAsher Mancinelli\u003c/li\u003e\n\u003cli\u003eCameron Rutherford\u003c/li\u003e\n\u003cli\u003eBruce Palmer\u003c/li\u003e\n\u003cli\u003eJaelyn Litzinger\u003c/li\u003e\n\u003cli\u003eWilliam Perkins\u003c/li\u003e\n\u003cli\u003eSayef Azad Sakin\u003c/li\u003e\n\u003cli\u003eJoseph Macam\u003c/li\u003e\n\u003cli\u003eRyan Danehy\u003c/li\u003e\n\u003cli\u003eNicholson Koukpaizan\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-acknowledgement\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#acknowledgement\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgement\u003c/h2\u003e\n\u003cp\u003eThis package is developed as a part of \u003ca href=\"https://www.exascaleproject.org/research-project/exasgd/\" rel=\"nofollow\"\u003eExaSGD\u003c/a\u003e project under the \u003ca href=\"https://www.exascaleproject.org/\" rel=\"nofollow\"\u003eExascale computing project\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-copyright\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#copyright\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright\u003c/h2\u003e\n\u003cp\u003eCopyright \u00a9 2020, Battelle Memorial Institute.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a free software distributed under a BSD 2-clause license. You may reuse, modify, and redistribute the software. See the \u003ca href=\"LICENSE\"\u003elicense\u003c/a\u003e file for details.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-disclaimer\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#disclaimer\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDisclaimer\u003c/h2\u003e\n\u003cp\u003eThis material was prepared as an account of work sponsored by an agency of the United States Government.  Neither the United States Government nor the United States Department of Energy, nor Battelle, nor any of their employees, nor any jurisdiction or organization that has cooperated in the development of these materials, makes any warranty, express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness or any information, apparatus, product, software, or process disclosed, or represents that its use would not infringe privately owned rights.\nReference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof, or Battelle Memorial Institute. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States Government or any agency thereof.\u003c/p\u003e\n",
+    "stargazers_count": 19,
+    "subscribers_count": 10,
+    "topics": [],
+    "updated_at": 1701055987.0
+  },
+  {
+    "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/ubuntu22.04-amd64-gcc-11.4/spack.yaml",
-      "docker-recipes/archived/special/superlu-sc/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
       "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
-      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
       "docker-recipes/runner/archived/ubuntu18.04-ppc64le/spack.yaml",
       "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
+      "docker-recipes/runner/archived/rhel8-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
       "docker-recipes/runner/archived/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
-      "docker-recipes/runner/archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml"
+      "docker-recipes/runner/ubuntu22.04-amd64-gcc-11.4/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1561,21 +1546,21 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/23.02/cuda-ppc64le/spack.yaml",
-      "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/23.05/cuda-x86_64/spack.yaml",
       "environments/23.11/cuda-x86_64/spack.yaml",
+      "environments/21.08/spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
+      "environments/23.08/cuda-aarch64/spack.yaml",
       "environments/21.05/spack.yaml",
       "environments/23.11/cuda-ppc64le/spack.yaml",
-      "environments/22.05/rocm.spack.yaml",
-      "environments/23.08/cuda-aarch64/spack.yaml",
-      "environments/23.08/cuda-x86_64/spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
       "environments/22.08/oneapi.spack.yaml",
+      "environments/22.05/cuda-x86_64.spack.yaml",
+      "environments/23.05/rocm-x86_64/spack.yaml",
+      "environments/23.08/cuda-x86_64/spack.yaml",
+      "environments/22.05/rocm.spack.yaml",
+      "environments/22.08/cuda-x86_64.spack.yaml",
       "environments/23.02/cuda-x86_64/spack.yaml",
-      "environments/21.08/spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml"
+      "environments/23.02/cuda-ppc64le/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v23.11",
@@ -1714,12 +1699,12 @@ var data =
     "full_name": "spack/spack-tutorial",
     "latest_release": "sc23",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content--spack-tutorial\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#-spack-tutorial\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a01512f4480c4615a82f2b929789547a60d78e1f68d26be1a56e33d9258735d4/68747470733a2f2f63646e2e7261776769742e636f6d2f737061636b2f737061636b2f646576656c6f702f73686172652f737061636b2f6c6f676f2f737061636b2d6c6f676f2e737667\" width=\"64\" valign=\"middle\" alt=\"Spack\" data-canonical-src=\"https://cdn.rawgit.com/spack/spack/develop/share/spack/logo/spack-logo.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e Spack Tutorial\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://spack-tutorial.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f38d9ceff55c2a7fea5d61861aa91b64fe00c220b83af1fd8af46da42ede70f5/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f737061636b2d7475746f7269616c2f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Read the Docs\" data-canonical-src=\"https://readthedocs.org/projects/spack-tutorial/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSpack is a multi-platform package manager that builds and installs multiple versions and configurations of software. It works on Linux, macOS, and many supercomputers. Spack is non-destructive: installing a new version of a package does not break existing installations, so many configurations of the same package can coexist.\u003c/p\u003e\n\u003cp\u003eThis repository houses Spack\u0027s \u003ca href=\"https://spack-tutorial.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003e\u003cstrong\u003ehands-on tutorial\u003c/strong\u003e\u003c/a\u003e, which is a subset of Spack\u0027s \u003ca href=\"https://spack.readthedocs.io/\" rel=\"nofollow\"\u003e\u003cstrong\u003efull documentation\u003c/strong\u003e\u003c/a\u003e (or you can run \u003ccode\u003espack help\u003c/code\u003e or \u003ccode\u003espack help --all\u003c/code\u003e).\u003c/p\u003e\n\u003cp\u003eThis tutorial covers basic to advanced usage, packaging, developer features, and large HPC deployments.  You can do all of the exercises on your own laptop using a Docker container. Feel free to use these materials to teach users at your organization about Spack.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-updating-the-tutorial\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#updating-the-tutorial\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUpdating the tutorial\u003c/h2\u003e\n\u003col\u003e\n\u003cli\u003eCreate a new branch named for the event/milestone that corresponds to the new version you want to create.\u003c/li\u003e\n\u003cli\u003eUpload screen shot of first slide (244px wide, .png) to \u003ca href=\"https://github.com/spack/spack-tutorial/tree/master/tutorial/images\"\u003eimages directory\u003c/a\u003e following existing file-naming convention.\u003c/li\u003e\n\u003cli\u003eUpload PDF of slide deck to \u003ca href=\"https://github.com/spack/spack-tutorial/tree/master/_static/slides\"\u003eslides directory\u003c/a\u003e following existing file-naming convention.\u003c/li\u003e\n\u003cli\u003eUpdate \u003ca href=\"https://github.com/spack/spack-tutorial/blob/master/index.rst\"\u003eindex.rst\u003c/a\u003e with event name and date; full citation; and file paths for image and PDF.\u003c/li\u003e\n\u003cli\u003eUpdate this README (lines 3 and 7) with link to new version\u0027s URL.\u003c/li\u003e\n\u003cli\u003eBuild docs locally.\u003c/li\u003e\n\u003cli\u003ePush changes to GitHub and active new tag/version on Read the Docs.\u003c/li\u003e\n\u003cli\u003eBuild new version on Read the Docs.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch2\u003e\u003ca id=\"user-content-updating-the-tutorial-container\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#updating-the-tutorial-container\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUpdating the tutorial container\u003c/h2\u003e\n\u003cp\u003eThe Spack tutorial container is automatically built from \u003ca href=\"docker/Dockerfile\"\u003erepository\u003c/a\u003e by \u003ca href=\".github/workflows/containers.yaml\"\u003ethis GitHub action\u003c/a\u003e. The latest version is available at\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eghcr.io/spack/tutorial:latest\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eand is rebuilt on a schedule. It can also be \u003ca href=\"https://github.com/spack/spack-tutorial/actions\"\u003etriggered manually\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe tutorial image builds on top of the container image that runs in Spack CI, which is built in a different repository at \u003ca href=\"https://github.com/spack/gitlab-runners/\"\u003espack/gitlab-runners\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-automatically-generating-command-ouputs\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#automatically-generating-command-ouputs\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAutomatically generating command ouputs\u003c/h2\u003e\n\u003cp\u003eThe tutorial \u003ccode\u003erst\u003c/code\u003e files include output from Spack commands. This process is automated, and it is\nrecommended not to run commands manually.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eNote:\u003c/strong\u003e as a preliminary step, check your terminal width. All current outputs\nare generated on a fixed terminal width \u003cstrong\u003e94\u003c/strong\u003e; deviating from that can cause\nunnecessarily large diffs:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-text-shell-session\"\u003e\u003cpre\u003e$ \u003cspan class=\"pl-s1\"\u003etput cols\u003c/span\u003e\n\u003cspan class=\"pl-c1\"\u003e94\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eTo regenerate the outputs, run:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003emake -C outputs -j \u003cspan class=\"pl-k\"\u003e\u0026lt;\u003c/span\u003eN\u003cspan class=\"pl-k\"\u003e\u0026gt;\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThis runs each \u003ccode\u003eoutputs/\u0026lt;section\u0026gt;.sh\u003c/code\u003e script in parallel in a container, and collects outputs in\n\u003ccode\u003eoutputs/raw/*\u003c/code\u003e. When all complete succesfully, the outputs are post-processed and put in\n\u003ccode\u003eoutputs/\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eIn case you want to restrict to particular sections, or if you need to modify the container\nexecutable and flags, specify those as variables in \u003ccode\u003eoutputs/Make.user\u003c/code\u003e:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-makefile\"\u003e\u003cpre\u003e\u003cspan class=\"pl-smi\"\u003esections\u003c/span\u003e := basics scripting\n\u003cspan class=\"pl-smi\"\u003eDOCKER\u003c/span\u003e := sudo docker\u003c/pre\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003emake\u003c/code\u003e will regenerate the relevant outputs when \u003ccode\u003eoutputs/\u0026lt;section\u0026gt;.sh\u003c/code\u003e files are modified.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTo start from scratch, run \u003ccode\u003emake clean\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003emake run-\u0026lt;tab\u0026gt;\u003c/code\u003e can also be used to regenerate a particular section, but notice it will only\ncreate raw outputs.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSpack is distributed under the terms of both the MIT license and the Apache License (Version 2.0). Users may choose either license, at their option.\u003c/p\u003e\n\u003cp\u003eAll new contributions must be made under both the MIT and Apache-2.0 licenses.\u003c/p\u003e\n\u003cp\u003eSee \u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-MIT\"\u003eLICENSE-MIT\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/LICENSE-APACHE\"\u003eLICENSE-APACHE\u003c/a\u003e,\n\u003ca href=\"https://github.com/spack/spack/blob/develop/COPYRIGHT\"\u003eCOPYRIGHT\u003c/a\u003e, and\n\u003ca href=\"https://github.com/spack/spack/blob/develop/NOTICE\"\u003eNOTICE\u003c/a\u003e for details.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: (Apache-2.0 OR MIT)\u003c/p\u003e\n\u003cp\u003eLLNL-CODE-811652\u003c/p\u003e\n",
-    "stargazers_count": 35,
+    "stargazers_count": 36,
     "subscribers_count": 34,
     "topics": [
       "tutorial"
     ],
-    "updated_at": 1700400651.0
+    "updated_at": 1700985883.0
   },
   {
     "data_format": 2,
@@ -1777,46 +1762,47 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
+      "OLCF/summit/spack.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/intel-spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
       "NREL/configs/eagle/software/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
       "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml",
       "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "OLCF/crusher/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
       "OLCF/frontier/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
       "BOISESTATE/borah/applications/gromacs/_spack.yaml",
-      "NERSC/cori/e4s-20.10/prod/spack.yaml",
-      "BOISESTATE/borah/environments/b4s/_spack.yaml",
       "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
       "OLCF/spock/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml"
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "OLCF/andes/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "BOISESTATE/borah/environments/b4s/_spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "OLCF/crusher/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml",
+      "NERSC/cori/e4s-20.10/prod/spack.yaml",
+      "BOISESTATE/borah/environments/netcdf+hdf5+fftw/_spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1870,10 +1856,10 @@ var data =
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
       "scripts/spack/configs/darwin/spack.yaml",
+      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
       "scripts/spack/configs/toss_3_x86_64_ib/spack.yaml",
       "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
-      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml",
-      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml"
+      "scripts/spack/devtools_configs/toss_3_x86_64_ib/spack.yaml"
     ],
     "full_name": "LLNL/axom",
     "latest_release": "v0.8.1",
@@ -1938,8 +1924,8 @@ var data =
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
       "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml"
+      "scripts/spack/configs/darwin/spack.yaml",
+      "scripts/spack/configs/docker/ubuntu20/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1959,9 +1945,9 @@ var data =
     "data_format": 2,
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
-      "scripts/platforms/marianas/spack.yaml",
+      "scripts/platforms/newell/spack.yaml",
       "scripts/platforms/summit/spack.yaml",
-      "scripts/platforms/newell/spack.yaml"
+      "scripts/platforms/marianas/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.1",
@@ -2001,7 +1987,7 @@ var data =
     "full_name": "ECP-WarpX/WarpX",
     "latest_release": "23.11",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-warpx\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#warpx\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWarpX\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build/latest?definitionId=1\u0026amp;branchName=development\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/992695de99c1381c366d74cf333cc4b4a29d53878b4808d643fb673748a73c5b/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e57617270583f6272616e63684e616d653d646576656c6f706d656e74\" alt=\"Code Status development\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.WarpX?branchName=development\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/ECP-WarpX/WarpX/_build?definitionId=2\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f95e83fed565d15a3d259197389c3fbb68e0e9d529df7da1f73702528739c16f/68747470733a2f2f6465762e617a7572652e636f6d2f4543502d57617270582f57617270582f5f617069732f6275696c642f7374617475732f4543502d57617270582e4e696768746c793f6272616e63684e616d653d6e696768746c79266c6162656c3d6e696768746c792532307061636b61676573\" alt=\"Nightly Installation Tests\" data-canonical-src=\"https://dev.azure.com/ECP-WarpX/WarpX/_apis/build/status/ECP-WarpX.Nightly?branchName=nightly\u0026amp;label=nightly%20packages\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://warpx.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2fe6e4a1201d33edf1bdd9968c6c0446da41d44fef1b7a1e532cddc4fbd4c2ae/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f77617270782f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/warpx/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://spack.readthedocs.io/en/latest/package_list.html#warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/86cd172f84e0a3b89161faaeb17eb247cdb10062ed0e65f9f291db3011697416/68747470733a2f2f696d672e736869656c64732e696f2f737061636b2f762f7761727078\" alt=\"Spack Version\" data-canonical-src=\"https://img.shields.io/spack/v/warpx\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://anaconda.org/conda-forge/warpx\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4434c608221acef026a4af7cb491f491413ab135a781e3537087938592334617/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f766e2f636f6e64612d666f7267652f7761727078\" alt=\"Conda Version\" data-canonical-src=\"https://img.shields.io/conda/vn/conda-forge/warpx\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/ECP-WarpX/WarpX/discussions\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/dcbb262bbe27c41e6885c404f5cac70d3a21a42b6499e931fed8c874879b7ef6/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636861742d64697363757373696f6e732d74757271756f6973652e737667\" alt=\"Discussions\" data-canonical-src=\"https://img.shields.io/badge/chat-discussions-turquoise.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://warpx.readthedocs.io/en/latest/install/users.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/114e64f6c29b3e409c6de5b19ee4074ec3053396d43319fe4876231f1480e0d1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706c6174666f726d732d6c696e75782532302537432532306f737825323025374325323077696e2d626c7565\" alt=\"Supported Platforms\" data-canonical-src=\"https://img.shields.io/badge/platforms-linux%20%7C%20osx%20%7C%20win-blue\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/ECP-WarpX/WarpX/compare/development\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/4cb34757a4ca0098f7c5b01c1d559e13991f5cb4e6add106761194c2967a7911/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d6974732d73696e63652f4543502d57617270582f57617270582f6c61746573742f646576656c6f706d656e742e737667\" alt=\"GitHub commits since last release\" data-canonical-src=\"https://img.shields.io/github/commits-since/ECP-WarpX/WarpX/latest/development.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.exascaleproject.org/research/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/fe7a996983f2a22d3a469de3af6e13b7062bca7f02ffad7974bb724b27c2b218/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f737570706f7274656425323062792d4543502d6f72616e6765\" alt=\"Exascale Computing Project\" data-canonical-src=\"https://img.shields.io/badge/supported%20by-ECP-orange\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://isocpp.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/5d59fff46d59a1783cc24942cb4eb374014513db99f991164bd051bcd94aa598/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4325324225324231372d6f72616e67652e737667\" alt=\"Language: C++17\" data-canonical-src=\"https://img.shields.io/badge/language-C%2B%2B17-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://python.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9cf7ec75b074af6953db1304db75950ab917ecd8a1aecb41f0d1191d10872298/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e2d6f72616e67652e737667\" alt=\"Language: Python\" data-canonical-src=\"https://img.shields.io/badge/language-Python-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003cbr\u003e\n\u003ca href=\"https://spdx.org/licenses/BSD-3-Clause-LBNL.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/c468c77da60663856e2be1cdd66db538d4bca1b2a3bdf34a76a7f3953e58fc26/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4253442d2d332d2d436c617573652d2d4c424e4c2d626c75652e737667\" alt=\"License WarpX\" data-canonical-src=\"https://img.shields.io/badge/license-BSD--3--Clause--LBNL-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.5281/zenodo.4571577\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a80e066c199b28e39d95c8a3cd8a7061bb4c190c717db8b58ff8cea2de0952be/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f4925323028736f75726365292d31302e353238312f7a656e6f646f2e343537313537372d626c75652e737667\" alt=\"DOI (source)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(source)-10.5281/zenodo.4571577-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://doi.org/10.1109/SC41404.2022.00008\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/2be0ab9ceaff22581aac9ee5d5eac9cc73cae7e4bad2c69bcf0ffd6713337293/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f444f49253230287061706572292d31302e313130392f534334313430342e323032322e30303030382d626c75652e737667\" alt=\"DOI (paper)\" data-canonical-src=\"https://img.shields.io/badge/DOI%20(paper)-10.1109/SC41404.2022.00008-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#overview\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h2\u003e\n\u003cp\u003eWarpX is an advanced \u003cstrong\u003eelectromagnetic \u0026amp; electrostatic Particle-In-Cell\u003c/strong\u003e code.\nIt supports many features including Perfectly-Matched Layers (PML), mesh refinement, and the boosted-frame technique.\u003c/p\u003e\n\u003cp\u003eWarpX is a \u003cem\u003ehighly-parallel and highly-optimized code\u003c/em\u003e, which can run on GPUs and multi-core CPUs, and includes load balancing capabilities.\nWarpX scales to the world\u0027s largest supercomputers and was awarded the \u003ca href=\"https://www.exascaleproject.org/ecp-supported-collaborative-teams-win-the-2022-acm-gordon-bell-prize-and-special-prize/\" rel=\"nofollow\"\u003e2022 ACM Gordon Bell Prize\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://picmi-standard.github.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/343c1eefa7d19641daf3e00da21e54db3a6211fe5f692c3004f2836a185668d8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532325049434d4925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICMI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22PICMI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.openPMD.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/062e5330b80f6eca55b1df50d6d154214f5a2033b7a87344ef2a580fd7a616dc/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d2532326f70656e504d4425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22openPMD%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://yt-project.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/9e6cacd2df0d5a581d8afad30a57807b71f4b67c58e74faa4080dad7d81c6184/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d253232776f726b7325323077697468253232266d6573736167653d253232797425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"yt-project\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22works%20with%22\u0026amp;message=%22yt%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIn order to learn how to install and run the code, please see the online documentation:\n\u003ca href=\"https://warpx.readthedocs.io\" rel=\"nofollow\"\u003ehttps://warpx.readthedocs.io\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTo contact the developers, feel free to open an issue on this repo, or visit our discussions page at \u003ca href=\"https://github.com/ECP-WarpX/WarpX/discussions\"\u003ehttps://github.com/ECP-WarpX/WarpX/discussions\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://amrex-codes.github.io/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7053679f4412132d376afadf481432a9d435336f8127e7c8650808bc66d019b2/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232414d52655825323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"AMReX\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22AMReX%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://picsar.net\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/793037a9842c5343f4942ce7475c7c7696e69b44621531f666492ac87b5e80b8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323250494353415225323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"PICSAR\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22PICSAR%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://openpmd-api.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b7108e47d5ad6b76b60f07a4e04173ba260c5eef9bb244680f65ff91d8a319f8/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532326f70656e504d442d61706925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"openPMD-api\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22openPMD-api%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://csmd.ornl.gov/adios\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d525e37817dc6dfc5f173eb31f4e9fd52947e668793967565910166b335ced93/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324144494f5325323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"ADIOS\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22ADIOS%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.hdfgroup.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/005f778c667adb78e4302d47579b9bedc5ec0f59f88c13552f6b4bb399f93438/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d2532324844463525323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"HDF5\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22HDF5%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://www.ascent-dav.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/204f53a0d216a0a2fce9a367e3ba3a1957ac2285ed89026cb80321df6a125fc4/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d253232417363656e7425323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"Ascent\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22Ascent%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://sensei-insitu.org\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/6f870e29c1d57a4e4209ec97a00fbe4f73c8fd6fb589bf4c12f3feef9d3aaaeb/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f6c6162656c3d25323272756e732532306f6e253232266d6573736167653d25323253454e53454925323226636f6c6f723d253232626c756576696f6c6574253232\" alt=\"SENSEI\" data-canonical-src=\"https://img.shields.io/static/v1?label=%22runs%20on%22\u0026amp;message=%22SENSEI%22\u0026amp;color=%22blueviolet%22\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOur workflow is described in \u003ca href=\"CONTRIBUTING.rst\"\u003eCONTRIBUTING.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-copyright-notice\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#copyright-notice\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCopyright Notice\u003c/h2\u003e\n\u003cp\u003eWarpX Copyright (c) 2018, The Regents of the University of California,\nthrough Lawrence Berkeley National Laboratory (subject to receipt of any\nrequired approvals from the U.S. Dept. of Energy).  All rights reserved.\u003c/p\u003e\n\u003cp\u003eIf you have questions about your rights to use or distribute this software,\nplease contact Berkeley Lab\u0027s Innovation \u0026amp; Partnerships Office at\n\u003ca href=\"mailto:IPO@lbl.gov\"\u003eIPO@lbl.gov\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eNOTICE.  This Software was developed under funding from the U.S. Department\nof Energy and the U.S. Government consequently retains certain rights. As\nsuch, the U.S. Government has been granted for itself and others acting on\nits behalf a paid-up, nonexclusive, irrevocable, worldwide license in the\nSoftware to reproduce, distribute copies to the public, prepare derivative\nworks, and perform publicly and display publicly, and to permit other to do\nso.\u003c/p\u003e\n\u003cp\u003ePlease see the full license agreement in \u003ca href=\"LICENSE.txt\"\u003eLICENSE.txt\u003c/a\u003e.\nThe SPDX license identifier is \u003ccode\u003eBSD-3-Clause-LBNL\u003c/code\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 222,
+    "stargazers_count": 223,
     "subscribers_count": 13,
     "topics": [
       "laser",
@@ -2013,7 +1999,7 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1700589937.0
+    "updated_at": 1701052786.0
   },
   {
     "data_format": 2,
@@ -2024,7 +2010,7 @@ var data =
     "full_name": "LLNL/Umpire",
     "latest_release": "v2023.06.0",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content---umpire-v2023060\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#--umpire-v2023060\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\n\u003ca target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/81bd6212d0dd884f5a1d99f54f5b792596f42ad2d6643791a885b7ff42aad41e/68747470733a2f2f63646e2e7261776769742e636f6d2f4c4c4e4c2f556d706972652f646576656c6f702f73686172652f756d706972652f6c6f676f2f756d706972652d6c6f676f2e706e67\" width=\"128\" valign=\"middle\" alt=\"Umpire\" data-canonical-src=\"https://cdn.rawgit.com/LLNL/Umpire/develop/share/umpire/logo/umpire-logo.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e  Umpire v2023.06.0\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.com/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/36f0f474aacbade149e980682a28b1b97aa3ea7737006edce896fa4ebbc9ffa7/68747470733a2f2f7472617669732d63692e636f6d2f4c4c4e4c2f556d706972652e7376673f6272616e63683d646576656c6f70\" alt=\"Travis Build Status\" data-canonical-src=\"https://travis-ci.com/LLNL/Umpire.svg?branch=develop\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://dev.azure.com/davidbeckingsale/Umpire/_build/latest?definitionId=1\u0026amp;branchName=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/615ebc663bd8e7bce0a236693071d360c1f3d4b04bfabb454ba50068b0bac3c0/68747470733a2f2f6465762e617a7572652e636f6d2f64617669646265636b696e6773616c652f556d706972652f5f617069732f6275696c642f7374617475732f4c4c4e4c2e556d706972653f6272616e63684e616d653d646576656c6f70\" alt=\"Azure Pipelines Build Status\" data-canonical-src=\"https://dev.azure.com/davidbeckingsale/Umpire/_apis/build/status/LLNL.Umpire?branchName=develop\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://umpire.readthedocs.io/en/develop/?badge=develop\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7fd7eef5a102528cae391ff45e9ae1026690d979c1413498b1604b23febeffaf/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f756d706972652f62616467652f3f76657273696f6e3d646576656c6f70\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/umpire/badge/?version=develop\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/LLNL/Umpire\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d567cb288d0416a63a2faa83e8b2d5265860c1a3e9af604f4b6730340fa830c7/68747470733a2f2f636f6465636f762e696f2f67682f4c4c4e4c2f556d706972652f6272616e63682f646576656c6f702f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/LLNL/Umpire/branch/develop/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca href=\"https://gitter.im/LLNL/Umpire?utm_source=badge\u0026amp;utm_medium=badge\u0026amp;utm_campaign=pr-badge\u0026amp;utm_content=badge\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d812b594e8c008b20bc4b4e508035cb3ffd814a168debe18107da92e6c7e5f88/68747470733a2f2f6261646765732e6769747465722e696d2f4c4c4e4c2f556d706972652e737667\" alt=\"Join the chat at https://gitter.im/LLNL/Umpire\" data-canonical-src=\"https://badges.gitter.im/LLNL/Umpire.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eUmpire is a resource management library that allows the discovery, provision,\nand management of memory on machines with multiple memory devices like NUMA and GPUs.\u003c/p\u003e\n\u003cp\u003eUmpire uses CMake and BLT to handle builds. Since BLT is included as a\nsubmodule, first make sure you run:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ git submodule init \u0026amp;\u0026amp; git submodule update\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThen, make sure that you have a modern compiler loaded, and the configuration is as\nsimple as:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ mkdir build \u0026amp;\u0026amp; cd build\n$ cmake ..\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCMake will provide output about which compiler is being used. Once CMake has\ncompleted, Umpire can be built with Make:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e$ make\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor more advanced configuration you can use standard CMake variables.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eBoth user and code documentation is available \u003ca href=\"http://umpire.readthedocs.io/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eThe Umpire \u003ca href=\"https://umpire.readthedocs.io/en/develop/sphinx/tutorial.html\" rel=\"nofollow\"\u003etutorial\u003c/a\u003e provides a step by step introduction to Umpire features.\u003c/p\u003e\n\u003cp\u003eIf you have build problems, we have comprehensive \u003ca href=\"https://umpire.readthedocs.io/en/develop/sphinx/advanced_configuration.html\" rel=\"nofollow\"\u003ebuild system documentation\u003c/a\u003e too!\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-getting-involved\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#getting-involved\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting Involved\u003c/h1\u003e\n\u003cp\u003eUmpire is an open-source project, and we welcome contributions from the community.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-mailing-list\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#mailing-list\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMailing List\u003c/h2\u003e\n\u003cp\u003eThe Umpire mailing list is hosted on Google Groups, and is a great place to ask questions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://groups.google.com/forum/#!forum/umpire-users\" rel=\"nofollow\"\u003eUmpire Users Google Group\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributions\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributions\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributions\u003c/h2\u003e\n\u003cp\u003eWe welcome all kinds of contributions: new features, bug fixes, documentation edits; it\u0027s all great!\u003c/p\u003e\n\u003cp\u003eTo contribute, make a \u003ca href=\"https://github.com/LLNL/Umpire/compare\"\u003epull request\u003c/a\u003e, with \u003ccode\u003edevelop\u003c/code\u003e as the destination branch.\nWe use Travis to run CI tests, and your branch must pass these tests before being merged.\u003c/p\u003e\n\u003cp\u003eFor more information, see the \u003ca href=\"https://github.com/LLNL/Umpire/blob/develop/CONTRIBUTING.md\"\u003econtributing guide\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h1\u003e\n\u003cp\u003eThanks to all of Umpire\u0027s\n\u003ca href=\"https://github.com/LLNL/Umpire/graphs/contributors\"\u003econtributors\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eUmpire was created by David Beckingsale (\u003ca href=\"mailto:david@llnl.gov\"\u003edavid@llnl.gov\u003c/a\u003e).\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-citing-umpire\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#citing-umpire\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting Umpire\u003c/h2\u003e\n\u003cp\u003eIf you are referencing Umpire in a publication, please use the following citation:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eD. Beckingsale, M. Mcfadden, J. Dahm, R. Pankajakshan and R. Hornung, \u003ca href=\"https://ieeexplore.ieee.org/document/8907404\" rel=\"nofollow\"\u003e\"Umpire: Application-Focused Management and Coordination of Complex Hierarchical Memory,\"\u003c/a\u003e in IBM Journal of Research and Development. 2019. doi: 10.1147/JRD.2019.2954403\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\u003ca id=\"user-content-release\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#release\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRelease\u003c/h1\u003e\n\u003cp\u003eUmpire is released under an MIT license. For more details, please see the\n\u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"./RELEASE\"\u003eRELEASE\u003c/a\u003e files.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLLNL-CODE-747640\u003c/code\u003e\n\u003ccode\u003eOCEC-18-031\u003c/code\u003e\u003c/p\u003e\n",
-    "stargazers_count": 276,
+    "stargazers_count": 277,
     "subscribers_count": 15,
     "topics": [
       "hpc",
@@ -2035,14 +2021,14 @@ var data =
       "radiuss",
       "cpp"
     ],
-    "updated_at": 1700552870.0
+    "updated_at": 1701057648.0
   },
   {
     "data_format": 2,
     "description": "Modular C++ Toolkit for Performance Analysis and Logging. Profiling API and Tools for C, C++, CUDA, Fortran, and Python. The C++ template API is essentially a framework to creating tools: it is designed to provide a unifying interface for recording various performance measurements alongside data logging and interfaces to other tools.",
     "filenames": [
-      "docker/gpu/spack.yaml",
-      "docker/cpu/spack.yaml"
+      "docker/cpu/spack.yaml",
+      "docker/gpu/spack.yaml"
     ],
     "full_name": "NERSC/timemory",
     "latest_release": "v3.2.3",
@@ -2078,14 +2064,14 @@ var data =
     "filenames": [
       "docker/sundials-ci/e4s-quarterly/int32-extended/spack.yaml",
       "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/e4s-quarterly/int64-extended/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.6.2",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSUNDIALS: SUite of Nonlinear and DIfferential/ALgebraic equation Solvers\u003c/h1\u003e\n\u003ch3\u003e\u003ca id=\"user-content-version-662-nov-2023\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#version-662-nov-2023\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersion 6.6.2 (Nov 2023)\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003eCenter for Applied Scientific Computing, Lawrence Livermore National Laboratory\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSUNDIALS is a family of software packages providing robust and efficient time\nintegrators and nonlinear solvers that can easily be incorporated into existing\nsimulation codes. The packages are designed to require minimal information from\nthe user, allow users to supply their own data structures underneath the\npackages, and enable interfacing with user-supplied or third-party algebraic\nsolvers and preconditioners.\u003c/p\u003e\n\u003cp\u003eThe SUNDIALS suite consists of the following packages for ordinary differential\nequation (ODE) systems, differential-algebraic equation (DAE) systems, and\nnonlinear algebraic systems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eARKODE - for integrating stiff, nonstiff, and multirate ODEs of the form\n$$M(t) \\, y\u0027 = f_1(t,y) + f_2(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODE - for integrating stiff and nonstiff ODEs of the form\n$$y\u0027 = f(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODES - for integrating and sensitivity analysis (forward and adjoint) of\nODEs of the form\n$$y\u0027 = f(t,y,p), \\quad y(t_0) = y_0(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDA - for integrating DAEs of the form\n$$F(t,y,y\u0027) = 0, \\quad y(t_0) = y_0, \\quad y\u0027(t_0) = y_0\u0027$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDAS - for integrating and sensitivity analysis (forward and adjoint) of DAEs\nof the form\n$$F(t,y,y\u0027,p) = 0, \\quad y(t_0) = y_0(p), \\quad y\u0027(t_0) = y_0\u0027(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKINSOL - for solving nonlinear algebraic systems of the form\n$$F(u) = 0 \\quad \\text{or} \\quad G(u) = u$$\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h2\u003e\n\u003cp\u003eFor installation directions see the \u003ca href=\"https://sundials.readthedocs.io/en/latest/Install_link.html\" rel=\"nofollow\"\u003eonline install guide\u003c/a\u003e,\nthe installation chapter in any of the package user guides, or INSTALL_GUIDE.pdf.\u003c/p\u003e\n\u003cp\u003eWarning to users who receive more than one of the individual packages at\ndifferent times: Mixing old and new versions of SUNDIALS may fail. To avoid\nsuch failures, obtain all desired package at the same time.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-support\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#support\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSupport\u003c/h2\u003e\n\u003cp\u003eFull user guides for all of the SUNDIALS packages are available \u003ca href=\"https://sundials.readthedocs.io\" rel=\"nofollow\"\u003eonline\u003c/a\u003e\nand in the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory. Additionally, the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory\ncontains documentation for the package example programs.\u003c/p\u003e\n\u003cp\u003eFor information on recent changes to SUNDIALS see the \u003ca href=\"./CHANGELOG.md\"\u003eCHANGELOG\u003c/a\u003e\nor the introduction chapter of any package user guide.\u003c/p\u003e\n\u003cp\u003eA list of Frequently Asked Questions on build and installation procedures as\nwell as common usage issues is available on the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/faq\" rel=\"nofollow\"\u003eFAQ\u003c/a\u003e.\nFor dealing with systems with unphysical solutions or discontinuities see the\nSUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/usage-notes\" rel=\"nofollow\"\u003eusage notes\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIf you have a question not covered in the FAQ or usage notes, please submit\nyour question to the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/mailing-list\" rel=\"nofollow\"\u003emailing list\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eBug fixes or minor changes are preferred via a pull request to the\n\u003ca href=\"https://github.com/LLNL/sundials\"\u003eSUNDIALS GitHub repository\u003c/a\u003e. For more\ninformation on contributing see the \u003ca href=\"./CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e file.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-citing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#citing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting\u003c/h2\u003e\n\u003cp\u003eSee the \u003ca href=\"https://sundials.readthedocs.io/en/latest/index.html#citing\" rel=\"nofollow\"\u003eonline documentation\u003c/a\u003e\nor \u003ca href=\"./CITATIONS.md\"\u003eCITATIONS\u003c/a\u003e file for information on how to cite SUNDIALS in\nany publications reporting work done using SUNDIALS packages.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-authors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthors\u003c/h2\u003e\n\u003cp\u003eThe SUNDIALS library has been developed over many years by a number of\ncontributors. The current SUNDIALS team consists of Cody J. Balos,\nDavid J. Gardner, Alan C. Hindmarsh, Daniel R. Reynolds, and Carol S. Woodward.\nWe thank Radu Serban for significant and critical past contributions.\u003c/p\u003e\n\u003cp\u003eOther contributors to SUNDIALS include: James Almgren-Bell, Lawrence E. Banks,\nPeter N. Brown, George Byrne, Rujeko Chinomona, Scott D. Cohen, Aaron Collier,\nKeith E. Grant, Steven L. Lee, Shelby L. Lockhart, John Loffeld, Daniel McGreer,\nYu Pan, Slaven Peles, Cosmin Petra, Steven B. Roberts, H. Hunter Schwartz,\nJean M. Sexton, Dan Shumaker, Steve G. Smith, Shahbaj Sohal, Allan G. Taylor,\nHilari C. Tiedeman, Chris White, Ting Yan, and Ulrike M. Yang.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-license\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eSUNDIALS is released under the BSD 3-clause license. See the \u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e\nand \u003ca href=\"./NOTICE\"\u003eNOTICE\u003c/a\u003e files for details. All new contributions must be made\nunder the BSD 3-clause license.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePlease Note\u003c/strong\u003e If you are using SUNDIALS with any third party libraries linked\nin (e.g., LAPACK, KLU, SuperLU_MT, PETSc, or \u003cem\u003ehypre\u003c/em\u003e), be sure to review the\nrespective license of the package as that license may have more restrictive\nterms than the SUNDIALS license.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eSPDX-License-Identifier: BSD-3-Clause\n\nLLNL-CODE-667205  (ARKODE)\nUCRL-CODE-155951  (CVODE)\nUCRL-CODE-155950  (CVODES)\nUCRL-CODE-155952  (IDA)\nUCRL-CODE-237203  (IDAS)\nLLNL-CODE-665877  (KINSOL)\n\u003c/code\u003e\u003c/pre\u003e\n",
-    "stargazers_count": 414,
+    "stargazers_count": 413,
     "subscribers_count": 35,
     "topics": [
       "ode-solver",
@@ -2101,7 +2087,7 @@ var data =
       "solver",
       "high-performance-computing"
     ],
-    "updated_at": 1700908219.0
+    "updated_at": 1701022423.0
   },
   {
     "data_format": 2,
@@ -2112,7 +2098,7 @@ var data =
     "full_name": "ComputationalRadiationPhysics/picongpu",
     "latest_release": "0.7.0",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-picongpu---particle-in-cell-simulations-for-the-exascale-era\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#picongpu---particle-in-cell-simulations-for-the-exascale-era\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePIConGPU - Particle-in-Cell Simulations for the Exascale Era\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://gitlab.com/hzdr/crp/picongpu/pipelines/dev/latest\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/7f31bbb5197c9ebcecdbd3bd3adcc493557b1b49c328c892119ad955d38f90d0/68747470733a2f2f6769746c61622e636f6d2f687a64722f6372702f7069636f6e6770752f6261646765732f6465762f706970656c696e652e7376673f6b65795f746578743d646576\" alt=\"Code Status dev\" data-canonical-src=\"https://gitlab.com/hzdr/crp/picongpu/badges/dev/pipeline.svg?key_text=dev\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://picongpu.readthedocs.io\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/dd84c49cf1a8e134ca1a5a87517257a4317eecc4a80ff90195b2d2eebeeb7ced/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f7069636f6e6770752f62616467652f3f76657273696f6e3d6c6174657374\" alt=\"Documentation Status\" data-canonical-src=\"https://readthedocs.org/projects/picongpu/badge/?version=latest\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://computationalradiationphysics.github.io/picongpu\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/bea8b749e6bc63f677e6ccfc18ae8a6a4a4e39d55e3aac6c872acc8d1ecdc22b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4150492d446f787967656e2d626c75652e737667\" alt=\"Doxygen\" data-canonical-src=\"https://img.shields.io/badge/API-Doxygen-blue.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://isocpp.org/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/5d59fff46d59a1783cc24942cb4eb374014513db99f991164bd051bcd94aa598/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4325324225324231372d6f72616e67652e737667\" alt=\"Language\" data-canonical-src=\"https://img.shields.io/badge/language-C%2B%2B17-orange.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.gnu.org/licenses/gpl-3.0.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d9724a7d6c0aab25ad100b9c974369e2ea7585e6d0d0b87b66aa5bd34f6c2abe/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d47504c76332d626c75652e7376673f6c6162656c3d5049436f6e475055\" alt=\"License PIConGPU\" data-canonical-src=\"https://img.shields.io/badge/license-GPLv3-blue.svg?label=PIConGPU\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://www.gnu.org/licenses/lgpl-3.0.html\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/d8685de1336e9f80f82625f4271fbd11d00beaf91013768daef9ac1a62e6fe2b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4c47504c76332d626c75652e7376673f6c6162656c3d504d616363\" alt=\"License PMacc\" data-canonical-src=\"https://img.shields.io/badge/license-LGPLv3-blue.svg?label=PMacc\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"http://www.youtube.com/watch?v=nwZuG-XtUDE\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/be7eb258510f59135b17c487a2bd50e76f186e1c71e56ab87f5cd1afe4df35d3/687474703a2f2f696d672e796f75747562652e636f6d2f76692f6e775a75472d58745544452f302e6a7067\" alt=\"PIConGPU Presentation Video\" data-canonical-src=\"http://img.youtube.com/vi/nwZuG-XtUDE/0.jpg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"http://www.youtube.com/watch?v=nwZuG-XtUDE\" rel=\"nofollow\"\u003e\u003cimg src=\"docs/logo/pic_logo_vert_158x360.png\" alt=\"PIConGPU Release\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-introduction\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#introduction\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003ePIConGPU is a fully relativistic,\n\u003ca href=\"https://en.wikipedia.org/wiki/Manycore_processor\" rel=\"nofollow\"\u003emanycore\u003c/a\u003e,\n3D3V particle-in-cell (\u003ca href=\"http://en.wikipedia.org/wiki/Particle-in-cell\" rel=\"nofollow\"\u003ePIC\u003c/a\u003e)\ncode. The Particle-in-Cell algorithm is a central tool in plasma physics.\nIt describes the dynamics of a plasma by computing the motion of\nelectrons and ions in the plasma based on\n\u003ca href=\"http://en.wikipedia.org/wiki/Maxwell%27s_equations\" rel=\"nofollow\"\u003eMaxwell\u0027s equations\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003ePIConGPU implements various numerical schemes to solve the PIC cycle.\nIts features for the electro-magnetic PIC algorithm include:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ea central or Yee-lattice for fields\u003c/li\u003e\n\u003cli\u003eparticle pushers that solve the equation of motion for charged and neutral\nparticles, e.g., the \u003cem\u003eBoris-\u003c/em\u003e and the\n\u003ca href=\"http://dx.doi.org/10.1063/1.2837054\" rel=\"nofollow\"\u003e\u003cem\u003eVay-Pusher\u003c/em\u003e\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eMaxwell field solvers, e.g.\n\u003ca href=\"http://dx.doi.org/10.1109/TAP.1966.1138693\" rel=\"nofollow\"\u003e\u003cem\u003eYee\u0027s\u003c/em\u003e\u003c/a\u003e and\n\u003ca href=\"http://dx.doi.org/10.1103/PhysRevSTAB.16.021301\" rel=\"nofollow\"\u003e\u003cem\u003eLehe\u0027s\u003c/em\u003e\u003c/a\u003e scheme\u003c/li\u003e\n\u003cli\u003erigorously charge conserving current deposition schemes, such as\n\u003ca href=\"http://dx.doi.org/10.1016/S0010-4655%2800%2900228-9\" rel=\"nofollow\"\u003e\u003cem\u003eEsirkepov\u003c/em\u003e\u003c/a\u003e\nand \u003cem\u003eEZ\u003c/em\u003e (Esirkepov meets ZigZag)\u003c/li\u003e\n\u003cli\u003emacro-particle form factors ranging from NGP (0th order), CIC (1st),\nTSC (2nd), PQS (3rd) to PCS (4th)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eand the electro-magnetic PIC algorithm is further self-consistently coupled to:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eclassical radiation reaction\n(\u003ca href=\"http://dx.doi.org/10.1016/j.cpc.2016.04.002\" rel=\"nofollow\"\u003eDOI:10.1016/j.cpc.2016.04.002\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003eadvanced field ionization methods\n(\u003ca href=\"http://dx.doi.org/10.1103/PhysRevA.59.569\" rel=\"nofollow\"\u003eDOI:10.1103/PhysRevA.59.569\u003c/a\u003e,\n\u003ca href=\"http://www.jetp.ac.ru/cgi-bin/dn/e_020_05_1307.pdf\" rel=\"nofollow\"\u003eLV Keldysh\u003c/a\u003e, BSI)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eBesides the electro-magnetic PIC algorithm and extensions to it, we developed\na wide range of tools and diagnostics, e.g.:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eonline, far-field radiation diagnostics for coherent and incoherent radiation\nemitted by charged particles\u003c/li\u003e\n\u003cli\u003efull restart and output capabilities via \u003ca href=\"http://openPMD.org\" rel=\"nofollow\"\u003eopenPMD\u003c/a\u003e,\nincluding \u003ca href=\"http://hdfgroup.org/\" rel=\"nofollow\"\u003eparallel HDF5\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003e2D and 3D live view and diagnostics tools\u003c/li\u003e\n\u003cli\u003ea large selection of extensible\n\u003ca href=\"http://picongpu.readthedocs.io/en/latest/usage/plugins.html\" rel=\"nofollow\"\u003eonline-plugins\u003c/a\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAs one of our supported compute platforms, GPUs provide a computational\nperformance of several\n\u003ca href=\"http://en.wikipedia.org/wiki/FLOPS\" rel=\"nofollow\"\u003eTFLOP/s\u003c/a\u003e at considerable lower invest and\nmaintenance costs compared to multi CPU-based compute architectures of similar\nperformance. The latest high-performance systems\n(\u003ca href=\"http://www.top500.org/\" rel=\"nofollow\"\u003eTOP500\u003c/a\u003e) are enhanced by accelerator hardware that\nboost their peak performance up to the multi-PFLOP/s level. With its\noutstanding performance and scalability to more than 18\u0027000 GPUs,\nPIConGPU was one of the \u003cstrong\u003efinalists\u003c/strong\u003e of the 2013\n\u003ca href=\"http://sc13.supercomputing.org/content/acm-gordon-bell-prize\" rel=\"nofollow\"\u003eGordon Bell Prize\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003ePIConGPU is developed and maintained by the\n\u003ca href=\"https://www.hzdr.de/db/Cms?pNid=2097\" rel=\"nofollow\"\u003eComputational Radiation Physics Group\u003c/a\u003e\nat the \u003ca href=\"http://www.hzdr.de/db/Cms?pNid=132\" rel=\"nofollow\"\u003eInstitute for Radiation Physics\u003c/a\u003e\nat \u003ca href=\"http://www.hzdr.de/\" rel=\"nofollow\"\u003eHZDR\u003c/a\u003e in close collaboration with the Center\nfor Information Services and High Performance Computing\n(\u003ca href=\"http://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih\" rel=\"nofollow\"\u003eZIH\u003c/a\u003e) of the\nTechnical University Dresden (\u003ca href=\"http://www.tu-dresden.de\" rel=\"nofollow\"\u003eTUD\u003c/a\u003e). We are a\nmember of the \u003ca href=\"http://ccoe-dresden.de/\" rel=\"nofollow\"\u003eDresden GPU Center of Excellence\u003c/a\u003e that\ncooperates on a broad range of scientific GPU and manycore applications,\nworkshops and teaching efforts.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-attribution\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#attribution\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAttribution\u003c/h2\u003e\n\u003cp\u003ePIConGPU is a \u003cem\u003escientific project\u003c/em\u003e. If you \u003cstrong\u003epresent and/or publish\u003c/strong\u003e scientific\nresults that used PIConGPU, you should set a \u003cstrong\u003ereference\u003c/strong\u003e to show your support.\u003c/p\u003e\n\u003cp\u003eOur according \u003cstrong\u003eup-to-date publication\u003c/strong\u003e at \u003cstrong\u003ethe time of your publication\u003c/strong\u003e\nshould be inquired from:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://raw.githubusercontent.com/ComputationalRadiationPhysics/picongpu/master/REFERENCE.md\" rel=\"nofollow\"\u003eREFERENCE.md\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePlease also consider adding yourself to our \u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu-communitymap\"\u003ecommunity map\u003c/a\u003e.\nWe would love to hear from you!\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-oral-presentations\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#oral-presentations\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOral Presentations\u003c/h2\u003e\n\u003cp\u003eThe following slide should be part of \u003cstrong\u003eoral presentations\u003c/strong\u003e. It is intended to\nacknowledge the team maintaining PIConGPU and to support our community:\u003c/p\u003e\n\u003cp\u003e(\u003cem\u003ecoming soon\u003c/em\u003e) presentation_picongpu.pdf\n(svg version, key note version, png version: 1920x1080 and 1024x768)\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-software-license\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#software-license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSoftware License\u003c/h2\u003e\n\u003cp\u003e\u003cem\u003ePIConGPU\u003c/em\u003e is licensed under the \u003cstrong\u003eGPLv3+\u003c/strong\u003e. Furthermore, you can develop your\nown particle-mesh algorithms based on our general library \u003cem\u003ePMacc\u003c/em\u003e that is\nshipped alongside PIConGPU. \u003cem\u003ePMacc\u003c/em\u003e is \u003cem\u003edual licensed\u003c/em\u003e under both the\n\u003cstrong\u003eGPLv3+ and LGPLv3+\u003c/strong\u003e.\nFor a detailed description, please refer to \u003ca href=\"LICENSE.md\"\u003eLICENSE.md\u003c/a\u003e\u003c/p\u003e\n\u003chr\u003e\n\u003ch2\u003e\u003ca id=\"user-content-install\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#install\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstall\u003c/h2\u003e\n\u003cp\u003eSee our notes in \u003ca href=\"INSTALL.rst\"\u003eINSTALL.rst\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-users\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#users\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUsers\u003c/h2\u003e\n\u003cp\u003eDear User, we hereby emphasize that we are still actively developing PIConGPU at great\nspeed and do, from time to time, break backwards compatibility.\u003c/p\u003e\n\u003cp\u003eWhen using this software, please stick to the latest release or use the \u003ccode\u003edev\u003c/code\u003e branch containing the\nlatest changes. It also contains a file \u003ccode\u003eCHANGELOG.md\u003c/code\u003e with the\nlatest changes (and how to update your simulations). Read it first before\nupdating between two versions! Also, we add a git \u003ccode\u003etag\u003c/code\u003e according to a version\nnumber for each release.\u003c/p\u003e\n\u003cp\u003eFor any questions regarding the usage of PIConGPU please \u003cstrong\u003edo not\u003c/strong\u003e contact the\ndevelopers and maintainers directly.\u003c/p\u003e\n\u003cp\u003eInstead, please \u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/issues/new\"\u003eopen an issue on GitHub\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eBefore you post a question, browse the PIConGPU\n\u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/search?l=markdown\"\u003edocumentation\u003c/a\u003e,\n\u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/wiki\"\u003ewiki\u003c/a\u003e and the\n\u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/issues\"\u003eissue tracker\u003c/a\u003e\nto see if your question has been answered, already.\u003c/p\u003e\n\u003cp\u003ePIConGPU is a collaborative project.\nWe thus encourage users to engage in answering questions of other users and post solutions to problems to the list.\nA problem you have encountered might be the future problem of another user.\u003c/p\u003e\n\u003cp\u003eIn addition, please consider using the collaborative features of GitHub if you have questions or comments on code or documentation.\nThis will allow other users to see the piece of code or documentation you are referring to.\u003c/p\u003e\n\u003cp\u003eMain ressources are in our \u003ca href=\"https://picongpu.readthedocs.io\" rel=\"nofollow\"\u003eonline manual\u003c/a\u003e, the \u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/wiki\"\u003euser section\u003c/a\u003e of our wiki, documentation files in \u003ca href=\"http://commonmark.org/help/\" rel=\"nofollow\"\u003e\u003ccode\u003e.md\u003c/code\u003e (Markdown)\u003c/a\u003e and \u003ca href=\"http://www.sphinx-doc.org/en/stable/rest.html\" rel=\"nofollow\"\u003e\u003ccode\u003e.rst\u003c/code\u003e (reStructuredText)\u003c/a\u003e format in this repository and a \u003ca href=\"http://www.youtube.com/watch?v=7ybsD8G4Rsk\" rel=\"nofollow\"\u003egetting started video\u003c/a\u003e.\nFeel free to visit \u003ca href=\"http://picongpu.hzdr.de\" rel=\"nofollow\"\u003epicongpu.hzdr.de\u003c/a\u003e to learn more about the PIC algorithm.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-software-upgrades\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#software-upgrades\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSoftware Upgrades\u003c/h2\u003e\n\u003cp\u003ePIConGPU ships new and frequent changes to the code in the development branch \u003ccode\u003edev\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFrom time to time we publish a new release\nof PIConGPU. Before you pull the changes in, please read our\n\u003ca href=\"CHANGELOG.md\"\u003eChangeLog\u003c/a\u003e!\nYou may have to update some of your simulation \u003ccode\u003e.param\u003c/code\u003e and \u003ccode\u003e.cfg\u003c/code\u003e files by\nhand since PIConGPU is an active project and new features often require changes\nin input files. Additionally, a full description of new features and fixed bugs\nin comparison to the previous release is provided in that file.\u003c/p\u003e\n\u003cp\u003eIn case you decide to use \u003cem\u003enew, potentially buggy and experimental\u003c/em\u003e features\nfrom our \u003ccode\u003edev\u003c/code\u003e branch, be aware that you must participate or at least follow the development yourself.\nSyntax changes and in-development bugs will \u003cem\u003enot\u003c/em\u003e be announced outside of their according pull\nrequests and issues.\u003c/p\u003e\n\u003cp\u003eBefore drafting a new release, we open a new \u003ccode\u003erelease-*\u003c/code\u003e branch from \u003ccode\u003edev\u003c/code\u003e with\nthe \u003ccode\u003e*\u003c/code\u003e being the version number of the upcoming release. This branch only\nreceives bug fixes (feature freeze) and users are welcome to try it out\n(however, the change log and a detailed announcement might still be missing in\nit).\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-developers\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#developers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopers\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-how-to-participate\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#how-to-participate\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow to participate\u003c/h3\u003e\n\u003cp\u003eSee \u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIf you like to jump in right away, see\u003cbr\u003e\n\u003ca href=\"https://github.com/ComputationalRadiationPhysics/picongpu/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/32b730b309ff90c1713e8ae39a73ae2145c4cceb0b7e72bacef523db9fc85d62/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732d7261772f436f6d7075746174696f6e616c526164696174696f6e506879736963732f7069636f6e6770752f676f6f64253230666972737425323069737375652e7376673f636f6c6f723d353663626566\" alt=\"open \u0026quot;good first issue\u0026quot; issues\" data-canonical-src=\"https://img.shields.io/github/issues-raw/ComputationalRadiationPhysics/picongpu/good%20first%20issue.svg?color=56cbef\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-active-team\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#active-team\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eActive Team\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-scientific-supervision\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#scientific-supervision\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eScientific Supervision\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eDr. Michael Bussmann\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-maintainers-and-core-developers\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#maintainers-and-core-developers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eMaintainers* and core developers\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eDr. Sergei Bastrakov*\u003c/li\u003e\n\u003cli\u003eFinn-Ole Carstens\u003c/li\u003e\n\u003cli\u003eDr. Alexander Debus\u003c/li\u003e\n\u003cli\u003eDr. Marco Garten*\u003c/li\u003e\n\u003cli\u003eDr. Axel Huebl*\u003c/li\u003e\n\u003cli\u003eBrian Edward Marre\u003c/li\u003e\n\u003cli\u003ePawel Ordyna\u003c/li\u003e\n\u003cli\u003eDr. Richard Pausch*\u003c/li\u003e\n\u003cli\u003eFranz Poeschel\u003c/li\u003e\n\u003cli\u003eDr. Klaus Steiniger*\u003c/li\u003e\n\u003cli\u003eRene Widera*\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-former-members-contributions-and-thanks\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#former-members-contributions-and-thanks\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFormer Members, Contributions and Thanks\u003c/h3\u003e\n\u003cp\u003eThe PIConGPU Team expresses its gratitude to:\u003c/p\u003e\n\u003cp\u003eFlorian Berninger, Heiko Burau, Fabia Dietrich, Robert Dietrich, Carlchristian Eckert,\nSimeon Ehrig, Wen Fu, Ph.D., Alexander Grund, Sebastian Hahn, Anton Helm, Wolfgang Hoehnig,\nDr.-Ing. Guido Juckeland, Jeffrey Kelling, Maximilian Knespel, Dr. Remi Lehe,\nFelix Schmitt, Frank Winkler, Benjamin Schneider, Joseph Schuchart, Conrad Schumann,\nStefan Tietze, Marija Vranic, Ph.D., Benjamin Worpitz, Erik Zenker,\nSophie Rudat, Sebastian Starke, Alexander Matthes, Kseniia Bastrakova,\nBernhard Manfred Gruber, Jakob Trojok, Anton Lebedev, Nils Prinz,\nFelix Meyer, Lennert Sprenger, Manhui Wang, Maxence Thevenet, Ilja Goethel,\nMika Soren Vo\u00df, Lei Bifeng, Andrei Berceanu, Felix Meyer,\nLennert Sprenger and Nico Wrobel.\u003c/p\u003e\n\u003cp\u003eKudos to everyone, mentioned or unmentioned, who contributed further in any\nway!\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/images/lwfa_iso.png\"\u003e\u003cimg src=\"docs/images/lwfa_iso.png\" alt=\"image of an lwfa\" title=\"LWFA\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/images/StrongScalingPIConGPU_log.png\"\u003e\u003cimg src=\"docs/images/StrongScalingPIConGPU_log.png\" alt=\"image of our strong scaling\" title=\"Strong Scaling\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 652,
+    "stargazers_count": 653,
     "subscribers_count": 49,
     "topics": [
       "laser",
@@ -2126,7 +2112,7 @@ var data =
       "pic",
       "research"
     ],
-    "updated_at": 1700703884.0
+    "updated_at": 1701049235.0
   },
   {
     "data_format": 2,
