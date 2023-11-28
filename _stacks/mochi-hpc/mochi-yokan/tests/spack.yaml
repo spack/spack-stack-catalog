@@ -1,0 +1,40 @@
+# This file defines the spack environment used by github actions
+# (tests, codeql, and codecov) when building and testing the code.
+# In particular the "config" field sets the installation path and
+# spack caches to ~/.spack-ci so that they can be retrieved using
+# the github cache action across runs.
+spack:
+  specs:
+  - cmake
+  - pkg-config
+  - mpi
+  - nlohmann-json
+  - tclap
+  - lua-sol2
+  - leveldb@1.22
+  - berkeley-db+cxx+stl
+  - tkrzw
+  - gdbm
+  - lmdb
+  - unqlite@master
+  - py-pybind11
+  - mochi-margo
+  - mercury ~boostsys ^libfabric fabrics=tcp,rxm
+  - py-mochi-margo
+  - mochi-bedrock ^mpich
+  - ycsb-cpp-interface ^ycsb@master
+  - rocksdb+rtti
+  - mochi-remi@0.3.3:+bedrock
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  config:
+    source_cache: ~/.spack-ci/source_cache
+    misc_cache: ~/.spack-ci/misc_cache
+    test_cache: ~/.spack-ci/test_cache
+    install_tree:
+      root: ~/.spack-ci/install
