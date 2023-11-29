@@ -66,13 +66,15 @@ spack:
         # for BLAS and LAPACK without needing to set it on each package
       - any_of:
         - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^openblas %gcc@11:'
+        - '%gcc@11: ^cray-libsci %gcc@11:'
+        - '%cce ^cray-libsci'
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^blas
       - any_of:
         - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^openblas %gcc@11:'
+        - '%gcc@11: ^cray-libsci %gcc@11:'
+        - '%cce ^cray-libsci'
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^lapack
@@ -91,6 +93,9 @@ spack:
     automake:
       require: '%gcc@7.5.0'
     bash:
+      require:
+      - '%gcc@7.5.0'
+    binutils:
       require:
       - '%gcc@7.5.0'
     bison:
@@ -123,14 +128,17 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +ownlibs
+    cp2k:
+      variants:
+      - +elpa
+      - +libvori
+      - +plumed
+      - +spglib
     cpio:
       require:
       - '%gcc@7.5.0'
     cray-libsci:
       externals:
-      - spec: cray-libsci@23.05.1.4
-        modules:
-        - cray-libsci/23.05.1.4
       - spec: cray-libsci@23.02.1.1
         modules:
         - cray-libsci/23.02.1.1
@@ -187,6 +195,9 @@ spack:
       - +png
       - +tools
       - jp2k=jasper
+    ecflow:
+      variants:
+      - +ui
     eigen:
       require:
       - '%gcc@7.5.0'
@@ -293,10 +304,14 @@ spack:
     git:
       variants:
       - +svn
+      - +tcltk
     glpk:
       require:
       - '%gcc@7.5.0'
     gmake:
+      require:
+      - '%gcc@7.5.0'
+    gmp:
       require:
       - '%gcc@7.5.0'
     gnuplot:
@@ -310,6 +325,9 @@ spack:
       variants:
       - +papi
       - +pmpi
+    grads:
+      variants:
+      - +dap
     groff:
       require:
       - '%gcc@7.5.0'
@@ -398,6 +416,9 @@ spack:
     libogg:
       require:
       - '%gcc@7.5.0'
+    libpciaccess:
+      require:
+      - '%gcc@7.5.0'
     libpng:
       require: '%gcc@7.5.0'
     libssh2:
@@ -435,6 +456,9 @@ spack:
       - '%gcc@7.5.0'
     libxcb:
       require: '%gcc@7.5.0'
+    libxcrypt:
+      require:
+      - '%gcc@7.5.0'
     libxml2:
       require: '%gcc@7.5.0'
     linaro-forge:
@@ -469,11 +493,21 @@ spack:
       - spec: miniconda3@4.12.0
         prefix: /glade/u/apps/opt/conda
       buildable: false
+    motif:
+      require:
+      - ^autoconf@2.69
     mpifileutils:
       variants:
       - +gpfs
       - +lustre
       - +xattr
+    mvapich:
+      variants:
+      - file_systems=lustre,gpfs,nfs,ufs
+      - process_managers=hydra
+      - ~cuda
+      require:
+      - netmod=ofi
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
@@ -536,12 +570,15 @@ spack:
       - '%gcc@7.5.0'
     openmpi:
       variants:
-      - +cuda
+      - ~cuda
       require:
-      - fabrics=cma,ofi,knem schedulers=tm
+      - fabrics=cma,ofi
+      - schedulers=tm
       - +gpfs
       - +lustre
-      - +internal-pmix
+      - any_of:
+        - '^cuda@12.2:'
+        when: '@5.0.0rc13 +cuda'
     openpbs:
       externals:
       - spec: openpbs@2021.1.3
@@ -592,6 +629,9 @@ spack:
     protobuf:
       require:
       - '%gcc@7.5.0'
+    py-fypp:
+      require:
+      - '%gcc@7.5.0'
     py-setuptools:
       # Newer versions cannot be used by py-numpy as of Aug 2023
       require:
@@ -608,6 +648,9 @@ spack:
       - +webkit
     readline:
       require: '%gcc@7.5.0'
+    rstudio:
+      require:
+      - '%gcc@7.5.0'
     rsync:
       require:
       - '%gcc@7.5.0'
@@ -622,6 +665,9 @@ spack:
       - '%gcc@7.5.0'
     sqlite:
       require: '%gcc@7.5.0'
+    superlu-dist:
+      variants:
+      - +openmp
     sz:
       require:
       - '%gcc@7.5.0'
@@ -774,6 +820,8 @@ spack:
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
+        - cuda@11.7.1
+        - cudnn@8.5.0.96-11.7
         esmf:
           autoload: none
         exclude:
@@ -887,6 +935,10 @@ spack:
               NCAR_SPACK_HASH_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
+        julia:
+          environment:
+            append_path:
+              PATH: '{^llvm.prefix}/bin'
         miniconda3:
           filter:
             exclude_env_vars:
@@ -947,7 +999,6 @@ spack:
           environment:
             set:
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
-              OMPI_MCA_smsc: ^knem
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
         parallel-netcdf:
@@ -985,6 +1036,13 @@ spack:
           intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+        rstudio:
+          filter:
+            exclude_env_vars:
+            - CMAKE_PREFIX_PATH
+          environment:
+            prepend_path:
+              PATH: '{prefix}'
         singularityce:
           environment:
             prepend_path:
