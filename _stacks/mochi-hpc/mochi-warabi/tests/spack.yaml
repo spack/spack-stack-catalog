@@ -1,0 +1,28 @@
+spack:
+  specs:
+  - cmake
+  - pkgconfig
+  - mochi-thallium
+  - mochi-abt-io
+  - nlohmann-json
+  - spdlog
+  - pmdk
+  - fmt
+  - tclap
+  - mochi-bedrock +abtio ^mpich
+  - mercury ~boostsys ~checksum ^libfabric fabrics=tcp,rxm
+  - mochi-remi
+  - valijson
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  config:
+    source_cache: ~/.spack-ci/source_cache
+    misc_cache: ~/.spack-ci/misc_cache
+    test_cache: ~/.spack-ci/test_cache
+    install_tree:
+      root: ~/.spack-ci/install
