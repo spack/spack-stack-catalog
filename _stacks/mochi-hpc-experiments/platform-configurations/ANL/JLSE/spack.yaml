@@ -17,8 +17,6 @@ spack:
         fc: gfortran
       spec: gcc@9.3.0
       target: x86_64
-  repos:
-  - /path/to/mochi-spack-packages
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
@@ -31,14 +29,8 @@ spack:
       - gcc@9.3.0
       target:
       - x86_64
-      version: []
-      buildable: true
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         modules:
@@ -46,10 +38,6 @@ spack:
         - autoconf/2.69-gcc-9.3.0-l3nosud
     automake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: automake@1.16.2
         modules:
@@ -57,10 +45,6 @@ spack:
         - automake/1.16.2-gcc-9.3.0-judimac
     binutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: binutils@2.34.0
         modules:
@@ -68,10 +52,6 @@ spack:
         - binutils/2.34-gcc-9.3.0-rnwhrdg
     bison:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: bison@3.4.2
         modules:
@@ -79,10 +59,6 @@ spack:
         - bison/3.4.2-gcc-9.3.0-tkz5uzj
     boost:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: boost@1.72.0
         modules:
@@ -90,10 +66,6 @@ spack:
         - boost/1.72.0-gcc-9.3.0-bi3ct5p
     bzip2:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: bzip2@1.0.6
         modules:
@@ -101,19 +73,11 @@ spack:
         - bzip2/1.0.8-gcc-9.3.0-vatuhza
     coreutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: coreutils@8.22
         prefix: /usr
     cmake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cmake@3.17.0
         modules:
@@ -121,19 +85,11 @@ spack:
         - cmake/3.17.0-gcc-9.3.0-5dgh2gv
     findutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: findutils@4.6.0
         prefix: /usr
     flex:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: flex@2.6.4
         modules:
@@ -141,10 +97,6 @@ spack:
         - flex/2.6.4-gcc-9.3.0-xhptaic
     gettext:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: gettext@0.20.1
         modules:
@@ -152,10 +104,6 @@ spack:
         - gettext/0.20.1-gcc-9.3.0-4uprshc
     git:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: git@2.26.0
         modules:
@@ -163,10 +111,6 @@ spack:
         - git/2.26.0-gcc-9.3.0-7fqgilo
     intel-mpi:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: intel-mpi@2019
         modules:
@@ -174,18 +118,10 @@ spack:
         - gcc/9.3.0-gcc-9.3.0-qfmcwfb
         - intelmpi/2019-gcc
     libfabric:
-      variants: fabrics=tcp,rxm
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
+      variants: fabrics=tcp,rxm
     libtool:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libtool@2.4.6
         modules:
@@ -193,10 +129,6 @@ spack:
         - libtool/2.4.6-gcc-9.3.0-y2q4tht
     libuuid:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libuuid@1.0.3
         modules:
@@ -204,28 +136,16 @@ spack:
         - libuuid/1.0.3-gcc-9.3.0-f6rv6ex
     m4:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: m4@1.4.18
         modules:
         - spack/linux-rhel7-x86_64
         - m4/1.4.18-gcc-9.3.0-dnkbu5y
     mercury:
-      variants: ~boostsys ~checksum
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
+      variants: ~boostsys ~checksum
     ncurses:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: ncurses@6.2
         modules:
@@ -233,10 +153,6 @@ spack:
         - ncurses/6.2-gcc-9.3.0-xvsnay4
     numactl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: numactl@2.0.12
         modules:
@@ -244,10 +160,6 @@ spack:
         - numactl/2.0.12-gcc-9.3.0-fu7ypyk
     openssl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: openssl@1.1.1g
         modules:
@@ -255,10 +167,6 @@ spack:
         - openssl/1.1.1g-gcc-9.3.0-56igdjg
     perl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: perl@5.30.3
         modules:
@@ -266,10 +174,6 @@ spack:
         - perl/5.30.3-gcc-9.3.0-dy4ocwc
     pkg-config:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: pkg-config@1.7.3
         modules:
@@ -277,10 +181,6 @@ spack:
         - pkgconf/1.7.3-gcc-9.3.0-jrr7kf3
     tar:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: tar@1.32
         modules:
@@ -288,10 +188,6 @@ spack:
         - tar/1.32-gcc-9.3.0-g3rvopa
     xz:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: xz@5.2.5
         modules:
@@ -299,10 +195,6 @@ spack:
         - xz/5.2.5-gcc-9.3.0-6rgt4w7
     zlib:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: zlib@1.2.11
         modules:

@@ -1,0 +1,26 @@
+spack:
+  specs:
+  - cmake
+  - pkgconfig
+  - mochi-thallium
+  - nlohmann-json
+  - pmdk
+  - spdlog
+  - fmt
+  - tclap
+  - mochi-bedrock +abtio
+  - mochi-abt-io
+  - mochi-remi
+  - valijson
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+    mochi-margo:
+      require: "@0.15.0:"
+    mochi-thallium:
+      require: "@0.12.0:"
