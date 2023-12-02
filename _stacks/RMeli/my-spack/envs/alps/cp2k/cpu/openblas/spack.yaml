@@ -1,0 +1,26 @@
+spack:
+  specs:
+  - cp2k@master build_system=cmake
+  packages:
+    all:
+      require:
+      - any_of: ["~rocm", "@:"]
+      - any_of: ["~cuda", "@:"]
+    mpi:
+      require:
+      - cray-mpich
+    blas:
+      require:
+      - openblas
+    lapack:
+      require:
+      - openblas
+    scalapack:
+      require:
+      - netlib-scalapack
+    fftw-api:
+      require:
+      - fftw
+  view: false
+  concretizer:
+    unify: true

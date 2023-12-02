@@ -4,10 +4,19 @@ spack:
   - cmake
   - nlohmann-json
   - mochi-thallium
-  - mercury~boostsys ^libfabric fabrics=tcp,rxm
-  - mochi-bedrock
-  - util-linux-uuid
+  - mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
+  - mochi-bedrock +abtio
+  - uuid
   - mochi-abt-io
   concretizer:
     unify: true
-    reuse: false
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+    mochi-margo:
+      require: "@0.15.0:"
+    mochi-thallium:
+      require: "@0.12.0:"
