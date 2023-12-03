@@ -7,8 +7,6 @@ spack:
   specs:
     - mochi-margo
   view: true
-  repos:
-  - /path/to/mochi-spack-packages
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
@@ -34,7 +32,6 @@ spack:
       - dpcpp@2023.2.0
       target:
       - x86_64
-      version: []
       buildable: true
     mpich:
       externals:
@@ -47,90 +44,51 @@ spack:
 # NOTE: the +hwloc variant for Mercury configures it to be able to
 # automatically select NICs based on hardware topology
     mercury:
-      variants: ~boostsys ~checksum +hwloc
       buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
+      variants: ~boostsys ~checksum +hwloc
 # NOTE: mochi-ssg@main is needed as of August 30, 2023 in order to pick up a
 # workaround for faulty pmix library dependencies on Sunspot.  We can return to # official releases when the next version > 0.5.3 is available
     mochi-ssg:
       buildable: true
       version: [ main ]
-      target: []
-      providers: {}
-      compiler: []
     libfabric:
       externals:
       - spec: libfabric@1.15.2.0
         modules:
         - libfabric/1.15.2.0
       buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         prefix: /usr
     automake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: automake@1.15.1
         prefix: /usr
     libtool:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libtool@2.4.6
         prefix: /usr
     openssl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: openssl@1.1.1d
         prefix: /usr
     m4:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: m4@1.4.18
         prefix: /usr
     cmake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cmake@3.26.3
         prefix: /soft/packaging/spack/gnu-ldpath/build/linux-sles15-x86_64/gcc-11.2.0/cmake-3.26.3-vnn7ncxwjjekhm5ehnwhk4w6tyoygc4p
     json-c:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: json-c@0.13
         prefix: /soft/packaging/spack/gnu-ldpath/build/linux-sles15-x86_64/gcc-11.2.0/json-c-0.13-ykflfo5cmw73w6zvsk4k32bjkjsmpxgn
