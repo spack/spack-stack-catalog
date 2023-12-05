@@ -1,9 +1,9 @@
 spack:
   specs:
   - cmake
-  - dealii@master+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples~ginkgo~threads
+  - dealii@master+mpi+petsc+p4est+python+trilinos~hdf5~gmsh~sundials~oce~cgal~assimp~symengine~examples~ginkgo~threads~vtk
   - eigen
-  - python@3.10
+  - python@3.10.13
   - mumps+mpi+metis+parmetis
   - mpich datatype-engine=dataloop
   - petsc+mumps+superlu-dist+complex~hdf5
@@ -25,7 +25,7 @@ spack:
 
     format: docker
 
-    strip: false
+    strip: true
 
     os_packages:
       final:
@@ -40,7 +40,8 @@ spack:
 
     extra_instructions:
       final: |
-        RUN /opt/view/bin/python -m ensurepip && /opt/view/bin/python -m pip install autopep8 scipy numpy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
+        RUN sed -i 's|/opt/spack/lib/spack/env/gcc/||g' /opt/view/lib/cmake/deal.II/deal.IIConfig.cmake
+        RUN . /opt/spack-environment/activate.sh && python -m ensurepip && python -m pip install autopep8 scipy numpy matplotlib pandas -i https://pypi.org/simple && rm -rf /root/.cache
         RUN sh -c "$(curl -L https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- -t robbyrussell -p vi-mode
         USER root
         WORKDIR /root

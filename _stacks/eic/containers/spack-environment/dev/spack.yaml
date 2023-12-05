@@ -2,6 +2,8 @@ spack:
   include:
   - ../concretizer.yaml
   - ../packages.yaml
+  config:
+    install_missing_compilers: false
   specs:
     - acts
     - actsvg

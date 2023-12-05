@@ -5,17 +5,15 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - mochi-margo ^libfabric@1.17.0
+  - mochi-margo^json-c@0.13.0
   view: true
-  repos:
-  - /path/to/mochi-spack-packages
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
       lib64: [LD_LIBRARY_PATH]
   compilers:
   - compiler:
-      spec: gcc@11.2.0
+      spec: gcc@12.2.0
       paths:
         cc: cc
         cxx: CC
@@ -26,8 +24,7 @@ spack:
       target: any
       modules:
       - PrgEnv-gnu
-      - gcc/11.2.0
-      - libfabric
+      - gcc/12.2.0
       - cudatoolkit-standalone
       environment: {}
       extra_rpaths: []
@@ -36,81 +33,52 @@ spack:
       providers:
         mpi: [ cray-mpich ]
       compiler:
-      - gcc@11.2.0
+      - gcc@12.2.0
       target:
       - zen3
-      version: []
-      buildable: true
     cray-mpich:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
-      - spec: cray-mpich@8.1.16
+      - spec: cray-mpich@8.1.25
         modules:
-        - cray-mpich/8.1.16
+        - cray-mpich/8.1.25
     mercury:
+      buildable: true
       variants: ~boostsys ~checksum
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
     libfabric:
+      buildable: false
       externals:
-      - spec: libfabric@1.11.0.4.125
+      - spec: libfabric@1.15.2.0
         modules:
-        - libfabric/1.11.0.4.125
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
+        - libfabric/1.15.2.0
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         prefix: /usr
     automake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: automake@1.15.1
         prefix: /usr
+    gmake:
+      buildable: false
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
     cmake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cmake@3.23.2
         modules:
         - cmake/3.23.2
     libtool:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libtool@2.4.6
         prefix: /usr
     openssl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: openssl@1.1.1d
         prefix: /usr
@@ -118,19 +86,3 @@ spack:
       externals:
       - spec: m4@1.4.18
         prefix: /usr
-    libfabric:
-      variants: fabrics=verbs,rxm +cuda
-      version: []
-      target: []
-      compiler: []
-      buildable: true
-      providers: {}
-    rdma-core:
-      externals:
-      - spec: rdma-core@20
-        prefix: /usr
-    cuda:
-      externals:
-      - spec: cuda@11.8.0
-        modules:
-        - cudatoolkit-standalone/11.8.0
