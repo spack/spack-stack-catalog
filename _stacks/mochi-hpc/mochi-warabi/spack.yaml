@@ -24,3 +24,7 @@ spack:
       require: "@0.15.0:"
     mochi-thallium:
       require: "@0.12.0:"
+    mochi-remi:
+      require: "@0.4.0:"
+    mochi-bedrock:
+      require: "@0.8.0:"

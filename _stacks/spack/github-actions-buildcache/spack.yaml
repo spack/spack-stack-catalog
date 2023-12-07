@@ -6,8 +6,6 @@ spack:
       - automake
       - bison
       - cmake
-      - fftw +mpi +openmp ^mpich
-      - fftw +mpi +openmp ^openmpi
       - flex
       - git
       - hdf5 +cxx +fortran +hl +mpi ^mpich
@@ -17,21 +15,31 @@ spack:
       - meson
       - mpich
       - ninja
-      - openblas threads=openmp +ilp64
       - openmpi
       - perl
       - python@3.11
     - - '%gcc@11'
       - '%gcc@12'
+      - '%gcc@13'
       - '%clang@15'
+  - matrix:
+    - - fftw +mpi +openmp ^mpich
+      - fftw +mpi +openmp ^openmpi
+      - openblas threads=openmp +ilp64
+    - - '%gcc@11'
+      - '%gcc@12'
+      - '%gcc@13'
+  # clang does not have openmp libs in GitHub Actions?
+  - matrix:
+    - - fftw +mpi ^mpich
+      - fftw +mpi ^openmpi
+    - - '%clang@15'
   concretizer:
     unify: false
   config:
     install_tree:
       root: /opt/spack
       padded_length: 128
-  mirrors:
-    spack-buildcache: oci://ghcr.io/spack/github-actions-buildcache
   packages:
     all:
-      require: 'target=x86_64_v2'
+      require: target=x86_64_v2
