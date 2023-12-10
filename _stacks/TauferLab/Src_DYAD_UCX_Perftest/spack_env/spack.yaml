@@ -1,0 +1,22 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - caliper+adiak
+  - adiak
+  - ucx@1.13.0
+  - 'cmake@3.16:'
+  - libzmq
+  - mvapich2
+  view: true
+  concretizer:
+    unify: true
+  packages:
+    mvapich2:
+      externals:
+      - spec: mvapich2@2.3.7
+        modules:
+        - mvapich2/2.3.7

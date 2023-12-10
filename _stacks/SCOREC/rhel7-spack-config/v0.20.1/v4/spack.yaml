@@ -1,0 +1,115 @@
+#comment
+spack:
+  concretizer:
+    unify: false
+  config:
+    target: x86_64
+    install_tree:
+      root: /opt/scorec/spack/v0201_4/install
+    modules:
+      roots:
+        lmod: /opt/scorec/spack/v0201_4/lmod
+    misc_cache: /opt/scorec/spack/v0201_4/misc_cache
+    build_stage:
+    - /space/cwsmith/spack/v0201_4/build_stage
+    allow_sgid: false
+  packages:
+    all:
+      compiler: [gcc@11.2.0]
+      providers:
+        mpi: [mpich@4.1.1]
+      target: [x86_64]
+      version: []
+      buildable: true
+  include:
+  - modules.yaml
+
+  view: false
+  definitions:
+  - pumi:
+    - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran
+  - pumiOpenmpi:
+    - pumi@master %gcc@11.2.0 +zoltan ^zoltan+parmetis~fortran ^openmpi
+  - pumiSim2023.1-230907dev:
+    - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev ^mpich@4.1.1
+  - pumiSim2024.0-231017dev:
+    - pumi@master %gcc@11.2.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-231017dev ^mpich@4.1.1
+  compilers:
+  - compiler:
+      spec: gcc@4.8.5_rhel7
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=7.4.0
+      paths:
+        cc: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-6ite2ues5hx4mwoyqqlmbd3yibxazrdc/bin/gcc
+        cxx: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-6ite2ues5hx4mwoyqqlmbd3yibxazrdc/bin/g++
+        f77: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-6ite2ues5hx4mwoyqqlmbd3yibxazrdc/bin/gfortran
+        fc: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-4.8.5_rhel7/gcc-7.4.0-6ite2ues5hx4mwoyqqlmbd3yibxazrdc/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@=11.2.0
+      paths:
+        cc: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-zcqgwdfg74u6ly3za2yiu3dbj4my3bli/bin/gcc
+        cxx: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-zcqgwdfg74u6ly3za2yiu3dbj4my3bli/bin/g++
+        f77: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-zcqgwdfg74u6ly3za2yiu3dbj4my3bli/bin/gfortran
+        fc: /opt/scorec/spack/v0201_4/install/linux-rhel7-x86_64/gcc-7.4.0/gcc-11.2.0-zcqgwdfg74u6ly3za2yiu3dbj4my3bli/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  specs:
+  - gcc@7.4.0%gcc@4.8.5_rhel7+binutils
+  - gcc@11.2.0%gcc@7.4.0
+  - mpich%gcc@11.2.0
+  - openmpi%gcc@11.2.0+cuda
+
+  - octave %gcc@7.4.0
+  - vim %gcc@7.4.0
+  - graphviz   +libgd %gcc@7.4.0
+  - git %gcc@7.4.0
+  - tmux %gcc@7.4.0
+  - gdb@13.1 %gcc@7.4.0
+  - cmake %gcc@7.4.0
+  - valgrind -mpi %gcc@7.4.0
+  - octave %gcc@7.4.0
+  - python %gcc@7.4.0
+  - py-pandas %gcc@7.4.0
+  - py-scipy %gcc@7.4.0
+  - py-progressbar2 %gcc@7.4.0
+  - anaconda3 %gcc@7.4.0
+  - subversion %gcc@7.4.0
+  - googletest %gcc@7.4.0
+  - node-js@19.2.0 %gcc@7.4.0
+
+  - python %gcc@11.2.0
+  - py-mpi4py %gcc@11.2.0
+  - hypre %gcc@11.2.0
+  - fftw %gcc@11.2.0 ^mpich
+  - netcdf-cxx4 ~doc %gcc@11.2.0
+  - nco %gcc@11.2.0
+  - netlib-lapack %gcc@11.2.0
+  - netlib-scalapack %gcc@11.2.0 ^mpich
+  - netcdf-c +parallel-netcdf %gcc@11.2.0
+  - netcdf-fortran %gcc@11.2.0
+  - $pumi
+  - $pumiOpenmpi
+
