@@ -6,11 +6,12 @@
 spack:
   specs:
   - cmake
+  - mpi
   - pkg-config
   - mochi-margo
   - mochi-thallium
   - mochi-abt-io
-  - mochi-ssg ^mpich
+  - mochi-ssg+mpi ^mpich
   - mochi-mona
   - nlohmann-json
   - spdlog
@@ -24,9 +25,8 @@ spack:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
       lib64: [LD_LIBRARY_PATH]
+  mirrors:
+    mochi-buildcache: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
   config:
-    source_cache: ~/.spack-ci/source_cache
-    misc_cache: ~/.spack-ci/misc_cache
-    test_cache: ~/.spack-ci/test_cache
     install_tree:
-      root: ~/.spack-ci/install
+      padded_length: 128

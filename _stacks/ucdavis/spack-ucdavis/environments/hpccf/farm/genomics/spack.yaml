@@ -1,16 +1,18 @@
 spack:
   specs:
   - abyss
+  - allpaths-lg %gcc@4.9.4
   - angsd
-  - augustus
-  - blast-plus
-  - blast2go
   - aragorn
+  - augustus
+  - bayenv2
   - bbmap
+  - bcftools +libgsl +perl-filters
   - beagle
   - bedops
   - bedtools2
-  - bcftools +libgsl +perl-filters
+  - blast-plus
+  - blast2go
   - blat
   - bowtie
   - bowtie2
@@ -23,28 +25,35 @@ spack:
   - cap3
   - cdhit
   - circos
-  - corset
   - clustal-omega
   - clustalw
+  - corset
   - cufflinks
+  - deml
   - diamond
+  - dssp
   - ea-utils
   - emboss
   - exonerate
   - exonerate-gff3
   - fastme
-  - fastqc
   - fastq-screen
+  - fastqc
   - fasttree
   - fastx-toolkit
   - freebayes
   - gatk@3.8.1
-  - gatk@4.2.6.1
+  - gatk@4.2.6.1 %gcc@11.3.0
   - gemma
   - genometools
   - genrich
+  - glimpse @1.1.1
+  - glimpse2
+  - gffcompare
+  - gffread
   - glimmer
-  - hisat2
+  - hisat2@2.2.1:2.99.99
+  - hh-suite
   - hmmer
   - homer
   - htslib
@@ -53,7 +62,8 @@ spack:
   - interproscan
   - iq-tree
   - iqtree2
-  - jellyfish
+  - jellyfish@1.1.11
+  - jellyfish@2.3.0
   - kalign
   - kallisto
   - kmergenie
@@ -61,57 +71,68 @@ spack:
   - kraken2
   - krakenuniq
   - last
-  - mash
-  - mcl
+  - maffilter @1.3.1
   - mafft
+  - maker
+  - mash
   - masurca
+  - maven
+  - mcl
   - meme@5.3.0
   - metabat
   - metaeuk
   - minced
   - miniasm
-  - minimap2
+  - minimap2 @2.26
   - mirdeep2
   - mmseqs2
-  - maker
-  - maven
   - mothur
   - mummer
   - mummer4
   - muscle
+  - muscle5
+  - nanoporetech-dorado@0.3.4
   - ncbi-rmblastn
   - ncbi-toolkit
   - ncbi-vdb
   - nextflow
-  - ont-guppy
+  - ngsadmix
+  - ngstools
+  - ont-guppy@6.1.7-cuda
+  - ont-guppy@6.5.7-cuda
   - orthofinder
   - orthomcl
   - phylip
   - phyluce
   - picard
   - pilon
-  - plink
+  - plink @1.07
+  - plink @1.9-beta7.1
   - plink-ng
+  - prokka
+  - py-biopython
   - py-checkm-genome
   - py-cutadapt
-  - py-deeptools
+  - py-deeptools @3.5.2
   - py-htseq
-  - py-multiqc
+  - py-ipython
+  - py-multiqc @1.13
   - py-quast
   - py-vcf-kit
-  - prokka
   - qualimap
   - raxml
   - raxml-ng
   - ray
   - recon
   - repeatmasker
+  - repeatmasker@4.1.5
   - repeatmodeler ^repeatmasker@4.0.9
   - repeatscout
   - rnaquast
   - rsem
   - sabre
-  - salmon
+  - salmon@1.9.0
+  - salmon@1.10.1
   - samtools
   - satsuma2
   - scallop
@@ -119,13 +140,16 @@ spack:
   - seqtk
   - shoremap %gcc@11.3.0
   - sickle
+  - slim
   - smartdenovo
   - snap-korf
   - sortmerna
   - spades
   - sratoolkit
   - star
-  - stringtie
+  - strelka
+  - stringtie @1.3.4d
+  - stringtie @2.2.1
   - tabix
   - tassel
   - trimgalore
@@ -143,7 +167,7 @@ spack:
   #- pharokka
   #- mira
   #- miranda
-  #-pbbam
+  #- pbbam
   #- soapdenovo-trans
   #- soapdenovo2
   view: false
@@ -152,9 +176,11 @@ spack:
       tcl:
         exclude_implicits: true
         exclude:
-        - parallel
-        - zlib
         - cmake
+        - parallel
+        - python@2.7.18
+        - zlib
+        - perl
   concretizer:
     reuse: true
     unify: when_possible
