@@ -19,12 +19,12 @@ spack:
   - unqlite@master
   - py-pybind11
   - mochi-margo
-  - mercury ~boostsys ^libfabric fabrics=tcp,rxm
+  - mercury~checksum~boostsys ^libfabric fabrics=tcp,rxm
   - py-mochi-margo
   - mochi-bedrock ^mpich
   - ycsb-cpp-interface ^ycsb@master
   - rocksdb+rtti
-  - mochi-remi@0.3.3:+bedrock
+  - mochi-remi+bedrock
   concretizer:
     unify: true
     reuse: true
@@ -32,9 +32,19 @@ spack:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
       lib64: [LD_LIBRARY_PATH]
+  packages:
+    mochi-margo:
+      require: "@0.15.0:"
+    mochi-thallium:
+      require: "@0.12.0:"
+    mochi-remi:
+      require: "@0.4.0:"
+    mochi-bedrock:
+      require: "@0.8.0:"
+  mirrors:
+    mochi-buildcache:
+      url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
+      signed: false
   config:
-    source_cache: ~/.spack-ci/source_cache
-    misc_cache: ~/.spack-ci/misc_cache
-    test_cache: ~/.spack-ci/test_cache
     install_tree:
-      root: ~/.spack-ci/install
+      padded_length: 128

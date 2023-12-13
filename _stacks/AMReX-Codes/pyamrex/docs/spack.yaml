@@ -18,10 +18,12 @@ spack:
   # note: the spec "doxygen+graphviz" causes an environment issue for me
   - doxygen
   - graphviz
+  - py-pybind11-stubgen
   - python
   - py-sphinx
   - py-breathe
   - py-recommonmark
   - py-pygments
+  - py-sphinx-copybutton
   - py-sphinx-design
   - py-sphinx-rtd-theme
