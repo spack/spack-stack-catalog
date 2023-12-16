@@ -1,31 +1,56 @@
 spack:
   specs:
+  - apptainer @1.1.9
+  - aria2
   - aspera-cli
+  - autoconf-archive @2022.02.11
+  - awscli ^python@2.7
   - cdo
-  - cmake
-  - gdl
+  - cmake @3.24.3
+  - cmake @3.28.1
+  - gdl @1.0.3
+  - gnuplot
   - gromacs
   - jags
+  - matlab @R2023a
+  - mark
   - nco
   - parallel
+  - phydrus-fortran
+  - pigz
   - rclone
-  - rstudio@2022.12.0+server
+  - rstudio@2022.12.0+server ^curl@7.85.0
+  - squashfs @4.5.1
   - stata
+  - turbovnc
+  - valgrind
+  - virtualgl
   - yasm
   modules:
     default:
       tcl:
+        exclude:
+        - perl
         exclude_implicits: true
         include:
+        - gdl
+        - pigz%gcc@11.3.0
         - rstudio
+        - squashfs
+        - turbovnc
         projections:
           rstudio: rstudio-server/{version}
+        apptainer:
+          load:
+          - squashfs
         rstudio:
-          template: hpccf/rstudio-server.tcl
+          template: hpccf/farm/rstudio-server.tcl
+        turbovnc:
+          template: hpccf/farm/turbovnc.tcl
         all:
           conflict:
           - '{name}'
   concretizer:
     reuse: true
-    unify: when_possible
+    unify: false
   view: false

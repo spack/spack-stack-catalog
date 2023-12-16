@@ -2,24 +2,26 @@ spack:
   include: 
   - ../concretizer.yaml
   - ../packages.yaml
+  config:
+    install_missing_compilers: false
   specs:
-    - acts
-    - cmake
-    - dd4hep
-    - edm4eic
-    - fastjet
-    - fjcontrib
-    - gaudi
-    - geant4 -opengl
-    - hepmc3
-    - intel-tbb
-    - irt
-    - jana2
-    - npsim -geocad
-    - py-boto3
-    - py-jinja2
-    - py-jinja2-cli
-    - py-pip
-    - root -opengl
-    - xrootd
+  - acts
+  - cmake
+  - dd4hep -ddeve
+  - edm4eic
+  - fastjet
+  - fjcontrib
+  - gaudi
+  - geant4 -opengl
+  - hepmc3
+  - intel-tbb
+  - irt
+  - jana2
+  - npsim -geocad
+  - py-boto3
+  - py-jinja2
+  - py-jinja2-cli
+  - py-pip
+  - root -opengl
+  - xrootd
   view: false
