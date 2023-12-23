@@ -1,0 +1,14 @@
+spack:
+  packages:
+    all:
+      compiler: [gcc@10.3.1]
+      providers:
+        mpi: [mvapich2]
+      target: [x86_64_v3]
+  specs:
+  - gotcha@1.0.5
+  - mochi-margo@0.13.1 ^mercury~boostsys ^libfabric fabrics=rxm,sockets,tcp
+  - spath~mpi
+  view: true
+  concretizer:
+    unify: true

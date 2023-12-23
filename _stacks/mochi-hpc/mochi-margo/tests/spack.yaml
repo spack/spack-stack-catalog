@@ -1,0 +1,29 @@
+# This file defines the spack environment used by github actions
+# (tests, codeql, and codecov) when building and testing the code.
+# In particular the "config" field sets the installation path and
+# spack caches to ~/.spack-ci so that they can be retrieved using
+# the github cache action across runs.
+spack:
+  specs:
+  - json-c
+  - autoconf
+  - m4
+  - automake
+  - libtool
+  - pkg-config
+  - argobots
+  - mercury~checksum~boostsys ^libfabric fabrics=tcp,rxm
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  mirrors:
+    mochi-buildcache:
+      url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
+      signed: false
+  config:
+    install_tree:
+      padded_length: 128
