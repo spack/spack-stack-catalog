@@ -154,6 +154,9 @@ spack:
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^lapack
+      - any_of:
+        - ^pkg-config
+        when: ^pkgconfig
     antlr:
       require: '%gcc@7.5.0'
     apptainer:
@@ -278,6 +281,9 @@ spack:
       - ~xerces
     expat:
       require: '%gcc@7.5.0'
+    ferret:
+      variants:
+      - +datasets
     ffmpeg:
       variants:
       - +X
@@ -374,6 +380,20 @@ spack:
       - '%gcc@7.5.0'
     glpk:
       require: '%gcc@7.5.0'
+    gmt:
+      variants:
+      - +ffmpeg
+      - +fftw
+      - +geos
+      - +ghostscript
+      - +glib
+      # This option needs to be off for now b/c graphicsmagick has issues with libxml2 linking
+      # (it wants ftp support, which libxml2 doesnt current have in Spack
+      - ~graphicsmagick
+      - +pcre
+      require:
+      - +blas
+      - +lapack
     gnuplot:
       variants:
       - +X
@@ -388,6 +408,12 @@ spack:
     grads:
       variants:
       - +dap
+    graphicsmagick:
+      # graphicsmagick can't built using libjpeg>2
+      # https://github.com/ImageMagick/ImageMagick/issues/6514
+      require:
+      - ^libjpeg-turbo@:2
+      - '%gcc@7.5.0'
     groff:
       require:
       - '%gcc@7.5.0'
@@ -409,6 +435,11 @@ spack:
       - +hl
       - +szip
       - ~mpi
+    hdf-eos5:
+      require:
+      - any_of:
+        - ^hdf5@1.10
+        when: '%gcc@7.5.0'
     hwloc:
       require: '%gcc@7.5.0'
       variants:
@@ -548,6 +579,9 @@ spack:
       - spec: miniconda3@4.12.0
         prefix: /glade/u/apps/opt/conda
       buildable: false
+    motif:
+      require:
+      - ^autoconf@2.69
     mpifileutils:
       variants:
       - +gpfs
@@ -557,12 +591,15 @@ spack:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
       require:
-      - ^esmf@:8.0.1 ~external-lapack
-      - ^hdf5~mpi
+      - '%gcc@7.5.0'
       variants:
       - +gdal
       - +grib
       - +hdf4
+      externals:
+      - spec: ncl@6.6.2
+        prefix: /glade/u/apps/opt/ncl/6.6.2
+      buildable: false
     netcdf:
       variants:
       - +dap
@@ -841,6 +878,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - xnedit
       - ncompress
       - ncftp
       - ed
@@ -893,13 +931,14 @@ spack:
       - curl
       - openssl
       - libtool
+      - autoconf-archive
       - automake
       - autoconf@2.71
       - git
       - perl
       link_type: symlink
       link: roots
-  compilers:
+  'compilers:':
   - compiler:
       spec: gcc@=7.5.0
       paths:
@@ -1008,6 +1047,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - gmt
         - visit
         - paraview
         - octave
@@ -1059,6 +1099,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - autoconf-archive
+        - xnedit
         - ncompress
         - ncftp
         - emacs
@@ -1129,6 +1171,7 @@ spack:
               NCAR_BUILD_ENV: casper-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
         hash_length: 0
         hdf5+mpi:
           template: conflict-mpi.lua
@@ -1156,6 +1199,7 @@ spack:
               NCAR_BUILD_ENV_COMPILER: casper-oneapi-{version}
               NCAR_ID_COMPILER: oneapi-{version}
               NCAR_ROOT_ONEAPI: '{prefix}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_SPACK_HASH_ONEAPI: '{hash}'
               OMPI_CC: icx
               OMPI_CXX: icpx
@@ -1183,6 +1227,7 @@ spack:
               NCAR_BUILD_ENV_COMPILER: casper-intel-{^intel-oneapi-compilers.version}
               NCAR_ID_COMPILER: intel-{^intel-oneapi-compilers.version}
               NCAR_ROOT_INTEL: '{^intel-oneapi-compilers.prefix}'
+              NCAR_ROOT_COMPILER: '{^intel-oneapi-compilers.prefix}'
               NCAR_SPACK_HASH_INTEL: '{hash}'
               OMPI_CC: icc
               OMPI_CXX: icpc
@@ -1237,9 +1282,13 @@ spack:
             - NCAR_SPACK_HASH_LLVM
           environment:
             set:
+              NCAR_BUILD_ENV: casper-clang-{version}
+              NCAR_BUILD_ENV_COMPILER: casper-clang-{version}
+              NCAR_ID_COMPILER: clang-{version}
               NCAR_INC_CLANG: '{prefix}/include'
               NCAR_LDFLAGS_CLANG: '{prefix}/lib'
               NCAR_ROOT_CLANG: '{prefix}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_SPACK_HASH_CLANG: '{hash}'
         miniconda3:
           filter:
@@ -1268,11 +1317,20 @@ spack:
             set:
               NCAR_BUILD_ENV_MPI: casper-{compiler.name}-{compiler.version}-{name}-{version}
               NCAR_ID_MPI: '{name}-{version}'
+              NCAR_ROOT_MPI: '{prefix}'
         ncarcompilers:
           environment:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
           template: ncar_wrapper.lua
+        cdo:
+          autoload: none
+        nco:
+          autoload: none
+        ncview:
+          autoload: none
+        nccmp:
+          autoload: none
         netcdf:
           autoload: all
         netcdf+mpi:
@@ -1285,6 +1343,7 @@ spack:
               NCAR_BUILD_ENV: casper-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NVIDIA_PATH: '{prefix}'
               NVIDIA_VERSION: '{version}'
             prepend_path:
@@ -1441,7 +1500,6 @@ spack:
   - cuda@11.8.0
   - cuda@12.2.1
   - cudnn@8.7.0.84-11.8
-  - ncl
   - ucx
   - ncvis
   - grads
@@ -1547,3 +1605,12 @@ spack:
   - emacs
   - ncftp
   - ncompress
+  - xnedit
+  - ncl
+  - gdal@3.7.1%oneapi@2023.2.1
+  - ferret
+  - gmt@6.4.0%gcc@12.2.0
+  - autoconf-archive
+  - mpi-serial@2.5.0%gcc@12.2.0
+  - mpi-serial@2.5.0%nvhpc@23.7
+  - mpi-serial@2.5.0%oneapi@2023.2.1
