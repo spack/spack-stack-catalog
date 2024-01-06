@@ -1,0 +1,156 @@
+spack:
+  include:
+  - /appl/lumi/spack/etc/23.09/0.21.0/config.yaml
+  - /appl/lumi/spack/etc/23.09/0.21.0/packages.yaml
+  - /appl/lumi/spack/etc/23.09/0.21.0/compilers.yaml
+  definitions:
+  - core_compiler: ['%gcc@7.5.0']
+  - gcc_compiler: ['%gcc@12.2.0']
+  - gcc11_compiler: ['%gcc@11.2.0']
+  - cray_compiler: ['%cce@16.0.1']
+  - core_packages:
+    - vim features=huge
+    - emacs
+    - nano
+    - tmux
+    - subversion
+    - mercurial
+    - gnupg
+    - meson
+    - mc
+    - git-lfs
+    - ccache
+    - gnuplot +X
+    - grace ^hdf5~mpi ^fftw@2.1.5~mpi
+    - xterm
+  - gcc_packages:
+    - hpl+openmp
+    - hpl+openmp ^cray-libsci
+    - openblas threads=none
+    - openblas threads=openmp
+    - netlib-scalapack ^openblas
+    - boost+filesystem+date_time+math+signals+graph+multithreaded+shared+thread+timer
+      cxxstd=17
+    - lammps+class2+colloid+compress+coreshell+dipole+granular+kspace+manybody+mc+misc+molecule+mpi+mpiio+openmp+peri+poems+python+qeq+replica+rigid+shock+snap+spin+srd+voronoi
+    - quantum-espresso+epw+libxc+mpi+openmp+scalapack hdf5=serial ^openblas ^netlib-scalapack ^libxc%gcc@12.2.0 ^hdf5%gcc@12.2.0
+    - eigen
+    - cdo
+    - nco
+    - cmor
+    - eccodes+aec+fortran+memfs+netcdf+openmp+tools
+    - kokkos +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - cp2k+cosma+libint+libvori+libxc+mpi+pexsi+plumed+sirius+spglib+spla smm=libxsmm
+    - darshan-runtime
+    - darshan-util
+    - parmetis
+    - elpa
+    - googletest
+    - blis threads=none
+    - blis threads=openmp
+    - libflame threads=none ^blis
+    - kokkos ~rocm~cuda~wrapper+openmp
+    - trilinos ~cuda~wrapper
+    - fortrilinos 
+    - petsc~rocm ^superlu-dist ~rocm
+    - jasper
+    - wannier90
+    - htop@3.2.2
+  - gcc11_packages:
+    - hpl+openmp ^cray-libsci
+  - cray_packages:
+    - hpl+openmp ^openblas
+    - boost+filesystem+date_time+math+signals+graph+multithreaded+shared+thread+timer
+      cxxstd=17
+    - googletest
+    - kokkos +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+  specs:
+  - matrix:
+    - [$core_packages]
+    - [$core_compiler]
+    - [arch=linux-sles15-zen]
+  - matrix:
+    - [$gcc_packages]
+    - [$gcc_compiler]
+    - [arch=linux-sles15-zen2]
+  - matrix:
+    - [$gcc11_packages]
+    - [$gcc11_compiler]
+    - [arch=linux-sles15-zen2]
+  - matrix:
+    - [$cray_packages]
+    - [$cray_compiler]
+    - [arch=linux-sles15-zen2]
+  view: false
+  concretizer:
+    unify: when_possible
+  modules:
+    prefix_inspections:
+      bin:
+      - PATH
+      man:
+      - MANPATH
+      share/man:
+      - MANPATH
+      share/aclocal:
+      - ACLOCAL_PATH
+      lib:
+      - LD_LIBRARY_PATH
+      lib64:
+      - LD_LIBRARY_PATH
+      lib/pkgconfig:
+      - PKG_CONFIG_PATH
+      lib64/pkgconfig:
+      - PKG_CONFIG_PATH
+      share/pkgconfig:
+      - PKG_CONFIG_PATH
+      '':
+      - CMAKE_PREFIX_PATH
+    default:
+      enable:
+      - tcl
+      tcl:
+        hash_length: 3
+        projections:
+          all: '{name}/{version}-{compiler.name}'
+        exclude:
+        - cray-mpich
+        - cray-libsci
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+            openblas threads=none: serial
+        hpl:
+          suffixes:
+            hpl ^openblas: openblas
+        zstd:
+          suffixes:
+            zstd ~programs: nobin
+        binutils:
+          suffixes:
+            binutils +gold: gold
+        xz:
+          suffixes:
+            xz +pic: pic
+        elfutils:
+          suffixes:
+            elfutils +bzip2: compress
+        trilinos:
+          suffixes:
+            trilinos +rocm: gpu
+        kokkos:
+          suffixes:
+            kokkos +rocm: gpu
+        chai:
+          suffixes:
+            chai +rocm: gpu
+        raja:
+          suffixes:
+            raja +rocm: gpu
+        umpire:
+          suffixes:
+            umpire +rocm: gpu
+        gromacs:
+          suffixes:
+            gromacs +plumed: plumed
+
