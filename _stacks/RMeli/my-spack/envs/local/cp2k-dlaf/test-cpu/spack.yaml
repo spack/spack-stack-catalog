@@ -1,0 +1,21 @@
+spack:
+  specs:
+  - mpich@4.0.1 device=ch3 netmod=tcp
+  - pika@git.f5850f13ab30dbba6d81e23184912408a7aba7e9
+  - dla-future@git.f18f533582e9302098af4ebd1f981da6d0704de9 +scalapack
+  - dbcsr@develop
+  - cosma+scalapack+shared
+  - intel-mkl threads=openmp
+  - cp2k@master +libxc +libint +cosma +spglib +dlaf build_system=cmake
+  packages:
+    all:
+      variants:
+      - +mpi
+      - ~cuda
+      - ~rocm
+      compiler: ['gcc@11.4.0']
+  repos:
+  - ~/git/my-spack/repos/cp2k-dlaf/
+  view: false
+  concretizer:
+    unify: true
