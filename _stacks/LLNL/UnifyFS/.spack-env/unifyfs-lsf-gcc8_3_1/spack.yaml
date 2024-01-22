@@ -7,8 +7,8 @@ spack:
       target: [ppc64le]
   specs:
   - automake@1.15.1
-  - gotcha@develop
-  - mochi-margo@0.9.6 ^libfabric fabrics=rxm,sockets,tcp
+  - gotcha@1.0.5
+  - mochi-margo@0.13.1 ^mercury~boostsys ^libfabric fabrics=rxm,sockets,tcp
   - spath~mpi
   view: true
   concretizer:
