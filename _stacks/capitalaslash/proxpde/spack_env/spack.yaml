@@ -1,0 +1,16 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - eigen@3.4.0
+  - suite-sparse@5.13.0
+  - hdf5@1.14.1-2~mpi
+  - pugixml@1.13
+  - yaml-cpp@0.7.0
+  - fmt@10.2.1
+  view: true
+  concretizer:
+    unify: true
