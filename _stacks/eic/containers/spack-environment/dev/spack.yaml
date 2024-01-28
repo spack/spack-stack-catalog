@@ -24,6 +24,7 @@ spack:
   - edm4eic
   - edm4hep
   - eic-smear
+  - eicrecon
   - eigen
   - emacs
   - fastjet
@@ -39,6 +40,9 @@ spack:
   - irt
   - iwyu
   - jana2
+  - k4actstracking
+  - juggler
+  - k4fwcore
   - lcov
   - lhapdf
   - madx
@@ -66,6 +70,7 @@ spack:
   - py-mplhep
   - py-htgettoken
   - py-numpy
+  - py-onnx
   - py-pandas
   - py-pip
   - py-pre-commit
@@ -74,6 +79,7 @@ spack:
   - py-scipy
   - py-seaborn
   - py-toml
+  - py-torch
   - py-uproot
   - py-wurlitzer
   - py-yapf
