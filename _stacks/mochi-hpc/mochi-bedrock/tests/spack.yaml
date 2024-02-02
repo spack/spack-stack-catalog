@@ -18,6 +18,10 @@ spack:
   - fmt
   - tclap
   - mercury~boostsys~checksum ^libfabric fabrics=tcp,rxm
+  - py-mochi-margo
+  - py-pybind11
+  - py-attrs
+  - py-coverage
   concretizer:
     unify: true
     reuse: true
@@ -25,6 +29,13 @@ spack:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
       lib64: [LD_LIBRARY_PATH]
+  packages:
+    mochi-margo:
+      require: "@0.15.0:"
+    mochi-thallium:
+      require: "@0.12.0:"
+    py-attrs:
+      require: "@20.3.0:"
   mirrors:
     mochi-buildcache:
       url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
