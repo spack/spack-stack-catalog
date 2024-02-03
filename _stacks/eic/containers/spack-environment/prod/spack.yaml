@@ -1,5 +1,5 @@
 spack:
-  include: 
+  include:
   - ../concretizer.yaml
   - ../packages.yaml
   config:
@@ -9,6 +9,7 @@ spack:
   - cmake
   - dd4hep -ddeve
   - edm4eic
+  - eicrecon
   - fastjet
   - fjcontrib
   - gaudi
@@ -17,6 +18,7 @@ spack:
   - intel-tbb
   - irt
   - jana2
+  - juggler
   - npsim -geocad
   - py-boto3
   - py-jinja2
