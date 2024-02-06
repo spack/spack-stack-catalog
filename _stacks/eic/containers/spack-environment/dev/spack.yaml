@@ -40,12 +40,13 @@ spack:
   - irt
   - iwyu
   - jana2
-  - k4actstracking
   - juggler
+  - k4actstracking
   - k4fwcore
   - lcov
   - lhapdf
   - madx
+  - nano
   - npsim
   - onnx
   - opencascade

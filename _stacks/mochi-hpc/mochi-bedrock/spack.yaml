@@ -12,6 +12,9 @@ spack:
   - fmt
   - tclap
   - mercury
+  - py-mochi-margo
+  - py-pybind11
+  - py-attrs
   concretizer:
     unify: true
     reuse: true
@@ -24,3 +27,5 @@ spack:
       require: "@0.15.0:"
     mochi-thallium:
       require: "@0.12.0:"
+    py-attrs:
+      require: "@22.2.0:"
