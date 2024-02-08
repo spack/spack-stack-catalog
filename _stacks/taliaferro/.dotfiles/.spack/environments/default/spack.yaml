@@ -1,0 +1,24 @@
+spack:
+  specs:
+  - kakoune
+  - git
+  - nmap
+  - py-ranger-fm
+  - python@3.10
+  - py-pip
+  - tmux
+  - zsh
+  - coreutils
+  - tree
+  - jq
+  - py-black
+  - py-ipython
+  ## commented because they introduce a dependency on rust
+  ## which takes an eternity to build
+  # - py-ansible
+  # - ripgrep
+  # - bat
+  - w3m
+  view: true
+  concretizer:
+    unify: true
