@@ -26,6 +26,63 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/templates/modules
   packages:
+    gawk:
+      externals:
+      - spec: gawk@4.2.1
+        prefix: /usr
+      require:
+      - '%gcc@7.5.0'
+    gcc:
+      externals:
+      - spec: gcc@7.5.0 languages='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc-7
+            cxx: /usr/bin/g++-7
+            fortran: /usr/bin/gfortran-7
+      - spec: gcc@13.2.0 languages='c,c++,fortran'
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0
+        extra_attributes:
+          compilers:
+            c: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gcc
+            cxx: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/g++
+            fortran: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gfortran
+      buildable: false
+      variants:
+      - +piclibs
+      - languages=c,c++,fortran,go
+      require:
+      - '%gcc@7.5.0'
+    openjdk:
+      externals:
+      - spec: openjdk@11.0.21_0-suse-150000.3.107.1-x8664
+        prefix: /usr
+      require:
+      - '%gcc@7.5.0'
+    openssh:
+      externals:
+      - spec: openssh@8.4p1
+        prefix: /usr
+      require:
+      - '%gcc@7.5.0'
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    openssl:
+      # Requiring certs=system is necessary to perform builds like rust using
+      # external openssl
+      externals:
+      - spec: openssl@1.1.1l
+        prefix: /usr
+      buildable: false
+      require:
+      - certs=system
+      - '%gcc@7.5.0'
     bash:
       externals:
       - spec: bash@4.4.23
@@ -50,13 +107,6 @@ spack:
     findutils:
       externals:
       - spec: findutils@4.8.0
-        prefix: /usr
-      buildable: false
-      require:
-      - '%gcc@7.5.0'
-    gmake:
-      externals:
-      - spec: gmake@4.2.1
         prefix: /usr
       buildable: false
       require:
@@ -95,16 +145,6 @@ spack:
         prefix: /usr
       buildable: false
       require:
-      - '%gcc@7.5.0'
-    openssl:
-      # Requiring certs=system is necessary to perform builds like rust using
-      # external openssl
-      externals:
-      - spec: openssl@1.1.1l
-        prefix: /usr
-      buildable: false
-      require:
-      - certs=system
       - '%gcc@7.5.0'
     adios2:
       variants:
@@ -318,15 +358,6 @@ spack:
       require:
       - '@:2.10.2'
       - '%gcc@7.5.0'
-    gawk:
-      require:
-      - '%gcc@7.5.0'
-    gcc:
-      variants:
-      - +piclibs
-      - languages=c,c++,fortran,go
-      require:
-      - '%gcc@7.5.0'
     gdal:
       require:
       - any_of:
@@ -428,7 +459,6 @@ spack:
       - +fortran
       - +szip
     hdf5:
-      require: '@:1.12'
       variants:
       - +cxx
       - +fortran
@@ -460,6 +490,8 @@ spack:
       externals:
       - spec: intel-oneapi-compilers@2023.2.1
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1
+      - spec: intel-oneapi-compilers@2024.0.2
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2
       buildable: false
     intel-oneapi-mpi:
       variants:
@@ -485,7 +517,9 @@ spack:
       require:
       - '%gcc@7.5.0'
     libarchive:
-      require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      require:
+      - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      - '%gcc@7.5.0'
     libcatalyst:
       require:
       - '%gcc@7.5.0'
@@ -551,6 +585,8 @@ spack:
       externals:
       - spec: linaro-forge@23.0
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/linaro-forge/23.0
+      - spec: linaro-forge@23.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/linaro-forge/23.1
       buildable: false
     lz4:
       require: '%gcc@7.5.0'
@@ -623,6 +659,8 @@ spack:
       externals:
       - spec: nvhpc@23.7
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
+      - spec: nvhpc@24.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1
       buildable: false
     ocl-icd:
       variants:
@@ -651,11 +689,9 @@ spack:
       variants:
       - +fortran
       - threads=openmp
-    openjdk:
-      require:
-      - '%gcc@7.5.0'
     openmpi:
       require:
+      # Make sure to get rid of knem next time!
       - fabrics=cma,knem,ucx
       - schedulers=tm
       - +gpfs
@@ -671,9 +707,6 @@ spack:
       - spec: openpbs@2021.1.3
         prefix: /opt/pbs
       buildable: false
-      require:
-      - '%gcc@7.5.0'
-    openssh:
       require:
       - '%gcc@7.5.0'
     osmesa:
@@ -694,6 +727,10 @@ spack:
       - +ncint
       - +pnetcdf
       - ~logging
+      require:
+      - any_of:
+        - ~pnetcdf
+        when: ~mpi
     parallelio1:
       variants:
       - +pnetcdf
@@ -874,6 +911,46 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +programs
+    intel-oneapi-inspector:
+      externals:
+      - spec: intel-oneapi-inspector@2024.0.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-inspector/2024.0.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    py-fypp:
+      require:
+      - '%gcc@7.5.0'
+    libxcrypt:
+      require:
+      - '%gcc@7.5.0'
+    gmp:
+      require:
+      - '%gcc@7.5.0'
+    libpciaccess:
+      require:
+      - '%gcc@7.5.0'
+    libaec:
+      require:
+      - '%gcc@7.5.0'
+    ecbuild:
+      require:
+      - '%gcc@7.5.0'
+    libevent:
+      require:
+      - '%gcc@7.5.0'
+    c-blosc2:
+      require:
+      - '%gcc@7.5.0'
+    attr:
+      require:
+      - '%gcc@7.5.0'
+    libcap:
+      require:
+      - '%gcc@7.5.0'
+    lwgrp:
+      require:
+      - '%gcc@7.5.0'
   view:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
@@ -1006,6 +1083,42 @@ spack:
       environment:
         set:
           NVCCFLAGS: -allow-unsupported-compiler
+  - compiler:
+      spec: nvhpc@24.1
+      paths:
+        cc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1/Linux_x86_64/24.1/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1/Linux_x86_64/24.1/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1/Linux_x86_64/24.1/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1/Linux_x86_64/24.1/compilers/bin/nvfortran
+      operating_system: opensuse15
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1/Linux_x86_64/24.1/compilers/lib
+  - compiler:
+      spec: oneapi@2024.0.2
+      paths:
+        cc: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2/compiler/latest/bin/icx
+        cxx: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2/compiler/latest/bin/icpx
+        f77: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2/compiler/latest/bin/ifx
+        fc: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2/compiler/latest/bin/ifx
+      operating_system: opensuse15
+      modules: []
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
+  - compiler:
+      spec: gcc@13.2.0
+      paths:
+        cc: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gcc
+        cxx: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/g++
+        f77: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gfortran
+        fc: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gfortran
+      operating_system: opensuse15
+      modules: []
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
   modules:
     'default:':
       roots:
@@ -1047,14 +1160,14 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - cdo
         - gmt
+        - nco
         - visit
         - paraview
         - octave
         - nccmp
         - ncview
-        - cdo
-        - nco
         - cuda
         - r
         - cmake
@@ -1089,10 +1202,10 @@ spack:
               DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
         defaults:
         - netcdf@4.9.2
-        - parallel-netcdf@1.12.3
-        - fftw@3.3.10
         - openmpi@4.1.6
         - cuda@12.2.1
+        - gcc@12.2.0
+        - intel-oneapi-compilers@2023.2.1
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
@@ -1361,6 +1474,12 @@ spack:
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
+        openmpi@5:
+          environment:
+            set:
+              # https://github.com/open-mpi/ompi/issues/9647
+              OMPI_MCA_rmaps_default_mapping_policy: :hwtcpus
+              OMPI_MCA_smsc: ^knem
         parallel-netcdf:
           environment:
             set:
@@ -1423,15 +1542,12 @@ spack:
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
-    - name: github-actions-v0.3
-      metadata: $spack/share/spack/bootstrap/github-actions-v0.3
     - name: spack-install
       metadata: $spack/share/spack/bootstrap/spack-install
     trusted:
     # By default we trust bootstrapping from sources and from binaries
     # produced on Github via the workflow
       github-actions-v0.4: true
-      github-actions-v0.3: true
       spack-install: true
   mirrors:
     ncar_mirror_global: /glade/u/apps/casper/mirror
@@ -1614,3 +1730,81 @@ spack:
   - mpi-serial@2.5.0%gcc@12.2.0
   - mpi-serial@2.5.0%nvhpc@23.7
   - mpi-serial@2.5.0%oneapi@2023.2.1
+  - linaro-forge@23.1
+  - darshan-util@3.4.4
+  - intel-oneapi-inspector@2024.0.0
+  - nvhpc@24.1
+  - intel-oneapi-compilers@2024.0.2
+  - gcc@13.2.0
+  - openmpi@5.0.0%gcc@13.2.0
+  - openmpi@5.0.0%nvhpc@24.1
+  - openmpi@5.0.0%oneapi@2024.0.2
+  - intel-oneapi-mkl@2024.0.0%oneapi@2024.0.2
+  - openblas@0.3.25%gcc@13.2.0
+  - ncarcompilers@1.0.0%gcc@13.2.0
+  - ncarcompilers@1.0.0%nvhpc@24.1
+  - ncarcompilers@1.0.0%oneapi@2024.0.2
+  - fftw@3.3.10%gcc@13.2.0~mpi
+  - fftw@3.3.10%nvhpc@24.1~mpi
+  - fftw@3.3.10%oneapi@2024.0.2~mpi
+  - udunits@2.2.28%gcc@13.2.0
+  - udunits@2.2.28%nvhpc@24.1
+  - udunits@2.2.28%oneapi@2024.0.2
+  - hdf5@1.14.3%gcc@13.2.0~mpi
+  - hdf5@1.14.3%nvhpc@24.1~mpi
+  - hdf5@1.14.3%oneapi@2024.0.2~mpi
+  - netcdf@4.9.2%gcc@13.2.0~mpi
+  - netcdf@4.9.2%nvhpc@24.1~mpi
+  - netcdf@4.9.2%oneapi@2024.0.2~mpi
+  - proj@9.2.1%gcc@13.2.0
+  - proj@9.2.1%nvhpc@24.1
+  - proj@9.2.1%oneapi@2024.0.2
+  - geos@3.12.1%gcc@13.2.0
+  - geos@3.12.1%nvhpc@24.1
+  - geos@3.12.1%oneapi@2024.0.2
+  - hdf@4.2.15%gcc@13.2.0
+  - hdf@4.2.15%nvhpc@24.1
+  - hdf@4.2.15%oneapi@2024.0.2 cflags='-std=c90 -Wno-error=int-conversion'
+  - eccodes@2.32.0%gcc@13.2.0
+  - eccodes@2.32.0%nvhpc@24.1
+  - eccodes@2.32.0%oneapi@2024.0.2
+  - mpi-serial@2.5.0%gcc@13.2.0
+  - mpi-serial@2.5.0%nvhpc@24.1
+  - mpi-serial@2.5.0%oneapi@2024.0.2
+  - parallelio@2.6.2%gcc@13.2.0~mpi~pnetcdf
+  - parallelio@2.6.2%nvhpc@24.1~mpi~pnetcdf
+  - parallelio@2.6.2%oneapi@2024.0.2~mpi~pnetcdf
+  - esmf@8.6.0%gcc@13.2.0~mpi
+  - esmf@8.6.0%nvhpc@24.1~mpi ^nvhpc@24.1
+  - esmf@8.6.0%oneapi@2024.0.2~mpi
+  - gdal@3.8.1%gcc@13.2.0
+  - parallel-netcdf@1.12.3%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - parallel-netcdf@1.12.3%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - parallel-netcdf@1.12.3%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - hdf5@1.14.3%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
+  - hdf5@1.14.3%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
+  - hdf5@1.14.3%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
+  - netcdf@4.9.2%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
+  - netcdf@4.9.2%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
+  - netcdf@4.9.2%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
+  - fftw@3.3.10%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
+  - fftw@3.3.10%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
+  - fftw@3.3.10%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
+  - darshan-runtime@3.4.4%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - darshan-runtime@3.4.4%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - darshan-runtime@3.4.4%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - parallelio@2.6.2%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - parallelio@2.6.2%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - parallelio@2.6.2%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - esmf@8.6.0%gcc@13.2.0+mpi+pnetcdf ^openmpi@5.0.0%gcc@13.2.0
+  - esmf@8.6.0%nvhpc@24.1+mpi+pnetcdf ^nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - esmf@8.6.0%oneapi@2024.0.2+mpi+pnetcdf ^openmpi@5.0.0%oneapi@2024.0.2
+  - osu-micro-benchmarks%nvhpc@24.1+cuda ^openmpi@5.0.0%nvhpc@24.1
+  - osu-micro-benchmarks%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - adios2@2.9.2%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - adios2@2.9.2%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - nco@5.1.9%gcc@12.2.0
+  - gmt@6.5.0%gcc@12.2.0
+  - cdo@2.3.0%gcc@12.2.0 ^proj@8
+  - mpifileutils@0.11.1%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - vapor@3.9.1
