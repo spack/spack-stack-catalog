@@ -35,7 +35,7 @@ spack:
     mochi-thallium:
       require: "@0.12.0:"
     py-attrs:
-      require: "@20.3.0:"
+      require: "@22.2.0:"
   mirrors:
     mochi-buildcache:
       url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
