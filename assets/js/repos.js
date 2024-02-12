@@ -46,12 +46,12 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/compilers/spack.yaml",
-      "configs/eagle/software/spack.yaml",
       "configs/ellis/compilers/spack.yaml",
-      "envs/exawind/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
       "configs/rhodes/utilities/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml"
+      "envs/exawind/spack.yaml",
+      "configs/eagle/software/spack.yaml",
+      "configs/eagle/compilers/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -107,8 +107,8 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
-      "systems/setonix/environments/bench/spack.yaml",
       "systems/setonix/environments/wrf/spack.yaml",
+      "systems/setonix/environments/bench/spack.yaml",
       "systems/setonix/environments/cray_devel/spack.yaml",
       "systems/setonix/environments/cray_s3_clients/spack.yaml"
     ],
@@ -168,10 +168,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/ml-linux-x86_64-cuda/spack.yaml",
       "share/spack/gitlab/cloud_pipelines/stacks/deprecated/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/ml-darwin-aarch64-mps/spack.yaml",
-      "share/spack/gitlab/cloud_pipelines/stacks/ml-linux-x86_64-cuda/spack.yaml"
+      "share/spack/gitlab/cloud_pipelines/stacks/aws-isc/spack.yaml",
+      "share/spack/gitlab/cloud_pipelines/stacks/ml-darwin-aarch64-mps/spack.yaml"
     ],
     "full_name": "Apetree100122/Adrlin",
     "latest_release": null,
@@ -203,8 +203,8 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx/rproject/spack.yaml",
-      "cent7/python_376/spack.yaml"
+      "cent7/python_376/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -232,10 +232,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/karolina/bpmf-argo/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
+      "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml",
       "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml"
+      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
+      "var/spack/environments/karolina/bpmf-argo/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -304,11 +304,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
+      "envs/alps/cp2k/cpu/openblas/spack.yaml",
       "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
-      "envs/alps/dlaf/oneapi-mt/spack.yaml",
-      "envs/alps/sirius/cpu/spack.yaml",
       "envs/alps/sirius/cuda/spack.yaml",
-      "envs/alps/cp2k/cpu/openblas/spack.yaml"
+      "envs/alps/sirius/cpu/spack.yaml",
+      "envs/alps/dlaf/oneapi-mt/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
     "latest_release": null,
@@ -796,8 +796,8 @@ var data =
     "data_format": 2,
     "description": "Micro-benchmarks created using PMDK and Intel Optane DCPMM performance comparisons for all generations, including the very last persistent memory, 300 series.",
     "filenames": [
-      "spack/envs/chris90/spack.yaml",
-      "spack/envs/pegasus/spack.yaml"
+      "spack/envs/pegasus/spack.yaml",
+      "spack/envs/chris90/spack.yaml"
     ],
     "full_name": "range3/pmembench",
     "latest_release": null,
@@ -811,8 +811,8 @@ var data =
     "data_format": 2,
     "description": "Dockerfile and Spack spec files for hardware optimized benchmark containers",
     "filenames": [
-      "quantum-espresso-amd/spack.yaml",
-      "hmmer-amd/spack.yaml"
+      "hmmer-amd/spack.yaml",
+      "quantum-espresso-amd/spack.yaml"
     ],
     "full_name": "dbkinghorn/Benchmark-Containers",
     "latest_release": null,
@@ -968,10 +968,10 @@ var data =
     "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
-      "spack/ci/spack.yaml",
+      "spack/snow/spack.yaml",
       "spack/darwin-power9/spack.yaml",
-      "spack/agaspar/spack.yaml",
-      "spack/snow/spack.yaml"
+      "spack/ci/spack.yaml",
+      "spack/agaspar/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1122,12 +1122,12 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/ascent/envs/base/spack.yaml",
-      "hosts/frontier/envs/base/spack.yaml",
+      "hosts/borg/envs/base/spack.yaml",
       "hosts/summit/envs/base/spack.yaml",
+      "hosts/frontier/envs/base/spack.yaml",
+      "hosts/ascent/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
-      "hosts/ascent/envs/base-rh7/spack.yaml",
-      "hosts/borg/envs/base/spack.yaml"
+      "hosts/ascent/envs/base-rh7/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1141,8 +1141,8 @@ var data =
     "data_format": 2,
     "description": "Registry to store workflow descriptions",
     "filenames": [
-      "minimal_workflow/wordcount/spack.yaml",
-      "kaust/exageostat/spack.yaml"
+      "kaust/exageostat/spack.yaml",
+      "minimal_workflow/wordcount/spack.yaml"
     ],
     "full_name": "eflows4hpc/workflow-registry",
     "latest_release": "2nd_stack_release",
@@ -1176,8 +1176,8 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ANL/Cooley/spack.yaml",
       "ORNL/Summit/spack.yaml",
+      "ANL/Cooley/spack.yaml",
       "ORNL/Crusher/spack.yaml",
       "ANL/Aurora/spack.yaml"
     ],
@@ -1207,10 +1207,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-centos7-broadwell/or-slurm/spack.yaml",
-      "linux-sles15-zen2/spock/spack.yaml",
+      "linux-rhel8-ppc64le/summit/spack.yaml",
       "linux-rhel8-zen2/cirrus/spack.yaml",
-      "linux-rhel8-ppc64le/summit/spack.yaml"
+      "linux-sles15-zen2/spock/spack.yaml",
+      "linux-centos7-broadwell/or-slurm/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -1311,20 +1311,20 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
       "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
-      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/cori-e4s-22.02/ci/gerty/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml"
+      "spack-configs/cori-e4s-20.10/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1339,9 +1339,9 @@ var data =
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
       "environments/key4hep-nightly-debug/spack.yaml",
+      "environments/contrib-compilers/spack.yaml",
       "environments/key4hep-ci/spack.yaml",
-      "environments/key4hep-nightly/spack.yaml",
-      "environments/contrib-compilers/spack.yaml"
+      "environments/key4hep-nightly/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1355,8 +1355,8 @@ var data =
     "data_format": 2,
     "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronics.",
     "filenames": [
-      "Tools/machines/lxplus-cern/spack.yaml",
-      "Docs/spack.yaml"
+      "Docs/spack.yaml",
+      "Tools/machines/lxplus-cern/spack.yaml"
     ],
     "full_name": "AMReX-Microelectronics/artemis",
     "latest_release": null,
@@ -1396,32 +1396,18 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "explore the FV3 data for parameterization",
-    "filenames": [
-      "docker/ufs_utils/spack.yaml"
-    ],
-    "full_name": "ai2cm/fv3net",
-    "latest_release": "release/cyclegan_initial",
-    "readme": "\u003ch1\u003e\u003ca id=\"user-content-fv3net\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#fv3net\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003efv3net\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://circleci.com/gh/ai2cm/fv3net/tree/master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b3e080c75d8b7187fbfaeb6a0e44426f4b4ce818305d3917a4334f4e5970b14c/68747470733a2f2f636972636c6563692e636f6d2f67682f616932636d2f6676336e65742f747265652f6d61737465722e7376673f7374796c653d737667\" alt=\"CircleCI\" data-canonical-src=\"https://circleci.com/gh/ai2cm/fv3net/tree/master.svg?style=svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eImproving the GFDL FV3 model physics with machine learning. See the \u003ca href=\"https://vulcanclimatemodeling.com/docs/fv3net/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e for more information on using this suite of tools.\u003c/p\u003e\n\u003cp\u003eDisclaimer: This is a work in progress.\u003c/p\u003e\n",
-    "stargazers_count": 14,
-    "subscribers_count": 10,
-    "topics": [],
-    "updated_at": 1698090412.0
-  },
-  {
-    "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
+      "benchmarks/spack/csd3-rocky8/icelake/spack.yaml",
+      "benchmarks/spack/myriad/cpu/spack.yaml",
+      "benchmarks/spack/isambard-macs/volta/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
+      "benchmarks/spack/csd3-rocky8/sapphirerapids/spack.yaml",
       "benchmarks/spack/dial3/compute-node/spack.yaml",
       "benchmarks/spack/isambard-phase3/milan/spack.yaml",
-      "benchmarks/spack/isambard-macs/volta/spack.yaml",
-      "benchmarks/spack/myriad/cpu/spack.yaml",
-      "benchmarks/spack/isambard-phase3/instinct/spack.yaml",
-      "benchmarks/spack/csd3-rocky8/sapphirerapids/spack.yaml",
-      "benchmarks/spack/csd3-rocky8/icelake/spack.yaml",
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/rome/spack.yaml"
+      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
+      "benchmarks/spack/isambard-phase3/instinct/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
     "latest_release": null,
@@ -1430,6 +1416,20 @@ var data =
     "subscribers_count": 8,
     "topics": [],
     "updated_at": 1707148519.0
+  },
+  {
+    "data_format": 2,
+    "description": "explore the FV3 data for parameterization",
+    "filenames": [
+      "docker/ufs_utils/spack.yaml"
+    ],
+    "full_name": "ai2cm/fv3net",
+    "latest_release": "release/cyclegan_initial",
+    "readme": "\u003ch1\u003e\u003ca id=\"user-content-fv3net\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#fv3net\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003efv3net\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://circleci.com/gh/ai2cm/fv3net/tree/master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/b3e080c75d8b7187fbfaeb6a0e44426f4b4ce818305d3917a4334f4e5970b14c/68747470733a2f2f636972636c6563692e636f6d2f67682f616932636d2f6676336e65742f747265652f6d61737465722e7376673f7374796c653d737667\" alt=\"CircleCI\" data-canonical-src=\"https://circleci.com/gh/ai2cm/fv3net/tree/master.svg?style=svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eImproving the GFDL FV3 model physics with machine learning. See the \u003ca href=\"https://vulcanclimatemodeling.com/docs/fv3net/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e for more information on using this suite of tools.\u003c/p\u003e\n\u003cp\u003eDisclaimer: This is a work in progress.\u003c/p\u003e\n",
+    "stargazers_count": 15,
+    "subscribers_count": 10,
+    "topics": [],
+    "updated_at": 1707630820.0
   },
   {
     "data_format": 2,
@@ -1449,10 +1449,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
-      "configs/templates/gsi-addon-dev/spack.yaml",
       "configs/templates/ufs-weather-model/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml",
+      "configs/templates/gsi-addon-dev/spack.yaml",
       "configs/templates/empty/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
@@ -1467,20 +1467,20 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
-      "docker-recipes/archived/special/superlu-sc/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
       "docker-recipes/runner/alinux2023-arm64-gcc-11.4/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
-      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.1/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.0/spack.yaml",
-      "docker-recipes/runner/_archived/rhel8-ppc64le/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml"
+      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/_archived/rhel8-ppc64le/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1510,9 +1510,9 @@ var data =
     "data_format": 2,
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
+      "buildsystem/container/spack.yaml",
       "buildsystem/spack/ascent/spack.yaml",
-      "buildsystem/spack/crusher/spack.yaml",
-      "buildsystem/container/spack.yaml"
+      "buildsystem/spack/crusher/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
     "latest_release": "v1.6.0",
@@ -1526,19 +1526,19 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
-      "environments/23.08/cuda-x86_64/spack.yaml",
-      "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/21.05/spack.yaml",
-      "environments/23.11/cuda-ppc64le/spack.yaml",
-      "environments/23.05/cuda-x86_64/spack.yaml",
-      "environments/23.08/cuda-aarch64/spack.yaml",
+      "environments/23.02/cuda-x86_64/spack.yaml",
       "environments/23.02/cuda-ppc64le/spack.yaml",
-      "environments/21.08/spack.yaml",
       "environments/22.05/cuda-x86_64.spack.yaml",
+      "environments/21.08/spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
+      "environments/23.11/cuda-ppc64le/spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/23.05/rocm-x86_64/spack.yaml",
+      "environments/23.08/cuda-x86_64/spack.yaml",
+      "environments/21.05/spack.yaml",
+      "environments/23.08/cuda-aarch64/spack.yaml",
       "environments/22.05/rocm.spack.yaml",
-      "environments/23.02/cuda-x86_64/spack.yaml"
+      "environments/22.08/cuda-x86_64.spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v23.11",
@@ -1552,9 +1552,9 @@ var data =
     "data_format": 2,
     "description": "An open collaborative repository for reproducible specifications of HPC benchmarks and cross site benchmarking environments",
     "filenames": [
+      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml",
       "configs/LLNL-Pascal-Penguin-broadwell-P100-OmniPath/spack.yaml",
-      "configs/nosite-AWS_PCluster_Hpc7a-zen4-EFA/spack.yaml",
-      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml"
+      "configs/nosite-AWS_PCluster_Hpc7a-zen4-EFA/spack.yaml"
     ],
     "full_name": "LLNL/benchpark",
     "latest_release": null,
@@ -1783,37 +1783,37 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
+      "BOISESTATE/borah/environments/compilers/_spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
       "OLCF/frontier/spack.yaml",
       "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "BOISESTATE/borah/environments/compilers/_spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
       "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/NERSC-Cori/gcc-spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
       "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
       "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
       "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml"
+      "NREL/configs/eagle/software/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1945,10 +1945,10 @@ var data =
     "data_format": 2,
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
       "scripts/spack/configs/darwin/spack.yaml",
-      "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml"
+      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/docker/ubuntu20/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1990,8 +1990,8 @@ var data =
     "data_format": 2,
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
-      "scripts/platforms/marianas/spack.yaml",
-      "scripts/platforms/newell/spack.yaml"
+      "scripts/platforms/newell/spack.yaml",
+      "scripts/platforms/marianas/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.3",
@@ -2071,8 +2071,8 @@ var data =
     "data_format": 2,
     "description": "Modular C++ Toolkit for Performance Analysis and Logging. Profiling API and Tools for C, C++, CUDA, Fortran, and Python. The C++ template API is essentially a framework to creating tools: it is designed to provide a unifying interface for recording various performance measurements alongside data logging and interfaces to other tools.",
     "filenames": [
-      "docker/cpu/spack.yaml",
-      "docker/gpu/spack.yaml"
+      "docker/gpu/spack.yaml",
+      "docker/cpu/spack.yaml"
     ],
     "full_name": "NERSC/timemory",
     "latest_release": "v3.2.3",
@@ -2106,8 +2106,8 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
       "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int64-double/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
@@ -2140,7 +2140,7 @@ var data =
     "full_name": "lfortran/lfortran",
     "latest_release": "v0.33.1",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-lfortran\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#lfortran\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLFortran\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f075ed3a1bcc7bc6d681d5b1b96c7235827bcfa73790e55a1c98bf969736b4e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eLFortran is a modern open-source (BSD licensed) interactive Fortran compiler\nbuilt on top of LLVM. It can execute user\u0027s code interactively to allow\nexploratory work (much like Python, MATLAB or Julia) as well as compile to\nbinaries with the goal to run user\u0027s code on modern architectures such as\nmulti-core CPUs and GPUs.\u003c/p\u003e\n\u003cp\u003eWebsite: \u003ca href=\"https://lfortran.org/\" rel=\"nofollow\"\u003ehttps://lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eTry online: \u003ca href=\"https://dev.lfortran.org/\" rel=\"nofollow\"\u003ehttps://dev.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h1\u003e\n\u003cp\u003eAll documentation, installation instructions, motivation, design, ... is\navailable at:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://docs.lfortran.org/\" rel=\"nofollow\"\u003ehttps://docs.lfortran.org/\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWhich is generated using the files in the \u003ccode\u003edoc\u003c/code\u003e directory.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-development\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#development\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDevelopment\u003c/h1\u003e\n\u003cp\u003eWe welcome all contributions.\nThe main development repository is at GitHub:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lfortran/lfortran\"\u003ehttps://github.com/lfortran/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003ePlease send Pull Requests (PRs) and open issues there.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e document for more information.\u003c/p\u003e\n\u003cp\u003eMain mailinglist:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://groups.io/g/lfortran\" rel=\"nofollow\"\u003ehttps://groups.io/g/lfortran\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou can also chat with us on Zulip (\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f075ed3a1bcc7bc6d681d5b1b96c7235827bcfa73790e55a1c98bf969736b4e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003eNote: We moved to the above GitHub repository from GitLab on July 18, 2022.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-donations\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#donations\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDonations\u003c/h1\u003e\n\u003cp\u003eYou can support LFortran\u0027s development by donating to NumFOCUS or Open\nCollective as well as GitHub Sponsors:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://numfocus.org/donate-to-lfortran\" rel=\"nofollow\"\u003ehttps://numfocus.org/donate-to-lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://opencollective.com/lfortran\" rel=\"nofollow\"\u003ehttps://opencollective.com/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/sponsors/lfortran\"\u003ehttps://github.com/sponsors/lfortran\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAll donations will be used strictly to fund LFortran development, by supporting\ntasks such as paying developers to implement features, sprints, improved\ndocumentation, fixing bugs, etc.\u003c/p\u003e\n\u003cp\u003eThe donations to LFortran are managed by the NumFOCUS foundation. NumFOCUS is a\n501(c)3 non-profit foundation, so if you are subject to US Tax law, your\ncontributions will be tax-deductible.\u003c/p\u003e\n\u003cp\u003eIf you want to discuss another way to fund or help with the development, feel\nfree to contact Ond\u0159ej \u010cert\u00edk (\u003ca href=\"mailto:ondrej@certik.us\"\u003eondrej@certik.us\u003c/a\u003e).\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-star-history\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#star-history\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStar History\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://star-history.com/#lfortran/lfortran\u0026amp;Date\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/0d705c39c001391c1e1c00ee9eda910f1fcc337d43183467c2985974cbc2ad58/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6c666f727472616e2f6c666f727472616e26747970653d44617465\" alt=\"Star History Chart\" data-canonical-src=\"https://api.star-history.com/svg?repos=lfortran/lfortran\u0026amp;type=Date\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 825,
+    "stargazers_count": 827,
     "subscribers_count": 21,
     "topics": [
       "fortran",
@@ -2153,7 +2153,7 @@ var data =
       "jupyter-kernels",
       "fortran-compiler"
     ],
-    "updated_at": 1707513820.0
+    "updated_at": 1707691163.0
   },
   {
     "data_format": 2,
@@ -2164,14 +2164,14 @@ var data =
     "full_name": "lcompilers/lpython",
     "latest_release": "v0.20.0",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-lpython\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#lpython\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLPython\u003c/h1\u003e\n\u003cp\u003eLPython is a Python compiler. It is in heavy development, currently in alpha\nstage. LPython works on Windows, macOS and Linux. Some of the goals of LPython\ninclude:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThe best possible performance for numerical, array-oriented code\u003c/li\u003e\n\u003cli\u003eRun on all platforms\u003c/li\u003e\n\u003cli\u003eCompile a subset of Python yet be fully compatible with Python\u003c/li\u003e\n\u003cli\u003eExplore designs so that LPython eventually can compile all Python code\u003c/li\u003e\n\u003cli\u003eFast compilation\u003c/li\u003e\n\u003cli\u003eExcellent user-friendly diagnostic messages: error, warnings, hints, notes,\netc.\u003c/li\u003e\n\u003cli\u003eAhead-of-Time compilation to binaries, plus interactive usage (Jupyter notebook)\u003c/li\u003e\n\u003cli\u003eTransforming Python code to C++, Fortran and other languages\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eAnd more.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-sponsors\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sponsors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSponsors\u003c/h1\u003e\n\u003cp\u003eLPython has been sponsored by \u003ca href=\"https://www.gsitechnology.com/\" rel=\"nofollow\"\u003eGSI Technology\u003c/a\u003e.\nOur summer students were sponsored by Google Summer of Code via Python Software\nFoundation. The intermediate representation and backends are shared with\nLFortran, see that project for a list of sponsors.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-installation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInstallation\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-step-0-prerequisites\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-0-prerequisites\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep 0: Prerequisites\u003c/h2\u003e\n\u003cp\u003eHere is the list of requirements needed to build LPython:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eConda\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor Windows, these are additionally required:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMiniforge Prompt\u003c/li\u003e\n\u003cli\u003eVisual Studio (with \"Desktop Development with C++\" workload)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePlease follow the steps for your desired platform.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-step-1-install-conda\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-1-install-conda\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep 1: Install Conda\u003c/h2\u003e\n\u003cp\u003eThis step involves installing Conda using a conda-forge distribution called Miniforge.\u003c/p\u003e\n\u003cp\u003ePlease follow the instructions here to install Conda on your platform:\u003c/p\u003e\n\u003cp\u003eMiniforge download link (for Linux, MacOS and Windows): \u003ca href=\"https://github.com/conda-forge/miniforge/#download\"\u003ehttps://github.com/conda-forge/miniforge/#download\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-step-2-setting-up\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-2-setting-up\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep 2: Setting up\u003c/h2\u003e\n\u003cp\u003eThis step involves setting up the required configuration to run the programs in LPython.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-linux\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#linux\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLinux\u003c/h3\u003e\n\u003cp\u003eRun the below command to install \u003ccode\u003ebinutils-dev\u003c/code\u003e package on Linux.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003esudo apt install binutils-dev\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-windows\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#windows\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows\u003c/h3\u003e\n\u003cp\u003ePlease follow the below steps for Windows:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eInstall Visual Studio, for example the version 2022.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eYou can download the\nCommunity version for free from: \u003ca href=\"https://visualstudio.microsoft.com/downloads/\" rel=\"nofollow\"\u003ehttps://visualstudio.microsoft.com/downloads/\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eAfter installing Visual Studio and running the Visual Studio Installer, you must install the \"Desktop Development with C++\" workload which will install Visual C++ Compiler (MSVC).\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eLaunch the Miniforge prompt from the Desktop.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eIt is recommended to use MiniForge instead of Powershell as the main terminal to build and write code for LPython.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn the MiniForge Prompt, initialize the MSVC compiler using the below command:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecall \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eC:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e -arch=x64\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eYou can optionally test MSVC via:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecl /\u003cspan class=\"pl-k\"\u003e?\u003c/span\u003e\nlink /\u003cspan class=\"pl-k\"\u003e?\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eBoth commands must print several pages of help text.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-step-3-build-lpython\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#step-3-build-lpython\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStep 3: Build LPython\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eClone LPython using the following commands\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clone https://github.com/lcompilers/lpython.git\n\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e lpython\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eYou may also use GitHub Desktop to do the same.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-linux-and-macos\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#linux-and-macos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLinux and MacOS\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a Conda environment using the pre-existing file:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003econda env create -f environment_unix.yml\nconda activate lp\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGenerate prerequisite files; build in Debug Mode:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e if you are developing on top of a forked repository; please run following command first\u003c/span\u003e\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e ./generate_default_tag.sh\u003c/span\u003e\n\n\n./build0.sh\n./build1.sh\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-windows-1\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#windows-1\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a Conda environment using the pre-existing file:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003econda env create -f environment_win.yml\nconda activate lp\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGenerate prerequisite files; build in Release Mode:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ecall build0.bat\ncall build1.bat\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTests and examples\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ectest\nsrc\u003cspan class=\"pl-cce\"\u003e\\b\u003c/span\u003ein\u003cspan class=\"pl-cce\"\u003e\\l\u003c/span\u003epython examples\u003cspan class=\"pl-cce\"\u003e\\e\u003c/span\u003expr2.py\nsrc\u003cspan class=\"pl-cce\"\u003e\\b\u003c/span\u003ein\u003cspan class=\"pl-cce\"\u003e\\l\u003c/span\u003epython examples\u003cspan class=\"pl-cce\"\u003e\\e\u003c/span\u003expr2.py -o a.out\na.out\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWhenever you are updating a test case file, you also need to update all the reference results associated with that test case:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython run_tests.py -u --skip-run-with-dbg\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTo see all the options associated with LPython test suite, use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003epython run_tests.py --help\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-tests\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#tests\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTests:\u003c/h2\u003e\n\u003ch3\u003e\u003ca id=\"user-content-linux-or-macos\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#linux-or-macos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLinux or MacOS\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eRun tests:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003ectest\n./run_tests.py\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate test references:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e./run_tests.py -u\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRun integration tests:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c1\"\u003ecd\u003c/span\u003e integration_tests\n./run_tests.py\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTroubleshooting on MacOS latest version:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eIn case of recently updated MacOS, you may get a warning like below in some test cases:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003eld: warning: object file (test_list_index2.out.tmp.o) was built \u003cspan class=\"pl-k\"\u003efor\u003c/span\u003e newer macOS version (14.0) than being linked (13.3)\u003c/pre\u003e\u003c/div\u003e\n\u003cp\u003eThis leads to mismatch of hashes with expected output in some test cases, this can be resolved by updating command line tools. Below is a snippet for the same.\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003egit clean -dfx\nsudo rm -rf /Library/Developer/CommandLineTools \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e make sure you know what you\u0027re doing here\u003c/span\u003e\nsudo xcode-select --install\n./build.sh\n./run_tests.py\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\u003ca id=\"user-content-windows-2\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#windows-2\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWindows\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eRun integration tests\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epython run_tests.py --skip-run-with-dbg\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eUpdate reference tests\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003epython run_tests.py -u --skip-run-with-dbg\u003c/pre\u003e\u003c/div\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-speed-up-integration-tests-on-macos\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#speed-up-integration-tests-on-macos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSpeed up Integration Tests on MacOS\u003c/h2\u003e\n\u003cp\u003eIntegration tests run slowly because Apple checks the hash of each\nexecutable online before running.\u003c/p\u003e\n\u003cp\u003eYou can turn off that feature in the Privacy tab of the Security and Privacy item of System Preferences \u0026gt; Developer Tools \u0026gt; Terminal.app \u0026gt; \"allow the apps below\nto run software locally that does not meet the system\u0027s security\npolicy.\"\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-examples-linux-or-macos\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#examples-linux-or-macos\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eExamples (Linux or MacOS)\u003c/h2\u003e\n\u003cp\u003eYou can run the following examples manually in a terminal:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e./src/bin/lpython examples/expr2.py\n./src/bin/lpython examples/expr2.py -o expr\n./expr\n./src/bin/lpython --show-ast examples/expr2.py\n./src/bin/lpython --show-asr examples/expr2.py\n./src/bin/lpython --show-cpp examples/expr2.py\n./src/bin/lpython --show-llvm examples/expr2.py\n./src/bin/lpython --show-c examples/expr2.py\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eWe welcome contributions from anyone, even if you are new to compilers or to\nopen source. It might sound daunting to contribute to a compiler at first, but\nplease do, it is not complicated. We will help you with technical issues and\nhelp improve your contribution so that it can be merged.\u003c/p\u003e\n\u003cp\u003eTo contribute, submit a Pull Request (PR) against our repository at:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/lcompilers/lpython\"\u003ehttps://github.com/lcompilers/lpython\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eand don\u0027t forget to clean your history, see \u003ca href=\"./doc/src/rebasing.md\"\u003eexample\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003ePlease report any bugs you may find at our issue tracker:\n\u003ca href=\"https://github.com/lcompilers/lpython/issues\"\u003ehttps://github.com/lcompilers/lpython/issues\u003c/a\u003e. Or, even better, fork the\nrepository on GitHub and create a PR. We welcome all changes, big or small, and\nwe will help you make a PR if you are new to git.\u003c/p\u003e\n\u003cp\u003eIf you have any questions or need help, please ask us at Zulip (\u003ca href=\"https://lfortran.zulipchat.com/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f075ed3a1bcc7bc6d681d5b1b96c7235827bcfa73790e55a1c98bf969736b4e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7a756c69702d6a6f696e5f636861742d627269676874677265656e2e737667\" alt=\"project chat\" data-canonical-src=\"https://img.shields.io/badge/zulip-join_chat-brightgreen.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e)\nor our \u003ca href=\"https://groups.io/g/lfortran\" rel=\"nofollow\"\u003emailinglist\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSee the \u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e document for more information.\u003c/p\u003e\n\u003ch1\u003e\u003ca id=\"user-content-star-history\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#star-history\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eStar History\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://star-history.com/#lcompilers/lpython\u0026amp;Date\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/78c421eab5b4c6b49d5511402a66758420f313ca898a23fef0b6473f42f050d8/68747470733a2f2f6170692e737461722d686973746f72792e636f6d2f7376673f7265706f733d6c636f6d70696c6572732f6c707974686f6e26747970653d44617465\" alt=\"Star History Chart\" data-canonical-src=\"https://api.star-history.com/svg?repos=lcompilers/lpython\u0026amp;type=Date\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n",
-    "stargazers_count": 1197,
+    "stargazers_count": 1198,
     "subscribers_count": 29,
     "topics": [
       "compiler",
       "high-performance",
       "python"
     ],
-    "updated_at": 1707506154.0
+    "updated_at": 1707692707.0
   },
   {
     "data_format": 2,
