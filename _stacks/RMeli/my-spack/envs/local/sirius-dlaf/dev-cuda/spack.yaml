@@ -1,0 +1,50 @@
+spack:
+  specs:
+  - sirius@develop +scalapack +dlaf +apps +tests
+  packages:
+    all:
+      prefer:
+        - +mpi
+        - +cuda
+        - cuda_arch=89
+    blas:
+      require:
+        - intel-oneapi-mkl
+    lapack:
+      require:
+        - intel-oneapi-mkl
+    scalapack:
+      require:
+        - intel-oneapi-mkl
+    fft:
+      require:
+        - "@3:"
+        - intel-oneapi-mkl
+    intel-oneapi-mkl:
+      require:
+        - threads=openmp
+        - mpi_family=mpich
+        - +cluster
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4:"
+        - device=ch3
+        - netmod=tcp
+    pika:
+      require:
+        - "@main"
+  develop:
+    sirius:
+      path: ~/git/SIRIUS
+      spec: sirius@develop +scalapack +dlaf +apps +tests
+    dla-future:
+      path: ~/git/DLA-Future
+      spec: dla-future@master +scalapack
+  repos:
+    - ~/git/SIRIUS/spack
+  view: false
+  concretizer:
+    unify: true
