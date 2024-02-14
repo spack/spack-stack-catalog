@@ -24,6 +24,7 @@ spack:
   - canu
   - cap3
   - cdhit
+  - censor-norb @4.2.30
   - circos
   - clustal-omega
   - clustalw
@@ -55,7 +56,7 @@ spack:
   - hisat2@2.2.1:2.99.99
   - hh-suite
   - hmmer
-  - homer
+  - homer @4.11.1 +data
   - htslib
   - igv
   - infernal
