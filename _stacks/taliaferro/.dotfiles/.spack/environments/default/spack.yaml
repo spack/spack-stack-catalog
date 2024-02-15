@@ -7,7 +7,6 @@ spack:
   - python@3.10
   - py-pip
   - tmux
-  - zsh
   - coreutils
   - tree
   - jq
