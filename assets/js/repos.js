@@ -33,8 +33,8 @@ var data =
     "data_format": 2,
     "description": "rhel7 spack configuration and scripts",
     "filenames": [
-      "v0.20.1/v1/spack.yaml",
-      "v0.15.4/spack.yaml"
+      "v0.15.4/spack.yaml",
+      "v0.20.1/v1/spack.yaml"
     ],
     "full_name": "SCOREC/rhel7-spack-config",
     "latest_release": null,
@@ -90,12 +90,12 @@ var data =
     "data_format": 2,
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
-      "configs/eagle/software/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
-      "envs/exawind/spack.yaml",
       "configs/eagle/compilers/spack.yaml",
+      "configs/ellis/compilers/spack.yaml",
+      "envs/exawind/spack.yaml",
       "configs/rhodes/compilers/spack.yaml",
-      "configs/ellis/compilers/spack.yaml"
+      "configs/rhodes/utilities/spack.yaml",
+      "configs/eagle/software/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
     "latest_release": null,
@@ -109,9 +109,9 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
-      "systems/setonix/environments/cray_devel/spack.yaml",
-      "systems/setonix/environments/bench/spack.yaml",
       "systems/setonix/environments/cray_s3_clients/spack.yaml",
+      "systems/setonix/environments/bench/spack.yaml",
+      "systems/setonix/environments/cray_devel/spack.yaml",
       "systems/setonix/environments/wrf/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
@@ -168,9 +168,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "environments/hpccf/farm/r-stack/spack.yaml",
       "environments/hpccf/farm/genomics/spack.yaml",
       "environments/hpccf/farm/core/spack.yaml",
-      "environments/hpccf/farm/r-stack/spack.yaml",
       "environments/hpccf/franklin/cluster-core/spack.yaml"
     ],
     "full_name": "ucdavis/spack-ucdavis",
@@ -203,8 +203,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "oneapi/failures/spack.yaml",
-      "gnu/spack.yaml"
+      "gnu/spack.yaml",
+      "oneapi/failures/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
     "latest_release": null,
@@ -217,11 +217,11 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
-      "envs/alps/sirius/cuda/spack.yaml",
-      "envs/alps/cp2k/cpu/openblas/spack.yaml",
       "envs/alps/dlaf/oneapi-mt/spack.yaml",
+      "envs/alps/sirius/cuda/spack.yaml",
       "envs/alps/sirius/cpu/spack.yaml",
-      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml"
+      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
+      "envs/alps/cp2k/cpu/openblas/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
     "latest_release": null,
@@ -235,9 +235,9 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx/rproject/spack.yaml",
       "cent7/python_376/spack.yaml",
-      "cent7/library/bak/spack.yaml"
+      "cent7/library/bak/spack.yaml",
+      "cent8/envs/avx/rproject/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -265,10 +265,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
-      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
       "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml",
-      "var/spack/environments/karolina/bpmf-argo/spack.yaml"
+      "var/spack/environments/karolina/bpmf-argo/spack.yaml",
+      "var/spack/environments/karolina/bpmf-ompss-cluster/spack.yaml",
+      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -381,8 +381,8 @@ var data =
     "data_format": 2,
     "description": "spack envs",
     "filenames": [
-      "_experimental/envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml",
-      "_experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml"
+      "_experimental/envs/alpinedav/ubuntu_18_devel/spack.yaml",
+      "_experimental/envs/alpinedav/ubuntu_18_cuda_10.1_devel/spack.yaml"
     ],
     "full_name": "Alpine-DAV/spack_configs",
     "latest_release": null,
@@ -824,8 +824,8 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
-      "v0190_gcc910/spack.yaml",
-      "v0201_1/spack.yaml"
+      "v0201_1/spack.yaml",
+      "v0190_gcc910/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -839,8 +839,8 @@ var data =
     "data_format": 2,
     "description": "Dockerfile and Spack spec files for hardware optimized benchmark containers",
     "filenames": [
-      "hmmer-amd/spack.yaml",
-      "quantum-espresso-amd/spack.yaml"
+      "quantum-espresso-amd/spack.yaml",
+      "hmmer-amd/spack.yaml"
     ],
     "full_name": "dbkinghorn/Benchmark-Containers",
     "latest_release": null,
@@ -998,9 +998,9 @@ var data =
     "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
+      "spack/snow/spack.yaml",
       "spack/darwin-power9/spack.yaml",
-      "spack/ci/spack.yaml",
-      "spack/snow/spack.yaml"
+      "spack/ci/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1056,8 +1056,8 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
-      "etc/spack/nrel-eagle/spack.yaml",
-      "etc/spack/spack/spack.yaml"
+      "etc/spack/spack/spack.yaml",
+      "etc/spack/nrel-eagle/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1151,8 +1151,8 @@ var data =
     "data_format": 2,
     "description": "Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark for evaluating the performance of algorithms requiring global communication. Beatnik is also a precursor to potential later a High Performance Parallel Interface solver.",
     "filenames": [
-      "configs/llnl/tioga/spack.yaml",
-      "configs/llnl/lassen/spack.yaml"
+      "configs/llnl/lassen/spack.yaml",
+      "configs/llnl/tioga/spack.yaml"
     ],
     "full_name": "CUP-ECS/beatnik",
     "latest_release": "v1.0.0",
@@ -1166,12 +1166,12 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
-      "hosts/borg/envs/base/spack.yaml",
-      "hosts/ascent/envs/base-rh7/spack.yaml",
-      "hosts/summit/envs/base/spack.yaml",
       "hosts/peak/envs/base/spack.yaml",
+      "hosts/summit/envs/base/spack.yaml",
+      "hosts/frontier/envs/base/spack.yaml",
       "hosts/ascent/envs/base/spack.yaml",
-      "hosts/frontier/envs/base/spack.yaml"
+      "hosts/ascent/envs/base-rh7/spack.yaml",
+      "hosts/borg/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1185,8 +1185,8 @@ var data =
     "data_format": 2,
     "description": "Registry to store workflow descriptions",
     "filenames": [
-      "minimal_workflow/wordcount/spack.yaml",
-      "kaust/exageostat/spack.yaml"
+      "kaust/exageostat/spack.yaml",
+      "minimal_workflow/wordcount/spack.yaml"
     ],
     "full_name": "eflows4hpc/workflow-registry",
     "latest_release": "2nd_stack_release",
@@ -1265,9 +1265,9 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
+      "linux-sles15-zen2/spock/spack.yaml",
       "linux-centos7-broadwell/or-slurm/spack.yaml",
-      "linux-rhel8-ppc64le/summit/spack.yaml",
-      "linux-sles15-zen2/spock/spack.yaml"
+      "linux-rhel8-ppc64le/summit/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -1281,8 +1281,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      ".gitlab/spack/environments/pascal/spack.yaml",
-      ".gitlab/spack/environments/quartz/spack.yaml"
+      ".gitlab/spack/environments/quartz/spack.yaml",
+      ".gitlab/spack/environments/pascal/spack.yaml"
     ],
     "full_name": "LLNL/DiHydrogen",
     "latest_release": "v0.3.0",
@@ -1354,26 +1354,26 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/cce/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
-      "spack-configs/perlmutter-user-spack/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-21.11/prod/spack.yaml",
-      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/cce/spack.yaml",
-      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml",
       "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
       "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/cuda/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
+      "spack-configs/perlmutter-e4s-21.11/prod/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-user-spack/spack.yaml",
+      "spack-configs/cori-e4s-20.10/prod/spack.yaml",
       "spack-configs/perlmutter-e4s-23.05/tools/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml"
+      "spack-configs/perlmutter-spack-develop/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1387,11 +1387,11 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
+      "environments/key4hep-desy-release/spack.yaml",
+      "environments/key4hep-release-clang/spack.yaml",
       "environments/contrib-compilers/spack.yaml",
       "environments/key4hep-nightly-debug/spack.yaml",
-      "environments/key4hep-ci/spack.yaml",
-      "environments/key4hep-desy-release/spack.yaml",
-      "environments/key4hep-release-clang/spack.yaml"
+      "environments/key4hep-ci/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1405,8 +1405,8 @@ var data =
     "data_format": 2,
     "description": "ARTEMIS (Adaptive mesh Refinement Time-domain ElectrodynaMIcs Solver) couples the Maxwell\u0027s equations implementation in WarpX with classical equations that describe quantum material behavior (such as, LLG equation for micromagnetics and London equation for superconducting materials) for quantifying the performance of next-generation microelectronics.",
     "filenames": [
-      "Tools/machines/lxplus-cern/spack.yaml",
-      "Docs/spack.yaml"
+      "Docs/spack.yaml",
+      "Tools/machines/lxplus-cern/spack.yaml"
     ],
     "full_name": "AMReX-Microelectronics/artemis",
     "latest_release": null,
@@ -1448,15 +1448,15 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/volta/spack.yaml",
-      "benchmarks/spack/cosma7/compute-node/spack.yaml",
-      "benchmarks/spack/isambard-macs/rome/spack.yaml",
       "benchmarks/spack/myriad/p100/spack.yaml",
-      "benchmarks/spack/csd3-rocky8/sapphirerapids/spack.yaml",
-      "benchmarks/spack/cosma7/rockport-intelmpi-compute-node/spack.yaml",
-      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
       "benchmarks/spack/dial2/compute-node/spack.yaml",
+      "benchmarks/spack/isambard-macs/volta/spack.yaml",
+      "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
+      "benchmarks/spack/csd3-rocky8/sapphirerapids/spack.yaml",
+      "benchmarks/spack/cosma7/compute-node/spack.yaml",
+      "benchmarks/spack/cosma7/rockport-intelmpi-compute-node/spack.yaml",
+      "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
       "benchmarks/spack/csd3-rocky8/icelake/spack.yaml"
     ],
     "full_name": "ukri-excalibur/excalibur-tests",
@@ -1485,11 +1485,11 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/ufs-srw-dev/spack.yaml",
-      "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml",
+      "configs/templates/ufs-weather-model/spack.yaml",
       "configs/templates/gsi-addon-dev/spack.yaml",
-      "configs/templates/ufs-srw-public-v2/spack.yaml"
+      "configs/templates/ufs-srw-public-v2/spack.yaml",
+      "configs/templates/ufs-srw-dev/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
     "latest_release": "1.6.0",
@@ -1503,21 +1503,21 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.1/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
-      "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/alinux2-arm64-gcc-10.5/spack.yaml",
+      "docker-recipes/runner/alinux2023-arm64-gcc-11.4/spack.yaml",
       "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.1/spack.yaml",
+      "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
+      "docker-recipes/runner/alinux2-arm64-gcc-10.5/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.0/spack.yaml",
       "docker-recipes/runner/_archived/rhel8-ppc64le/spack.yaml",
-      "docker-recipes/runner/alinux2023-arm64-gcc-11.4/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml"
+      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1532,8 +1532,8 @@ var data =
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
       "buildsystem/spack/ascent/spack.yaml",
-      "buildsystem/container/spack.yaml",
-      "buildsystem/spack/crusher/spack.yaml"
+      "buildsystem/spack/crusher/spack.yaml",
+      "buildsystem/container/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
     "latest_release": "v1.6.0",
@@ -1563,22 +1563,22 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/23.11/cuda-ppc64le/spack.yaml",
-      "environments/23.08/cuda-x86_64/spack.yaml",
-      "environments/23.08/cuda-aarch64/spack.yaml",
       "environments/21.08/spack.yaml",
-      "environments/21.05/spack.yaml",
-      "environments/23.02/cuda-ppc64le/spack.yaml",
-      "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/23.02/cuda-x86_64/spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
       "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/24.02/arm64-gcc-cuda-ubuntu20.04/spack.yaml",
-      "environments/22.05/rocm.spack.yaml",
+      "environments/23.08/cuda-x86_64/spack.yaml",
       "environments/23.05/cuda-x86_64/spack.yaml",
-      "environments/24.02/amd64-gcc-cpu-ubuntu20.04/spack.yaml",
-      "environments/22.08/oneapi.spack.yaml"
+      "environments/23.02/cuda-x86_64/spack.yaml",
+      "environments/22.05/cuda-x86_64.spack.yaml",
+      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/21.05/spack.yaml",
+      "environments/23.08/cuda-aarch64/spack.yaml",
+      "environments/23.02/cuda-ppc64le/spack.yaml",
+      "environments/24.02/arm64-gcc-cuda-ubuntu20.04/spack.yaml",
+      "environments/23.11/cuda-ppc64le/spack.yaml",
+      "environments/23.05/rocm-x86_64/spack.yaml",
+      "environments/22.05/rocm.spack.yaml",
+      "environments/22.08/oneapi.spack.yaml",
+      "environments/24.02/amd64-gcc-cpu-ubuntu20.04/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v24.02",
@@ -1606,8 +1606,8 @@ var data =
     "data_format": 2,
     "description": "An open collaborative repository for reproducible specifications of HPC benchmarks and cross site benchmarking environments",
     "filenames": [
-      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml",
       "configs/nosite-AWS_PCluster_Hpc7a-zen4-EFA/spack.yaml",
+      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml",
       "configs/LLNL-Pascal-Penguin-broadwell-P100-OmniPath/spack.yaml"
     ],
     "full_name": "LLNL/benchpark",
@@ -1635,27 +1635,6 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "Training materials for setting up and using a research infrastructure based on Jupyter notebooks: https://cusy.io/en/seminars",
-    "filenames": [
-      "spackenvs/python-38/spack.yaml"
-    ],
-    "full_name": "veit/jupyter-tutorial",
-    "latest_release": "v1.1.0",
-    "stargazers_count": 22,
-    "subscribers_count": 6,
-    "topics": [
-      "jupyter",
-      "ipython",
-      "ipython-widget",
-      "ipywidget",
-      "jupyter-notebook",
-      "jupyterhub",
-      "notebook"
-    ],
-    "updated_at": 1707548128.0
-  },
-  {
-    "data_format": 2,
     "description": "Installing spack without system dependencies",
     "filenames": [
       "build/3_more_tools/spack.yaml"
@@ -1671,6 +1650,27 @@ var data =
       "libfuse"
     ],
     "updated_at": 1683613383.0
+  },
+  {
+    "data_format": 2,
+    "description": "Training materials for setting up and using a research infrastructure based on Jupyter notebooks: https://cusy.io/en/seminars",
+    "filenames": [
+      "spackenvs/python-38/spack.yaml"
+    ],
+    "full_name": "veit/jupyter-tutorial",
+    "latest_release": "v1.1.0",
+    "stargazers_count": 23,
+    "subscribers_count": 6,
+    "topics": [
+      "jupyter",
+      "ipython",
+      "ipython-widget",
+      "ipywidget",
+      "jupyter-notebook",
+      "jupyterhub",
+      "notebook"
+    ],
+    "updated_at": 1708166964.0
   },
   {
     "data_format": 2,
@@ -1808,36 +1808,36 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "OLCF/frontier/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
-      "BOISESTATE/borah/environments/compilers/_spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
       "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "OLCF/summit/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml",
       "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml"
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/nvhpc/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "BOISESTATE/borah/environments/compilers/_spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "OLCF/frontier/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -1871,8 +1871,8 @@ var data =
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-slurm-gcc12_1_1/spack.yaml"
+      ".spack-env/unifyfs-slurm-gcc12_1_1/spack.yaml",
+      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v2.0",
@@ -1917,8 +1917,8 @@ var data =
     "data_format": 2,
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20/spack.yaml",
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
       "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml"
     ],
     "full_name": "LLNL/axom",
@@ -1956,10 +1956,10 @@ var data =
     "data_format": 2,
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
-      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml"
+      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/darwin/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -1979,8 +1979,8 @@ var data =
     "data_format": 2,
     "description": "GEOS Simulation Framework",
     "filenames": [
-      "scripts/pygeosx_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
-      "scripts/pygeosx_configs/toss_4_x86_64_ib/spack.yaml"
+      "scripts/pygeosx_configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/pygeosx_configs/blueos_3_ppc64le_ib_p9/spack.yaml"
     ],
     "full_name": "GEOS-DEV/GEOS",
     "latest_release": "v1.0.1",
@@ -2087,7 +2087,7 @@ var data =
     "full_name": "NERSC/timemory",
     "latest_release": "v3.2.3",
     "readme": "\u003ch1\u003e\u003ca id=\"user-content-timemory\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#timemory\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etimemory\u003c/h1\u003e\n\u003ch2\u003e\u003ca id=\"user-content-timing--memory--hardware-counter-utilities-for-c--c--cuda--python\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#timing--memory--hardware-counter-utilities-for-c--c--cuda--python\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTiming + Memory + Hardware Counter Utilities for C / C++ / CUDA / Python\u003c/h2\u003e\n\u003cp\u003e\u003ca href=\"https://travis-ci.org/NERSC/timemory\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/e771c5877a01c9ad3c5f9ac404fafcbb19d8f1647e63f72448851af6753c1d9c/68747470733a2f2f7472617669732d63692e6f72672f4e455253432f74696d656d6f72792e7376673f6272616e63683d6d6173746572\" alt=\"Build Status\" data-canonical-src=\"https://travis-ci.org/NERSC/timemory.svg?branch=master\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://ci.appveyor.com/project/jrmadsen/timemory/branch/master\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/310167bff27e3bfcff0843c04e63901359e8ed7672b1dabbe55d9fb4378d3ba7/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f38786b37326f6f7477736566693863312f6272616e63682f6d61737465723f7376673d74727565\" alt=\"Build status\" data-canonical-src=\"https://ci.appveyor.com/api/projects/status/8xk72ootwsefi8c1/branch/master?svg=true\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://codecov.io/gh/NERSC/timemory\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/8d4fac988b58c397453b2f2631379b0e47366ef6750df318103caabf9b65ca0c/68747470733a2f2f636f6465636f762e696f2f67682f4e455253432f74696d656d6f72792f6272616e63682f6d61737465722f67726170682f62616467652e737667\" alt=\"codecov\" data-canonical-src=\"https://codecov.io/gh/NERSC/timemory/branch/master/graph/badge.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/NERSC/timemory\"\u003etimemory on GitHub (Source code)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://timemory.readthedocs.io\" rel=\"nofollow\"\u003etimemory General Documentation (ReadTheDocs)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://timemory.readthedocs.io/en/latest/doxygen-docs/\" rel=\"nofollow\"\u003etimemory Source Code Documentation (Doxygen)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://cdash.nersc.gov/index.php?project=TiMemory\" rel=\"nofollow\"\u003etimemory Testing Dashboard (CDash)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/NERSC/timemory-tutorials\"\u003etimemory Tutorials\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=K1Pazcw7zVo\" rel=\"nofollow\"\u003eECP 2021 Tutorial Day 1 (YouTube)\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://www.youtube.com/watch?v=-zIpZDiwrmI\" rel=\"nofollow\"\u003eECP 2021 Tutorial Day 2 (YouTube)\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/NERSC/timemory/wiki\"\u003etimemory Wiki\u003c/a\u003e\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eGitHub\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003egit clone https://github.com/NERSC/timemory.git\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ePyPi\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003epip install timemory\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSpack\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003espack install timemory\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003econda-forge\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003econda install -c conda-forge timemory\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003ca href=\"https://anaconda.org/conda-forge/timemory\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/13d88311b8a3ad78d2eef315c0144a27a104d75e9a610a215d6fc1251318275d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7265636970652d74696d656d6f72792d677265656e2e737667\" alt=\"Conda Recipe\" data-canonical-src=\"https://img.shields.io/badge/recipe-timemory-green.svg\" style=\"max-width: 100%;\"\u003e \u003cimg src=\"https://camo.githubusercontent.com/533b6f62d054e5318ac8873adf8b287aee649fa0b56ac1c1de77b09f4e00b2aa/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f646e2f636f6e64612d666f7267652f74696d656d6f72792e737667\" alt=\"Conda Downloads\" data-canonical-src=\"https://img.shields.io/conda/dn/conda-forge/timemory.svg\" style=\"max-width: 100%;\"\u003e \u003cimg src=\"https://camo.githubusercontent.com/bafca219a0c269a4ab94502e87e4a06788840125f4b0bf838158aaf5eb141c18/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f766e2f636f6e64612d666f7267652f74696d656d6f72792e737667\" alt=\"Conda Version\" data-canonical-src=\"https://img.shields.io/conda/vn/conda-forge/timemory.svg\" style=\"max-width: 100%;\"\u003e \u003cimg src=\"https://camo.githubusercontent.com/978fa080053b7937c5fb17a7bd59e5be69923086146a430e861f1dda4cb0eb9e/68747470733a2f2f696d672e736869656c64732e696f2f636f6e64612f706e2f636f6e64612d666f7267652f74696d656d6f72792e737667\" alt=\"Conda Platforms\" data-canonical-src=\"https://img.shields.io/conda/pn/conda-forge/timemory.svg\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2\u003e\u003ca id=\"user-content-purpose\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#purpose\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePurpose\u003c/h2\u003e\n\u003cp\u003eThe goal of timemory is to create an open-source performance measurement and analyis package\nwith modular and reusable components which can be used to adapt to any existing C/C++\nperformance measurement and analysis API and is arbitrarily extendable by users within their\napplication.\nTimemory is not just another profiling tool, it is a profling \u003cem\u003etoolkit\u003c/em\u003e which streamlines building custom\nprofiling tools through modularity and then utilizes the toolkit to provides several pre-built tools.\u003c/p\u003e\n\u003cp\u003eIn other words, timemory provides many pre-built tools, libraries, and interfaces but, due to it\u0027s modularity,\ncodes can re-use only individual pieces -- such as the classes for measuring different timing intervals, memory usage,\nand hardware counters -- without the timemory \"runtime management\".\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-building-and-installing\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#building-and-installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilding and Installing\u003c/h2\u003e\n\u003cp\u003eTimemory uses a standard CMake installation.\nSeveral installation examples can be found in the \u003ca href=\"https://github.com/NERSC/timemory/wiki/Installation-Examples\"\u003eWiki\u003c/a\u003e. See the \u003ca href=\"https://timemory.readthedocs.io/en/develop/installation.html\" rel=\"nofollow\"\u003einstallation documentation\u003c/a\u003e for detailed information on the CMake options.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-documentation\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#documentation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocumentation\u003c/h2\u003e\n\u003cp\u003eThe full documentation is available at \u003ca href=\"https://timemory.readthedocs.io\" rel=\"nofollow\"\u003etimemory.readthedocs.io\u003c/a\u003e.\nDetailed source documentation is provided in the \u003ca href=\"https://timemory.readthedocs.io/en/latest/doxygen-docs/\" rel=\"nofollow\"\u003edoygen\u003c/a\u003e\nsection of the full documentation.\nTutorials are available in the \u003ca href=\"https://github.com/NERSC/timemory-tutorials\"\u003egithub.com/NERSC/timemory-tutorials\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-overview\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#overview\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOverview\u003c/h2\u003e\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003eThe primary objective of the timemory is the development of a common framework for binding together software\nmonitoring code (i.e. performance analysis, debugging, logging) into a compact and highly-efficient interface.\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eTimemory arose out of the need for a universal adapator kit for the various APIs provided several existing tools\nand a straight-forward and intuitive method for creating new tools. Timemory makes it possible to bundle\ntogether deterministic performance measurements, statistical performance\nmeasurements (i.e. sampling), debug messages, data logging, and data validation into the same interface for\ncustom application-specific software monitoring interfaces, easily building tools like \u003ccode\u003etime\u003c/code\u003e,\n\u003ccode\u003enetstat\u003c/code\u003e, instrumentation profilers, sampling profilers, and writing implementations for MPI-P, MPI-T, OMPT,\nKokkosP, etc. Furthermore, timemory can forward its markers to several third-party profilers such as\n\u003ca href=\"https://github.com/RRZE-HPC/likwid\"\u003eLIKWID\u003c/a\u003e, \u003ca href=\"https://github.com/LLNL/Caliper\"\u003eCaliper\u003c/a\u003e,\n\u003ca href=\"https://www.cs.uoregon.edu/research/tau/home.php\" rel=\"nofollow\"\u003eTAU\u003c/a\u003e, \u003ca href=\"https://github.com/gperftools/gperftools\"\u003egperftools\u003c/a\u003e,\n\u003ca href=\"https://perfetto.dev/docs/\" rel=\"nofollow\"\u003ePerfetto\u003c/a\u003e, VTune, Allinea-MAP, CrayPAT, Nsight-Systems, Nsight-Compute, and NVProf.\u003c/p\u003e\n\u003cp\u003eTimemory provides a front-end \u003ca href=\"https://timemory.readthedocs.io/en/develop/api/library.html\" rel=\"nofollow\"\u003eC/C++/Fortran API\u003c/a\u003e\nand \u003ca href=\"https://timemory.readthedocs.io/en/develop/api/python.html\" rel=\"nofollow\"\u003ePython API\u003c/a\u003e which allows arbitrary selection\nof 50+ different components from timers to hardware counters to interfaces with third-party tools. This is all\nbuilt generically from the toolkit API with type-safe bundles of tools such as:\n\u003ccode\u003ecomponent_tuple\u0026lt;wall_clock, papi_vector, nvtx_marker, user_bundle\u0026gt;\u003c/code\u003e\nwhere \u003ccode\u003ewall_clock\u003c/code\u003e is a wall-clock timer,\n\u003ccode\u003epapi_vector\u003c/code\u003e is a handle for hardware counters,\n\u003ccode\u003envxt_marker\u003c/code\u003e creates notations in the NVIDIA CUDA profilers, and\n\u003ccode\u003euser_bundle\u003c/code\u003e is a generic component which downstream users can insert more components into at runtime.\u003c/p\u003e\n\u003cp\u003ePerformance measurement components written with timemory are arbitrarily scalable up to any number of threads and\nprocesses and fully support intermixing different measurements at different locations within the program -- this\nuniquely enables timemory to be deployed to collect performance data at scale in HPC because highly detailed collection can\noccur at specific locations within the program where ubiquitous collection would simulatenously degrade performance\nsignificantly and require a prohibitive amount of memory.\u003c/p\u003e\n\u003cp\u003eTimemory can be used as a backend to bundle instrumentation and sampling tools together, support serialization to JSON/XML,\nand provide statistics among other uses. It can also be utilized as a front-end to invoke\ncustom instrumentation and sampling tools. Timemory uses the abstract term \"component\" for a structure\nwhich encapsulates some performance analysis operation. The structure might encapsulate function\ncalls to another tool, record timestamps for timing, log values provided by the application,\nprovide a operator for replacing a function in the code dynamically, audit the incoming arguments\nand/or outgoing return value from function, or just provide stubs which can be overloaded by the linker.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-visualization-and-analysis\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#visualization-and-analysis\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVisualization and Analysis\u003c/h3\u003e\n\u003cp\u003eThe native output format of timemory is JSON and text; other output formats such as XML are also supported.\nThe text format is intended to be human readable. The JSON data\nis intended for analysis and comes in two flavors: hierarchical and flat. Basic plotting capabilities are\navailable via \u003ccode\u003etimemory-plotting\u003c/code\u003e but users are highly encouraged to use \u003ca href=\"https://github.com/hatchet/hatchet\"\u003ehatchet\u003c/a\u003e\nfor analyzing the heirarchical JSON data in pandas dataframes. \u003ca href=\"https://github.com/hatchet/hatchet\"\u003eHatchet\u003c/a\u003e supports\nfiltering, unions, addition, subtractions, output to \u003ccode\u003edot\u003c/code\u003e and flamegraph formats, and an interactive Jupyter notebook.\nAt present, timemory supports 45+ metric types for analysis in Hatchet.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-categories\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#categories\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCategories\u003c/h3\u003e\n\u003cp\u003eThere are 4 primary categories in timemory: components, operations, bundlers, and storage. Components provide\nthe specifics of how to perform a particular behavior, operations provide the scaffold for requesting that\na component perform an operation in complex scenarios, bundlers group components into a single generic handle,\nand storage manages data collection over the lifetime of the application. When all four categories are combined,\ntimemory effectively resembles a standard performance analysis tool which passively collects data and provides\nreports and analysis at the termination of the application. Timemory, however, makes it \u003cem\u003every easy\u003c/em\u003e to subtract\nstorage from the equation and, in doing so, transforms timemory into a toolkit for customized data collection.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003cem\u003eComponents\u003c/em\u003e\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eIndividual classes which encapsulate one or more measurement, analysis, logging, or third-party library action(s)\u003c/li\u003e\n\u003cli\u003eAny data specific to one instance of performing the action is stored within the instance of the class\u003c/li\u003e\n\u003cli\u003eAny configuration data specific to that type is typically stored within static member functions which return a reference to the configuration data\u003c/li\u003e\n\u003cli\u003eThese classes are designed to support direct usage within other tools, libraries, etc.\u003c/li\u003e\n\u003cli\u003eExamples include:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003etim::component::wall_clock\u003c/code\u003e : a simple wall-clock timer\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::component::vtune_profiler\u003c/code\u003e : a simple component which turns the VTune Profiler on and off (when VTune is actively profiling application)\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::component::data_tracker_integer\u003c/code\u003e : associates an integer values with a label as the application executes (e.g. number of loop iterations used somewhere)\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::component::papi_vector\u003c/code\u003e : uses the PAPI library to collect hardware-counters values\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::component::user_bundle\u003c/code\u003e : encapsulates an array of components which the user can dynamically manipulate during runtime\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003cem\u003eOperations\u003c/em\u003e\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eTemplated classes whose primary purpose is to provide the implementation for performing some action on a component, e.g. \u003ccode\u003etim::operation::start\u0026lt;wall_clock\u0026gt;\u003c/code\u003e will attempt to call the \u003ccode\u003estart()\u003c/code\u003e member function on a \u003ccode\u003ewall_clock\u003c/code\u003e component instance\u003c/li\u003e\n\u003cli\u003eDefault implementations generally have one or two public functions: a constructor and/or a function call operator\n\u003cul\u003e\n\u003cli\u003eThese generally accept any/all arguments and use SFINAE to determine whether the operation can be performed with or without the given arguments (i.e. does \u003ccode\u003ewall_clock\u003c/code\u003e have a \u003ccode\u003estore(int)\u003c/code\u003e function? \u003ccode\u003estore()\u003c/code\u003e?)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eOperations are (generally) not directly utilized by the user and are typically optimized out of the binary\u003c/li\u003e\n\u003cli\u003eExamples include:\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003etim::operation::start\u003c/code\u003e : instruct a component to start collection\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::operation::sample\u003c/code\u003e : instruct a component to take individual measurement\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etim::operation::derive\u003c/code\u003e : extra data from other components if it is available\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003cem\u003eBundlers\u003c/em\u003e\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eProvide a generic handle for multiple components\u003c/li\u003e\n\u003cli\u003eMember functions generally accept any/all arguments and use operations classes to correctly to handle differences between different capabilities of the components it is bundling\u003c/li\u003e\n\u003cli\u003eExamples include:\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003etim::auto_tuple\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003etim::component_tuple\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003etim::component_list\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003etim::lightweight_tuple\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eVarious flavors provide different implicit behaviors and allocate memory differently\n\u003cul\u003e\n\u003cli\u003e\n\u003ccode\u003eauto_tuple\u003c/code\u003e starts all components when constructed and stops all components when destructed whereas \u003ccode\u003ecomponent_tuple\u003c/code\u003e requires an explicit start\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003ecomponent_tuple\u003c/code\u003e allocates all components on the stack and components are \"always on\" whereas \u003ccode\u003ecomponent_list\u003c/code\u003e allocates components on the heap and thus components can be activated/deactivated at runtime\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003elightweight_tuple\u003c/code\u003e does not implicitly perform any expensive actions, such as call-stack tracking in \"Storage\"\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\u003cem\u003eStorage\u003c/em\u003e\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003eProvides persistent storage for multiple instances of components over the lifetime of a thread in the application\u003c/li\u003e\n\u003cli\u003eResponsible for maintaining the hierarchy and order of component measurements, i.e. call-stack tracking\u003c/li\u003e\n\u003cli\u003eResponsible for combining component data from multiple threads and/or processes and outputting the results\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cblockquote\u003e\n\u003cp\u003eNOTE: \u003ccode\u003etim::lightweight_tuple\u003c/code\u003e is the recommended bundle for those seeking to use timemory as a toolkit for implementing custom tools and interfaces\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\u003ca id=\"user-content-features\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#features\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eC++ Template API\n\u003cul\u003e\n\u003cli\u003eModular and fully-customizable\u003c/li\u003e\n\u003cli\u003eAdheres to C++ standard template library paradigm of \"you don\u0027t pay for what you don\u0027t use\"\u003c/li\u003e\n\u003cli\u003eSimplifies and facilitates creation and implementation of performance measurement tools\n\u003cul\u003e\n\u003cli\u003eCreate your own instrumentation profiler\u003c/li\u003e\n\u003cli\u003eCreate your own instrumentation library\u003c/li\u003e\n\u003cli\u003eCreate your own sampling profiler\u003c/li\u003e\n\u003cli\u003eCreate your own sampling library\u003c/li\u003e\n\u003cli\u003eCreate your own execution wrappers\u003c/li\u003e\n\u003cli\u003eSupplement timemory-provided tools with your own custom component(s)\u003c/li\u003e\n\u003cli\u003eThread-safe data aggregation\u003c/li\u003e\n\u003cli\u003eAggregate collection over multiple processes (MPI and UPC++ support)\u003c/li\u003e\n\u003cli\u003eSerialization to text, JSON, XML\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eComponents are composable with other components\u003c/li\u003e\n\u003cli\u003eVariadic component bundlers which maintain complete type-safety\n\u003cul\u003e\n\u003cli\u003eComponents can be bundled together into a single handle without abstractions\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eComponents can store data in any valid C++ data type\u003c/li\u003e\n\u003cli\u003eComponents can return data in any valid C++ data type\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eC / C++ / CUDA / Fortran Library API\n\u003cul\u003e\n\u003cli\u003eStraight-forward collection of functions and macros for creating built-in performance analysis to your code\u003c/li\u003e\n\u003cli\u003eComponent collection can be arbitrarily inter-mixed\n\u003cul\u003e\n\u003cli\u003eE.g. collect \"A\" and \"B\" in one region, \"A\" and \"C\" in another region\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eComponent collection can be dynamically manipulated at runtime\n\u003cul\u003e\n\u003cli\u003eE.g. add/remove \"A\" at any point, on any thread, on any process\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePython API\n\u003cul\u003e\n\u003cli\u003eDecorators and context-managers for functions or regions in code\u003c/li\u003e\n\u003cli\u003ePython function profiling\u003c/li\u003e\n\u003cli\u003ePython line-by-line profiling\u003c/li\u003e\n\u003cli\u003eEvery component in \u003ccode\u003etimemory-avail\u003c/code\u003e is provided as a stand-alone Python class\n\u003cul\u003e\n\u003cli\u003eProvide low-overhead measurements for building your own Python profiling tools\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003ePython Analysis via \u003ca href=\"https://pandas.pydata.org/\" rel=\"nofollow\"\u003epandas\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eCommand-line Tools\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-avail/README.md\"\u003etimemory-avail\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eProvides available components, settings, and hardware counters\u003c/li\u003e\n\u003cli\u003eQuick API reference tool\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timem/README.md\"\u003etimem\u003c/a\u003e (UNIX)\n\u003cul\u003e\n\u003cli\u003eExtended version of UNIX \u003ccode\u003etime\u003c/code\u003e command-line tool that includes additional information on memory usage, context switches, and hardware counters\u003c/li\u003e\n\u003cli\u003eSupport collecting hardware counters (Linux-only, requires PAPI)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-run/README.md\"\u003etimemory-run\u003c/a\u003e (Linux)\n\u003cul\u003e\n\u003cli\u003eDynamic instrumentation profiling tool\u003c/li\u003e\n\u003cli\u003eSupports runtime instrumentation and binary re-writing\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-nvml/README.md\"\u003etimemory-nvml\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eData collection similar to \u003ccode\u003envidia-smi\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etimemory-python-profiler\u003c/code\u003e\n\u003cul\u003e\n\u003cli\u003ePython function profiler supporting all timemory components\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003efrom timemory.profiler import Profile\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etimemory-python-trace\u003c/code\u003e\n\u003cul\u003e\n\u003cli\u003ePython line-by-line profiler supporting all timemory components\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003efrom timemory.trace import Trace\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003ccode\u003etimemory-python-line-profiler\u003c/code\u003e\n\u003cul\u003e\n\u003cli\u003ePython line-by-line profiler based on \u003ca href=\"https://pypi.org/project/line-profiler/\" rel=\"nofollow\"\u003eline-profiler\u003c/a\u003e package\u003c/li\u003e\n\u003cli\u003eExtended to use components: cpu-clock, memory-usage, context-switches, etc. (all components which collect scalar values)\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003efrom timemory.line_profiler import LineProfiler\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eInstrumentation Libraries\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-mpip/README.md\"\u003etimemory-mpip\u003c/a\u003e: MPI Profiling Library (Linux-only)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-ncclp/README.md\"\u003etimemory-ncclp\u003c/a\u003e: NCCL Profiling Library (Linux-only)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-ompt/README.md\"\u003etimemory-ompt\u003c/a\u003e: OpenMP Profiling Library\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/timemory-compiler-instrument/README.md\"\u003etimemory-compiler-instrument\u003c/a\u003e: Compiler instrumentation Library\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"source/tools/kokkos-connector/README.md\"\u003ekokkos-connector\u003c/a\u003e: Kokkos Profiling Libraries\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-samples\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#samples\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSamples\u003c/h2\u003e\n\u003cp\u003eVarious macros are defined for C in \u003ca href=\"source/timemory/timemory.h\"\u003esource/timemory/compat/timemory_c.h\u003c/a\u003e\nand \u003ca href=\"source/timemory/variadic/macros.hpp\"\u003esource/timemory/variadic/macros.hpp\u003c/a\u003e. Numerous samples of\ntheir usage can be found in the examples.\u003c/p\u003e\n\u003ch3\u003e\u003ca id=\"user-content-sample-c-template-api\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sample-c-template-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSample C++ Template API\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-c++\"\u003e\u003cpre\u003e#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etimemory/timemory.hpp\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003enamespace\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ecomp\u003c/span\u003e \u003cspan class=\"pl-k\"\u003e=\u003c/span\u003e tim::component;\n\u003cspan class=\"pl-k\"\u003eusing\u003c/span\u003e \u003cspan class=\"pl-k\"\u003enamespace\u003c/span\u003e \u003cspan class=\"pl-en\"\u003etim\u003c/span\u003e\u003cspan class=\"pl-k\"\u003e;\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e specific set of components\u003c/span\u003e\nusing \u003cspan class=\"pl-c1\"\u003especific_t\u003c/span\u003e = component_tuple\u0026lt;comp::wall_clock, comp::cpu_clock\u0026gt;;\n\u003cspan class=\"pl-k\"\u003eusing\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003egeneric_t\u003c/span\u003e  = component_tuple\u0026lt;comp::user_global_bundle\u0026gt;;\n\n\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003emain\u003c/span\u003e(\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e argc, \u003cspan class=\"pl-k\"\u003echar\u003c/span\u003e** argv)\n{\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e configure default settings\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003esettings::flat_profile\u003c/span\u003e() = \u003cspan class=\"pl-c1\"\u003etrue\u003c/span\u003e;\n    \u003cspan class=\"pl-c1\"\u003esettings::timing_units\u003c/span\u003e() = \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emsec\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e;\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e initialize with cmd-line\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_init\u003c/span\u003e(argc, argv);\n    \n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e add argparse support\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_argparse\u003c/span\u003e(\u0026amp;argc, \u0026amp;argv);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e create a region \"main\"\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003especific_t\u003c/span\u003e m{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e };\n    m.\u003cspan class=\"pl-c1\"\u003estart\u003c/span\u003e();\n    m.\u003cspan class=\"pl-c1\"\u003estop\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e pause and resume collection globally\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003esettings::enabled\u003c/span\u003e() = \u003cspan class=\"pl-c1\"\u003efalse\u003c/span\u003e;\n    \u003cspan class=\"pl-c1\"\u003especific_t\u003c/span\u003e h{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ehidden\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e };\n    h.\u003cspan class=\"pl-c1\"\u003estart\u003c/span\u003e().\u003cspan class=\"pl-c1\"\u003estop\u003c/span\u003e();\n    \u003cspan class=\"pl-c1\"\u003esettings::enabled\u003c/span\u003e() = \u003cspan class=\"pl-c1\"\u003etrue\u003c/span\u003e;\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Add peak_rss component to specific_t\u003c/span\u003e\n    mpl::\u003cspan class=\"pl-c1\"\u003epush_back_t\u003c/span\u003e\u0026lt;\u003cspan class=\"pl-c1\"\u003especific_t\u003c/span\u003e, comp::peak_rss\u0026gt; wprss{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ewith peak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e };\n    \n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e create region collecting only peak_rss\u003c/span\u003e\n    component_tuple\u0026lt;comp::peak_rss\u0026gt; oprss{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eonly peak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e };\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e convert component_tuple to a type that starts/stops upon construction/destruction\u003c/span\u003e\n    {\n        scope::config _scope{};\n        \u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003etrue\u003c/span\u003e)  _scope += scope::flat{};\n        \u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003efalse\u003c/span\u003e) _scope += scope::timeline{};\n        \u003cspan class=\"pl-c1\"\u003econvert_t\u003c/span\u003e\u0026lt;\u003cspan class=\"pl-c1\"\u003especific_t\u003c/span\u003e, auto_tuple\u0026lt;\u0026gt;\u0026gt; scoped{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003escoped start/stop + flat\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, _scope };\n        \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e will yield auto_tuple\u0026lt;comp::wall_clock, comp::cpu_clock\u0026gt;\u003c/span\u003e\n    }\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e configure the generic bundle via set of strings\u003c/span\u003e\n    runtime::configure\u0026lt;comp::user_global_bundle\u0026gt;({ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ewall_clock\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e });\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e configure the generic bundle via set of enumeration ids\u003c/span\u003e\n    runtime::configure\u0026lt;comp::user_global_bundle\u0026gt;({ TIMEMORY_WALL_CLOCK, TIMEMORY_CPU_CLOCK });\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e configure the generic bundle via component instances\u003c/span\u003e\n    comp::user_global_bundle::configure\u0026lt;comp::page_rss, comp::papi_vector\u0026gt;();\n    \n    \u003cspan class=\"pl-c1\"\u003egeneric_t\u003c/span\u003e g{ \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003egeneric\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, quirk::config\u0026lt;quirk::auto_start\u0026gt;{} };\n    g.\u003cspan class=\"pl-c1\"\u003estop\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Output the results\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_finalize\u003c/span\u003e();\n    \u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e;\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-sample-c--c-library-api\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sample-c--c-library-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSample C / C++ Library API\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-c++\"\u003e\u003cpre\u003e#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etimemory/library.h\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n#\u003cspan class=\"pl-k\"\u003einclude\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etimemory/timemory.h\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e\n\u003cspan class=\"pl-en\"\u003emain\u003c/span\u003e(\u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e argc, \u003cspan class=\"pl-k\"\u003echar\u003c/span\u003e** argv)\n{\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e configure settings\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e overwrite       = \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e;\n    \u003cspan class=\"pl-k\"\u003eint\u003c/span\u003e update_settings = \u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e;\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e default to flat-profile\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_set_environ\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eTIMEMORY_FLAT_PROFILE\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eON\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, overwrite, update_settings);\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e force timing units\u003c/span\u003e\n    overwrite = \u003cspan class=\"pl-c1\"\u003e1\u003c/span\u003e;\n    \u003cspan class=\"pl-c1\"\u003etimemory_set_environ\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eTIMEMORY_TIMING_UNITS\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emsec\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, overwrite, update_settings);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e initialize with cmd-line\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_init_library\u003c/span\u003e(argc, argv);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e check if inited, init with name\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003eif\u003c/span\u003e(!\u003cspan class=\"pl-c1\"\u003etimemory_library_is_initialized\u003c/span\u003e())\n        \u003cspan class=\"pl-c1\"\u003etimemory_named_init_library\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eex-c\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e define the default set of components\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_set_default\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ewall_clock, cpu_clock\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e create a region \"main\"\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_push_region\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_pop_region\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e pause and resume collection globally\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_pause\u003c/span\u003e();\n    \u003cspan class=\"pl-c1\"\u003etimemory_push_region\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ehidden\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_pop_region\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ehidden\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_resume\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Add/remove component(s) to the current set of components\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_add_components\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_remove_components\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e get an identifier for a region and end it\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003euint64_t\u003c/span\u003e idx = \u003cspan class=\"pl-c1\"\u003etimemory_get_begin_record\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eindexed\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_end_record\u003c/span\u003e(idx);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e assign an existing identifier for a region\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_begin_record\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eindexed/2\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u0026amp;idx);\n    \u003cspan class=\"pl-c1\"\u003etimemory_end_record\u003c/span\u003e(idx);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e create region collecting a specific set of data\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_begin_record_enum\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eenum\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u0026amp;idx, TIMEMORY_PEAK_RSS, TIMEMORY_COMPONENTS_END);\n    \u003cspan class=\"pl-c1\"\u003etimemory_end_record\u003c/span\u003e(idx);\n\n    \u003cspan class=\"pl-c1\"\u003etimemory_begin_record_types\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003etypes\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e, \u0026amp;idx, \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_end_record\u003c/span\u003e(idx);\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e replace current set of components and then restore previous set\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_push_components\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epage_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e);\n    \u003cspan class=\"pl-c1\"\u003etimemory_pop_components\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c1\"\u003etimemory_push_components_enum\u003c/span\u003e(\u003cspan class=\"pl-c1\"\u003e2\u003c/span\u003e, TIMEMORY_WALL_CLOCK, TIMEMORY_CPU_CLOCK);\n    \u003cspan class=\"pl-c1\"\u003etimemory_pop_components\u003c/span\u003e();\n\n    \u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e//\u003c/span\u003e Output the results\u003c/span\u003e\n    \u003cspan class=\"pl-c1\"\u003etimemory_finalize_library\u003c/span\u003e();\n    \u003cspan class=\"pl-k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e;\n}\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-sample-fortran-api\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sample-fortran-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSample Fortran API\u003c/h3\u003e\n\u003cdiv class=\"highlight highlight-source-fortran\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eprogram\u003c/span\u003e fortran_example\n    use timemory\n    use iso_c_binding, only : C_INT64_T\n    \u003cspan class=\"pl-k\"\u003eimplicit none\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003einteger\u003c/span\u003e(C_INT64_T) \u003cspan class=\"pl-k\"\u003e::\u003c/span\u003e idx\n\n    ! initialize with explicit name\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_init_library(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eex-fortran\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! initialize with name extracted from get_command_argument(\u003cspan class=\"pl-c1\"\u003e0\u003c/span\u003e, ...)\n    ! \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_init_library(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! define the default set of components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_set_default(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003ewall_clock, cpu_clock\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! Start region \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_push_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! Add peak_rss \u003cspan class=\"pl-k\"\u003eto\u003c/span\u003e the current set of components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_add_components(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! Nested region \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e nested under \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_push_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! End the \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e region\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_pop_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! remove peak_rss\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_remove_components(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epeak_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! begin a region and get an identifier\n    idx \u003cspan class=\"pl-k\"\u003e=\u003c/span\u003e timemory_get_begin_record(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eindexed\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! replace current set of components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_push_components(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003epage_rss\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! Nested region \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e with only page_rss components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_push_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner (pushed)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! \u003cspan class=\"pl-k\"\u003eStop\u003c/span\u003e \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e region with only page_rss components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_pop_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003einner (pushed)\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! restore previous set of components\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_pop_components()\n\n    ! end the \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003eindexed\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e region\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_end_record(idx)\n\n    ! End \u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_pop_region(\u003cspan class=\"pl-s\"\u003e\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003emain\u003cspan class=\"pl-pds\"\u003e\"\u003c/span\u003e\u003c/span\u003e)\n\n    ! Output the results\n    \u003cspan class=\"pl-k\"\u003ecall\u003c/span\u003e timemory_finalize_library()\n\n\u003cspan class=\"pl-k\"\u003eend program\u003c/span\u003e fortran_example\u003c/pre\u003e\u003c/div\u003e\n\u003ch3\u003e\u003ca id=\"user-content-sample-python-api\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#sample-python-api\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSample Python API\u003c/h3\u003e\n\u003ch4\u003e\u003ca id=\"user-content-decorator\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#decorator\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDecorator\u003c/h4\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etimemory\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ebundle\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003emarker\u003c/span\u003e\n\n\u003cspan class=\"pl-en\"\u003e@\u003cspan class=\"pl-en\"\u003emarker\u003c/span\u003e([\u003cspan class=\"pl-s\"\u003e\"cpu_clock\"\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\"peak_rss\"\u003c/span\u003e])\u003c/span\u003e\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003efoo\u003c/span\u003e():\n    \u003cspan class=\"pl-k\"\u003epass\u003c/span\u003e\u003c/pre\u003e\u003c/div\u003e\n\u003ch4\u003e\u003ca id=\"user-content-context-manager\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#context-manager\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContext Manager\u003c/h4\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etimemory\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003eprofiler\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eprofile\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003ebar\u003c/span\u003e():\n    \u003cspan class=\"pl-k\"\u003ewith\u003c/span\u003e \u003cspan class=\"pl-en\"\u003eprofile\u003c/span\u003e([\u003cspan class=\"pl-s\"\u003e\"wall_clock\"\u003c/span\u003e, \u003cspan class=\"pl-s\"\u003e\"cpu_util\"\u003c/span\u003e]):\n        \u003cspan class=\"pl-en\"\u003efoo\u003c/span\u003e()\u003c/pre\u003e\u003c/div\u003e\n\u003ch4\u003e\u003ca id=\"user-content-individual-components\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#individual-components\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eIndividual Components\u003c/h4\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etimemory\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003ecomponent\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWallClock\u003c/span\u003e\n\n\u003cspan class=\"pl-k\"\u003edef\u003c/span\u003e \u003cspan class=\"pl-en\"\u003espam\u003c/span\u003e():\n\n    \u003cspan class=\"pl-s1\"\u003ewc\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWallClock\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"spam\"\u003c/span\u003e)\n    \u003cspan class=\"pl-s1\"\u003ewc\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003estart\u003c/span\u003e()\n\n    \u003cspan class=\"pl-en\"\u003ebar\u003c/span\u003e()\n\n    \u003cspan class=\"pl-s1\"\u003ewc\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003estop\u003c/span\u003e()\n    \u003cspan class=\"pl-s1\"\u003edata\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003ewc\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eget\u003c/span\u003e()\n    \u003cspan class=\"pl-en\"\u003eprint\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003edata\u003c/span\u003e)\u003c/pre\u003e\u003c/div\u003e\n\u003ch4\u003e\u003ca id=\"user-content-argparse-support\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#argparse-support\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArgparse Support\u003c/h4\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eargparse\u003c/span\u003e\n\n\u003cspan class=\"pl-s1\"\u003eparser\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eargparse\u003c/span\u003e.\u003cspan class=\"pl-v\"\u003eArgumentParser\u003c/span\u003e(\u003cspan class=\"pl-s\"\u003e\"example\"\u003c/span\u003e)\n\u003cspan class=\"pl-c\"\u003e# ...\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003etimemory\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eadd_arguments\u003c/span\u003e(\u003cspan class=\"pl-s1\"\u003eparser\u003c/span\u003e)\n\n\u003cspan class=\"pl-s1\"\u003eargs\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003eparser\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eparse_args\u003c/span\u003e()\u003c/pre\u003e\u003c/div\u003e\n\u003ch4\u003e\u003ca id=\"user-content-component-storage\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#component-storage\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eComponent Storage\u003c/h4\u003e\n\u003cdiv class=\"highlight highlight-source-python\"\u003e\u003cpre\u003e\u003cspan class=\"pl-k\"\u003efrom\u003c/span\u003e \u003cspan class=\"pl-s1\"\u003etimemory\u003c/span\u003e.\u003cspan class=\"pl-s1\"\u003estorage\u003c/span\u003e \u003cspan class=\"pl-k\"\u003eimport\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWallClockStorage\u003c/span\u003e\n\n\u003cspan class=\"pl-c\"\u003e# data for current rank\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003edata\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWallClockStorage\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003eget\u003c/span\u003e()\n\u003cspan class=\"pl-c\"\u003e# combined data on rank zero but all ranks must call it\u003c/span\u003e\n\u003cspan class=\"pl-s1\"\u003edmp_data\u003c/span\u003e \u003cspan class=\"pl-c1\"\u003e=\u003c/span\u003e \u003cspan class=\"pl-v\"\u003eWallClockStorage\u003c/span\u003e.\u003cspan class=\"pl-en\"\u003edmp_get\u003c/span\u003e()\u003c/pre\u003e\u003c/div\u003e\n\u003ch2\u003e\u003ca id=\"user-content-versioning\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#versioning\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eVersioning\u003c/h2\u003e\n\u003cp\u003eTimemory originated as a very simple tool for recording timing and memory measurements (hence the name) in C, C++, and Python and only supported\nthree modes prior to the 3.0.0 release: a fixed set of timers, a pair of memory measurements, and the combination of the two.\n\u003cstrong\u003ePrior to the 3.0.0 release, timemory was almost completely rewritten from scratch\u003c/strong\u003e with the sole exceptions of some C/C++ macro, e.g.\n\u003ccode\u003eTIMEMORY_AUTO_TIMER\u003c/code\u003e, and some Python decorators and context-manager, e.g. \u003ccode\u003etimemory.util.auto_timer\u003c/code\u003e, whose behavior were\nable to be fully replicated in the new release. Thus, while it may appear that timemory is a mature project at v3.0+, it\nis essentially still in it\u0027s first major release.\u003c/p\u003e\n\u003ch2\u003e\u003ca id=\"user-content-citing-timemory\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#citing-timemory\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCiting timemory\u003c/h2\u003e\n\u003cp\u003eTo reference timemory in a publication, please cite the following paper:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMadsen, J.R. et al. (2020) Timemory: Modular Performance Analysis for HPC. In: Sadayappan P., Chamberlain B., Juckeland G., Ltaief H. (eds) High Performance Computing. ISC High Performance 2020. Lecture Notes in Computer Science, vol 12151. Springer, Cham\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\u003ca id=\"user-content-additional-information\" class=\"anchor\" aria-hidden=\"true\" tabindex=\"-1\" href=\"#additional-information\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdditional Information\u003c/h2\u003e\n\u003cp\u003eFor more information, refer to the \u003ca href=\"https://timemory.readthedocs.io/en/latest/\" rel=\"nofollow\"\u003edocumentation\u003c/a\u003e.\u003c/p\u003e\n",
-    "stargazers_count": 336,
+    "stargazers_count": 337,
     "subscribers_count": 16,
     "topics": [
       "python",
@@ -2110,15 +2110,15 @@ var data =
       "cupti",
       "modular-design"
     ],
-    "updated_at": 1707466309.0
+    "updated_at": 1708192752.0
   },
   {
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
       "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml"
+      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int32-double/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v6.7.0",
