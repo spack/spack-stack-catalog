@@ -1,0 +1,4 @@
+spack:
+        specs:
+                - compss==3.1
+                - py-parsoda==1.2.0
