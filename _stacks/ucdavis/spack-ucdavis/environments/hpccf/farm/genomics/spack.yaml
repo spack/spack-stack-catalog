@@ -32,6 +32,7 @@ spack:
   - cufflinks
   - deml
   - diamond
+  - distangsd
   - dssp
   - ea-utils
   - emboss
@@ -98,6 +99,7 @@ spack:
   - ncbi-vdb
   - nextflow
   - ngsadmix
+  - ngsrelate @2.0
   - ngstools
   - ont-guppy@6.1.7-cuda
   - ont-guppy@6.5.7-cuda
