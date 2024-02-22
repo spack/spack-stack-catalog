@@ -4,6 +4,7 @@ spack:
   - pkgconfig
   - mochi-thallium
   - nlohmann-json
+  - nlohmann-json-schema-validator
   - pmdk
   - spdlog
   - fmt
@@ -11,7 +12,6 @@ spack:
   - mochi-bedrock +abtio
   - mochi-abt-io
   - mochi-remi
-  - valijson
   concretizer:
     unify: true
     reuse: true
@@ -28,3 +28,5 @@ spack:
       require: "@0.4.0:"
     mochi-bedrock:
       require: "@0.8.0:"
+    nlohmann-json-schema-validator:
+      require: "@main" # change to "@2.3.0:" when possible

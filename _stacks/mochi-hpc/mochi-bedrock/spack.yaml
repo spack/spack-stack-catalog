@@ -12,10 +12,13 @@ spack:
   - fmt
   - tclap
   - mercury
+  - valijson
   - py-mochi-margo
   - py-pybind11
   - py-attrs
-  - valijson
+  - py-typer
+  - py-rich
+  - py-mochi-ssg
   concretizer:
     unify: true
     reuse: true

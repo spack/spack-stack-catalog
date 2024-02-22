@@ -1,0 +1,26 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [hdf5+hl+mpi^mpich, fftw+mpi+openmp^mpich, gsl, cmake, criterion-git]
+  view: True
+  modules:
+    prefix_inspections:
+      include:
+      - CPATH
+  repos:
+  - recipes
+  mirrors:
+    develop: https://binaries.spack.io/develop
+  packages:
+    m4:
+      buildable: True
+      externals: []
+    autoconf:
+      buildable: True
+      externals: []
+    libtool:
+      buildable: True
+      externals: []
