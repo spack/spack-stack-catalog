@@ -1,0 +1,25 @@
+# This is a Spack environment file.
+#
+# We have chosen versions closest to the ones used in the repository
+# project, but spack does not have all versions on the packages
+# we use. Results should be reproducible with other versions.
+#
+# NOTE: We patch `share/top/residuetypes.dat` directory for our custom
+# residue names on acrylic acid. This is not included in the spack
+# environment file and must be modified manually.
+#
+# Sample install instructions:
+# $ spack env create md
+# $ spack env activate md
+# $ spack add [specs]
+# $ spack concretize -f
+# $ spack install -j 24
+# $ spack env loads -r
+#
+spack:
+  specs:
+    - gromacs @2022.3 %gcc +mpi +openmp +plumed +cuda +blas +lapack ^plumed@2.8.1 %gcc +mpi 
+    - plumed @2.8.1 %gcc +mpi 
+    - packmol %gcc
+  view: true
+  concretization: together

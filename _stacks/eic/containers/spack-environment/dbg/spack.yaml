@@ -1,0 +1,19 @@
+spack:
+  include:
+  - ../concretizer.yaml
+  - ../packages.yaml
+  config:
+    install_missing_compilers: false
+  specs:
+  - acts build_type=Debug
+  - algorithms build_type=Debug
+  - cmake
+  - dd4hep build_type=Debug
+  - edm4eic build_type=Debug
+  - edm4hep build_type=Debug
+  - eicrecon build_type=Debug
+  - gdb
+  - irt build_type=Debug
+  - jana2 build_type=Debug
+  - valgrind
+  view: false
