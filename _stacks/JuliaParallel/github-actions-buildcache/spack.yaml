@@ -1,0 +1,28 @@
+spack:
+  view: false
+  specs:
+  - intel-mpi@2019.9.304
+  - intel-oneapi-mpi@2021.11.0
+  - julia@1.9.3 ^llvm~clang~gold~polly ^openblas threads=openmp +ilp64
+  - mvapich@3.0
+  - mvapich2@2.3.7
+  - openmpi@5.0.2
+  - jq@1.7.1
+  concretizer:
+    unify: false
+  config:
+    install_tree:
+      root: /opt/spack
+      padded_length: 128
+    deprecated: true # Needed for legacy `intel-mpi`
+  mirrors:
+    local-buildcache:
+      url: oci://ghcr.io/JuliaParallel/github-actions-buildcache
+      signed: false
+  packages:
+    all:
+      require: '%gcc@12 target=x86_64_v3'
+  modules:
+    prefix_inspections:
+      lib: ["LD_LIBRARY_PATH"]
+      lib64: ["LD_LIBRARY_PATH"]
