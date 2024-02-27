@@ -659,6 +659,13 @@ spack:
     motif:
       require:
       - ^autoconf@2.69
+    mpich:
+      require:
+      - device=ch4
+      - netmod=ofi
+      - pmi=pmi2
+      variants:
+      - ~cuda
     mpifileutils:
       variants:
       - +gpfs
@@ -666,11 +673,17 @@ spack:
       - +xattr
     mvapich:
       variants:
-      - +cuda
       - file_systems=lustre,gpfs,nfs,ufs
       - process_managers=auto
       require:
       - netmod=ofi
+      - +pbs
+      - one_of:
+        - ~cuda
+        when: '%oneapi'
+      - one_of:
+        - +cuda
+        when: '%nvhpc'
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
@@ -1518,6 +1531,7 @@ spack:
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           mvapich~cuda: mvapich/{version}-cpu
+          mvapich+cuda: mvapich/{version}-cuda
         singularityce:
           environment:
             prepend_path:
@@ -1543,6 +1557,7 @@ spack:
   mirrors:
     ncar_mirror_global: /glade/u/apps/derecho/mirror
     ncar_mirror_local: /glade/u/apps/derecho/mirror
+    ncar_mirror_stratus: s3://spack-cache-derecho
   repos:
   - /glade/work/csgteam/spack-deployments/derecho/23.09/envs/build/repos/ncar.hpcd
   specs:
@@ -1930,5 +1945,23 @@ spack:
   - esmf@8.6.0%cce@16.0.1~mpi ^cray-libsci ^parallelio@2.6.2~mpi
   - parallelio@2.6.2%cce@16.0.1 ^cray-mpich@8.1.27%cce@16.0.1
   - esmf@8.6.0%cce@16.0.1+mpi+pnetcdf ^cray-libsci ^cray-mpich@8.1.27%cce@16.0.1
-  - mvapich@3.0rc%oneapi@2024.0.2
   - eigen
+  - mvapich@3.0%nvhpc@24.1
+  - parallel-netcdf@1.12.3%nvhpc@24.1 ^mvapich@3.0%nvhpc@24.1
+  - hdf5@1.14.3%nvhpc@24.1+mpi ^mvapich@3.0%nvhpc@24.1
+  - netcdf@4.9.2%nvhpc@24.1+mpi ^mvapich@3.0%nvhpc@24.1
+  - fftw@3.3.10%nvhpc@24.1+mpi ^mvapich@3.0%nvhpc@24.1
+  - parallelio1@1.10.1%nvhpc@24.1 ^mvapich@3.0%nvhpc@24.1
+  - darshan-runtime@3.4.4%nvhpc@24.1 ^mvapich@3.0%nvhpc@24.1
+  - parallelio@2.6.2%nvhpc@24.1 ^mvapich@3.0%nvhpc@24.1
+  - esmf@8.6.0%nvhpc@24.1+mpi+pnetcdf ^mvapich@3.0%nvhpc@24.1 ^nvhpc
+  - mvapich@3.0%oneapi@2024.0.2
+  - parallel-netcdf@1.12.3%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
+  - hdf5@1.14.3%oneapi@2024.0.2+mpi ^mvapich@3.0%oneapi@2024.0.2
+  - netcdf@4.9.2%oneapi@2024.0.2+mpi ^mvapich@3.0%oneapi@2024.0.2
+  - fftw@3.3.10%oneapi@2024.0.2+mpi ^mvapich@3.0%oneapi@2024.0.2
+  - parallelio1@1.10.1%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
+  - darshan-runtime@3.4.4%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
+  - parallelio@2.6.2%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
+  - esmf@8.6.0%oneapi@2024.0.2+mpi+pnetcdf ^mvapich@3.0%oneapi@2024.0.2
+  - superlu-dist@8.2.1%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
