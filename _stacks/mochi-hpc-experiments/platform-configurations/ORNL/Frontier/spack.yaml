@@ -1,99 +1,6 @@
 spack:
   specs:
   - mochi-margo
-  repos:
-  - /path/to/mochi-spack-packages
-  modules:
-    prefix_inspections:
-      lib: [LD_LIBRARY_PATH]
-      lib64: [LD_LIBRARY_PATH]
-  packages:
-    all:
-      providers:
-        mpi: [cray-mpich]
-    libfabric:
-      externals:
-      - spec: libfabric@1.15.2.0
-        modules:
-        - libfabric/1.15.2.0
-      buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    mercury:
-      variants: ~boostsys ~checksum
-      buildable: true
-      version: [ master ]
-      target: []
-      providers: {}
-      compiler: []
-    json-c:
-      buildable: false
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-      externals:
-      - spec: json-c@0.13.1
-        prefix: /usr
-    cray-mpich:
-      buildable: false
-      externals:
-      - spec: cray-mpich@8.1.23
-        modules:
-        - cray-mpich/8.1.23
-        - libfabric
-    autoconf:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: autoconf@2.69
-        modules:
-        - autoconf/2.69
-    automake:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: automake@1.16.5
-        modules:
-        - automake/1.16.5
-    cmake:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: cmake@3.22.2
-        modules:
-        - cmake/3.22.2
-    libtool:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: libtool@2.4.6
-        modules:
-        - libtool/2.4.6
-    m4:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: m4@1.4.18
-        prefix: /usr
-  view: true
   compilers:
   - compiler:
       spec: gcc@12.2.0
@@ -109,10 +16,73 @@ spack:
       - PrgEnv-gnu
       - gcc/12.2.0
       - craype-x86-trento
-      - libfabric
       - xpmem
+      - libfabric
       environment:
         prepend_path:
           PKG_CONFIG_PATH: /opt/cray/xpmem/2.5.2-2.4_3.30__gd0f7936.shasta/lib64/pkgconfig/:/usr/lib64/pkgconfig
           LD_LIBRARY_PATH: /opt/cray/pe/pmi/default/lib
       extra_rpaths: []
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+    all:
+      providers:
+        mpi: [cray-mpich]
+    libfabric:
+      externals:
+      - spec: libfabric@1.15.2.0
+        modules:
+        - libfabric/1.15.2.0
+    mercury:
+      variants: ~boostsys ~checksum
+      version: [ master ]
+    json-c:
+      buildable: false
+      externals:
+      - spec: json-c@0.13.1
+        prefix: /usr
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.23
+        modules:
+        - cray-mpich/8.1.23
+        - libfabric
+    autoconf:
+      buildable: false
+      externals:
+      - spec: autoconf@2.69
+        modules:
+        - autoconf/2.69
+    automake:
+      buildable: false
+      externals:
+      - spec: automake@1.16.5
+        modules:
+        - automake/1.16.5
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.22.2
+        modules:
+        - cmake/3.22.2
+    libtool:
+      buildable: false
+      externals:
+      - spec: libtool@2.4.6
+        modules:
+        - libtool/2.4.6
+    m4:
+      buildable: false
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    zlib:
+      buildable: false
+      externals:
+      - spec: zlib@1.2.11
+        prefix: /usr
+  view: true

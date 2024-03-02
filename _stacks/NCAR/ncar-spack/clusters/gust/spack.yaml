@@ -64,22 +64,30 @@ spack:
       require:
         # This should force packages to use the vendor-preferred solution
         # for BLAS and LAPACK without needing to set it on each package
-      - any_of:
+      - one_of:
         - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^cray-libsci %gcc@11:'
+        - '%gcc@12 ^cray-libsci %gcc@12'
+        - '%gcc@13 ^openblas %gcc@13'
         - '%cce ^cray-libsci'
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^blas
-      - any_of:
+      - one_of:
         - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^cray-libsci %gcc@11:'
+        - '%gcc@12 ^cray-libsci %gcc@12'
+        - '%gcc@13 ^openblas %gcc@13'
         - '%cce ^cray-libsci'
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^lapack
+      - any_of:
+        - ^pkg-config
+        when: ^pkgconfig
     antlr:
       require: '%gcc@7.5.0'
+    aocc:
+      require:
+      - +license-agreed
     apptainer:
       variants:
       - ~suid
@@ -142,6 +150,9 @@ spack:
       - spec: cray-libsci@23.02.1.1
         modules:
         - cray-libsci/23.02.1.1
+      - spec: cray-libsci@23.09.1.1
+        modules:
+        - cray-libsci/23.09.1.1
       buildable: false
     cray-mpich:
       externals:
@@ -153,6 +164,16 @@ spack:
         prefix: /opt/cray/pe/mpich/8.1.25/ofi/nvidia/20.7
       - spec: cray-mpich@8.1.25 %oneapi
         prefix: /opt/cray/pe/mpich/8.1.25/ofi/intel/19.0
+      - spec: cray-mpich@8.1.27 %gcc
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/gnu/9.1
+      - spec: cray-mpich@8.1.27 %cce
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/cray/14.0
+      - spec: cray-mpich@8.1.27 %nvhpc
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/nvidia/20.7
+      - spec: cray-mpich@8.1.27 %oneapi
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/intel/2022.1
+      - spec: cray-mpich@8.1.27 %aocc
+        prefix: /opt/cray/pe/mpich/8.1.27/ofi/aocc/3.0
       buildable: false
     cuda:
       require:
@@ -188,6 +209,9 @@ spack:
       - +graphviz
       require:
       - '%gcc@7.5.0'
+    ecbuild:
+      require:
+      - '%gcc@7.5.0'
     eccodes:
       variants:
       - +fortran
@@ -201,6 +225,15 @@ spack:
     eigen:
       require:
       - '%gcc@7.5.0'
+    emacs:
+      variants:
+      - +X
+      - +json
+      - +treesitter
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +X
     esmf:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
@@ -314,6 +347,18 @@ spack:
     gmp:
       require:
       - '%gcc@7.5.0'
+    gmt:
+      variants:
+      - +ffmpeg
+      - +fftw
+      - +geos
+      - +ghostscript
+      - +glib
+      - +pcre
+      - ~graphicsmagick
+      require:
+      - +blas
+      - +lapack
     gnuplot:
       variants:
       - +X
@@ -342,7 +387,6 @@ spack:
       - +fortran
       - +szip
     hdf5:
-      require: '@:1.12'
       variants:
       - +cxx
       - +fortran
@@ -362,6 +406,9 @@ spack:
       variants:
       - +ghostscript
     intel-oneapi-compilers:
+      require:
+      - '%gcc@7.5.0'
+    intel-oneapi-inspector:
       require:
       - '%gcc@7.5.0'
     intel-oneapi-mpi:
@@ -385,6 +432,9 @@ spack:
     julia:
       require: ^llvm~clang~gold~polly ^openblas threads=openmp
     krb5:
+      require:
+      - '%gcc@7.5.0'
+    libaec:
       require:
       - '%gcc@7.5.0'
     libarchive:
@@ -485,6 +535,19 @@ spack:
       require:
       - '@2.28'
       - libs=static,shared
+    met:
+      variants:
+      - +graphics
+      - +grib2
+      - +lidar2nc
+      - +modis
+      - +python
+    metplus:
+      variants:
+      - +cycloneplotter
+      - +makeplots
+      - +plotdataplane
+      - +series_analysis
     mgard:
       require:
       - '%gcc@7.5.0'
@@ -496,6 +559,13 @@ spack:
     motif:
       require:
       - ^autoconf@2.69
+    mpich:
+      require:
+      - device=ch4
+      - netmod=ofi
+      - pmi=pmi2
+      variants:
+      - ~cuda
     mpifileutils:
       variants:
       - +gpfs
@@ -504,19 +574,29 @@ spack:
     mvapich:
       variants:
       - file_systems=lustre,gpfs,nfs,ufs
-      - process_managers=hydra
-      - ~cuda
+      - process_managers=auto
       require:
       - netmod=ofi
+      - +pbs
+      - one_of:
+        - ~cuda
+        when: '%oneapi'
+      - one_of:
+        - +cuda
+        when: '%nvhpc'
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
       require:
       - ^esmf@:8.0.1 ~external-lapack
       - ^hdf5~mpi
+      - '%gcc@7.5.0'
       variants:
+      - +eemd
       - +gdal
       - +grib
+      - +hdf-eos2
+      - +hdf-eos5
       - +hdf4
     netcdf:
       variants:
@@ -569,16 +649,16 @@ spack:
       require:
       - '%gcc@7.5.0'
     openmpi:
-      variants:
-      - ~cuda
       require:
       - fabrics=cma,ofi
       - schedulers=tm
       - +gpfs
       - +lustre
+      - +internal-pmix
+      - +cuda
       - any_of:
         - '^cuda@12.2:'
-        when: '@5.0.0rc13 +cuda'
+        when: '@5.0.0rc16 +cuda'
     openpbs:
       externals:
       - spec: openpbs@2021.1.3
@@ -595,6 +675,9 @@ spack:
       require:
       - certs=system
       - '%gcc@7.5.0'
+    osu-micro-benchmarks:
+      variants:
+      - +cuda
     pango:
       variants:
       - +X
@@ -603,6 +686,10 @@ spack:
       - +ncint
       - +pnetcdf
       - ~logging
+      require:
+      - any_of:
+        - ~pnetcdf
+        when: ~mpi
     parallelio1:
       variants:
       - +pnetcdf
@@ -632,6 +719,15 @@ spack:
     py-fypp:
       require:
       - '%gcc@7.5.0'
+    py-netcdf4:
+      variants:
+      - ~mpi
+    py-numpy:
+      # TODO - force use of non-Julia openblas, but next time build it first
+      require:
+      - any_of:
+        - ^openblas symbol_suffix=none
+        when: ^openblas
     py-setuptools:
       # Newer versions cannot be used by py-numpy as of Aug 2023
       require:
@@ -684,6 +780,21 @@ spack:
       - '%gcc@7.5.0'
     util-linux-uuid:
       require: '%gcc@7.5.0'
+    vim:
+      variants:
+      - +cscope
+      - +gtk
+      - +gui
+      - +lua
+      - +perl
+      - +python
+      - +ruby
+      - +x
+      - features=huge
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +gtk
     vtk-m:
       require:
       - '%gcc@7.5.0'
@@ -750,6 +861,10 @@ spack:
         lib64/pkgconfig:
         - PKG_CONFIG_PATH
       lmod:
+        adios2:
+          environment:
+            set:
+              ADIOS2: '{prefix}'
         all:
           environment:
             set:
@@ -763,6 +878,8 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        cdo:
+          autoload: none
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -814,14 +931,12 @@ spack:
               DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
         defaults:
         - netcdf@4.9.2
-        - parallel-netcdf@1.12.3
-        - fftw@3.3.10
-        - openmpi@4.1.5
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
-        - cuda@11.7.1
-        - cudnn@8.5.0.96-11.7
+        - cuda@12.2.1
+        - intel-oneapi-compilers@2023.2.1
+        - gcc@12.2.0
         esmf:
           autoload: none
         exclude:
@@ -834,9 +949,13 @@ spack:
         gcc:
           environment:
             set:
+              GNU_PATH: '{prefix}'
+              GNU_VERSION: '{version}'
               NCAR_BUILD_ENV: derecho-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: derecho-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
+              PE_ENV: GNU
         hash_length: 0
         hdf5+mpi:
           template: conflict-mpi.lua
@@ -863,6 +982,7 @@ spack:
               NCAR_BUILD_ENV: derecho-oneapi-{version}
               NCAR_BUILD_ENV_COMPILER: derecho-oneapi-{version}
               NCAR_ID_COMPILER: oneapi-{version}
+              NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_ROOT_ONEAPI: '{prefix}'
               NCAR_SPACK_HASH_ONEAPI: '{hash}'
               OMPI_CC: icx
@@ -891,6 +1011,7 @@ spack:
               NCAR_BUILD_ENV: derecho-intel-{^intel-oneapi-compilers.version}
               NCAR_BUILD_ENV_COMPILER: derecho-intel-{^intel-oneapi-compilers.version}
               NCAR_ID_COMPILER: intel-{^intel-oneapi-compilers.version}
+              NCAR_ROOT_COMPILER: '{^intel-oneapi-compilers.prefix}'
               NCAR_ROOT_INTEL: '{^intel-oneapi-compilers.prefix}'
               NCAR_SPACK_HASH_INTEL: '{hash}'
               OMPI_CC: icc
@@ -920,6 +1041,8 @@ spack:
               FI_PROVIDER_PATH: /opt/cray/libfabric/1.15.2.0
               I_MPI_HYDRA_BOOTSTRAP: rsh
               I_MPI_HYDRA_BOOTSTRAP_EXEC: pbs_tmrsh
+              I_MPI_OFI_LIBRARY: /opt/cray/libfabric/1.15.2.0/lib64/libfabric.so.1
+              I_MPI_OFI_PROVIDER: cxi
               NCAR_ROOT_INTEL_MPI: '{prefix}'
               NCAR_SPACK_HASH_INTEL_MPI: '{hash}'
             prepend_path:
@@ -966,11 +1089,18 @@ spack:
             set:
               NCAR_BUILD_ENV_MPI: derecho-{compiler.name}-{compiler.version}-{name}-{version}
               NCAR_ID_MPI: '{name}-{version}'
+              NCAR_ROOT_MPI: '{prefix}'
         ncarcompilers:
           environment:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
           template: ncar_wrapper.lua
+        nccmp:
+          autoload: none
+        nco:
+          autoload: none
+        ncview:
+          autoload: none
         netcdf:
           autoload: all
         netcdf+mpi:
@@ -984,6 +1114,7 @@ spack:
               NCAR_BUILD_ENV: derecho-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: derecho-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NVIDIA_PATH: '{prefix}'
               NVIDIA_VERSION: '{version}'
               PE_ENV: NVIDIA
@@ -998,6 +1129,7 @@ spack:
         openmpi:
           environment:
             set:
+              OMPI_MCA_rmaps_default_mapping_policy: :hwtcpus
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
@@ -1036,6 +1168,8 @@ spack:
           intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          mvapich~cuda: mvapich/{version}-cpu
+          mvapich+cuda: mvapich/{version}-cuda
         rstudio:
           filter:
             exclude_env_vars:

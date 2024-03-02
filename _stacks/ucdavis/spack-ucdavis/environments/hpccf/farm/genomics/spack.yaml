@@ -49,13 +49,13 @@ spack:
   - gemma
   - genometools
   - genrich
-  - glimpse @1.1.1
-  - glimpse2
   - gffcompare
   - gffread
   - glimmer
-  - hisat2@2.2.1:2.99.99
+  - glimpse @1.1.1
+  - glimpse2
   - hh-suite
+  - hisat2@2.2.1:2.99.99
   - hmmer
   - homer @4.11.1 +data
   - htslib
@@ -113,6 +113,7 @@ spack:
   - plink @1.9-beta7.1
   - plink-ng
   - prokka
+  - py-basevar ^python@2.7 ^openblas
   - py-biopython
   - py-checkm-genome
   - py-cutadapt

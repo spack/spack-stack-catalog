@@ -1,0 +1,57 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  include:
+  - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  specs:
+  - raja@2022.10.4+cuda~examples~exercises+openmp cuda_arch=80
+  - umpire@2022.03.1+cuda~examples+numa+openmp cuda_arch=80
+  - fmt@10.0.0
+  - netcdf-cxx4@4.3.1
+  - fftw@3.3.10
+  view: true
+  concretizer:
+    unify: true
+  packages:
+    all:
+      compiler: [gcc@12.3.0]
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+      buildable: false
+    cmake:
+      externals:
+      - spec: cmake@3.22.0
+        modules:
+        - cmake/3.22.0
+      buildable: false
+    gcc:
+      externals:
+      - spec: gcc@12.3.0
+        modules:
+        - gcc-native/12.3
+        buildable: false
+    cuda:
+      externals:
+      - spec: cuda@12.2
+        modules:
+        - cudatoolkit/12.2
+      buildable: false
+  compilers:
+  - compiler:
+      spec: gcc@=12.3.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []

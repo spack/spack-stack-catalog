@@ -1,0 +1,9 @@
+spack:
+  view: sst-spack-view
+  config:
+    install_tree:
+      padded_length: 128
+  mirrors:
+    github-container-registry:
+      url: oci://ghcr.io/sstsimulator/sst-spack
+      signed: false

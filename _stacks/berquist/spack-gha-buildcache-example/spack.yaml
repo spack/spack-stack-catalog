@@ -1,0 +1,15 @@
+spack:
+  view: my_view
+  specs:
+  - python
+
+  config:
+    install_tree:
+      padded_length: 128
+
+  mirrors:
+    github-container-registry:
+      url: oci://ghcr.io/berquist/spack-gha-buildcache-example
+      signed: false
+      access_pair:
+      - berquist
