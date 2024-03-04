@@ -47,9 +47,9 @@ var data =
     "data_format": 2,
     "description": "Spack config for CCI DCS (AiMOS) system",
     "filenames": [
-      "spack.yaml",
+      "v0160gcc/spack.yaml",
       "rhel8NvhpcWdmapp/spack.yaml",
-      "v0160gcc/spack.yaml"
+      "spack.yaml"
     ],
     "full_name": "SCOREC/dcs-spack-config",
     "latest_release": null,
@@ -133,10 +133,10 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "environments/hpccf/franklin/cluster-core/spack.yaml",
       "environments/hpccf/farm/core/spack.yaml",
       "environments/hpccf/farm/genomics/spack.yaml",
       "environments/hpccf/farm/r-stack/spack.yaml",
+      "environments/hpccf/franklin/cluster-core/spack.yaml",
       "environments/hpccf/franklin/general/spack.yaml"
     ],
     "full_name": "ucdavis/spack-ucdavis",
@@ -180,11 +180,11 @@ var data =
     "description": "Spack configuration files and scripts for use on machines at NREL",
     "filenames": [
       "configs/eagle/utilities/spack.yaml",
-      "configs/ellis/compilers/spack.yaml",
-      "configs/rhodes/compilers/spack.yaml",
-      "configs/eagle/compilers/spack.yaml",
-      "configs/rhodes/utilities/spack.yaml",
       "configs/eagle/software/spack.yaml",
+      "configs/eagle/compilers/spack.yaml",
+      "configs/rhodes/compilers/spack.yaml",
+      "configs/rhodes/utilities/spack.yaml",
+      "configs/ellis/compilers/spack.yaml",
       "envs/exawind/spack.yaml"
     ],
     "full_name": "jrood-nrel/spack-configs",
@@ -255,10 +255,10 @@ var data =
     "data_format": 2,
     "description": "Spack Environments ",
     "filenames": [
-      "cent8/envs/avx/rproject/spack.yaml",
+      "cent7/python_376/spack.yaml",
       "cent7/library/bak/spack.yaml",
-      "cent8/envs/avx512/rproject/spack.yaml",
-      "cent7/python_376/spack.yaml"
+      "cent8/envs/avx/rproject/spack.yaml",
+      "cent8/envs/avx512/rproject/spack.yaml"
     ],
     "full_name": "alexpacheco/spackenv",
     "latest_release": null,
@@ -272,12 +272,12 @@ var data =
     "data_format": 2,
     "description": "Spack environments",
     "filenames": [
-      "envs/alps/dlaf/oneapi-mt/spack.yaml",
-      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
-      "envs/local/sirius-dlaf/dev-cuda/spack.yaml",
       "envs/alps/sirius/cpu/spack.yaml",
+      "envs/alps/cp2k/cpu/openblas/spack.yaml",
+      "envs/local/sirius-dlaf/dev-cuda/spack.yaml",
+      "envs/local/dlaf/mkl-mt-mpich-cuda-scalapack-pika/spack.yaml",
       "envs/local/dlaf/openblas-mt-mpich-cuda/spack.yaml",
-      "envs/alps/cp2k/cpu/openblas/spack.yaml"
+      "envs/alps/dlaf/oneapi-mt/spack.yaml"
     ],
     "full_name": "RMeli/my-spack",
     "latest_release": null,
@@ -389,9 +389,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
+      "var/spack/environments/karolina/bpmf-argo/spack.yaml",
       "var/spack/environments/karolina/bpmf-ompss-argo/spack.yaml",
-      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml",
-      "var/spack/environments/karolina/bpmf-argo/spack.yaml"
+      "var/spack/environments/intelmpi/bpmf-gpi/spack.yaml"
     ],
     "full_name": "tvandera/spack-repos",
     "latest_release": null,
@@ -449,8 +449,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "oneapi/spack.yaml",
       "oneapi/failures/spack.yaml",
+      "oneapi/spack.yaml",
       "gnu/spack.yaml"
     ],
     "full_name": "eugeneswalker/noaa",
@@ -629,8 +629,8 @@ var data =
     "data_format": 2,
     "description": "my spack environments for software builds",
     "filenames": [
-      "esmfserialbld/spack.yaml",
-      "esmfbld/spack.yaml"
+      "esmfbld/spack.yaml",
+      "esmfserialbld/spack.yaml"
     ],
     "full_name": "jedwards4b/spackenvironments",
     "latest_release": null,
@@ -712,8 +712,8 @@ var data =
     "data_format": 2,
     "description": "Muon Collider software repository for Spack",
     "filenames": [
-      "environments/mucoll-release/spack.yaml",
-      "environments/mucoll-common/spack.yaml"
+      "environments/mucoll-common/spack.yaml",
+      "environments/mucoll-release/spack.yaml"
     ],
     "full_name": "MuonColliderSoft/mucoll-spack",
     "latest_release": "v2.8",
@@ -819,7 +819,7 @@ var data =
     "latest_release": null,
     "readme": "\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eEIC software environment container\u003c/h1\u003e\u003ca id=\"user-content-eic-software-environment-container\" class=\"anchor-element\" aria-label=\"Permalink: EIC software environment container\" href=\"#eic-software-environment-container\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eFor installation instructions of \u003ccode\u003eeic-shell\u003c/code\u003e, see \u003ca href=\"https://github.com/eic/eic-shell\"\u003ehttps://github.com/eic/eic-shell\u003c/a\u003e.\u003c/p\u003e\n",
     "stargazers_count": 0,
-    "subscribers_count": 42,
+    "subscribers_count": 43,
     "topics": [],
     "updated_at": 1702694628.0
   },
@@ -861,9 +861,9 @@ var data =
     "data_format": 2,
     "description": "spack config for erp cluster",
     "filenames": [
+      "v0201_1/spack.yaml",
       "v0190_gcc910/spack.yaml",
-      "openFoam24/spack.yaml",
-      "v0201_1/spack.yaml"
+      "openFoam24/spack.yaml"
     ],
     "full_name": "SCOREC/centos7-spack-config",
     "latest_release": null,
@@ -877,9 +877,9 @@ var data =
     "data_format": 2,
     "description": "Automated deployment system for the scientific software stack in use at Pawsey",
     "filenames": [
+      "systems/setonix/environments/wrf/spack.yaml",
       "systems/setonix/environments/cray_devel/spack.yaml",
       "systems/setonix/environments/cray_s3_clients/spack.yaml",
-      "systems/setonix/environments/wrf/spack.yaml",
       "systems/setonix/environments/bench/spack.yaml"
     ],
     "full_name": "PawseySC/pawsey-spack-config",
@@ -894,8 +894,8 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "x86_64/spack.yaml",
-      "ppc64le/spack.yaml"
+      "ppc64le/spack.yaml",
+      "x86_64/spack.yaml"
     ],
     "full_name": "eugeneswalker/llvm-containers",
     "latest_release": null,
@@ -1043,9 +1043,9 @@ var data =
     "data_format": 2,
     "description": "Configuration scripts for BOUT++",
     "filenames": [
-      "perlmutter/boutdev-spack-env/spack.yaml",
       "lassen/spack_env/bout_petsc_with_hypre/spack.yaml",
-      "lassen/spack_env/bout/spack.yaml"
+      "lassen/spack_env/bout/spack.yaml",
+      "perlmutter/boutdev-spack-env/spack.yaml"
     ],
     "full_name": "boutproject/BOUT-configs",
     "latest_release": null,
@@ -1129,8 +1129,8 @@ var data =
     "data_format": 2,
     "description": "fast spack builds on slow filesystem",
     "filenames": [
-      "packages/nvhpc/spack.yaml",
-      "recipe/nvhpc.spack.yaml"
+      "recipe/nvhpc.spack.yaml",
+      "packages/nvhpc/spack.yaml"
     ],
     "full_name": "eth-cscs/spack-stack",
     "latest_release": null,
@@ -1155,28 +1155,11 @@ var data =
   },
   {
     "data_format": 2,
-    "description": "The Meraxes semi-analytic galaxy formation model.",
-    "filenames": [
-      "spack-env/spack.yaml"
-    ],
-    "full_name": "smutch/meraxes",
-    "latest_release": null,
-    "readme": "\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eMeraxes\u003c/h1\u003e\u003ca id=\"user-content-meraxes\" class=\"anchor-element\" aria-label=\"Permalink: Meraxes\" href=\"#meraxes\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/pre-commit/pre-commit\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f9f3d4b9da2ae7190cc5ce42cbdb9d04ce63bec0fd0af14e0e115218fceac615/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7072652d2d636f6d6d69742d656e61626c65642d627269676874677265656e3f6c6f676f3d7072652d636f6d6d6974266c6f676f436f6c6f723d7768697465\" alt=\"pre-commit\" data-canonical-src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\u0026amp;logoColor=white\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe Meraxes semi-analytic galaxy formation model.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e[!TIP]\nSee \u003ccode\u003eBUILD.md\u003c/code\u003e for detailed build instructions.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eAttribution\u003c/h2\u003e\u003ca id=\"user-content-attribution\" class=\"anchor-element\" aria-label=\"Permalink: Attribution\" href=\"#attribution\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eIf you use this code or its results in any publications, please cite \u003ca href=\"http://adsabs.harvard.edu/abs/2016MNRAS.462..250M\" rel=\"nofollow\"\u003eMutch et al. 2016b\u003c/a\u003e (MNRAS, 462, 250):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@ARTICLE{2016MNRAS.462..250M,\n   author = {{Mutch}, S.~J. and {Geil}, P.~M. and {Poole}, G.~B. and {Angel}, P.~W. and \n\t{Duffy}, A.~R. and {Mesinger}, A. and {Wyithe}, J.~S.~B.},\n    title = \"{Dark-ages reionization and galaxy formation simulation - III. Modelling galaxy formation and the epoch of reionization}\",\n  journal = {\\mnras},\narchivePrefix = \"arXiv\",\n   eprint = {1512.00562},\n keywords = {galaxies: formation, galaxies: high redshift, dark ages, reionization, first stars},\n     year = 2016,\n    month = oct,\n   volume = 462,\n    pages = {250-276},\n      doi = {10.1093/mnras/stw1506},\n   adsurl = {http://adsabs.harvard.edu/abs/2016MNRAS.462..250M},\n  adsnote = {Provided by the SAO/NASA Astrophysics Data System}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you use any of the following features, please also cite the relevant papers:\u003c/p\u003e\n\u003cp\u003eAGN model\n: \u003ca href=\"https://ui.adsabs.harvard.edu/#abs/2017arXiv170304895Q/abstract\" rel=\"nofollow\"\u003eQin et al. 2017 (arXiv:1703.04895)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMinihalo model\n: \u003ca href=\"https://ui.adsabs.harvard.edu/abs/2024arXiv240107396V/abstract\" rel=\"nofollow\"\u003eVentura et al. Subm. (arXiv:2401.07396)\u003c/a\u003e\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eContributors\u003c/h2\u003e\u003ca id=\"user-content-contributors\" class=\"anchor-element\" aria-label=\"Permalink: Contributors\" href=\"#contributors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eSimon Mutch\u003c/strong\u003e (Lead author; \u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003ePaul Geil (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eYuxiang Qin (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eHansik Kim (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eGreg Poole (\u003cem\u003eAstronomy Data and Compute Services\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eYisheng Qiu (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eBrad Greig (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eEmanuele Maria Ventura (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eHow to contribute\u003c/h1\u003e\u003ca id=\"user-content-how-to-contribute\" class=\"anchor-element\" aria-label=\"Permalink: How to contribute\" href=\"#how-to-contribute\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003col\u003e\n\u003cli\u003eFork the \u003ca href=\"https://github.com/smutch/meraxes\"\u003eofficial repository\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eMake your changes in a new, appropriately named branch (e.g. \u003ccode\u003emutch_starformation\u003c/code\u003e or \u003ccode\u003efix_progenitor_order\u003c/code\u003e).\n\u003cul\u003e\n\u003cli\u003eAll git commit messages should loosely follow the \u003ca href=\"http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html\" rel=\"nofollow\"\u003estandard format outlined here\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eEnsure your new code is commented enough so that others can understand what it\u0027s doing.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eIssue a \u003ca href=\"https://help.github.com/en/articles/about-pull-requests\"\u003epull request\u003c/a\u003e to the official repository.\u003c/li\u003e\n\u003c/ol\u003e\n",
-    "stargazers_count": 3,
-    "subscribers_count": 7,
-    "topics": [
-      "galaxy-evolution",
-      "reionization"
-    ],
-    "updated_at": 1708474666.0
-  },
-  {
-    "data_format": 2,
     "description": "The CELL Adaptive mesh Refinement (CELLAR) application provides cell-based adaptive mesh refinement data structures and execution for parallel computing architectures.",
     "filenames": [
       "spack/ci/spack.yaml",
-      "spack/darwin-power9/spack.yaml",
-      "spack/snow/spack.yaml"
+      "spack/snow/spack.yaml",
+      "spack/darwin-power9/spack.yaml"
     ],
     "full_name": "lanl/CELLAR",
     "latest_release": null,
@@ -1190,8 +1173,8 @@ var data =
     "data_format": 2,
     "description": "Scripts to help building Exawind codes on various systems",
     "filenames": [
-      "etc/spack/nrel-eagle/spack.yaml",
-      "etc/spack/spack/spack.yaml"
+      "etc/spack/spack/spack.yaml",
+      "etc/spack/nrel-eagle/spack.yaml"
     ],
     "full_name": "Exawind/exawind-builder",
     "latest_release": "v0.1.0",
@@ -1279,11 +1262,28 @@ var data =
   },
   {
     "data_format": 2,
+    "description": "The Meraxes semi-analytic galaxy formation model.",
+    "filenames": [
+      "spack-env/spack.yaml"
+    ],
+    "full_name": "smutch/meraxes",
+    "latest_release": null,
+    "readme": "\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eMeraxes\u003c/h1\u003e\u003ca id=\"user-content-meraxes\" class=\"anchor-element\" aria-label=\"Permalink: Meraxes\" href=\"#meraxes\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/pre-commit/pre-commit\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/f9f3d4b9da2ae7190cc5ce42cbdb9d04ce63bec0fd0af14e0e115218fceac615/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7072652d2d636f6d6d69742d656e61626c65642d627269676874677265656e3f6c6f676f3d7072652d636f6d6d6974266c6f676f436f6c6f723d7768697465\" alt=\"pre-commit\" data-canonical-src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\u0026amp;logoColor=white\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe Meraxes semi-analytic galaxy formation model.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e[!TIP]\nSee \u003ccode\u003eBUILD.md\u003c/code\u003e for detailed build instructions.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eAttribution\u003c/h2\u003e\u003ca id=\"user-content-attribution\" class=\"anchor-element\" aria-label=\"Permalink: Attribution\" href=\"#attribution\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eIf you use this code or its results in any publications, please cite \u003ca href=\"http://adsabs.harvard.edu/abs/2016MNRAS.462..250M\" rel=\"nofollow\"\u003eMutch et al. 2016b\u003c/a\u003e (MNRAS, 462, 250):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@ARTICLE{2016MNRAS.462..250M,\n   author = {{Mutch}, S.~J. and {Geil}, P.~M. and {Poole}, G.~B. and {Angel}, P.~W. and \n\t{Duffy}, A.~R. and {Mesinger}, A. and {Wyithe}, J.~S.~B.},\n    title = \"{Dark-ages reionization and galaxy formation simulation - III. Modelling galaxy formation and the epoch of reionization}\",\n  journal = {\\mnras},\narchivePrefix = \"arXiv\",\n   eprint = {1512.00562},\n keywords = {galaxies: formation, galaxies: high redshift, dark ages, reionization, first stars},\n     year = 2016,\n    month = oct,\n   volume = 462,\n    pages = {250-276},\n      doi = {10.1093/mnras/stw1506},\n   adsurl = {http://adsabs.harvard.edu/abs/2016MNRAS.462..250M},\n  adsnote = {Provided by the SAO/NASA Astrophysics Data System}\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIf you use any of the following features, please also cite the relevant papers:\u003c/p\u003e\n\u003cp\u003eAGN model\n: \u003ca href=\"https://ui.adsabs.harvard.edu/#abs/2017arXiv170304895Q/abstract\" rel=\"nofollow\"\u003eQin et al. 2017 (arXiv:1703.04895)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMinihalo model\n: \u003ca href=\"https://ui.adsabs.harvard.edu/abs/2024arXiv240107396V/abstract\" rel=\"nofollow\"\u003eVentura et al. Subm. (arXiv:2401.07396)\u003c/a\u003e\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eContributors\u003c/h2\u003e\u003ca id=\"user-content-contributors\" class=\"anchor-element\" aria-label=\"Permalink: Contributors\" href=\"#contributors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eSimon Mutch\u003c/strong\u003e (Lead author; \u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003ePaul Geil (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eYuxiang Qin (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eHansik Kim (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eGreg Poole (\u003cem\u003eAstronomy Data and Compute Services\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eYisheng Qiu (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eBrad Greig (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003cli\u003eEmanuele Maria Ventura (\u003cem\u003eThe University of Melbourne\u003c/em\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eHow to contribute\u003c/h1\u003e\u003ca id=\"user-content-how-to-contribute\" class=\"anchor-element\" aria-label=\"Permalink: How to contribute\" href=\"#how-to-contribute\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003col\u003e\n\u003cli\u003eFork the \u003ca href=\"https://github.com/smutch/meraxes\"\u003eofficial repository\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eMake your changes in a new, appropriately named branch (e.g. \u003ccode\u003emutch_starformation\u003c/code\u003e or \u003ccode\u003efix_progenitor_order\u003c/code\u003e).\n\u003cul\u003e\n\u003cli\u003eAll git commit messages should loosely follow the \u003ca href=\"http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html\" rel=\"nofollow\"\u003estandard format outlined here\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003eEnsure your new code is commented enough so that others can understand what it\u0027s doing.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eIssue a \u003ca href=\"https://help.github.com/en/articles/about-pull-requests\"\u003epull request\u003c/a\u003e to the official repository.\u003c/li\u003e\n\u003c/ol\u003e\n",
+    "stargazers_count": 4,
+    "subscribers_count": 7,
+    "topics": [
+      "galaxy-evolution",
+      "reionization"
+    ],
+    "updated_at": 1709518258.0
+  },
+  {
+    "data_format": 2,
     "description": "Registry to store workflow descriptions",
     "filenames": [
-      "kaust/exageostat/spack.yaml",
-      "ipgp/backtrackBB/spack.yaml",
       "Pillar_II/esm/spack.yaml",
+      "ipgp/backtrackBB/spack.yaml",
+      "kaust/exageostat/spack.yaml",
       "minimal_workflow/wordcount/spack.yaml"
     ],
     "full_name": "eflows4hpc/workflow-registry",
@@ -1298,12 +1298,12 @@ var data =
     "data_format": 2,
     "description": "This repository provides a set of configuration files and example scripts for running Mochi experiments on various platforms.",
     "filenames": [
-      "ORNL/Crusher/spack.yaml",
-      "ANL/JLSE/spack.yaml",
-      "ORNL/Frontier/spack.yaml",
-      "ANL/Aurora/spack.yaml",
       "ORNL/Summit/spack.yaml",
-      "ANL/Cooley/spack.yaml"
+      "ORNL/Frontier/spack.yaml",
+      "ANL/Cooley/spack.yaml",
+      "ANL/JLSE/spack.yaml",
+      "ORNL/Crusher/spack.yaml",
+      "ANL/Aurora/spack.yaml"
     ],
     "full_name": "mochi-hpc-experiments/platform-configurations",
     "latest_release": null,
@@ -1317,8 +1317,8 @@ var data =
     "data_format": 2,
     "description": "Initial Cabana/Cajita Low/High-order Z-model Interface Solver. Benchmark for evaluating the performance of algorithms requiring global communication. Beatnik is also a precursor to potential later a High Performance Parallel Interface solver.",
     "filenames": [
-      "configs/llnl/lassen/spack.yaml",
-      "configs/llnl/tioga/spack.yaml"
+      "configs/llnl/tioga/spack.yaml",
+      "configs/llnl/lassen/spack.yaml"
     ],
     "full_name": "CUP-ECS/beatnik",
     "latest_release": "v1.0.0",
@@ -1332,12 +1332,12 @@ var data =
     "data_format": 2,
     "description": "Spack environments for OLCF resources.",
     "filenames": [
+      "hosts/peak/envs/base/spack.yaml",
+      "hosts/ascent/envs/base/spack.yaml",
+      "hosts/borg/envs/base/spack.yaml",
       "hosts/summit/envs/base/spack.yaml",
       "hosts/ascent/envs/base-rh7/spack.yaml",
-      "hosts/frontier/envs/base/spack.yaml",
-      "hosts/ascent/envs/base/spack.yaml",
-      "hosts/peak/envs/base/spack.yaml",
-      "hosts/borg/envs/base/spack.yaml"
+      "hosts/frontier/envs/base/spack.yaml"
     ],
     "full_name": "mpbelhorn/olcf-spack-environments",
     "latest_release": null,
@@ -1399,11 +1399,11 @@ var data =
     "data_format": 2,
     "description": "Spack Environments Templates for OLCF resources",
     "filenames": [
-      "linux-centos7-broadwell/or-slurm/spack.yaml",
-      "linux-sles15-zen2/spock/spack.yaml",
-      "cray-sles15-zen3/frontier/spack.yaml",
       "cray-sles15-zen3/crusher/spack.yaml",
-      "linux-rhel8-ppc64le/summit/spack.yaml"
+      "linux-centos7-broadwell/or-slurm/spack.yaml",
+      "linux-rhel8-ppc64le/summit/spack.yaml",
+      "cray-sles15-zen3/frontier/spack.yaml",
+      "linux-sles15-zen2/spock/spack.yaml"
     ],
     "full_name": "olcf/spack-environments",
     "latest_release": null,
@@ -1417,9 +1417,9 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      ".gitlab/spack/environments/quartz/spack.yaml",
+      ".gitlab/spack/environments/pascal/spack.yaml",
       ".gitlab/spack/environments/corona/spack.yaml",
-      ".gitlab/spack/environments/pascal/spack.yaml"
+      ".gitlab/spack/environments/quartz/spack.yaml"
     ],
     "full_name": "LLNL/DiHydrogen",
     "latest_release": "v0.3.0",
@@ -1495,8 +1495,8 @@ var data =
     "data_format": 2,
     "description": "Nonlinear CG methods for wave-function optimization in DFT",
     "filenames": [
-      "spack-envs/q-e-sirius-cpu-only/spack.yaml",
-      "spack-envs/q-e-sirius-cuda/spack.yaml"
+      "spack-envs/q-e-sirius-cuda/spack.yaml",
+      "spack-envs/q-e-sirius-cpu-only/spack.yaml"
     ],
     "full_name": "simonpintarelli/nlcglib",
     "latest_release": "v0.9.1",
@@ -1537,25 +1537,25 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/prod/nvhpc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/prod/cuda/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
-      "spack-configs/cori-e4s-20.10/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
+      "spack-configs/cori-e4s-22.02/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
       "spack-configs/perlmutter-e4s-22.11/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/math-libs/spack.yaml",
+      "spack-configs/cori-e4s-20.10/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/prod/nvhpc/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.05/prod/cce/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/data/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
+      "spack-configs/perlmutter-e4s-22.11/gcc/spack.yaml",
       "spack-configs/cori-e4s-20.10/prod/spack.yaml",
       "spack-configs/perlmutter-spack-develop/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/gcc/spack.yaml",
-      "spack-configs/cori-e4s-21.02/prod/spack.yaml",
-      "spack-configs/cori-e4s-22.02/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/prod/tools/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.05/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.11/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-22.05/prod/gcc/spack.yaml",
-      "spack-configs/perlmutter-e4s-23.08/prod/gcc/spack.yaml"
+      "spack-configs/perlmutter-e4s-22.11/prod/cuda/spack.yaml",
+      "spack-configs/perlmutter-e4s-23.05/prod/data/spack.yaml",
+      "spack-configs/cori-e4s-21.02/prod/spack.yaml"
     ],
     "full_name": "NERSC/spack-infrastructure",
     "latest_release": null,
@@ -1569,10 +1569,10 @@ var data =
     "data_format": 2,
     "description": "A Spack recipe repository of Key4hep software.",
     "filenames": [
-      "environments/key4hep-nightly-debug/spack.yaml",
-      "environments/geant4-data-share/spack.yaml",
       "environments/key4hep-ci/spack.yaml",
-      "environments/key4hep-nightly/spack.yaml"
+      "environments/key4hep-nightly/spack.yaml",
+      "environments/key4hep-nightly-debug/spack.yaml",
+      "environments/geant4-data-share/spack.yaml"
     ],
     "full_name": "key4hep/key4hep-spack",
     "latest_release": "2021-10-29",
@@ -1643,9 +1643,9 @@ var data =
     "data_format": 2,
     "description": "Performance benchmarks and regression tests for the ExCALIBUR project",
     "filenames": [
-      "benchmarks/spack/isambard-macs/rome/spack.yaml",
       "benchmarks/spack/isambard-macs/cascadelake/spack.yaml",
       "benchmarks/spack/csd3-rocky8/sapphirerapids/spack.yaml",
+      "benchmarks/spack/isambard-macs/rome/spack.yaml",
       "benchmarks/spack/cosma7/rockport-openmpi-compute-node/spack.yaml",
       "benchmarks/spack/csd3-rocky8/icelake/spack.yaml",
       "benchmarks/spack/isambard-a64fx/compute-node/spack.yaml",
@@ -1664,9 +1664,9 @@ var data =
     "data_format": 2,
     "description": "AsterX is a GPU-accelerated GRMHD code for dynamical spacetimes",
     "filenames": [
+      "Docs/compile-notes/frontera-github/GPU/spack.yaml",
       "Docs/compile-notes/frontera-github/CPU/spack.yaml",
-      "Docs/compile-notes/frontera-bitbucket/CPU/spack.yaml",
-      "Docs/compile-notes/frontera-github/GPU/spack.yaml"
+      "Docs/compile-notes/frontera-bitbucket/CPU/spack.yaml"
     ],
     "full_name": "jaykalinani/AsterX",
     "latest_release": null,
@@ -1680,11 +1680,11 @@ var data =
     "data_format": 2,
     "description": null,
     "filenames": [
-      "configs/templates/ufs-srw-public-v2/spack.yaml",
-      "configs/templates/gsi-addon-dev/spack.yaml",
-      "configs/templates/ufs-weather-model-static/spack.yaml",
       "configs/templates/skylab-dev/spack.yaml",
-      "configs/templates/ufs-weather-model/spack.yaml"
+      "configs/templates/ufs-weather-model-static/spack.yaml",
+      "configs/templates/gsi-addon-dev/spack.yaml",
+      "configs/templates/ufs-weather-model/spack.yaml",
+      "configs/templates/ufs-srw-public-v2/spack.yaml"
     ],
     "full_name": "JCSDA/spack-stack",
     "latest_release": "1.6.0",
@@ -1698,25 +1698,25 @@ var data =
     "data_format": 2,
     "description": "E4S Spack environments and container recipes",
     "filenames": [
-      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/minimal/ubuntu20.04-ppc64le/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
-      "docker-recipes/archived/special/superlu-sc/spack.yaml",
-      "docker-recipes/archived/minimal/ubuntu22.04-aarch64/spack.yaml",
       "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2023.2.1/spack.yaml",
-      "docker-recipes/runner/ubuntu20.04-amd64-gcc-11.4/spack.yaml",
-      "docker-recipes/archived/minimal/rhel8-aarch64/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.0/spack.yaml",
-      "docker-recipes/runner/alinux2023-arm64-gcc-11.4/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu20.04-amd64-oneapi-2023.2.1/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/minimal/rhel8-aarch64/spack.yaml",
+      "docker-recipes/runner/alinux2023-arm64-gcc-11.4/spack.yaml",
       "docker-recipes/runner/_archived/rhel8-ppc64le/spack.yaml",
+      "docker-recipes/archived/special/superlu-sc/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.2/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu20.04-x86_64-gcc-11.4-spack/spack.yaml",
-      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.1/spack.yaml",
-      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.0/spack.yaml",
+      "docker-recipes/archived/minimal/ubuntu22.04-ppc64le/spack.yaml",
       "docker-recipes/runner/_archived/ubuntu22.04-x86_64/spack.yaml",
-      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml"
+      "docker-recipes/runner/ubuntu20.04-amd64-clang-16/spack.yaml",
+      "docker-recipes/archived/rhel7-runner-x86_64/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu18.04-ppc64le/spack.yaml",
+      "docker-recipes/runner/ubuntu20.04-amd64-gcc-11.4/spack.yaml",
+      "docker-recipes/runner/ubuntu22.04-amd64-oneapi-2024.0.1/spack.yaml",
+      "docker-recipes/runner/_archived/ubuntu22.04-ppc64le/spack.yaml",
+      "docker-recipes/archived/minimal/ubuntu22.04-aarch64/spack.yaml"
     ],
     "full_name": "UO-OACISS/e4s",
     "latest_release": null,
@@ -1730,24 +1730,24 @@ var data =
     "data_format": 2,
     "description": "E4S for Spack",
     "filenames": [
-      "environments/23.05/cuda-x86_64/spack.yaml",
-      "environments/23.02/cuda-ppc64le/spack.yaml",
+      "environments/22.08/oneapi.spack.yaml",
+      "environments/24.02/amd64-gcc-cpu-ubuntu20.04/spack.yaml",
+      "environments/22.05/rocm.spack.yaml",
       "environments/22.08/cuda-x86_64.spack.yaml",
-      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/23.11/cuda-ppc64le/spack.yaml",
+      "environments/23.02/cuda-ppc64le/spack.yaml",
+      "environments/24.02/arm64-gcc-cuda-ubuntu20.04/spack.yaml",
+      "environments/23.02/cuda-x86_64/spack.yaml",
+      "environments/22.05/cuda-x86_64.spack.yaml",
       "environments/23.08/cuda-aarch64/spack.yaml",
+      "environments/23.08/cuda-x86_64/spack.yaml",
       "environments/21.08/spack.yaml",
       "environments/23.11/cuda-x86_64/spack.yaml",
-      "environments/24.02/amd64-gcc-cpu-ubuntu20.04/spack.yaml",
-      "environments/22.08/cuda-ppc64le.spack.yaml",
-      "environments/22.05/cuda-x86_64.spack.yaml",
-      "environments/23.11/cuda-ppc64le/spack.yaml",
-      "environments/21.05/spack.yaml",
-      "environments/22.05/rocm.spack.yaml",
+      "environments/23.05/cuda-x86_64/spack.yaml",
       "environments/23.05/rocm-x86_64/spack.yaml",
-      "environments/24.02/arm64-gcc-cuda-ubuntu20.04/spack.yaml",
-      "environments/22.08/oneapi.spack.yaml",
-      "environments/23.08/cuda-x86_64/spack.yaml",
-      "environments/23.02/cuda-x86_64/spack.yaml"
+      "environments/23.08/oneapi-x86_64/spack.yaml",
+      "environments/22.08/cuda-ppc64le.spack.yaml",
+      "environments/21.05/spack.yaml"
     ],
     "full_name": "E4S-Project/e4s",
     "latest_release": "v24.02",
@@ -1860,12 +1860,12 @@ var data =
     "data_format": 2,
     "description": "An open collaborative repository for reproducible specifications of HPC benchmarks and cross site benchmarking environments",
     "filenames": [
-      "configs/CSCS-Eiger-HPECray-zen2-Slingshot/spack.yaml",
-      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml",
-      "configs/CSCS-Daint-HPECray-haswell-P100-Infiniband/spack.yaml",
       "configs/nosite-AWS_PCluster_Hpc7a-zen4-EFA/spack.yaml",
-      "configs/LLNL-Tioga-HPECray-zen3-MI250X-Slingshot/spack.yaml",
-      "configs/LLNL-Pascal-Penguin-broadwell-P100-OmniPath/spack.yaml"
+      "configs/LLNL-Magma-Penguin-icelake-OmniPath/spack.yaml",
+      "configs/LLNL-Pascal-Penguin-broadwell-P100-OmniPath/spack.yaml",
+      "configs/CSCS-Daint-HPECray-haswell-P100-Infiniband/spack.yaml",
+      "configs/CSCS-Eiger-HPECray-zen2-Slingshot/spack.yaml",
+      "configs/LLNL-Tioga-HPECray-zen3-MI250X-Slingshot/spack.yaml"
     ],
     "full_name": "LLNL/benchpark",
     "latest_release": null,
@@ -1970,18 +1970,18 @@ var data =
     "data_format": 2,
     "description": "High-performance power grid optimization for stochastic, security-constrained, and multi-period ACOPF problems.",
     "filenames": [
-      "buildsystem/spack/summit/spack.yaml",
-      "buildsystem/container/spack.yaml",
       "buildsystem/spack/crusher/spack.yaml",
-      "buildsystem/spack/ascent/spack.yaml"
+      "buildsystem/spack/ascent/spack.yaml",
+      "buildsystem/spack/summit/spack.yaml",
+      "buildsystem/container/spack.yaml"
     ],
     "full_name": "pnnl/ExaGO",
     "latest_release": "v1.6.0",
     "readme": "\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003e\n\u003cb\u003eExa\u003c/b\u003escale \u003cb\u003eG\u003c/b\u003erid \u003cb\u003eO\u003c/b\u003eptimization toolkit (ExaGO\u003csup\u003eTM\u003c/sup\u003e) \u003ca href=\"https://github.com/pre-commit/pre-commit\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/a8cba9888a55d8a038324b73da057a30a40f34b0eae64c2f93196d5d837df1bd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7072652d2d636f6d6d69742d656e61626c65642d627269676874677265656e3f6c6f676f3d7072652d636f6d6d6974\" alt=\"pre-commit\" data-canonical-src=\"https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pnnl_mirror.yaml/badge.svg\" alt=\"PNNL GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/ornl_ascent_mirror.yaml/badge.svg\" alt=\"ORNL Ascent GitLab Push Mirror\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/pre_commit.yaml/badge.svg?event=pull_request\" alt=\"pre-commit GitHub Action\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e \u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\"\u003e\u003cimg src=\"https://github.com/pnnl/ExaGO/actions/workflows/spack_cpu_build.yaml/badge.svg?event=pull_request\" alt=\"Spack CPU Build\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\n\u003c/h1\u003e\u003ca id=\"user-content-exascale-grid-optimization-toolkit-exagotm-----\" class=\"anchor-element\" aria-label=\"Permalink: Exascale Grid Optimization toolkit (ExaGO) \" href=\"#exascale-grid-optimization-toolkit-exagotm-----\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"viz/images/network_gen_load_us.png\"\u003e\u003cimg src=\"viz/images/network_gen_load_us.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ca target=\"_blank\" rel=\"noopener noreferrer\" href=\"docs/manual/figures/three_in_one.png\"\u003e\u003cimg src=\"docs/manual/figures/three_in_one.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a package for solving large-scale  power grid optimization problems on parallel and distributed architectures, particularly targeted for exascale machines with heteregenous architectures (GPU). Combinations of stochastic, contingency-constrained, multiperiod ACOPF problems can be solved with ExaGO. The package is written in C/C++ with python bindings available for python-based applications. An overview of the package is given on this page. For extended information, including the modeling details and formulations, see the \u003ca href=\"docs/manual/manual.pdf\"\u003eExaGO manual\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e includes the following applications for solving different power grid optimization problems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e solves an AC optimal power flow either on CPU and GPU\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e solves a multi-period optimal power flow\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e solves a security-constrained (contingency-constrained) optimal power. Both single-period and multi-period problems can be solved.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e solves a stochastic optimal power flow with (optional) security constraints for single and multiple periods.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e applications are interfaced with the following optimization solver packaages:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/coin-or/Ipopt\"\u003eIpopt\u003c/a\u003e is a popular optimization package for solving nonlinear optimization problems that uses an interior-point algorithm.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/LLNL/hiop\"\u003eHiOp\u003c/a\u003e is a HPC package for optimization. ExaGO interfaces with two of its solvers -- a mixed sparse-dense interior-point solver (NewtonMDS) and a sparse interior-point solver (HiOPSparse). NewtonMDS  allows execution of the optimization either on CPU and GPU. The sparse HiOp solver is currently supported on CPU only.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eNote that not all applications can utilize all solvers yet. The following table lists the solver-application compatibility.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"center\"\u003eSolver\u003c/th\u003e\n\u003cth align=\"center\"\u003eOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eTCOPFLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSCOPLOW\u003c/th\u003e\n\u003cth align=\"center\"\u003eSOPFLOW\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eIpopt\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"center\"\u003eHiOp\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003e\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003ctd align=\"center\"\u003eY\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eAdditionally, note that SCOPFLOW and SOPFLOW with HiOp solver use Ipopt to solve a portion of the problem (base problem). So one must also configure with Ipopt when using HiOp solver for these applications.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eInstalling\u003c/h2\u003e\u003ca id=\"user-content-installing\" class=\"anchor-element\" aria-label=\"Permalink: Installing\" href=\"#installing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eDetails installation instructions are given at \u003ca href=\"./INSTALL.md\"\u003eINSTALL.md\u003c/a\u003e for information on acquiring, building and installing ExaGO.\u003c/p\u003e\n\u003cp\u003eIf you are a developer with access to the project, we also provide public binaries that are generated through our GitHub actions workflows documented in \u003ca href=\".github/workflows/README.md\"\u003eREADME.md\u003c/a\u003e, and with documentation about usage in the packages section of our repository. Check out a short (\u0026lt; 60s demo) of pulling down a version of ExaGO:\u003c/p\u003e\n\u003cp\u003e\u003ca href=\"https://asciinema.org/a/KCi5TmUXc6zWDj7JYHzfSFxmw\" rel=\"nofollow\"\u003e\u003cimg src=\"https://camo.githubusercontent.com/036a31e6b78284e2773e8c365f25415ca9f4d6c5bf012a91311694943e2c6cda/68747470733a2f2f61736369696e656d612e6f72672f612f4b436935546d555863367a57446a374a59487a665346786d772e706e67\" alt=\"asciicast\" data-canonical-src=\"https://asciinema.org/a/KCi5TmUXc6zWDj7JYHzfSFxmw.png\" style=\"max-width: 100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eDeveloper Guide\u003c/h2\u003e\u003ca id=\"user-content-developer-guide\" class=\"anchor-element\" aria-label=\"Permalink: Developer Guide\" href=\"#developer-guide\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eYou can view the following helpful documentation sources:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/test_add.md\"\u003etest_add.md\u003c/a\u003e markdown file for information on adding tets (outdated)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"buildsystem/README.md\"\u003eREADME.md\u003c/a\u003e for our bash / spack buildsystem used in GitHub/GitLab CI/CD\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"buildsystem/spack/README.md\"\u003eREADME.md\u003c/a\u003e for our spack specific build scripts that support CI tcl modules on HPC target platforms\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/devcontainer/README.md\"\u003eREADME.md\u003c/a\u003e for our devcontianer configuration information (codespace support coming soon)\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/exago_policy_compatibility.md\"\u003eexago_policy_compatiblility\u003c/a\u003e for xSDK compatibility guidelines, and ways to enforce compliance\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/python_bindings.md\"\u003epython_bindings.md\u003c/a\u003e for documentation about or Python bindings\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"performance_analysis/README.md\"\u003eREADME.md\u003c/a\u003e for information about profiling ExaGO with spack\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\".github/workflows/README.md\"\u003eREADME.md\u003c/a\u003e for details about our GitHub actions\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/README.ci_clusters.md\"\u003eREADME.ci_clusters.md\u003c/a\u003e for CI cluster workflow documentation\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/web/README.summit.md\"\u003eREADME.summit.md\u003c/a\u003e for ORNL\u0027s Summit specific configuration\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eVizualisation\u003c/h2\u003e\u003ca id=\"user-content-vizualisation\" class=\"anchor-element\" aria-label=\"Permalink: Vizualisation\" href=\"#vizualisation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eOur ChatGrid frontend deployed with React, PSQL and LangChain has documentation in \u003ca href=\"viz/README.md\"\u003eREADME.md\u003c/a\u003e as well as a pdf \u003ca href=\"viz/README.pdf\"\u003eREADME.pdf\u003c/a\u003e in the \u003ccode\u003eviz\u003c/code\u003e subdirectory. Several of our tutorials install this through commands in Jupyter Notebooks as well.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eUsage\u003c/h2\u003e\u003ca id=\"user-content-usage\" class=\"anchor-element\" aria-label=\"Permalink: Usage\" href=\"#usage\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eInstructions for executing the different ExaGO\u003csup\u003eTM\u003c/sup\u003e applications is given below.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"docs/web/opflow.md\"\u003eOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/tcopflow.md\"\u003eTCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/sopflow.md\"\u003eSOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/scopflow.md\"\u003eSCOPFLOW\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"docs/web/pflow.md\"\u003ePFLOW\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe also provide our user manual as a pdf \u003ca href=\"docs/manual/manual.pdf\"\u003emanual.pdf\u003c/a\u003e -\u0026gt; need to update this regularly with CI / move to quarto docs.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eTutorials\u003c/h2\u003e\u003ca id=\"user-content-tutorials\" class=\"anchor-element\" aria-label=\"Permalink: Tutorials\" href=\"#tutorials\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003eIf you are using a devcontainer with VSCode, the following tutorials are provided:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"docs/devcontainer/tutorial.ipynb\"\u003etutorial.ipynb\u003c/a\u003e for basic configuration infromation and I/O\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/devcontainer/mpi4py-tutorial.ipynb\"\u003empi4py-tutorial.ipynb\u003c/a\u003e for mpi4py pointers and best practices\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"docs/devcontainer/viz-tutorial.ipynb\"\u003eviz-tutorial.ipynb\u003c/a\u003e for spinning up our frontend visualization with ChatGrid integration\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eOtherwise, you can check out our more in depth application tutorials in the \u003ccode\u003etutorials\u003c/code\u003esubdirectory:\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"tutorials/demo1.ipynb\"\u003edemo1.ipynb\u003c/a\u003e run OPFLOW, SCOPFLOW and visualize your output\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"tutorials/demo2.ipynb\"\u003edemo2.ipynb\u003c/a\u003e run SOPFLOW on many ranks using MPI, and visualize outpu\n\u003cul\u003e\n\u003cli\u003eTODO - add fixes from \u003ccode\u003empi4py\u003c/code\u003e devcontainer example into this notebook to show working MPI workflow\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch3 class=\"heading-element\"\u003eOptions\u003c/h3\u003e\u003ca id=\"user-content-options\" class=\"anchor-element\" aria-label=\"Permalink: Options\" href=\"#options\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eEach application has a different set of options that are described in depth in the usage notes. These options can be passed optionally through an options file (\u003ccode\u003e-optionsfile \u0026lt;option_file\u0026gt;\u003c/code\u003e), or directly on the command line.\u003c/p\u003e\n\u003cp\u003eSince options may be specified in more than one location (on the command line, and through an options file), it is worth noting that the option specified on the command line supersede those in the options file. For example, if \u003ccode\u003eopflowoptions\u003c/code\u003e options file set the network file via the option \u003ccode\u003e-netfile case9mod.m\u003c/code\u003e, the following behavior occurs:\u003c/p\u003e\n\u003cdiv class=\"highlight highlight-source-shell\"\u003e\u003cpre\u003e\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case9mod.m\u003c/span\u003e\n./opflow -optionsfile opflowoptions\n\n\u003cspan class=\"pl-c\"\u003e\u003cspan class=\"pl-c\"\u003e#\u003c/span\u003e This uses case118.m\u003c/span\u003e\n./opflow -netfile case118.m -options_file opflowoptions\u003c/pre\u003e\u003c/div\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eVisualization (experimental)\u003c/h2\u003e\u003ca id=\"user-content-visualization-experimental\" class=\"anchor-element\" aria-label=\"Permalink: Visualization (experimental)\" href=\"#visualization-experimental\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eExaGO has an experimental visualization to display the results of \u003ccode\u003eOPFLOW\u003c/code\u003e application on a map. See the \u003ca href=\"viz/README.md\"\u003evisualization README\u003c/a\u003e for more information.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eContributing\u003c/h2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor-element\" aria-label=\"Permalink: Contributing\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003ePlease see \u003ca href=\"docs/developer_guidelines.md\"\u003ethe developer guidelines\u003c/a\u003e before attempting to contribute.\nFeel free to raise an issue or contact the team if the guidelines are ambiguous or you have a particular question.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eAuthors\u003c/h2\u003e\u003ca id=\"user-content-authors\" class=\"anchor-element\" aria-label=\"Permalink: Authors\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cul\u003e\n\u003cli\u003eShrirang Abhyankar\u003c/li\u003e\n\u003cli\u003eSlaven Peles\u003c/li\u003e\n\u003cli\u003eAsher Mancinelli\u003c/li\u003e\n\u003cli\u003eCameron Rutherford\u003c/li\u003e\n\u003cli\u003eBruce Palmer\u003c/li\u003e\n\u003cli\u003eJaelyn Litzinger\u003c/li\u003e\n\u003cli\u003eWilliam Perkins\u003c/li\u003e\n\u003cli\u003eSayef Azad Sakin\u003c/li\u003e\n\u003cli\u003eJoseph Macam\u003c/li\u003e\n\u003cli\u003eRyan Danehy\u003c/li\u003e\n\u003cli\u003eNicholson Koukpaizan\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eAcknowledgement\u003c/h2\u003e\u003ca id=\"user-content-acknowledgement\" class=\"anchor-element\" aria-label=\"Permalink: Acknowledgement\" href=\"#acknowledgement\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eThis package is developed as a part of \u003ca href=\"https://www.exascaleproject.org/research-project/exasgd/\" rel=\"nofollow\"\u003eExaSGD\u003c/a\u003e project under the \u003ca href=\"https://www.exascaleproject.org/\" rel=\"nofollow\"\u003eExascale computing project\u003c/a\u003e.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eCopyright\u003c/h2\u003e\u003ca id=\"user-content-copyright\" class=\"anchor-element\" aria-label=\"Permalink: Copyright\" href=\"#copyright\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eCopyright \u00a9 2020, Battelle Memorial Institute.\u003c/p\u003e\n\u003cp\u003eExaGO\u003csup\u003eTM\u003c/sup\u003e is a free software distributed under a BSD 2-clause license. You may reuse, modify, and redistribute the software. See the \u003ca href=\"LICENSE\"\u003elicense\u003c/a\u003e file for details.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eDisclaimer\u003c/h2\u003e\u003ca id=\"user-content-disclaimer\" class=\"anchor-element\" aria-label=\"Permalink: Disclaimer\" href=\"#disclaimer\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eThis material was prepared as an account of work sponsored by an agency of the United States Government.  Neither the United States Government nor the United States Department of Energy, nor Battelle, nor any of their employees, nor any jurisdiction or organization that has cooperated in the development of these materials, makes any warranty, express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness or any information, apparatus, product, software, or process disclosed, or represents that its use would not infringe privately owned rights.\nReference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States Government or any agency thereof, or Battelle Memorial Institute. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States Government or any agency thereof.\u003c/p\u003e\n",
-    "stargazers_count": 33,
+    "stargazers_count": 34,
     "subscribers_count": 10,
     "topics": [],
-    "updated_at": 1709275985.0
+    "updated_at": 1709496094.0
   },
   {
     "data_format": 2,
@@ -2072,44 +2072,44 @@ var data =
     "data_format": 2,
     "description": "Share Spack configuration files with other HPC sites",
     "filenames": [
-      "NERSC/cori/e4s-21.02/prod/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
-      "OLCF/andes/spack.yaml",
-      "NREL/configs/rhodes/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
-      "BOISESTATE/borah/environments/base/_spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
-      "OLCF/summit/spack.yaml",
-      "NREL/configs/rhodes/utilities/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
-      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
-      "NREL/configs/eagle/base/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
-      "NREL/configs/eagle/utilities/spack.yaml",
-      "NREL/configs/eagle/compilers/spack.yaml",
-      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
-      "OLCF/frontier/spack.yaml",
-      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
-      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
-      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
       "NERSC/perlmutter/e4s-22.05/cuda/spack.yaml",
-      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
-      "NREL/configs/eagle/software/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
-      "BOISESTATE/borah/environments/compilers/_spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/nvhpc/spack.yaml",
+      "NREL/configs/eagle/compilers/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.02/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/spack.yaml",
       "BOISESTATE/borah/environments/b4s/_spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/data/spack.yaml",
+      "NREL/configs/rhodes/utilities/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.08/spack.yaml",
+      "OLCF/andes/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/cuda/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.05/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/gcc/spack.yaml",
+      "OLCF/frontier/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/cce/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml",
+      "UOREGON/E4S-21.05-Facility-Examples/Frank-Jupiter/spack.yaml",
       "NERSC/perlmutter/e4s-23.08/prod/gcc/spack.yaml",
-      "NERSC/perlmutter/e4s-23.05/prod/nvhpc/spack.yaml"
+      "BOISESTATE/borah/applications/gromacs/_spack.yaml",
+      "NERSC/perlmutter/e4s-23.08/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/nvhpc/spack.yaml",
+      "NREL/configs/eagle/utilities/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cuda/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-21.11/prod/spack.yaml",
+      "ANL/JLSE/Arcticus/E4S-22.05/spack.yaml",
+      "NREL/configs/eagle/software/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/prod/tools/spack.yaml",
+      "BOISESTATE/borah/environments/base/_spack.yaml",
+      "NREL/configs/eagle/base/spack.yaml",
+      "BOISESTATE/borah/environments/compilers/_spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-22.05/prod/gcc/spack.yaml",
+      "NERSC/perlmutter/e4s-23.05/cce/spack.yaml",
+      "OLCF/summit/spack.yaml",
+      "NERSC/perlmutter/e4s-22.11/gcc/spack.yaml",
+      "NERSC/cori/e4s-21.02/prod/spack.yaml",
+      "NREL/configs/rhodes/compilers/spack.yaml"
     ],
     "full_name": "spack/spack-configs",
     "latest_release": null,
@@ -2156,8 +2156,8 @@ var data =
     "data_format": 2,
     "description": "UnifyFS: A file system for burst buffers",
     "filenames": [
-      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml",
-      ".spack-env/unifyfs-slurm-gcc12_1_1/spack.yaml"
+      ".spack-env/unifyfs-slurm-gcc12_1_1/spack.yaml",
+      ".spack-env/unifyfs-lsf-gcc4_9_3/spack.yaml"
     ],
     "full_name": "LLNL/UnifyFS",
     "latest_release": "v2.0",
@@ -2202,11 +2202,11 @@ var data =
     "data_format": 2,
     "description": "CS infrastructure components for HPC applications",
     "filenames": [
-      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml",
-      "scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20_cuda/spack.yaml",
-      "scripts/spack/configs/toss_4_x86_64_ib/spack.yaml"
+      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/darwin/spack.yaml"
     ],
     "full_name": "LLNL/axom",
     "latest_release": "v0.8.1",
@@ -2243,11 +2243,11 @@ var data =
     "data_format": 2,
     "description": "Serac is a high order nonlinear thermomechanical simulation code",
     "filenames": [
-      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
-      "scripts/spack/configs/darwin/spack.yaml",
-      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/configs/linux_ubuntu_20/spack.yaml",
       "scripts/spack/configs/docker/ubuntu20/spack.yaml",
-      "scripts/spack/configs/linux_ubuntu_20/spack.yaml"
+      "scripts/spack/devtools_configs/blueos_3_ppc64le_ib_p9/spack.yaml",
+      "scripts/spack/devtools_configs/toss_4_x86_64_ib/spack.yaml",
+      "scripts/spack/configs/darwin/spack.yaml"
     ],
     "full_name": "LLNL/serac",
     "latest_release": null,
@@ -2290,8 +2290,8 @@ var data =
     "description": "HPC solver for nonlinear optimization problems",
     "filenames": [
       "scripts/platforms/marianas/spack.yaml",
-      "scripts/platforms/summit/spack.yaml",
-      "scripts/platforms/newell/spack.yaml"
+      "scripts/platforms/newell/spack.yaml",
+      "scripts/platforms/summit/spack.yaml"
     ],
     "full_name": "LLNL/hiop",
     "latest_release": "v1.0.3",
@@ -2405,15 +2405,15 @@ var data =
     "data_format": 2,
     "description": "Official development repository for SUNDIALS - a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers. Pull requests are welcome for bug fixes and minor changes.",
     "filenames": [
-      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml",
+      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml",
       "docker/sundials-ci/spack-nightly/int32-double/spack.yaml",
-      "docker/sundials-ci/spack-nightly/int64-double/spack.yaml"
+      "docker/sundials-ci/e4s-quarterly/int64-single/spack.yaml"
     ],
     "full_name": "LLNL/sundials",
     "latest_release": "v7.0.0",
     "readme": "\u003cdiv class=\"markdown-heading\"\u003e\u003ch1 class=\"heading-element\"\u003eSUNDIALS: SUite of Nonlinear and DIfferential/ALgebraic equation Solvers\u003c/h1\u003e\u003ca id=\"user-content-sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\" class=\"anchor-element\" aria-label=\"Permalink: SUNDIALS: SUite of Nonlinear and DIfferential/ALgebraic equation Solvers\" href=\"#sundials-suite-of-nonlinear-and-differentialalgebraic-equation-solvers\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch3 class=\"heading-element\"\u003eVersion 7.0.0 (Feb 2024)\u003c/h3\u003e\u003ca id=\"user-content-version-700-feb-2024\" class=\"anchor-element\" aria-label=\"Permalink: Version 7.0.0 (Feb 2024)\" href=\"#version-700-feb-2024\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003e\u003cstrong\u003eCenter for Applied Scientific Computing, Lawrence Livermore National Laboratory\u003c/strong\u003e\u003c/p\u003e\n\u003cp\u003eSUNDIALS is a family of software packages providing robust and efficient time\nintegrators and nonlinear solvers that can easily be incorporated into existing\nsimulation codes. The packages are designed to require minimal information from\nthe user, allow users to supply their own data structures underneath the\npackages, and enable interfacing with user-supplied or third-party algebraic\nsolvers and preconditioners.\u003c/p\u003e\n\u003cp\u003eThe SUNDIALS suite consists of the following packages for ordinary differential\nequation (ODE) systems, differential-algebraic equation (DAE) systems, and\nnonlinear algebraic systems:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eARKODE - for integrating stiff, nonstiff, and multirate ODEs of the form\n$$M(t) \\, y\u0027 = f_1(t,y) + f_2(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODE - for integrating stiff and nonstiff ODEs of the form\n$$y\u0027 = f(t,y), \\quad y(t_0) = y_0$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCVODES - for integrating and sensitivity analysis (forward and adjoint) of\nODEs of the form\n$$y\u0027 = f(t,y,p), \\quad y(t_0) = y_0(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDA - for integrating DAEs of the form\n$$F(t,y,y\u0027) = 0, \\quad y(t_0) = y_0, \\quad y\u0027(t_0) = y_0\u0027$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIDAS - for integrating and sensitivity analysis (forward and adjoint) of DAEs\nof the form\n$$F(t,y,y\u0027,p) = 0, \\quad y(t_0) = y_0(p), \\quad y\u0027(t_0) = y_0\u0027(p)$$\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eKINSOL - for solving nonlinear algebraic systems of the form\n$$F(u) = 0 \\quad \\text{or} \\quad G(u) = u$$\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eInstallation\u003c/h2\u003e\u003ca id=\"user-content-installation\" class=\"anchor-element\" aria-label=\"Permalink: Installation\" href=\"#installation\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eFor installation directions see the \u003ca href=\"https://sundials.readthedocs.io/en/latest/Install_link.html\" rel=\"nofollow\"\u003eonline install guide\u003c/a\u003e,\nthe installation chapter in any of the package user guides, or INSTALL_GUIDE.pdf.\u003c/p\u003e\n\u003cp\u003eWarning to users who receive more than one of the individual packages at\ndifferent times: Mixing old and new versions of SUNDIALS may fail. To avoid\nsuch failures, obtain all desired package at the same time.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eSupport\u003c/h2\u003e\u003ca id=\"user-content-support\" class=\"anchor-element\" aria-label=\"Permalink: Support\" href=\"#support\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eFull user guides for all of the SUNDIALS packages are available \u003ca href=\"https://sundials.readthedocs.io\" rel=\"nofollow\"\u003eonline\u003c/a\u003e\nand in the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory. Additionally, the \u003ca href=\"./doc\"\u003edoc\u003c/a\u003e directory\ncontains documentation for the package example programs.\u003c/p\u003e\n\u003cp\u003eFor information on recent changes to SUNDIALS see the \u003ca href=\"./CHANGELOG.md\"\u003eCHANGELOG\u003c/a\u003e\nor the introduction chapter of any package user guide.\u003c/p\u003e\n\u003cp\u003eA list of Frequently Asked Questions on build and installation procedures as\nwell as common usage issues is available on the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/faq\" rel=\"nofollow\"\u003eFAQ\u003c/a\u003e.\nFor dealing with systems with unphysical solutions or discontinuities see the\nSUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/usage-notes\" rel=\"nofollow\"\u003eusage notes\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIf you have a question not covered in the FAQ or usage notes, please submit\nyour question to the SUNDIALS \u003ca href=\"https://computing.llnl.gov/projects/sundials/mailing-list\" rel=\"nofollow\"\u003emailing list\u003c/a\u003e.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eContributing\u003c/h2\u003e\u003ca id=\"user-content-contributing\" class=\"anchor-element\" aria-label=\"Permalink: Contributing\" href=\"#contributing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eBug fixes or minor changes are preferred via a pull request to the\n\u003ca href=\"https://github.com/LLNL/sundials\"\u003eSUNDIALS GitHub repository\u003c/a\u003e. For more\ninformation on contributing see the \u003ca href=\"./CONTRIBUTING.md\"\u003eCONTRIBUTING\u003c/a\u003e file.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eCiting\u003c/h2\u003e\u003ca id=\"user-content-citing\" class=\"anchor-element\" aria-label=\"Permalink: Citing\" href=\"#citing\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eSee the \u003ca href=\"https://sundials.readthedocs.io/en/latest/index.html#citing\" rel=\"nofollow\"\u003eonline documentation\u003c/a\u003e\nor \u003ca href=\"./CITATIONS.md\"\u003eCITATIONS\u003c/a\u003e file for information on how to cite SUNDIALS in\nany publications reporting work done using SUNDIALS packages.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eAuthors\u003c/h2\u003e\u003ca id=\"user-content-authors\" class=\"anchor-element\" aria-label=\"Permalink: Authors\" href=\"#authors\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eThe SUNDIALS library has been developed over many years by a number of\ncontributors. The current SUNDIALS team consists of Cody J. Balos,\nDavid J. Gardner, Alan C. Hindmarsh, Daniel R. Reynolds, and Carol S. Woodward.\nWe thank Radu Serban for significant and critical past contributions.\u003c/p\u003e\n\u003cp\u003eOther contributors to SUNDIALS include: James Almgren-Bell, Lawrence E. Banks,\nPeter N. Brown, George Byrne, Rujeko Chinomona, Scott D. Cohen, Aaron Collier,\nKeith E. Grant, Steven L. Lee, Shelby L. Lockhart, John Loffeld, Daniel McGreer,\nYu Pan, Slaven Peles, Cosmin Petra, Steven B. Roberts, H. Hunter Schwartz,\nJean M. Sexton, Dan Shumaker, Steve G. Smith, Shahbaj Sohal, Allan G. Taylor,\nHilari C. Tiedeman, Chris White, Ting Yan, and Ulrike M. Yang.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eLicense\u003c/h2\u003e\u003ca id=\"user-content-license\" class=\"anchor-element\" aria-label=\"Permalink: License\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eSUNDIALS is released under the BSD 3-clause license. See the \u003ca href=\"./LICENSE\"\u003eLICENSE\u003c/a\u003e\nand \u003ca href=\"./NOTICE\"\u003eNOTICE\u003c/a\u003e files for details. All new contributions must be made\nunder the BSD 3-clause license.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003ePlease Note\u003c/strong\u003e If you are using SUNDIALS with any third party libraries linked\nin (e.g., LAPACK, KLU, SuperLU_MT, PETSc, or \u003cem\u003ehypre\u003c/em\u003e), be sure to review the\nrespective license of the package as that license may have more restrictive\nterms than the SUNDIALS license.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eSPDX-License-Identifier: BSD-3-Clause\n\nLLNL-CODE-667205  (ARKODE)\nUCRL-CODE-155951  (CVODE)\nUCRL-CODE-155950  (CVODES)\nUCRL-CODE-155952  (IDA)\nUCRL-CODE-237203  (IDAS)\nLLNL-CODE-665877  (KINSOL)\n\u003c/code\u003e\u003c/pre\u003e\n",
-    "stargazers_count": 438,
-    "subscribers_count": 35,
+    "stargazers_count": 437,
+    "subscribers_count": 34,
     "topics": [
       "ode-solver",
       "dae-solver",
@@ -2428,7 +2428,7 @@ var data =
       "solver",
       "high-performance-computing"
     ],
-    "updated_at": 1709289766.0
+    "updated_at": 1709484539.0
   },
   {
     "data_format": 2,
@@ -2463,7 +2463,7 @@ var data =
     "full_name": "mfem/mfem",
     "latest_release": "v4.6",
     "readme": "\u003cpre\u003e\u003ccode\u003e                Finite Element Discretization Library\n                               __\n                   _ __ ___   / _|  ___  _ __ ___\n                  | \u0027_ ` _ \\ | |_  / _ \\| \u0027_ ` _ \\\n                  | | | | | ||  _||  __/| | | | | |\n                  |_| |_| |_||_|   \\___||_| |_| |_|\n\n                           https://mfem.org\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://mfem.org\" rel=\"nofollow\"\u003eMFEM\u003c/a\u003e is a modular parallel C++ library for finite element\nmethods. Its goal is to enable high-performance scalable finite element\ndiscretization research and application development on a wide variety of\nplatforms, ranging from laptops to supercomputers.\u003c/p\u003e\n\u003cp\u003eWe welcome contributions and feedback from the community. Please see the file\n\u003ca href=\"CONTRIBUTING.md\"\u003eCONTRIBUTING.md\u003c/a\u003e for additional details about our development\nprocess.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eFor building instructions, see the file \u003ca href=\"INSTALL\"\u003eINSTALL\u003c/a\u003e, or type \"make help\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eCopyright and licensing information can be found in files \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe best starting point for new users interested in MFEM\u0027s features is to\nreview the examples and miniapps at \u003ca href=\"https://mfem.org/examples\" rel=\"nofollow\"\u003ehttps://mfem.org/examples\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eInstructions for learning with Docker are in \u003ca href=\"config/docker\"\u003econfig/docker\u003c/a\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eConceptually, MFEM can be viewed as a finite element toolbox that provides the\nbuilding blocks for developing finite element algorithms in a manner similar to\nthat of MATLAB for linear algebra methods. In particular, MFEM provides support\nfor arbitrary high-order H1-conforming, discontinuous (L2), H(div)-conforming,\nH(curl)-conforming and NURBS finite element spaces in 2D and 3D, as well as many\nbilinear, linear and nonlinear forms defined on them. It enables the quick\nprototyping of various finite element discretizations, including Galerkin\nmethods, mixed finite elements, Discontinuous Galerkin (DG), isogeometric\nanalysis, hybridization and Discontinuous Petrov-Galerkin (DPG) approaches.\u003c/p\u003e\n\u003cp\u003eMFEM includes classes for dealing with a wide range of mesh types: triangular,\nquadrilateral, tetrahedral and hexahedral, as well as surface and topologically\nperiodical meshes. It has general support for mesh refinement, including local\nconforming and non-conforming (AMR) adaptive refinement. Arbitrary element\ntransformations, allowing for high-order mesh elements with curved boundaries,\nare also supported.\u003c/p\u003e\n\u003cp\u003eWhen used as a \"finite element to linear algebra translator\", MFEM can take a\nproblem described in terms of finite element-type objects, and produce the\ncorresponding linear algebra vectors and fully or partially assembled operators,\ne.g. in the form of global sparse matrices or matrix-free operators. The library\nincludes simple smoothers and Krylov solvers, such as PCG, MINRES and GMRES, as\nwell as support for sequential sparse direct solvers from the SuiteSparse\nlibrary. Nonlinear solvers (the Newton method), eigensolvers (LOBPCG), and\nseveral explicit and implicit Runge-Kutta time integrators are also available.\u003c/p\u003e\n\u003cp\u003eMFEM supports MPI-based parallelism throughout the library, and can readily be\nused as a scalable unstructured finite element problem generator. Starting with\nversion 4.0, MFEM offers support for GPU acceleration, and programming models,\nsuch as CUDA, HIP, OCCA, RAJA and OpenMP. MFEM-based applications require\nminimal changes to switch from a serial to a highly-performant MPI-parallel\nversion of the code, where they can take advantage of the integrated linear\nsolvers from the hypre library. Comprehensive support for other external\npackages, e.g. PETSc, SUNDIALS and libCEED is also included, giving access to\nadditional linear and nonlinear solvers, preconditioners, time integrators, etc.\u003c/p\u003e\n\u003cp\u003eFor examples of using MFEM, see the \u003ca href=\"examples\"\u003eexamples/\u003c/a\u003e and \u003ca href=\"miniapps\"\u003eminiapps/\u003c/a\u003e\ndirectories, as well as the OpenGL visualization tool GLVis which is available\nat \u003ca href=\"https://glvis.org\" rel=\"nofollow\"\u003ehttps://glvis.org\u003c/a\u003e.\u003c/p\u003e\n\u003cdiv class=\"markdown-heading\"\u003e\u003ch2 class=\"heading-element\"\u003eLicense\u003c/h2\u003e\u003ca id=\"user-content-license\" class=\"anchor-element\" aria-label=\"Permalink: License\" href=\"#license\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/div\u003e\n\u003cp\u003eMFEM is distributed under the terms of the BSD-3 license. All new contributions\nmust be made under this license. See \u003ca href=\"LICENSE\"\u003eLICENSE\u003c/a\u003e and \u003ca href=\"NOTICE\"\u003eNOTICE\u003c/a\u003e for\ndetails.\u003c/p\u003e\n\u003cp\u003eSPDX-License-Identifier: BSD-3-Clause \u003cbr\u003e\nLLNL Release Number: LLNL-CODE-806117 \u003cbr\u003e\nDOI: 10.11578/dc.20171025.1248\u003c/p\u003e\n",
-    "stargazers_count": 1486,
+    "stargazers_count": 1487,
     "subscribers_count": 121,
     "topics": [
       "finite-elements",
@@ -2478,6 +2478,6 @@ var data =
       "math-physics",
       "radiuss"
     ],
-    "updated_at": 1709337122.0
+    "updated_at": 1709480185.0
   }
 ]
