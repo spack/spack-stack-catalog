@@ -91,6 +91,12 @@ spack:
     bash:
       require:
       - '%gcc@7.5.0'
+    binutils:
+      variants:
+      - +gas
+      - +gold
+      - +ld
+      - +libiberty
     bison:
       require: '%gcc@7.5.0'
     bzip2:
@@ -216,7 +222,9 @@ spack:
     freetype:
       # Newer version leads to concretization issues for Python packages
       # This setting avoids multiple builds of many packages
-      require: '@:2.10.2'
+      require:
+      - '@:2.10.2'
+      - '%gcc@7.5.0'
     gawk:
       require:
       - '%gcc@7.5.0'
@@ -266,9 +274,20 @@ spack:
       - '%gcc@7.5.0'
     giflib:
       require: '%gcc@7.5.0'
+    gimp:
+      # Turning docs on adds the dependency to itstool, which breaks a lot of reuse
+      # because of libxml2+python requirement
+      variants:
+      - ~doc
     git:
       variants:
       - +svn
+    gl2ps:
+      require:
+      - '%gcc@7.5.0'
+    glew:
+      require:
+      - '%gcc@7.5.0'
     glpk:
       require: '%gcc@7.5.0'
     gmake:
@@ -285,6 +304,9 @@ spack:
       variants:
       - +papi
       - +pmpi
+    grads:
+      variants:
+      - +dap
     groff:
       require:
       - '%gcc@7.5.0'
@@ -424,6 +446,9 @@ spack:
       require:
       - '@2.28'
       - libs=static,shared
+    mesa-glu:
+      require:
+      - '%gcc@7.5.0'
     mgard:
       require:
       - '%gcc@7.5.0'
@@ -467,6 +492,9 @@ spack:
       require: '%gcc@7.5.0'
     nvhpc:
       require: '%gcc@7.5.0'
+    ocl-icd:
+      variants:
+      - +headers
     octave:
       variants:
       - +arpack
@@ -496,10 +524,14 @@ spack:
       - '%gcc@7.5.0'
     openmpi:
       require:
-      - fabrics=cma,knem,ucx schedulers=tm
+      - fabrics=cma,knem,ucx
+      - schedulers=tm
       - +gpfs
       - +lustre
       - +internal-pmix
+      - any_of:
+        - ^cuda@12.2.1
+        when: '@4.1.6 +cuda'
       variants:
       - +cuda
     openpbs:
@@ -517,6 +549,12 @@ spack:
       # external openssl
       require:
       - certs=system
+      - '%gcc@7.5.0'
+    osmesa:
+      require:
+      - '%gcc@7.5.0'
+    ospray:
+      require:
       - '%gcc@7.5.0'
     pango:
       variants:
@@ -569,6 +607,9 @@ spack:
       - '%gcc@7.5.0'
     pmix:
       require: '%gcc@7.5.0'
+    pocl:
+      variants:
+      - +icd
     protobuf:
       require: '%gcc@7.5.0'
     py-setuptools:
@@ -585,6 +626,9 @@ spack:
       - +webkit
     readline:
       require: '%gcc@7.5.0'
+    rstudio:
+      require:
+      - '%gcc@7.5.0'
     rsync:
       require:
       - '%gcc@7.5.0'
@@ -628,7 +672,17 @@ spack:
       - +vfs
     util-linux-uuid:
       require: '%gcc@7.5.0'
+    vapor:
+      variants:
+      - +ospray
     visit:
+      variants:
+      - +hdf5
+      - +mpi
+      - +netcdf
+      - ~conduit
+      - ~mfem
+      - ~vtkm
       require:
       - any_of:
         - '^adios2@2.9: %gcc@11:'
@@ -640,7 +694,9 @@ spack:
         - '^conduit %gcc@11:'
         when: +conduit
     vtk:
-      require: '^netcdf-cxx %gcc@11:'
+      require:
+      - '^netcdf-cxx %gcc@11:'
+      - '%gcc@7.5.0'
     vtk-m:
       require: '%gcc@7.5.0'
     wget:
@@ -721,13 +777,13 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - visit
         - paraview
         - octave
         - nccmp
         - ncview
         - cdo
         - nco
-        - visit
         - cuda
         - r
         - cmake
@@ -764,7 +820,8 @@ spack:
         - netcdf@4.9.2
         - parallel-netcdf@1.12.3
         - fftw@3.3.10
-        - openmpi@4.1.5
+        - openmpi@4.1.6
+        - cuda@12.2.1
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
@@ -876,6 +933,25 @@ spack:
               NCAR_SPACK_HASH_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
+        julia:
+          environment:
+            append_path:
+              PATH: '{^llvm.prefix}/bin'
+            set:
+              VGL_GLLIB: /usr/lib64/libGL.so.1
+        llvm+clang:
+          filter:
+            exclude_env_vars:
+            - NCAR_INC_LLVM
+            - NCAR_LDFLAGS_LLVM
+            - NCAR_ROOT_LLVM
+            - NCAR_SPACK_HASH_LLVM
+          environment:
+            set:
+              NCAR_INC_CLANG: '{prefix}/include'
+              NCAR_LDFLAGS_CLANG: '{prefix}/lib'
+              NCAR_ROOT_CLANG: '{prefix}'
+              NCAR_SPACK_HASH_CLANG: '{hash}'
         miniconda3:
           filter:
             exclude_env_vars:
@@ -933,6 +1009,7 @@ spack:
         openmpi:
           environment:
             set:
+              OMPI_MCA_oob_tcp_if_exclude: mgt
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
@@ -958,6 +1035,8 @@ spack:
               NCAR_ROOT_PARALLELIO: '{prefix}'
               NCAR_SPACK_HASH_PARALLELIO: '{hash}'
               PIO: '{prefix}'
+        paraview:
+          autoload: none
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
@@ -971,6 +1050,14 @@ spack:
           intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          llvm+clang: clang/{version}
+        rstudio:
+          filter:
+            exclude_env_vars:
+            - CMAKE_PREFIX_PATH
+          environment:
+            prepend_path:
+              PATH: '{prefix}'
         singularityce:
           environment:
             prepend_path:
@@ -978,5 +1065,7 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        visit:
+          autoload: none
   concretizer:
     unify: false

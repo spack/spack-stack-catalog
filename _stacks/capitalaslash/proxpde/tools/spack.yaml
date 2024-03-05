@@ -1,0 +1,14 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs: [eigen, suite-sparse, pugixml, yaml-cpp@develop, hdf5]
+  config: {}
+  mirrors: {}
+  modules:
+    enable: []
+  packages: {}
+  repos: []
+  upstreams: {}

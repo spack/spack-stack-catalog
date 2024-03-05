@@ -1,0 +1,48 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  config:
+    install_tree:
+      root: '%INSTALLROOT%'
+      projections:
+        all: '{name}/{version}'
+    build_jobs: 4
+    test_stage: '%TMPROOT%/${user}/temp/spack/%DEPLOYMENT%/tests'
+    source_cache: '%TMPROOT%/${user}/temp/spack/cache'
+    misc_cache: '%TMPROOT%/${user}/temp/spack/%DEPLOYMENT%/misc'
+    build_stage:
+    - '%TMPROOT%/${user}/temp/spack/builds'
+    shared_linking:
+      type: rpath
+      bind: false
+  packages:
+    all:
+      compiler: [gcc@7.5.0]
+      target: [x86_64_v3]
+      providers:
+        'pkgconfig:': [pkg-config]
+        'zlib-api:': [zlib]
+      permissions:
+        read: world
+        write: user
+    aocc:
+      require:
+      - +license-agreed
+    cuda:
+      require: +allow-unsupported-compilers
+      variants:
+      - +dev
+    gcc:
+      variants:
+      - +piclibs
+      - languages=c,c++,fortran,go
+    linaro-forge:
+      require: +accept-eula
+    pkg-config:
+      require: '%gcc@7.5.0'
+  compilers: []
+  view: false
+  concretizer:
+    unify: false

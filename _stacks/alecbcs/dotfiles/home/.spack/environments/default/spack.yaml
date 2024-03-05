@@ -5,10 +5,10 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - bfs
   - coreutils
   - direnv
-  - emacs
+  - emacs+native+treesitter+json
+  - fd
   - fzf
   - gh
   - go
@@ -23,6 +23,8 @@ spack:
   - python
   - rclone
   - restic
+  - ripgrep
+  - rust+dev
   view: true
   concretizer:
     unify: true
