@@ -26,6 +26,23 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/derecho/23.09/envs/build/templates/modules
   packages:
+    gmake:
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    openssl:
+      # Requiring certs=system is necessary to perform builds like rust using
+      # external openssl
+      externals:
+      - spec: openssl@1.1.1l
+        prefix: /usr
+      buildable: false
+      require:
+      - certs=system
+      - '%gcc@7.5.0'
     gcc:
       externals:
       - spec: gcc@13.2.0 languages='c,c++,fortran'
@@ -47,23 +64,6 @@ spack:
       - +piclibs
       - languages=c,c++,fortran,go
       require:
-      - '%gcc@7.5.0'
-    gmake:
-      externals:
-      - spec: gmake@4.2.1
-        prefix: /usr
-      buildable: false
-      require:
-      - '%gcc@7.5.0'
-    openssl:
-      # Requiring certs=system is necessary to perform builds like rust using
-      # external openssl
-      externals:
-      - spec: openssl@1.1.1l
-        prefix: /usr
-      buildable: false
-      require:
-      - certs=system
       - '%gcc@7.5.0'
     gawk:
       externals:
@@ -957,6 +957,20 @@ spack:
     ecbuild:
       require:
       - '%gcc@7.5.0'
+    intel-oneapi-vtune:
+      externals:
+      - spec: intel-oneapi-vtune@2024.0.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-vtune/2024.0.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    intel-oneapi-advisor:
+      externals:
+      - spec: intel-oneapi-advisor@2024.0.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-advisor/2024.0.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
   view:
     baseenv:
       root: /glade/u/apps/derecho/23.09/opt/view
@@ -1401,6 +1415,24 @@ spack:
               NCAR_SPACK_HASH_INTEL_MPI: '{hash}'
             prepend_path:
               LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+        intel-oneapi-advisor:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_ADVISOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_ADVISOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_ADVISOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_ADVISOR: '{hash}'
+        intel-oneapi-inspector:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_INSPECTOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_INSPECTOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_INSPECTOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_INSPECTOR: '{hash}'
         intel-oneapi-vtune:
           filter:
             exclude_env_vars:
@@ -1408,8 +1440,8 @@ spack:
             - NCAR_SPACK_HASH_INTEL_ONEAPI_VTUNE
           environment:
             set:
-              NCAR_ROOT_VTUNE: '{prefix}'
-              NCAR_SPACK_HASH_VTUNE: '{hash}'
+              NCAR_ROOT_INTEL_VTUNE: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
         julia:
@@ -1523,11 +1555,13 @@ spack:
           netcdf+mpi: netcdf-mpi/{version}
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
+          intel-oneapi-advisor: intel-advisor/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
+          intel-oneapi-inspector: intel-inspector/{version}
           intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
-          intel-oneapi-vtune: vtune/{version}
+          intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           mvapich~cuda: mvapich/{version}-cpu
@@ -1543,7 +1577,7 @@ spack:
     unify: false
   bootstrap:
     enable: true
-    root: /glade/u/apps/derecho/23.09/opt/view
+    root: /glade/work/csgteam/spack-deployments/bootstrap/23.09
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
@@ -1555,9 +1589,8 @@ spack:
       github-actions-v0.4: true
       spack-install: true
   mirrors:
-    ncar_mirror_global: /glade/u/apps/derecho/mirror
+    ncar_mirror_global: s3://spack-cache-derecho
     ncar_mirror_local: /glade/u/apps/derecho/mirror
-    ncar_mirror_stratus: s3://spack-cache-derecho
   repos:
   - /glade/work/csgteam/spack-deployments/derecho/23.09/envs/build/repos/ncar.hpcd
   specs:
@@ -1965,3 +1998,5 @@ spack:
   - parallelio@2.6.2%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
   - esmf@8.6.0%oneapi@2024.0.2+mpi+pnetcdf ^mvapich@3.0%oneapi@2024.0.2
   - superlu-dist@8.2.1%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
+  - intel-oneapi-vtune@2024.0.0
+  - intel-oneapi-advisor@2024.0.0

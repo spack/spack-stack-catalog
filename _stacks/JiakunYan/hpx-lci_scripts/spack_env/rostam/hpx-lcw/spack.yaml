@@ -1,0 +1,28 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@master ^hpx networking=lci,lcw,mpi ^mpich+vci+slurm netmod=ucx
+  - hpx-bench@master
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    mpich:
+      path: ../../../../mpich
+      spec: mpich@=master
+    hpx_bench:
+      path: ../../../../hpx_bench
+      spec: hpx-bench@=master
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lcw:
+      path: ../../../../lcw
+      spec: lcw@=master
+    lci:
+      path: ../../../../LC
+      spec: lci@=master
