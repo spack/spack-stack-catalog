@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler:
+        - gcc # Your preferred compiler here
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@master%gcc ^hpx networking=lci,lcw,mpi ^lci+examples+tests+benchmarks~enable-pmix ^mpich+slurm+vci netmod=ucx ^ucx+verbs+rc+ud+mlx5_dv+ib_hw_tm+dc+thread_multiple+knem+cma+xpmem+rdmacm
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lci:
+      path: ../../../../LC
+      spec: lci@=master
+    lcw:
+      path: ../../../../lcw
+      spec: lcw@=master

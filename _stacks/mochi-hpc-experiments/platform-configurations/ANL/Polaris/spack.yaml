@@ -83,6 +83,12 @@ spack:
       - spec: openssl@1.1.1d
         prefix: /usr
     m4:
+      buildable: false
       externals:
       - spec: m4@1.4.18
+        prefix: /usr
+    zlib:
+      buildable: false
+      externals:
+      - spec: zlib@1.2.11
         prefix: /usr
