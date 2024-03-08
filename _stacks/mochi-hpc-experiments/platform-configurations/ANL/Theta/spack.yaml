@@ -17,8 +17,6 @@ spack:
       extra_rpaths: []
       flags: {}
       spec: gcc@9.3.0
-  repos:
-  - /path/to/mochi-spack-packages
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
@@ -31,259 +29,145 @@ spack:
       - gcc@9.3.0
       target:
       - mic_knl
-      version: []
-      buildable: true
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         prefix: /usr
     automake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: automake@1.13.4
         prefix: /usr
     binutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: binutils@2.31.1
         prefix: /usr
     bison:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: bison@2.7
         prefix: /usr
     rdma-credentials:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: rdma-credentials@1.2.25 arch=cray-cnl7-mic_knl
         modules:
         - rdma-credentials/1.2.25-7.0.2.1_4.3__g67c8aa4.ari
     boost:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: boost@1.64.0 arch=cray-cnl7-mic_knl
         modules:
         - boost/gnu/1.64.0
     bzip2:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: bzip2@1.0.6
         prefix: /usr
     cmake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cmake@3.18.0
         modules:
         - cmake/3.18.0
     coreutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: coreutils@8.25
         prefix: /usr
     findutils:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: findutils@4.5.12
         prefix: /usr
     flex:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: flex@2.5.37
         prefix: /usr
     gettext:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: gettext@0.19.2
         prefix: /usr
     git:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: git@2.12.3
         prefix: /usr
     hdf5:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: hdf5@1.10.6.1
         modules:
         - cray-hdf5/1.10.6.1
     libfabric:
-      variants: fabrics=gni
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
+      variants: fabrics=gni
     libtool:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libtool@2.4.6
         prefix: /usr
     libuuid:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libuuid@2.33.1
         prefix: /usr
     m4:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: m4@1.4.18
         prefix: /usr
     mercury:
-      variants: +udreg ~boostsys ~checksum
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
+      variants: +udreg ~boostsys ~checksum
     cray-mpich:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cray-mpich@7.7.14 arch=cray-cnl7-mic_knl
         modules:
         - cray-mpich/7.7.14
     openssl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: openssl@1.1.0i
         prefix: /usr
     perl:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: perl@5.26.1
         prefix: /usr
     pkg-config:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: pkg-config@0.29.2
         prefix: /usr
     python:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: python@3.6.8
         modules:
         - intelpython36/2019.3.075
     tar:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: tar@1.27.1
         prefix: /usr
     texinfo:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: texinfo@4.13
         prefix: /usr
     xz:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: xz@5.0.5
         prefix: /usr
     zlib:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: zlib@1.2.11
         prefix: /usr
