@@ -951,6 +951,20 @@ spack:
     lwgrp:
       require:
       - '%gcc@7.5.0'
+    intel-oneapi-vtune:
+      externals:
+      - spec: intel-oneapi-vtune@2024.0.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-vtune/2024.0.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
+    intel-oneapi-advisor:
+      externals:
+      - spec: intel-oneapi-advisor@2024.0.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-advisor/2024.0.0
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
   view:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
@@ -1015,6 +1029,18 @@ spack:
       - perl
       link_type: symlink
       link: roots
+    pythonpkgs:
+      # This view allows us to provide an environment with needed Python runtime dependencies for pkgs:
+      #   - charliecloud
+      root: /glade/u/apps/casper/23.10/opt/pythonpkgs
+      select:
+      - py-requests
+      - py-urllib3
+      - py-charset-normalizer
+      - py-idna
+      - py-certifi
+      link_type: symlink
+      link: run
   'compilers:':
   - compiler:
       spec: gcc@=7.5.0
@@ -1157,6 +1183,10 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        charliecloud:
+          environment:
+            prepend_path:
+              PYTHONPATH: /glade/u/apps/casper/23.10/opt/pythonpkgs/lib/python3.10/site-packages
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -1369,6 +1399,24 @@ spack:
               I_MPI_HYDRA_BOOTSTRAP_EXEC: pbs_tmrsh
               NCAR_ROOT_INTEL_MPI: '{prefix}'
               NCAR_SPACK_HASH_INTEL_MPI: '{hash}'
+        intel-oneapi-advisor:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_ADVISOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_ADVISOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_ADVISOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_ADVISOR: '{hash}'
+        intel-oneapi-inspector:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_INSPECTOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_INSPECTOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_INSPECTOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_INSPECTOR: '{hash}'
         intel-oneapi-vtune:
           filter:
             exclude_env_vars:
@@ -1376,8 +1424,8 @@ spack:
             - NCAR_SPACK_HASH_INTEL_ONEAPI_VTUNE
           environment:
             set:
-              NCAR_ROOT_VTUNE: '{prefix}'
-              NCAR_SPACK_HASH_VTUNE: '{hash}'
+              NCAR_ROOT_INTEL_VTUNE: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
         julia:
@@ -1510,11 +1558,13 @@ spack:
           netcdf+mpi: netcdf-mpi/{version}
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
+          intel-oneapi-advisor: intel-advisor/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
+          intel-oneapi-inspector: intel-inspector/{version}
           intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
-          intel-oneapi-vtune: vtune/{version}
+          intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           llvm+clang: clang/{version}
@@ -1550,7 +1600,7 @@ spack:
       github-actions-v0.4: true
       spack-install: true
   mirrors:
-    ncar_mirror_global: /glade/u/apps/casper/mirror
+    ncar_mirror_global: s3://spack-cache-casper
     ncar_mirror_local: /glade/u/apps/casper/mirror
   repos:
   - /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/repos/ncar.hpcd
@@ -1808,3 +1858,5 @@ spack:
   - cdo@2.3.0%gcc@12.2.0 ^proj@8
   - mpifileutils@0.11.1%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
   - vapor@3.9.1
+  - intel-oneapi-vtune@2024.0.0
+  - intel-oneapi-advisor@2024.0.0

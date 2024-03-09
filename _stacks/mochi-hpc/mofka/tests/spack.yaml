@@ -4,15 +4,18 @@ spack:
   - pkg-config
   - uuid
   - mochi-thallium
-  - rapidjson
-  - valijson
+  - nlohmann-json
+  - nlohmann-json-schema-validator
   - spdlog+fmt_external
   - fmt
   - tclap
-  - mochi-bedrock+ssg
+  - mochi-bedrock+ssg+python
   - argobots@1.2rc1
   - mochi-warabi+bedrock
   - mochi-yokan+bedrock
+  - py-coverage
+  - py-pybind11
+  - py-mochi-margo
   concretizer:
     unify: true
     reuse: true
@@ -27,13 +30,15 @@ spack:
     mochi-yokan:
       require: "@0.4.2:"
     mochi-warabi:
-      require: "@0.2.0:"
+      require: "@0.3.0:"
     mochi-bedrock:
-      require: "@0.8.3:"
+      require: "@0.10.0:"
     mercury:
       require: "~checksum~boostsys"
     libfabric:
       require: "fabrics=tcp,rxm"
+    nlohmann-json-schema-validator:
+      require: "@2.3.0:"
   mirrors:
     mochi-buildcache:
       url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
