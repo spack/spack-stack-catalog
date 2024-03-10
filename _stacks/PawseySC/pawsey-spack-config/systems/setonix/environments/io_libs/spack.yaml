@@ -36,13 +36,13 @@ spack:
     - ['%gcc@12.2.0']
     - [api=v110, api=v18, api=v16]
     - [+mpi, ~mpi+cxx]
-    - [+hl +fortran +szip build_type=Release]
+    - [+hl +fortran +szip ^libszip build_type=Release]
   - matrix:
     - [hdf5@1.12.2]
     - ['%gcc@12.2.0']
     - [api=v112]
     - [+mpi, ~mpi+cxx]
-    - [+hl +fortran +szip build_type=Release]
+    - [+hl +fortran +szip ^libszip build_type=Release]
   - matrix:
     - [$adios-set]
     - ['%gcc@12.2.0']
