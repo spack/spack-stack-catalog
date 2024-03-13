@@ -1027,6 +1027,18 @@ spack:
       - perl
       link_type: symlink
       link: roots
+    pythonpkgs:
+      # This view allows us to provide an environment with needed Python runtime dependencies for pkgs:
+      #   - charliecloud
+      root: /glade/u/apps/derecho/23.09/opt/pythonpkgs
+      select:
+      - py-requests
+      - py-urllib3
+      - py-charset-normalizer
+      - py-idna
+      - py-certifi
+      link_type: symlink
+      link: run
   compilers:
   - compiler:
       spec: gcc@=7.5.0
@@ -1191,6 +1203,10 @@ spack:
             - GOPATH
         cdo:
           autoload: none
+        charliecloud:
+          environment:
+            prepend_path:
+              PYTHONPATH: /glade/u/apps/derecho/23.09/opt/pythonpkgs/lib/python3.10/site-packages
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -1215,7 +1231,7 @@ spack:
               CRAY_TCMALLOC_MEMFS_FORCE: '1'
               CUDATOOLKIT_HOME: '{prefix}'
               CUDA_VERSION: '{version}'
-              NCAR_LIBS_CRAYGTL: -lstdc++
+              NCAR_LIBS_CRAYGTL: -lcuda -lcudart -lstdc++
               NVHPC_CUDA_HOME: '{prefix}'
             prepend_path:
               CRAY_LD_LIBRARY_PATH: '{prefix}/lib64'
@@ -1243,7 +1259,7 @@ spack:
         defaults:
         - netcdf@4.9.2
         - nvhpc@23.7
-        - parallelio+mpi
+        - parallelio+mpi+shared
         - esmf+mpi
         - cuda@12.2.1
         - intel-oneapi-compilers@2023.2.1
@@ -1564,6 +1580,7 @@ spack:
           intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          parallelio~shared: parallelio/{version}-static
           mvapich~cuda: mvapich/{version}-cpu
           mvapich+cuda: mvapich/{version}-cuda
         singularityce:
@@ -2000,3 +2017,9 @@ spack:
   - superlu-dist@8.2.1%oneapi@2024.0.2 ^mvapich@3.0%oneapi@2024.0.2
   - intel-oneapi-vtune@2024.0.0
   - intel-oneapi-advisor@2024.0.0
+  - parallelio@2.6.2%gcc@13.2.0~shared ^cray-mpich@8.1.27%gcc@13.2.0
+  - parallelio@2.6.2%nvhpc@24.1~shared ^cray-mpich@8.1.27%nvhpc@24.1
+  - parallelio@2.6.2%nvhpc@24.1~shared ^mvapich@3.0%nvhpc@24.1
+  - parallelio@2.6.2%oneapi@2024.0.2~shared ^cray-mpich@8.1.27%oneapi@2024.0.2
+  - parallelio@2.6.2%oneapi@2024.0.2~shared ^mvapich@3.0%oneapi@2024.0.2
+  - parallelio@2.6.2%cce@16.0.1~shared ^cray-mpich@8.1.27%cce@16.0.1

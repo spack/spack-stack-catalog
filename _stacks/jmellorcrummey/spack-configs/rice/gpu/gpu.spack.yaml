@@ -1,0 +1,22 @@
+spack:
+  'compilers:':
+  - compiler:
+      spec: gcc@12.2.0
+      paths:
+        cc: /projects/deploy/install/linux-rhel8-broadwell/gcc-12.2.0/gcc-12.2.0-xxtlg4voh6ncxgeoe27chmhrhlneybyp/bin/gcc
+        cxx: /projects/deploy/install/linux-rhel8-broadwell/gcc-12.2.0/gcc-12.2.0-xxtlg4voh6ncxgeoe27chmhrhlneybyp/bin/g++
+        f77: /projects/deploy/install/linux-rhel8-broadwell/gcc-12.2.0/gcc-12.2.0-xxtlg4voh6ncxgeoe27chmhrhlneybyp/bin/gfortran
+        fc: /projects/deploy/install/linux-rhel8-broadwell/gcc-12.2.0/gcc-12.2.0-xxtlg4voh6ncxgeoe27chmhrhlneybyp/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: [gcc/12.2.0+nvptx]
+  concretizer:
+    unify: when_possible
+  view: false
+  specs:
+  - matrix:
+    - [hpctoolkit +mpi ~viewer +debug]
+    - - +papi ^papi@6.0.0.1
+      - ~papi +cuda ^cuda@11.8.0 +allow-unsupported-compilers
+    - ['@2023.03.stable']
