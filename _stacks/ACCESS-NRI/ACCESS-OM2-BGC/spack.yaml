@@ -1,0 +1,63 @@
+# Copyright 2024 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
+# SPDX-License-Identifier: Apache-2.0
+#
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - access-om2@git.2023.11.23
+  packages:
+    cice5:
+      require: '@git.2023.10.19'
+    mom5:
+      require: '@git.2023.11.09 type=ACCESS-OM-BGC'
+    libaccessom2:
+      require: '@git.2023.10.26'
+    oasis3-mct:
+      require: '@git.2023.11.09'
+    netcdf-c:
+      require: '@4.7.4'
+    netcdf-fortran:
+      require: '@4.5.2'
+    parallelio:
+      require: '@2.5.2'
+    nci-openmpi:
+      require: '@4.0.2'
+    all:
+      compiler: [intel@19.0.5.281]
+  view: true
+  concretizer:
+    unify: true
+  modules:
+    default:
+      enable:
+      - tcl
+      roots:
+        tcl: $spack/../release/modules
+        lmod: $spack/../release/lmod
+      tcl:
+        hash_length: 0
+        include:
+        - access-om2
+        - mom5
+        - cice5
+        - libaccessom2
+        - oasis3-mct
+        exclude_implicits: true
+        all:
+          autoload: direct
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              'SPACK_{name}_ROOT': '{prefix}'
+        projections:
+          all: '{name}/{version}'
+          access-om2: '{name}-bgc/2023.11.23'
+          cice5: '{name}/2023.10.19'
+          mom5: '{name}-bgc/2023.11.09'
+          libaccessom2: '{name}/2023.10.26'
+          oasis3-mct: '{name}/2023.11.09'
