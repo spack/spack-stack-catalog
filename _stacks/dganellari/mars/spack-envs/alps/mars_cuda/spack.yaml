@@ -1,0 +1,22 @@
+# This is a Spack Environment file.
+#
+spack:
+  specs:
+  - kokkos +wrapper+cuda_lambda
+  - kokkos-kernels
+  - cxxopts
+  packages:
+    all:
+      providers:
+        mpi: [cray-mpich]
+      variants: +cuda +openmp +mpi cuda_arch=80 build_type=Release
+  concretizer:
+    unify: true
+    targets:
+      host_compatible: false
+  config:
+    install_tree:
+      root: $SCRATCH/views/mars_software
+  view: $SCRATCH/views/view_mars
+
+
