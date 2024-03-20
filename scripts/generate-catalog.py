@@ -8,6 +8,7 @@ import calendar
 import time
 import shutil
 import yaml
+import multiprocessing
 
 from github import Github
 from github.GithubException import UnknownObjectException, RateLimitExceededException
@@ -118,7 +119,6 @@ def combine_results(code_search):
     lookup = {}
 
     for i, filename in enumerate(code_search):
-
         # attempt to not trigger abuse mechanism
         time.sleep(0.5)
         repo = filename.repository
@@ -164,13 +164,8 @@ def main():
     """
     Entrypoint to catalog generation
     """
-    skips = set(l.strip() for l in open("skips.txt", "r"))
-
     # Don't parse the vsoch/spack-changes repository!
     code_search = g.search_code("spack filename:spack.yaml -user:vsoch", sort="indexed")
-
-    # Create a directory structure with spack.yaml files
-    data_dir = os.path.join(here, "_stacks")
 
     # Consolidate filenames by repository
     byrepo, lookup = combine_results(code_search)
@@ -180,77 +175,109 @@ def main():
     if total_count == 0:
         raise ValueError("No matches found! This likely should not happen.")
 
-    for i, reponame in enumerate(byrepo):
+    with multiprocessing.Pool(processes=len(byrepo)) as pool:
+        results = []
+        for i, reponame in enumerate(byrepo):
+            files = byrepo[reponame]
+            repo = lookup[reponame]
+            results.append(
+                pool.apply_async(
+                    clone_repo,
+                    args=(
+                        i,
+                        reponame,
+                        files,
+                        repo,
+                        total_count,
+                    ),
+                )
+            )
+        [result.wait() for result in results]
 
-        # List of files
-        files = byrepo[reponame]
-        repo = lookup[reponame]
-        if i % 10 == 0:
-            logging.info(f"{i} of {total_count} results done")
+    raw = [result.get() for result in results]
 
-        repo_dir = os.path.join(data_dir, repo.full_name)
-        if repo.full_name in skips:
+    # For each result, add to repos list
+    print("Parsing final results...")
+    for res in raw:
+        # None return indicates a failed result
+        if not res:
             continue
+        repos.append(Repo(res["repo"], res["readme"], res["updated_files"]).__dict__)
+        # call_rate_limit_aware(
+        #    lambda:repos.append(Repo(res['repo'], res['readme'], res['updated_files']).__dict__)
+        # )
 
-        logging.info(f"Processing {repo.full_name}.")
+    # Write data to file
+    print("Saving data...")
+    store_data()
 
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp = Path(tmp)
 
-            # Create the repo directory
-            if not os.path.exists(repo_dir):
-                os.makedirs(repo_dir)
+def clone_repo(i, reponame, files, repo, total_count):
+    """
+    Multiprocessing function to clone... hope this works :)
+    """
+    skips = set(l.strip() for l in open("skips.txt", "r"))
 
-            # clone main branch
-            try:
-                git.Repo.clone_from(repo.clone_url, str(tmp), depth=1)
-            except git.GitCommandError:
+    # Create a directory structure with spack.yaml files
+    data_dir = os.path.join(here, "_stacks")
+
+    if i % 10 == 0:
+        logging.info(f"{i} of {total_count} results done")
+
+    repo_dir = os.path.join(data_dir, repo.full_name)
+    if repo.full_name in skips:
+        return
+
+    logging.info(f"Processing {repo.full_name}.")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+
+        # Create the repo directory
+        if not os.path.exists(repo_dir):
+            os.makedirs(repo_dir)
+
+        # clone main branch
+        try:
+            git.Repo.clone_from(repo.clone_url, str(tmp), depth=1)
+        except git.GitCommandError:
+            return
+
+        # We will update files if a file doesn't exist or is invalid
+        updated_files = []
+
+        # For each spack yaml, validate
+        for filename in files:
+            spackyaml = tmp / filename
+            if not spackyaml.exists():
                 continue
 
-            # We will update files if a file doesn't exist or is invalid
-            updated_files = []
+            savepath = os.path.join(repo_dir, filename)
+            savedir = os.path.dirname(savepath)
+            if not os.path.exists(savedir):
+                os.makedirs(savedir)
 
-            # For each spack yaml, validate
-            for filename in files:
-                spackyaml = tmp / filename
-                if not spackyaml.exists():
-                    continue
+            # Ensure this is a spack.yaml file, it must have spack or env
+            if not validate_spackyaml(spackyaml):
+                continue
 
-                savepath = os.path.join(repo_dir, filename)
-                savedir = os.path.dirname(savepath)
-                if not os.path.exists(savedir):
-                    os.makedirs(savedir)
+            # TODO: we could validate or generate Dockerfile here
+            shutil.copyfile(str(spackyaml), savepath)
+            updated_files.append(filename)
 
-                # Ensure this is a spack.yaml file, it must have spack or env
-                if not validate_spackyaml(spackyaml):
-                    continue
+        # Look for a readme in the folder, then root
+        readme = None
+        readme_path = tmp / "README.md"
+        if readme_path.exists():
+            with open(readme_path, "r") as f:
+                readme = f.read()
 
-                # TODO: we could validate or generate Dockerfile here
-                shutil.copyfile(str(spackyaml), savepath)
-                updated_files.append(filename)
+    # Don't add repos without any spack.yaml files
+    if not updated_files:
+        return
 
-            # Look for a readme in the folder, then root
-            readme = None
-            readme_path = tmp / "README.md"
-            if readme_path.exists():
-                with open(readme_path, "r") as f:
-                    readme = f.read()
-
-        # Don't add repos without any spack.yaml files
-        if not updated_files:
-            continue
-
-        call_rate_limit_aware(
-            lambda: repos.append(Repo(repo, readme, updated_files).__dict__)
-        )
-        # repos.append(Repo(repo, readme, updated_files).__dict__)
-
-        if len(repos) % 20 == 0:
-            logging.info("Storing intermediate results.")
-            store_data()
-
-    # one final save
-    store_data()
+    print("Adding %s updating files" % len(updated_files))
+    return {"repo": repo, "readme": readme, "updated_files": updated_files}
 
 
 if __name__ == "__main__":

@@ -70,7 +70,6 @@ def get_packages(key, content):
         specs = list(specs.keys())
 
     while specs:
-
         spec = specs.pop(0)
 
         # if it's a matrix
@@ -116,7 +115,6 @@ def main():
     # First count the keys, and get unique package names
     packages = set()
     for spackyaml in spackyamls:
-
         # Try to get specs by parsing spack.yaml
         content = read_yaml(spackyaml)
         if not isinstance(content, dict):
@@ -139,7 +137,6 @@ def main():
     # Now populate the data frame with counts
     print("Found %s spack.yaml env keys and %s spack keys." % (env_keys, spack_keys))
     for i, spackyaml in enumerate(spackyamls):
-
         print("Counting spack.yaml %s of %s" % (i, len(spackyamls)))
         # Try to get specs by parsing spack.yaml
         content = read_yaml(spackyaml)

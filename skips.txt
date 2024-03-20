@@ -4,3 +4,4 @@ autamus/registry
 autamus/spacktainer-registry
 spack/spack-stack-catalog
 spack/spack-aws-parallelcluster-docs
+asarkar-parsys/spackext
