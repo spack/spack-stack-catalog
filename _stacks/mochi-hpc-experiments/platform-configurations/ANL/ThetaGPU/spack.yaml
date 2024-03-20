@@ -1,8 +1,21 @@
 spack:
   specs:
   - mochi-margo
-  repos:
-  - /path/to/mochi-spack-packages
+  compilers:
+  - compiler:
+      spec: gcc@9.4.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: ubuntu20.04
+      target: x86_64
+      modules:
+      - openmpi/openmpi-4.0.5
+      environment: {}
+      extra_rpaths: []
   modules:
     prefix_inspections:
       lib: [LD_LIBRARY_PATH]
@@ -42,10 +55,6 @@ spack:
         prefix: /usr
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         prefix: /usr
@@ -96,29 +105,17 @@ spack:
       - gcc@9.4.0
     openmpi:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: openmpi@4.0.5
         prefix: /lus/theta-fs0/software/thetagpu/openmpi-4.0.5
         modules:
         - openmpi/openmpi-4.0.5
     mercury:
+      buildable: true
       variants: ~boostsys ~checksum
-      version: []
-      target: []
-      compiler: []
-      buildable: true
-      providers: {}
     libfabric:
-      variants: fabrics=verbs,rxm +cuda
-      version: []
-      target: []
-      compiler: []
       buildable: true
-      providers: {}
+      variants: fabrics=verbs,rxm +cuda
     rdma-core:
       externals:
       - spec: rdma-core@39.1
@@ -128,18 +125,3 @@ spack:
       - spec: cuda@11.4.152
         prefix: /usr/local/cuda
   view: true
-  compilers:
-  - compiler:
-      spec: gcc@9.4.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: ubuntu20.04
-      target: x86_64
-      modules:
-      - openmpi/openmpi-4.0.5
-      environment: {}
-      extra_rpaths: []

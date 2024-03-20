@@ -730,6 +730,8 @@ spack:
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
       - spec: nvhpc@24.1
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1
+      - spec: nvhpc@24.3
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3
       buildable: false
     octave:
       variants:
@@ -1145,6 +1147,20 @@ spack:
       environment:
         set:
           NVCCFLAGS: -allow-unsupported-compiler
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
+  - compiler:
+      spec: nvhpc@24.3
+      paths:
+        cc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3/Linux_x86_64/24.3/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3/Linux_x86_64/24.3/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3/Linux_x86_64/24.3/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3/Linux_x86_64/24.3/compilers/bin/nvfortran
+      operating_system: sles15
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3/Linux_x86_64/24.3/compilers/lib
         append_path:
           LD_LIBRARY_PATH: /opt/cray/libfabric/1.15.2.0/lib64
   modules:
@@ -2011,3 +2027,29 @@ spack:
   - parallelio@2.6.2%oneapi@2024.0.2~shared ^cray-mpich@8.1.27%oneapi@2024.0.2
   - parallelio@2.6.2%oneapi@2024.0.2~shared ^mvapich@3.0%oneapi@2024.0.2
   - parallelio@2.6.2%cce@16.0.1~shared ^cray-mpich@8.1.27%cce@16.0.1
+  - nvhpc@24.3
+  - cray-mpich@8.1.27%nvhpc@24.3
+  - ncarcompilers@1.0.0%nvhpc@24.3
+  - fftw@3.3.10%nvhpc@24.3~mpi
+  - udunits@2.2.28%nvhpc@24.3
+  - hdf5@1.14.3%nvhpc@24.3~mpi
+  - netcdf@4.9.2%nvhpc@24.3~mpi
+  - proj@9.2.1%nvhpc@24.3
+  - geos@3.12.1%nvhpc@24.3
+  - hdf@4.2.15%nvhpc@24.3
+  - superlu@5.3.0%nvhpc@24.3
+  - eccodes@2.32.0%nvhpc@24.3
+  - mpi-serial@2.5.0%nvhpc@24.3
+  - parallelio@2.6.2%nvhpc@24.3~mpi~pnetcdf
+  - esmf@8.6.0%nvhpc@24.3~mpi ^nvhpc ^parallelio@2.6.2~mpi
+  - parallel-netcdf@1.12.3%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - hdf5@1.14.3%nvhpc@24.3+mpi ^cray-mpich@8.1.27%nvhpc@24.3
+  - netcdf@4.9.2%nvhpc@24.3+mpi ^cray-mpich@8.1.27%nvhpc@24.3
+  - fftw@3.3.10%nvhpc@24.3+mpi ^cray-mpich@8.1.27%nvhpc@24.3
+  - parallelio1@1.10.1%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - darshan-runtime@3.4.4%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - parallelio@2.6.2%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - esmf@8.6.0%nvhpc@24.3+mpi+pnetcdf ^cray-mpich@8.1.27%nvhpc@24.3 ^nvhpc
+  - parallelio@2.6.2%nvhpc@24.3~shared ^cray-mpich@8.1.27%nvhpc@24.3
+  - osu-micro-benchmarks%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - gptl@8.1.1%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
