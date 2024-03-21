@@ -8,11 +8,11 @@ spack:
   - mochi-ssg+mpi
   - mochi-mona
   - nlohmann-json
+  - nlohmann-json-schema-validator
   - spdlog+fmt_external
   - fmt
   - tclap
   - mercury
-  - valijson
   - py-mochi-margo
   - py-pybind11
   - py-attrs
@@ -33,3 +33,5 @@ spack:
       require: "@0.12.0:"
     py-attrs:
       require: "@22.2.0:"
+    nlohmann-json-schema-validator:
+      require: "@2.3.0:"

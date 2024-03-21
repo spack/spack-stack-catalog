@@ -1851,3 +1851,4 @@ spack:
   - vapor@3.9.1
   - intel-oneapi-vtune@2024.0.0
   - intel-oneapi-advisor@2024.0.0
+  - madis
