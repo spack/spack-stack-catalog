@@ -18,6 +18,20 @@ spack:
       lmod:
         core_compilers:
         - gcc@=7.4.0
+        hierarchy:
+        - mpi
+        projections:
+          all: '{name}/{version}'
+          ^simmetrix-simmodsuite: '{name}/{version}-simmodsuite-{^simmetrix-simmodsuite.version}'
+        pumi:
+          suffixes:
+            ^metis+int64: int64
+            ^metis~int64: int32
+            +shared: shared
+        simmetrix-simmodsuite:
+          environment:
+            set:
+              SIM_LICENSE_FILE: /net/common/meshSim/license/license.txt
   packages:
     all:
       compiler: [gcc@13.1.0]
@@ -111,11 +125,18 @@ spack:
     - pumi@master %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2023.1-230907dev
   - simFull2023.1-230907dev:
-    - simmetrix-simmodsuite@2023.1-230907dev
+    - simmetrix-simmodsuite@2023.1-230907dev %gcc@12.3.0
       +base+parasolid+acis+discrete+abstract+adv+advmodel+import+paralleladapt+parallelmesh
+  - pumiSim2024.0-240119dev:
+    - pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-240119dev
+  - pumiSim2024.0-240219dev:
+    - pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-240219dev
 
   specs:
   - gcc@7.4.0%gcc@11.3.1_rhel9+binutils
+  - gdb%gcc@7.4.0
   - gcc@13.1.0%gcc@7.4.0
   - llvm@16.0.2%gcc@7.4.0+clang
   - mpich%gcc@13.1.0
@@ -134,3 +155,10 @@ spack:
   - cuda@11.6.2%gcc@10.4.0
   - cuda@11.7.1%gcc@10.4.0
   - $simFull2023.1-230907dev
+  - zoltan+parmetis~fortran %gcc@12.3.0
+  - netcdf-c %gcc@12.3.0
+  - $pumiSim2024.0-240119dev
+  - netlib-lapack %gcc@12.3.0
+  - openblas %gcc@12.3.0
+  - adios2+python %gcc@12.3.0
+
