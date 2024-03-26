@@ -1,0 +1,29 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@master%gcc@11.2.1
+    ^hpx+examples+lci_pp_pcounter networking=lci,lcw,mpi max_cpu_count=128 
+    ^lci+examples+tests+benchmarks+pcounter fabric=ofi
+    ^cray-mpich
+    ^silo~mpi
+  - hpx-bench@master
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    hpx_bench:
+      path: ../../../../hpx_bench
+      spec: hpx-bench@=master
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lci:
+      path: ../../../../LC
+      spec: lci@=master
+    lcw:
+      path: ../../../../lcw
+      spec: lcw@=master

@@ -1,0 +1,29 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - hpx-bench@master%gcc ^hpx networking=lci,mpi max_cpu_count=128
+    ^lci+examples+tests+benchmarks fabric=ucx
+    ^openmpi@4.1.5 fabrics=ucx schedulers=slurm +pmi
+    ^ucx+verbs+rc+ud+mlx5_dv+ib_hw_tm+dc+thread_multiple+knem+cma+xpmem+rdmacm
+  - octotiger@master
+  view: true
+  concretizer:
+    unify: true
+    reuse: false
+  develop:
+    mpich:
+      path: ../../../../mpich-master
+      spec: mpich@=master
+    hpx_bench:
+      path: ../../../../hpx_bench
+      spec: hpx-bench@=master
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lci:
+      path: ../../../../LC
+      spec: lci@=master

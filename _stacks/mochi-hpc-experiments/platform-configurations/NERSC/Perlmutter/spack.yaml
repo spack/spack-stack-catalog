@@ -7,9 +7,6 @@ spack:
   specs:
   - mochi-margo
   view: true
-  concretization: together
-  repos:
-  - /path/to/mochi-spack-packages
   compilers:
   - compiler:
       spec: gcc@11.2.0
@@ -24,86 +21,78 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/11.2.0
-      environment: {}
+      - cudatoolkit
+      - xpmem
+      environment:
+        prepend_path:
+          PKG_CONFIG_PATH: /opt/cray/xpmem/default/lib64/pkgconfig/:/usr/lib64/pkgconfig
       extra_rpaths: []
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
   packages:
     all:
       providers:
-        mpi: [ mpich ]
-    mpich:
-      buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
-      externals:
-      - spec: mpich@8.1.15
-        modules:
-        - cray-mpich/8.1.15
-    mercury:
-      variants: ~boostsys ~checksum
+        mpi: [cray-mpich]
+      compiler:
+      - gcc@11.2.0
+      target:
+      - zen3
       buildable: true
-      version: []
-      target: []
-      providers: {}
-      compiler: []
-    libfabric: 
-      externals: 
-      - spec: libfabric@1.11.0.4.114
-        modules: 
-        - libfabric/1.11.0.4.114
-      buildable: true 
-      version: [] 
-      target: [] 
-      providers: {} 
-      compiler: []
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.25 arch=cray-sles15-zen3
+        modules:
+        - cray-mpich/8.1.25
+    mercury:
+      buildable: true
+      variants: ~boostsys ~checksum
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.15.2.0
+        modules:
+        - libfabric/1.15.2.0
     autoconf:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: autoconf@2.69
         prefix: /usr
     automake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: automake@1.15.1
         prefix: /usr
     cmake:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: cmake@3.22.0
         modules:
         - cmake/3.22.0
     libtool:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: libtool@2.4.6
         prefix: /usr
     json-c:
       buildable: false
-      version: []
-      target: []
-      compiler: []
-      providers: {}
       externals:
       - spec: json-c@0.13
         prefix: /usr
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
     m4:
+      buildable: false
       externals:
       - spec: m4@1.4.18
+        prefix: /usr
+    gmake:
+      buildable: false
+      externals:
+      - spec: gmake@4.2.1
         prefix: /usr
