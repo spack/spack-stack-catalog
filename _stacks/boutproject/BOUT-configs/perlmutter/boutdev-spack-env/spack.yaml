@@ -11,7 +11,8 @@ spack:
   - umpire@2022.03.1+cuda~examples+numa+openmp cuda_arch=80
   - fmt@10.0.0
   - netcdf-cxx4@4.3.1
-  - fftw@3.3.10
+  - fftw@3.3.10~mpi
+  - hypre+cuda+umpire~mpi~superlu-dist cuda_arch=80
   view: true
   concretizer:
     unify: true
