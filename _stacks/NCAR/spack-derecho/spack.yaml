@@ -973,6 +973,13 @@ spack:
       buildable: false
       require:
       - '%gcc@7.5.0'
+    libtorch:
+      externals:
+      - spec: libtorch@2.1.2
+        prefix: /glade/u/apps/opt/libtorch/2.1.2
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
   view:
     baseenv:
       root: /glade/u/apps/derecho/23.09/opt/view
@@ -1468,6 +1475,11 @@ spack:
           environment:
             append_path:
               PATH: '{^llvm.prefix}/bin'
+        libtorch:
+          filter:
+            exclude_env_vars:
+            - PATH
+            - CMAKE_PREFIX_PATH
         miniconda3:
           filter:
             exclude_env_vars:
@@ -1587,6 +1599,7 @@ spack:
           parallelio~shared: parallelio/{version}-static
           mvapich~cuda: mvapich/{version}-cpu
           mvapich+cuda: mvapich/{version}-cuda
+          py-torch: libtorch/{version}
         singularityce:
           environment:
             prepend_path:
@@ -2053,3 +2066,5 @@ spack:
   - parallelio@2.6.2%nvhpc@24.3~shared ^cray-mpich@8.1.27%nvhpc@24.3
   - osu-micro-benchmarks%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
   - gptl@8.1.1%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
+  - madis
+  - libtorch@2.1.2
