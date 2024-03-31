@@ -2068,3 +2068,5 @@ spack:
   - gptl@8.1.1%nvhpc@24.3 ^cray-mpich@8.1.27%nvhpc@24.3
   - madis
   - libtorch@2.1.2
+  - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf ^mpi-serial@2.5.0
+  - esmf@8.6.0%oneapi@2023.2.1~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi

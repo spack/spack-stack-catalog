@@ -405,6 +405,9 @@ spack:
     imagemagick:
       variants:
       - +ghostscript
+    intel-oneapi-advisor:
+      require:
+      - '%gcc@7.5.0'
     intel-oneapi-compilers:
       require:
       - '%gcc@7.5.0'
@@ -415,6 +418,9 @@ spack:
       variants:
       - +external-libfabric
       - +generic-names
+    intel-oneapi-vtune:
+      require:
+      - '%gcc@7.5.0'
     ispc:
       require: '%clang'
     jasper:
@@ -489,6 +495,9 @@ spack:
       - '%gcc@7.5.0'
     libtool:
       require: '%gcc@7.5.0'
+    libtorch:
+      require:
+      - '%gcc@7.5.0'
     libunwind:
       require: '%gcc@7.5.0'
       variants:
@@ -880,6 +889,10 @@ spack:
             - GOPATH
         cdo:
           autoload: none
+        charliecloud:
+          environment:
+            prepend_path:
+              PATH: /glade/work/csgteam/spack-deployments/derecho/23.09/envs/build/wrappers/{name}/{version}/{hash:4}/bin
         core_compilers:
         - gcc@7.5.0
         core_specs:
@@ -904,7 +917,7 @@ spack:
               CRAY_TCMALLOC_MEMFS_FORCE: '1'
               CUDATOOLKIT_HOME: '{prefix}'
               CUDA_VERSION: '{version}'
-              NCAR_LIBS_CRAYGTL: -lstdc++
+              NCAR_LIBS_CRAYGTL: -lcuda -lcudart -lstdc++
               NVHPC_CUDA_HOME: '{prefix}'
             prepend_path:
               CRAY_LD_LIBRARY_PATH: '{prefix}/lib64'
@@ -932,7 +945,7 @@ spack:
         defaults:
         - netcdf@4.9.2
         - nvhpc@23.7
-        - parallelio+mpi
+        - parallelio+mpi+shared
         - esmf+mpi
         - cuda@12.2.1
         - intel-oneapi-compilers@2023.2.1
@@ -963,6 +976,15 @@ spack:
           template: conflict-serial.lua
         hierarchy:
         - mpi
+        intel-oneapi-advisor:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_ADVISOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_ADVISOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_ADVISOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_ADVISOR: '{hash}'
         intel-oneapi-compilers:
           template: ncar_intel.lua
           filter:
@@ -1019,6 +1041,15 @@ spack:
               OMPI_F77: ifort
               OMPI_FC: ifort
               PE_ENV: INTEL
+        intel-oneapi-inspector:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_INSPECTOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_INSPECTOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_INSPECTOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_INSPECTOR: '{hash}'
         intel-oneapi-mkl:
           template: ncar_math.lua
           filter:
@@ -1054,14 +1085,19 @@ spack:
             - NCAR_SPACK_HASH_INTEL_ONEAPI_VTUNE
           environment:
             set:
-              NCAR_ROOT_VTUNE: '{prefix}'
-              NCAR_SPACK_HASH_VTUNE: '{hash}'
+              NCAR_ROOT_INTEL_VTUNE: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
         julia:
           environment:
             append_path:
               PATH: '{^llvm.prefix}/bin'
+        libtorch:
+          filter:
+            exclude_env_vars:
+            - CMAKE_PREFIX_PATH
+            - PATH
         miniconda3:
           filter:
             exclude_env_vars:
@@ -1161,15 +1197,19 @@ spack:
           netcdf+mpi: netcdf-mpi/{version}
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
+          intel-oneapi-advisor: intel-advisor/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
+          intel-oneapi-inspector: intel-inspector/{version}
           intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
-          intel-oneapi-vtune: vtune/{version}
+          intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          parallelio~shared: parallelio/{version}-static
           mvapich~cuda: mvapich/{version}-cpu
           mvapich+cuda: mvapich/{version}-cuda
+          py-torch: libtorch/{version}
         rstudio:
           filter:
             exclude_env_vars:
