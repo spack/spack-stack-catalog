@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - gromacs+mpi
+  - mpich
+
+  container:
+    images:
+      os: fedora:38
+      spack: v0.20.1
