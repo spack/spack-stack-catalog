@@ -13,3 +13,8 @@ spack:
   - mochi-bedrock+mona+mpi+ssg
   concretizer:
     unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
