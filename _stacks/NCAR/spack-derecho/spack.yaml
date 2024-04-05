@@ -359,9 +359,9 @@ spack:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
       require:
-      - any_of:
-        - '@8.1: +external-lapack'
-        - '@:8'
+      - one_of:
+        - +external-lapack
+        when: '@8.1:'
       variants:
       - +parallelio
       - ~mpi
