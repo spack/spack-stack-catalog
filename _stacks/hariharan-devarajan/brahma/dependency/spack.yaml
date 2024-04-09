@@ -1,9 +1,9 @@
 spack:
   specs:
   - cmake
-  - gotcha@1.0.4
+  - gotcha@1.0.5
   - catch2@3.0.1
-  - cpp-logger@0.0.1
+  - cpp-logger@0.0.2
   concretizer:
     unify: true
-  view: true
+  view: /mount/shared/install

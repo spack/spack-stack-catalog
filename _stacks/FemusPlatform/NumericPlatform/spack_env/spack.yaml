@@ -27,12 +27,14 @@ spack:
   - petsc@3.17.2~hdf5+hypre+metis+mpi+mumps
 
   # med and medcoupling versions are linked together, check salome release notes
-  - salome-med@4.1.0+int64
+  - salome-med@4.1.1+int64+mpi~static
   - salome-medcoupling@9.11.0+int64+mpi~static~python
 
   # slepc minor version must be the same as petsc
   - slepc@3.17.0
 
+  - cmake
+  - openssl
   view: true
   concretizer:
     unify: true

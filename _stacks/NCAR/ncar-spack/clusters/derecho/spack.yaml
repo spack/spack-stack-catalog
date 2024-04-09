@@ -49,12 +49,16 @@ spack:
         - openblas
         - intel-oneapi-mkl
         - cray-libsci
+        - nvhpc
         'blas:':
         - openblas
         - intel-oneapi-mkl
         - cray-libsci
+        - nvhpc
         'zlib-api:':
         - zlib
+        'rpc:':
+        - libtirpc
       permissions:
         read: world
         write: user
@@ -62,27 +66,15 @@ spack:
         # This target is lowest-common denominator between Intel and Milans
       - x86_64_v3
       require:
-        # This should force packages to use the vendor-preferred solution
-        # for BLAS and LAPACK without needing to set it on each package
-      - one_of:
-        - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@12 ^cray-libsci %gcc@12'
-        - '%gcc@13 ^openblas %gcc@13'
-        - '%cce ^cray-libsci'
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%nvhpc ^nvhpc'
-        when: ^blas
-      - one_of:
-        - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@12 ^cray-libsci %gcc@12'
-        - '%gcc@13 ^openblas %gcc@13'
-        - '%cce ^cray-libsci'
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%nvhpc ^nvhpc'
-        when: ^lapack
       - any_of:
         - ^pkg-config
         when: ^pkgconfig
+      - one_of:
+        - '%gcc ^openblas'
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
+        when: ^blas
     antlr:
       require: '%gcc@7.5.0'
     aocc:
@@ -94,6 +86,9 @@ spack:
     arpack-ng:
       variants:
       - ~mpi
+    attr:
+      require:
+      - '%gcc@7.5.0'
     autoconf:
       require: '%gcc@7.5.0'
     autoconf-archive:
@@ -125,6 +120,10 @@ spack:
     cdo:
       variants:
       - +curl
+      require:
+      - one_of:
+        - ^proj@9
+        when: +proj
     charliecloud:
       variants:
       - +squashfuse
@@ -184,12 +183,13 @@ spack:
       - '%gcc@7.5.0'
     curl:
       # Need mbedtls option for Julia - most other packages seem to prefer openSSL
-      require: '%gcc@7.5.0'
+      require:
+      - '%gcc@7.5.0'
+      - tls=openssl,mbedtls
       variants:
       - +libidn2
       - +libssh2
       - +nghttp2
-      - tls=openssl,mbedtls
     darshan-runtime:
       variants:
       - +parallel-netcdf
@@ -230,17 +230,23 @@ spack:
       - +X
       - +json
       - +treesitter
-      require:
-      - any_of:
-        - ^gtkplus+cups
-        when: +X
     esmf:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
       require:
-      - any_of:
-        - '@8.1: +external-lapack'
-        - '@:8'
+      - one_of:
+        - +external-lapack
+        when: '@8.1:'
+      - one_of:
+        - ^parallelio@2.6.2
+        when: +external-parallelio @8.6.0
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
+        when: ^lapack
       variants:
       - +parallelio
       - ~mpi
@@ -298,6 +304,9 @@ spack:
       - any_of:
         - ^hdf5~mpi
         when: +hdf5
+      - one_of:
+        - ^proj@9
+        when: '@3:'
       variants:
       - +blosc
       - +curl
@@ -376,16 +385,17 @@ spack:
     groff:
       require:
       - '%gcc@7.5.0'
-    gtkplus:
-      variants:
-      - +cups
     harfbuzz:
       variants:
       - +graphite2
     hdf:
       variants:
+      - +external-xdr
       - +fortran
       - +szip
+    hdf-eos2:
+      require:
+      - '@:2'
     hdf5:
       variants:
       - +cxx
@@ -397,6 +407,14 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +cuda
+    hypre:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     icu4c:
       require: '%gcc@7.5.0'
     idl:
@@ -444,13 +462,23 @@ spack:
       require:
       - '%gcc@7.5.0'
     libarchive:
-      require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      require:
+      - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      - '%gcc@7.5.0'
+    libcap:
+      require:
+      - '%gcc@7.5.0'
     libcatalyst:
       require:
       - '%gcc@7.5.0'
     libdeflate:
       require:
       - '%gcc@7.5.0'
+    libemos:
+      require:
+      - one_of:
+        - ^eccodes@2.25
+        when: grib=eccodes
     libfabric:
       require:
       - '%gcc@7.5.0'
@@ -533,6 +561,14 @@ spack:
       # Julia of course...
       require:
       - '%gcc@7.5.0'
+    magma:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     matlab:
       require:
       - '%gcc@7.5.0'
@@ -680,7 +716,10 @@ spack:
       - '%gcc@7.5.0'
     openssl:
       # Requiring certs=system is necessary to perform builds like rust using
-      # external openssl
+      # external openssl. Also note that I've edited the package to remove the
+      # deprecation status of this version. It makes the concretizer wildly
+      # unpredictable and fussy! This seems justified as the Spack documentation
+      # itself suggests that the trusted thing to do is to use the system version
       require:
       - certs=system
       - '%gcc@7.5.0'
@@ -699,6 +738,9 @@ spack:
       - any_of:
         - ~pnetcdf
         when: ~mpi
+      - one_of:
+        - ^mpi-serial@2.5.0
+        when: ~mpi @2.6.2
     parallelio1:
       variants:
       - +pnetcdf
@@ -716,6 +758,14 @@ spack:
       - '%gcc@7.5.0'
     perl:
       require: '%gcc@7.5.0'
+    petsc:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     pkg-config:
       require:
       - '%gcc@7.5.0'
@@ -725,12 +775,19 @@ spack:
     protobuf:
       require:
       - '%gcc@7.5.0'
+    py-cftime:
+      require:
+      # DAG - help METPlus use same MET
+      - ^py-cython@0.29.36
     py-fypp:
       require:
       - '%gcc@7.5.0'
     py-netcdf4:
       variants:
       - ~mpi
+      require:
+      # DAG - help METPlus use same MET
+      - ^py-cython@0.29.36
     py-numpy:
       # TODO - force use of non-Julia openblas, but next time build it first
       require:
@@ -748,9 +805,11 @@ spack:
       variants:
       - +dbus
       - +examples
-      - +gtk
       - +opengl
       - +webkit
+      require:
+      - +gtk
+      - '@5.14.2'
     readline:
       require: '%gcc@7.5.0'
     rstudio:
@@ -770,9 +829,24 @@ spack:
       - '%gcc@7.5.0'
     sqlite:
       require: '%gcc@7.5.0'
+    superlu:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     superlu-dist:
       variants:
       - +openmp
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     sz:
       require:
       - '%gcc@7.5.0'
@@ -800,10 +874,6 @@ spack:
       - +ruby
       - +x
       - features=huge
-      require:
-      - any_of:
-        - ^gtkplus+cups
-        when: +gtk
     vtk-m:
       require:
       - '%gcc@7.5.0'
@@ -1226,3 +1296,4 @@ spack:
             - GOPATH
   concretizer:
     unify: false
+    reuse: false
