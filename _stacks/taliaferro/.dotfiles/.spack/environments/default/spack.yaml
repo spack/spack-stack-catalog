@@ -12,12 +12,11 @@ spack:
   - jq
   - py-black
   - py-ipython
-  ## commented because they introduce a dependency on rust
-  ## which takes an eternity to build
-  # - py-ansible
-  # - ripgrep
-  # - bat
+  - py-ansible
+  - ripgrep
+  - bat
   - w3m
+  - task@2
   view: true
   concretizer:
     unify: true

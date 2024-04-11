@@ -48,9 +48,11 @@ spack:
         'lapack:':
         - openblas
         - intel-oneapi-mkl
+        - nvhpc
         'blas:':
         - openblas
         - intel-oneapi-mkl
+        - nvhpc
         'zlib-api:':
         - zlib
       permissions:
@@ -63,17 +65,13 @@ spack:
         # This should force packages to use the vendor-preferred solution
         # for BLAS and LAPACK without needing to set it on each package
       - any_of:
-        - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^openblas %gcc@11:'
+        - '%gcc ^openblas'
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^blas
       - any_of:
-        - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@11: ^openblas %gcc@11:'
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%nvhpc ^nvhpc'
-        when: ^lapack
+        - ^pkg-config
+        when: ^pkgconfig
     antlr:
       require: '%gcc@7.5.0'
     apptainer:
@@ -82,6 +80,9 @@ spack:
     arpack-ng:
       variants:
       - ~mpi
+    attr:
+      require:
+      - '%gcc@7.5.0'
     autoconf:
       require: '%gcc@7.5.0'
     autoconf-archive:
@@ -104,6 +105,9 @@ spack:
     c-blosc:
       require:
       - '%gcc@7.5.0'
+    c-blosc2:
+      require:
+      - '%gcc@7.5.0'
     cairo:
       require: '%gcc@7.5.0'
       variants:
@@ -116,6 +120,10 @@ spack:
     cdo:
       variants:
       - +curl
+      require:
+      - one_of:
+        - ^proj@9
+        when: +proj
     charliecloud:
       variants:
       - +squashfuse
@@ -138,12 +146,13 @@ spack:
       require: '%gcc@7.5.0'
     curl:
       # Need mbedtls option for Julia - most other packages seem to prefer openSSL
-      require: '%gcc@7.5.0'
+      require: 
+      - '%gcc@7.5.0'
+      - tls=openssl,mbedtls
       variants:
       - +libidn2
       - +libssh2
       - +nghttp2
-      - tls=openssl,mbedtls
     cutensor:
       require: '%gcc@7.5.0'
     darshan-runtime:
@@ -165,6 +174,9 @@ spack:
       - '%gcc@7.5.0'
       variants:
       - +graphviz
+    ecbuild:
+      require:
+      - '%gcc@7.5.0'
     eccodes:
       variants:
       - +fortran
@@ -174,13 +186,28 @@ spack:
       - jp2k=jasper
     eigen:
       require: '%gcc@7.5.0'
+    emacs:
+      variants:
+      - +X
+      - +json
+      - +treesitter
     esmf:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
       require:
       - any_of:
-        - '@8.1: +external-lapack'
-        - '@:8'
+        - '+external-lapack'
+        when: '@8.1:'
+      - one_of:
+        - ^parallelio@2.6.2
+        when: '+external-parallelio @8.6.0'
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
+        when: ^lapack
       variants:
       - +parallelio
       - ~mpi
@@ -188,6 +215,9 @@ spack:
       - ~xerces
     expat:
       require: '%gcc@7.5.0'
+    ferret:
+      variants:
+      - +datasets
     ffmpeg:
       variants:
       - +X
@@ -239,6 +269,9 @@ spack:
       - any_of:
         - ^hdf5~mpi
         when: +hdf5
+      - one_of:
+        - ^proj@9
+        when: '@3:'
       variants:
       - +blosc
       - +curl
@@ -293,6 +326,21 @@ spack:
     gmake:
       require:
       - '%gcc@7.5.0'
+    gmp:
+      require:
+      - '%gcc@7.5.0'
+    gmt:
+      variants:
+      - +ffmpeg
+      - +fftw
+      - +geos
+      - +ghostscript
+      - +glib
+      - +pcre
+      - ~graphicsmagick
+      require:
+      - +blas
+      - +lapack
     gnuplot:
       variants:
       - +X
@@ -307,21 +355,32 @@ spack:
     grads:
       variants:
       - +dap
+    graphicsmagick:
+      # graphicsmagick can't built using libjpeg>2
+      # https://github.com/ImageMagick/ImageMagick/issues/6514
+      require:
+      - ^libjpeg-turbo@:2
+      - '%gcc@7.5.0'
     groff:
       require:
       - '%gcc@7.5.0'
-    gtkplus:
-      variants:
-      - +cups
     harfbuzz:
       variants:
       - +graphite2
     hdf:
       variants:
+      - +external-xdr
       - +fortran
       - +szip
+    hdf-eos2:
+      require:
+      - '@:2'
+    hdf-eos5:
+      require:
+      - any_of:
+        - ^hdf5@1.10
+        when: '%gcc@7.5.0'
     hdf5:
-      require: '@:1.12'
       variants:
       - +cxx
       - +fortran
@@ -332,6 +391,14 @@ spack:
       require: '%gcc@7.5.0'
       variants:
       - +cuda
+    hypre:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     icu4c:
       require: '%gcc@7.5.0'
     idl:
@@ -339,12 +406,21 @@ spack:
     imagemagick:
       variants:
       - +ghostscript
+    intel-oneapi-advisor:
+      require:
+      - '%gcc@7.5.0'
     intel-oneapi-compilers:
       require: '%gcc@7.5.0'
+    intel-oneapi-inspector:
+      require:
+      - '%gcc@7.5.0'
     intel-oneapi-mpi:
       variants:
       - +external-libfabric
       - +generic-names
+    intel-oneapi-vtune:
+      require:
+      - '%gcc@7.5.0'
     ispc:
       require: '%clang'
     jasper:
@@ -364,13 +440,29 @@ spack:
     krb5:
       require:
       - '%gcc@7.5.0'
+    libaec:
+      require:
+      - '%gcc@7.5.0'
     libarchive:
-      require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      require:
+      - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      - '%gcc@7.5.0'
+    libcap:
+      require:
+      - '%gcc@7.5.0'
     libcatalyst:
       require:
       - '%gcc@7.5.0'
     libdeflate:
       require: '%gcc@7.5.0'
+    libemos:
+      require:
+      - one_of:
+        - ^eccodes@2.25
+        when: grib=eccodes
+    libevent:
+      require:
+      - '%gcc@7.5.0'
     libfabric:
       require: '%gcc@7.5.0'
       variants:
@@ -392,6 +484,9 @@ spack:
       require: '%gcc@7.5.0'
     libogg:
       require: '%gcc@7.5.0'
+    libpciaccess:
+      require:
+      - '%gcc@7.5.0'
     libpng:
       require: '%gcc@7.5.0'
     libssh2:
@@ -424,6 +519,9 @@ spack:
       require: '%gcc@7.5.0'
     libxcb:
       require: '%gcc@7.5.0'
+    libxcrypt:
+      require:
+      - '%gcc@7.5.0'
     libxml2:
       require: '%gcc@7.5.0'
     linaro-forge:
@@ -431,11 +529,22 @@ spack:
     lustre:
       require:
       - '%gcc@7.5.0'
+    lwgrp:
+      require:
+      - '%gcc@7.5.0'
     lz4:
       require: '%gcc@7.5.0'
     m4:
       require:
       - '%gcc@7.5.0'
+    magma:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     matlab:
       require: '%gcc@7.5.0'
     maven:
@@ -457,6 +566,9 @@ spack:
       - spec: miniconda3@4.12.0
         prefix: /glade/u/apps/opt/conda
       buildable: false
+    motif:
+      require:
+      - ^autoconf@2.69
     mpifileutils:
       variants:
       - +gpfs
@@ -466,8 +578,7 @@ spack:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
       require:
-      - ^esmf@:8.0.1 ~external-lapack
-      - ^hdf5~mpi
+      - '%gcc@7.5.0'
       variants:
       - +gdal
       - +grib
@@ -524,13 +635,14 @@ spack:
       - '%gcc@7.5.0'
     openmpi:
       require:
+      # Make sure to get rid of knem next time!
       - fabrics=cma,knem,ucx
       - schedulers=tm
       - +gpfs
       - +lustre
       - +internal-pmix
       - any_of:
-        - ^cuda@12.2.1
+        - ^cuda@12
         when: '@4.1.6 +cuda'
       variants:
       - +cuda
@@ -546,7 +658,10 @@ spack:
       - '%gcc@7.5.0'
     openssl:
       # Requiring certs=system is necessary to perform builds like rust using
-      # external openssl
+      # external openssl. Also note that I've edited the package to remove the
+      # deprecation status of this version. It makes the concretizer wildly
+      # unpredictable and fussy! This seems justified as the Spack documentation
+      # itself suggests that the trusted thing to do is to use the system version
       require:
       - certs=system
       - '%gcc@7.5.0'
@@ -564,6 +679,13 @@ spack:
       - +ncint
       - +pnetcdf
       - ~logging
+      require:
+      - any_of:
+        - ~pnetcdf
+        when: ~mpi
+      - one_of:
+        - ^mpi-serial@2.5.0
+        when: ~mpi @2.6.2
     parallelio1:
       variants:
       - +pnetcdf
@@ -602,6 +724,14 @@ spack:
       require: '%gcc@7.5.0'
     perl:
       require: '%gcc@7.5.0'
+    petsc:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     pkg-config:
       require:
       - '%gcc@7.5.0'
@@ -610,8 +740,24 @@ spack:
     pocl:
       variants:
       - +icd
+    postgresql:
+      variants:
+      - +xml
     protobuf:
       require: '%gcc@7.5.0'
+    py-cftime:
+      require:
+      # DAG - help METPlus use same MET
+        - ^py-cython@0.29.36
+    py-fypp:
+      require:
+      - '%gcc@7.5.0'
+    py-netcdf:
+      variants:
+        - ~mpi
+      require:
+      # DAG - help METPlus use same MET
+        - ^py-cython@0.29.36
     py-setuptools:
       # Newer versions cannot be used by py-numpy as of Aug 2023
       require: '@:63'
@@ -621,9 +767,11 @@ spack:
       variants:
       - +dbus
       - +examples
-      - +gtk
       - +opengl
       - +webkit
+      require:
+      - +gtk
+      - '@5.14.2'
     readline:
       require: '%gcc@7.5.0'
     rstudio:
@@ -642,6 +790,22 @@ spack:
       require: '%gcc@7.5.0'
     sqlite:
       require: '%gcc@7.5.0'
+    superlu:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
+    superlu-dist:
+      require:
+      - one_of:
+        # This should force packages to use the vendor-preferred solution
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%gcc ^openblas'
+        - '%nvhpc ^nvhpc'
+        - '%cce ^cray-libsci'
     sz:
       require: '%gcc@7.5.0'
     tar:
@@ -675,6 +839,17 @@ spack:
     vapor:
       variants:
       - +ospray
+    vim:
+      variants:
+      - +cscope
+      - +gtk
+      - +gui
+      - +lua
+      - +perl
+      - +python
+      - +ruby
+      - +x
+      - features=huge
     visit:
       variants:
       - +hdf5
@@ -735,7 +910,7 @@ spack:
       - git
       link_type: symlink
       link: roots
-  compilers: []
+  'compilers:': []
   modules:
     'default:':
       roots:
@@ -774,16 +949,23 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        cdo:
+          autoload: none
+        charliecloud:
+          environment:
+            prepend_path:
+              PATH: /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/wrappers/{name}/{version}/{hash:4}/bin
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - cdo
+        - gmt
+        - nco
         - visit
         - paraview
         - octave
         - nccmp
         - ncview
-        - cdo
-        - nco
         - cuda
         - r
         - cmake
@@ -818,10 +1000,10 @@ spack:
               DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
         defaults:
         - netcdf@4.9.2
-        - parallel-netcdf@1.12.3
-        - fftw@3.3.10
         - openmpi@4.1.6
         - cuda@12.2.1
+        - gcc@12.2.0
+        - intel-oneapi-compilers@2023.2.1
         - nvhpc@23.7
         - parallelio+mpi
         - esmf+mpi
@@ -840,6 +1022,7 @@ spack:
               NCAR_BUILD_ENV: casper-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
         hash_length: 0
         hdf5+mpi:
           template: conflict-mpi.lua
@@ -847,6 +1030,15 @@ spack:
           template: conflict-serial.lua
         hierarchy:
         - mpi
+        intel-oneapi-advisor:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_ADVISOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_ADVISOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_ADVISOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_ADVISOR: '{hash}'
         intel-oneapi-compilers:
           template: ncar_intel.lua
           filter:
@@ -866,6 +1058,7 @@ spack:
               NCAR_BUILD_ENV: casper-oneapi-{version}
               NCAR_BUILD_ENV_COMPILER: casper-oneapi-{version}
               NCAR_ID_COMPILER: oneapi-{version}
+              NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_ROOT_ONEAPI: '{prefix}'
               NCAR_SPACK_HASH_ONEAPI: '{hash}'
               OMPI_CC: icx
@@ -893,12 +1086,22 @@ spack:
               NCAR_BUILD_ENV: casper-intel-{^intel-oneapi-compilers.version}
               NCAR_BUILD_ENV_COMPILER: casper-intel-{^intel-oneapi-compilers.version}
               NCAR_ID_COMPILER: intel-{^intel-oneapi-compilers.version}
+              NCAR_ROOT_COMPILER: '{^intel-oneapi-compilers.prefix}'
               NCAR_ROOT_INTEL: '{^intel-oneapi-compilers.prefix}'
               NCAR_SPACK_HASH_INTEL: '{hash}'
               OMPI_CC: icc
               OMPI_CXX: icpc
               OMPI_F77: ifort
               OMPI_FC: ifort
+        intel-oneapi-inspector:
+          filter:
+            exclude_env_vars:
+            - NCAR_ROOT_INTEL_ONEAPI_INSPECTOR
+            - NCAR_SPACK_HASH_INTEL_ONEAPI_INSPECTOR
+          environment:
+            set:
+              NCAR_ROOT_INTEL_INSPECTOR: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_INSPECTOR: '{hash}'
         intel-oneapi-mkl:
           template: ncar_math.lua
           filter:
@@ -929,8 +1132,8 @@ spack:
             - NCAR_SPACK_HASH_INTEL_ONEAPI_VTUNE
           environment:
             set:
-              NCAR_ROOT_VTUNE: '{prefix}'
-              NCAR_SPACK_HASH_VTUNE: '{hash}'
+              NCAR_ROOT_INTEL_VTUNE: '{prefix}'
+              NCAR_SPACK_HASH_INTEL_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
         julia:
@@ -948,9 +1151,13 @@ spack:
             - NCAR_SPACK_HASH_LLVM
           environment:
             set:
+              NCAR_BUILD_ENV: casper-clang-{version}
+              NCAR_BUILD_ENV_COMPILER: casper-clang-{version}
+              NCAR_ID_COMPILER: clang-{version}
               NCAR_INC_CLANG: '{prefix}/include'
               NCAR_LDFLAGS_CLANG: '{prefix}/lib'
               NCAR_ROOT_CLANG: '{prefix}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_SPACK_HASH_CLANG: '{hash}'
         miniconda3:
           filter:
@@ -979,11 +1186,18 @@ spack:
             set:
               NCAR_BUILD_ENV_MPI: casper-{compiler.name}-{compiler.version}-{name}-{version}
               NCAR_ID_MPI: '{name}-{version}'
+              NCAR_ROOT_MPI: '{prefix}'
         ncarcompilers:
           environment:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
           template: ncar_wrapper.lua
+        nccmp:
+          autoload: none
+        nco:
+          autoload: none
+        ncview:
+          autoload: none
         netcdf:
           autoload: all
         netcdf+mpi:
@@ -996,6 +1210,7 @@ spack:
               NCAR_BUILD_ENV: casper-{name}-{version}
               NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
               NCAR_ID_COMPILER: '{name}-{version}'
+              NCAR_ROOT_COMPILER: '{prefix}'
               NVIDIA_PATH: '{prefix}'
               NVIDIA_VERSION: '{version}'
             prepend_path:
@@ -1013,6 +1228,12 @@ spack:
               OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
+        openmpi@5:
+          environment:
+            set:
+              # https://github.com/open-mpi/ompi/issues/9647
+              OMPI_MCA_rmaps_default_mapping_policy: :hwtcpus
+              OMPI_MCA_smsc: ^knem
         parallel-netcdf:
           environment:
             set:
@@ -1037,17 +1258,22 @@ spack:
               PIO: '{prefix}'
         paraview:
           autoload: none
+          environment:
+            prepend_path:
+              PATH: /glade/work/csgteam/spack-deployments/casper/23.10/envs/build/wrappers/{name}/{version}/{hash:4}/bin
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
           netcdf+mpi: netcdf-mpi/{version}
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
+          intel-oneapi-advisor: intel-advisor/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
+          intel-oneapi-inspector: intel-inspector/{version}
           intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
-          intel-oneapi-vtune: vtune/{version}
+          intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           llvm+clang: clang/{version}
@@ -1069,3 +1295,4 @@ spack:
           autoload: none
   concretizer:
     unify: false
+    reuse: false
