@@ -1,0 +1,42 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - compilers:
+    - intel@2021.10.0
+  - mpis:
+    - openmpi@4.1.5
+  - serial_packages:
+    - fortranxml@4.1.2
+  - packages:
+    - esmf@8.5.0+debug
+    - parallelio@2.6.2 build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert
+      big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source'
+      cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99'
+    - netcdf-c@4.9.2 build_system=cmake build_type=RelWithDebInfo
+    - netcdf-fortran@4.6.1
+    - fms@2023.02 precision=64 +large_file +deprecated_io ~gfs_phys ~openmp ~quad_precision
+      build_type=RelWithDebInfo
+    - access-om3 +install_libraries
+  specs:
+  - matrix:
+    - [$mpis]
+    - [$%compilers]
+  - matrix:
+    - [$packages]
+    - [$^mpis]
+    - [$%compilers]
+  - matrix:
+    - [$serial_packages]
+    - [$%compilers]
+  view: true
+  concretizer:
+    unify: true
+  modules:
+    default:
+      roots:
+        tcl: $spack/../modules/access-om3/0.x.0
+      tcl:
+        naming_scheme: '{name}/{version}'

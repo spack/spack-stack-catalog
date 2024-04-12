@@ -1,0 +1,38 @@
+spack:
+  definitions:
+  - packages:
+    
+    # aocc, rocm, gcc, llvm: provided by system installations
+    - perl@5.36.0
+    # this is a proposed change to eliminate openss and older go
+    #- openssl@3.0.7 ^perl@5.36.0
+    # do we really need openssl 3.0.7?
+    #- go@1.17.2 ^openssl@3.0.7
+    - go@1.19.10
+    
+    # NotReadyYet:    
+    # - julia@1.6.1 #Default recipe is very weak. Faulty. Lots of needed dependencies are missing.
+    - openjdk@17.0.5_8
+    - r@4.2.2        #failed with error: controlling expression type 'long double' not compatible with any generic association type 
+    - ruby@3.1.0     #failed with ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
+    
+    # latest version of rust available may have issues but spack listed latest release is fine. 
+    - rust@1.60.0 ^python@3.10.10 +optimizations+zlib   #failed with ld.lld: error: relocation R_X86_64_32 cannot be used against local symbol; recompile with -fPIC
+  - py-utilities:
+    - py-pip@23.1.2
+    - py-setuptools@68.0.0
+  specs:
+  - matrix:
+    - [python@3.10.10 +optimizations]
+    - ['%cce@15.0.1']
+    - [target=zen3]
+  - matrix:
+    - [$py-utilities]
+    - [^python@3.10.10 +optimizations+zlib]
+    - ['%cce@15.0.1']
+    - [target=zen3]
+  - matrix:
+    - [$packages]
+    - ['%cce@15.0.1']
+    - [target=zen3]
+  view: false
