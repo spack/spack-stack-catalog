@@ -1,18 +1,43 @@
 spack:
   specs:
-  - cp2k@master +libxc +libint +cosma +spglib +dlaf build_system=cmake ^dbcsr@develop ^cosma+scalapack+shared ^intel-mkl threads=openmp ^mpich@4.0.1 device=ch3 netmod=tcp
+  - cp2k@master +elpa +dlaf +mpi_f08 build_system=cmake
   packages:
     all:
-      variants:
-      - +mpi
-      - ~cuda
-  repos:
-  - ~/git/my-spack/repos/cp2k-dlaf
-  - ~/git/DLA-Future/spack/
-  develop:
+      prefer:
+        - +mpi
+        - ~cuda
+        - ~rocm
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4.1: device=ch3 netmod=tcp"
+    blas:
+      require:
+        - intel-oneapi-mkl
+    lapack:
+      require:
+        - intel-oneapi-mkl
+    scalapack:
+      require:
+        - intel-oneapi-mkl
+    intel-oneapi-mkl:
+      require:
+        - +cluster
+        - threads=none
     dla-future:
-      path: ~/git/DLA-Future
-      spec: dla-future@master +scalapack
+      require:
+        - "@0.4.0"
+    pika:
+      require: 
+        - "@0.22.1"
+  # repos:
+  #  - ~/git/DLA-Future/spack/
+  # develop:
+  #   dla-future:
+  #     path: ~/git/DLA-Future
+  #     spec: dla-future@master +hdf5 +scalapack ~cuda ~rocm build_type=Debug
   view: false
   concretizer:
     unify: true

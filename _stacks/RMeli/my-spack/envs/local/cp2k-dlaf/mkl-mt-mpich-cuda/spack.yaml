@@ -22,7 +22,7 @@ spack:
         - intel-oneapi-mkl
     intel-oneapi-mkl:
       require:
-        - threads=openmp
+        - threads=none
         - mpi_family=mpich
     mpi:
       require:

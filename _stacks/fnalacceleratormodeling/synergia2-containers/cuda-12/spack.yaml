@@ -1,0 +1,54 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      target:
+      - 'x86_64_v2'
+      providers:
+        mpi:
+        - mpich
+        blas:
+        - openblas
+        lapack:
+        - openblas
+  specs:
+  - hdf5+hl+mpi~fortran
+  - mpich~fortran device=ch4 netmod=ofi
+  - petsc~fortran+debug+cuda cuda_arch=70
+  - gsl
+  - python+pythoncmd
+  - py-pyparsing  
+  - py-numpy
+  - py-mpi4py
+  - py-h5py+mpi
+  - py-pytest
+  - ninja
+  concretizer:
+    unify: true
+  view: true
+  container:
+    format: docker
+    images:
+      build: nvidia/cuda:12.4.1-devel-ubuntu22.04
+      final: nvidia/cuda:12.4.1-devel-ubuntu22.04
+    os_packages:
+      command: apt
+      build:
+      - build-essential
+      - bash
+      - perl
+      - cmake  
+      - gfortran
+      - wget
+      - tar
+      final:
+      - build-essential
+      - bash
+      - git
+      - cmake  
+      - wget
+      - gfortran
+      - tar  

@@ -1,0 +1,48 @@
+spack:
+  specs:
+  - cp2k@master +elpa +dlaf +mpi_f08 build_system=cmake
+  packages:
+    all:
+      prefer:
+        - +mpi
+        - ~cuda
+        - ~rocm
+      require:
+        - "%gcc@11.4.0"
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4.1: device=ch3 netmod=tcp"
+    blas:
+      require:
+        - intel-oneapi-mkl
+    lapack:
+      require:
+        - intel-oneapi-mkl
+    scalapack:
+      require:
+        - intel-oneapi-mkl
+    intel-oneapi-mkl:
+      require:
+        - "@2022.0.1"
+        - +cluster
+        - threads=none
+    pika:
+      require: 
+        - "@0.23.0"
+  repos:
+    - ~/git/work/DLAFortran/spack/
+    - ~/git/work/DLA-Future/spack/
+    - ~/git/work/my-spack/repos/cp2k-dlafort/
+  develop:
+    dla-future:
+      path: ~/git/work/DLA-Future
+      spec: dla-future@0.4.0 +hdf5 +miniapps +scalapack build_type=Debug
+    dla-fortran:
+      path: ~/git/work/DLAFortran
+      spec: dla-fortran@main +test
+  view: false
+  concretizer:
+    unify: true
