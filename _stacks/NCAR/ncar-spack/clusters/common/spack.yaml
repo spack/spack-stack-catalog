@@ -46,3 +46,11 @@ spack:
   view: false
   concretizer:
     unify: false
+    reuse: false
+    os_compatible:
+      opensuse15:
+      - sles15
+      sles15:
+      - opensuse15
+  repos:
+  - $spack/var/spack/repos/ncar.hpcd

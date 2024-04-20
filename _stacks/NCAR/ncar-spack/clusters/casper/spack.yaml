@@ -31,7 +31,7 @@ spack:
       - +hdf5
       - ~python
     all:
-      'compiler:':
+      compiler:
       - gcc@7.5.0
       - gcc
       - nvhpc
@@ -146,7 +146,7 @@ spack:
       require: '%gcc@7.5.0'
     curl:
       # Need mbedtls option for Julia - most other packages seem to prefer openSSL
-      require: 
+      require:
       - '%gcc@7.5.0'
       - tls=openssl,mbedtls
       variants:
@@ -196,11 +196,11 @@ spack:
       # avoid lapack requirements by switching to internal despite variant
       require:
       - any_of:
-        - '+external-lapack'
+        - +external-lapack
         when: '@8.1:'
       - one_of:
         - ^parallelio@2.6.2
-        when: '+external-parallelio @8.6.0'
+        when: +external-parallelio @8.6.0
       - one_of:
         # This should force packages to use the vendor-preferred solution
         - '%oneapi ^intel-oneapi-mkl'
@@ -748,16 +748,16 @@ spack:
     py-cftime:
       require:
       # DAG - help METPlus use same MET
-        - ^py-cython@0.29.36
+      - ^py-cython@0.29.36
     py-fypp:
       require:
       - '%gcc@7.5.0'
     py-netcdf:
       variants:
-        - ~mpi
+      - ~mpi
       require:
       # DAG - help METPlus use same MET
-        - ^py-cython@0.29.36
+      - ^py-cython@0.29.36
     py-setuptools:
       # Newer versions cannot be used by py-numpy as of Aug 2023
       require: '@:63'
@@ -910,7 +910,7 @@ spack:
       - git
       link_type: symlink
       link: roots
-  'compilers:': []
+  compilers: []
   modules:
     'default:':
       roots:
@@ -958,14 +958,14 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - ncview
         - cdo
-        - gmt
         - nco
+        - gmt
         - visit
         - paraview
         - octave
         - nccmp
-        - ncview
         - cuda
         - r
         - cmake
@@ -1172,13 +1172,16 @@ spack:
             - NCAR_INC_MINICONDA3
             - NCAR_LDFLAGS_MINICONDA3
             - NCAR_ROOT_MINICONDA3
+            - NCAR_SPACK_HASH_MINICONDA3
             - PATH
             - PKG_CONFIG_PATH
             - _CE_CONDA
             - _CE_M
           environment:
             set:
+              NCAR_CONTAINERIZE_SUPPORT_CONDA: no
               NCAR_ROOT_CONDA: '{prefix}'
+              NCAR_SPACK_HASH_CONDA: '{hash}'
           template: conda.lua
         mpi:
           template: ncar_wrapper_mpi.lua
@@ -1296,3 +1299,10 @@ spack:
   concretizer:
     unify: false
     reuse: false
+    os_compatible:
+      opensuse15:
+      - sles15
+      sles15:
+      - opensuse15
+  repos:
+  - $spack/var/spack/repos/ncar.hpcd

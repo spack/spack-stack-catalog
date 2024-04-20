@@ -1,0 +1,728 @@
+spack:
+
+  config:
+    install_tree:
+      root: $spack/..
+      projections:
+        all: "{compiler.name}-{compiler.version}/{name}-{version}-{hash}"
+    # Note: unlike projects using RADIUSS Spack
+    # Configs, Serac is using "$spack/.." as the root
+    # of Spack cache directories. We share the goal of
+    # making sure that Spack instances do not collide,
+    # our choice supposes that $user_cache_path is
+    # defined to that purpose, but Serac is enforcing
+    # it for the cache directories.
+    # The reason for not adopting the same strategy as
+    # Serac is because there are other directories
+    # created by Spack that need to be porperly
+    # isolated. Therefore, setting the
+    # "user_cache_path" properly isstill mandatory.
+    build_stage::
+      - $user_cache_path/stage
+    test_stage: $user_cache_path/test
+    misc_cache: $user_cache_path/misc
+    flags:
+      keep_werror: 'all'
+
+    view: false
+
+  compilers::
+  - compiler:
+      spec: clang@3.9.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-3.9.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-3.9.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@4.0.0
+      paths:
+        cc: /usr/tce/packages/clang/clang-4.0.0/bin/clang
+        cxx: /usr/tce/packages/clang/clang-4.0.0/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@6.0.0
+      paths:
+        cc: /usr/tce/packages/clang/clang-6.0.0/bin/clang
+        cxx: /usr/tce/packages/clang/clang-6.0.0/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@8.0.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-8.0.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-8.0.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@9.0.0
+      paths:
+        cc: /usr/tce/packages/clang/clang-9.0.0/bin/clang
+        cxx: /usr/tce/packages/clang/clang-9.0.0/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@10.0.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-10.0.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-10.0.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@11.0.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-11.0.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-11.0.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@12.0.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-12.0.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-12.0.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@12.0.1.gcc.8.3.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-12.0.1/bin/clang
+        cxx: /usr/tce/packages/clang/clang-12.0.1/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags:
+        cflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1
+        cxxflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@13.0.0
+      paths:
+        cc: /usr/tce/packages/clang/clang-13.0.0/bin/clang
+        cxx: /usr/tce/packages/clang/clang-13.0.0/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@14.0.4
+      paths:
+        cc: /usr/tce/packages/clang/clang-14.0.4/bin/clang
+        cxx: /usr/tce/packages/clang/clang-14.0.4/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@14.0.4.gcc.8.3.1
+      paths:
+        cc: /usr/tce/packages/clang/clang-14.0.4/bin/clang
+        cxx: /usr/tce/packages/clang/clang-14.0.4/bin/clang++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags:
+        cflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1
+        cxxflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@4.9.3
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-4.9.3/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-4.9.3/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-4.9.3/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@6.1.0
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-6.1.0/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-6.1.0/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-6.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-6.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.1.0
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-7.1.0/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-7.1.0/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-7.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-7.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@7.3.0
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-7.3.0/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-7.3.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-7.3.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.1.0
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-8.1.0/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.1.0/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.3.1
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-8.3.1/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-8.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@9.3.1
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-9.3.1/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-9.3.1/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-9.3.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-9.3.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.2.1
+      paths:
+        cc: /usr/tce/packages/gcc/gcc-10.2.1/bin/gcc
+        cxx: /usr/tce/packages/gcc/gcc-10.2.1/bin/g++
+        f77: /usr/tce/packages/gcc/gcc-10.2.1/bin/gfortran
+        fc: /usr/tce/packages/gcc/gcc-10.2.1/bin/gfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@16.0.4
+      paths:
+        cc: /usr/tce/packages/intel/intel-16.0.4/bin/icc
+        cxx: /usr/tce/packages/intel/intel-16.0.4/bin/icpc
+        f77: /usr/tce/packages/intel/intel-16.0.4/bin/ifort
+        fc: /usr/tce/packages/intel/intel-16.0.4/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@17.0.2
+      paths:
+        cc: /usr/tce/packages/intel/intel-17.0.2/bin/icc
+        cxx: /usr/tce/packages/intel/intel-17.0.2/bin/icpc
+        f77: /usr/tce/packages/intel/intel-17.0.2/bin/ifort
+        fc: /usr/tce/packages/intel/intel-17.0.2/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@18.0.0
+      paths:
+        cc: /usr/tce/packages/intel/intel-18.0.0/bin/icc
+        cxx: /usr/tce/packages/intel/intel-18.0.0/bin/icpc
+        f77: /usr/tce/packages/intel/intel-18.0.0/bin/ifort
+        fc: /usr/tce/packages/intel/intel-18.0.0/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@18.0.2
+      paths:
+        cc: /usr/tce/packages/intel/intel-18.0.2/bin/icc
+        cxx: /usr/tce/packages/intel/intel-18.0.2/bin/icpc
+        f77: /usr/tce/packages/intel/intel-18.0.2/bin/ifort
+        fc: /usr/tce/packages/intel/intel-18.0.2/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.3.0/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@19.0.4
+      paths:
+        cc: /usr/tce/packages/intel/intel-19.0.4/bin/icc
+        cxx: /usr/tce/packages/intel/intel-19.0.4/bin/icpc
+        f77: /usr/tce/packages/intel/intel-19.0.4/bin/ifort
+        fc: /usr/tce/packages/intel/intel-19.0.4/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.1.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.1.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-7.1.0/bin/g++
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@19.1.0
+      paths:
+        cc: /usr/tce/packages/intel/intel-19.1.0/bin/icc
+        cxx: /usr/tce/packages/intel/intel-19.1.0/bin/icpc
+        f77: /usr/tce/packages/intel/intel-19.1.0/bin/ifort
+        fc: /usr/tce/packages/intel/intel-19.1.0/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.1.0/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.1.0/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.1.0/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@19.1.2
+      paths:
+        cc: /usr/tce/packages/intel/intel-19.1.2/bin/icc
+        cxx: /usr/tce/packages/intel/intel-19.1.2/bin/icpc
+        f77: /usr/tce/packages/intel/intel-19.1.2/bin/ifort
+        fc: /usr/tce/packages/intel/intel-19.1.2/bin/ifort
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@19.1.2.gcc.8.3.1
+      paths:
+        cc: /usr/tce/packages/intel/intel-19.1.2/bin/icc
+        cxx: /usr/tce/packages/intel/intel-19.1.2/bin/icpc
+        f77: /usr/tce/packages/intel/intel-19.1.2/bin/ifort
+        fc: /usr/tce/packages/intel/intel-19.1.2/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2022.3
+      paths:
+        cc: /usr/tce/packages/intel/intel-2022.3/bin/icc
+        cxx: /usr/tce/packages/intel/intel-2022.3/bin/icpc
+        f77: /usr/tce/packages/intel/intel-2022.3/bin/ifort
+        fc: /usr/tce/packages/intel/intel-2022.3/bin/ifort
+      flags:
+        cflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+        cxxflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/g++
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  # Careful: oneapi@2022.1 is found in oneapi 2022.2 suite
+  - compiler:
+      spec: oneapi@2022.1
+      paths:
+        cc: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/icx
+        cxx: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/icpx
+        f77: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/ifx
+        fc: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/ifx
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.1.gcc.8.3.1
+      paths:
+        cc: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/icx
+        cxx: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/icpx
+        f77: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/ifx
+        fc: /usr/tce/packages/intel/intel-oneapi.2022.2/bin/ifx
+      flags:
+        cflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1/rh
+        cxxflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1/rh
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/rh/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  # Careful: oneapi@2022.2 is found in oneapi 2022.3 suite
+  - compiler:
+      spec: oneapi@2022.2
+      paths:
+        cc: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/icx
+        cxx: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/icpx
+        f77: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/ifx
+        fc: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/ifx
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.2.gcc.8.3.1
+      paths:
+        cc: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/icx
+        cxx: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/icpx
+        f77: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/ifx
+        fc: /usr/tce/packages/intel/intel-oneapi.2022.3/bin/ifx
+      flags:
+        cflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1/rh
+        cxxflags: --gcc-toolchain=/usr/tce/packages/gcc/gcc-8.3.1/rh
+        fflags: -gcc-name=/usr/tce/packages/gcc/gcc-8.3.1/rh/bin/gcc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@17.10
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-17.10/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-17.10/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-17.10/bin/pgf77
+        fc: /usr/tce/packages/pgi/pgi-17.10/bin/pgf95
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@18.5
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-18.5/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-18.5/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-18.5/bin/pgf77
+        fc: /usr/tce/packages/pgi/pgi-18.5/bin/pgf95
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@19.4
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-19.4/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-19.4/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-19.4/bin/pgfortran
+        fc: /usr/tce/packages/pgi/pgi-19.4/bin/pgfortran
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@19.7
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-19.7/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-19.7/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-19.7/bin/pgfortran
+        fc: /usr/tce/packages/pgi/pgi-19.7/bin/pgf95
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@20.1
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-20.1/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-20.1/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-20.1/bin/pgfortran
+        fc: /usr/tce/packages/pgi/pgi-20.1/bin/pgf95
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@21.1
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-21.1/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-21.1/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-21.1/bin/pgfortran
+        fc: /usr/tce/packages/pgi/pgi-21.1/bin/pgf95
+      flags: {}
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: pgi@22.1.gcc.local.8.3.1
+      paths:
+        cc: /usr/tce/packages/pgi/pgi-22.1/bin/pgcc
+        cxx: /usr/tce/packages/pgi/pgi-22.1/bin/pgc++
+        f77: /usr/tce/packages/pgi/pgi-22.1/bin/pgfortran
+        fc: /usr/tce/packages/pgi/pgi-22.1/bin/pgf95
+      flags:
+        cflags: -rc=/usr/workspace/umpire/pgi/x86_64/local-gcc-8.3.1-rc
+        cxxflags: -rc=/usr/workspace/umpire/pgi/x86_64/local-gcc-8.3.1-rc
+        fflags: -rc=/usr/workspace/umpire/pgi/x86_64/local-gcc-8.3.1-rc
+      operating_system: rhel7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+
+  packages::
+    all:
+      # This defaults us to machine specific flags of ivybridge which allows
+      # us to run on broadwell as well
+      target: [ivybridge]
+      compiler: [gcc, intel, pgi, clang]
+      providers:
+        mpi: [mvapich2]
+    cmake:
+      version: [3.23.1, 3.22.4, 3.21.1, 3.20.2, 3.18.0, 3.16.8, 3.14.5]
+      buildable: false
+      externals:
+      - spec: cmake@3.14.5
+        prefix: /usr/tce/packages/cmake/cmake-3.14.5
+      - spec: cmake@3.16.8
+        prefix: /usr/tce/packages/cmake/cmake-3.16.8
+      - spec: cmake@3.18.0
+        prefix: /usr/tce/packages/cmake/cmake-3.18.0
+      - spec: cmake@3.20.2
+        prefix: /usr/tce/packages/cmake/cmake-3.20.2
+      - spec: cmake@3.21.1
+        prefix: /usr/tce/packages/cmake/cmake-3.21.1
+      - spec: cmake@3.22.4
+        prefix: /usr/tce/packages/cmake/cmake-3.22.4
+      - spec: cmake@3.23.1
+        prefix: /usr/tce/packages/cmake/cmake-3.23.1
+    cuda:
+      version: [10.1.168]
+      buildable: false
+      externals:
+      - spec: cuda@10.1.168
+        prefix: /usr/tce/packages/cuda/cuda-10.1.168
+    hip:
+      version: [4.0.0, 4.1.0, 4.2.0]
+      buildable: false
+      externals:
+      - spec: hip@4.0.0
+        prefix: /opt/rocm-4.0.0/hip
+      - spec: hip@4.1.0
+        prefix: /opt/rocm-4.1.0/hip
+      - spec: hip@4.2.0
+        prefix: /opt/rocm-4.2.0/hip
+    llvm-amdgpu:
+      version: [4.0.0, 4.1.0, 4.2.0]
+      buildable: false
+      externals:
+      - spec: llvm-amdgpu@4.0.0
+        prefix: /opt/rocm-4.0.0/llvm
+      - spec: llvm-amdgpu@4.1.0
+        prefix: /opt/rocm-4.1.0/llvm
+      - spec: llvm-amdgpu@4.2.0
+        prefix: /opt/rocm-4.2.0/llvm
+    hsa-rocr-dev:
+      version: [4.0.0, 4.1.0, 4.2.0]
+      buildable: false
+      externals:
+      - spec: hsa-rocr-dev@4.0.0
+        prefix: /opt/rocm-4.0.0/
+      - spec: hsa-rocr-dev@4.1.0
+        prefix: /opt/rocm-4.1.0/
+      - spec: hsa-rocr-dev@4.2.0
+        prefix: /opt/rocm-4.2.0/
+    rocminfo:
+      version: [4.0.0, 4.1.0, 4.2.0]
+      buildable: false
+      externals:
+      - spec: rocminfo@4.0.0
+        prefix: /opt/rocm-4.0.0/
+      - spec: rocminfo@4.1.0
+        prefix: /opt/rocm-4.1.0/
+      - spec: rocminfo@4.2.0
+        prefix: /opt/rocm-4.2.0/
+    rocm-device-libs:
+      version: [4.0.0, 4.1.0, 4.2.0]
+      buildable: false
+      externals:
+      - spec: rocm-device-libs@4.0.0
+        prefix: /opt/rocm-4.0.0/
+      - spec: rocm-device-libs@4.1.0
+        prefix: /opt/rocm-4.1.0/
+      - spec: rocm-device-libs@4.2.0
+        prefix: /opt/rocm-4.2.0/
+    mvapich2:
+      buildable: false
+      externals:
+      - spec: mvapich2@2.3.1%clang@10.0.0~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-clang-10.0.0
+      - spec: mvapich2@2.3.1%clang@9.0.0~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-clang-9.0.0
+      - spec: mvapich2@2.3.1%pgi@19.7~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-pgi-19.7
+      - spec: mvapich2@2.3.1%pgi@20.1~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-pgi-20.1
+      - spec: mvapich2@2.3.1%intel@19.1.0.166~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-intel-19.1.0
+      - spec: mvapich2@2.3.1%intel@18.0.2~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-intel-18.0.2
+      - spec: mvapich2@2.3.1%intel@17.0.2~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-intel-17.0.2
+      - spec: mvapich2@2.3.1%gcc@8.3.1~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-gcc-8.3.1
+      - spec: mvapich2@2.3.1%gcc@8.1.0~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-gcc-8.1.0
+      - spec: mvapich2@2.3.1%gcc@4.9.3~cuda~debug~regcache~wrapperrpath ch3_rank_bits=32
+          file_systems=lustre,nfs,ufs process_managers=slurm
+        prefix: /usr/tce/packages/mvapich2/mvapich2-2.3-gcc-4.9.3
+    python:
+      buildable: false
+      version: [3.8.2]
+      externals:
+      - spec: python@3.8.2
+        prefix: /usr/tce/packages/python/python-3.8.2
+    elfutils:
+      buildable: false
+      version: [0.176]
+      externals:
+      - spec: elfutils@0.176
+        prefix: /usr
+    libunwind:
+      buildable: false
+      version: [8.0.1]
+      externals:
+      - spec: libunwind@8.0.1
+        prefix: /usr
+    papi:
+      buildable: false
+      version: [5.4.3]
+      externals:
+      - spec: papi@5.4.3
+        prefix: /usr/tce/packages/papi/papi-5.4.3
