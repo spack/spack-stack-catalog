@@ -20,7 +20,7 @@ spack:
       padded_length: 128
   compilers:
   - compiler:
-      spec: gcc@12.2.0
+      spec: gcc@12.3
       paths:
         cc: cc
         cxx: CC
@@ -31,8 +31,9 @@ spack:
       target: any
       modules:
       - PrgEnv-gnu
-      - gcc/12.2.0
-      - cudatoolkit-standalone
+      - gcc-native/12.3
+      - nvhpc-mixed
+      - libfabric
       environment: {}
       extra_rpaths: []
   packages:
@@ -40,15 +41,15 @@ spack:
       providers:
         mpi: [ cray-mpich ]
       compiler:
-      - gcc@12.2.0
+      - gcc@12.3
       target:
       - zen3
     cray-mpich:
       buildable: false
       externals:
-      - spec: cray-mpich@8.1.25
+      - spec: cray-mpich@8.1.28
         modules:
-        - cray-mpich/8.1.25
+        - cray-mpich/8.1.28
     mercury:
       buildable: true
       variants: ~boostsys ~checksum
@@ -76,9 +77,8 @@ spack:
     cmake:
       buildable: false
       externals:
-      - spec: cmake@3.23.2
-        modules:
-        - cmake/3.23.2
+      - spec: cmake@3.27.7
+        prefix: /soft/spack/gcc/0.6.1/install/linux-sles15-x86_64/gcc-12.3.0/cmake-3.27.7-a435jtzvweeos2es6enirbxdjdqhqgdp
     libtool:
       buildable: false
       externals:

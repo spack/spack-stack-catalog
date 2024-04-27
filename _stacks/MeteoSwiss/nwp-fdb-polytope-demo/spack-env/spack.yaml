@@ -1,0 +1,16 @@
+spack:
+  specs:
+    - fdb@=5.11.116
+    - eckit@=1.26.2 linalg=none ~mpi
+    - metkit@=1.11.9
+    - eccodes@=2.33.0 jp2k=none ~fortran
+    - hdf5 ~mpi
+    - ecbuild@=3.7.2
+  concretizer:
+    unify: true
+  config:
+    install_tree: ${SCRATCH}/spack-root-demo
+  view: true
+  packages:
+    all:
+      target: [x86_64_v3]
