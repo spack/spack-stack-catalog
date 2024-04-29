@@ -1853,3 +1853,4 @@ spack:
   - intel-oneapi-advisor@2024.0.0
   - madis
   - vapor@3.9.2
+  - ncarcompilers@1.0.0%clang@16.0.6
