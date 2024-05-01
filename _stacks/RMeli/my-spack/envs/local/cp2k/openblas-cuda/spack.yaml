@@ -1,0 +1,42 @@
+spack:
+  specs:
+  - cp2k@master +libxc +libint +spglib +cosma +elpa build_system=cmake
+  packages:
+    all:
+      prefer:
+        - +cuda cuda_arch=80
+        - +mpi
+        - build_type=Release
+      conflict:
+        - +rocm
+    mpi:
+      require: mpich
+    mpich:
+      require:
+        - "@4:"
+        - netmod=tcp
+        - device=ch3 
+    cosma:
+      require:
+        - +shared 
+        - +scalapack
+        - +cuda
+    elpa:
+      require:
+        - +cuda cuda_arch=80
+        - +gpu_streams
+        - ~openmp
+    blas:
+      require: "openblas"
+    lapack:
+      require: "openblas"
+    scalapack:
+      require: "netlib-scalapack"
+    fftw-api:
+      require: "fftw"
+    fftw:
+      require:
+        - "@3:"
+  view: false
+  concretizer:
+    unify: true

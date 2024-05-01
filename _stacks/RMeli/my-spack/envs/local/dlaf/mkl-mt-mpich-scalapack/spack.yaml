@@ -1,0 +1,39 @@
+spack:
+  specs:
+  - dla-future@master +miniapps +scalapack +hdf5
+  view: false
+  packages:
+    all:
+      prefer:
+      - ~cuda
+      - ~rocm
+      - cxxstd=17
+    blas:
+      require:
+      - intel-oneapi-mkl
+    lapack:
+      require:
+      - intel-oneapi-mkl
+    scalapack:
+      require:
+      - intel-oneapi-mkl +cluster
+    intel-oneapi-mkl:
+      require:
+      - threads=openmp
+    mpi:
+      require:
+      - mpich
+    mpich:
+      require:
+      - device=ch3 netmod=tcp
+    pika:
+      require:
+      - "@0.24.0"
+  repos:
+  - ~/git/work/DLA-Future/spack
+  concretizer:
+    unify: true
+  develop:
+    dla-future:
+      spec: dla-future@=master +miniapps +scalapack + hdf5
+      path: ~/git/work/DLA-Future
