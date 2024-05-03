@@ -10,6 +10,7 @@ spack:
   - dd4hep -ddeve
   - edm4eic
   - eicrecon
+  - epic
   - fastjet
   - fjcontrib
   - gaudi
@@ -26,4 +27,3 @@ spack:
   - py-pip
   - root -opengl
   - xrootd
-  view: false
