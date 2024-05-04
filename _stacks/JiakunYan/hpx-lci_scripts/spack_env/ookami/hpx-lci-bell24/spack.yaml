@@ -1,0 +1,20 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler:
+        - gcc@12.2.0 # Your preferred compiler here
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@git.bef65a2a702b850895f0940ffc2a568fe32d3e65%gcc@12.2.0+kokkos+kokkos_hpx_kernels hydro_host_tasks=1 monopole_host_tasks=1 multipole_host_tasks=16 simd_extension=SVE simd_library=STD arch=linux-rocky8-a64fx
+    ^cppuddle@git.d013eb94f83d515aec3f614620d5a9ee721b73b9+allocator_counters+hpx number_buffer_buckets=48 arch=linux-rocky8-a64fx
+    ^hpx@git.40eef48f5b941f400164f79c2c2eefbeb35db49e+generic_coroutines malloc=mimalloc networking=lci,mpi arch=linux-rocky8-a64fx
+    ^lci@git.6dcb6a8508f498bf65661e8a10497f1e7c84c18a+benchmarks+examples+tests~vector cache-line=256 arch=linux-rocky8-a64fx
+    ^openmpi@4.1.6
+  view: true
+  concretizer:
+    unify: true
+    reuse: false

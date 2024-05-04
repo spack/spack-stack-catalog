@@ -27,6 +27,15 @@ spack:
   - eicrecon
   - eigen
   - emacs
+  - epic@main
+  - epic@23.10.0
+  - epic@23.11.0
+  - epic@23.12.0
+  - epic@24.02.0
+  - epic@24.02.1
+  - epic@24.03.0
+  - epic@24.03.1
+  - epic@24.04.0
   - fastjet
   - fjcontrib
   - fmt
@@ -92,4 +101,3 @@ spack:
   - valgrind
   - xrootd
   - xeyes
-  view: false

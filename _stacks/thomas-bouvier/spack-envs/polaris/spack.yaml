@@ -1,0 +1,125 @@
+spack:
+  repos:
+  - /home/tbouvier/git/mochi-spack-packages
+  specs:
+  # Precedence is important. These packages will be picked up in the mochi repo.
+  - mochi-thallium ^argobots ^mercury +boostsys +ofi +debug ^libfabric +cuda +debug fabrics=tcp,rxm,verbs
+  - mochi-margo ^json-c@0.13.0
+  - cmake
+  - cuda@12
+  - cudnn
+  - mpi
+  - nccl
+  - nccl-tests
+  - python@3.11
+  - nvtx +python
+  - py-pip
+  - py-ruamel-yaml
+  - py-filelock
+  - py-wandb
+  - py-bokeh
+  - py-matplotlib
+  - py-torch@2.2 ~gloo ~valgrind
+  - py-torchvision
+  - py-continuum
+  - py-timm
+  - py-nvidia-dali@1.36.0-cuda120
+  - py-torchsummary
+  - py-horovod@master controllers=mpi frameworks=pytorch
+  - nano
+  view: /home/tbouvier/view/polaris
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  compilers:
+  - compiler:
+      spec: gcc@12.3
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc-native/12.3
+      - nvhpc-mixed
+      - libfabric
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      providers:
+        mpi: [ cray-mpich ]
+      compiler:
+      - gcc@12.3
+      target:
+      - zen3
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.28
+        modules:
+        - cray-mpich/8.1.28
+    mercury:
+      buildable: true
+      variants: ~boostsys ~checksum
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.15.2.0
+        modules:
+        - libfabric/1.15.2.0
+    autoconf:
+      buildable: false
+      externals:
+      - spec: autoconf@2.69
+        prefix: /usr
+    automake:
+      buildable: false
+      externals:
+      - spec: automake@1.15.1
+        prefix: /usr
+    gmake:
+      buildable: false
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+    cmake:
+      buildable: false
+      externals:
+      - spec: cmake@3.27.7
+        prefix: /soft/spack/gcc/0.6.1/install/linux-sles15-x86_64/gcc-12.3.0/cmake-3.27.7-a435jtzvweeos2es6enirbxdjdqhqgdp
+    libtool:
+      buildable: false
+      externals:
+      - spec: libtool@2.4.6
+        prefix: /usr
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
+    m4:
+      buildable: false
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    zlib:
+      buildable: false
+      externals:
+      - spec: zlib@1.2.11
+        prefix: /usr
+    magma:
+      variants: [+cuda cuda_arch=80]
+    nccl:
+      variants: [+cuda cuda_arch=80]
+    nccl-tests:
+      variants: [+cuda cuda_arch=80]
+    py-horovod:
+      variants: [+cuda cuda_arch=80 tensor_ops=nccl]
+    py-torch:
+      variants: [+cuda cuda_arch=80 +nccl +cudnn +magma +distributed]

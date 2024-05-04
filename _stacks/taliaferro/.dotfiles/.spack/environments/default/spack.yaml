@@ -16,7 +16,10 @@ spack:
   - ripgrep
   - bat
   - w3m
+  - gh
   - task@2
+  - timew
+  - editorconfig
   view: true
   concretizer:
     unify: true
