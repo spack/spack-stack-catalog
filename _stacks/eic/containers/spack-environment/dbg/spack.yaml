@@ -12,8 +12,8 @@ spack:
   - edm4eic build_type=Debug
   - edm4hep build_type=Debug
   - eicrecon build_type=Debug
+  - epic build_type=Debug
   - gdb
   - irt build_type=Debug
   - jana2 build_type=Debug
   - valgrind
-  view: false
