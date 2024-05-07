@@ -26,6 +26,7 @@ spack:
   - py-h5py+mpi
   - py-pytest
   - ninja
+  - mold
   concretizer:
     unify: true
   view: true

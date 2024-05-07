@@ -7,15 +7,18 @@ spack:
   include:
   - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
   specs:
-  - raja@2022.10.4+cuda~examples~exercises+openmp cuda_arch=80
-  - umpire@2022.03.1+cuda~examples+numa+openmp cuda_arch=80
+  - cmake@3.24.3
+  - raja@git.v2023.06.1+cuda~examples~exercises+openmp cuda_arch=80
+  - umpire@2022.03.1~shared+cuda~examples+numa+openmp cuda_arch=80
   - fmt@10.0.0
   - netcdf-cxx4@4.3.1
   - fftw@3.3.10~mpi
-  - hypre+cuda+umpire~mpi~superlu-dist cuda_arch=80
+  - hypre-cmake@git.v2.31.0~shared+cuda+umpire~mpi~superlu-dist cuda_arch=80
   view: true
   concretizer:
     unify: true
+  repos:
+    - $spack/../repo
   packages:
     all:
       compiler: [gcc@12.3.0]
@@ -26,9 +29,9 @@ spack:
       buildable: false
     cmake:
       externals:
-      - spec: cmake@3.22.0
+      - spec: cmake@3.24.3
         modules:
-        - cmake/3.22.0
+        - cmake/3.24.3
       buildable: false
     gcc:
       externals:
@@ -42,6 +45,9 @@ spack:
         modules:
         - cudatoolkit/12.2
       buildable: false
+    cub:
+      require:
+        - "@2.0.1"
   compilers:
   - compiler:
       spec: gcc@=12.3.0

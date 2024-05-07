@@ -17,7 +17,7 @@ spack:
   specs:
   - hdf5+hl+mpi~fortran
   - mpich~fortran device=ch4 netmod=ofi
-  - petsc@main~fortran+debug+cuda
+  - petsc~fortran+debug+cuda cuda_arch=70
   - gsl
   - python+pythoncmd
   - py-pyparsing  
@@ -26,15 +26,17 @@ spack:
   - py-h5py+mpi
   - py-pytest
   - ninja
+  - mold
   concretizer:
     unify: true
   view: true
   container:
     format: docker
     images:
-      os: nvidia/cuda:11.2.2
-      spack: develop
+      build: nvidia/cuda:11.8.0-devel-ubuntu22.04
+      final: nvidia/cuda:11.8.0-devel-ubuntu22.04
     os_packages:
+      command: apt
       build:
       - build-essential
       - bash

@@ -9,8 +9,7 @@ spack:
   - mochi-mona
   - nlohmann-json
   - nlohmann-json-schema-validator
-  - spdlog+fmt_external
-  - fmt
+  - spdlog
   - tclap
   - mercury
   - py-mochi-margo
