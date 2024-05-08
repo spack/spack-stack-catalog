@@ -1,0 +1,30 @@
+spack:
+  include:
+  - compilers.yaml
+  - config.yaml
+  concretizer:
+    unify: when_possible
+  specs:
+  - ccache
+  - cmake@3.24
+  - gmake
+  - meson
+  - ninja
+  - perl
+  - python@3.7
+  - python@3.10
+  - libtree
+  - git
+  - tmux
+  - tree
+  - ruby@3.1.0
+  - r@4.0.5
+  #- squashfs +gzip +lz4 +lzo +xz +zstd
+  #- tar
+  #- vim +python +lua +perl +cscope features=huge
+  #- emacs
+  #- reframe
+  view: false
+  packages:
+    all:
+      compiler: [gcc]
