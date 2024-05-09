@@ -688,8 +688,6 @@ spack:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
       require:
-      - ^esmf@:8.0.1 ~external-lapack
-      - ^hdf5~mpi
       - '%gcc@7.5.0'
       variants:
       - +gdal
@@ -1224,12 +1222,14 @@ spack:
         cdo:
           autoload: none
         chapel:
+          template: chapel.lua
           environment:
             set:
               CHPL_HOME: '{prefix}'
               CHPL_MODULE_HOME: '{prefix}'
+              CHPL_LAUNCHER: pals
             prepend_path:
-              PATH: '{prefix.bin}/hpe-cray-ex-x86_64'
+              PATH: '{prefix.bin}/hpe-cray-ex-x86_64:/opt/cray/pe/gcc/12.2.0/snos/bin'
           filter:
             exclude_env_vars:
             - NCAR_INC_CHAPEL
@@ -1299,6 +1299,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - py-tabulate
         - qhull@2020.2
         - googletest
         - emacs
@@ -1915,7 +1916,6 @@ spack:
   - esmf@8.5.0%oneapi@2023.2.1~mpi ^parallelio@2.6.1~mpi
   - esmf@8.6.0%nvhpc@23.7~mpi ^nvhpc ^parallelio@2.6.2~mpi
   - autoconf-archive
-  - ncl
   - vasp@5.3.5%oneapi@2023.2.1
   - opencoarrays@2.10.1%gcc@12.2.0 ^cray-mpich@8.1.27%gcc@12.2.0
   - mpi-serial@2.5.0%gcc@12.2.0
@@ -2091,3 +2091,6 @@ spack:
   - libtorch@2.1.2
   - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf ^mpi-serial@2.5.0
   - esmf@8.6.0%oneapi@2023.2.1~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi
+  - chapel@2.0.0
+  - ncl
+  - py-tabulate
