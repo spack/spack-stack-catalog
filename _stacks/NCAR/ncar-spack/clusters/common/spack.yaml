@@ -7,7 +7,8 @@ spack:
     install_tree:
       root: '%INSTALLROOT%'
       projections:
-        all: '{name}/{version}'
+        all: '{name}/{version}/{hash:4}'
+      padded_length: 128
     build_jobs: 4
     test_stage: '%TMPROOT%/${user}/temp/spack/%DEPLOYMENT%/tests'
     source_cache: '%TMPROOT%/${user}/temp/spack/cache'
@@ -27,6 +28,11 @@ spack:
       permissions:
         read: world
         write: user
+      prefer:
+      - spec: ^zlib
+        when: ^zlib-api
+      - spec: ^pkg-config
+        when: ^pkgconfig
     aocc:
       require:
       - +license-agreed
@@ -38,10 +44,21 @@ spack:
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
+      require:
+      - '%gcc@7.5.0'
     linaro-forge:
       require: +accept-eula
+    openssl:
+      require:
+      - '%gcc@7.5.0'
+    patchelf:
+      require:
+      - '@:0.17'
     pkg-config:
       require: '%gcc@7.5.0'
+    zstd:
+      variants:
+      - +programs
   compilers: []
   view: false
   concretizer:
@@ -52,5 +69,3 @@ spack:
       - sles15
       sles15:
       - opensuse15
-  repos:
-  - $spack/var/spack/repos/ncar.hpcd

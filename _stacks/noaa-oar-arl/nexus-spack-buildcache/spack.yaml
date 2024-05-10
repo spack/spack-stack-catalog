@@ -1,0 +1,19 @@
+spack:
+  view: /opt/view
+  specs:
+    # - hdf5+mpi ^intel-oneapi-mpi
+    - esmf@8.3~mpi%intel@2021.9 ^netcdf-c~blosc~szip~zstd ^hdf5~mpi ^diffutils@3.8 cppflags="-O2 -std=c++11"
+
+  config:
+    install_tree:
+      root: /opt/spack
+      padded_length: 128
+
+  packages:
+    all:
+      require: 'target=x86_64_v3'
+
+  mirrors:
+    local-buildcache:
+      url: oci://ghcr.io/noaa-oar-arl/nexus-spack-buildcache
+      signed: false

@@ -28,8 +28,9 @@ spack:
   packages:
     adios2:
       variants:
+      - +cuda
       - +hdf5
-      - ~python
+      - +python
     all:
       compiler:
       - gcc@7.5.0
@@ -61,17 +62,27 @@ spack:
       target:
         # This target is lowest-common denominator between Intel and Milans
       - x86_64_v3
-      require:
+      prefer:
         # This should force packages to use the vendor-preferred solution
         # for BLAS and LAPACK without needing to set it on each package
-      - any_of:
-        - '%gcc ^openblas'
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%nvhpc ^nvhpc'
-        when: ^blas
-      - any_of:
-        - ^pkg-config
+      - spec: ^openblas
+        when: '%gcc ^lapack'
+      - spec: ^intel-oneapi-mkl
+        when: '%oneapi ^lapack'
+      - spec: ^nvhpc
+        when: '%nvhpc ^lapack'
+      - spec: ^openblas
+        when: '%gcc ^blas'
+      - spec: ^intel-oneapi-mkl
+        when: '%oneapi ^blas'
+      - spec: ^nvhpc
+        when: '%nvhpc ^blas'
+      - spec: ^pkg-config
         when: ^pkgconfig
+      - spec: ^zlib
+        when: ^zlib-api
+      - spec: cuda_arch=60,70,80
+        when: +cuda
     antlr:
       require: '%gcc@7.5.0'
     apptainer:
@@ -101,7 +112,8 @@ spack:
     bison:
       require: '%gcc@7.5.0'
     bzip2:
-      require: '%gcc@7.5.0'
+      require:
+      - '%gcc@7.5.0'
     c-blosc:
       require:
       - '%gcc@7.5.0'
@@ -139,6 +151,8 @@ spack:
       require:
       - '%gcc@7.5.0'
     cuda:
+      variants:
+      - +dev
       require:
       - +allow-unsupported-compilers
       - '%gcc@7.5.0'
@@ -195,21 +209,18 @@ spack:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
       require:
-      - any_of:
-        - +external-lapack
+      - spec: +external-lapack
         when: '@8.1:'
-      - one_of:
-        - ^parallelio@2.6.2
+      - spec: ^parallelio@2.6.2
         when: +external-parallelio @8.6.0
-      - one_of:
-        # This should force packages to use the vendor-preferred solution
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%gcc ^openblas'
-        - '%nvhpc ^nvhpc'
-        - '%cce ^cray-libsci'
-        when: ^lapack
+      - spec: ^openblas
+        when: '%gcc ^lapack'
+      - spec: ^intel-oneapi-mkl@2024.1.0
+        when: '%oneapi@2024.1.0 ^lapack'
+      - spec: ^nvhpc@24.3
+        when: '%nvhpc@24.3 ^lapack'
       variants:
-      - +parallelio
+      - +external-parallelio
       - ~mpi
       - ~pnetcdf
       - ~xerces
@@ -234,8 +245,8 @@ spack:
       - +libwebp
       - +libx264
       - +libxml2
-      - +libzma
       - +libzmq
+      - +lzma
       - +sdl2
     fftw:
       variants:
@@ -364,6 +375,9 @@ spack:
     groff:
       require:
       - '%gcc@7.5.0'
+    gzip:
+      require:
+      - '%gcc@7.5.0'
     harfbuzz:
       variants:
       - +graphite2
@@ -388,7 +402,8 @@ spack:
       - +szip
       - ~mpi
     hwloc:
-      require: '%gcc@7.5.0'
+      require:
+      - '%gcc@7.5.0'
       variants:
       - +cuda
     hypre:
@@ -574,6 +589,10 @@ spack:
       - +gpfs
       - +lustre
       - +xattr
+    mysql:
+      require:
+      - spec: cxxstd=14
+        when: '@8.0.19'
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
@@ -590,10 +609,11 @@ spack:
     netcdf-c:
       variants:
       - +dap
+      - build_system=cmake
       - ~mpi
     netcdf-cxx4:
       variants:
-      - ~doxygen
+      - ~doc
     nghttp2:
       # Thanks Julia...
       require: '@1.48'
@@ -635,8 +655,7 @@ spack:
       - '%gcc@7.5.0'
     openmpi:
       require:
-      # Make sure to get rid of knem next time!
-      - fabrics=cma,knem,ucx
+      - fabrics=cma,ucx
       - schedulers=tm
       - +gpfs
       - +lustre
@@ -705,13 +724,11 @@ spack:
       - +qt
       - +visitbridge
       require:
-        # Paraview will not concretize logically if these are not set
-      - any_of:
-        - ^netcdf-c+mpi
+        # These requirements improve package reuse
+      - spec: ^netcdf-c+mpi
         when: +mpi
-      - any_of:
-        - '^adios2@2.9: %gcc@11:'
-        when: +adios2
+      - spec: ^adios2@2.10
+        when: '@5.12.0 +adios2'
     patchelf:
       # Version 0.18 breaks when using gcc@7.5.0
       require:
@@ -752,15 +769,31 @@ spack:
     py-fypp:
       require:
       - '%gcc@7.5.0'
-    py-netcdf:
+    py-mpi4py:
+      prefer:
+      - spec: '%oneapi'
+        when: ^openmpi %oneapi
+      - spec: '%gcc@13.2.0'
+        when: ^openmpi %gcc@13.2.0
+    py-netcdf4:
       variants:
       - ~mpi
       require:
       # DAG - help METPlus use same MET
       - ^py-cython@0.29.36
+    py-numpy:
+      require:
+      - '%gcc@7.5.0'
+    py-pip:
+      require:
+      - '%gcc@7.5.0'
     py-setuptools:
-      # Newer versions cannot be used by py-numpy as of Aug 2023
-      require: '@:63'
+      # Simplifies stack to limit to 0.63, latest version used by numpy with Python < 3.12
+      require:
+      - '%gcc@7.5.0'
+      - '@:63'
+    python:
+      require: '%gcc@7.5.0'
     qhull:
       require: '%gcc@7.5.0'
     qt:
@@ -772,6 +805,9 @@ spack:
       require:
       - +gtk
       - '@5.14.2'
+    qt-base:
+      require:
+      - '%gcc@7.5.0'
     readline:
       require: '%gcc@7.5.0'
     rstudio:
@@ -834,6 +870,9 @@ spack:
       - +ud
       - +verbs
       - +vfs
+    unzip:
+      require:
+      - '%gcc@7.5.0'
     util-linux-uuid:
       require: '%gcc@7.5.0'
     vapor:
@@ -857,20 +896,13 @@ spack:
       - +netcdf
       - ~conduit
       - ~mfem
+      - ~python
       - ~vtkm
       require:
-      - any_of:
-        - '^adios2@2.9: %gcc@11:'
-        when: +adios2
-      - any_of:
-        - '^hdf5@1.12: %gcc@11:'
-        when: +hdf5
-      - any_of:
-        - '^conduit %gcc@11:'
-        when: +conduit
+      # Force concretizer to use latest supported adios2
+      - ^adios2@2.7
     vtk:
       require:
-      - '^netcdf-cxx %gcc@11:'
       - '%gcc@7.5.0'
     vtk-m:
       require: '%gcc@7.5.0'
@@ -890,15 +922,13 @@ spack:
       variants:
       - +opengl
     xz:
-      require: '%gcc@7.5.0'
+      require:
+      - '%gcc@7.5.0'
     zfp:
       require: '%gcc@7.5.0'
     zlib:
-      # zlib 1.3 causes configure failure for openssh because it expects
-      # 3 version digits (i.e., X.Y.Z) as of Aug 2023
       require:
       - '%gcc@7.5.0'
-      - '@:1.2.13'
     zstd:
       require: '%gcc@7.5.0'
       variants:
@@ -958,14 +988,15 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - visit
+        - paraview
+        - gmt
+        - octave
+        - nccmp
         - ncview
         - cdo
         - nco
-        - gmt
-        - visit
-        - paraview
-        - octave
-        - nccmp
+        - gsl
         - cuda
         - r
         - cmake
@@ -1000,11 +1031,11 @@ spack:
               DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
         defaults:
         - netcdf@4.9.2
-        - openmpi@4.1.6
-        - cuda@12.2.1
-        - gcc@12.2.0
-        - intel-oneapi-compilers@2023.2.1
-        - nvhpc@23.7
+        - openmpi@5.0.2
+        - cuda@11.8.0
+        - gcc@13.2.0
+        - intel-oneapi-compilers@2024.1.0
+        - nvhpc@24.3
         - parallelio+mpi
         - esmf+mpi
         esmf:
@@ -1304,5 +1335,3 @@ spack:
       - sles15
       sles15:
       - opensuse15
-  repos:
-  - $spack/var/spack/repos/ncar.hpcd
