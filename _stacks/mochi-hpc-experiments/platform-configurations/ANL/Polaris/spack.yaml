@@ -40,6 +40,7 @@ spack:
     all:
       providers:
         mpi: [ cray-mpich ]
+        pkgconfig: [ pkg-config ]
       compiler:
       - gcc@12.3
       target:
@@ -98,4 +99,9 @@ spack:
       buildable: false
       externals:
       - spec: zlib@1.2.11
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      externals:
+      - spec: pkg-config@0.29.2
         prefix: /usr
