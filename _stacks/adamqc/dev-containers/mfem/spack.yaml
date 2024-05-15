@@ -1,0 +1,36 @@
+spack:
+  specs:
+  - python@3.10.13
+  - mfem@develop+mpi+petsc+suite-sparse+superlu-dist+shared~static
+  - mumps+mpi+metis+parmetis
+  - mpich@:4.1.99 datatype-engine=dataloop
+  - petsc+hypre+mumps+superlu-dist~hdf5
+  - tetgen
+  - valgrind
+
+  packages:
+    all:
+      target:
+      - x86_64
+      providers:
+        mpi: [mpich]
+
+  container:
+    images:
+      os: "ubuntu:22.04"
+      spack: develop
+
+    format: docker
+
+    strip: true
+
+    os_packages:
+      final:
+      - build-essential
+      - clangd
+      - clang-format
+      - curl
+      - gfortran
+      - git
+      - libc6-dbg
+      - vim

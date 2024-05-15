@@ -5,7 +5,7 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - mochi-margo
+  - mochi-margo^json-c@0.13.0
   view: true
   modules:
     prefix_inspections:
@@ -97,13 +97,9 @@ spack:
     cmake:
       buildable: false
       externals:
-      - spec: cmake@3.26.3
-        prefix: /soft/packaging/spack/gnu-ldpath/build/linux-sles15-x86_64/gcc-11.2.0/cmake-3.26.3-vnn7ncxwjjekhm5ehnwhk4w6tyoygc4p
-    json-c:
-      buildable: false
-      externals:
-      - spec: json-c@0.13
-        prefix: /soft/packaging/spack/gnu-ldpath/build/linux-sles15-x86_64/gcc-11.2.0/json-c-0.13-ykflfo5cmw73w6zvsk4k32bjkjsmpxgn
+      - spec: cmake@3.27.7
+        modules:
+        - cmake/3.27.7
     findutils:
       buildable: false
       externals: 
