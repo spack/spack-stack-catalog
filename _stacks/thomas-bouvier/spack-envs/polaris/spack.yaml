@@ -16,17 +16,15 @@ spack:
   - py-pip
   - py-ruamel-yaml
   - py-filelock
-  - py-wandb
-  - py-bokeh
   - py-matplotlib
   - py-torch@2.2 ~gloo ~valgrind
   - py-torchvision
   - py-continuum
   - py-timm
   - py-nvidia-dali@1.36.0-cuda120
-  - py-torchsummary
   - py-horovod@master controllers=mpi frameworks=pytorch
   - nano
+  - openssh ~asspi # https://github.com/spack/spack/issues/43953
   view: /home/tbouvier/view/polaris
   modules:
     prefix_inspections:
@@ -54,6 +52,7 @@ spack:
     all:
       providers:
         mpi: [ cray-mpich ]
+        pkgconfig: [ pkg-config ]
       compiler:
       - gcc@12.3
       target:
@@ -61,9 +60,8 @@ spack:
     cray-mpich:
       buildable: false
       externals:
-      - spec: cray-mpich@8.1.28
-        modules:
-        - cray-mpich/8.1.28
+      - spec: cray-mpich@8.1.28+wrappers
+        modules: [cray-mpich/8.1.28, libfabric/1.15.2.0]
     mercury:
       buildable: true
       variants: ~boostsys ~checksum
@@ -112,6 +110,11 @@ spack:
       buildable: false
       externals:
       - spec: zlib@1.2.11
+        prefix: /usr
+    pkg-config:
+      buildable: false
+      externals:
+      - spec: pkg-config@0.29.2
         prefix: /usr
     magma:
       variants: [+cuda cuda_arch=80]

@@ -16,9 +16,8 @@ spack:
   - py-wandb
   - py-continuum
   - py-timm
-  - py-torch@2.1 ~gloo ~fbgemm ~kineto
-  - py-torchsummary
-  - py-bokeh
+  - py-torch@2.2 ~gloo ~fbgemm ~kineto +cuda
+  - py-torchvision
   - py-matplotlib
   - py-horovod@master controllers=mpi frameworks=pytorch tensor_ops=mpi
   - py-jupyter

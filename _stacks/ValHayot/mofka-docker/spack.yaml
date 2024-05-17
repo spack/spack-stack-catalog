@@ -1,0 +1,24 @@
+spack:
+  specs:
+  - pkg-config
+  - py-mochi-ssg~mpi ^mpich
+  - mofka
+  view: true
+  concretizer:
+    unify: true
+  mirrors:
+    mochi-buildcache:
+      url: oci://ghcr.io/mochi-hpc/mochi-spack-buildcache
+      signed: false
+  config:
+    install_tree:
+      padded_length: 128
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+    mercury:
+      variants: ~boostsys ~checksum
+    libfabric:
+      variants: fabrics=rxm,tcp

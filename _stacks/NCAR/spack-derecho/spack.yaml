@@ -194,14 +194,6 @@ spack:
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^blas
-      - one_of:
-        - '%gcc@7 ^openblas %gcc@7'
-        - '%gcc@12 ^cray-libsci %gcc@12'
-        - '%gcc@13 ^openblas %gcc@13'
-        - '%cce ^cray-libsci'
-        - '%oneapi ^intel-oneapi-mkl'
-        - '%nvhpc ^nvhpc'
-        when: ^lapack
       - any_of:
         - ^pkg-config
         when: ^pkgconfig
@@ -362,6 +354,14 @@ spack:
       - one_of:
         - +external-lapack
         when: '@8.1:'
+      - one_of:
+        - '%gcc@7 ^openblas %gcc@7'
+        - '%gcc@12 ^cray-libsci %gcc@12'
+        - '%gcc@13 ^openblas %gcc@13'
+        - '%cce ^cray-libsci'
+        - '%oneapi ^intel-oneapi-mkl'
+        - '%nvhpc ^nvhpc'
+        when: +external-lapack
       variants:
       - +parallelio
       - ~mpi
@@ -1299,6 +1299,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - py-pandas@2.1.4
         - py-tabulate
         - qhull@2020.2
         - googletest
@@ -2094,3 +2095,11 @@ spack:
   - chapel@2.0.0
   - ncl
   - py-tabulate
+  - esmf@8.6.1%gcc@13.2.0~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi
+  - esmf@8.6.1%nvhpc@24.3~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi
+  - esmf@8.6.1%oneapi@2024.0.2~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi
+  - esmf@8.6.1%cce@16.0.1~mpi ^mpi-serial@2.5.0 ^parallelio@2.6.2~mpi
+  - esmf@8.6.1%gcc@13.2.0+mpi+pnetcdf ^cray-mpich@8.1.27%gcc@13.2.0
+  - esmf@8.6.1%nvhpc@24.3+mpi+pnetcdf ^cray-mpich@8.1.27%nvhpc@24.3
+  - esmf@8.6.1%oneapi@2024.0.2+mpi+pnetcdf ^cray-mpich@8.1.27%oneapi@2024.0.2
+  - esmf@8.6.1%cce@16.0.1+mpi+pnetcdf ^cray-mpich@8.1.27%cce@16.0.1
