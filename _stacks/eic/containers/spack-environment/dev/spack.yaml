@@ -36,6 +36,7 @@ spack:
   - epic@24.03.0
   - epic@24.03.1
   - epic@24.04.0
+  - epic@24.05.0
   - fastjet
   - fjcontrib
   - fmt
@@ -56,6 +57,7 @@ spack:
   - lhapdf
   - madx
   - nano
+  - nopayloadclient
   - npsim
   - onnx
   - opencascade
