@@ -32,6 +32,11 @@ spack:
           environment:
             set:
               SIM_LICENSE_FILE: /net/common/meshSim/license/license.txt
+              "{name}_ROOT": "{prefix}"
+        all:
+          environment:
+            set:
+              "{name}_RHEL9_ROOT": "{prefix}"
   packages:
     all:
       compiler: [gcc@13.1.0]
@@ -133,6 +138,12 @@ spack:
   - pumiSim2024.0-240219dev:
     - pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
       +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-240219dev
+  - pumiSim2024.0-240402:
+    - pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.0-240402
+  - pumiSim2024.1-240405dev:
+    - pumi@develop %gcc@12.3.0 +shared simmodsuite=full ~simmodsuite_version_check
+      +zoltan ^zoltan+parmetis~fortran ^simmetrix-simmodsuite@2024.1-240405dev
 
   specs:
   - gcc@7.4.0%gcc@11.3.1_rhel9+binutils
@@ -161,4 +172,18 @@ spack:
   - netlib-lapack %gcc@12.3.0
   - openblas %gcc@12.3.0
   - adios2+python %gcc@12.3.0
+  - $pumiSim2024.0-240219dev
+  - $pumiSim2024.0-240402
+  - $pumiSim2024.1-240405dev
+  - swig@4.1.1 %gcc@12.3.0
+  - doxygen@1.9.6 %gcc@12.3.0
+  - boost@1.82.0 %gcc@12.3.0
+  - parallel-netcdf@1.12.3 %gcc@12.3.0
+  - netcdf-cxx4@4.3.1 %gcc@12.3.0
+  - nco@5.1.5 %gcc@12.3.0
+  - superlu@5.3.0 %gcc@12.3.0
+  - hypre@2.28.0 %gcc@12.3.0
+  - netcdf-fortran@4.6.0 %gcc@12.3.0
+
+
 

@@ -1,12 +1,12 @@
 spack:
   repos:
   - /home/tbouvier/git/mochi-spack-packages
+  - /home/tbouvier/git/spack-packages
   specs:
   # Precedence is important. These packages will be picked up in the mochi repo.
   - mochi-thallium ^argobots ^mercury +boostsys +ofi +debug ^libfabric +cuda +debug fabrics=tcp,rxm,verbs
   - mochi-margo ^json-c@0.13.0
   - cmake
-  - cuda@12
   - cudnn
   - mpi
   - nccl
@@ -16,13 +16,13 @@ spack:
   - py-pip
   - py-ruamel-yaml
   - py-filelock
-  - py-matplotlib
+  #- py-matplotlib
   - py-torch@2.2 ~gloo ~valgrind
   - py-torchvision
   - py-continuum
   - py-timm
   - py-nvidia-dali@1.36.0-cuda120
-  - py-horovod@master controllers=mpi frameworks=pytorch
+  - py-khorovod@develop controllers=mpi frameworks=pytorch
   - nano
   - openssh ~asspi # https://github.com/spack/spack/issues/43953
   view: /home/tbouvier/view/polaris
@@ -62,6 +62,12 @@ spack:
       externals:
       - spec: cray-mpich@8.1.28+wrappers
         modules: [cray-mpich/8.1.28, libfabric/1.15.2.0]
+    cuda:
+      buildable: false
+      externals:
+      - spec: cuda@12.2.2
+        modules:
+        - cudatoolkit-standalone/12.2.2
     mercury:
       buildable: true
       variants: ~boostsys ~checksum
@@ -122,7 +128,7 @@ spack:
       variants: [+cuda cuda_arch=80]
     nccl-tests:
       variants: [+cuda cuda_arch=80]
-    py-horovod:
+    py-khorovod:
       variants: [+cuda cuda_arch=80 tensor_ops=nccl]
     py-torch:
       variants: [+cuda cuda_arch=80 +nccl +cudnn +magma +distributed]

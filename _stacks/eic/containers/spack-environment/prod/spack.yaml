@@ -10,7 +10,7 @@ spack:
   - dd4hep -ddeve
   - edm4eic
   - eicrecon
-  - epic
+  - epic # EPIC_VERSION
   - fastjet
   - fjcontrib
   - gaudi
