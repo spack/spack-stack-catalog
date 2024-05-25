@@ -1,0 +1,48 @@
+spack:
+  specs:
+  - sirius@develop +scalapack +elpa +dlaf +apps +tests
+  packages:
+    all:
+      prefer:
+        - +mpi
+        - +cuda
+        - cuda_arch=89
+      require:
+        - "%gcc@11.4.0"
+    blas:
+      require:
+        - openblas
+    lapack:
+      require:
+        - openblas
+    openblas:
+      require:
+        - threads=openmp
+    scalapack:
+      require:
+        - netlib-scalapack
+    elpa:
+      require:
+        - +gpu_streams
+    libxc:
+      require:
+        - ~cuda
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4:"
+        - device=ch3
+        - netmod=tcp
+    pika:
+      require:
+        - "@0.25.0"
+    dla-future:
+      require:
+        - "@0.4.1"
+  repos:
+    - ~/git/work/my-spack/repos/elpa
+  view: false
+  concretizer:
+    unify: true

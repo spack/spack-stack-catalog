@@ -1,0 +1,9 @@
+spack:
+  specs:
+  - matrix:
+    - - ucx +ib_hw_tm
+    - ['%gcc@11.2.0']
+  - cmake
+  concretizer:
+    unify: true
+  view: true
