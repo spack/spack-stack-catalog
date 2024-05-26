@@ -1,0 +1,53 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  definitions:
+  - compilers:
+    - intel@2021.6.0
+  - mpis:
+    - openmpi@4.1.4
+  - packages:
+    - esmf@8.4.2+debug
+    - parallelio@2.5.10 build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source -O2 -debug minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99 -O2 -debug minimal'
+    - netcdf-c@4.9.2 build_system=cmake build_type=RelWithDebInfo
+    - netcdf-fortran@4.6.0
+    - fms@git.2021.03.01 precision=64 +large_file ~gfs_phys ~openmp ~quad_precision build_type=RelWithDebInfo fflags='-qno-opt-dynamic-align -convert big_endian -assume byterecl -ftz -traceback -assume realloc_lhs -fp-model source -O2 -debug minimal' cflags='-qno-opt-dynamic-align -fp-model precise -std=gnu99 -O2 -debug minimal'
+  specs:
+  - matrix:
+    - [$mpis]
+    - [$%compilers]
+  - matrix:
+    - [$packages]
+    - [$^mpis]
+    - [$%compilers]
+  view: true
+  concretizer:
+    unify: true
+    targets:
+      granularity: generic
+  modules:
+    default:
+      roots:
+        tcl: $spack/../modules/access-om3/cesm-0.2.0
+      tcl:
+        naming_scheme: '{name}/{version}'
+  mirrors:
+    sources:
+      fetch:
+        url: file:///g/data/ik11/spack/0.20.1/sources
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///g/data/ik11/spack/0.20.1/sources
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

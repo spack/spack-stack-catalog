@@ -1,27 +1,54 @@
 spack:
   specs:
   - amdfftw target=zen
-  - boost
+  - boost +atomic +chrono +context +coroutine +date_time +exception +filesystem +graph
+    +graph_parallel +iostreams +json +locale +log +math +program_options +random +regex
+    +serialization +signals +stacktrace +system +test +thread +timer +wave
+  - bzip2@1.0.8
   - cgal
   - eigen
   - fftw
   - gmp
   - gsl
+  - h5z-zfp@1.1.0
+  - hdf5
+  - hypre
   - intel-oneapi-mkl
+  - librsvg
   - libszip
   - mpfr
-  - netcdf-c
-  - netcdf-cxx4
-  - netcdf-fortran
+  - netcdf-c +dap +fsync
+  - netcdf-cxx4 ^netcdf-c +dap +fsync
+  - netcdf-fortran ^netcdf-c +dap +fsync
+  - netlib-lapack @3.10.1
+  - netlib-xblas @1.0.248
   - nlohmann-json
+  - openblas
   - zlib
-  view:
-    generic:
-      root: /share/apps/22.04/spack/environments/libs/view
-      link_type: symlink
+  view: false
   modules:
+    prefix_inspections:
+      include:
+      - CPATH
+      - C_INCLUDE_PATH
+      - CPLUS_INCLUDE_PATH
+      lib64:
+      - LD_LIBRARY_PATH
+      - LIBRARY_PATH
+      lib:
+      - LD_LIBRARY_PATH
+      - LIBRARY_PATH
     default:
+      tcl:
+        include:
+        - gsl
+        exclude:
+        - perl
+        h5z-zfp:
+          environment:
+            prepend_path:
+              HDF5_PLUGIN_PATH: '{prefix}/plugin'
       roots:
         tcl: $spack/../../modulefiles/spack/libs/
   concretizer:
-    unify: when_possible
+    unify: false
