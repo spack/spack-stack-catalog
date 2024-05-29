@@ -1,0 +1,15 @@
+spack:
+  specs:
+  - zstd
+  view: true
+  config:
+    install_tree: /opt/spack
+    padded_length: 128
+  concretizer:
+    unify: true
+    targets:
+      granularity: generic
+  mirrors:
+    local-buildcache:
+      url: oci://ghcr.io/pranav-sivaraman/repro-buildcache
+      signed: false

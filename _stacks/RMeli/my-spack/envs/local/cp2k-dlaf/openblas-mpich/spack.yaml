@@ -1,0 +1,42 @@
+spack:
+  specs:
+    - cp2k@2024.1 +dlaf build_system=cmake build_type=RelWithDebInfo
+  packages:
+    all:
+      prefer:
+      - +mpi
+      - ~cuda
+      - ~rmeli
+    blas:
+      require:
+        - openblas
+    lapack:
+      require:
+        - openblas
+    scalapack:
+      require:
+        - netlib-scalapack
+    fftw-api:
+      require:
+        - fftw
+    fftw:
+      require:
+        - "@3"
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4:"
+        - device=ch3
+        - netmod=tcp
+    dla-future:
+      require:
+        - "@0.4.0"
+        - +scalapack
+    pika:
+      require:
+        - "@0.24.0"
+  view: false
+  concretizer:
+    unify: true

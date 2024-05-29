@@ -1,0 +1,32 @@
+spack:
+  specs:
+  - gcc@=12.3.0
+  view: false
+  concretizer:
+    unify: true
+    targets:
+      granularity: generic
+  config:
+    install_tree:
+      root: /opt/spack
+      padded_length: 128
+  mirrors:
+    develop-2024-05-26: https://binaries.spack.io/develop-2024-05-26
+    local-buildcache:
+      url: oci://ghcr.io/pranav-sivaraman/portability-buildcache
+      signed: false
+  repos:
+  - ./pssg
+  packages:
+    cuda:
+      require:
+      - '@=12.4.0'
+    hip:
+      require:
+      - '@=6.1.0'
+    hsa-rocr-dev:
+      require:
+      - '@=6.1.0'
+    llvm-amdgpu:
+      require:
+      - '@=6.1.0'
