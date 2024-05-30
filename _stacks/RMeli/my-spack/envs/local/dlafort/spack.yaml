@@ -1,6 +1,6 @@
 spack:
   specs:
-  - dla-future-fortran@main +test
+  - dla-future-fortran@main +test fflags="-Werror"
   packages:
     all:
       prefer:
@@ -26,21 +26,20 @@ spack:
         - intel-oneapi-mkl
     intel-oneapi-mkl:
       require:
-        - "@2022.0.1"
         - +cluster
         - threads=none
     pika:
       require: 
         - "@0.23.0"
   repos:
-    - ~/git/work/DLAFortran/spack/
+    - ~/git/work/DLA-Future-Fortran/spack/
     - ~/git/work/DLA-Future/spack/
   develop:
     dla-future:
       path: ~/git/work/DLA-Future
-      spec: dla-future@0.4.0 +hdf5 +miniapps +scalapack build_type=Debug
+      spec: dla-future@master +hdf5 +miniapps +scalapack build_type=Debug
     dla-fortran:
-      path: ~/git/work/DLAFortran
+      path: ~/git/work/DLA-Future-Fortran
       spec: dla-future-fortran@main +test
   view: false
   concretizer:

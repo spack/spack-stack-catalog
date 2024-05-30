@@ -21,7 +21,6 @@ spack:
   - crtm@2.4.0.1
   - ncio@1.1.2
   - gsi-ncdiag@1.1.2
-  - cmake@3.20.1
   view: true
   concretizer:
     unify: when_possible
