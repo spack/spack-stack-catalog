@@ -623,6 +623,14 @@ spack:
       - +gpfs
       - +lustre
       - +xattr
+    mvapich:
+      variants:
+      - file_systems=lustre,gpfs,nfs,ufs
+      - process_managers=auto
+      require:
+      - netmod=ofi
+      - +pbs
+      - ~cuda
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
@@ -689,6 +697,13 @@ spack:
       variants:
       - +fortran
       - threads=openmp
+    opengl:
+      externals:
+      - spec: opengl@4.5
+        prefix: /usr
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
     openmpi:
       require:
       # Make sure to get rid of knem next time!
@@ -969,6 +984,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ripgrep
       - xnedit
       - ncompress
       - ncftp
@@ -1230,6 +1246,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ripgrep
         - py-pandas@2.1.4
         - py-tabulate
         - autoconf-archive
@@ -1482,6 +1499,8 @@ spack:
           autoload: none
         nccmp:
           autoload: none
+        neovim:
+          template: ncar_neovim.lua
         netcdf:
           autoload: all
         netcdf+mpi:
@@ -1854,7 +1873,9 @@ spack:
   - intel-oneapi-vtune@2024.0.0
   - intel-oneapi-advisor@2024.0.0
   - madis
-  - vapor@3.9.2
   - ncarcompilers@1.0.0%clang@16.0.6
   - py-tabulate
   - py-pandas@2.1.4
+  - vapor@3.9.2 ^opengl
+  - neovim
+  - ripgrep
