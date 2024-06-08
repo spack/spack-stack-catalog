@@ -1,0 +1,14 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - netcdf-c@4.9.0 ^hdf5@1.12.2
+  - aetherus-env
+  view: true
+  concretizer:
+    unify: true
+  repos:
+  - ./.spack

@@ -1,0 +1,40 @@
+spack:
+  specs:
+  - elsi@master +enable_dlaf +use_external_elpa +tests +tests_c fflags="-fallow-argument-mismatch"
+  packages:
+    all:
+      prefer:
+        - +mpi
+        - ~cuda
+        - ~rocm
+      require:
+        - "%gcc@11.4.0"
+    mpi:
+      require:
+        - mpich
+    mpich:
+      require:
+        - "@4.1:"
+        - device=ch3
+        - netmod=tcp
+    blas:
+      require:
+        - openblas
+    lapack:
+      require:
+        - openblas
+    scalapack:
+      require:
+        - netlib-scalapack
+    openblas:
+      require:
+        - threads=none
+  repos:
+    - ~/git/work/my-spack/repos/elsi/
+  develop:
+    elsi:
+      path: ~/git/work/elsi_interface
+      spec: elsi@master +enable_dlaf +use_external_elpa +tests +tests_c fflags="-fallow-argument-mismatch"
+  view: false
+  concretizer:
+    unify: true

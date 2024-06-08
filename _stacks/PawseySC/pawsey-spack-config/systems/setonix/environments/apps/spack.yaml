@@ -9,45 +9,32 @@ spack:
   definitions:
   - packages-with-python:
     #    - amber@20 +openmp ^hdf@4.2.15 +external-xdr
-    - gromacs@2023 +double +lapack +plumed build_type=Release ^plumed@2.9.0
-    - gromacs@2022.5 +double +lapack +plumed build_type=Release ^plumed@2.8.2
-    - cp2k@2023.1 +plumed ^plumed@2.9.0
-    - lammps@20230615 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk +class2
-      +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole +dpd-basic
-      +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump +extra-fix
-      +extra-molecule +extra-pair +fep +ffmpeg +granular +h5md +interlayer +jpeg +kim
-      +kokkos +kspace +latboltz +latte +machdyn +manifold +manybody +mc +meam +mesont
-      +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio +netcdf +openmp-package
-      +opt +orient +peri +phonon +plugin +plumed +png +poems +ptm +python +qeq +qtb
-      +reaction +reaxff +replica +rigid +shock +smtbq +sph +spin +srd +tally +uef
-      +voronoi +yaff build_type=Release ^kokkos@3.7.02+hwloc+memkind+numactl+openmp+tuning
-      build_type=Release ^plumed@2.9.0 ^adios2@2.9.0
-    
-      #    - lammps@20210929.3 +adios +asphere +atc +awpmd +bocs +body +brownian +cg-sdk
-      #      +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole
-      #      +dpd-basic +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump
-      #      +extra-fix +extra-molecule +extra-pair +fep +ffmpeg +granular +h5md +interlayer
-      #      +jpeg +kim +kokkos +kspace +latboltz +latte +machdyn +manifold +manybody +mc
-      #      +meam +mesont +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio
-      #      +netcdf +openmp-package +opt +orient +peri +phonon +plugin +plumed +png +poems
-      #      +ptm +python +qeq +qtb +reaction +reaxff +replica +rigid +shock +smtbq +sph
-      #      +spin +srd +tally +uef +voronoi +yaff build_type=Release ^kokkos@3.4.01+hwloc+memkind+numactl+openmp+tuning+rocm
-      #      cxxstd=14 build_type=Release ^plumed@2.7.2 ^adios2@2.8.3
+    - gromacs@=2023 +double +lapack +plumed build_type=Release ^plumed@2.9.0
+    - gromacs@2022.5 +double +lapack +plumed build_type=Release ^plumed@2.8.2 
+    - gromacs@=2023 ~double +lapack +plumed build_type=Release ^plumed@2.9.0
+    - gromacs@2022.5 ~double +lapack +plumed build_type=Release ^plumed@2.8.2
+    - cp2k@2023.2 +plumed ^plumed@2.9.0
 
-    - namd@2.14 interface=python fftw=3 +plumed ^charmpp@7.0.0 backend=ofi
-    - namd@2.15a2 interface=python fftw=3  ^charmpp@7.0.0 backend=ofi
-    - namd@2.15a2 +rocm amdgpu_target=gfx90a ^charmpp@7.0.0 backend=mpi ^ncurses@6.3+symlinks
-    - amdgromacs@2023 amdgpu_target=gfx90a +rocm
+    - namd@2.14 ~rocm interface=python fftw=3 +plumed ^charmpp@7.0.0 backend=ofi
+    - namd@2.15a2 ~rocm interface=python fftw=3  ^charmpp@7.0.0 backend=ofi
+      #    - namd@2.15a2 +rocm amdgpu_target=gfx90a ^charmpp@7.0.0 backend=ofi ^ncurses@6.3+symlinks #broken - providing only through containers
 # Failing:    - openfoam-org@8 #Alexis still working on it
 # Current alternative:
     - openfoam@2206
     - ncl@6.6.2 ^esmf ~mpi
+  - lammps:
+    # +latte and +cg-sdk is removed from the cpu build as well so we can use the same recipe for cpu and gpu lammps builds
+    # lammps: LAMMPS is incompatible with Kokkos 4.x until @20230802 so reverting to kokkos@3.7.02
+    - lammps@=20230802 ~rocm ^kokkos@3.7.02+hwloc+memkind+numactl+openmp+tuning~rocm build_type=Release
+    - lammps@=20230802.3 ~rocm ^kokkos@3.7.02+hwloc+memkind+numactl+openmp+tuning~rocm build_type=Release
+
   - packages-with-oldpython:
-    - nwchem@7.2.0 +fftw3 +openmp ^python@3.9.15
+    - nwchem@7.2.0 +fftw3 +openmp ^python@3.9.15 ^netlib-scalapack@2.2.0
 
   - packages:
     - cpmd@4.3 +mpi +omp
     - ansys-fluids@2022R1
+    - ansys-fluids@2023R1
 
 #lapack and blas path not set, error in cmake file "SET(NATIVE_BLAS_LAPACK_SEARCH_PATHS /usr/lib /usr/lib64 /usr/local/lib /usr/local/lib64 )
 # look into this file nektar/cmake/FindNativeBlasLapack.cmake
@@ -57,7 +44,7 @@ spack:
 
 # weather utilities  
   - weather_utils:
-    #    - cdo@2.1.0 #eccodes compilation issue on Joey
+    - cdo@2.2.2 
     - nco@5.1.6 ^pocl@4.0
     - ncview@2.1.9
 
@@ -68,7 +55,7 @@ spack:
   specs:
   - matrix:
     - [$packages-with-python]
-    - [^python@3.10.10 +optimizations+zlib~ssl]
+    - [^python@3.11.6 +optimizations+zlib~ssl]
     - ['%gcc@12.2.0']
     - [target=zen3]
   - matrix:
@@ -86,5 +73,11 @@ spack:
   - matrix:
     - [$weather_utils]
     - ['%gcc@12.2.0']
-    - [target=zen3]      
+    - [target=zen3]
+  - matrix:
+    - [$lammps]
+    - [+adios +asphere +atc +awpmd +bocs +body +brownian +class2 +colloid +colvars +compress +coreshell +dielectric +diffraction +dipole +dpd-basic +dpd-meso +dpd-react +dpd-smooth +drude +eff +extra-compute +extra-dump +extra-fix +extra-molecule +extra-pair +fep +ffmpeg +granular +h5md +interlayer +jpeg +kim +kokkos +kspace +latboltz +machdyn +manifold +manybody +mc +meam +mesont       +mgpt +misc +ml-iap +ml-snap +mofff +molecule +molfile +mpiio +netcdf +openmp-package +opt +orient +peri +phonon +plugin +plumed +png +poems +ptm +python +qeq +qtb +reaction +reaxff +replica +rigid +shock +smtbq +sph +spin +srd +tally +uef +voronoi +yaff build_type=Release ]
+    - [^plumed@2.9.0 ^adios2@2.9.2]  
+    - ['%gcc@12.2.0']
+    - [target=zen3]
   view: false

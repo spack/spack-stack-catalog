@@ -111,18 +111,8 @@ spack:
       externals:
       - spec: gcc@13.2.0 languages='c,c++,fortran'
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0
-        extra_attributes:
-          compilers:
-            c: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gcc
-            cxx: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/g++
-            fortran: /glade/u/apps/common/23.08/spack/opt/spack/gcc/13.2.0/bin/gfortran
       - spec: gcc@7.5.0 languages='c,c++,fortran'
         prefix: /usr
-        extra_attributes:
-          compilers:
-            c: /usr/bin/gcc-7
-            cxx: /usr/bin/g++-7
-            fortran: /usr/bin/gfortran-7
       buildable: false
       variants:
       - +piclibs
@@ -991,6 +981,7 @@ spack:
     baseenv:
       root: /glade/u/apps/derecho/23.09/opt/view
       select:
+      - ripgrep
       - ncftp
       - vim
       - parallel
@@ -1054,7 +1045,10 @@ spack:
       operating_system: sles15
       target: x86_64
       modules: []
-      environment: {}
+      environment:
+        set:
+          # Needed to use cargo for some reason (probably old openssl before certs=system)
+          CARGO_HTTP_CAINFO: /etc/ssl/ca-bundle.pem
       extra_rpaths: []
   - compiler:
       spec: nvhpc@23.7
@@ -1298,6 +1292,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ripgrep
         - py-pandas@2.1.4
         - py-tabulate
         - qhull@2020.2
@@ -1540,6 +1535,8 @@ spack:
           autoload: none
         nccmp:
           autoload: none
+        neovim:
+          template: ncar_neovim.lua
         netcdf:
           autoload: all
         netcdf+mpi:
@@ -2102,3 +2099,4 @@ spack:
   - esmf@8.6.1%oneapi@2024.0.2+mpi+pnetcdf ^cray-mpich@8.1.27%oneapi@2024.0.2
   - esmf@8.6.1%cce@16.0.1+mpi+pnetcdf ^cray-mpich@8.1.27%cce@16.0.1
   - neovim
+  - ripgrep
