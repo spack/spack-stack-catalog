@@ -1,0 +1,19 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler:
+        - gcc # Your preferred compiler here
+  # add package specs to the `specs` list
+  specs:
+  - lci@master+examples+tests+benchmarks~default-dreg
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    lci:
+      path: ../../../../lci
+      spec: lci@=master

@@ -25,5 +25,5 @@ spack:
       path: ../../../../lcw
       spec: lcw@=master
     lci:
-      path: ../../../../LC
+      path: ../../../../lci
       spec: lci@=master

@@ -1,0 +1,25 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler:
+        - gcc@12.3.0 # Your preferred compiler here
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@git.dd5cb880289f7bfca0de9f4a644b2f7370e98a81=master%gcc@12.3.0+cuda+kokkos cuda_arch=80 cppflags="-L/opt/cray/pe/mpich/8.1.28/gtl/lib -lmpi_gtl_cuda" ^cppuddle@git.e4b42ba5e550c125aadc586f964126564efb76e6 max_number_gpus=4 ^hpx networking=lci,lcw,mpi max_cpu_count=256 ^cray-mpich ^lci+examples+tests+benchmarks+papi fabric=ofi default-pm=cray ^ silo~mpi
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lcw:
+      path: ../../../../lcw
+      spec: lcw@=master
+    lci:
+      path: ../../../../lci
+      spec: lci@=master

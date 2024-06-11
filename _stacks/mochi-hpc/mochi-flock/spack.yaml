@@ -1,0 +1,21 @@
+spack:
+  specs:
+  - cmake
+  - pkgconfig
+  - mochi-margo
+  - mochi-thallium
+  - json-c
+  - mochi-bedrock
+  - py-pybind11
+  - py-mochi-margo
+  - mpi
+  concretizer:
+    unify: true
+    reuse: true
+  modules:
+    prefix_inspections:
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+  packages:
+    mochi-margo:
+      require: "@0.16.0:"

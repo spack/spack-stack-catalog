@@ -1,6 +1,6 @@
 spack:
   specs:
-  - elsi@master +enable_dlaf +use_external_elpa +tests +tests_c fflags="-fallow-argument-mismatch"
+  - elsi@master +enable_dlaf +tests +tests_c fflags="-fallow-argument-mismatch"
   packages:
     all:
       prefer:
@@ -29,12 +29,19 @@ spack:
     openblas:
       require:
         - threads=none
+    dla-future:
+      require:
+        - +hdf5
+        - +miniapps
   repos:
     - ~/git/work/my-spack/repos/elsi/
   develop:
+    dla-future:
+      path: ~/git/work/DLA-Future/
+      spec: dla-future@master +miniapps +hdf5
     elsi:
       path: ~/git/work/elsi_interface
-      spec: elsi@master +enable_dlaf +use_external_elpa +tests +tests_c fflags="-fallow-argument-mismatch"
+      spec: elsi@master +enable_dlaf +tests +tests_c fflags="-fallow-argument-mismatch"
   view: false
   concretizer:
     unify: true

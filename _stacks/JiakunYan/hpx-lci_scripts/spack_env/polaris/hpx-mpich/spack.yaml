@@ -1,0 +1,34 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@master%gcc +cuda+kokkos cuda_arch=80 
+    ^cppuddle max_number_gpus=4 
+    ^hpx networking=lci,lcw,mpi max_cpu_count=256 
+    ^mpich+vci~hydra~fortran netmod=ofi pmi=cray
+    ^lci+examples+tests+benchmarks fabric=ofi default-pm=cray
+    ^silo~mpi
+  - hpx-bench@master
+  view: true
+  concretizer:
+    unify: true
+    reuse: false
+  develop:
+    hpx_bench:
+      path: ../../../../hpx_bench
+      spec: hpx-bench@=master
+    hpx:
+      path: ../../../../hpx-lcw
+      spec: hpx@=master
+    lci:
+      path: ../../../../lci
+      spec: lci@=master
+    lcw:
+      path: ../../../../lcw
+      spec: lcw@=master
+    mpich:
+      path: ../../../../mpich
+      spec: mpich@=master
