@@ -1,18 +1,18 @@
 spack:
   specs:
+  - mpich
   - cmake
   - pkg-config
   - uuid
   - mochi-thallium
   - nlohmann-json
   - nlohmann-json-schema-validator
-  - spdlog+fmt_external
+  - spdlog
   - fmt
-  - tclap
-  - mochi-bedrock+ssg+python
-  - argobots@1.2rc1
+  - mochi-bedrock+python+mpi
   - mochi-warabi+bedrock
   - mochi-yokan+bedrock
+  - mochi-flock+bedrock+python+mpi
   - py-coverage
   - py-pybind11
   - py-mochi-margo
@@ -27,12 +27,16 @@ spack:
     all:
       providers:
         mpi: [mpich]
+    argobots:
+      require: "@1.2:"
     mochi-yokan:
       require: "@0.4.2:"
     mochi-warabi:
       require: "@0.3.0:"
     mochi-bedrock:
       require: "@0.10.0:"
+    mochi-flock:
+      require: "@0.2.1:"
     mercury:
       require: "~checksum~boostsys"
     libfabric:

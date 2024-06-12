@@ -1,0 +1,22 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  packages:
+    all:
+      compiler:
+        - gcc@11.2.0 # Your preferred compiler here
+  # add package specs to the `specs` list
+  specs:
+  - octotiger@master %gcc@11.2.0 ^cppuddle ^hpx networking=lci,mpi max_cpu_count=256 ^cray-mpich ^lci+examples+tests+benchmarks fabric=ofi default-pm=cray ^ silo~mpi
+  view: true
+  concretizer:
+    unify: true
+  develop:
+    hpx:
+      path: ../../../../hpx
+      spec: hpx@=master
+    lci:
+      path: ../../../../lci
+      spec: lci@=master

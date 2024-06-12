@@ -1,0 +1,20 @@
+spack:
+  specs:
+  - cp2k@2024.1 +libxc +libint +elpa +cosma +spglib +pexsi build_system=cmake
+  packages:
+    all:
+      prefer:
+        - +mpi
+    mpi:
+      require: mpich
+    blas:
+      require: "intel-oneapi-mkl"
+    lapack:
+      require: "intel-oneapi-mkl"
+    scalapack:
+      require: "intel-oneapi-mkl +cluster"
+    fftw-api:
+      require: "intel-oneapi-mkl"
+  view: false
+  concretizer:
+    unify: true
